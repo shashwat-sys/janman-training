@@ -61,6 +61,21 @@ body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--light);color
 .btn-home{background:var(--navy);color:#fff;text-decoration:none;display:inline-block}
 @media print{.action-btns,.page-header,.status-bar,.info-block,.lock-msg{display:none!important}.certificate{display:block!important;box-shadow:none;border-width:6px}}
 @media(max-width:600px){.cert-sig-block{gap:30px}.info-form{grid-template-columns:1fr}.certificate{padding:24px 16px}}
+
+.network-card{background:linear-gradient(135deg,#f0f9f0,#e8f4fd);border:1px solid #bee3f8;border-radius:12px;padding:22px;margin:20px 0;max-width:780px;width:100%}
+.network-card h3{color:#1a2a4a;font-size:.95rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.network-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.83rem}
+.network-item{background:#fff;border-radius:8px;padding:10px 14px;border:1px solid #dee2e6}
+.network-item .nk-label{color:#6c757d;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;display:block;margin-bottom:3px}
+.network-item .nk-value{color:#1a2a4a;font-weight:600}
+.badge-host{background:#d1e7dd;color:#2d6a4f;padding:3px 10px;border-radius:12px;font-size:.75rem;font-weight:700}
+.badge-wcdc{background:#cff4fc;color:#0c5460;padding:3px 10px;border-radius:12px;font-size:.75rem;font-weight:700}
+.info-form select{width:100%;padding:9px 12px;border:1px solid #ced4da;border-radius:8px;font-size:.88rem;background:#fff}
+.form-section-title{grid-column:1/-1;font-size:.78rem;font-weight:700;color:#FF6B00;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #dee2e6;padding-bottom:4px;margin-top:8px}
+.radio-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.radio-opt{display:flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer;background:#f8f9fa;border:1px solid #dee2e6;padding:6px 12px;border-radius:8px}
+.radio-opt input{margin:0}
+@media(max-width:600px){.network-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -93,10 +108,61 @@ body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--light);color
 <div class="info-block" id="infoBlock">
   <h3>✍️ Please confirm your details for the Final Certificate</h3>
   <div class="info-form">
+    <div class="form-section-title">👤 Personal Details</div>
     <div><label>Full Name *</label><input type="text" id="pName" placeholder="Your full name" required></div>
-    <div><label>Organisation</label><input type="text" id="pOrg" placeholder="NGO / Organisation name"></div>
-    <div><label>Designation</label><input type="text" id="pDesig" placeholder="Your designation / role"></div>
+    <div><label>WhatsApp Number *</label><input type="tel" id="pPhone" placeholder="+91 98765 43210" required></div>
     <div class="full"><label>Email</label><input type="email" id="pEmail" placeholder="your@email.com"></div>
+
+    <div class="form-section-title full">🏢 Organisation Details</div>
+    <div class="full">
+      <label>Type of Organisation *</label>
+      <select id="pOrgType">
+        <option value="">— Select —</option>
+        <option value="One Stop Centre (OSC)">One Stop Centre (OSC)</option>
+        <option value="WCDC / Government Department">WCDC / Government Department</option>
+        <option value="DLSA / Legal Services">DLSA / Legal Services</option>
+        <option value="Police / Law Enforcement">Police / Law Enforcement</option>
+        <option value="Healthcare / Hospital">Healthcare / Hospital</option>
+        <option value="NGO / Civil Society">NGO / Civil Society</option>
+        <option value="Judiciary / Legal Aid">Judiciary / Legal Aid</option>
+        <option value="Educational Institution">Educational Institution</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+    <div><label>Organisation / OSC Name *</label><input type="text" id="pOrg" placeholder="Name of your organisation or OSC" required></div>
+    <div><label>Designation / Role</label><input type="text" id="pDesig" placeholder="e.g. Case Worker, Counsellor, Legal Aid Officer"></div>
+
+    <div class="form-section-title full">📍 Location</div>
+    <div>
+      <label>State *</label>
+      <select id="pState">
+        <option value="">— Select State —</option>
+        <option>Bihar</option><option>Uttar Pradesh</option><option>Jharkhand</option>
+        <option>West Bengal</option><option>Delhi</option><option>Maharashtra</option>
+        <option>Rajasthan</option><option>Madhya Pradesh</option><option>Gujarat</option>
+        <option>Odisha</option><option>Chhattisgarh</option><option>Assam</option>
+        <option>Karnataka</option><option>Tamil Nadu</option><option>Other</option>
+      </select>
+    </div>
+    <div><label>District *</label><input type="text" id="pDistrict" placeholder="e.g. Patna, Muzaffarpur, Gaya"></div>
+
+    <div class="form-section-title full">🤝 Network &amp; Training Preferences</div>
+    <div class="full">
+      <label>Interested in a WCDC-organised training session at your centre?</label>
+      <div class="radio-group">
+        <label class="radio-opt"><input type="radio" name="wcdcInterest" value="Yes, very interested"> Yes, very interested</label>
+        <label class="radio-opt"><input type="radio" name="wcdcInterest" value="Already attended WCDC training"> Already attended WCDC training</label>
+        <label class="radio-opt"><input type="radio" name="wcdcInterest" value="Not at this time"> Not at this time</label>
+      </div>
+    </div>
+    <div class="full">
+      <label>Can your centre / organisation host a future Janman training?</label>
+      <div class="radio-group">
+        <label class="radio-opt"><input type="radio" name="canHost" value="Yes"> Yes</label>
+        <label class="radio-opt"><input type="radio" name="canHost" value="Possibly"> Possibly</label>
+        <label class="radio-opt"><input type="radio" name="canHost" value="No"> No</label>
+      </div>
+    </div>
   </div>
   <button class="cert-btn" onclick="generateFinalCert()">🏆 Generate Final Certificate</button>
 </div>
@@ -158,6 +224,24 @@ body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--light);color
   </div>
 </div>
 
+
+<div class="network-card" id="networkCard" style="display:none">
+  <h3>🌐 Your Janman Network Profile</h3>
+  <p style="font-size:.82rem;color:#555;margin-bottom:14px">This information helps Janman People's Foundation connect you with training opportunities and build the GBV support network across OSCs and districts.</p>
+  <div class="network-grid">
+    <div class="network-item"><span class="nk-label">Full Name</span><span class="nk-value" id="nkName">—</span></div>
+    <div class="network-item"><span class="nk-label">WhatsApp</span><span class="nk-value" id="nkPhone">—</span></div>
+    <div class="network-item"><span class="nk-label">Email</span><span class="nk-value" id="nkEmail">—</span></div>
+    <div class="network-item"><span class="nk-label">Organisation Type</span><span class="nk-value" id="nkOrgType">—</span></div>
+    <div class="network-item"><span class="nk-label">Organisation / OSC</span><span class="nk-value" id="nkOrg">—</span></div>
+    <div class="network-item"><span class="nk-label">Designation</span><span class="nk-value" id="nkDesig">—</span></div>
+    <div class="network-item"><span class="nk-label">State</span><span class="nk-value" id="nkState">—</span></div>
+    <div class="network-item"><span class="nk-label">District</span><span class="nk-value" id="nkDistrict">—</span></div>
+    <div class="network-item"><span class="nk-label">WCDC Training Interest</span><span class="nk-value badge-wcdc" id="nkWcdc">—</span></div>
+    <div class="network-item"><span class="nk-label">Can Host Training?</span><span class="nk-value badge-host" id="nkHost">—</span></div>
+  </div>
+  <p style="font-size:.78rem;color:#6c757d;margin-top:14px">📧 To join the Janman OSC Network, email <strong>shashwat@janmanindia.org</strong> with your certificate number.</p>
+</div>
 <div class="action-btns" id="actionBtns" style="display:none">
   <button class="action-btn btn-download" onclick="downloadFinalCert()">⬇️ Download Certificate</button>
   <a href="index.html" class="action-btn btn-home">🏠 Back to Training Hub</a>
@@ -195,18 +279,37 @@ function checkStatus(){
 
 function generateFinalCert(){
   var name=document.getElementById('pName').value.trim();
-  if(!name){alert('Please enter your full name.');return;}
+  var phone=document.getElementById('pPhone').value.trim();
   var org=document.getElementById('pOrg').value.trim();
   var desig=document.getElementById('pDesig').value.trim();
   var email=document.getElementById('pEmail').value.trim();
+  var orgType=document.getElementById('pOrgType').value;
+  var state=document.getElementById('pState').value;
+  var district=document.getElementById('pDistrict').value.trim();
+  var wcdcEl=document.querySelector('input[name="wcdcInterest"]:checked');
+  var hostEl=document.querySelector('input[name="canHost"]:checked');
+  var wcdc=wcdcEl?wcdcEl.value:''; var canHost=hostEl?hostEl.value:'';
+  if(!name||!phone||!org||!state||!district){alert('Please fill all required fields: Name, WhatsApp Number, Organisation, State, District.');return;}
+
+  // Save all to localStorage
+  localStorage.setItem('janman_participant_name',name);
+  localStorage.setItem('janman_participant_phone',phone);
+  localStorage.setItem('janman_participant_email',email);
+  localStorage.setItem('janman_participant_org',org);
+  localStorage.setItem('janman_participant_desig',desig);
+  localStorage.setItem('janman_participant_org_type',orgType);
+  localStorage.setItem('janman_participant_state',state);
+  localStorage.setItem('janman_participant_district',district);
+  localStorage.setItem('janman_participant_wcdc_interest',wcdc);
+  localStorage.setItem('janman_participant_can_host',canHost);
 
   var certNo='JPF-GBV-'+Date.now().toString(36).toUpperCase();
   var now=new Date();
   var dateStr=now.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
 
   document.getElementById('cName').textContent=name;
-  var orgStr=(desig&&org)?(desig+', '+org):(org||desig||'');
-  document.getElementById('cOrg').textContent=orgStr?orgStr+',':'';
+  var orgLine=(desig?desig+', ':'')+org+(district?', '+district:'')+(state?', '+state:'');
+  document.getElementById('cOrg').textContent=orgLine?orgLine+',':'';
 
   var s2=localStorage.getItem('janman_l2_score')||'Completed';
   var s3=localStorage.getItem('janman_l3_score')||'Completed';
@@ -216,14 +319,27 @@ function generateFinalCert(){
 
   document.getElementById('cNo').textContent=certNo;
   document.getElementById('cDate').textContent=dateStr;
-  document.getElementById('cNoSmall').textContent='Certificate No: '+certNo+(email?' | '+email:'');
+  document.getElementById('cNoSmall').textContent='Certificate No: '+certNo+(email?' | '+email:'')+(phone?' | WhatsApp: '+phone:'');
 
   localStorage.setItem('janman_final_done','true');
   localStorage.setItem('janman_final_cert_no',certNo);
   localStorage.setItem('janman_final_date',dateStr);
 
+  // Show network card
+  document.getElementById('nkName').textContent=name;
+  document.getElementById('nkPhone').textContent=phone;
+  document.getElementById('nkEmail').textContent=email||'—';
+  document.getElementById('nkOrgType').textContent=orgType||'—';
+  document.getElementById('nkOrg').textContent=org;
+  document.getElementById('nkDesig').textContent=desig||'—';
+  document.getElementById('nkState').textContent=state;
+  document.getElementById('nkDistrict').textContent=district;
+  document.getElementById('nkWcdc').textContent=wcdc||'—';
+  document.getElementById('nkHost').textContent=canHost||'—';
+
   document.getElementById('infoBlock').style.display='none';
   document.getElementById('finalCert').style.display='block';
+  document.getElementById('networkCard').style.display='block';
   document.getElementById('actionBtns').style.display='flex';
   document.getElementById('finalCert').scrollIntoView({behavior:'smooth'});
 }
@@ -236,7 +352,25 @@ function downloadFinalCert(){
   setTimeout(function(){w.print();},800);
 }
 
-window.onload=checkStatus;
+window.onload=function(){
+  checkStatus();
+  // Pre-fill from prior levels
+  var fl={pName:'janman_participant_name',pPhone:'janman_participant_phone',
+    pEmail:'janman_participant_email',pOrg:'janman_participant_org',
+    pDesig:'janman_participant_desig',pDistrict:'janman_participant_district'};
+  Object.keys(fl).forEach(function(id){
+    var el=document.getElementById(id);var v=localStorage.getItem(fl[id]);
+    if(el&&v)el.value=v;
+  });
+  var ot=localStorage.getItem('janman_participant_org_type');
+  if(ot){var s=document.getElementById('pOrgType');if(s)s.value=ot;}
+  var st=localStorage.getItem('janman_participant_state');
+  if(st){var s2=document.getElementById('pState');if(s2)s2.value=st;}
+  var wc=localStorage.getItem('janman_participant_wcdc_interest');
+  if(wc){var r=document.querySelector('input[name="wcdcInterest"][value="'+wc+'"]');if(r)r.checked=true;}
+  var h=localStorage.getItem('janman_participant_can_host');
+  if(h){var r2=document.querySelector('input[name="canHost"][value="'+h+'"]');if(r2)r2.checked=true;}
+};
 </script>
 </body>
 </html>

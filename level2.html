@@ -77,6 +77,18 @@ ul.checklist li::before{content:'✓';position:absolute;left:0;color:var(--green
 .cert-signature{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--yellow);border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:.3rem;display:inline-block}
 .download-cert-btn{background:var(--yellow);color:var(--navy-dark);border:none;padding:.7rem 2rem;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;margin:.4rem}
 .next-lvl-btn{background:var(--saffron);color:#fff;padding:.7rem 2rem;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;margin:.4rem;border:none;text-decoration:none;display:inline-block}
+
+.form-section-title{grid-column:1/-1;font-size:.78rem;font-weight:700;color:var(--saffron);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #dee2e6;padding-bottom:4px;margin-top:8px}
+.info-form select{width:100%;padding:9px 12px;border:1px solid #ced4da;border-radius:8px;font-size:.88rem;background:#fff}
+.radio-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.radio-opt{display:flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer;background:#f8f9fa;border:1px solid #dee2e6;padding:6px 12px;border-radius:8px}
+.radio-opt input{margin:0}
+
+.cert-form-section select{width:100%;padding:.7rem 1rem;border:1px solid #ced4da;border-radius:8px;font-size:.9rem;background:#fff;margin-bottom:.6rem}
+.cert-form-section .radio-group{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:.6rem}
+.cert-form-section .radio-opt{display:flex;align-items:center;gap:6px;font-size:.82rem;cursor:pointer;background:#f8f9fa;border:1px solid #dee2e6;padding:6px 12px;border-radius:8px}
+.cert-form-section .radio-opt input{margin:0}
+.cert-form-section .section-label{font-size:.72rem;font-weight:700;color:#FF6B00;text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid #dee2e6;padding-bottom:3px;margin:.8rem 0 .5rem;width:100%}
 </style>
 </head>
 <body>
@@ -520,10 +532,51 @@ ul.checklist li::before{content:'✓';position:absolute;left:0;color:var(--green
   <div class="level-badge-cert">🎓 LEVEL 2 COMPLETE</div>
   <h2>बधाई हो! Level 2 — Intermediate पूरी हुई</h2>
   <p>अपना प्रमाण पत्र प्राप्त करें</p>
-  <input class="cert-input" type="text" id="p-name" placeholder="पूरा नाम / Full Name *">
-  <input class="cert-input" type="text" id="p-org" placeholder="संस्था / Organization">
-  <input class="cert-input" type="text" id="p-desig" placeholder="पद / Designation">
+  <div class="section-label">👤 Personal Details</div>
+  <input class="cert-input" type="text" id="p-name" placeholder="पूरा नाम / Full Name *" required>
+  <input class="cert-input" type="tel" id="p-phone" placeholder="WhatsApp Number * (e.g. +91 98765 43210)" required>
   <input class="cert-input" type="email" id="p-email" placeholder="Email (optional)">
+
+  <div class="section-label">🏢 Organisation Details</div>
+  <select id="p-org-type">
+    <option value="">— Type of Organisation * —</option>
+    <option value="One Stop Centre (OSC)">One Stop Centre (OSC)</option>
+    <option value="WCDC / Government Department">WCDC / Government Department</option>
+    <option value="DLSA / Legal Services">DLSA / Legal Services</option>
+    <option value="Police / Law Enforcement">Police / Law Enforcement</option>
+    <option value="Healthcare / Hospital">Healthcare / Hospital</option>
+    <option value="NGO / Civil Society">NGO / Civil Society</option>
+    <option value="Judiciary / Legal Aid">Judiciary / Legal Aid</option>
+    <option value="Educational Institution">Educational Institution</option>
+    <option value="Other">Other</option>
+  </select>
+  <input class="cert-input" type="text" id="p-org" placeholder="Organisation / OSC Name *" required>
+  <input class="cert-input" type="text" id="p-desig" placeholder="पद / Designation (e.g. Case Worker, Counsellor)">
+
+  <div class="section-label">📍 Location</div>
+  <select id="p-state">
+    <option value="">— State * —</option>
+    <option>Bihar</option><option>Uttar Pradesh</option><option>Jharkhand</option>
+    <option>West Bengal</option><option>Delhi</option><option>Maharashtra</option>
+    <option>Rajasthan</option><option>Madhya Pradesh</option><option>Gujarat</option>
+    <option>Odisha</option><option>Chhattisgarh</option><option>Assam</option>
+    <option>Karnataka</option><option>Tamil Nadu</option><option>Other</option>
+  </select>
+  <input class="cert-input" type="text" id="p-district" placeholder="District * (e.g. Patna, Muzaffarpur)" required>
+
+  <div class="section-label">🤝 Network & Training Preferences</div>
+  <p style="font-size:.82rem;margin-bottom:.4rem">Interested in a WCDC-organised training at your centre?</p>
+  <div class="radio-group">
+    <label class="radio-opt"><input type="radio" name="l2wcdc" value="Yes, very interested"> Yes, very interested</label>
+    <label class="radio-opt"><input type="radio" name="l2wcdc" value="Already attended WCDC training"> Already attended</label>
+    <label class="radio-opt"><input type="radio" name="l2wcdc" value="Not at this time"> Not at this time</label>
+  </div>
+  <p style="font-size:.82rem;margin-bottom:.4rem">Can your centre host a future Janman training?</p>
+  <div class="radio-group">
+    <label class="radio-opt"><input type="radio" name="l2host" value="Yes"> Yes</label>
+    <label class="radio-opt"><input type="radio" name="l2host" value="Possibly"> Possibly</label>
+    <label class="radio-opt"><input type="radio" name="l2host" value="No"> No</label>
+  </div>
   <button class="cert-btn" onclick="generateCert()">🏆 Certificate प्राप्त करें</button>
   <div id="cert-display" style="display:none">
     <div class="cert-preview" id="cert-preview-box">
@@ -616,6 +669,24 @@ function showCertForm() {
   var sec = document.getElementById('cert-section');
   if(sec) { sec.classList.add('show'); sec.scrollIntoView({behavior:'smooth'}); }
   _certShown = true;
+  
+  // Pre-fill from localStorage
+  var fl={'p-name':'janman_participant_name','p-phone':'janman_participant_phone',
+    'p-email':'janman_participant_email','p-org':'janman_participant_org',
+    'p-desig':'janman_participant_desig','p-district':'janman_participant_district'};
+  Object.keys(fl).forEach(function(id){
+    var el=document.getElementById(id);var v=localStorage.getItem(fl[id]);
+    if(el&&v)el.value=v;
+  });
+  var ot=localStorage.getItem('janman_participant_org_type');
+  if(ot){var s=document.getElementById('p-org-type');if(s)s.value=ot;}
+  var st=localStorage.getItem('janman_participant_state');
+  if(st){var s2=document.getElementById('p-state');if(s2)s2.value=st;}
+  var wc=localStorage.getItem('janman_participant_wcdc_interest');
+  if(wc){var r=document.querySelector('input[name="l2wcdc"][value="'+wc+'"]');if(r)r.checked=true;}
+  var h=localStorage.getItem('janman_participant_can_host');
+  if(h){var r2=document.querySelector('input[name="l2host"][value="'+h+'"]');if(r2)r2.checked=true;}
+
   var savedName = localStorage.getItem('janman_participant_name')||'';
   if(savedName) {
     document.getElementById('p-name').value = savedName;
@@ -627,21 +698,38 @@ function showCertForm() {
 
 function generateCert() {
   var name = document.getElementById('p-name').value.trim();
-  if(!name){ alert('कृपया नाम भरें'); return; }
+  var phone = document.getElementById('p-phone').value.trim();
   var org = document.getElementById('p-org').value.trim();
   var desig = document.getElementById('p-desig').value.trim();
+  var email = document.getElementById('p-email').value.trim();
+  var orgType = document.getElementById('p-org-type').value;
+  var state = document.getElementById('p-state').value;
+  var district = document.getElementById('p-district').value.trim();
+  var wcdcEl = document.querySelector('input[name="l2wcdc"]:checked');
+  var hostEl = document.querySelector('input[name="l2host"]:checked');
+  var wcdc = wcdcEl ? wcdcEl.value : '';
+  var canHost = hostEl ? hostEl.value : '';
+  if(!name||!phone||!org||!state||!district){ alert('कृपया सभी अनिवार्य (*) फ़ील्ड भरें — Name, WhatsApp, Organisation, State, District'); return; }
   localStorage.setItem('janman_participant_name',name);
+  localStorage.setItem('janman_participant_phone',phone);
   localStorage.setItem('janman_participant_org',org);
-  localStorage.setItem('janman_participant_email',document.getElementById('p-email').value.trim());
+  localStorage.setItem('janman_participant_email',email);
   localStorage.setItem('janman_participant_desig',desig);
-  localStorage.setItem('janman_l2_done','1');
+  localStorage.setItem('janman_participant_org_type',orgType);
+  localStorage.setItem('janman_participant_state',state);
+  localStorage.setItem('janman_participant_district',district);
+  localStorage.setItem('janman_participant_wcdc_interest',wcdc);
+  localStorage.setItem('janman_participant_can_host',canHost);
+  localStorage.setItem('janman_l2_done','true');
   var certNo = 'JPF-L2-'+Date.now().toString(36).toUpperCase().slice(-8);
   localStorage.setItem('janman_l2_cert_no',certNo);
-  localStorage.setItem('janman_l2_date',new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}));
+  var dateStr = new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+  localStorage.setItem('janman_l2_date',dateStr);
   document.getElementById('cert-name-disp').textContent = name;
-  document.getElementById('cert-org-disp').textContent = (desig?desig+' | ':'')+org;
-  document.getElementById('cert-date-disp').textContent = new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
-  document.getElementById('cert-no-disp').textContent = 'Cert No: '+certNo;
+  var orgLine = (desig?desig+' | ':'')+org+(district?', '+district:'')+(state?', '+state:'');
+  document.getElementById('cert-org-disp').textContent = orgLine;
+  document.getElementById('cert-date-disp').textContent = dateStr;
+  document.getElementById('cert-no-disp').textContent = 'Cert No: '+certNo+(phone?' | WA: '+phone:'');
   document.getElementById('cert-score-disp').textContent = 'Score: '+localStorage.getItem('janman_l2_score','');
   document.getElementById('cert-display').style.display='block';
 }
