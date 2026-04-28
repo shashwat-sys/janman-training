@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Level 3: Advanced | Mahila Sanrakshan Kanoon Prashikshan</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#FF6B00;--navy:#1a2a4a;--green:#2d6a4f;--yellow:#f4a261;
+  --parchment:#fef9f0;--white:#ffffff;--gray:#6c757d;--light:#f8f9fa;
+  --red:#dc3545;--pass:#198754;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--light);color:#222;line-height:1.7}
+header{background:linear-gradient(135deg,var(--navy) 0%,#2c3e6b 100%);color:#fff;padding:20px 24px;display:flex;align-items:center;gap:16px}
+header .logo{width:52px;height:52px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;color:#fff;flex-shrink:0}
+header h1{font-size:1.15rem;font-weight:700;line-height:1.3}
+header p{font-size:.8rem;opacity:.85;margin-top:4px}
+.level-badge{background:var(--saffron);color:#fff;font-size:.7rem;font-weight:700;padding:2px 10px;border-radius:12px;margin-top:6px;display:inline-block;letter-spacing:.5px}
+.container{max-width:960px;margin:0 auto;padding:20px 16px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.tab-btn{padding:9px 16px;border:2px solid var(--navy);background:#fff;color:var(--navy);border-radius:8px;cursor:pointer;font-size:.82rem;font-weight:600;transition:.2s}
+.tab-btn.active,.tab-btn:hover{background:var(--navy);color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.card{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.card h2{color:var(--navy);font-size:1.15rem;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--saffron)}
+.card h3{color:var(--green);font-size:1rem;margin:16px 0 8px}
+.card h4{color:var(--navy);font-size:.9rem;margin:12px 0 6px}
+.card p{margin-bottom:10px;font-size:.9rem}
+.card ul,.card ol{padding-left:22px;margin-bottom:10px}
+.card li{font-size:.9rem;margin-bottom:5px}
+.highlight{background:#fff3cd;border-left:4px solid var(--yellow);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.88rem}
+.danger{background:#f8d7da;border-left:4px solid var(--red);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.88rem}
+.success-box{background:#d1e7dd;border-left:4px solid var(--pass);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0;font-size:.88rem}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.83rem}
+th{background:var(--navy);color:#fff;padding:9px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #dee2e6}
+tr:nth-child(even) td{background:#f8f9fa}
+.case-card{border:1px solid #dee2e6;border-radius:10px;padding:18px;margin-bottom:16px;background:var(--parchment)}
+.case-card .case-title{font-weight:700;color:var(--navy);font-size:.95rem;margin-bottom:6px}
+.case-card .case-citation{font-size:.78rem;color:var(--gray);margin-bottom:10px}
+.case-card .principle{background:#fff;border-left:3px solid var(--saffron);padding:8px 12px;font-size:.85rem;border-radius:0 6px 6px 0}
+/* Quiz */
+.quiz-item{background:#fff;border:1px solid #dee2e6;border-radius:10px;padding:18px;margin-bottom:18px}
+.quiz-item .qnum{font-weight:700;color:var(--saffron);font-size:.8rem;margin-bottom:6px}
+.quiz-item .qtext{font-weight:600;color:var(--navy);font-size:.9rem;margin-bottom:12px}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;border:1px solid #dee2e6;margin-bottom:7px;transition:.2s;font-size:.87rem}
+.option:hover{background:var(--light);border-color:var(--navy)}
+.option.correct{background:#d1e7dd;border-color:var(--pass)}
+.option.wrong{background:#f8d7da;border-color:var(--red)}
+.option input{margin-top:2px;flex-shrink:0}
+.quiz-submit{background:var(--saffron);color:#fff;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:700;margin-top:8px}
+.quiz-result{text-align:center;padding:28px;background:#fff;border-radius:12px;margin-top:20px;display:none}
+.quiz-result.pass{border:3px solid var(--pass)}
+.quiz-result.fail{border:3px solid var(--red)}
+.score-big{font-size:2.8rem;font-weight:700}
+/* Cert */
+#certSection{display:none;background:var(--parchment);border-radius:16px;padding:28px;margin-top:24px;text-align:center}
+#certSection h2{color:var(--navy);margin-bottom:12px}
+.info-form{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:540px;margin:0 auto 20px;text-align:left}
+.info-form label{font-size:.82rem;font-weight:600;color:var(--navy);display:block;margin-bottom:4px}
+.info-form input{width:100%;padding:9px 12px;border:1px solid #ced4da;border-radius:8px;font-size:.9rem}
+.info-form .full{grid-column:1/-1}
+.cert-btn{background:var(--green);color:#fff;border:none;padding:12px 32px;border-radius:8px;cursor:pointer;font-size:1rem;font-weight:700}
+/* Certificate print */
+.certificate{display:none;background:#fff;border:8px double var(--navy);padding:40px;max-width:780px;margin:24px auto;border-radius:12px;font-family:Georgia,serif;text-align:center;position:relative}
+.cert-header{border-bottom:3px solid var(--saffron);padding-bottom:16px;margin-bottom:20px}
+.cert-org{color:var(--navy);font-size:1.4rem;font-weight:700;letter-spacing:1px}
+.cert-sub{color:var(--gray);font-size:.85rem;margin-top:4px}
+.cert-title{color:var(--saffron);font-size:1.05rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:16px 0 8px}
+.cert-recipient{font-size:1.9rem;color:var(--navy);font-style:italic;margin:10px 0;font-weight:700}
+.cert-body{font-size:.9rem;color:#444;margin:10px 0 20px;line-height:1.8}
+.cert-sig-block{display:flex;justify-content:center;gap:60px;margin-top:28px;align-items:flex-end}
+.sig-line{text-align:center}
+.sig-name{font-family:'Dancing Script',cursive;font-size:1.5rem;color:var(--navy);display:block}
+.sig-title{font-size:.75rem;color:var(--gray);border-top:1px solid #999;padding-top:6px;margin-top:6px}
+.cert-no{font-size:.72rem;color:var(--gray);margin-top:18px}
+.cert-seal{width:64px;height:64px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.6rem;text-align:center;font-weight:700;margin:0 auto 10px;letter-spacing:.5px;line-height:1.3}
+.next-btn{background:var(--navy);color:#fff;border:none;padding:12px 28px;border-radius:8px;cursor:pointer;font-size:.95rem;font-weight:700;margin-top:14px;text-decoration:none;display:inline-block}
+@media(max-width:600px){.info-form{grid-template-columns:1fr}.cert-sig-block{gap:24px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">JPF</div>
+  <div>
+    <h1>महिला संरक्षण कानून प्रशिक्षण | Women's Protection Laws Training</h1>
+    <p>Janman People's Foundation — Jan Nyay Abhiyan</p>
+    <span class="level-badge">LEVEL 3 — ADVANCED</span>
+  </div>
+</header>
+
+<div class="container">
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab(0)">⚖️ Strategic Litigation</button>
+  <button class="tab-btn" onclick="showTab(1)">🔬 Evidence &amp; Documentation</button>
+  <button class="tab-btn" onclick="showTab(2)">✍️ Drafting Skills</button>
+  <button class="tab-btn" onclick="showTab(3)">📚 Landmark Cases</button>
+  <button class="tab-btn" onclick="showTab(4)">🗓️ Recent Judgments</button>
+  <button class="tab-btn" onclick="showTab(5)">📝 Advanced Quiz</button>
+</div>
+
+<!-- TAB 0: STRATEGIC LITIGATION -->
+<div class="tab-panel active" id="tab0">
+<div class="card">
+  <h2>⚖️ Strategic Litigation in GBV Cases</h2>
+  <h3>1. Criminal Litigation — Strengthening the Prosecution</h3>
+  <p>In GBV cases, the lawyer or paralegal assisting a survivor must understand how to:</p>
+  <ul>
+    <li><strong>Monitor the investigation</strong>: Track whether the FIR is registered under the correct sections (e.g., BNS §63/64 for rape, not just §74 for harassment)</li>
+    <li><strong>Oppose bail strategically</strong>: File opposition with specific grounds — gravity of offence, threat to witness, likelihood of absconding, prior criminal record</li>
+    <li><strong>Victim's right under BNSS §399</strong>: The victim can be heard at bail hearings in offences punishable with 7+ years imprisonment</li>
+    <li><strong>Participate in trial</strong>: Engage a private counsel under §301 CrPC (now §341 BNSS) to assist the Public Prosecutor with survivor's consent</li>
+  </ul>
+  <div class="highlight">
+    <strong>Key provision</strong>: Under BNSS §399(3), a victim has the right to engage an advocate of their choice to oppose bail. The court MUST hear the victim's lawyer before granting bail in cases with 7+ year punishment.
+  </div>
+
+  <h3>2. PIL and Writ Petitions</h3>
+  <p>PILs are powerful tools to challenge systemic failures. File under:</p>
+  <ul>
+    <li><strong>Article 32</strong> — Supreme Court (fundamental rights violation)</li>
+    <li><strong>Article 226</strong> — High Court (broader jurisdiction, including mandamus, certiorari)</li>
+  </ul>
+  <p>Successful GBV PILs have achieved:</p>
+  <ul>
+    <li>Guidelines for rape survivor support (Nipun Saxena v UoI, 2018)</li>
+    <li>One-stop centre establishment mandates</li>
+    <li>Mandatory POSH committees in all districts</li>
+    <li>Action on sewer and sanitation worker deaths</li>
+  </ul>
+  <div class="highlight">
+    <strong>Locus standi</strong>: Any person can file a PIL if the issue affects a class of disadvantaged persons. The petitioner need not be the direct victim. Courts have accepted NGOs, lawyers, and journalists as petitioners.
+  </div>
+
+  <h3>3. Anticipatory Bail Opposition</h3>
+  <p>Under §482 BNSS (formerly §438 CrPC), accused can seek anticipatory bail. To oppose:</p>
+  <ul>
+    <li>File counter-affidavit citing: severity of offence, ongoing threat to survivor, custodial interrogation required for evidence</li>
+    <li>Cite: <em>Sushila Aggarwal v State (NCT of Delhi)</em> (2020) — SC held A/B can be granted with conditions, but courts must consider severity of accusation</li>
+    <li>Invoke §482(3) BNSS: court SHALL hear the Public Prosecutor and may add conditions</li>
+  </ul>
+
+  <h3>4. High Court Revision and Appeals</h3>
+  <table>
+    <tr><th>Forum</th><th>Remedy</th><th>Trigger</th></tr>
+    <tr><td>High Court</td><td>Revision (§442 BNSS)</td><td>Wrong bail order, procedural illegality</td></tr>
+    <tr><td>High Court</td><td>§528 BNSS writ</td><td>Inaction by police, magistrate</td></tr>
+    <tr><td>High Court</td><td>Criminal Appeal</td><td>Acquittal in trial court</td></tr>
+    <tr><td>Supreme Court</td><td>SLP (Art. 136)</td><td>HC judgment needing correction</td></tr>
+    <tr><td>Supreme Court</td><td>Article 32</td><td>Fundamental right breach</td></tr>
+  </table>
+
+  <h3>5. The Intervention of Amicus and Third-Party Intervenors</h3>
+  <p>In high-impact cases, organizations like Janman can apply for <strong>Intervenor status</strong>. This allows filing of additional written submissions and supporting the survivor's position. The court may allow it if the intervenor has relevant expertise or the matter involves a class of persons.</p>
+</div>
+</div>
+
+<!-- TAB 1: EVIDENCE -->
+<div class="tab-panel" id="tab1">
+<div class="card">
+  <h2>🔬 Evidence Collection &amp; Documentation</h2>
+  <h3>1. Medico-Legal Evidence</h3>
+  <p>Medical examination is governed by the Protection of Children from Sexual Offences Act §27 (for minors) and general criminal procedure. Key rules:</p>
+  <ul>
+    <li>Medical examination must be conducted by a registered medical practitioner within <strong>24 hours</strong> of complaint</li>
+    <li>For rape survivors: examination by female doctor in presence of another woman unless survivor requests otherwise</li>
+    <li><strong>Two-finger test (virginity test) is ILLEGAL</strong>: Lillu @ Rajesh v State of Haryana (2013) — SC declared it violates dignity. Any doctor conducting it can face disciplinary action.</li>
+    <li>MLC (Medico-Legal Certificate) should record all injuries; absence of physical injury does NOT mean no rape occurred</li>
+    <li><strong>Delay in examination</strong>: Courts have consistently held delay alone does not invalidate the case (State of UP v Munshi (2009))</li>
+  </ul>
+  <div class="danger">
+    <strong>Critical</strong>: Ensure the MLC is obtained and a copy is given to the survivor. Police have a duty to take the survivor to a government hospital immediately. Private hospital charges cannot be imposed on the survivor for medico-legal examination (BNSS §357C).
+  </div>
+
+  <h3>2. Digital Evidence</h3>
+  <p>Digital evidence is increasingly central in stalking, harassment, and POCSO cases:</p>
+  <ul>
+    <li><strong>Screenshots and WhatsApp messages</strong>: Preserve originals; forward to a secure email. Screenshots alone may not be admissible without certification under §65B of the Indian Evidence Act (now §63 BSA 2023).</li>
+    <li><strong>§63 BSA 2023</strong>: Electronic records admissible only with a certificate from the person responsible for the device/network confirming authenticity</li>
+    <li><strong>Call Detail Records (CDR)</strong>: Can be obtained by police from telecom companies; can establish proximity at crime scene</li>
+    <li><strong>CCTV footage</strong>: Immediately apply in writing to preserve; footage is typically overwritten in 30 days</li>
+    <li><strong>Social media evidence</strong>: Notarized screenshots with metadata (date/time/URL) are stronger; reports to NCRB Cyber Crime Portal create an official record</li>
+  </ul>
+
+  <h3>3. Witness Protection</h3>
+  <p>Under the <strong>Witness Protection Scheme 2018</strong> (SC-approved in Mahender Chawla v UoI (2018)):</p>
+  <ul>
+    <li>Witness can apply to the Witness Protection Cell for identity protection, relocation, change of phone number</li>
+    <li>Threat analysis is done and a protection order issued within 5 days</li>
+    <li>Applicable to: witnesses in cases with 7+ year punishment or death penalty</li>
+    <li>Survivor in rape/POCSO cases is automatically covered as a protected witness</li>
+  </ul>
+
+  <h3>4. Chain of Custody</h3>
+  <p>Any physical evidence (clothing, samples, weapons) must maintain strict chain of custody:</p>
+  <ul>
+    <li>Every transfer of evidence must be documented with signature and timestamp</li>
+    <li>Sealed evidence must not be opened except by authorized persons at the FSL</li>
+    <li>Broken chain of custody is a classic defence argument — ensure investigating officer maintains records</li>
+  </ul>
+
+  <h3>5. Dying Declaration</h3>
+  <p>Under §26 BSA 2023 (formerly §32(1) IEA), a statement made by a person believing death to be imminent is admissible. Key principles:</p>
+  <ul>
+    <li>Can be oral, written, or by gestures</li>
+    <li>Best if recorded by a Magistrate; if not possible, doctor or police officer can record</li>
+    <li>Multiple dying declarations: if consistent, all are admissible (Laxman v State of Maharashtra (2002))</li>
+    <li>No corroboration required if the declaration is trustworthy (Paniben v State of Gujarat (1992))</li>
+  </ul>
+  <div class="success-box">
+    <strong>Practice tip</strong>: If you learn a dowry death victim has given a dying declaration to a doctor or neighbour, immediately get an affidavit from that witness before they are pressured to retract.
+  </div>
+
+  <h3>6. Character Evidence and Prior Sexual History</h3>
+  <p><strong>Section 53A BSA 2023</strong> (formerly §155(4) IEA — now repealed) prohibits use of the survivor's sexual history or "character" to impeach credibility in rape trials. The defence CANNOT suggest the survivor is of "immoral character." Any lawyer who does so should be objected to immediately.</p>
+</div>
+</div>
+
+<!-- TAB 2: DRAFTING SKILLS -->
+<div class="tab-panel" id="tab2">
+<div class="card">
+  <h2>✍️ Drafting Skills for GBV Cases</h2>
+  <h3>1. Representation for FIR Registration</h3>
+  <p>When police refuse to register FIR, draft a representation to the Superintendent of Police (SP). Essential elements:</p>
+  <ul>
+    <li><strong>Header</strong>: To: SP [District], CC: DIG, NHRC, State Human Rights Commission</li>
+    <li><strong>Factual narration</strong>: Date/time/place of incident, names of accused, witnesses, nature of offence in plain language</li>
+    <li><strong>Legal provisions violated</strong>: Cite specific BNS sections and Lalita Kumari v Govt of UP (2013) — mandatory FIR registration for cognizable offences</li>
+    <li><strong>Relief sought</strong>: Registration of FIR, arrest of accused, protection of survivor, medical examination</li>
+    <li><strong>Enclosures</strong>: Medical certificate, photographs, previous complaints if any</li>
+  </ul>
+  <div class="highlight">
+    <strong>Lalita Kumari Principle</strong>: If information received by police discloses commission of a cognizable offence, registration of FIR is MANDATORY. Police have no discretion to conduct preliminary enquiry in cases of rape, murder, child sexual assault.
+  </div>
+
+  <h3>2. Complaint Before ICC (POSH)</h3>
+  <p>A written complaint to the Internal Complaints Committee must include:</p>
+  <ul>
+    <li>Name, designation, and contact of complainant and respondent</li>
+    <li>Detailed description of each incident (date, time, place, exact words/acts)</li>
+    <li>Names of witnesses present, if any</li>
+    <li>Documents attached: screenshots, emails, call logs</li>
+    <li>Prayer: inquiry, interim relief (transfer of respondent, work-from-home), appropriate action</li>
+  </ul>
+  <p>File within <strong>3 months</strong> of the last incident; ICC can extend by another 3 months for good cause.</p>
+
+  <h3>3. Application for Protection Order (PWDVA)</h3>
+  <p>File before the Judicial Magistrate 1st Class (JMFC) as DV Application under §12 PWDVA. The DV application should include:</p>
+  <ul>
+    <li>Incident Report (DIR) filed by Protection Officer or self</li>
+    <li>Description of domestic relationships (shared household)</li>
+    <li>All forms of violence: physical, sexual, verbal, emotional, economic</li>
+    <li>Relief sought under §§18, 19, 20, 21, 22, 23 (as applicable)</li>
+    <li>Ex-parte application: request for immediate interim protection order under §23</li>
+  </ul>
+
+  <h3>4. Bail Opposition Application</h3>
+  <p>Structure of bail opposition in rape/POCSO/dowry death cases:</p>
+  <ol>
+    <li>Nature and gravity of offence (cite BNS section and maximum punishment)</li>
+    <li>Character of the accused (prior criminal record, if any)</li>
+    <li>Likelihood of fleeing justice (no fixed address, travel history, passport)</li>
+    <li>Threat to witness and survivor (direct evidence of intimidation, calls, threats)</li>
+    <li>Need for continued custody for investigation (test identification parade, recovery of weapon)</li>
+    <li>Case law: cite relevant SC decisions on bail parameters in serious sexual offences</li>
+  </ol>
+  <div class="danger">
+    <strong>Never agree to bail without consulting the survivor</strong>. Under BNSS §399, the survivor has a right to be heard. Advocate their position clearly.
+  </div>
+
+  <h3>5. Compensation Application Before DLSA</h3>
+  <p>Under NALSA Victim Compensation Scheme / State Victim Compensation Scheme (SVCS), apply to DLSA for compensation:</p>
+  <ul>
+    <li>Can be filed by victim, her counsel, or any NGO on her behalf</li>
+    <li>Application must include: certified copy of FIR, medical report, loss of income/livelihood assessment</li>
+    <li><strong>Interim compensation</strong> can be sought within 8 weeks of application</li>
+    <li>State-wise tables: Bihar SVCS provides up to ₹3 lakh for gang rape, up to ₹5 lakh for acid attack</li>
+    <li>Courts can also direct compensation under §357 BNSS even if accused is acquitted</li>
+  </ul>
+
+  <h3>6. Written Arguments (Purvis in Trial)</h3>
+  <p>After evidence recording, the court calls for written arguments. Effective written arguments:</p>
+  <ul>
+    <li>Begin with facts as proved by prosecution evidence</li>
+    <li>Connect each ingredient of offence to specific evidence on record</li>
+    <li>Address defence arguments proactively</li>
+    <li>Cite relevant case law for each proposition</li>
+    <li>End with: "It is therefore humbly submitted that the accused be convicted under §___ BNS and sentenced appropriately, and compensation be awarded under §357 BNSS."</li>
+  </ul>
+</div>
+</div>
+
+<!-- TAB 3: LANDMARK CASES -->
+<div class="tab-panel" id="tab3">
+<div class="card">
+  <h2>📚 Landmark Case Studies</h2>
+
+  <div class="case-card">
+    <div class="case-title">1. Vishaka &amp; Ors v State of Rajasthan</div>
+    <div class="case-citation">AIR 1997 SC 3011 | Supreme Court of India | J. Verma, Sujata Manohar, B.N. Kirpal JJ.</div>
+    <p>Bhanwari Devi, a Saathin (village-level worker) in Rajasthan, was gang-raped in 1992 after she tried to prevent a child marriage. The police initially refused to file an FIR. A PIL was filed by women's rights organizations.</p>
+    <div class="principle">
+      <strong>Principle</strong>: The Supreme Court laid down the Vishaka Guidelines — the first binding sexual harassment guidelines in workplaces — treating sexual harassment as a violation of fundamental rights under Arts. 14, 19, 21. These became the basis of the POSH Act 2013.
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">2. Nipun Saxena v Union of India</div>
+    <div class="case-citation">(2018) 2 SCC 454 | Supreme Court | Dipak Misra CJ, A.M. Khanwilkar, D.Y. Chandrachud JJ.</div>
+    <p>A public interest petition focused on the identity and privacy protection of rape and POCSO survivors in media and court proceedings.</p>
+    <div class="principle">
+      <strong>Principle</strong>: Courts must not name survivors in judgments, orders, or media reports. FIRs in rape cases must not be widely circulated. High Courts must redact survivor identities. Courts must appoint support persons for survivor-witnesses.
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">3. Satish Chander Ahuja v Sneha Ahuja</div>
+    <div class="case-citation">(2020) 17 SCC 185 | Supreme Court | Ashok Bhushan, R. Subhash Reddy, M.R. Shah JJ.</div>
+    <p>The husband claimed the wife had no right to remain in his parents' property (the shared household was ancestral/HUF property, not matrimonial home).</p>
+    <div class="principle">
+      <strong>Principle</strong>: "Shared household" under PWDVA §2(s) means the house where the aggrieved woman lives or has lived in a domestic relationship — it need not be owned by the husband. She has a right of residence even in in-laws' property. Overruled the earlier <em>SR Batra</em> judgment.
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">4. Independent Thought v Union of India</div>
+    <div class="case-citation">(2017) 10 SCC 800 | Supreme Court | Madan B. Lokur, Deepak Gupta JJ.</div>
+    <p>A PIL challenging the marital rape exception under the old IPC §375 Exception 2, which protected men who had sex with their wives aged 15-18.</p>
+    <div class="principle">
+      <strong>Principle</strong>: Sexual intercourse with a wife aged 15-18 years is rape. The exception was struck down as violating Arts. 14, 15, 21. (Note: full marital rape with adult wives remains unaddressed in law.)
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">5. Shafin Jahan v Asokan K.M. (Hadiya Case)</div>
+    <div class="case-citation">(2018) 16 SCC 368 | Supreme Court | Dipak Misra CJ, A.M. Khanwilkar, D.Y. Chandrachud JJ.</div>
+    <p>A woman's right to choose her religion and spouse was challenged by her parents who alleged "love jihad."</p>
+    <div class="principle">
+      <strong>Principle</strong>: An adult woman's right to choose her partner is an inalienable fundamental right under Art. 21. Neither courts nor parents can annul a marriage on grounds of inter-faith conversion. The High Court's annulment order was set aside.
+    </div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">6. Society for Enlightenment and Voluntary Action v Union of India</div>
+    <div class="case-citation">WP(C) 382/2015 | Supreme Court | (Judgment 2024)</div>
+    <p>A PIL challenging the validity of child marriages performed under personal law codes, particularly where religious customs permit early marriage.</p>
+    <div class="principle">
+      <strong>Principle</strong>: PCMA 2006 applies to ALL communities regardless of personal law. Child marriages are voidable (and void for minors under 18/21). Religious personal laws cannot override the secular PCMA. The SC directed strict enforcement and awareness campaigns.
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- TAB 4: RECENT JUDGMENTS -->
+<div class="tab-panel" id="tab4">
+<div class="card">
+  <h2>🗓️ Recent Judgments (2023–2025)</h2>
+  <h3>Supreme Court</h3>
+
+  <div class="case-card">
+    <div class="case-title">Prajjwal Revanna Case — Survivor Dignity in Media</div>
+    <div class="case-citation">Supreme Court — Suo Motu, 2024</div>
+    <div class="principle"><strong>Ruling</strong>: The SC issued guidelines banning media from airing graphic videos of sexual assault. Restated that publication of material identifying or degrading survivors violates §23 POCSO and §228A IPC (now BNS §72). YouTube and social media platforms directed to take down such content within 24 hours.</div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">X v State of Kerala — POCSO and Age Verification</div>
+    <div class="case-citation">(2023) Supreme Court</div>
+    <div class="principle"><strong>Ruling</strong>: Where a person genuinely believed the victim was above 18, it is not a complete defence under POCSO, but may mitigate sentence. Courts must adopt a child-sensitive approach and prioritize the best interest of the child in sentencing.</div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">Ramji Lal Bairwa v State of Rajasthan — Bail in Rape Cases</div>
+    <div class="case-citation">(2024) Supreme Court</div>
+    <div class="principle"><strong>Ruling</strong>: Bail in rape cases must not be granted mechanically. Courts MUST consider: (1) survivor's safety, (2) risk of witness tampering, (3) public interest in prosecution. HC orders granting bail without analysis set aside.</div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">Anuj Garg v Hotel Association — POSH and Employer Liability</div>
+    <div class="case-citation">Reiterated in 2024 POSH enforcement proceedings</div>
+    <div class="principle"><strong>Ruling</strong>: Employers cannot escape POSH liability by outsourcing employees to contractors. The "employer" under POSH includes the entity that controls the work environment. Organizations without ICC face ₹50,000 fine; repeat violations lead to licence cancellation.</div>
+  </div>
+
+  <h3>Patna High Court — Bihar Developments</h3>
+
+  <div class="case-card">
+    <div class="case-title">CWJC 4211/2023 — Compensation for Acid Attack Survivor</div>
+    <div class="case-citation">Patna High Court, 2024</div>
+    <div class="principle"><strong>Ruling</strong>: Patna HC directed the State to pay ₹3 lakh interim compensation to an acid attack survivor within 4 weeks, and ensure free plastic surgery at IGIMS Patna. Cited the Supreme Court's guidelines in <em>Laxmi v UoI (2014)</em>.</div>
+  </div>
+
+  <div class="case-card">
+    <div class="case-title">Criminal Misc. — Zero FIR and BNSS Implementation</div>
+    <div class="case-citation">Patna High Court, 2024</div>
+    <div class="principle"><strong>Ruling</strong>: Directed all police stations in Bihar to accept Zero FIRs under BNSS §173 without delay. DGP issued circular following HC direction. Failure to register Zero FIR is now treated as misconduct under State Police Act.</div>
+  </div>
+
+  <h3>Key Legislative Changes (2023–2024)</h3>
+  <table>
+    <tr><th>Change</th><th>Old Law</th><th>New Provision</th><th>Impact</th></tr>
+    <tr><td>Zero FIR</td><td>Not codified</td><td>BNSS §173</td><td>Any police station must accept FIR regardless of jurisdiction</td></tr>
+    <tr><td>Rape trial timeline</td><td>No fixed limit</td><td>BNSS §346(1): 2 years</td><td>Sexual offence trials must conclude in 2 years</td></tr>
+    <tr><td>Victim's bail rights</td><td>Not codified</td><td>BNSS §399(3)</td><td>Victim has statutory right to oppose bail</td></tr>
+    <tr><td>Medical aid</td><td>§357C CrPC</td><td>BNSS §397C (retained)</td><td>Free immediate medical aid to rape survivors at all hospitals</td></tr>
+    <tr><td>Child marriage</td><td>PCMA 2006</td><td>PCMA applies to all: SC 2024</td><td>No personal law exception; all child marriages voidable</td></tr>
+    <tr><td>Acid attack IPC→BNS</td><td>§326A, §326B</td><td>BNS §124, §125</td><td>Same punishment; prosecution process unchanged</td></tr>
+  </table>
+</div>
+</div>
+
+<!-- TAB 5: QUIZ -->
+<div class="tab-panel" id="tab5">
+<div class="card">
+  <h2>📝 Advanced Level Quiz</h2>
+  <p style="margin-bottom:20px;font-size:.88rem;color:var(--gray)">25 questions · 70% required to pass · Advanced level</p>
+  <div id="quizForm">
+
+  <div class="quiz-item"><div class="qnum">Q1 of 25</div>
+  <div class="qtext">Under BNSS §399(3), a victim can oppose bail in offences with minimum punishment of:</div>
+  <label class="option"><input type="radio" name="q1" value="a"> 3 years or more</label>
+  <label class="option"><input type="radio" name="q1" value="b"> 5 years or more</label>
+  <label class="option"><input type="radio" name="q1" value="c"> 7 years or more</label>
+  <label class="option"><input type="radio" name="q1" value="d"> 10 years or more</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q2 of 25</div>
+  <div class="qtext">The Vishaka Guidelines were issued because of the gang rape of:</div>
+  <label class="option"><input type="radio" name="q2" value="a"> A nurse in Mumbai</label>
+  <label class="option"><input type="radio" name="q2" value="b"> Bhanwari Devi, a Saathin in Rajasthan</label>
+  <label class="option"><input type="radio" name="q2" value="c"> A factory worker in Gujarat</label>
+  <label class="option"><input type="radio" name="q2" value="d"> A student in Delhi University</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q3 of 25</div>
+  <div class="qtext">The two-finger test was declared illegal in which case?</div>
+  <label class="option"><input type="radio" name="q3" value="a"> Nipun Saxena v UoI</label>
+  <label class="option"><input type="radio" name="q3" value="b"> Vishaka v Rajasthan</label>
+  <label class="option"><input type="radio" name="q3" value="c"> Lillu @ Rajesh v State of Haryana (2013)</label>
+  <label class="option"><input type="radio" name="q3" value="d"> Independent Thought v UoI</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q4 of 25</div>
+  <div class="qtext">Which BSA 2023 section deals with admissibility of electronic records and requires a certificate?</div>
+  <label class="option"><input type="radio" name="q4" value="a"> §26 BSA</label>
+  <label class="option"><input type="radio" name="q4" value="b"> §53A BSA</label>
+  <label class="option"><input type="radio" name="q4" value="c"> §63 BSA</label>
+  <label class="option"><input type="radio" name="q4" value="d"> §73 BSA</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q5 of 25</div>
+  <div class="qtext">Satish Chander Ahuja v Sneha Ahuja (2020) overruled which earlier judgment?</div>
+  <label class="option"><input type="radio" name="q5" value="a"> Vishaka v Rajasthan</label>
+  <label class="option"><input type="radio" name="q5" value="b"> SR Batra v Taruna Batra</label>
+  <label class="option"><input type="radio" name="q5" value="c"> Sushila Aggarwal v State</label>
+  <label class="option"><input type="radio" name="q5" value="d"> Laxmi v UoI</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q6 of 25</div>
+  <div class="qtext">In Lalita Kumari v Govt of UP, the SC held that registration of FIR is mandatory in cases of:</div>
+  <label class="option"><input type="radio" name="q6" value="a"> All offences regardless of nature</label>
+  <label class="option"><input type="radio" name="q6" value="b"> Cognizable offences — no preliminary enquiry permitted</label>
+  <label class="option"><input type="radio" name="q6" value="c"> Offences with 7+ year punishment only</label>
+  <label class="option"><input type="radio" name="q6" value="d"> Offences where accused is named</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q7 of 25</div>
+  <div class="qtext">A dying declaration recorded by a doctor (not a Magistrate) is:</div>
+  <label class="option"><input type="radio" name="q7" value="a"> Inadmissible — only Magistrate can record</label>
+  <label class="option"><input type="radio" name="q7" value="b"> Admissible only if corroborated</label>
+  <label class="option"><input type="radio" name="q7" value="c"> Admissible and can be sole basis for conviction</label>
+  <label class="option"><input type="radio" name="q7" value="d"> Only admissible if cross-examination was done</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q8 of 25</div>
+  <div class="qtext">The Witness Protection Scheme 2018 was approved by the Supreme Court in:</div>
+  <label class="option"><input type="radio" name="q8" value="a"> Nipun Saxena v UoI</label>
+  <label class="option"><input type="radio" name="q8" value="b"> Mahender Chawla v UoI</label>
+  <label class="option"><input type="radio" name="q8" value="c"> Lalita Kumari v UP</label>
+  <label class="option"><input type="radio" name="q8" value="d"> Shafin Jahan v Asokan</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q9 of 25</div>
+  <div class="qtext">Which section of BSA 2023 prohibits use of the survivor's sexual history in rape trials?</div>
+  <label class="option"><input type="radio" name="q9" value="a"> §26</label>
+  <label class="option"><input type="radio" name="q9" value="b"> §46</label>
+  <label class="option"><input type="radio" name="q9" value="c"> §53A</label>
+  <label class="option"><input type="radio" name="q9" value="d"> §63</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q10 of 25</div>
+  <div class="qtext">The BNSS section that allows victim to have private counsel assist the Public Prosecutor during trial is:</div>
+  <label class="option"><input type="radio" name="q10" value="a"> §173</label>
+  <label class="option"><input type="radio" name="q10" value="b"> §341</label>
+  <label class="option"><input type="radio" name="q10" value="c"> §399</label>
+  <label class="option"><input type="radio" name="q10" value="d"> §482</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q11 of 25</div>
+  <div class="qtext">In Hadiya (Shafin Jahan) case, the SC held that an adult woman's right to choose her partner is protected under:</div>
+  <label class="option"><input type="radio" name="q11" value="a"> Article 14</label>
+  <label class="option"><input type="radio" name="q11" value="b"> Article 19(1)(a)</label>
+  <label class="option"><input type="radio" name="q11" value="c"> Article 21</label>
+  <label class="option"><input type="radio" name="q11" value="d"> Article 25</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q12 of 25</div>
+  <div class="qtext">BNSS §346(1) sets a __ year deadline for completing trials in sexual offence cases:</div>
+  <label class="option"><input type="radio" name="q12" value="a"> 1 year</label>
+  <label class="option"><input type="radio" name="q12" value="b"> 2 years</label>
+  <label class="option"><input type="radio" name="q12" value="c"> 3 years</label>
+  <label class="option"><input type="radio" name="q12" value="d"> 5 years</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q13 of 25</div>
+  <div class="qtext">Under Nipun Saxena guidelines, who must NOT be named in court judgments?</div>
+  <label class="option"><input type="radio" name="q13" value="a"> The accused, to protect privacy</label>
+  <label class="option"><input type="radio" name="q13" value="b"> Witnesses, to prevent intimidation</label>
+  <label class="option"><input type="radio" name="q13" value="c"> Rape and POCSO survivors</label>
+  <label class="option"><input type="radio" name="q13" value="d"> The trial court judges</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q14 of 25</div>
+  <div class="qtext">A PIL under Article 226 can be filed in:</div>
+  <label class="option"><input type="radio" name="q14" value="a"> Supreme Court only</label>
+  <label class="option"><input type="radio" name="q14" value="b"> High Court only</label>
+  <label class="option"><input type="radio" name="q14" value="c"> District Court</label>
+  <label class="option"><input type="radio" name="q14" value="d"> Sessions Court</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q15 of 25</div>
+  <div class="qtext">In a POSH complaint, the ICC must complete inquiry within how many days?</div>
+  <label class="option"><input type="radio" name="q15" value="a"> 30 days</label>
+  <label class="option"><input type="radio" name="q15" value="b"> 60 days</label>
+  <label class="option"><input type="radio" name="q15" value="c"> 90 days</label>
+  <label class="option"><input type="radio" name="q15" value="d"> 120 days</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q16 of 25</div>
+  <div class="qtext">Which case held that PCMA 2006 applies to ALL communities regardless of personal law?</div>
+  <label class="option"><input type="radio" name="q16" value="a"> Hadiya Case (2018)</label>
+  <label class="option"><input type="radio" name="q16" value="b"> Independent Thought v UoI (2017)</label>
+  <label class="option"><input type="radio" name="q16" value="c"> Society for Enlightenment v UoI (2024)</label>
+  <label class="option"><input type="radio" name="q16" value="d"> Nipun Saxena v UoI (2018)</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q17 of 25</div>
+  <div class="qtext">Free medical aid to rape survivors at all hospitals (including private) is mandated by:</div>
+  <label class="option"><input type="radio" name="q17" value="a"> PWDVA §18</label>
+  <label class="option"><input type="radio" name="q17" value="b"> BNSS §397C</label>
+  <label class="option"><input type="radio" name="q17" value="c"> POCSO §27</label>
+  <label class="option"><input type="radio" name="q17" value="d"> BNS §63</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q18 of 25</div>
+  <div class="qtext">Absence of physical injury in a rape case means:</div>
+  <label class="option"><input type="radio" name="q18" value="a"> Case must be dismissed</label>
+  <label class="option"><input type="radio" name="q18" value="b"> Conviction is impossible</label>
+  <label class="option"><input type="radio" name="q18" value="c"> It does not by itself mean rape did not occur</label>
+  <label class="option"><input type="radio" name="q18" value="d"> Accused must be acquitted</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q19 of 25</div>
+  <div class="qtext">The Independent Thought v UoI case struck down the marital rape exception for wives aged:</div>
+  <label class="option"><input type="radio" name="q19" value="a"> Under 16</label>
+  <label class="option"><input type="radio" name="q19" value="b"> 15–18 years</label>
+  <label class="option"><input type="radio" name="q19" value="c"> Under 18</label>
+  <label class="option"><input type="radio" name="q19" value="d"> Under 21</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q20 of 25</div>
+  <div class="qtext">In what situation can CCTV footage be critical, and what action must be taken immediately?</div>
+  <label class="option"><input type="radio" name="q20" value="a"> It is rarely useful; wait for police to collect it</label>
+  <label class="option"><input type="radio" name="q20" value="b"> Apply in writing to preserve it — footage is typically overwritten in 30 days</label>
+  <label class="option"><input type="radio" name="q20" value="c"> It is automatically preserved by law for 1 year</label>
+  <label class="option"><input type="radio" name="q20" value="d"> Only courts can order preservation</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q21 of 25</div>
+  <div class="qtext">Compensation under the State Victim Compensation Scheme (SVCS) can be claimed from:</div>
+  <label class="option"><input type="radio" name="q21" value="a"> The accused only after conviction</label>
+  <label class="option"><input type="radio" name="q21" value="b"> DLSA — can be filed even before trial concludes</label>
+  <label class="option"><input type="radio" name="q21" value="c"> The National Commission for Women</label>
+  <label class="option"><input type="radio" name="q21" value="d"> Only after acquittal of accused</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q22 of 25</div>
+  <div class="qtext">Under POSH Act, an organization without an ICC faces a maximum fine of:</div>
+  <label class="option"><input type="radio" name="q22" value="a"> ₹10,000</label>
+  <label class="option"><input type="radio" name="q22" value="b"> ₹25,000</label>
+  <label class="option"><input type="radio" name="q22" value="c"> ₹50,000</label>
+  <label class="option"><input type="radio" name="q22" value="d"> ₹1,00,000</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q23 of 25</div>
+  <div class="qtext">Zero FIR is now codified under BNSS:</div>
+  <label class="option"><input type="radio" name="q23" value="a"> §163</label>
+  <label class="option"><input type="radio" name="q23" value="b"> §173</label>
+  <label class="option"><input type="radio" name="q23" value="c"> §183</label>
+  <label class="option"><input type="radio" name="q23" value="d"> §193</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q24 of 25</div>
+  <div class="qtext">When drafting a compensation application before DLSA, the Bihar SVCS provides up to __ for gang rape:</div>
+  <label class="option"><input type="radio" name="q24" value="a"> ₹1 lakh</label>
+  <label class="option"><input type="radio" name="q24" value="b"> ₹2 lakh</label>
+  <label class="option"><input type="radio" name="q24" value="c"> ₹3 lakh</label>
+  <label class="option"><input type="radio" name="q24" value="d"> ₹5 lakh</label></div>
+
+  <div class="quiz-item"><div class="qnum">Q25 of 25</div>
+  <div class="qtext">A private counsel engaged under §341 BNSS to assist the PP during trial must have consent of:</div>
+  <label class="option"><input type="radio" name="q25" value="a"> The accused</label>
+  <label class="option"><input type="radio" name="q25" value="b"> The Presiding Judge only</label>
+  <label class="option"><input type="radio" name="q25" value="c"> The survivor/victim</label>
+  <label class="option"><input type="radio" name="q25" value="d"> The State Government</label></div>
+
+  <button class="quiz-submit" onclick="submitQuiz()">📋 Submit Quiz</button>
+  </div><!-- end quizForm -->
+
+  <div class="quiz-result" id="quizResult">
+    <div class="score-big" id="scoreDisplay"></div>
+    <p id="scoreMsg" style="font-size:1.1rem;margin:10px 0 20px"></p>
+    <div id="retryDiv" style="display:none">
+      <button class="quiz-submit" onclick="retryQuiz()">🔄 Retry Quiz</button>
+    </div>
+    <div id="certTrigger" style="display:none">
+      <p style="color:var(--pass);font-weight:700;font-size:1.05rem;margin-bottom:14px">✅ Excellent! Proceed to claim your Level 3 Certificate.</p>
+      <button class="cert-btn" onclick="document.getElementById('certSection').style.display='block';document.getElementById('certTrigger').scrollIntoView()">🏅 Get Level 3 Certificate</button>
+    </div>
+  </div>
+</div><!-- end card -->
+
+<!-- CERTIFICATE SECTION -->
+<div id="certSection">
+  <h2 style="color:var(--navy);margin-bottom:8px">🏅 Level 3 Certificate</h2>
+  <p style="color:var(--gray);font-size:.88rem;margin-bottom:20px">Please enter your details to generate your certificate.</p>
+  <div class="info-form" id="infoForm">
+    <div><label>Full Name *</label><input type="text" id="pName" placeholder="Your full name" required></div>
+    <div><label>Organisation</label><input type="text" id="pOrg" placeholder="NGO / Organisation name"></div>
+    <div><label>Designation</label><input type="text" id="pDesig" placeholder="Your designation / role"></div>
+    <div><label>Email</label><input type="email" id="pEmail" placeholder="your@email.com"></div>
+  </div>
+  <button class="cert-btn" onclick="generateL3Cert()">🎓 Generate Certificate</button>
+</div>
+
+<div class="certificate" id="certDisplay">
+  <div class="cert-seal">JANMAN PEOPLE'S FOUNDATION</div>
+  <div class="cert-header">
+    <div class="cert-org">JANMAN PEOPLE'S FOUNDATION</div>
+    <div class="cert-sub">Jan Nyay Abhiyan | Bihar, India</div>
+  </div>
+  <div class="cert-title">Certificate of Completion — Level 3</div>
+  <p style="font-size:.85rem;color:var(--gray)">This is to certify that</p>
+  <div class="cert-recipient" id="cName">—</div>
+  <div class="cert-body">
+    <span id="cOrg"></span> has successfully completed<br>
+    <strong>Level 3: Advanced Strategic Litigation &amp; Evidence</strong><br>
+    of the <em>Online Training Programme on Women's Protection Laws (Gender-Based Violence)</em><br>
+    conducted by Janman People's Foundation under the Jan Nyay Abhiyan initiative.<br><br>
+    Score achieved: <strong><span id="cScore">—</span></strong><br>
+    Certificate No: <strong><span id="cNo">—</span></strong><br>
+    Date: <strong><span id="cDate">—</span></strong>
+  </div>
+  <div class="cert-sig-block">
+    <div class="sig-line">
+      <span class="sig-name">Shourya Roy</span>
+      <span class="sig-title">Executive Director<br>Janman People's Foundation</span>
+    </div>
+    <div class="sig-line">
+      <span style="font-size:2rem">🏛️</span>
+      <span class="sig-title">Official Seal<br>Jan Nyay Abhiyan</span>
+    </div>
+  </div>
+  <div class="cert-no" id="cNoSmall"></div>
+  <br>
+  <button class="cert-btn" onclick="downloadCert()" style="margin-right:12px">⬇️ Download Certificate</button>
+  <a href="final-certificate.html" class="next-btn" id="finalBtn" style="display:none">🏆 Get Final GBV Training Certificate</a>
+</div>
+
+</div><!-- end tab5 -->
+</div><!-- end container -->
+
+<script>
+var CORRECT={q1:'c',q2:'b',q3:'c',q4:'c',q5:'b',q6:'b',q7:'c',q8:'b',q9:'c',q10:'b',q11:'c',q12:'b',q13:'c',q14:'b',q15:'c',q16:'c',q17:'b',q18:'c',q19:'b',q20:'b',q21:'b',q22:'c',q23:'b',q24:'c',q25:'c'};
+
+function showTab(n){
+  document.querySelectorAll('.tab-panel').forEach(function(p,i){p.classList.toggle('active',i===n);});
+  document.querySelectorAll('.tab-btn').forEach(function(b,i){b.classList.toggle('active',i===n);});
+}
+
+function submitQuiz(){
+  var total=Object.keys(CORRECT).length, score=0;
+  Object.keys(CORRECT).forEach(function(q){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    var items=document.querySelectorAll('input[name="'+q+'"]');
+    items.forEach(function(inp){
+      inp.disabled=true;
+      var opt=inp.closest('.option');
+      if(inp.value===CORRECT[q]) opt.classList.add('correct');
+      if(sel && inp===sel && inp.value!==CORRECT[q]) opt.classList.add('wrong');
+    });
+    if(sel && sel.value===CORRECT[q]) score++;
+  });
+  document.getElementById('quizForm').querySelector('.quiz-submit').style.display='none';
+  var pct=Math.round(score/total*100);
+  var res=document.getElementById('quizResult');
+  res.style.display='block';
+  document.getElementById('scoreDisplay').textContent=score+'/'+total+' ('+pct+'%)';
+  if(pct>=70){
+    res.classList.add('pass');
+    document.getElementById('scoreMsg').textContent='Excellent! You have passed the Advanced Level.';
+    document.getElementById('certTrigger').style.display='block';
+    localStorage.setItem('janman_l3_score',score+'/'+total+' ('+pct+'%)');
+  } else {
+    res.classList.add('fail');
+    document.getElementById('scoreMsg').textContent='You need 70% to pass. Please review the content and retry.';
+    document.getElementById('retryDiv').style.display='block';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+
+function retryQuiz(){
+  location.reload();
+}
+
+function generateL3Cert(){
+  var name=document.getElementById('pName').value.trim();
+  if(!name){alert('Please enter your full name.');return;}
+  var org=document.getElementById('pOrg').value.trim();
+  var desig=document.getElementById('pDesig').value.trim();
+  var email=document.getElementById('pEmail').value.trim();
+
+  // Save to localStorage (shared with other levels)
+  if(!localStorage.getItem('janman_participant_name')) localStorage.setItem('janman_participant_name',name);
+  if(!localStorage.getItem('janman_participant_org')) localStorage.setItem('janman_participant_org',org);
+  if(!localStorage.getItem('janman_participant_desig')) localStorage.setItem('janman_participant_desig',desig);
+  if(!localStorage.getItem('janman_participant_email')) localStorage.setItem('janman_participant_email',email);
+
+  var certNo='JPF-L3-'+Date.now().toString(36).toUpperCase();
+  var now=new Date();
+  var dateStr=now.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
+  var score=localStorage.getItem('janman_l3_score')||'';
+
+  localStorage.setItem('janman_l3_done','true');
+  localStorage.setItem('janman_l3_cert_no',certNo);
+  localStorage.setItem('janman_l3_date',dateStr);
+
+  document.getElementById('cName').textContent=name;
+  var orgStr=org?(desig?desig+', '+org:org):(desig||'');
+  document.getElementById('cOrg').textContent=orgStr?orgStr+',':'';
+  document.getElementById('cScore').textContent=score;
+  document.getElementById('cNo').textContent=certNo;
+  document.getElementById('cDate').textContent=dateStr;
+  document.getElementById('cNoSmall').textContent='Certificate No: '+certNo+' | Email: '+(email||'N/A');
+
+  document.getElementById('certDisplay').style.display='block';
+  document.getElementById('certSection').style.display='none';
+
+  // Show final cert button only if all 3 levels done
+  if(localStorage.getItem('janman_l1_done') && localStorage.getItem('janman_l2_done')){
+    document.getElementById('finalBtn').style.display='inline-block';
+  }
+  document.getElementById('certDisplay').scrollIntoView({behavior:'smooth'});
+}
+
+function downloadCert(){
+  var w=window.open('','_blank');
+  var cert=document.getElementById('certDisplay').outerHTML;
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>JPF Certificate L3</title><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"><style>body{font-family:Georgia,serif;background:#fff;display:flex;justify-content:center;padding:40px}.certificate{display:block!important;border:8px double #1a2a4a;padding:40px;max-width:780px;border-radius:12px;text-align:center}.sig-name{font-family:"Dancing Script",cursive;font-size:1.5rem;color:#1a2a4a;display:block}.cert-btn,.next-btn{display:none!important}.cert-seal{width:64px;height:64px;border-radius:50%;background:#1a2a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.6rem;text-align:center;font-weight:700;margin:0 auto 10px;letter-spacing:.5px;line-height:1.3}.cert-sig-block{display:flex;justify-content:center;gap:60px;margin-top:28px;align-items:flex-end}.sig-line{text-align:center}.sig-title{font-size:.75rem;color:#6c757d;border-top:1px solid #999;padding-top:6px;margin-top:6px}.cert-org{color:#1a2a4a;font-size:1.4rem;font-weight:700;letter-spacing:1px}.cert-sub{color:#6c757d;font-size:.85rem;margin-top:4px}.cert-header{border-bottom:3px solid #FF6B00;padding-bottom:16px;margin-bottom:20px}.cert-title{color:#FF6B00;font-size:1.05rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin:16px 0 8px}.cert-recipient{font-size:1.9rem;color:#1a2a4a;font-style:italic;margin:10px 0;font-weight:700}.cert-body{font-size:.9rem;color:#444;margin:10px 0 20px;line-height:1.8}.cert-no{font-size:.72rem;color:#6c757d;margin-top:18px}</style></head><body>'+cert+'</body></html>');
+  w.document.close();
+  setTimeout(function(){w.print();},800);
+}
+
+// Auto-show cert if already completed
+window.onload=function(){
+  // Pre-fill info from localStorage
+  var n=localStorage.getItem('janman_participant_name');
+  var o=localStorage.getItem('janman_participant_org');
+  var d=localStorage.getItem('janman_participant_desig');
+  var e=localStorage.getItem('janman_participant_email');
+  if(n) document.getElementById('pName').value=n;
+  if(o) document.getElementById('pOrg').value=o;
+  if(d) document.getElementById('pDesig').value=d;
+  if(e) document.getElementById('pEmail').value=e;
+};
+</script>
+</body>
+</html>

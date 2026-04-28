@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Final GBV Training Certificate | Janman People's Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --saffron:#FF6B00;--navy:#1a2a4a;--green:#2d6a4f;--yellow:#f4a261;
+  --parchment:#fef9f0;--white:#ffffff;--gray:#6c757d;--light:#f8f9fa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--light);color:#222;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:30px 16px}
+.page-header{text-align:center;margin-bottom:28px;width:100%;max-width:780px}
+.page-header h1{color:var(--navy);font-size:1.3rem;font-weight:700}
+.page-header p{color:var(--gray);font-size:.88rem;margin-top:6px}
+.status-bar{background:#fff;border-radius:12px;padding:20px;margin-bottom:24px;width:100%;max-width:780px;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+.status-bar h3{color:var(--navy);margin-bottom:14px;font-size:.95rem}
+.levels{display:flex;gap:12px;flex-wrap:wrap}
+.level-chip{flex:1;min-width:180px;border-radius:10px;padding:12px 16px;text-align:center;font-size:.83rem;font-weight:600}
+.level-chip.done{background:#d1e7dd;border:2px solid #2d6a4f;color:#2d6a4f}
+.level-chip.pending{background:#f8d7da;border:2px solid #dc3545;color:#dc3545}
+.level-chip .icon{font-size:1.4rem;display:block;margin-bottom:4px}
+.lock-msg{background:#fff3cd;border:1px solid #f4a261;border-radius:10px;padding:16px;margin-bottom:20px;font-size:.88rem;color:#6c3a00;width:100%;max-width:780px;text-align:center;display:none}
+.info-block{background:#fff;border-radius:12px;padding:24px;margin-bottom:24px;width:100%;max-width:780px;box-shadow:0 2px 8px rgba(0,0,0,.07);display:none}
+.info-block h3{color:var(--navy);margin-bottom:16px}
+.info-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.info-form label{font-size:.82rem;font-weight:600;color:var(--navy);display:block;margin-bottom:4px}
+.info-form input{width:100%;padding:9px 12px;border:1px solid #ced4da;border-radius:8px;font-size:.9rem}
+.info-form .full{grid-column:1/-1}
+.cert-btn{background:var(--green);color:#fff;border:none;padding:14px 36px;border-radius:10px;cursor:pointer;font-size:1.05rem;font-weight:700;margin-top:16px;display:block;width:100%}
+/* The Big Certificate */
+.certificate{background:#fff;border:10px double var(--navy);padding:44px 48px;width:100%;max-width:780px;border-radius:16px;font-family:Georgia,serif;text-align:center;position:relative;display:none;box-shadow:0 8px 32px rgba(0,0,0,.15)}
+.cert-bg-pattern{position:absolute;top:0;left:0;right:0;bottom:0;opacity:.03;background:url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FF6B00' fill-opacity='1' fill-rule='evenodd'%3E%3Ccircle cx='20' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E");border-radius:10px}
+.cert-top-band{background:linear-gradient(135deg,var(--navy) 0%,#2c3e6b 100%);color:#fff;padding:18px 24px;border-radius:8px;margin-bottom:24px}
+.cert-org-name{font-size:1.5rem;font-weight:700;letter-spacing:2px}
+.cert-org-sub{font-size:.8rem;opacity:.8;margin-top:4px;letter-spacing:1px}
+.cert-ribbon{background:var(--saffron);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:3px;padding:6px 20px;text-transform:uppercase;border-radius:4px;display:inline-block;margin:14px 0 6px}
+.cert-presents{font-size:.85rem;color:var(--gray);margin-bottom:4px}
+.cert-type{font-size:1.3rem;font-weight:700;color:var(--navy);letter-spacing:1px;margin-bottom:18px}
+.cert-to{font-size:.85rem;color:var(--gray);margin-bottom:4px}
+.cert-name{font-size:2.2rem;color:var(--saffron);font-style:italic;font-weight:700;border-bottom:2px solid var(--saffron);padding-bottom:8px;display:inline-block;margin:0 auto 16px;min-width:300px}
+.cert-body-text{font-size:.9rem;color:#444;line-height:1.9;margin-bottom:20px}
+.cert-modules{border:1px solid #dee2e6;border-radius:10px;padding:16px 20px;margin:16px 0;font-size:.85rem;text-align:left;background:var(--parchment)}
+.cert-modules h4{color:var(--navy);margin-bottom:10px;font-size:.9rem}
+.cert-module-row{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed #dee2e6}
+.cert-module-row:last-child{border-bottom:none}
+.cert-module-name{color:#333;font-weight:600}
+.cert-module-score{color:var(--green);font-weight:700}
+.cert-sig-block{display:flex;justify-content:center;gap:80px;margin-top:32px;align-items:flex-end;flex-wrap:wrap}
+.sig-area{text-align:center}
+.sig-cursive{font-family:'Dancing Script',cursive;font-size:2rem;color:var(--navy);display:block;line-height:1.1}
+.sig-under{font-size:.75rem;color:var(--gray);border-top:1px solid #999;padding-top:8px;margin-top:8px}
+.cert-seal-big{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--navy),#2c3e6b);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.55rem;text-align:center;font-weight:700;margin:0 auto 8px;letter-spacing:.5px;line-height:1.4;border:3px solid var(--saffron)}
+.cert-footer{margin-top:24px;padding-top:14px;border-top:1px solid #dee2e6;font-size:.72rem;color:var(--gray)}
+.cert-no{font-weight:700;color:var(--navy)}
+.action-btns{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.action-btn{padding:11px 24px;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;border:none}
+.btn-download{background:var(--saffron);color:#fff}
+.btn-home{background:var(--navy);color:#fff;text-decoration:none;display:inline-block}
+@media print{.action-btns,.page-header,.status-bar,.info-block,.lock-msg{display:none!important}.certificate{display:block!important;box-shadow:none;border-width:6px}}
+@media(max-width:600px){.cert-sig-block{gap:30px}.info-form{grid-template-columns:1fr}.certificate{padding:24px 16px}}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <h1>🏆 Final GBV Training Certificate</h1>
+  <p>Online Training Programme — Women's Protection Laws | Janman People's Foundation</p>
+</div>
+
+<div class="status-bar">
+  <h3>📋 Training Completion Status</h3>
+  <div class="levels">
+    <div class="level-chip" id="chip1">
+      <span class="icon">📖</span>Level 1: Introduction<br><span id="chip1status">Checking...</span>
+    </div>
+    <div class="level-chip" id="chip2">
+      <span class="icon">📘</span>Level 2: Intermediate<br><span id="chip2status">Checking...</span>
+    </div>
+    <div class="level-chip" id="chip3">
+      <span class="icon">📙</span>Level 3: Advanced<br><span id="chip3status">Checking...</span>
+    </div>
+  </div>
+</div>
+
+<div class="lock-msg" id="lockMsg">
+  ⚠️ Please complete all three training modules before claiming the final certificate.<br>
+  <a href="index.html" style="color:var(--saffron);font-weight:700">← Return to Training Hub</a>
+</div>
+
+<div class="info-block" id="infoBlock">
+  <h3>✍️ Please confirm your details for the Final Certificate</h3>
+  <div class="info-form">
+    <div><label>Full Name *</label><input type="text" id="pName" placeholder="Your full name" required></div>
+    <div><label>Organisation</label><input type="text" id="pOrg" placeholder="NGO / Organisation name"></div>
+    <div><label>Designation</label><input type="text" id="pDesig" placeholder="Your designation / role"></div>
+    <div class="full"><label>Email</label><input type="email" id="pEmail" placeholder="your@email.com"></div>
+  </div>
+  <button class="cert-btn" onclick="generateFinalCert()">🏆 Generate Final Certificate</button>
+</div>
+
+<div class="certificate" id="finalCert">
+  <div class="cert-bg-pattern"></div>
+  <div class="cert-top-band">
+    <div class="cert-org-name">JANMAN PEOPLE'S FOUNDATION</div>
+    <div class="cert-org-sub">JAN NYAY ABHIYAN | BIHAR, INDIA</div>
+  </div>
+
+  <div class="cert-ribbon">Certificate of Completion</div>
+  <div class="cert-presents" style="margin-top:10px">This is to certify that</div>
+  <div class="cert-name" id="cName">—</div>
+  <div class="cert-type">Online Training Programme on Gender-Based Violence Laws</div>
+
+  <div class="cert-body-text">
+    <span id="cOrg"></span> has successfully completed all three levels of the<br>
+    <strong>Online Training Programme on Women's Protection Laws (Gender-Based Violence)</strong><br>
+    conducted by <strong>Janman People's Foundation</strong> under the <em>Jan Nyay Abhiyan</em> initiative.<br>
+    This programme covered Indian women's protection laws, key judgments, procedural skills,<br>
+    strategic litigation, evidence, and advanced GBV law advocacy.
+  </div>
+
+  <div class="cert-modules">
+    <h4>Modules Completed:</h4>
+    <div class="cert-module-row">
+      <span class="cert-module-name">✅ Level 1: Introduction to Women's Protection Laws</span>
+      <span class="cert-module-score" id="cScore1">Completed</span>
+    </div>
+    <div class="cert-module-row">
+      <span class="cert-module-name">✅ Level 2: Intermediate — POSH, PWDVA, POCSO, BNS, PCMA</span>
+      <span class="cert-module-score" id="cScore2">Completed</span>
+    </div>
+    <div class="cert-module-row">
+      <span class="cert-module-name">✅ Level 3: Advanced — Strategic Litigation &amp; Evidence</span>
+      <span class="cert-module-score" id="cScore3">Completed</span>
+    </div>
+  </div>
+
+  <div style="font-size:.88rem;color:#444;margin:10px 0">
+    Certificate No: <strong><span id="cNo">—</span></strong> &nbsp;|&nbsp; Date: <strong><span id="cDate">—</span></strong>
+  </div>
+
+  <div class="cert-sig-block">
+    <div class="sig-area">
+      <span class="cert-seal-big">JANMAN PEOPLE'S FOUNDATION OFFICIAL</span>
+    </div>
+    <div class="sig-area">
+      <span class="sig-cursive">Shourya Roy</span>
+      <span class="sig-under">Executive Director<br>Janman People's Foundation</span>
+    </div>
+  </div>
+
+  <div class="cert-footer">
+    <span class="cert-no" id="cNoSmall"></span><br>
+    Issued by Janman People's Foundation, Bihar, India | janmanindia.org<br>
+    This certificate is issued for educational training purposes.
+  </div>
+</div>
+
+<div class="action-btns" id="actionBtns" style="display:none">
+  <button class="action-btn btn-download" onclick="downloadFinalCert()">⬇️ Download Certificate</button>
+  <a href="index.html" class="action-btn btn-home">🏠 Back to Training Hub</a>
+</div>
+
+<script>
+function checkStatus(){
+  var l1=localStorage.getItem('janman_l1_done')==='true';
+  var l2=localStorage.getItem('janman_l2_done')==='true';
+  var l3=localStorage.getItem('janman_l3_done')==='true';
+
+  function setChip(id,done){
+    var el=document.getElementById(id);
+    var s=document.getElementById(id+'status');
+    if(done){el.classList.add('done');s.textContent='✅ Completed';}
+    else{el.classList.add('pending');s.textContent='❌ Not completed';}
+  }
+  setChip('chip1',l1);setChip('chip2',l2);setChip('chip3',l3);
+
+  if(l1&&l2&&l3){
+    document.getElementById('infoBlock').style.display='block';
+    // Pre-fill
+    var n=localStorage.getItem('janman_participant_name');
+    var o=localStorage.getItem('janman_participant_org');
+    var d=localStorage.getItem('janman_participant_desig');
+    var e=localStorage.getItem('janman_participant_email');
+    if(n) document.getElementById('pName').value=n;
+    if(o) document.getElementById('pOrg').value=o;
+    if(d) document.getElementById('pDesig').value=d;
+    if(e) document.getElementById('pEmail').value=e;
+  } else {
+    document.getElementById('lockMsg').style.display='block';
+  }
+}
+
+function generateFinalCert(){
+  var name=document.getElementById('pName').value.trim();
+  if(!name){alert('Please enter your full name.');return;}
+  var org=document.getElementById('pOrg').value.trim();
+  var desig=document.getElementById('pDesig').value.trim();
+  var email=document.getElementById('pEmail').value.trim();
+
+  var certNo='JPF-GBV-'+Date.now().toString(36).toUpperCase();
+  var now=new Date();
+  var dateStr=now.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
+
+  document.getElementById('cName').textContent=name;
+  var orgStr=(desig&&org)?(desig+', '+org):(org||desig||'');
+  document.getElementById('cOrg').textContent=orgStr?orgStr+',':'';
+
+  var s2=localStorage.getItem('janman_l2_score')||'Completed';
+  var s3=localStorage.getItem('janman_l3_score')||'Completed';
+  document.getElementById('cScore1').textContent='Completed';
+  document.getElementById('cScore2').textContent=s2;
+  document.getElementById('cScore3').textContent=s3;
+
+  document.getElementById('cNo').textContent=certNo;
+  document.getElementById('cDate').textContent=dateStr;
+  document.getElementById('cNoSmall').textContent='Certificate No: '+certNo+(email?' | '+email:'');
+
+  localStorage.setItem('janman_final_done','true');
+  localStorage.setItem('janman_final_cert_no',certNo);
+  localStorage.setItem('janman_final_date',dateStr);
+
+  document.getElementById('infoBlock').style.display='none';
+  document.getElementById('finalCert').style.display='block';
+  document.getElementById('actionBtns').style.display='flex';
+  document.getElementById('finalCert').scrollIntoView({behavior:'smooth'});
+}
+
+function downloadFinalCert(){
+  var w=window.open('','_blank');
+  var cert=document.getElementById('finalCert').outerHTML;
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>JPF GBV Final Certificate</title><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"><style>body{font-family:Georgia,serif;background:#fff;display:flex;justify-content:center;padding:30px}@page{size:A4 landscape;margin:10mm}.certificate{display:block!important;border:10px double #1a2a4a;padding:40px;max-width:900px;border-radius:12px;text-align:center;box-shadow:none}.cert-bg-pattern{display:none}.cert-top-band{background:#1a2a4a;color:#fff;padding:16px;border-radius:8px;margin-bottom:20px}.cert-org-name{font-size:1.4rem;font-weight:700;letter-spacing:2px}.cert-org-sub{font-size:.78rem;opacity:.8;margin-top:3px;letter-spacing:1px}.cert-ribbon{background:#FF6B00;color:#fff;font-size:.75rem;font-weight:700;letter-spacing:3px;padding:5px 18px;text-transform:uppercase;border-radius:4px;display:inline-block;margin:12px 0 5px}.cert-presents{font-size:.83rem;color:#6c757d;margin-bottom:3px}.cert-type{font-size:1.2rem;font-weight:700;color:#1a2a4a;letter-spacing:1px;margin-bottom:16px}.cert-name{font-size:2rem;color:#FF6B00;font-style:italic;font-weight:700;border-bottom:2px solid #FF6B00;padding-bottom:7px;display:inline-block;margin:0 auto 14px;min-width:280px}.cert-body-text{font-size:.87rem;color:#444;line-height:1.9;margin-bottom:18px}.cert-modules{border:1px solid #dee2e6;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.83rem;text-align:left;background:#fef9f0}.cert-modules h4{color:#1a2a4a;margin-bottom:8px;font-size:.87rem}.cert-module-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed #dee2e6}.cert-module-row:last-child{border-bottom:none}.cert-module-name{color:#333;font-weight:600}.cert-module-score{color:#2d6a4f;font-weight:700}.cert-sig-block{display:flex;justify-content:center;gap:70px;margin-top:28px;align-items:flex-end}.sig-area{text-align:center}.sig-cursive{font-family:"Dancing Script",cursive;font-size:1.9rem;color:#1a2a4a;display:block;line-height:1.1}.sig-under{font-size:.73rem;color:#6c757d;border-top:1px solid #999;padding-top:7px;margin-top:7px}.cert-seal-big{width:72px;height:72px;border-radius:50%;background:#1a2a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.53rem;text-align:center;font-weight:700;margin:0 auto 8px;letter-spacing:.5px;line-height:1.4;border:3px solid #FF6B00}.cert-footer{margin-top:20px;padding-top:12px;border-top:1px solid #dee2e6;font-size:.7rem;color:#6c757d}</style></head><body>'+cert+'</body></html>');
+  w.document.close();
+  setTimeout(function(){w.print();},800);
+}
+
+window.onload=checkStatus;
+</script>
+</body>
+</html>

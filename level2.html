@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2: विधिक प्रावधान | Legal Provisions – GBV Training</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Serif:wght@400;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Serif+Devanagari:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--saffron:#D9621E;--navy:#1B3A6B;--green:#2D7A46;--yellow:#F2C12E;--charcoal:#2C2C2C;--parchment:#F5EFE6;--white:#fff;--navy-dark:#0D2245;--red:#AA0000;--radius:8px;--shadow:0 2px 8px rgba(0,0,0,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans Devanagari','Noto Sans',sans-serif;background:var(--parchment);color:var(--charcoal);font-size:15px;line-height:1.7}
+a{color:var(--navy)}
+#site-header{background:var(--navy);color:#fff;padding:0 1.5rem}
+.header-inner{max-width:960px;margin:auto;display:flex;align-items:center;gap:1rem;padding:.9rem 0}
+.logo-circle{width:44px;height:44px;border-radius:50%;background:var(--saffron);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700;color:#fff;flex-shrink:0}
+.module-title{flex:1;text-align:right}
+.module-title h1{font-family:'Noto Serif Devanagari',serif;font-size:1rem;color:#fff;line-height:1.3}
+#progress-bar{background:var(--navy-dark);height:5px}
+#progress-fill{height:100%;background:var(--saffron);width:0%;transition:width .4s}
+#mod-nav{background:#fff;border-bottom:3px solid var(--parchment);overflow-x:auto;white-space:nowrap}
+.nav-inner{max-width:960px;margin:auto;display:flex}
+.nav-tab{padding:.65rem 1rem;font-size:.82rem;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;color:var(--charcoal);opacity:.7;transition:.2s;flex-shrink:0;margin-bottom:-3px}
+.nav-tab.active{opacity:1;border-bottom-color:var(--saffron);color:var(--saffron)}
+.nav-tab.done::after{content:' ✓';color:var(--green)}
+main{max-width:960px;margin:1.5rem auto;padding:0 1rem 3rem}
+.module{display:none}.module.active{display:block}
+.card{background:#fff;border-radius:10px;padding:1.5rem;margin-bottom:1.25rem;box-shadow:var(--shadow)}
+.card h2{color:var(--navy);font-family:'Noto Serif Devanagari',serif;font-size:1.2rem;margin-bottom:.75rem}
+.card h3{color:var(--saffron);font-size:1rem;margin:.75rem 0 .5rem;font-weight:700}
+.card p{margin-bottom:.75rem}
+.highlight{background:#FFF3E0;border-left:4px solid var(--saffron);padding:.75rem 1rem;border-radius:0 8px 8px 0;margin:.75rem 0;font-size:.9rem}
+.highlight.green{background:#E8F5E9;border-color:var(--green)}
+.highlight.blue{background:#E3F2FD;border-color:var(--navy)}
+.highlight.red{background:#FFEBEE;border-color:var(--red)}
+table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.88rem}
+th{background:var(--navy);color:#fff;padding:.6rem .8rem;text-align:left}
+td{padding:.55rem .8rem;border-bottom:1px solid #eee}
+tr:nth-child(even){background:#f9f9f9}
+.badge{display:inline-block;padding:.2rem .65rem;border-radius:20px;font-size:.75rem;font-weight:700;margin:.15rem .1rem}
+.badge-navy{background:var(--navy);color:#fff}
+.badge-saffron{background:var(--saffron);color:#fff}
+.badge-green{background:var(--green);color:#fff}
+.quiz-section{background:#fff;border:2px solid var(--navy);border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+.quiz-section h3{color:var(--navy);margin-bottom:1rem}
+.question{margin-bottom:1.25rem;padding:1rem;background:var(--parchment);border-radius:8px}
+.question p{font-weight:600;margin-bottom:.75rem}
+.option{display:block;padding:.55rem .85rem;margin:.35rem 0;border:1.5px solid #ddd;border-radius:6px;cursor:pointer;transition:.2s;font-size:.9rem}
+.option:hover{background:#f0f0f0;border-color:var(--navy)}
+.option.correct{background:#E8F5E9;border-color:var(--green);color:var(--green);font-weight:600}
+.option.wrong{background:#FFEBEE;border-color:var(--red);color:var(--red)}
+.quiz-submit{background:var(--saffron);color:#fff;border:none;padding:.75rem 2rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:.75rem;display:block}
+.quiz-result{display:none;padding:1.25rem;border-radius:8px;margin-top:1rem;font-weight:600;text-align:center}
+.quiz-result.pass{background:#E8F5E9;color:var(--green);border:2px solid var(--green)}
+.quiz-result.fail{background:#FFEBEE;color:var(--red);border:2px solid var(--red)}
+.nav-btns{display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap}
+.btn{padding:.7rem 1.5rem;border-radius:8px;border:none;font-size:.95rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--saffron);color:#fff}
+.btn-secondary{background:var(--navy);color:#fff}
+.btn:hover{opacity:.9}
+.scenario{background:#fff;border-left:5px solid var(--saffron);border-radius:0 10px 10px 0;padding:1.25rem;margin:1rem 0;box-shadow:var(--shadow)}
+.scenario h4{color:var(--saffron);margin-bottom:.5rem}
+ul.checklist{list-style:none;padding:0}
+ul.checklist li{padding:.25rem 0 .25rem 1.5rem;position:relative;font-size:.9rem}
+ul.checklist li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--navy);font-size:.85rem;padding:.4rem .8rem;background:#fff;border-radius:20px;margin-bottom:1rem;box-shadow:var(--shadow);text-decoration:none}
+/* cert */
+.cert-form-section{display:none;background:#fff;border:2px solid var(--green);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center}
+.cert-form-section.show{display:block}
+.cert-form-section h2{color:var(--green);font-size:1.4rem;margin-bottom:.5rem}
+.cert-input{width:100%;padding:.75rem 1rem;border:1.5px solid #ddd;border-radius:8px;font-size:.95rem;margin-bottom:1rem;font-family:inherit}
+.cert-input:focus{outline:none;border-color:var(--green)}
+.cert-btn{background:var(--green);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;margin:.4rem}
+.level-badge-cert{display:inline-block;background:var(--navy);color:#fff;padding:.3rem .8rem;border-radius:20px;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+.cert-preview{background:linear-gradient(135deg,#1B3A6B,#0D2245);color:#fff;border-radius:12px;padding:2rem;margin:1.5rem 0;text-align:center;position:relative;overflow:hidden}
+.cert-preview::before{content:'';position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#D9621E,#F2C12E,#2D7A46,#F2C12E,#D9621E)}
+.cert-name-big{font-size:1.8rem;font-weight:700;color:var(--yellow);margin:1rem 0;font-family:'Noto Serif',serif}
+.cert-signature{font-family:'Dancing Script',cursive;font-size:1.6rem;color:var(--yellow);border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:.3rem;display:inline-block}
+.download-cert-btn{background:var(--yellow);color:var(--navy-dark);border:none;padding:.7rem 2rem;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;margin:.4rem}
+.next-lvl-btn{background:var(--saffron);color:#fff;padding:.7rem 2rem;border-radius:8px;font-size:.95rem;font-weight:700;cursor:pointer;margin:.4rem;border:none;text-decoration:none;display:inline-block}
+</style>
+</head>
+<body>
+
+<header id="site-header">
+<div class="header-inner">
+  <div class="logo-circle">J</div>
+  <div style="flex:1">
+    <div style="font-weight:700;font-size:1rem">Janman People's Foundation</div>
+    <div style="font-size:.78rem;opacity:.8">लिंग-आधारित हिंसा कानून प्रशिक्षण</div>
+  </div>
+  <div class="module-title">
+    <h1>Level 2: विधिक प्रावधान एवं प्रक्रिया</h1>
+    <small style="font-size:.72rem;opacity:.7">Legal Provisions & Procedures — Intermediate</small>
+  </div>
+</div>
+</header>
+
+<div id="progress-bar"><div id="progress-fill"></div></div>
+
+<nav id="mod-nav">
+<div class="nav-inner">
+  <div class="nav-tab active" onclick="showMod(0)" id="tab0">📋 POSH अधिनियम</div>
+  <div class="nav-tab" onclick="showMod(1)" id="tab1">🏠 PWDVA उपचार</div>
+  <div class="nav-tab" onclick="showMod(2)" id="tab2">👧 POCSO प्रक्रिया</div>
+  <div class="nav-tab" onclick="showMod(3)" id="tab3">⚖️ BNS प्रावधान</div>
+  <div class="nav-tab" onclick="showMod(4)" id="tab4">💍 PCMA</div>
+  <div class="nav-tab" onclick="showMod(5)" id="tab5">📝 प्रश्नोत्तरी</div>
+</div>
+</nav>
+
+<main>
+<a href="index.html" class="back-link">← प्रशिक्षण केन्द्र पर वापस जाएं</a>
+
+<!-- MODULE 0: POSH Deep Dive -->
+<div class="module active" id="mod0">
+<div class="card">
+  <h2>🏢 POSH अधिनियम — गहन अध्ययन (Sexual Harassment of Women at Workplace Act, 2013)</h2>
+  <p>Level 1 में हमने POSH का परिचय पाया। अब हम इसके क्रियान्वयन, ICC की संरचना और शिकायत प्रक्रिया को विस्तार से समझेंगे।</p>
+
+  <h3>🏛️ Internal Complaints Committee (ICC) — संरचना</h3>
+  <table>
+    <tr><th>सदस्य</th><th>आवश्यकता</th><th>कार्यकाल</th></tr>
+    <tr><td>अध्यक्ष (Presiding Officer)</td><td>वरिष्ठ महिला कर्मचारी</td><td>3 वर्ष</td></tr>
+    <tr><td>महिला सदस्य</td><td>न्यूनतम 2, कुल सदस्यों के 50% से कम नहीं</td><td>3 वर्ष</td></tr>
+    <tr><td>बाह्य सदस्य</td><td>NGO/महिला अधिकार विशेषज्ञ</td><td>3 वर्ष</td></tr>
+  </table>
+  <div class="highlight">⚠️ 10 से कम कर्मचारी वाले संस्थानों या असंगठित क्षेत्र के लिए — Local Complaints Committee (LCC) जिला स्तर पर।</div>
+
+  <h3>📋 शिकायत प्रक्रिया (Complaint Process)</h3>
+  <div class="scenario">
+    <h4>Step-by-Step: शिकायत कैसे करें</h4>
+    <ul class="checklist">
+      <li>घटना के <strong>3 महीने</strong> के भीतर लिखित शिकायत ICC को</li>
+      <li>ICC 7 दिनों में प्रत्यर्थी (respondent) को नोटिस</li>
+      <li>समझौता (Conciliation) — केवल पीड़िता के अनुरोध पर, मौद्रिक समझौता नहीं</li>
+      <li>जांच (Inquiry) — <strong>90 दिनों</strong> में पूरी होनी चाहिए</li>
+      <li>रिपोर्ट 60 दिन में नियोक्ता को, नियोक्ता 60 दिन में कार्यवाही</li>
+    </ul>
+  </div>
+
+  <h3>⚡ Interim Relief (अंतरिम राहत)</h3>
+  <p>ICC जांच के दौरान निम्न अंतरिम राहत दे सकती है:</p>
+  <ul class="checklist">
+    <li>पीड़िता का स्थानांतरण (transfer) या leave</li>
+    <li>प्रत्यर्थी को रिपोर्टिंग अधिकारी से हटाना</li>
+    <li>जांच पूरी होने तक प्रत्यर्थी का निलंबन</li>
+  </ul>
+
+  <h3>🚫 क्या नहीं होना चाहिए</h3>
+  <div class="highlight red">
+    <strong>POSH में Conciliation:</strong> यदि पीड़िता की सहमति हो तो समझौता हो सकता है, परंतु <em>monetary settlement</em> को शिकायत निपटारे का आधार नहीं बनाया जा सकता।
+  </div>
+
+  <h3>📊 वार्षिक रिपोर्ट (Annual Report)</h3>
+  <p>प्रत्येक ICC को वार्षिक रिपोर्ट जिला अधिकारी को देनी होती है जिसमें: शिकायतों की संख्या, निपटान और लंबित मामले शामिल हों।</p>
+</div>
+<div class="nav-btns">
+  <button class="btn btn-primary" onclick="showMod(1)">अगला: PWDVA उपचार ▶</button>
+</div>
+</div>
+
+<!-- MODULE 1: PWDVA Remedies -->
+<div class="module" id="mod1">
+<div class="card">
+  <h2>🏠 घरेलू हिंसा अधिनियम — उपचार एवं आदेश (PWDVA 2005)</h2>
+
+  <h3>📜 PWDVA के अंतर्गत 4 प्रकार के आदेश</h3>
+  <table>
+    <tr><th>आदेश</th><th>विवरण</th><th>कौन दे सकता है</th></tr>
+    <tr><td><strong>Protection Order</strong><br>धारा 18</td><td>हिंसा रोकने का आदेश, प्रत्यर्थी से संपर्क न करे</td><td>Magistrate</td></tr>
+    <tr><td><strong>Residence Order</strong><br>धारा 19</td><td>Shared household में रहने का अधिकार, बेदखल न करे</td><td>Magistrate</td></tr>
+    <tr><td><strong>Monetary Relief</strong><br>धारा 20</td><td>खर्च, नुकसान, बच्चों का भरण-पोषण</td><td>Magistrate</td></tr>
+    <tr><td><strong>Custody Order</strong><br>धारा 21</td><td>बच्चों की अस्थायी अभिरक्षा</td><td>Magistrate</td></tr>
+  </table>
+
+  <h3>⚡ Ex-Parte Order (एकपक्षीय आदेश)</h3>
+  <div class="highlight green">
+    <strong>धारा 23:</strong> यदि तत्काल खतरा हो, Magistrate बिना प्रत्यर्थी को सुने एकपक्षीय आदेश दे सकता है। यह DV Act की सबसे शक्तिशाली विशेषता है।
+  </div>
+
+  <h3>👮 Protection Officer की भूमिका</h3>
+  <ul class="checklist">
+    <li>पीड़िता की Domestic Incident Report (DIR) तैयार करना</li>
+    <li>Medical facilities तक पहुँच सुनिश्चित करना</li>
+    <li>Shelter home में आश्रय दिलाना</li>
+    <li>Magistrate की सहायता करना</li>
+  </ul>
+
+  <h3>🏡 Shared Household का अर्थ</h3>
+  <p>वह घर जहाँ पीड़िता और प्रत्यर्थी साथ रहते थे या रहते हैं, चाहे उसका स्वामित्व किसी का भी हो। पत्नी को ससुराल से बेदखल नहीं किया जा सकता।</p>
+
+  <div class="highlight">
+    <strong>महत्वपूर्ण SC निर्णय:</strong> <em>Satish Chander Ahuja v. Sneha Ahuja (2020)</em> — SC ने स्पष्ट किया कि shared household वह है जहाँ पीड़िता पति के साथ रहती थी, चाहे संपत्ति सास-ससुर की हो।
+  </div>
+
+  <h3>📱 DIR और उसका महत्व</h3>
+  <div class="scenario">
+    <h4>Domestic Incident Report (DIR) — Form I</h4>
+    <p>यह Protection Officer द्वारा भरा जाता है और इसमें होता है:</p>
+    <ul class="checklist">
+      <li>हिंसा का प्रकार (शारीरिक/मानसिक/आर्थिक/यौन)</li>
+      <li>पीड़िता और प्रत्यर्थी का विवरण</li>
+      <li>बच्चों का विवरण</li>
+      <li>पीड़िता की तत्काल जरूरतें</li>
+    </ul>
+  </div>
+</div>
+<div class="nav-btns">
+  <button class="btn btn-secondary" onclick="showMod(0)">◀ पिछला</button>
+  <button class="btn btn-primary" onclick="showMod(2)">अगला: POCSO प्रक्रिया ▶</button>
+</div>
+</div>
+
+<!-- MODULE 2: POCSO Procedures -->
+<div class="module" id="mod2">
+<div class="card">
+  <h2>👧 POCSO अधिनियम — बाल-अनुकूल प्रक्रिया (POCSO Act 2012)</h2>
+
+  <h3>🚨 अनिवार्य रिपोर्टिंग (Mandatory Reporting)</h3>
+  <div class="highlight">
+    <strong>धारा 19:</strong> <em>प्रत्येक व्यक्ति</em> जिसे POCSO अपराध की जानकारी हो, वह Special Juvenile Police Unit (SJPU) या स्थानीय पुलिस को रिपोर्ट करने के लिए बाध्य है। रिपोर्ट न करना — 6 महीने तक कारावास।
+  </div>
+
+  <h3>⏱️ महत्वपूर्ण समयसीमाएं</h3>
+  <table>
+    <tr><th>कार्य</th><th>समयसीमा</th></tr>
+    <tr><td>FIR पंजीकरण के बाद Special Court को भेजना</td><td>24 घंटे</td></tr>
+    <tr><td>बच्चे का Statement (CWC के सामने)</td><td>30 दिन</td></tr>
+    <tr><td>Special Court में विचारण पूर्ण</td><td>1 वर्ष</td></tr>
+    <tr><td>Compensation आवेदन पर निर्णय</td><td>60 दिन</td></tr>
+  </table>
+
+  <h3>🏛️ Special Court की शक्तियां</h3>
+  <ul class="checklist">
+    <li>In-camera trial (बंद कमरे में सुनवाई)</li>
+    <li>बच्चे की गवाही screen के पीछे लेना</li>
+    <li>Child's Statement — Magistrate के सामने, न Police Station में</li>
+    <li>बच्चे से जिरह (cross-examination) में सीधे प्रश्न नहीं</li>
+    <li>Compensation — DLSA से या State Government से</li>
+  </ul>
+
+  <h3>💰 मुआवजा (Compensation under POCSO)</h3>
+  <div class="scenario">
+    <h4>धारा 33(8) — Compensation का अधिकार</h4>
+    <p>Special Court किसी भी stage पर (दोष सिद्धि से पहले भी) DLSA से interim compensation दिला सकता है। यह Criminal Law से अलग अधिकार है।</p>
+  </div>
+
+  <h3>🔒 बच्चे की पहचान सुरक्षा</h3>
+  <div class="highlight red">
+    <strong>धारा 23:</strong> कोई भी मीडिया, व्यक्ति या संस्था बाल पीड़ित की पहचान उजागर नहीं कर सकती। उल्लंघन पर 6 महीने से 1 वर्ष कारावास।
+  </div>
+
+  <h3>👨‍⚕️ Medical Examination</h3>
+  <p>धारा 27 के अंतर्गत: बालिका का परीक्षण महिला डॉक्टर द्वारा ही। माता-पिता/अभिभावक की उपस्थिति। FIR के बिना भी medical examination हो सकता है।</p>
+</div>
+<div class="nav-btns">
+  <button class="btn btn-secondary" onclick="showMod(1)">◀ पिछला</button>
+  <button class="btn btn-primary" onclick="showMod(3)">अगला: BNS प्रावधान ▶</button>
+</div>
+</div>
+
+<!-- MODULE 3: BNS Provisions -->
+<div class="module" id="mod3">
+<div class="card">
+  <h2>⚖️ भारतीय न्याय संहिता (BNS) — GBV से संबंधित प्रमुख प्रावधान</h2>
+  <p>IPC (1860) को BNS (2023) ने प्रतिस्थापित किया है। जानते हैं कि GBV के लिए कौन सी नई धाराएं आईं।</p>
+
+  <h3>🔑 प्रमुख धाराएं — तुलनात्मक</h3>
+  <table>
+    <tr><th>अपराध</th><th>पुरानी IPC धारा</th><th>नई BNS धारा</th><th>मुख्य परिवर्तन</th></tr>
+    <tr><td>बलात्कार</td><td>375, 376</td><td>63, 64</td><td>Marital rape (18 वर्ष से कम पत्नी) — अपवाद हटा, पति पर भी 10-20 वर्ष</td></tr>
+    <tr><td>यौन उत्पीड़न</td><td>354</td><td>74</td><td>Expanded definition</td></tr>
+    <tr><td>Stalking</td><td>354D</td><td>78</td><td>Digital/online stalking भी शामिल</td></tr>
+    <tr><td>Voyeurism</td><td>354C</td><td>77</td><td>कोई बड़ा बदलाव नहीं</td></tr>
+    <tr><td>दहेज मृत्यु</td><td>304B</td><td>80</td><td>Same provision</td></tr>
+    <tr><td>पति/परिजन की क्रूरता</td><td>498A</td><td>85</td><td>Same provision</td></tr>
+    <tr><td>Acid Attack</td><td>326A, 326B</td><td>124, 125</td><td>Mandatory minimum 10 वर्ष, जुर्माना पीड़ित को</td></tr>
+    <tr><td>बाल विवाह</td><td>—</td><td>94</td><td>PCMA के साथ alignment</td></tr>
+  </table>
+
+  <h3>🆕 BNS की नई विशेषताएं</h3>
+  <div class="highlight green">
+    <strong>Organized Crime & GBV:</strong> BNS की धारा 111 — trafficking और sexual exploitation को organized crime के रूप में treat किया गया। अधिकतम आजीवन कारावास।
+  </div>
+
+  <h3>📱 Digital Offences (साइबर अपराध)</h3>
+  <ul class="checklist">
+    <li>धारा 78 — Online stalking, social media पर harassment</li>
+    <li>IT Act 2000 की धारा 66E (Voyeurism) + BNS 77 — दोनों साथ लागू</li>
+    <li>Non-consensual intimate images sharing — IT Act + BNS दोनों</li>
+  </ul>
+
+  <h3>⏰ BNSS (Bharatiya Nagarik Suraksha Sanhita) — प्रक्रिया परिवर्तन</h3>
+  <table>
+    <tr><th>बिंदु</th><th>पुरानी CrPC</th><th>नई BNSS</th></tr>
+    <tr><td>Video conferencing में बयान</td><td>सीमित</td><td>महिला गवाह घर से दे सकती है</td></tr>
+    <tr><td>Zero FIR</td><td>कोई प्रावधान नहीं</td><td>किसी भी थाने में FIR — BNSS धारा 173</td></tr>
+    <tr><td>Trial timeline</td><td>अनिश्चित</td><td>Sexual offence — 2 वर्ष में निपटान अनिवार्य</td></tr>
+  </table>
+</div>
+<div class="nav-btns">
+  <button class="btn btn-secondary" onclick="showMod(2)">◀ पिछला</button>
+  <button class="btn btn-primary" onclick="showMod(4)">अगला: PCMA ▶</button>
+</div>
+</div>
+
+<!-- MODULE 4: PCMA -->
+<div class="module" id="mod4">
+<div class="card">
+  <h2>💍 बाल विवाह प्रतिषेध अधिनियम (PCMA 2006) — विस्तृत अध्ययन</h2>
+
+  <h3>🔑 PCMA 2006 बनाम CMRA 1929</h3>
+  <table>
+    <tr><th>पहलू</th><th>CMRA 1929</th><th>PCMA 2006</th></tr>
+    <tr><td>विवाह की स्थिति</td><td>Voidable (अपेक्षित रूप से रद्द)</td><td>Voidable + Void (विशेष परिस्थितियों में)</td></tr>
+    <tr><td>बाल पीड़ित द्वारा रद्द</td><td>2 वर्ष के भीतर</td><td>18/21 वर्ष के 2 वर्ष के भीतर</td></tr>
+    <tr><td>CMPO</td><td>नहीं</td><td>Child Marriage Prohibition Officer</td></tr>
+    <tr><td>Injunction</td><td>नहीं</td><td>धारा 13 — Court रोक दे सकता है</td></tr>
+  </table>
+
+  <h3>🚫 Void (पूर्णतः शून्य) विवाह — कब?</h3>
+  <div class="highlight red">
+    <strong>धारा 12 — Void Marriage:</strong> यदि बच्चे को trafficking करके या बलपूर्वक ले जाकर विवाह कराया गया हो, तो विवाह पूर्णतः शून्य (void)। Trafficker/Guardian पर सख्त दंड।
+  </div>
+
+  <h3>👩‍⚖️ CMPO — Child Marriage Prohibition Officer</h3>
+  <ul class="checklist">
+    <li>बाल विवाह की सूचना प्राप्त करना</li>
+    <li>Court में petition दायर करना</li>
+    <li>Injunction के लिए आवेदन</li>
+    <li>पीड़ित बच्चे को सहायता दिलाना</li>
+  </ul>
+
+  <h3>💰 बालिका के अधिकार — Maintenance और Residence</h3>
+  <div class="highlight green">
+    यदि बाल विवाह रद्द हो, तो Court बालिका को <strong>maintenance और residence</strong> का आदेश दे सकता है जब तक वह पुनर्विवाह न करे। बच्चों की अभिरक्षा — बालिका के पक्ष में।
+  </div>
+
+  <h3>⚠️ Society for Enlightenment v. UoI (2024)</h3>
+  <div class="scenario">
+    <h4>सुप्रीम कोर्ट का ऐतिहासिक निर्णय (2024)</h4>
+    <p>SC ने सरकार को बाल विवाह रोकने के लिए comprehensive action plan बनाने का निर्देश दिया। Court ने कहा — बाल विवाह <em>"a violation of human rights"</em> है, केवल सामाजिक समस्या नहीं।</p>
+  </div>
+</div>
+<div class="nav-btns">
+  <button class="btn btn-secondary" onclick="showMod(3)">◀ पिछला</button>
+  <button class="btn btn-primary" onclick="showMod(5)">▶ प्रश्नोत्तरी (Quiz)</button>
+</div>
+</div>
+
+<!-- MODULE 5: QUIZ -->
+<div class="module" id="mod5">
+<div class="quiz-section">
+  <h3>📝 Level 2 — प्रश्नोत्तरी (20 प्रश्न)</h3>
+  <p style="color:#555;font-size:.9rem;margin-bottom:1.5rem">सभी प्रश्नों के उत्तर देकर Submit करें। 70% अंक प्राप्त करने पर Level 2 Certificate मिलेगा।</p>
+
+  <div id="quiz-form">
+  <!-- Q1 -->
+  <div class="question">
+    <p>1. ICC की अध्यक्षता कौन करता/करती है?</p>
+    <label class="option"><input type="radio" name="q1" value="a"> कोई भी वरिष्ठ पुरुष अधिकारी</label>
+    <label class="option"><input type="radio" name="q1" value="b"> वरिष्ठ महिला कर्मचारी</label>
+    <label class="option"><input type="radio" name="q1" value="c"> HR Manager</label>
+    <label class="option"><input type="radio" name="q1" value="d"> जिला अधिकारी</label>
+  </div>
+  <!-- Q2 -->
+  <div class="question">
+    <p>2. POSH अधिनियम के तहत ICC जांच कितने दिनों में पूरी होनी चाहिए?</p>
+    <label class="option"><input type="radio" name="q2" value="a"> 30 दिन</label>
+    <label class="option"><input type="radio" name="q2" value="b"> 60 दिन</label>
+    <label class="option"><input type="radio" name="q2" value="c"> 90 दिन</label>
+    <label class="option"><input type="radio" name="q2" value="d"> 120 दिन</label>
+  </div>
+  <!-- Q3 -->
+  <div class="question">
+    <p>3. PWDVA की किस धारा के अंतर्गत Ex-Parte आदेश दिया जा सकता है?</p>
+    <label class="option"><input type="radio" name="q3" value="a"> धारा 18</label>
+    <label class="option"><input type="radio" name="q3" value="b"> धारा 19</label>
+    <label class="option"><input type="radio" name="q3" value="c"> धारा 23</label>
+    <label class="option"><input type="radio" name="q3" value="d"> धारा 21</label>
+  </div>
+  <!-- Q4 -->
+  <div class="question">
+    <p>4. PWDVA के अंतर्गत Monetary Relief किस धारा में प्रावधानित है?</p>
+    <label class="option"><input type="radio" name="q4" value="a"> धारा 18</label>
+    <label class="option"><input type="radio" name="q4" value="b"> धारा 19</label>
+    <label class="option"><input type="radio" name="q4" value="c"> धारा 20</label>
+    <label class="option"><input type="radio" name="q4" value="d"> धारा 22</label>
+  </div>
+  <!-- Q5 -->
+  <div class="question">
+    <p>5. POCSO के अंतर्गत अनिवार्य रिपोर्टिंग (Mandatory Reporting) का दायित्व किस पर है?</p>
+    <label class="option"><input type="radio" name="q5" value="a"> केवल डॉक्टर और नर्स पर</label>
+    <label class="option"><input type="radio" name="q5" value="b"> केवल सरकारी अधिकारियों पर</label>
+    <label class="option"><input type="radio" name="q5" value="c"> प्रत्येक व्यक्ति पर जिसे अपराध की जानकारी हो</label>
+    <label class="option"><input type="radio" name="q5" value="d"> केवल माता-पिता पर</label>
+  </div>
+  <!-- Q6 -->
+  <div class="question">
+    <p>6. POCSO Special Court में विचारण (Trial) कितने समय में पूरा होना चाहिए?</p>
+    <label class="option"><input type="radio" name="q6" value="a"> 6 महीने</label>
+    <label class="option"><input type="radio" name="q6" value="b"> 1 वर्ष</label>
+    <label class="option"><input type="radio" name="q6" value="c"> 2 वर्ष</label>
+    <label class="option"><input type="radio" name="q6" value="d"> 3 वर्ष</label>
+  </div>
+  <!-- Q7 -->
+  <div class="question">
+    <p>7. BNS में Stalking (Offline + Online) के लिए कौन सी धारा है?</p>
+    <label class="option"><input type="radio" name="q7" value="a"> धारा 74</label>
+    <label class="option"><input type="radio" name="q7" value="b"> धारा 77</label>
+    <label class="option"><input type="radio" name="q7" value="c"> धारा 78</label>
+    <label class="option"><input type="radio" name="q7" value="d"> धारा 80</label>
+  </div>
+  <!-- Q8 -->
+  <div class="question">
+    <p>8. IPC की धारा 498A का BNS में क्या समकक्ष है?</p>
+    <label class="option"><input type="radio" name="q8" value="a"> धारा 74</label>
+    <label class="option"><input type="radio" name="q8" value="b"> धारा 80</label>
+    <label class="option"><input type="radio" name="q8" value="c"> धारा 85</label>
+    <label class="option"><input type="radio" name="q8" value="d"> धारा 94</label>
+  </div>
+  <!-- Q9 -->
+  <div class="question">
+    <p>9. PCMA 2006 के अंतर्गत बाल विवाह को <em>void</em> (पूर्णतः शून्य) कब माना जाता है?</p>
+    <label class="option"><input type="radio" name="q9" value="a"> हमेशा</label>
+    <label class="option"><input type="radio" name="q9" value="b"> जब बच्चे को trafficking या बलपूर्वक विवाह में ले जाया गया हो</label>
+    <label class="option"><input type="radio" name="q9" value="c"> जब वर की आयु 21 वर्ष से कम हो</label>
+    <label class="option"><input type="radio" name="q9" value="d"> जब विवाह ग्राम पंचायत ने कराया हो</label>
+  </div>
+  <!-- Q10 -->
+  <div class="question">
+    <p>10. BNSS में Zero FIR का क्या अर्थ है?</p>
+    <label class="option"><input type="radio" name="q10" value="a"> FIR में zero शिकायत होना</label>
+    <label class="option"><input type="radio" name="q10" value="b"> किसी भी थाने में FIR दर्ज कराई जा सकती है, क्षेत्राधिकार की बाध्यता नहीं</label>
+    <label class="option"><input type="radio" name="q10" value="c"> ऑनलाइन FIR</label>
+    <label class="option"><input type="radio" name="q10" value="d"> पुलिस द्वारा बिना जांच FIR</label>
+  </div>
+  <!-- Q11-20 -->
+  <div class="question">
+    <p>11. POSH अधिनियम के तहत शिकायत करने की समयसीमा क्या है?</p>
+    <label class="option"><input type="radio" name="q11" value="a"> 1 महीना</label>
+    <label class="option"><input type="radio" name="q11" value="b"> 3 महीने (ICC विशेष कारण से बढ़ा सकती है)</label>
+    <label class="option"><input type="radio" name="q11" value="c"> 6 महीने</label>
+    <label class="option"><input type="radio" name="q11" value="d"> कोई समयसीमा नहीं</label>
+  </div>
+  <div class="question">
+    <p>12. ICC में कुल सदस्यों में कितने प्रतिशत महिला सदस्य होनी चाहिए?</p>
+    <label class="option"><input type="radio" name="q12" value="a"> 25%</label>
+    <label class="option"><input type="radio" name="q12" value="b"> 33%</label>
+    <label class="option"><input type="radio" name="q12" value="c"> 50% से कम नहीं</label>
+    <label class="option"><input type="radio" name="q12" value="d"> 75%</label>
+  </div>
+  <div class="question">
+    <p>13. PWDVA की किस धारा में Residence Order है?</p>
+    <label class="option"><input type="radio" name="q13" value="a"> धारा 17</label>
+    <label class="option"><input type="radio" name="q13" value="b"> धारा 18</label>
+    <label class="option"><input type="radio" name="q13" value="c"> धारा 19</label>
+    <label class="option"><input type="radio" name="q13" value="d"> धारा 20</label>
+  </div>
+  <div class="question">
+    <p>14. POCSO में बालिका की Medical Examination कौन करता है?</p>
+    <label class="option"><input type="radio" name="q14" value="a"> कोई भी डॉक्टर</label>
+    <label class="option"><input type="radio" name="q14" value="b"> केवल महिला डॉक्टर</label>
+    <label class="option"><input type="radio" name="q14" value="c"> बाल रोग विशेषज्ञ</label>
+    <label class="option"><input type="radio" name="q14" value="d"> Forensic Expert</label>
+  </div>
+  <div class="question">
+    <p>15. BNS की कौन सी धारा Acid Attack को cover करती है?</p>
+    <label class="option"><input type="radio" name="q15" value="a"> धारा 64</label>
+    <label class="option"><input type="radio" name="q15" value="b"> धारा 74</label>
+    <label class="option"><input type="radio" name="q15" value="c"> धारा 124</label>
+    <label class="option"><input type="radio" name="q15" value="d"> धारा 85</label>
+  </div>
+  <div class="question">
+    <p>16. PCMA के तहत Child Marriage Prohibition Officer (CMPO) की नियुक्ति कौन करता है?</p>
+    <label class="option"><input type="radio" name="q16" value="a"> केंद्र सरकार</label>
+    <label class="option"><input type="radio" name="q16" value="b"> राज्य सरकार</label>
+    <label class="option"><input type="radio" name="q16" value="c"> जिला न्यायालय</label>
+    <label class="option"><input type="radio" name="q16" value="d"> National Commission for Women</label>
+  </div>
+  <div class="question">
+    <p>17. Satish Chander Ahuja v. Sneha Ahuja (2020) किस विषय पर था?</p>
+    <label class="option"><input type="radio" name="q17" value="a"> POSH Act — ICC की वैधता</label>
+    <label class="option"><input type="radio" name="q17" value="b"> PWDVA — Shared Household की परिभाषा</label>
+    <label class="option"><input type="radio" name="q17" value="c"> POCSO — In-camera trial</label>
+    <label class="option"><input type="radio" name="q17" value="d"> PCMA — Void Marriage</label>
+  </div>
+  <div class="question">
+    <p>18. POSH में ICC Conciliation कब कर सकती है?</p>
+    <label class="option"><input type="radio" name="q18" value="a"> हमेशा, दोनों पक्षों की सहमति से</label>
+    <label class="option"><input type="radio" name="q18" value="b"> केवल पीड़िता के अनुरोध पर</label>
+    <label class="option"><input type="radio" name="q18" value="c"> केवल नियोक्ता के कहने पर</label>
+    <label class="option"><input type="radio" name="q18" value="d"> Conciliation का POSH में कोई प्रावधान नहीं</label>
+  </div>
+  <div class="question">
+    <p>19. PWDVA के तहत Protection Order (धारा 18) का उद्देश्य क्या है?</p>
+    <label class="option"><input type="radio" name="q19" value="a"> घर से निष्कासन का आदेश</label>
+    <label class="option"><input type="radio" name="q19" value="b"> प्रत्यर्थी द्वारा हिंसा रोकना और पीड़िता से संपर्क न करना</label>
+    <label class="option"><input type="radio" name="q19" value="c"> भरण-पोषण का आदेश</label>
+    <label class="option"><input type="radio" name="q19" value="d"> बच्चों की अभिरक्षा</label>
+  </div>
+  <div class="question">
+    <p>20. BNSS के तहत Sexual Offence का trial कितने समय में पूरा होना चाहिए?</p>
+    <label class="option"><input type="radio" name="q20" value="a"> 6 महीने</label>
+    <label class="option"><input type="radio" name="q20" value="b"> 1 वर्ष</label>
+    <label class="option"><input type="radio" name="q20" value="c"> 2 वर्ष</label>
+    <label class="option"><input type="radio" name="q20" value="d"> कोई समयसीमा नहीं</label>
+  </div>
+
+  <button class="quiz-submit" onclick="submitQuiz()">✅ उत्तर सबमिट करें</button>
+  </div>
+  <div class="quiz-result" id="quiz-result">
+    <div id="score-display"></div>
+    <div id="result-msg"></div>
+  </div>
+</div>
+
+<!-- CERT SECTION -->
+<div class="cert-form-section" id="cert-section">
+  <div class="level-badge-cert">🎓 LEVEL 2 COMPLETE</div>
+  <h2>बधाई हो! Level 2 — Intermediate पूरी हुई</h2>
+  <p>अपना प्रमाण पत्र प्राप्त करें</p>
+  <input class="cert-input" type="text" id="p-name" placeholder="पूरा नाम / Full Name *">
+  <input class="cert-input" type="text" id="p-org" placeholder="संस्था / Organization">
+  <input class="cert-input" type="text" id="p-desig" placeholder="पद / Designation">
+  <input class="cert-input" type="email" id="p-email" placeholder="Email (optional)">
+  <button class="cert-btn" onclick="generateCert()">🏆 Certificate प्राप्त करें</button>
+  <div id="cert-display" style="display:none">
+    <div class="cert-preview" id="cert-preview-box">
+      <div style="font-size:.75rem;letter-spacing:2px;opacity:.7;margin-bottom:.5rem">JANMAN PEOPLE'S FOUNDATION</div>
+      <div style="font-family:'Noto Serif Devanagari',serif;font-size:1.5rem;margin:.5rem 0">Certificate of Completion</div>
+      <div style="font-size:.8rem;opacity:.7;margin:.3rem 0">लिंग-आधारित हिंसा कानून — Intermediate Level</div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);margin:1rem 0;padding-top:1rem;font-size:.9rem">This certifies that</div>
+      <div class="cert-name-big" id="cert-name-disp"></div>
+      <div id="cert-org-disp" style="font-size:.9rem;opacity:.8;margin:.3rem 0"></div>
+      <div style="border-top:1px solid rgba(255,255,255,.2);margin:1rem 0;padding-top:1rem;font-size:.9rem">
+        has successfully completed<br>
+        <strong style="color:#F2C12E;font-size:1.1rem">Level 2: विधिक प्रावधान एवं प्रक्रिया</strong><br>
+        <span style="font-size:.78rem;opacity:.75">Online Training on Gender-Based Violence Laws in India</span>
+      </div>
+      <div id="cert-score-disp" style="color:#F2C12E;font-size:.9rem;margin:.4rem 0"></div>
+      <div style="margin:1.5rem 0 1rem;display:flex;justify-content:space-around;align-items:flex-end;flex-wrap:wrap;gap:1rem">
+        <div style="text-align:center">
+          <div class="cert-signature">Shourya Roy</div>
+          <div style="font-size:.7rem;opacity:.7;margin-top:.3rem">Executive Director<br>Janman People's Foundation</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:2rem">⚖️</div>
+          <div id="cert-date-disp" style="font-size:.72rem;opacity:.7;margin-top:.2rem"></div>
+          <div id="cert-no-disp" style="font-size:.65rem;opacity:.6"></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:1.25rem">
+      <button class="download-cert-btn" onclick="downloadCert()">⬇ Certificate Download</button>
+      <a href="level3.html" class="next-lvl-btn">▶ Level 3 (Advanced) शुरू करें</a>
+    </div>
+  </div>
+</div>
+</div><!-- end mod5 -->
+
+</main>
+
+<script>
+var CORRECT = {q1:'b',q2:'c',q3:'c',q4:'c',q5:'c',q6:'b',q7:'c',q8:'c',q9:'b',q10:'b',q11:'b',q12:'c',q13:'c',q14:'b',q15:'c',q16:'b',q17:'b',q18:'b',q19:'b',q20:'c'};
+var currentMod = 0, totalMods = 6, modsDone = new Array(6).fill(false);
+
+function showMod(n) {
+  document.querySelectorAll('.module').forEach(function(m,i){m.classList.toggle('active',i===n)});
+  document.querySelectorAll('.nav-tab').forEach(function(t,i){t.classList.toggle('active',i===n)});
+  currentMod = n;
+  modsDone[n] = true;
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function updateProgress() {
+  var done = modsDone.filter(Boolean).length;
+  document.getElementById('progress-fill').style.width = (done/totalMods*100)+'%';
+}
+
+function submitQuiz() {
+  var score = 0, total = Object.keys(CORRECT).length;
+  var answered = 0;
+  Object.keys(CORRECT).forEach(function(q) {
+    var sel = document.querySelector('input[name="'+q+'"]:checked');
+    if(sel) {
+      answered++;
+      var labels = document.querySelectorAll('input[name="'+q+'"]');
+      labels.forEach(function(inp){
+        inp.disabled = true;
+        if(inp.value === CORRECT[q]) inp.parentElement.classList.add('correct');
+        else if(inp.checked) inp.parentElement.classList.add('wrong');
+      });
+      if(sel.value === CORRECT[q]) score++;
+    }
+  });
+  if(answered < total) { alert('कृपया सभी ' + (total-answered) + ' प्रश्नों का उत्तर दें'); return; }
+  var pct = Math.round(score/total*100);
+  var resultEl = document.getElementById('quiz-result');
+  resultEl.style.display = 'block';
+  resultEl.className = 'quiz-result ' + (pct >= 70 ? 'pass' : 'fail');
+  document.getElementById('score-display').textContent = 'आपका स्कोर: ' + score + '/' + total + ' (' + pct + '%)';
+  document.getElementById('result-msg').textContent = pct >= 70 ? '🎉 बधाई! आप Level 2 में सफल रहे। अब अपना Certificate प्राप्त करें।' : '❌ आपको 70% अंक प्राप्त नहीं हुए। Module दोबारा पढ़कर पुनः प्रयास करें।';
+  document.getElementById('quiz-form').querySelector('.quiz-submit').style.display = 'none';
+  if(pct >= 70) {
+    localStorage.setItem('janman_l2_done','1');
+    localStorage.setItem('janman_l2_score', pct+'%');
+    setTimeout(showCertForm, 1000);
+  }
+}
+
+var _certShown = false;
+function showCertForm() {
+  if(_certShown) return;
+  var sec = document.getElementById('cert-section');
+  if(sec) { sec.classList.add('show'); sec.scrollIntoView({behavior:'smooth'}); }
+  _certShown = true;
+  var savedName = localStorage.getItem('janman_participant_name')||'';
+  if(savedName) {
+    document.getElementById('p-name').value = savedName;
+    document.getElementById('p-org').value = localStorage.getItem('janman_participant_org')||'';
+    document.getElementById('p-email').value = localStorage.getItem('janman_participant_email')||'';
+    document.getElementById('p-desig').value = localStorage.getItem('janman_participant_desig')||'';
+  }
+}
+
+function generateCert() {
+  var name = document.getElementById('p-name').value.trim();
+  if(!name){ alert('कृपया नाम भरें'); return; }
+  var org = document.getElementById('p-org').value.trim();
+  var desig = document.getElementById('p-desig').value.trim();
+  localStorage.setItem('janman_participant_name',name);
+  localStorage.setItem('janman_participant_org',org);
+  localStorage.setItem('janman_participant_email',document.getElementById('p-email').value.trim());
+  localStorage.setItem('janman_participant_desig',desig);
+  localStorage.setItem('janman_l2_done','1');
+  var certNo = 'JPF-L2-'+Date.now().toString(36).toUpperCase().slice(-8);
+  localStorage.setItem('janman_l2_cert_no',certNo);
+  localStorage.setItem('janman_l2_date',new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}));
+  document.getElementById('cert-name-disp').textContent = name;
+  document.getElementById('cert-org-disp').textContent = (desig?desig+' | ':'')+org;
+  document.getElementById('cert-date-disp').textContent = new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+  document.getElementById('cert-no-disp').textContent = 'Cert No: '+certNo;
+  document.getElementById('cert-score-disp').textContent = 'Score: '+localStorage.getItem('janman_l2_score','');
+  document.getElementById('cert-display').style.display='block';
+}
+
+function downloadCert() {
+  var box = document.getElementById('cert-preview-box').outerHTML;
+  var w = window.open('','_blank','width=900,height=650');
+  w.document.write('<html><head><title>Certificate Level 2</title><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"><style>body{margin:2rem;font-family:sans-serif;background:#eee}.cert-preview{background:linear-gradient(135deg,#1B3A6B,#0D2245);color:#fff;padding:3rem;border-radius:12px;text-align:center;max-width:700px;margin:auto;position:relative}.cert-preview::before{content:"";position:absolute;top:0;left:0;right:0;height:8px;background:linear-gradient(90deg,#D9621E,#F2C12E,#2D7A46,#F2C12E,#D9621E)}.cert-name-big{font-size:2rem;color:#F2C12E;margin:1rem 0;font-weight:700}.cert-signature{font-family:"Dancing Script",cursive;font-size:1.8rem;color:#F2C12E;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:.3rem;display:inline-block}</style></head><body>'+box+'<script>window.print();<\/script></body></html>');
+  w.document.close();
+}
+
+// Restore if previously done
+if(localStorage.getItem('janman_l2_done')) showCertForm();
+updateProgress();
+</script>
+</body>
+</html>
