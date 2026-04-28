@@ -199,6 +199,34 @@ footer{background:var(--navy-dark);color:rgba(255,255,255,.7);text-align:center;
 .wa-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#128C7E;padding:12px 28px;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none}
 .wa-btn svg{flex-shrink:0}
 .support-footer{font-size:.75rem;opacity:.75;margin-top:10px}
+
+/* Floating Contact Button */
+#contactBtn{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border-radius:50px;padding:12px 18px 12px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(37,211,102,.4);animation:contactPulse 2s infinite;user-select:none}
+.contact-pulse{position:absolute;inset:-4px;border-radius:50px;background:rgba(37,211,102,.4);animation:ripple 2s infinite;z-index:-1}
+.contact-label{font-weight:700;font-size:.88rem;white-space:nowrap}
+@keyframes contactPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.6),0 0 0 8px rgba(37,211,102,0)}}
+@keyframes ripple{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.3);opacity:0}}
+/* Overlay */
+#contactOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10000;backdrop-filter:blur(2px)}
+/* Modal */
+#contactModal{display:none;position:fixed;bottom:84px;right:24px;width:min(480px,calc(100vw - 32px));background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.2);z-index:10001;padding:24px;max-height:90vh;overflow-y:auto}
+#contactModal.open,#contactOverlay.open{display:block}
+.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#6c757d;line-height:1}
+.modal-logo{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.modal-tagline{font-size:.82rem;color:#555;background:#f8f9fa;padding:10px 14px;border-radius:8px;margin-bottom:14px;line-height:1.6}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.contact-item{display:flex;align-items:flex-start;gap:10px;background:#f8f9fa;border-radius:8px;padding:10px 12px}
+.ci-icon{font-size:1.2rem;flex-shrink:0}
+.ci-label{font-size:.7rem;color:#6c757d;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.ci-value{font-size:.82rem;color:#1a2a4a;font-weight:600;text-decoration:none;word-break:break-all}
+.ci-value:hover{color:#FF6B00}
+.qr-section{display:flex;gap:16px;align-items:flex-start;border-top:1px solid #dee2e6;padding-top:16px}
+.qr-box{text-align:center;flex-shrink:0}
+.qr-label{font-size:.72rem;color:#6c757d;margin-top:6px;font-weight:600}
+.qr-number{font-size:.85rem;color:#1a2a4a;font-weight:700;margin-top:2px}
+.wa-direct-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;margin-top:auto}
+.wa-direct-btn:hover{background:#128C7E}
+@media(max-width:480px){.contact-grid{grid-template-columns:1fr}.qr-section{flex-direction:column;align-items:center}.qr-box{order:-1}}
 </style>
 </head>
 <body>
@@ -1260,11 +1288,119 @@ function downloadCert() {
   const certBox = document.getElementById('cert-preview-box');
   // Use print dialog as fallback
   const w = window.open('', '_blank', 'width=800,height=600');
-  w.document.write('<html><head><title>Certificate Level 1</title><style>body{margin:0;font-family:sans-serif;background:#1B3A6B;color:#fff;padding:2rem;text-align:center}</style></head><body>' + certBox.innerHTML + '</body></html>');
+  w.document.write('<html><head><title>Certificate Level 1</title><style>body{margin:0;font-family:sans-serif;background:#1B3A6B;color:#fff;padding:2rem;text-align:center}</style></head><body>' + certBox.innerHTML + '<script>
+function toggleContact(){
+  document.getElementById('contactModal').classList.toggle('open');
+  document.getElementById('contactOverlay').classList.toggle('open');
+}
+</script>
+
+<!-- CONTACT FLOATING BUTTON -->
+<div id="contactBtn" onclick="toggleContact()" title="Contact Janman Legal Team">
+  <div class="contact-pulse"></div>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span class="contact-label">Legal Help</span>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="contactOverlay" onclick="toggleContact()"></div>
+<div id="contactModal">
+  <button class="modal-close" onclick="toggleContact()">✕</button>
+  <div class="modal-logo">
+    <img src="janman-logo.png" alt="Janman" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #FF6B00">
+    <div>
+      <div style="font-weight:700;color:#1a2a4a;font-size:1rem">Janman People's Foundation</div>
+      <div style="font-size:.75rem;color:#6c757d">Jan Nyay Abhiyan · Bihar, India</div>
+    </div>
+  </div>
+  <p class="modal-tagline">Our legal team is here to help with GBV cases, documentation, legal referrals, and PIL support.</p>
+
+  <div class="contact-grid">
+    <div class="contact-item">
+      <span class="ci-icon">📧</span>
+      <div><div class="ci-label">Email</div><a href="mailto:shashwat@janmanindia.org" class="ci-value">shashwat@janmanindia.org</a></div>
+    </div>
+    <div class="contact-item">
+      <span class="ci-icon">🌐</span>
+      <div><div class="ci-label">Website</div><a href="https://janmanindia.org" target="_blank" class="ci-value">janmanindia.org</a></div>
+    </div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-box">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAIAAABAHXg9AAAFjUlEQVR42u3dwW3bQBCG0ThgFykhpaTelJISUgdz8VVA1pjRPyO9dzZomfKHJTDY5cd939+A2b67BSBUQKggVECogFBBqIBQAaGCUAGhglABoQJCBaECQgWECkIFhAoIFYQKCBWECkxxVV3ox89fK/7gv39+l/xdj65zeh9Or3P6+au+x9R9q7rPW/7frKjg0RcQKggVECogVBAqMMLV/Qu6536PpOZsp3O/qs+Zmls++vnU9/6q/29WVPDoCwgVhAoIFRAqCBV4qiv1i6vmTlVzs+55ZtXnP71+9z7PLftIp/2/WVHBoy8gVECoIFRAqCBUYLTLLahVtR/1dJ/nlvnq6X3DigpCBYQKQgWECggVhAoEmKN+6p5/btH9ftfT32u+akUFoQJCBaECQgWECkIFAmJz1O3zsar5Yfd1TqXmmduvb0UFhApCBYQKQgWECggVXkr7HDX1Psyqz3k65+x+L2j356n6+e7Pv/3/zYoKQgWECggVhAoIFYQKjPZx37e78AXb3//ZPdet+jzO9bWiglABoYJQAaECQgWhAgHj5qjbz8U9/bu2zFer9oVunyenPr8VFTz6AkIFoQJCBYQKQgWeas1+1O5515brp84TPjXtfOPuv8uKCggVhAoIFYQKCBUQKryU9jnqlvdVdu9r7d6fuWX/bfd9m/ae1ar7bEUFj76AUEGogFABoYJQgae6qi6UOse1e39m6jzb0+tM2x87zZbPaUUFoQJCBaECQgWECkIFRiibo6bmlqn9n1Wfv/s6Kan9van73D2ntaKCR19AqCBUQKiAUEGowFO170dNXX/aubWn3u39n6n5aurcYCsqePQFhAoIFYQKCBWECozW/n7UlNQ5rt37G6fN97Z879vvgxUVhAoIFYQKCBUQKggVeKrYftTuc19T88bU/LP7/aup975O+76sqIBQQaiAUEGogFABocJbaH8/akrVftTTOVv3ebzTzjfu/j+pmq92n/drRQWECkIFhApCBYQKCBVeyrj9qFVzqtT7RbecJ5ya96a+l+77aUUFhApCBYQKQgWECggVXkrZ+1FTc7PUfsVp58qm7meV1PeS+rusqODRFxAqIFQQKiBUECow2tX9C6a9NzW173HLubKpuW7V3HvL+06tqODRFxAqIFQQKiBUECowWuz9qKnzdaedZ7vl/lf9Xd1z0Wn7nK2o4NEXECogVBAqIFRAqLBS+7m+j0w7X7fKtPOBq6Tu86ueJ2xFBY++gFABoYJQAaGCUIHRYu9Hrbr+NNPOJe7ep9r9ftrt79f1flTw6AsIFRAqCBUQKiBUWOlK/eLUvO7081TNwVLzwNTnrDrvt/v/Ydr9t6KCR19AqCBUQKiAUEGowAixc30fSe1fTe3bTEntF+2eZ1bxflRAqCBUQKiAUEGogFDhrZXNUbfbck7sNFv2eU47p9eKCh59AaECQgWhAkIFoQKjlZ3ru33uV3Wd7fs8T6+T+t6nzTmtqIBQQaiAUEGogFABocJLaX8/amqu1T0/rLrOtHlp6vvdck6yc30BoYJQAaGCUAGhAkKFt3ClfvG7nft6+jm7z5ut+vzd897Uftdp5y1bUcGjLyBUECogVECoIFTgqS634Gu27199pHu/5Zb7ZkUFhApCBYQKCBWECggV3po56qeqeePp9bv3Z3afl5u6b1X3uft7qZo/W1HBoy8gVBAqIFRAqCBU4Klic9TU+y2n/V3d+0VT+zOrzjeuug/b/9+sqCBUQKggVECogFBBqMBTtc9Rt5ybevr5u8+nPf35LefxVt3n7n2wVd+XFRU8+gJCBYQKQgWECggVVvq479tdACsqIFQQKiBUQKggVECogFBBqIBQQaiAUAGhglABoQJCBaECQgWhAkIFhApCBYQK/J9/ta7/44QVdRAAAAAASUVORK5CYII=" alt="WhatsApp QR Code" style="width:160px;height:160px">
+      <div class="qr-label">Scan to WhatsApp us</div>
+      <div class="qr-number">85077 15870</div>
+    </div>
+    <div class="qr-info">
+      <p style="font-size:.88rem;font-weight:700;color:#1a2a4a;margin-bottom:8px">Scan the QR code with your phone camera to open WhatsApp chat directly with our legal team.</p>
+      <p style="font-size:.82rem;color:#555;margin-bottom:14px">Your training certificate details will help us assist you faster. Quote your certificate number when you write to us.</p>
+      <a href="https://wa.me/918507715870" target="_blank" class="wa-direct-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Open WhatsApp Directly
+      </a>
+    </div>
+  </div>
+</div>
+</body></html>');
   w.document.close();
   w.print();
 }
 </script>
 
+<script>
+function toggleContact(){
+  document.getElementById('contactModal').classList.toggle('open');
+  document.getElementById('contactOverlay').classList.toggle('open');
+}
+</script>
+
+<!-- CONTACT FLOATING BUTTON -->
+<div id="contactBtn" onclick="toggleContact()" title="Contact Janman Legal Team">
+  <div class="contact-pulse"></div>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  <span class="contact-label">Legal Help</span>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="contactOverlay" onclick="toggleContact()"></div>
+<div id="contactModal">
+  <button class="modal-close" onclick="toggleContact()">✕</button>
+  <div class="modal-logo">
+    <img src="janman-logo.png" alt="Janman" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid #FF6B00">
+    <div>
+      <div style="font-weight:700;color:#1a2a4a;font-size:1rem">Janman People's Foundation</div>
+      <div style="font-size:.75rem;color:#6c757d">Jan Nyay Abhiyan · Bihar, India</div>
+    </div>
+  </div>
+  <p class="modal-tagline">Our legal team is here to help with GBV cases, documentation, legal referrals, and PIL support.</p>
+
+  <div class="contact-grid">
+    <div class="contact-item">
+      <span class="ci-icon">📧</span>
+      <div><div class="ci-label">Email</div><a href="mailto:shashwat@janmanindia.org" class="ci-value">shashwat@janmanindia.org</a></div>
+    </div>
+    <div class="contact-item">
+      <span class="ci-icon">🌐</span>
+      <div><div class="ci-label">Website</div><a href="https://janmanindia.org" target="_blank" class="ci-value">janmanindia.org</a></div>
+    </div>
+  </div>
+
+  <div class="qr-section">
+    <div class="qr-box">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAIAAABAHXg9AAAFjUlEQVR42u3dwW3bQBCG0ThgFykhpaTelJISUgdz8VVA1pjRPyO9dzZomfKHJTDY5cd939+A2b67BSBUQKggVECogFBBqIBQAaGCUAGhglABoQJCBaECQgWECkIFhAoIFYQKCBWECkxxVV3ox89fK/7gv39+l/xdj65zeh9Or3P6+au+x9R9q7rPW/7frKjg0RcQKggVECogVBAqMMLV/Qu6536PpOZsp3O/qs+Zmls++vnU9/6q/29WVPDoCwgVhAoIFRAqCBV4qiv1i6vmTlVzs+55ZtXnP71+9z7PLftIp/2/WVHBoy8gVECoIFRAqCBUYLTLLahVtR/1dJ/nlvnq6X3DigpCBYQKQgWECggVhAoEmKN+6p5/btH9ftfT32u+akUFoQJCBaECQgWECkIFAmJz1O3zsar5Yfd1TqXmmduvb0UFhApCBYQKQgWECggVXkr7HDX1Psyqz3k65+x+L2j356n6+e7Pv/3/zYoKQgWECggVhAoIFYQKjPZx37e78AXb3//ZPdet+jzO9bWiglABoYJQAaECQgWhAgHj5qjbz8U9/bu2zFer9oVunyenPr8VFTz6AkIFoQJCBYQKQgWeas1+1O5515brp84TPjXtfOPuv8uKCggVhAoIFYQKCBUQKryU9jnqlvdVdu9r7d6fuWX/bfd9m/ae1ar7bEUFj76AUEGogFABoYJQgae6qi6UOse1e39m6jzb0+tM2x87zZbPaUUFoQJCBaECQgWECkIFRiibo6bmlqn9n1Wfv/s6Kan9van73D2ntaKCR19AqCBUQKiAUEGowFO170dNXX/aubWn3u39n6n5aurcYCsqePQFhAoIFYQKCBWECozW/n7UlNQ5rt37G6fN97Z879vvgxUVhAoIFYQKCBUQKggVeKrYftTuc19T88bU/LP7/aup975O+76sqIBQQaiAUEGogFABocJbaH8/akrVftTTOVv3ebzTzjfu/j+pmq92n/drRQWECkIFhApCBYQKCBVeyrj9qFVzqtT7RbecJ5ya96a+l+77aUUFhApCBYQKQgWECggVXkrZ+1FTc7PUfsVp58qm7meV1PeS+rusqODRFxAqIFQQKiBUECow2tX9C6a9NzW173HLubKpuW7V3HvL+06tqODRFxAqIFQQKiBUECowWuz9qKnzdaedZ7vl/lf9Xd1z0Wn7nK2o4NEXECogVBAqIFRAqLBS+7m+j0w7X7fKtPOBq6Tu86ueJ2xFBY++gFABoYJQAaGCUIHRYu9Hrbr+NNPOJe7ep9r9ftrt79f1flTw6AsIFRAqCBUQKiBUWOlK/eLUvO7081TNwVLzwNTnrDrvt/v/Ydr9t6KCR19AqCBUQKiAUEGowAixc30fSe1fTe3bTEntF+2eZ1bxflRAqCBUQKiAUEGogFDhrZXNUbfbck7sNFv2eU47p9eKCh59AaECQgWhAkIFoQKjlZ3ru33uV3Wd7fs8T6+T+t6nzTmtqIBQQaiAUEGogFABocJLaX8/amqu1T0/rLrOtHlp6vvdck6yc30BoYJQAaGCUAGhAkKFt3ClfvG7nft6+jm7z5ut+vzd897Uftdp5y1bUcGjLyBUECogVECoIFTgqS634Gu27199pHu/5Zb7ZkUFhApCBYQKCBWECggV3po56qeqeePp9bv3Z3afl5u6b1X3uft7qZo/W1HBoy8gVBAqIFRAqCBU4Klic9TU+y2n/V3d+0VT+zOrzjeuug/b/9+sqCBUQKggVECogFBBqMBTtc9Rt5ybevr5u8+nPf35LefxVt3n7n2wVd+XFRU8+gJCBYQKQgWECggVVvq479tdACsqIFQQKiBUQKggVECogFBBqIBQQaiAUAGhglABoQJCBaECQgWhAkIFhApCBYQK/J9/ta7/44QVdRAAAAAASUVORK5CYII=" alt="WhatsApp QR Code" style="width:160px;height:160px">
+      <div class="qr-label">Scan to WhatsApp us</div>
+      <div class="qr-number">85077 15870</div>
+    </div>
+    <div class="qr-info">
+      <p style="font-size:.88rem;font-weight:700;color:#1a2a4a;margin-bottom:8px">Scan the QR code with your phone camera to open WhatsApp chat directly with our legal team.</p>
+      <p style="font-size:.82rem;color:#555;margin-bottom:14px">Your training certificate details will help us assist you faster. Quote your certificate number when you write to us.</p>
+      <a href="https://wa.me/918507715870" target="_blank" class="wa-direct-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Open WhatsApp Directly
+      </a>
+    </div>
+  </div>
+</div>
 </body>
 </html>
