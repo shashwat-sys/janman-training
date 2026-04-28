@@ -76,6 +76,14 @@ body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--light);color
 .radio-opt{display:flex;align-items:center;gap:6px;font-size:.85rem;cursor:pointer;background:#f8f9fa;border:1px solid #dee2e6;padding:6px 12px;border-radius:8px}
 .radio-opt input{margin:0}
 @media(max-width:600px){.network-grid{grid-template-columns:1fr}}
+
+.support-card{background:linear-gradient(135deg,#25D366 0%,#128C7E 100%);border-radius:14px;padding:22px 24px;margin-top:22px;text-align:center;color:#fff;display:none}
+.support-card h3{font-size:1rem;margin-bottom:6px}
+.support-card p{font-size:.83rem;opacity:.9;margin-bottom:16px;line-height:1.6}
+.wa-btn{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#128C7E;padding:12px 28px;border-radius:10px;font-weight:700;font-size:.95rem;text-decoration:none;transition:.2s}
+.wa-btn:hover{background:#f0fff4;transform:translateY(-1px)}
+.wa-btn svg{flex-shrink:0}
+.support-footer{font-size:.75rem;opacity:.75;margin-top:10px}
 </style>
 </head>
 <body>
@@ -277,6 +285,20 @@ function checkStatus(){
   }
 }
 
+
+function buildWaLink(name, certNo, org, district, state){
+  var msg = "Hello Janman Legal Team 🙏%0A%0A"
+    + "I am *" + encodeURIComponent(name) + "*"
+    + (org ? ", " + encodeURIComponent(org) : "")
+    + (district ? ", " + encodeURIComponent(district) : "")
+    + (state ? ", " + encodeURIComponent(state) : "") + ".%0A"
+    + "Final GBV Certificate No: *" + encodeURIComponent(certNo) + "*%0A%0A"
+    + "I need legal assistance regarding:%0A";
+  var el = document.getElementById('waLink');
+  if(el) el.href = "https://wa.me/918507715870?text=" + msg;
+  var sc = document.getElementById('supportCard');
+  if(sc) sc.style.display = 'block';
+}
 function generateFinalCert(){
   var name=document.getElementById('pName').value.trim();
   var phone=document.getElementById('pPhone').value.trim();
@@ -342,12 +364,24 @@ function generateFinalCert(){
   document.getElementById('networkCard').style.display='block';
   document.getElementById('actionBtns').style.display='flex';
   document.getElementById('finalCert').scrollIntoView({behavior:'smooth'});
+  buildWaLink(name, certNo, org, district, state);
 }
 
 function downloadFinalCert(){
   var w=window.open('','_blank');
   var cert=document.getElementById('finalCert').outerHTML;
-  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>JPF GBV Final Certificate</title><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"><style>body{font-family:Georgia,serif;background:#fff;display:flex;justify-content:center;padding:30px}@page{size:A4 landscape;margin:10mm}.certificate{display:block!important;border:10px double #1a2a4a;padding:40px;max-width:900px;border-radius:12px;text-align:center;box-shadow:none}.cert-bg-pattern{display:none}.cert-top-band{background:#1a2a4a;color:#fff;padding:16px;border-radius:8px;margin-bottom:20px}.cert-org-name{font-size:1.4rem;font-weight:700;letter-spacing:2px}.cert-org-sub{font-size:.78rem;opacity:.8;margin-top:3px;letter-spacing:1px}.cert-ribbon{background:#FF6B00;color:#fff;font-size:.75rem;font-weight:700;letter-spacing:3px;padding:5px 18px;text-transform:uppercase;border-radius:4px;display:inline-block;margin:12px 0 5px}.cert-presents{font-size:.83rem;color:#6c757d;margin-bottom:3px}.cert-type{font-size:1.2rem;font-weight:700;color:#1a2a4a;letter-spacing:1px;margin-bottom:16px}.cert-name{font-size:2rem;color:#FF6B00;font-style:italic;font-weight:700;border-bottom:2px solid #FF6B00;padding-bottom:7px;display:inline-block;margin:0 auto 14px;min-width:280px}.cert-body-text{font-size:.87rem;color:#444;line-height:1.9;margin-bottom:18px}.cert-modules{border:1px solid #dee2e6;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.83rem;text-align:left;background:#fef9f0}.cert-modules h4{color:#1a2a4a;margin-bottom:8px;font-size:.87rem}.cert-module-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed #dee2e6}.cert-module-row:last-child{border-bottom:none}.cert-module-name{color:#333;font-weight:600}.cert-module-score{color:#2d6a4f;font-weight:700}.cert-sig-block{display:flex;justify-content:center;gap:70px;margin-top:28px;align-items:flex-end}.sig-area{text-align:center}.sig-cursive{font-family:"Dancing Script",cursive;font-size:1.9rem;color:#1a2a4a;display:block;line-height:1.1}.sig-under{font-size:.73rem;color:#6c757d;border-top:1px solid #999;padding-top:7px;margin-top:7px}.cert-seal-big{width:72px;height:72px;border-radius:50%;background:#1a2a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.53rem;text-align:center;font-weight:700;margin:0 auto 8px;letter-spacing:.5px;line-height:1.4;border:3px solid #FF6B00}.cert-footer{margin-top:20px;padding-top:12px;border-top:1px solid #dee2e6;font-size:.7rem;color:#6c757d}</style></head><body>'+cert+'</body></html>');
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>JPF GBV Final Certificate</title><link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet"><style>body{font-family:Georgia,serif;background:#fff;display:flex;justify-content:center;padding:30px}@page{size:A4 landscape;margin:10mm}.certificate{display:block!important;border:10px double #1a2a4a;padding:40px;max-width:900px;border-radius:12px;text-align:center;box-shadow:none}.cert-bg-pattern{display:none}.cert-top-band{background:#1a2a4a;color:#fff;padding:16px;border-radius:8px;margin-bottom:20px}.cert-org-name{font-size:1.4rem;font-weight:700;letter-spacing:2px}.cert-org-sub{font-size:.78rem;opacity:.8;margin-top:3px;letter-spacing:1px}.cert-ribbon{background:#FF6B00;color:#fff;font-size:.75rem;font-weight:700;letter-spacing:3px;padding:5px 18px;text-transform:uppercase;border-radius:4px;display:inline-block;margin:12px 0 5px}.cert-presents{font-size:.83rem;color:#6c757d;margin-bottom:3px}.cert-type{font-size:1.2rem;font-weight:700;color:#1a2a4a;letter-spacing:1px;margin-bottom:16px}.cert-name{font-size:2rem;color:#FF6B00;font-style:italic;font-weight:700;border-bottom:2px solid #FF6B00;padding-bottom:7px;display:inline-block;margin:0 auto 14px;min-width:280px}.cert-body-text{font-size:.87rem;color:#444;line-height:1.9;margin-bottom:18px}.cert-modules{border:1px solid #dee2e6;border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.83rem;text-align:left;background:#fef9f0}.cert-modules h4{color:#1a2a4a;margin-bottom:8px;font-size:.87rem}.cert-module-row{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed #dee2e6}.cert-module-row:last-child{border-bottom:none}.cert-module-name{color:#333;font-weight:600}.cert-module-score{color:#2d6a4f;font-weight:700}.cert-sig-block{display:flex;justify-content:center;gap:70px;margin-top:28px;align-items:flex-end}.sig-area{text-align:center}.sig-cursive{font-family:"Dancing Script",cursive;font-size:1.9rem;color:#1a2a4a;display:block;line-height:1.1}.sig-under{font-size:.73rem;color:#6c757d;border-top:1px solid #999;padding-top:7px;margin-top:7px}.cert-seal-big{width:72px;height:72px;border-radius:50%;background:#1a2a4a;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.53rem;text-align:center;font-weight:700;margin:0 auto 8px;letter-spacing:.5px;line-height:1.4;border:3px solid #FF6B00}.cert-footer{margin-top:20px;padding-top:12px;border-top:1px solid #dee2e6;font-size:.7rem;color:#6c757d}</style></head><body>'+cert+'
+<div class="support-card" id="supportCard" style="max-width:780px;width:100%;margin:20px auto">
+  <h3>⚖️ Janman Legal Support — Direct Access</h3>
+  <p>You are now a certified Janman GBV practitioner. Our legal team is available to support you on active cases, complex situations, and documentation needs.<br>
+  Your details are pre-filled — just describe your query.</p>
+  <a class="wa-btn" id="waLink" href="#" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp Janman Legal Team
+  </a>
+  <div class="support-footer">Available for GBV case support, documentation, legal referrals &amp; PIL queries · Jan Nyay Abhiyan</div>
+</div>
+</body></html>');
   w.document.close();
   setTimeout(function(){w.print();},800);
 }
@@ -372,5 +406,16 @@ window.onload=function(){
   if(h){var r2=document.querySelector('input[name="canHost"][value="'+h+'"]');if(r2)r2.checked=true;}
 };
 </script>
+
+<div class="support-card" id="supportCard" style="max-width:780px;width:100%;margin:20px auto">
+  <h3>⚖️ Janman Legal Support — Direct Access</h3>
+  <p>You are now a certified Janman GBV practitioner. Our legal team is available to support you on active cases, complex situations, and documentation needs.<br>
+  Your details are pre-filled — just describe your query.</p>
+  <a class="wa-btn" id="waLink" href="#" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp Janman Legal Team
+  </a>
+  <div class="support-footer">Available for GBV case support, documentation, legal referrals &amp; PIL queries · Jan Nyay Abhiyan</div>
+</div>
 </body>
 </html>
