@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Final Certificate — Certified Constitutional Law Practitioner · Janman</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f0f4ff;color:#1a2a4a;}
+.nav{background:linear-gradient(135deg,#0d2a1e,#1a6a4a);padding:14px 24px;display:flex;align-items:center;gap:14px;}
+.nav-logo{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.4);object-fit:cover;}
+.nav-title{color:#fff;font-size:1rem;font-weight:700;}
+.nav-sub{color:rgba(255,255,255,.7);font-size:.78rem;}
+.nav-back{margin-left:auto;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:7px 14px;border-radius:20px;text-decoration:none;font-size:.82rem;}
+.locked-screen{max-width:600px;margin:80px auto;padding:24px;text-align:center;}
+.locked-icon{font-size:4rem;margin-bottom:16px;}
+.locked-screen h2{color:#1a2a4a;font-size:1.4rem;margin-bottom:8px;}
+.locked-screen p{color:#666;font-size:.9rem;margin-bottom:24px;line-height:1.6;}
+.btn-back{display:inline-block;background:linear-gradient(135deg,#1a6a4a,#0d4a2a);color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;}
+.hero{background:linear-gradient(135deg,#0d2a1e,#1a6a4a,#2d4a8a);padding:48px 24px;color:#fff;text-align:center;}
+.hero-badge{display:inline-block;background:rgba(255,215,0,.2);border:1px solid rgba(255,215,0,.5);border-radius:20px;padding:6px 18px;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;color:#ffd700;}
+.hero h1{font-size:2rem;font-weight:800;margin-bottom:8px;}
+.hero p{opacity:.85;font-size:.95rem;max-width:600px;margin:0 auto;}
+.container{max-width:860px;margin:0 auto;padding:32px 24px;}
+.achievement-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:32px;}
+.achievement-card{background:#fff;border-radius:14px;padding:20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.08);border-top:4px solid #1a6a4a;}
+.ach-icon{font-size:2rem;margin-bottom:8px;}
+.ach-title{font-size:.88rem;font-weight:700;color:#1a2a4a;margin-bottom:4px;}
+.ach-sub{font-size:.78rem;color:#666;}
+.cert-container{display:none;}
+.form-section{background:#fff;border-radius:16px;box-shadow:0 4px 24px rgba(0,0,0,.1);padding:32px;margin-bottom:24px;}
+.form-section h2{color:#0d4a2a;font-size:1.1rem;margin-bottom:6px;}
+.form-section p{color:#666;font-size:.85rem;margin-bottom:24px;line-height:1.6;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:.8rem;color:#555;font-weight:600;}
+.form-group input,.form-group select,.form-group textarea{padding:10px 12px;border:1.5px solid #dde3f0;border-radius:8px;font-size:.88rem;color:#1a2a4a;outline:none;transition:border .15s;font-family:'Segoe UI',sans-serif;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#1a6a4a;}
+.form-group textarea{resize:vertical;min-height:80px;}
+.network-banner{background:linear-gradient(135deg,#f0fff4,#dcfce7);border:2px solid #28a745;border-radius:12px;padding:20px;margin-bottom:20px;}
+.network-banner h3{color:#1a5c2e;font-size:.95rem;margin-bottom:8px;}
+.network-banner p{color:#2d5a3d;font-size:.83rem;line-height:1.6;}
+.btn-generate{background:linear-gradient(135deg,#ffd700,#ff9f00);color:#1a2a4a;border:none;padding:16px 32px;border-radius:12px;font-size:1.05rem;font-weight:800;cursor:pointer;width:100%;margin-top:8px;transition:opacity .2s;letter-spacing:.5px;}
+.btn-generate:hover{opacity:.9;}
+/* CERTIFICATE */
+.cert-wrapper{margin-bottom:24px;}
+.cert-frame{background:linear-gradient(135deg,#0d1f3c,#1a3a6a,#0d2a1e,#1a6a4a);border-radius:20px;padding:5px;box-shadow:0 12px 60px rgba(0,0,0,.4);}
+.cert-paper{background:linear-gradient(160deg,#fffef9,#fdfaf0,#f8f5e8);border-radius:16px;padding:48px 52px;text-align:center;position:relative;overflow:hidden;}
+.cert-paper::before{content:'';position:absolute;inset:12px;border:1px solid rgba(45,74,138,.15);border-radius:8px;pointer-events:none;}
+.cert-paper::after{content:'⚖️';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:280px;opacity:.025;pointer-events:none;}
+.cert-corner{position:absolute;font-size:2.5rem;opacity:.12;}
+.cert-corner.tl{top:20px;left:24px;}
+.cert-corner.tr{top:20px;right:24px;}
+.cert-corner.bl{bottom:20px;left:24px;}
+.cert-corner.br{bottom:20px;right:24px;}
+.cert-logo{width:80px;height:80px;border-radius:50%;border:3px solid #1a6a4a;object-fit:cover;margin:0 auto 12px;box-shadow:0 4px 16px rgba(26,106,74,.3);}
+.cert-org-full{color:#1a6a4a;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;}
+.cert-tagline{color:#888;font-size:.75rem;margin-bottom:20px;letter-spacing:.5px;}
+.cert-divider{width:80px;height:2px;background:linear-gradient(90deg,transparent,#ffd700,transparent);margin:0 auto 20px;}
+.cert-headline{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:#0d2a1e;margin-bottom:6px;line-height:1.2;}
+.cert-programme{font-size:.9rem;color:#1a6a4a;font-weight:600;letter-spacing:1px;margin-bottom:24px;}
+.cert-awarded{color:#888;font-size:.8rem;margin-bottom:6px;}
+.cert-name-display{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:#1a2a4a;margin-bottom:4px;line-height:1.2;}
+.cert-details-line{color:#666;font-size:.88rem;margin-bottom:24px;}
+.cert-desc-text{color:#555;font-size:.83rem;line-height:1.75;max-width:540px;margin:0 auto 24px;}
+.cert-score-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#0d4a2a,#1a6a4a);color:#fff;border-radius:20px;padding:8px 20px;font-size:.88rem;font-weight:700;margin-bottom:28px;}
+.cert-meta-row{display:flex;justify-content:center;gap:32px;margin-bottom:28px;flex-wrap:wrap;}
+.cert-meta-cell{text-align:center;}
+.cert-meta-cell-label{font-size:.65rem;color:#aaa;text-transform:uppercase;letter-spacing:1px;margin-bottom:3px;}
+.cert-meta-cell-value{font-size:.88rem;font-weight:700;color:#1a2a4a;}
+.cert-sig-row{display:flex;justify-content:space-around;margin-top:8px;flex-wrap:wrap;gap:24px;}
+.cert-sig-block{text-align:center;min-width:160px;}
+.sig-cursive{font-family:'Dancing Script',cursive;font-size:2rem;color:#0d2a1e;line-height:1;}
+.sig-underline{width:160px;height:1px;background:#bbb;margin:6px auto;}
+.sig-name-label{font-size:.7rem;color:#888;font-weight:600;}
+.sig-role-label{font-size:.65rem;color:#aaa;}
+.cert-seal{width:70px;height:70px;background:linear-gradient(135deg,#ffd700,#ff9f00);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto;box-shadow:0 4px 16px rgba(255,215,0,.4);border:3px solid #fff;}
+.cert-footer-text{margin-top:24px;padding-top:16px;border-top:1px solid #e8e0d0;font-size:.68rem;color:#bbb;letter-spacing:.3px;}
+.network-profile{background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:28px;margin-bottom:24px;display:none;}
+.network-profile h3{color:#0d4a2a;font-size:1rem;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f4ff;}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.profile-item{background:#f8faff;border-radius:8px;padding:12px;border-left:3px solid #1a6a4a;}
+.profile-label{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px;}
+.profile-value{font-size:.88rem;color:#1a2a4a;font-weight:600;}
+.action-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+.action-btn{padding:14px;border-radius:12px;border:none;font-size:.9rem;font-weight:700;cursor:pointer;transition:opacity .2s;text-align:center;}
+.action-btn.download{background:linear-gradient(135deg,#0d4a2a,#1a6a4a);color:#fff;}
+.action-btn.wa{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:8px;}
+.action-btn:hover{opacity:.9;}
+.next-steps{background:linear-gradient(135deg,#fff9e6,#fff3cc);border:2px solid #ffd700;border-radius:14px;padding:24px;margin-bottom:24px;}
+.next-steps h3{color:#8b6914;font-size:.95rem;margin-bottom:12px;}
+.next-steps ul{list-style:none;}
+.next-steps ul li{font-size:.85rem;color:#6b5414;padding:6px 0;display:flex;align-items:flex-start;gap:10px;border-bottom:1px solid rgba(139,105,20,.15);}
+.next-steps ul li:last-child{border-bottom:none;}
+.next-steps ul li::before{content:'→';color:#8b6914;font-weight:700;flex-shrink:0;}
+#contactBtn{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:50px;padding:14px 20px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;animation:contactPulse 2s infinite;}
+@keyframes contactPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 4px 20px rgba(37,211,102,.5),0 0 0 8px rgba(37,211,102,0)}}
+.contact-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;}
+.contact-overlay.open{display:block;}
+.contact-modal{display:none;position:fixed;bottom:90px;right:24px;background:#fff;border-radius:16px;padding:24px;width:300px;box-shadow:0 8px 40px rgba(0,0,0,.2);z-index:999;}
+.contact-modal.open{display:block;}
+.contact-modal h3{color:#1a2a4a;margin-bottom:4px;font-size:1rem;}
+.contact-modal p{color:#666;font-size:.8rem;margin-bottom:16px;}
+.contact-modal img{width:120px;height:120px;display:block;margin:0 auto 12px;border-radius:8px;}
+.wa-btn-modal{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;}
+@media(max-width:600px){
+  .achievement-grid{grid-template-columns:1fr;}.form-grid{grid-template-columns:1fr;}.cert-paper{padding:28px 20px;}.cert-headline{font-size:1.5rem;}.cert-name-display{font-size:1.4rem;}.action-buttons{grid-template-columns:1fr;}.profile-grid{grid-template-columns:1fr;}
+}
+@media print{
+  .nav,.form-section,.network-profile,.action-buttons,.next-steps,#contactBtn,.contact-overlay,.contact-modal,.hero,.achievement-grid{display:none!important;}
+  .cert-container{display:block!important;}
+  body{background:#fff;}
+  .container{padding:0;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <img src="janman-logo.png" alt="Janman" class="nav-logo">
+  <div><div class="nav-title">Janman People's Foundation</div><div class="nav-sub">Constitutional Law Series</div></div>
+  <a href="index.html" class="nav-back">← FR &amp; DPSP Hub</a>
+</nav>
+
+<!-- LOCKED SCREEN (shown if not all 3 levels done) -->
+<div id="lockedScreen" class="locked-screen" style="display:none;">
+  <div class="locked-icon">🔒</div>
+  <h2>Final Certificate Locked</h2>
+  <p>You need to complete all three levels of the Fundamental Rights &amp; DPSP series to unlock this certificate.<br><br>
+  Complete <strong>Level 1 (Fundamental Rights)</strong>, <strong>Level 2 (DPSP &amp; Fundamental Duties)</strong>, and <strong>Level 3 (Landmark Cases &amp; PIL)</strong> to earn your Certified Constitutional Law Practitioner certificate.</p>
+  <a href="index.html" class="btn-back">← Return to FR &amp; DPSP Hub</a>
+</div>
+
+<!-- MAIN CONTENT (shown if all 3 done) -->
+<div id="mainContent" style="display:none;">
+
+<div class="hero">
+  <div class="hero-badge">🏆 Final Achievement Unlocked</div>
+  <h1>Certified Constitutional Law Practitioner</h1>
+  <p>You have mastered India's constitutional framework — from Fundamental Rights to DPSP, from Kesavananda to Puttaswamy, from Art 32 to PIL practice.</p>
+</div>
+
+<div class="container">
+
+  <div class="achievement-grid">
+    <div class="achievement-card">
+      <div class="ach-icon">📜</div>
+      <div class="ach-title">Level 1 Completed</div>
+      <div class="ach-sub">Fundamental Rights (Art 12–35)</div>
+    </div>
+    <div class="achievement-card">
+      <div class="ach-icon">⚖️</div>
+      <div class="ach-title">Level 2 Completed</div>
+      <div class="ach-sub">DPSP &amp; Fundamental Duties</div>
+    </div>
+    <div class="achievement-card">
+      <div class="ach-icon">🏛️</div>
+      <div class="ach-title">Level 3 Completed</div>
+      <div class="ach-sub">Landmark Cases &amp; PIL Practice</div>
+    </div>
+  </div>
+
+  <!-- FORM SECTION -->
+  <div class="form-section" id="formSection">
+    <h2>🎓 Generate Your Final Certificate</h2>
+    <p>Your details will appear on the Janman Certified Constitutional Law Practitioner certificate, signed by Shourya Roy, Executive Director. You will also join the Janman Constitutional Law Network — connecting practitioners across Bihar and India for collaborative PIL and rights litigation work.</p>
+
+    <div class="network-banner">
+      <h3>🌐 Janman Constitutional Law Network</h3>
+      <p>By completing this programme, you join Janman's network of constitutional law practitioners — paralegals, lawyers, social workers, and advocates working to democratise access to constitutional rights. The network collaborates on PIL drafting, legal representation, community training, and district-level rights enforcement.</p>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group full"><label>Full Name * (as on your Level 1-3 certificates)</label><input type="text" id="pName" placeholder="Your full name"></div>
+      <div class="form-group"><label>Phone (WhatsApp) *</label><input type="tel" id="pPhone" placeholder="10-digit mobile number"></div>
+      <div class="form-group"><label>Email Address</label><input type="email" id="pEmail" placeholder="your@email.com"></div>
+      <div class="form-group"><label>Organisation / Institution</label><input type="text" id="pOrg" placeholder="NGO / Law firm / University / DLSA"></div>
+      <div class="form-group"><label>Designation / Role</label><input type="text" id="pDesig" placeholder="Lawyer / Paralegal / Social Worker / Advocate"></div>
+      <div class="form-group">
+        <label>Organisation Type</label>
+        <select id="pOrgType">
+          <option value="">Select type</option>
+          <option>NGO / Civil Society</option>
+          <option>Legal Aid / DLSA / SLSA</option>
+          <option>Government / OSC / WCDC</option>
+          <option>Law Firm / Advocate</option>
+          <option>Academic / University / Law School</option>
+          <option>Community Organisation / Panchayat</option>
+          <option>Individual / Freelance Practitioner</option>
+        </select>
+      </div>
+      <div class="form-group"><label>State</label><input type="text" id="pState" placeholder="Bihar / Jharkhand / UP..."></div>
+      <div class="form-group"><label>District</label><input type="text" id="pDistrict" placeholder="Your district"></div>
+      <div class="form-group full">
+        <label>Area of Practice / Interest in Constitutional Law</label>
+        <select id="pArea">
+          <option value="">Select primary area</option>
+          <option>Gender-Based Violence &amp; Women's Rights</option>
+          <option>Dalit/SC-ST Rights &amp; Atrocities</option>
+          <option>Labour Rights &amp; Bonded Labour</option>
+          <option>Child Rights &amp; Education</option>
+          <option>Environmental Rights &amp; PIL</option>
+          <option>Disability Rights</option>
+          <option>Welfare Schemes &amp; Social Security</option>
+          <option>Criminal Justice &amp; Undertrial Rights</option>
+          <option>Land &amp; Housing Rights</option>
+          <option>General Constitutional Law Practitioner</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Any specific PIL or case you are working on / planning? (optional)</label>
+        <textarea id="pCase" placeholder="Brief description of the case or issue you are working on — the Janman team can provide guidance and support"></textarea>
+      </div>
+      <div class="form-group full">
+        <label>Interested in joining Janman's Constitutional Law Network?</label>
+        <select id="pNetwork">
+          <option value="yes">Yes — add me to the network</option>
+          <option value="maybe">Maybe — I want to know more</option>
+          <option value="no">No — just the certificate</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Can you help organise a constitutional law training in your area?</label>
+        <select id="pHost">
+          <option value="yes">Yes — I can mobilise participants and arrange venue</option>
+          <option value="maybe">Maybe — depends on timing and topic</option>
+          <option value="no">Not at this time</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-generate" onclick="generateFinalCert()">Generate My Final Certificate 🏆</button>
+  </div>
+
+  <!-- CERTIFICATE -->
+  <div class="cert-container" id="certContainer">
+
+    <div class="cert-wrapper">
+      <div class="cert-frame">
+        <div class="cert-paper">
+          <div class="cert-corner tl">📜</div>
+          <div class="cert-corner tr">⚖️</div>
+          <div class="cert-corner bl">🏛️</div>
+          <div class="cert-corner br">🌟</div>
+
+          <img src="janman-logo.png" alt="Janman" class="cert-logo">
+          <div class="cert-org-full">Janman People's Foundation</div>
+          <div class="cert-tagline">Jan Nyay Abhiyan · Constitutional Law Series · janmanindia.org</div>
+          <div class="cert-divider"></div>
+
+          <div class="cert-headline">Certificate of Distinction</div>
+          <div class="cert-programme">Certified Constitutional Law Practitioner</div>
+
+          <div class="cert-awarded">This is to certify that</div>
+          <div class="cert-name-display" id="certName">—</div>
+          <div class="cert-details-line" id="certDetailsLine">—</div>
+
+          <div class="cert-desc-text">has successfully completed all three levels of the <strong>Janman Constitutional Law Training Series — Fundamental Rights &amp; DPSP</strong>, demonstrating comprehensive understanding of Part III Fundamental Rights (Articles 12–35), Directive Principles of State Policy (Part IV), Fundamental Duties (Article 51A), landmark Supreme Court jurisprudence including the Basic Structure Doctrine, expanded Article 21, and strategic PIL practice before the Supreme Court and High Courts of India.</div>
+
+          <div class="cert-score-badge" id="certScores">
+            <span>🏆</span>
+            <span id="certScoreText">L1 · L2 · L3 Completed</span>
+          </div>
+
+          <div class="cert-meta-row">
+            <div class="cert-meta-cell">
+              <div class="cert-meta-cell-label">Certificate No.</div>
+              <div class="cert-meta-cell-value" id="certNo">—</div>
+            </div>
+            <div class="cert-meta-cell">
+              <div class="cert-meta-cell-label">Date Issued</div>
+              <div class="cert-meta-cell-value" id="certDate">—</div>
+            </div>
+            <div class="cert-meta-cell">
+              <div class="cert-meta-cell-label">Programme</div>
+              <div class="cert-meta-cell-value">FR &amp; DPSP Series</div>
+            </div>
+            <div class="cert-meta-cell">
+              <div class="cert-meta-cell-label">Grade</div>
+              <div class="cert-meta-cell-value" id="certGrade">—</div>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:center;margin-bottom:20px;">
+            <div class="cert-seal">🏆</div>
+          </div>
+
+          <div class="cert-sig-row">
+            <div class="cert-sig-block">
+              <div class="sig-cursive">Shourya Roy</div>
+              <div class="sig-underline"></div>
+              <div class="sig-name-label">Shourya Roy</div>
+              <div class="sig-role-label">Executive Director</div>
+              <div class="sig-role-label">Janman People's Foundation</div>
+            </div>
+            <div class="cert-sig-block">
+              <div class="sig-cursive" id="certSigName">—</div>
+              <div class="sig-underline"></div>
+              <div class="sig-name-label" id="certSigNameLabel">—</div>
+              <div class="sig-role-label" id="certSigRole">Certified Practitioner</div>
+            </div>
+          </div>
+
+          <div class="cert-footer-text">This certificate is issued by Janman People's Foundation under the Jan Nyay Abhiyan constitutional law training initiative. Certificate No. <span id="certNoFooter">—</span> · janmanindia.org · shashwat@janmanindia.org · Free legal education for all.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NETWORK PROFILE CARD -->
+    <div class="network-profile" id="networkProfile">
+      <h3>🌐 Your Constitutional Law Network Profile</h3>
+      <div class="profile-grid" id="profileGrid"></div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+    <div class="action-buttons">
+      <button class="action-btn download" onclick="window.print()">⬇️ Download / Print Certificate</button>
+      <a class="action-btn wa" id="waActionLink" href="#" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Join Janman Network
+      </a>
+    </div>
+
+    <!-- NEXT STEPS -->
+    <div class="next-steps">
+      <h3>🚀 Next Steps — Apply Your Constitutional Law Skills</h3>
+      <ul>
+        <li>Contact Janman legal team to discuss pending PIL cases and joint litigation opportunities in your district</li>
+        <li>Explore Janman's GBV Training Series if you haven't already — covers POSH, PWDVA, POCSO, BNS, PCMA</li>
+        <li>Share this training link with colleagues: <strong>shashwat-sys.github.io/janman-training/</strong></li>
+        <li>Identify a specific FR violation in your district and consult Janman on filing a representation or PIL at Patna HC</li>
+        <li>Apply to conduct community "Know Your Rights" sessions using this curriculum in your village or organisation</li>
+      </ul>
+    </div>
+
+    <!-- ACADEMY BUTTON -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <a href="../index.html" style="display:inline-block;background:linear-gradient(135deg,#1a2a4a,#2d4a8a);color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.95rem;">← Explore More Janman Academy Courses</a>
+    </div>
+
+  </div><!-- /cert-container -->
+
+</div><!-- /container -->
+</div><!-- /mainContent -->
+
+<!-- CONTACT BUTTON -->
+<button id="contactBtn" onclick="toggleContact()">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Contact Us
+</button>
+<div class="contact-overlay" id="contactOverlay" onclick="toggleContact()"></div>
+<div class="contact-modal" id="contactModal">
+  <h3>📞 Janman Legal Team</h3>
+  <p>Reach our lawyers for constitutional law and PIL support</p>
+  <img src="wa-qr.png" alt="WhatsApp QR">
+  <a href="https://wa.me/918507715870?text=Hello%20Janman%20%F0%9F%99%8F%0AI%20have%20completed%20the%20Constitutional%20Law%20series%20and%20want%20to%20join%20the%20network." class="wa-btn-modal" target="_blank">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat on WhatsApp
+  </a>
+</div>
+
+<script>
+function toggleContact(){
+  document.getElementById('contactModal').classList.toggle('open');
+  document.getElementById('contactOverlay').classList.toggle('open');
+}
+
+// Access control
+(function(){
+  var l1=localStorage.getItem('janman_fr_l1_done');
+  var l2=localStorage.getItem('janman_fr_l2_done');
+  var l3=localStorage.getItem('janman_fr_l3_done');
+  if(l1&&l2&&l3){
+    document.getElementById('mainContent').style.display='block';
+    // Pre-fill form
+    [['pName','janman_fr_name'],['pPhone','janman_fr_phone'],['pOrg','janman_fr_org'],['pDesig','janman_fr_desig'],['pState','janman_fr_state'],['pDistrict','janman_fr_district']].forEach(function(f){
+      var v=localStorage.getItem(f[1]);
+      if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;
+    });
+  } else {
+    document.getElementById('lockedScreen').style.display='block';
+  }
+})();
+
+function generateFinalCert(){
+  var name=document.getElementById('pName').value.trim();
+  var phone=document.getElementById('pPhone').value.trim();
+  if(!name){alert('Please enter your full name.');return;}
+  if(!phone){alert('Please enter your phone number.');return;}
+  var org=document.getElementById('pOrg').value.trim();
+  var desig=document.getElementById('pDesig').value.trim();
+  var orgType=document.getElementById('pOrgType').value;
+  var state=document.getElementById('pState').value.trim();
+  var district=document.getElementById('pDistrict').value.trim();
+  var area=document.getElementById('pArea').value;
+  var pcase=document.getElementById('pCase').value.trim();
+  var network=document.getElementById('pNetwork').value;
+  var canHost=document.getElementById('pHost').value;
+
+  // Get scores from localStorage
+  var s1=localStorage.getItem('janman_fr_l1_score')||'Pass';
+  var s2=localStorage.getItem('janman_fr_l2_score')||'Pass';
+  var s3=localStorage.getItem('janman_fr_l3_score')||'Pass';
+  var avg=0;var ct=0;
+  [s1,s2,s3].forEach(function(s){if(!isNaN(parseInt(s))){avg+=parseInt(s);ct++;}});
+  var avgStr=ct>0?Math.round(avg/ct)+'%':'Pass';
+  var grade=ct>0?(avg/ct>=90?'Distinction':avg/ct>=80?'Merit':avg/ct>=70?'Pass':'Pass'):'Pass';
+
+  var now=new Date();
+  var certNo='JPF-FR-FINAL-'+now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.floor(Math.random()*9000+1000);
+  var dateStr=now.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
+
+  // Populate certificate
+  document.getElementById('certName').textContent=name;
+  var detailLine=(desig||'')+(desig&&org?', ':'')+org+(org&&district?', ':'')+district+(district&&state?' — ':'')+state;
+  document.getElementById('certDetailsLine').textContent=detailLine||'Constitutional Law Practitioner';
+  document.getElementById('certScoreText').textContent='L1: '+s1+'% · L2: '+s2+'% · L3: '+s3+'% · Avg: '+avgStr;
+  document.getElementById('certNo').textContent=certNo;
+  document.getElementById('certNoFooter').textContent=certNo;
+  document.getElementById('certDate').textContent=dateStr;
+  document.getElementById('certGrade').textContent=grade;
+  document.getElementById('certSigName').textContent=name;
+  document.getElementById('certSigNameLabel').textContent=name;
+  document.getElementById('certSigRole').textContent=desig||'Certified Constitutional Law Practitioner';
+
+  // Network profile card
+  var profileData=[
+    ['Name',name],['Phone',phone],
+    ['Organisation',org||'—'],['Designation',desig||'—'],
+    ['Organisation Type',orgType||'—'],['State',state||'—'],
+    ['District',district||'—'],['Area of Practice',area||'—'],
+    ['Network Interest',network==='yes'?'Yes — joining network':network==='maybe'?'Maybe':'No'],
+    ['Can Host Training',canHost==='yes'?'Yes':canHost==='maybe'?'Maybe':'Not now'],
+    ['Certificate No',certNo],['Date',dateStr]
+  ];
+  var profileHtml='';
+  profileData.forEach(function(p){
+    profileHtml+='<div class="profile-item"><div class="profile-label">'+p[0]+'</div><div class="profile-value">'+p[1]+'</div></div>';
+  });
+  document.getElementById('profileGrid').innerHTML=profileHtml;
+
+  // WhatsApp message
+  var msg='Hello Janman Legal Team 🙏%0A%0A*Congratulations — I have completed all 3 levels of the Fundamental Rights & DPSP Constitutional Law Series!*%0A%0A*Name:* '+encodeURIComponent(name)+'%0A'+(desig?'*Designation:* '+encodeURIComponent(desig)+'%0A':'')+(org?'*Organisation:* '+encodeURIComponent(org)+'%0A':'')+(district?'*District:* '+encodeURIComponent(district):'')+(state?', '+encodeURIComponent(state):'')+'%0A*Certificate No:* '+encodeURIComponent(certNo)+'%0A*Grade:* '+grade+'%0A*Average Score:* '+avgStr+(area?'%0A*Practice Area:* '+encodeURIComponent(area):'')+((network==='yes')?'%0A%0A*I want to join the Janman Constitutional Law Network and collaborate on PIL and rights litigation work in my district.*':'')+(pcase?'%0A%0A*Current case/issue:* '+encodeURIComponent(pcase):'');
+  document.getElementById('waActionLink').href='https://wa.me/918507715870?text='+msg;
+
+  // Save to localStorage
+  localStorage.setItem('janman_fr_final_done','true');
+  localStorage.setItem('janman_fr_final_cert_no',certNo);
+  localStorage.setItem('janman_fr_name',name);
+  localStorage.setItem('janman_fr_phone',phone);
+  localStorage.setItem('janman_fr_org',org);
+  localStorage.setItem('janman_fr_desig',desig);
+  localStorage.setItem('janman_fr_state',state);
+  localStorage.setItem('janman_fr_district',district);
+
+  // Also update master academy localStorage keys
+  localStorage.setItem('janman_fr_l3_done','true'); // ensure
+
+  // Show certificate
+  document.getElementById('formSection').style.display='none';
+  document.getElementById('certContainer').style.display='block';
+  document.getElementById('networkProfile').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

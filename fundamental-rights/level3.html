@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 3: Landmark Cases & PIL — Janman Constitutional Law</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f0f4ff;color:#1a2a4a;}
+.nav{background:linear-gradient(135deg,#1a2a4a,#c0392b);padding:14px 24px;display:flex;align-items:center;gap:14px;}
+.nav-logo{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.4);object-fit:cover;}
+.nav-title{color:#fff;font-size:1rem;font-weight:700;}
+.nav-sub{color:rgba(255,255,255,.7);font-size:.78rem;}
+.nav-back{margin-left:auto;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:7px 14px;border-radius:20px;text-decoration:none;font-size:.82rem;}
+.hero{background:linear-gradient(135deg,#8b1a1a,#c0392b,#2d4a8a);padding:36px 24px;color:#fff;text-align:center;}
+.level-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:6px;}
+.hero p{opacity:.85;font-size:.95rem;max-width:560px;margin:0 auto 16px;}
+.hero-meta{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
+.meta-item{text-align:center;}
+.meta-num{font-size:1.4rem;font-weight:800;color:#ffd700;}
+.meta-label{font-size:.7rem;opacity:.8;text-transform:uppercase;}
+.container{max-width:800px;margin:0 auto;padding:32px 24px;}
+.section{background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.07);margin-bottom:24px;overflow:hidden;}
+.section-header{background:linear-gradient(135deg,#8b1a1a,#c0392b);padding:20px 24px;color:#fff;}
+.section-header h2{font-size:1.15rem;font-weight:700;margin-bottom:4px;}
+.section-header p{opacity:.85;font-size:.85rem;}
+.section-body{padding:24px;}
+.case-card{border:1px solid #e8edf5;border-radius:12px;margin-bottom:18px;overflow:hidden;}
+.case-card-header{background:linear-gradient(135deg,#f8faff,#eef2ff);padding:14px 18px;border-bottom:1px solid #e8edf5;display:flex;align-items:center;gap:12px;}
+.case-year{background:#c0392b;color:#fff;border-radius:8px;padding:3px 10px;font-size:.72rem;font-weight:700;white-space:nowrap;}
+.case-name{font-size:.92rem;font-weight:700;color:#1a2a4a;flex:1;}
+.case-bench{font-size:.75rem;color:#666;}
+.case-card-body{padding:16px 18px;}
+.case-holding{background:#f0f4ff;border-radius:8px;padding:12px;margin-bottom:12px;}
+.case-holding h4{color:#2d4a8a;font-size:.8rem;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+.case-holding p{color:#444;font-size:.85rem;line-height:1.6;}
+.case-impact h4{color:#c0392b;font-size:.8rem;font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px;}
+.case-impact p{color:#555;font-size:.84rem;line-height:1.55;}
+.art-block{border-left:4px solid #c0392b;background:#fff8f8;border-radius:0 10px 10px 0;padding:16px;margin-bottom:16px;}
+.art-block h3{color:#c0392b;font-size:.95rem;font-weight:700;margin-bottom:8px;}
+.art-block p{color:#444;font-size:.88rem;line-height:1.65;}
+.art-block ul{list-style:none;margin-top:8px;}
+.art-block ul li{font-size:.87rem;color:#555;padding:3px 0;display:flex;align-items:flex-start;gap:8px;}
+.art-block ul li::before{content:'▸';color:#c0392b;flex-shrink:0;}
+.important-note{background:linear-gradient(135deg,#f0fff4,#dcfce7);border:1px solid #28a745;border-radius:10px;padding:14px;margin:12px 0;}
+.important-note h4{color:#1a5c2e;font-size:.85rem;font-weight:700;margin-bottom:4px;}
+.important-note p{color:#2d5a3d;font-size:.83rem;line-height:1.55;}
+.pil-step{background:#fff;border:1px solid #e8edf5;border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:14px;}
+.pil-step-num{width:32px;height:32px;background:linear-gradient(135deg,#c0392b,#8b1a1a);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem;flex-shrink:0;}
+.pil-step-content h4{color:#1a2a4a;font-size:.88rem;font-weight:700;margin-bottom:4px;}
+.pil-step-content p{color:#555;font-size:.83rem;line-height:1.5;}
+.quiz-section{background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.07);margin-bottom:24px;overflow:hidden;}
+.quiz-header{background:linear-gradient(135deg,#8b1a1a,#c0392b);padding:20px 24px;color:#fff;}
+.quiz-header h2{font-size:1.15rem;font-weight:700;margin-bottom:4px;}
+.quiz-header p{opacity:.85;font-size:.85rem;}
+.quiz-body{padding:24px;}
+.question{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #f0f4ff;}
+.question:last-child{border-bottom:none;}
+.q-num{font-size:.72rem;color:#c0392b;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.q-text{font-size:.95rem;color:#1a2a4a;font-weight:600;margin-bottom:14px;line-height:1.5;}
+.option{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:8px;margin-bottom:8px;cursor:pointer;border:1.5px solid #e8edf5;transition:all .15s;}
+.option:hover{background:#fff0f0;border-color:#c0392b;}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#c0392b;}
+.option label{font-size:.88rem;color:#444;cursor:pointer;line-height:1.45;}
+.option.correct{background:#dcfce7;border-color:#28a745;}
+.option.wrong{background:#fce8e8;border-color:#dc3545;}
+.opt-letter{font-weight:700;color:#c0392b;font-size:.88rem;flex-shrink:0;width:18px;}
+.feedback{padding:10px 14px;border-radius:8px;font-size:.83rem;margin-top:8px;display:none;line-height:1.5;}
+.feedback.show{display:block;}
+.feedback.correct{background:#dcfce7;color:#1a5c2e;border-left:3px solid #28a745;}
+.feedback.wrong{background:#fce8e8;color:#7d1a1a;border-left:3px solid #dc3545;}
+.quiz-controls{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid #f0f4ff;}
+.score-display{font-size:1rem;font-weight:700;color:#1a2a4a;}
+.btn-submit{background:linear-gradient(135deg,#c0392b,#8b1a1a);color:#fff;border:none;padding:12px 28px;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;transition:opacity .2s;}
+.btn-submit:hover{opacity:.9;}
+.btn-submit:disabled{background:#ccc;cursor:default;}
+.result-panel{display:none;background:linear-gradient(135deg,#1a6a4a,#0d4a2a);color:#fff;border-radius:12px;padding:24px;text-align:center;margin-top:20px;}
+.result-panel.fail{background:linear-gradient(135deg,#8b1a1a,#5c1010);}
+.result-panel h3{font-size:1.3rem;margin-bottom:8px;}
+.result-panel p{opacity:.9;font-size:.9rem;}
+.cert-form{background:#fff;border-radius:16px;padding:28px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,.1);display:none;}
+.cert-form h3{color:#1a2a4a;font-size:1.1rem;margin-bottom:6px;}
+.cert-form p{color:#666;font-size:.85rem;margin-bottom:20px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:.8rem;color:#555;font-weight:600;}
+.form-group input,.form-group select{padding:9px 12px;border:1.5px solid #dde3f0;border-radius:8px;font-size:.88rem;color:#1a2a4a;outline:none;transition:border .15s;}
+.form-group input:focus,.form-group select:focus{border-color:#c0392b;}
+.btn-cert{background:linear-gradient(135deg,#ffd700,#ff9f00);color:#1a2a4a;border:none;padding:14px 28px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px;transition:opacity .2s;}
+.btn-cert:hover{opacity:.9;}
+.cert-preview{display:none;margin-top:24px;}
+.cert-outer{background:linear-gradient(135deg,#5c0d0d,#8b1a1a,#2d4a8a);border-radius:16px;padding:4px;box-shadow:0 8px 40px rgba(0,0,0,.3);}
+.cert-inner{background:linear-gradient(135deg,#fafdf8,#f5f0e8);border-radius:14px;padding:36px;text-align:center;position:relative;overflow:hidden;}
+.cert-inner::before{content:'⚖️';position:absolute;top:-20px;left:-20px;font-size:120px;opacity:.04;}
+.cert-logo{width:70px;height:70px;border-radius:50%;border:3px solid #c0392b;object-fit:cover;margin:0 auto 12px;}
+.cert-org{color:#c0392b;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.cert-presents{color:#666;font-size:.8rem;margin-bottom:16px;}
+.cert-main-title{font-size:1.5rem;font-weight:800;color:#1a2a4a;margin-bottom:4px;}
+.cert-subtitle{color:#666;font-size:.85rem;margin-bottom:20px;}
+.cert-to{color:#555;font-size:.85rem;margin-bottom:4px;}
+.cert-name{font-size:1.6rem;font-weight:800;color:#c0392b;margin-bottom:4px;}
+.cert-org-name{color:#444;font-size:.9rem;margin-bottom:20px;}
+.cert-desc{color:#555;font-size:.82rem;line-height:1.65;max-width:480px;margin:0 auto 24px;}
+.cert-score{display:inline-block;background:linear-gradient(135deg,#c0392b,#2d4a8a);color:#fff;border-radius:20px;padding:6px 18px;font-size:.85rem;font-weight:700;margin-bottom:24px;}
+.cert-meta{display:flex;justify-content:space-around;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+.cert-meta-item{text-align:center;}
+.cert-meta-label{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.5px;}
+.cert-meta-value{font-size:.9rem;font-weight:700;color:#1a2a4a;}
+.sig-section{display:flex;justify-content:space-around;margin-top:16px;flex-wrap:wrap;gap:16px;}
+.sig-block{text-align:center;}
+.sig-name{font-family:'Dancing Script',cursive;font-size:1.6rem;color:#1a2a4a;line-height:1;}
+.sig-line{width:140px;height:1px;background:#999;margin:4px auto;}
+.sig-label{font-size:.7rem;color:#888;margin-top:2px;}
+.cert-footer{margin-top:20px;padding-top:16px;border-top:1px solid #ddd;font-size:.72rem;color:#999;}
+.final-unlock{background:linear-gradient(135deg,#fff9e6,#fff3cc);border:2px solid #ffd700;border-radius:14px;padding:24px;margin-top:24px;display:none;text-align:center;}
+.final-unlock h3{color:#8b6914;margin-bottom:8px;font-size:1.1rem;}
+.final-unlock p{color:#6b5414;font-size:.87rem;margin-bottom:16px;}
+.btn-final{display:inline-block;background:linear-gradient(135deg,#ffd700,#ff9f00);color:#1a2a4a;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:700;font-size:1rem;}
+.wa-support{background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:1px solid #28a745;border-radius:14px;padding:24px;margin-top:24px;display:none;text-align:center;}
+.wa-support h3{color:#1a5c2e;margin-bottom:8px;font-size:1rem;}
+.wa-support p{color:#2d5a3d;font-size:.85rem;margin-bottom:16px;}
+.wa-link{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;}
+#contactBtn{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:50px;padding:14px 20px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;animation:contactPulse 2s infinite;}
+@keyframes contactPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 4px 20px rgba(37,211,102,.5),0 0 0 8px rgba(37,211,102,0)}}
+.contact-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;}
+.contact-overlay.open{display:block;}
+.contact-modal{display:none;position:fixed;bottom:90px;right:24px;background:#fff;border-radius:16px;padding:24px;width:300px;box-shadow:0 8px 40px rgba(0,0,0,.2);z-index:999;}
+.contact-modal.open{display:block;}
+.contact-modal h3{color:#1a2a4a;margin-bottom:4px;font-size:1rem;}
+.contact-modal p{color:#666;font-size:.8rem;margin-bottom:16px;}
+.contact-modal img{width:120px;height:120px;display:block;margin:0 auto 12px;border-radius:8px;}
+.wa-btn-modal{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;}
+.btn-download{background:linear-gradient(135deg,#c0392b,#2d4a8a);color:#fff;border:none;padding:12px 24px;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;margin-top:12px;width:100%;}
+@media print{.nav,.quiz-section,.cert-form,.wa-support,.final-unlock,#contactBtn,.contact-overlay,.contact-modal,.btn-download{display:none!important;}.cert-preview{display:block!important;}body{background:#fff;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <img src="janman-logo.png" alt="Janman" class="nav-logo">
+  <div><div class="nav-title">Janman People's Foundation</div><div class="nav-sub">Constitutional Law · Level 3</div></div>
+  <a href="index.html" class="nav-back">← FR &amp; DPSP Hub</a>
+</nav>
+
+<div class="hero">
+  <div class="level-badge">⚖️ Level 3 · Advanced</div>
+  <h1>Landmark Cases &amp; PIL Practice</h1>
+  <p>Supreme Court jurisprudence that built India's constitutional law — and how to use it for strategic litigation and Public Interest Litigation</p>
+  <div class="hero-meta">
+    <div class="meta-item"><div class="meta-num">6</div><div class="meta-label">Sections</div></div>
+    <div class="meta-item"><div class="meta-num">20+</div><div class="meta-label">Landmark Cases</div></div>
+    <div class="meta-item"><div class="meta-num">25</div><div class="meta-label">Questions</div></div>
+    <div class="meta-item"><div class="meta-num">70%</div><div class="meta-label">Pass Mark</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: Basic Structure Doctrine -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 1: The Basic Structure Doctrine</h2>
+    <p>The most powerful constitutional protection — limits on Parliament's power to amend</p>
+  </div>
+  <div class="section-body">
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">1973</span>
+        <div><div class="case-name">Kesavananda Bharati v. State of Kerala</div><div class="case-bench">13-judge bench · 7:6 majority</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>Parliament has wide power to amend the Constitution under Art 368, but cannot alter its "basic structure" or "essential features." The basic structure includes: supremacy of the Constitution, republican and democratic form of government, secular character, separation of powers, federal character, rule of law, judicial review, free and fair elections, fundamental rights, parliamentary system, and unity and integrity of India.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>This case overruled Golak Nath (1967) and established that even constitutional amendments can be challenged if they violate the basic structure. It is the most significant judgment in India's constitutional history — the foundation of judicial review of constitutional amendments. Every constitutional PIL invoking the basic structure doctrine traces back to this case.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">1975</span>
+        <div><div class="case-name">Indira Nehru Gandhi v. Raj Narain</div><div class="case-bench">5-judge bench</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>First application of the basic structure doctrine. The 39th Amendment immunised the election of PM from judicial review — the SC struck it down as violating basic structure (rule of law, free and fair elections). Free and fair elections are an essential feature of the Constitution that cannot be removed by amendment.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>Established that the rule of law and free and fair elections are part of the basic structure. No constitutional amendment can insulate electoral corruption from judicial review. Led directly to the Declaration of Emergency in 1975 (the darkest chapter in Indian constitutional history).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">1980</span>
+        <div><div class="case-name">Minerva Mills Ltd v. Union of India</div><div class="case-bench">5-judge bench</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>The 42nd Amendment's attempt to (1) give Parliament unlimited amending power and (2) extend Art 31C protection to all DPSP was struck down as violating basic structure. Judicial review and the balance between FR and DPSP are both essential features of the Constitution. Parliament cannot make itself supreme over the Constitution.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>Affirmed that judicial review is part of basic structure and cannot be removed. Restored the FR-DPSP balance that the Emergency-era 42nd Amendment had tried to destroy. Remains the definitive statement on the limits of Parliament's amending power.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: Art 21 Expansion Cases -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 2: The Expanding Horizons of Article 21</h2>
+    <p>How the SC transformed "life and personal liberty" into a comprehensive rights umbrella</p>
+  </div>
+  <div class="section-body">
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">1978</span>
+        <div><div class="case-name">Maneka Gandhi v. Union of India</div><div class="case-bench">7-judge bench</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>Overruled A.K. Gopalan (1950). Held that: (1) FRs are not isolated silos — they must be read together; (2) "Procedure established by law" under Art 21 must be fair, just, and reasonable — not mere law-on-paper; (3) The right to travel abroad is part of Art 21; (4) The golden triangle — Art 14, 19, and 21 — must be read together.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>The watershed judgment that opened up Art 21 to include dozens of rights beyond literal "life and liberty." Set the stage for subsequent recognition of rights to livelihood, health, privacy, dignity, education, clean environment, and more — all under Art 21.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">2017</span>
+        <div><div class="case-name">K.S. Puttaswamy v. Union of India (Privacy)</div><div class="case-bench">9-judge bench · Unanimous</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>Privacy is a fundamental right under Art 21. It inheres in each individual as a natural right and encompasses the right to be let alone, informational self-determination, and decisional autonomy. Overruled M.P. Sharma (1954) and Kharak Singh (1962). Any infringement of privacy must meet the triple test: legality, legitimate aim, and proportionality.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>Foundation for all digital rights litigation — Aadhaar challenges, data protection, surveillance. Challenged the constitutionality of the Aadhaar Act (subsequently upheld with modifications in Puttaswamy II, 2018). The "proportionality" test from this judgment is now used to evaluate all privacy-affecting laws.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="art-block">
+      <h3>Other Key Art 21 Rights Recognised by the SC</h3>
+      <ul>
+        <li><strong>Right to livelihood</strong> — Olga Tellis (1985)</li>
+        <li><strong>Right to emergency medical care</strong> — Paschim Banga (1996)</li>
+        <li><strong>Right to speedy trial</strong> — Hussainara Khatoon (1979)</li>
+        <li><strong>Right to free legal aid</strong> — M.H. Hoskot (1978)</li>
+        <li><strong>Right to shelter</strong> — Shantistar Builders (1990)</li>
+        <li><strong>Right to clean environment</strong> — Subhash Kumar (1991)</li>
+        <li><strong>Right to dignity</strong> — Francis Coralie Mullin (1981)</li>
+        <li><strong>Right to education (before Art 21A)</strong> — Unni Krishnan (1993)</li>
+        <li><strong>Right to reputation</strong> — MC Mehta v. Union of India (1987)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: Equality and Reservations -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 3: Equality Jurisprudence and Reservations</h2>
+    <p>The Art 14-15-16 trilogy — from Champakam to Janhit Abhiyan</p>
+  </div>
+  <div class="section-body">
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">1992</span>
+        <div><div class="case-name">Indra Sawhney v. Union of India (Mandal)</div><div class="case-bench">9-judge bench</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>The Mandal Commission OBC reservation (27%) was upheld. Key principles: (1) Total reservations cannot exceed 50% (the "50% rule"); (2) Creamy layer must be excluded from OBC reservations; (3) Reservation in promotions is not permitted under Art 16(4) (subsequently qualified by 77th Amendment and M. Nagaraj); (4) Art 16(4) is not exhaustive of reservation power — Art 16(1) also permits reservation-like measures.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>The foundational reservation judgment. The 50% cap and creamy layer exclusion remain law. Any new reservation scheme must navigate these principles. The EWS reservation (103rd Amendment 2019) breaches the 50% cap for the first time — upheld in Janhit Abhiyan v. UoI (2022) as valid because it operates as a separate compartment.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">2022</span>
+        <div><div class="case-name">Janhit Abhiyan v. Union of India (EWS)</div><div class="case-bench">5-judge bench · 3:2</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>The 103rd Constitutional Amendment providing 10% EWS reservation was upheld by a 3:2 majority. The exclusion of SC/ST/OBC from EWS reservation does not violate Art 14 or basic structure. EWS operates as a separate category beyond the 50% ceiling set in Indra Sawhney.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>First time the 50% ceiling has been breached for a government-created reservation. The minority opinion (Justices Bhat and Trivedi) argued that excluding SC/ST/OBC from EWS violates Art 14 and the basic structure equality provisions. A deeply contested judgment relevant for ongoing reservation litigation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: Recent SC Judgments (2019-2024) -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 4: Recent Supreme Court Judgments (2019–2024)</h2>
+    <p>Developments in constitutional law that every practitioner must know</p>
+  </div>
+  <div class="section-body">
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">2023</span>
+        <div><div class="case-name">Supriyo @ Supriya Chakraborty v. Union of India</div><div class="case-bench">5-judge bench</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>The SC refused to recognise a constitutional right to same-sex marriage. Marriage is not a FR under the Constitution. The right to unionise / form a legal relationship may exist under Art 21 but the Court left this for Parliament. Struck down the challenge to special marriage laws on this ground. Directed formation of a committee to consider rights of queer persons.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>While the Court did not recognise same-sex marriage, it reaffirmed the Navtej Singh Johar (2018) reading of Art 21 as covering sexuality and intimacy. The debate on queer rights continues in Parliament. Practitioners working on LGBTQ+ rights must understand both Johar and Supriyo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">2024</span>
+        <div><div class="case-name">Association for Democratic Reforms v. Union of India (Electoral Bonds)</div><div class="case-bench">5-judge bench · Unanimous</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>The Electoral Bond Scheme was struck down unanimously as unconstitutional. Voters have a fundamental right to information (Art 19(1)(a)) about political funding. Anonymous electoral bonds violated this right. The SBI was directed to disclose all bond data to the Election Commission immediately.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>Landmark application of the right to information under Art 19(1)(a). Established that political funding is a matter of public concern and voters have a constitutional right to know. Shows how FR (Art 19) can be used to challenge government policy that undermines democratic transparency.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">2024</span>
+        <div><div class="case-name">Property Owners Association v. State of Maharashtra</div><div class="case-bench">9-judge bench</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>9-judge bench addressed the scope of Art 39(b) (material resources of the community). By a 7:2 majority, held that ALL privately owned material resources are NOT automatically "material resources of the community" under Art 39(b) — the State cannot acquire all private property in the name of redistribution without adequate compensation. Overruled minority view in Sanjeev Coke Manufacturing Co (1982).</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters</h4>
+          <p>Significant limitation on Art 39(b)-based legislation. Governments cannot expropriate all private resources in the name of public welfare. Relevant for land acquisition, natural resource allocation, and property rights disputes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: PIL Practice -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 5: Public Interest Litigation (PIL) — Filing and Drafting</h2>
+    <p>How to bring constitutional rights violations before the Supreme Court and High Courts</p>
+  </div>
+  <div class="section-body">
+    <div class="art-block">
+      <h3>What is PIL and Where to File</h3>
+      <p><strong>Supreme Court (Art 32):</strong> For violations of Fundamental Rights — original jurisdiction, no territorial limit. File when: the issue affects the public at large, lower courts cannot provide adequate relief, or there is systemic state failure.<br>
+      <strong>High Court (Art 226):</strong> For FR violations AND "any other purpose" — wider than Art 32. Preferred for state-specific issues, faster relief, territorial convenience. HC can issue all 5 writs plus any direction or order.</p>
+    </div>
+    <div class="important-note">
+      <h4>💡 Locus Standi in PIL — Who Can File?</h4>
+      <p>Unlike ordinary litigation (only aggrieved party), PIL allows any public-spirited person to file on behalf of those who cannot access courts. The SC has even accepted: letters to judges, postcards, newspaper reports, and telegram as PIL petitions. Courts appoint commissioners and amicus curiae to assist. There is no court fee for PIL petitions under Art 32.</p>
+    </div>
+    <div style="margin-top:16px;">
+      <p style="font-size:.88rem;font-weight:700;color:#1a2a4a;margin-bottom:12px;">Steps to File a PIL in the Supreme Court:</p>
+      <div class="pil-step"><div class="pil-step-num">1</div><div class="pil-step-content"><h4>Identify the FR Violation</h4><p>Which Fundamental Right is being violated? By whom (State/private body exercising public function)? Is it systemic or individual? PIL is appropriate for widespread, systemic violations affecting the poor and marginalised.</p></div></div>
+      <div class="pil-step"><div class="pil-step-num">2</div><div class="pil-step-content"><h4>Gather Evidence and Affidavits</h4><p>Collect: affidavits from affected persons, RTI responses, government reports, news reports, photographs, videos, expert opinions. The SC often relies on socio-economic data — NFHS reports, Census data, NSSO surveys.</p></div></div>
+      <div class="pil-step"><div class="pil-step-num">3</div><div class="pil-step-content"><h4>Draft the Writ Petition</h4><p>Structure: (1) Party details; (2) Synopsis &amp; list of dates; (3) Facts in chronological order; (4) Grounds — which FRs are violated and why; (5) Questions of law; (6) Prayers (what relief you seek — writ, direction, compensation). File in prescribed format with SC Registry.</p></div></div>
+      <div class="pil-step"><div class="pil-step-num">4</div><div class="pil-step-content"><h4>Filing and Preliminary Hearing</h4><p>File with SC Registry (New Delhi) or e-file online. Pay court fee (₹50 for WP, free for PIL filed as letter petition). The matter is listed before a vacation bench or a bench dealing with similar matters. Be prepared for preliminary objections on maintainability and locus.</p></div></div>
+      <div class="pil-step"><div class="pil-step-num">5</div><div class="pil-step-content"><h4>Interim Relief and Final Directions</h4><p>At the first hearing, argue for interim directions. SC can: issue interim orders, appoint commissioners, direct production of records, and order status reports. Most PIL relief comes through monitoring and compliance — the case continues until systemic change is demonstrated.</p></div></div>
+    </div>
+    <div class="case-card" style="margin-top:16px;">
+      <div class="case-card-header">
+        <span class="case-year">1984</span>
+        <div><div class="case-name">Bandhua Mukti Morcha v. Union of India</div><div class="case-bench">PIL · Letters as petitions</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>Holding</h4>
+          <p>Letters written to the SC about bonded labour in stone quarries were treated as PIL petitions. The Court appointed commissioners to investigate, ordered rehabilitation under the Bonded Labour (Abolition) Act 1976, and continued monitoring. Established that courts can act on any communication about FR violations of the poor.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Why It Matters for Practitioners</h4>
+          <p>Any Janman team member can write a detailed letter to the Chief Justice of India about systematic violations of labour rights, bonded labour, untouchability, or child labour in Bihar. If facts are compelling, the SC may treat it as a PIL. Document everything — the first step is getting the Court's attention.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: Strategic Litigation Toolkit -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 6: Strategic Constitutional Litigation — A Practitioner's Toolkit</h2>
+    <p>Advanced techniques for using constitutional law to achieve systemic change</p>
+  </div>
+  <div class="section-body">
+    <div class="art-block">
+      <h3>Combining FRs for Maximum Effect</h3>
+      <ul>
+        <li><strong>Art 14 + Art 21:</strong> Arbitrary denial of welfare scheme benefits without hearing — due process violation</li>
+        <li><strong>Art 17 + Art 21:</strong> Untouchability-based exclusion from MGNREGA or PDS — dignity violation</li>
+        <li><strong>Art 19(1)(a) + Art 21:</strong> Criminalisation of dissent or suppression of whistleblowers</li>
+        <li><strong>Art 23 + Art 21:</strong> Bonded labour, trafficking, manual scavenging — enforce with Art 21 compensation</li>
+        <li><strong>Art 32 + DPSP:</strong> PIL arguing State failure to implement a scheme (e.g., ICDS, Mid-Day Meal) violates Art 21</li>
+      </ul>
+    </div>
+    <div class="art-block">
+      <h3>Compensation Under Art 32/226</h3>
+      <p>The SC and HCs can award monetary compensation for constitutional torts — violations of FR by the State. Key cases:</p>
+      <ul>
+        <li><strong>Rudul Sah v. State of Bihar (1983)</strong> — first case of compensation for illegal detention under Art 32</li>
+        <li><strong>Nilabati Behera v. State of Orissa (1993)</strong> — compensation for custodial death; constitutional tort doctrine</li>
+        <li><strong>DK Basu v. State of West Bengal (1997)</strong> — guidelines for arrest; compensation for violation</li>
+      </ul>
+    </div>
+    <div class="case-card">
+      <div class="case-card-header">
+        <span class="case-year">Bihar-Specific</span>
+        <div><div class="case-name">Patna High Court under Art 226 — Your Primary Forum</div><div class="case-bench">Art 226 · Wider than Art 32</div></div>
+      </div>
+      <div class="case-card-body">
+        <div class="case-holding">
+          <h4>For Bihar-Based Rights Violations</h4>
+          <p>The Patna High Court is the primary forum for constitutional rights enforcement in Bihar. Under Art 226, the Patna HC can issue writs for FR violations AND for "any other purpose" — broader than the SC's Art 32 jurisdiction. Key PIL areas before Patna HC: prison conditions, undertrial detention, bonded labour, manual scavenging, child rights, welfare scheme non-implementation.</p>
+        </div>
+        <div class="case-impact">
+          <h4>Janman Litigation Strategy</h4>
+          <p>File at Patna HC first — faster disposal for Bihar matters, territorial connection. Escalate to SC for matters of national significance or when HC fails to act. The Patna HC Legal Services Committee and Bihar SLSA provide free legal aid for PIL work. Janman legal team can assist with strategy and drafting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ: 25 questions -->
+<div class="quiz-section">
+  <div class="quiz-header">
+    <h2>🧠 Level 3 Assessment Quiz</h2>
+    <p>25 questions · 70% required to pass and earn your Level 3 certificate</p>
+  </div>
+  <div class="quiz-body">
+
+    <div class="question" id="q1"><div class="q-num">Q1 of 25</div>
+    <div class="q-text">The Basic Structure Doctrine was established in:</div>
+    <div class="option" onclick="choose('q1','a')"><input type="radio" name="q1"><span class="opt-letter">A</span><label>A.K. Gopalan v. State of Madras (1950)</label></div>
+    <div class="option" onclick="choose('q1','b')"><input type="radio" name="q1"><span class="opt-letter">B</span><label>Kesavananda Bharati v. State of Kerala (1973)</label></div>
+    <div class="option" onclick="choose('q1','c')"><input type="radio" name="q1"><span class="opt-letter">C</span><label>Maneka Gandhi v. Union of India (1978)</label></div>
+    <div class="option" onclick="choose('q1','d')"><input type="radio" name="q1"><span class="opt-letter">D</span><label>Minerva Mills v. Union of India (1980)</label></div>
+    <div class="feedback" id="fb1"></div></div>
+
+    <div class="question" id="q2"><div class="q-num">Q2 of 25</div>
+    <div class="q-text">In Maneka Gandhi (1978), the Supreme Court held that procedure under Art 21 must be:</div>
+    <div class="option" onclick="choose('q2','a')"><input type="radio" name="q2"><span class="opt-letter">A</span><label>Prescribed by a Central law</label></div>
+    <div class="option" onclick="choose('q2','b')"><input type="radio" name="q2"><span class="opt-letter">B</span><label>Fair, just, and reasonable</label></div>
+    <div class="option" onclick="choose('q2','c')"><input type="radio" name="q2"><span class="opt-letter">C</span><label>Approved by the President</label></div>
+    <div class="option" onclick="choose('q2','d')"><input type="radio" name="q2"><span class="opt-letter">D</span><label>Upheld by the High Court</label></div>
+    <div class="feedback" id="fb2"></div></div>
+
+    <div class="question" id="q3"><div class="q-num">Q3 of 25</div>
+    <div class="q-text">The Kesavananda Bharati case was decided by how many judges?</div>
+    <div class="option" onclick="choose('q3','a')"><input type="radio" name="q3"><span class="opt-letter">A</span><label>5</label></div>
+    <div class="option" onclick="choose('q3','b')"><input type="radio" name="q3"><span class="opt-letter">B</span><label>9</label></div>
+    <div class="option" onclick="choose('q3','c')"><input type="radio" name="q3"><span class="opt-letter">C</span><label>11</label></div>
+    <div class="option" onclick="choose('q3','d')"><input type="radio" name="q3"><span class="opt-letter">D</span><label>13</label></div>
+    <div class="feedback" id="fb3"></div></div>
+
+    <div class="question" id="q4"><div class="q-num">Q4 of 25</div>
+    <div class="q-text">The Indra Sawhney (Mandal) case established a reservation cap of:</div>
+    <div class="option" onclick="choose('q4','a')"><input type="radio" name="q4"><span class="opt-letter">A</span><label>27%</label></div>
+    <div class="option" onclick="choose('q4','b')"><input type="radio" name="q4"><span class="opt-letter">B</span><label>49.5%</label></div>
+    <div class="option" onclick="choose('q4','c')"><input type="radio" name="q4"><span class="opt-letter">C</span><label>50%</label></div>
+    <div class="option" onclick="choose('q4','d')"><input type="radio" name="q4"><span class="opt-letter">D</span><label>60%</label></div>
+    <div class="feedback" id="fb4"></div></div>
+
+    <div class="question" id="q5"><div class="q-num">Q5 of 25</div>
+    <div class="q-text">Privacy as a Fundamental Right was unanimously recognised in K.S. Puttaswamy (2017). The test for any infringement of privacy includes:</div>
+    <div class="option" onclick="choose('q5','a')"><input type="radio" name="q5"><span class="opt-letter">A</span><label>Parliamentary approval only</label></div>
+    <div class="option" onclick="choose('q5','b')"><input type="radio" name="q5"><span class="opt-letter">B</span><label>Legality, legitimate aim, and proportionality</label></div>
+    <div class="option" onclick="choose('q5','c')"><input type="radio" name="q5"><span class="opt-letter">C</span><label>Presidential assent and SC permission</label></div>
+    <div class="option" onclick="choose('q5','d')"><input type="radio" name="q5"><span class="opt-letter">D</span><label>Majority vote in Parliament</label></div>
+    <div class="feedback" id="fb5"></div></div>
+
+    <div class="question" id="q6"><div class="q-num">Q6 of 25</div>
+    <div class="q-text">What was the SC's ruling in the Electoral Bonds case (2024)?</div>
+    <div class="option" onclick="choose('q6','a')"><input type="radio" name="q6"><span class="opt-letter">A</span><label>The scheme was upheld as valid</label></div>
+    <div class="option" onclick="choose('q6','b')"><input type="radio" name="q6"><span class="opt-letter">B</span><label>The scheme was struck down as violating the right to information under Art 19(1)(a)</label></div>
+    <div class="option" onclick="choose('q6','c')"><input type="radio" name="q6"><span class="opt-letter">C</span><label>Only the anonymous feature was struck down</label></div>
+    <div class="option" onclick="choose('q6','d')"><input type="radio" name="q6"><span class="opt-letter">D</span><label>The matter was referred to a larger bench</label></div>
+    <div class="feedback" id="fb6"></div></div>
+
+    <div class="question" id="q7"><div class="q-num">Q7 of 25</div>
+    <div class="q-text">In Rudul Sah v. State of Bihar (1983), the Supreme Court granted monetary compensation under Art 32 for:</div>
+    <div class="option" onclick="choose('q7','a')"><input type="radio" name="q7"><span class="opt-letter">A</span><label>Wrongful termination from government service</label></div>
+    <div class="option" onclick="choose('q7','b')"><input type="radio" name="q7"><span class="opt-letter">B</span><label>Illegal detention for 14 years after acquittal</label></div>
+    <div class="option" onclick="choose('q7','c')"><input type="radio" name="q7"><span class="opt-letter">C</span><label>Denial of education to a minor</label></div>
+    <div class="option" onclick="choose('q7','d')"><input type="radio" name="q7"><span class="opt-letter">D</span><label>Environmental damage to a village</label></div>
+    <div class="feedback" id="fb7"></div></div>
+
+    <div class="question" id="q8"><div class="q-num">Q8 of 25</div>
+    <div class="q-text">PIL can be filed in the Supreme Court under which Article?</div>
+    <div class="option" onclick="choose('q8','a')"><input type="radio" name="q8"><span class="opt-letter">A</span><label>Article 136</label></div>
+    <div class="option" onclick="choose('q8','b')"><input type="radio" name="q8"><span class="opt-letter">B</span><label>Article 226</label></div>
+    <div class="option" onclick="choose('q8','c')"><input type="radio" name="q8"><span class="opt-letter">C</span><label>Article 32</label></div>
+    <div class="option" onclick="choose('q8','d')"><input type="radio" name="q8"><span class="opt-letter">D</span><label>Article 142</label></div>
+    <div class="feedback" id="fb8"></div></div>
+
+    <div class="question" id="q9"><div class="q-num">Q9 of 25</div>
+    <div class="q-text">The Supriyo v. Union of India (2023) case held that:</div>
+    <div class="option" onclick="choose('q9','a')"><input type="radio" name="q9"><span class="opt-letter">A</span><label>Same-sex marriage is a fundamental right</label></div>
+    <div class="option" onclick="choose('q9','b')"><input type="radio" name="q9"><span class="opt-letter">B</span><label>The right to marry is not a fundamental right under the current Constitution</label></div>
+    <div class="option" onclick="choose('q9','c')"><input type="radio" name="q9"><span class="opt-letter">C</span><label>The Special Marriage Act was struck down</label></div>
+    <div class="option" onclick="choose('q9','d')"><input type="radio" name="q9"><span class="opt-letter">D</span><label>State governments can legislate same-sex marriage independently</label></div>
+    <div class="feedback" id="fb9"></div></div>
+
+    <div class="question" id="q10"><div class="q-num">Q10 of 25</div>
+    <div class="q-text">The Bandhua Mukti Morcha case (1984) established that the SC can treat which of the following as a PIL petition?</div>
+    <div class="option" onclick="choose('q10','a')"><input type="radio" name="q10"><span class="opt-letter">A</span><label>Only formal writ petitions filed by advocates</label></div>
+    <div class="option" onclick="choose('q10','b')"><input type="radio" name="q10"><span class="opt-letter">B</span><label>Letters and communications from public-spirited persons</label></div>
+    <div class="option" onclick="choose('q10','c')"><input type="radio" name="q10"><span class="opt-letter">C</span><label>Only petitions filed by registered NGOs</label></div>
+    <div class="option" onclick="choose('q10','d')"><input type="radio" name="q10"><span class="opt-letter">D</span><label>Only petitions filed by Members of Parliament</label></div>
+    <div class="feedback" id="fb10"></div></div>
+
+    <div class="question" id="q11"><div class="q-num">Q11 of 25</div>
+    <div class="q-text">Judicial review as a feature of the Constitution was held to be part of the Basic Structure in:</div>
+    <div class="option" onclick="choose('q11','a')"><input type="radio" name="q11"><span class="opt-letter">A</span><label>Kesavananda Bharati (1973)</label></div>
+    <div class="option" onclick="choose('q11','b')"><input type="radio" name="q11"><span class="opt-letter">B</span><label>Minerva Mills (1980)</label></div>
+    <div class="option" onclick="choose('q11','c')"><input type="radio" name="q11"><span class="opt-letter">C</span><label>L. Chandra Kumar v. Union of India (1997)</label></div>
+    <div class="option" onclick="choose('q11','d')"><input type="radio" name="q11"><span class="opt-letter">D</span><label>All of the above</label></div>
+    <div class="feedback" id="fb11"></div></div>
+
+    <div class="question" id="q12"><div class="q-num">Q12 of 25</div>
+    <div class="q-text">The right to shelter / housing as part of Art 21 was recognised in:</div>
+    <div class="option" onclick="choose('q12','a')"><input type="radio" name="q12"><span class="opt-letter">A</span><label>Hussainara Khatoon (1979)</label></div>
+    <div class="option" onclick="choose('q12','b')"><input type="radio" name="q12"><span class="opt-letter">B</span><label>Shantistar Builders v. Narayan (1990)</label></div>
+    <div class="option" onclick="choose('q12','c')"><input type="radio" name="q12"><span class="opt-letter">C</span><label>Unni Krishnan v. State of AP (1993)</label></div>
+    <div class="option" onclick="choose('q12','d')"><input type="radio" name="q12"><span class="opt-letter">D</span><label>Olga Tellis v. BMC (1985)</label></div>
+    <div class="feedback" id="fb12"></div></div>
+
+    <div class="question" id="q13"><div class="q-num">Q13 of 25</div>
+    <div class="q-text">The DK Basu v. State of West Bengal (1997) judgment is primarily known for:</div>
+    <div class="option" onclick="choose('q13','a')"><input type="radio" name="q13"><span class="opt-letter">A</span><label>Abolishing preventive detention</label></div>
+    <div class="option" onclick="choose('q13','b')"><input type="radio" name="q13"><span class="opt-letter">B</span><label>Guidelines to prevent custodial torture and deaths, with compensation for violations</label></div>
+    <div class="option" onclick="choose('q13','c')"><input type="radio" name="q13"><span class="opt-letter">C</span><label>Recognition of the right to privacy</label></div>
+    <div class="option" onclick="choose('q13','d')"><input type="radio" name="q13"><span class="opt-letter">D</span><label>Abolition of handcuffing during transit</label></div>
+    <div class="feedback" id="fb13"></div></div>
+
+    <div class="question" id="q14"><div class="q-num">Q14 of 25</div>
+    <div class="q-text">In Nilabati Behera v. State of Orissa (1993), the SC held that the State's liability for custodial death is:</div>
+    <div class="option" onclick="choose('q14','a')"><input type="radio" name="q14"><span class="opt-letter">A</span><label>A private law tort governed by the Torts Act</label></div>
+    <div class="option" onclick="choose('q14','b')"><input type="radio" name="q14"><span class="opt-letter">B</span><label>A constitutional tort — the State must pay compensation under Art 32/226</label></div>
+    <div class="option" onclick="choose('q14','c')"><input type="radio" name="q14"><span class="opt-letter">C</span><label>Only cognisable under criminal law</label></div>
+    <div class="option" onclick="choose('q14','d')"><input type="radio" name="q14"><span class="opt-letter">D</span><label>Not actionable unless the officer is personally identified</label></div>
+    <div class="feedback" id="fb14"></div></div>
+
+    <div class="question" id="q15"><div class="q-num">Q15 of 25</div>
+    <div class="q-text">The Indira Nehru Gandhi v. Raj Narain (1975) case is significant because it:</div>
+    <div class="option" onclick="choose('q15','a')"><input type="radio" name="q15"><span class="opt-letter">A</span><label>Imposed the Emergency in India</label></div>
+    <div class="option" onclick="choose('q15','b')"><input type="radio" name="q15"><span class="opt-letter">B</span><label>Applied the Basic Structure doctrine to strike down the 39th Amendment</label></div>
+    <div class="option" onclick="choose('q15','c')"><input type="radio" name="q15"><span class="opt-letter">C</span><label>Recognised the right to free and fair elections as a FR</label></div>
+    <div class="option" onclick="choose('q15','d')"><input type="radio" name="q15"><span class="opt-letter">D</span><label>Both B and C</label></div>
+    <div class="feedback" id="fb15"></div></div>
+
+    <div class="question" id="q16"><div class="q-num">Q16 of 25</div>
+    <div class="q-text">High Courts under Art 226 can issue writs for:</div>
+    <div class="option" onclick="choose('q16','a')"><input type="radio" name="q16"><span class="opt-letter">A</span><label>FR violations only (same as Art 32)</label></div>
+    <div class="option" onclick="choose('q16','b')"><input type="radio" name="q16"><span class="opt-letter">B</span><label>FR violations AND for "any other purpose"</label></div>
+    <div class="option" onclick="choose('q16','c')"><input type="radio" name="q16"><span class="opt-letter">C</span><label>Criminal matters only</label></div>
+    <div class="option" onclick="choose('q16','d')"><input type="radio" name="q16"><span class="opt-letter">D</span><label>Service matters and elections only</label></div>
+    <div class="feedback" id="fb16"></div></div>
+
+    <div class="question" id="q17"><div class="q-num">Q17 of 25</div>
+    <div class="q-text">The Creamy Layer concept in OBC reservations — excluding the better-off among OBCs — was introduced by:</div>
+    <div class="option" onclick="choose('q17','a')"><input type="radio" name="q17"><span class="opt-letter">A</span><label>Champakam Dorairajan (1951)</label></div>
+    <div class="option" onclick="choose('q17','b')"><input type="radio" name="q17"><span class="opt-letter">B</span><label>Indra Sawhney v. Union of India (1992)</label></div>
+    <div class="option" onclick="choose('q17','c')"><input type="radio" name="q17"><span class="opt-letter">C</span><label>M. Nagaraj v. Union of India (2006)</label></div>
+    <div class="option" onclick="choose('q17','d')"><input type="radio" name="q17"><span class="opt-letter">D</span><label>Jarnail Singh v. Lachhmi Narain Gupta (2018)</label></div>
+    <div class="feedback" id="fb17"></div></div>
+
+    <div class="question" id="q18"><div class="q-num">Q18 of 25</div>
+    <div class="q-text">The Property Owners Association case (2024) addressed the scope of Art 39(b). The majority held that:</div>
+    <div class="option" onclick="choose('q18','a')"><input type="radio" name="q18"><span class="opt-letter">A</span><label>All private property is "material resources of the community" under Art 39(b)</label></div>
+    <div class="option" onclick="choose('q18','b')"><input type="radio" name="q18"><span class="opt-letter">B</span><label>Not all privately owned resources automatically qualify as "material resources of the community"</label></div>
+    <div class="option" onclick="choose('q18','c')"><input type="radio" name="q18"><span class="opt-letter">C</span><label>Art 39(b) permits nationalisation of any private property without compensation</label></div>
+    <div class="option" onclick="choose('q18','d')"><input type="radio" name="q18"><span class="opt-letter">D</span><label>Art 39(b) was struck down as unconstitutional</label></div>
+    <div class="feedback" id="fb18"></div></div>
+
+    <div class="question" id="q19"><div class="q-num">Q19 of 25</div>
+    <div class="q-text">For filing a PIL in the Patna High Court for a Bihar-specific FR violation, which Article applies?</div>
+    <div class="option" onclick="choose('q19','a')"><input type="radio" name="q19"><span class="opt-letter">A</span><label>Article 32 of the Constitution</label></div>
+    <div class="option" onclick="choose('q19','b')"><input type="radio" name="q19"><span class="opt-letter">B</span><label>Article 226 of the Constitution</label></div>
+    <div class="option" onclick="choose('q19','c')"><input type="radio" name="q19"><span class="opt-letter">C</span><label>Article 142 of the Constitution</label></div>
+    <div class="option" onclick="choose('q19','d')"><input type="radio" name="q19"><span class="opt-letter">D</span><label>Article 136 of the Constitution</label></div>
+    <div class="feedback" id="fb19"></div></div>
+
+    <div class="question" id="q20"><div class="q-num">Q20 of 25</div>
+    <div class="q-text">The "Golden Triangle" of fundamental rights — often referred to in Art 21 cases — consists of:</div>
+    <div class="option" onclick="choose('q20','a')"><input type="radio" name="q20"><span class="opt-letter">A</span><label>Art 14, 19, and 21</label></div>
+    <div class="option" onclick="choose('q20','b')"><input type="radio" name="q20"><span class="opt-letter">B</span><label>Art 14, 17, and 32</label></div>
+    <div class="option" onclick="choose('q20','c')"><input type="radio" name="q20"><span class="opt-letter">C</span><label>Art 19, 21, and 32</label></div>
+    <div class="option" onclick="choose('q20','d')"><input type="radio" name="q20"><span class="opt-letter">D</span><label>Art 12, 13, and 32</label></div>
+    <div class="feedback" id="fb20"></div></div>
+
+    <div class="question" id="q21"><div class="q-num">Q21 of 25</div>
+    <div class="q-text">Free and fair elections were held to be part of the Basic Structure in:</div>
+    <div class="option" onclick="choose('q21','a')"><input type="radio" name="q21"><span class="opt-letter">A</span><label>Kesavananda Bharati (1973)</label></div>
+    <div class="option" onclick="choose('q21','b')"><input type="radio" name="q21"><span class="opt-letter">B</span><label>Indira Gandhi v. Raj Narain (1975)</label></div>
+    <div class="option" onclick="choose('q21','c')"><input type="radio" name="q21"><span class="opt-letter">C</span><label>Minerva Mills (1980)</label></div>
+    <div class="option" onclick="choose('q21','d')"><input type="radio" name="q21"><span class="opt-letter">D</span><label>Kihoto Hollohan v. Zachillhu (1993)</label></div>
+    <div class="feedback" id="fb21"></div></div>
+
+    <div class="question" id="q22"><div class="q-num">Q22 of 25</div>
+    <div class="q-text">A writ of Habeas Corpus to challenge illegal detention can be filed under Art 32 by:</div>
+    <div class="option" onclick="choose('q22','a')"><input type="radio" name="q22"><span class="opt-letter">A</span><label>Only the detained person personally</label></div>
+    <div class="option" onclick="choose('q22','b')"><input type="radio" name="q22"><span class="opt-letter">B</span><label>Any person on behalf of the detenu, including a lawyer, relative, or public-spirited person</label></div>
+    <div class="option" onclick="choose('q22','c')"><input type="radio" name="q22"><span class="opt-letter">C</span><label>Only the detenu's immediate family</label></div>
+    <div class="option" onclick="choose('q22','d')"><input type="radio" name="q22"><span class="opt-letter">D</span><label>Only the National Human Rights Commission</label></div>
+    <div class="feedback" id="fb22"></div></div>
+
+    <div class="question" id="q23"><div class="q-num">Q23 of 25</div>
+    <div class="q-text">Which of the following Fundamental Rights CANNOT be suspended even during a National Emergency?</div>
+    <div class="option" onclick="choose('q23','a')"><input type="radio" name="q23"><span class="opt-letter">A</span><label>Art 19 (six freedoms)</label></div>
+    <div class="option" onclick="choose('q23','b')"><input type="radio" name="q23"><span class="opt-letter">B</span><label>Art 32 (right to move SC)</label></div>
+    <div class="option" onclick="choose('q23','c')"><input type="radio" name="q23"><span class="opt-letter">C</span><label>Art 20 and Art 21 (conviction safeguards and life/liberty)</label></div>
+    <div class="option" onclick="choose('q23','d')"><input type="radio" name="q23"><span class="opt-letter">D</span><label>Art 14 (equality before law)</label></div>
+    <div class="feedback" id="fb23"></div></div>
+
+    <div class="question" id="q24"><div class="q-num">Q24 of 25</div>
+    <div class="q-text">EWS reservation (10%) under the 103rd Amendment was upheld in Janhit Abhiyan (2022) by what majority?</div>
+    <div class="option" onclick="choose('q24','a')"><input type="radio" name="q24"><span class="opt-letter">A</span><label>5:0 (unanimous)</label></div>
+    <div class="option" onclick="choose('q24','b')"><input type="radio" name="q24"><span class="opt-letter">B</span><label>4:1</label></div>
+    <div class="option" onclick="choose('q24','c')"><input type="radio" name="q24"><span class="opt-letter">C</span><label>3:2</label></div>
+    <div class="option" onclick="choose('q24','d')"><input type="radio" name="q24"><span class="opt-letter">D</span><label>2:3 (struck down)</label></div>
+    <div class="feedback" id="fb24"></div></div>
+
+    <div class="question" id="q25"><div class="q-num">Q25 of 25</div>
+    <div class="q-text">The right to dignity as part of Art 21 was first recognised in:</div>
+    <div class="option" onclick="choose('q25','a')"><input type="radio" name="q25"><span class="opt-letter">A</span><label>Olga Tellis v. BMC (1985)</label></div>
+    <div class="option" onclick="choose('q25','b')"><input type="radio" name="q25"><span class="opt-letter">B</span><label>Francis Coralie Mullin v. Union Territory of Delhi (1981)</label></div>
+    <div class="option" onclick="choose('q25','c')"><input type="radio" name="q25"><span class="opt-letter">C</span><label>Hussainara Khatoon (1979)</label></div>
+    <div class="option" onclick="choose('q25','d')"><input type="radio" name="q25"><span class="opt-letter">D</span><label>Maneka Gandhi (1978)</label></div>
+    <div class="feedback" id="fb25"></div></div>
+
+    <div class="quiz-controls">
+      <div class="score-display" id="scoreDisplay">Select all answers, then submit</div>
+      <button class="btn-submit" id="submitBtn" onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+    <div class="result-panel" id="resultPanel">
+      <h3 id="resultTitle"></h3><p id="resultText"></p>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATE FORM -->
+<div class="cert-form" id="certForm">
+  <h3>🎓 Claim Your Level 3 Certificate</h3>
+  <p>Advanced Constitutional Law — your Level 3 credentials.</p>
+  <div class="form-grid">
+    <div class="form-group full"><label>Full Name *</label><input type="text" id="pName" placeholder="As on Level 1 &amp; 2 certificates"></div>
+    <div class="form-group"><label>Phone (WhatsApp) *</label><input type="tel" id="pPhone" placeholder="10-digit mobile number"></div>
+    <div class="form-group"><label>Email Address</label><input type="email" id="pEmail" placeholder="your@email.com"></div>
+    <div class="form-group"><label>Organisation</label><input type="text" id="pOrg" placeholder="NGO / Law firm / University"></div>
+    <div class="form-group"><label>Designation / Role</label><input type="text" id="pDesig" placeholder="Lawyer / Paralegal / Social Worker"></div>
+    <div class="form-group"><select id="pOrgType"><option value="">Organisation Type</option><option>NGO / Civil Society</option><option>Legal Aid / DLSA / SLSA</option><option>Government / OSC</option><option>Law Firm / Advocate</option><option>Academic / University</option><option>Community Organisation</option><option>Individual / Freelance</option></select></div>
+    <div class="form-group"><label>State</label><input type="text" id="pState" placeholder="State"></div>
+    <div class="form-group"><label>District</label><input type="text" id="pDistrict" placeholder="District"></div>
+    <div class="form-group full"><label>Would you like to join Janman's PIL and Constitutional Litigation Network?</label><select id="pNetwork"><option value="">Select</option><option value="yes">Yes — I want to participate in PIL work</option><option value="maybe">Maybe — tell me more</option><option value="no">Not at this time</option></select></div>
+    <div class="form-group full"><label>Can you host a constitutional law training in your area?</label><select id="pHost"><option value="">Select</option><option value="yes">Yes</option><option value="maybe">Maybe</option><option value="no">Not now</option></select></div>
+  </div>
+  <button class="btn-cert" onclick="generateCertificate()">Generate My Level 3 Certificate 🎓</button>
+</div>
+
+<!-- CERTIFICATE PREVIEW -->
+<div class="cert-preview" id="certPreview">
+  <div class="cert-outer">
+    <div class="cert-inner">
+      <img src="janman-logo.png" alt="Janman" class="cert-logo">
+      <div class="cert-org">Janman People's Foundation</div>
+      <div class="cert-presents">Jan Nyay Abhiyan · Constitutional Law Series</div>
+      <div class="cert-main-title">Certificate of Achievement</div>
+      <div class="cert-subtitle">Landmark Cases &amp; PIL Practice — Level 3</div>
+      <div class="cert-to">This is to certify that</div>
+      <div class="cert-name" id="certName">—</div>
+      <div class="cert-org-name" id="certOrgLine">—</div>
+      <div class="cert-desc">has successfully completed <strong>Level 3: Landmark Cases &amp; PIL Practice</strong> of the Janman Constitutional Law Training Series, demonstrating advanced understanding of Supreme Court jurisprudence, the Basic Structure doctrine, Art 21 expansion, and Public Interest Litigation practice.</div>
+      <div class="cert-score" id="certScore">Score: —</div>
+      <div class="cert-meta">
+        <div class="cert-meta-item"><div class="cert-meta-label">Certificate No.</div><div class="cert-meta-value" id="certNo">—</div></div>
+        <div class="cert-meta-item"><div class="cert-meta-label">Date Issued</div><div class="cert-meta-value" id="certDate">—</div></div>
+        <div class="cert-meta-item"><div class="cert-meta-label">Programme</div><div class="cert-meta-value">FR &amp; DPSP Series</div></div>
+        <div class="cert-meta-item"><div class="cert-meta-label">Level</div><div class="cert-meta-value">Advanced (L3)</div></div>
+      </div>
+      <div class="sig-section">
+        <div class="sig-block">
+          <div class="sig-name">Shourya Roy</div>
+          <div class="sig-line"></div>
+          <div class="sig-label">Executive Director, Janman People's Foundation</div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-name" id="certSigName" style="font-family:'Dancing Script',cursive;font-size:1.4rem;color:#1a2a4a;"></div>
+          <div class="sig-line"></div>
+          <div class="sig-label" id="certSigLabel">Participant</div>
+        </div>
+      </div>
+      <div class="cert-footer">Janman People's Foundation · janmanindia.org · shashwat@janmanindia.org · Free legal training for all</div>
+    </div>
+  </div>
+  <button class="btn-download" onclick="downloadCert()">⬇️ Download / Print Certificate</button>
+</div>
+
+<!-- FINAL UNLOCK -->
+<div class="final-unlock" id="finalUnlock">
+  <h3>🏆 All 3 Levels Complete! Claim Your Final Certificate</h3>
+  <p>You have completed all three levels of the Fundamental Rights &amp; DPSP series. You are now eligible for the Janman Certified Constitutional Law Practitioner certificate — signed by the Executive Director.</p>
+  <a href="final-certificate.html" class="btn-final">Get Final Certificate 🏆</a>
+</div>
+
+<!-- WA SUPPORT -->
+<div class="wa-support" id="supportCard">
+  <h3>📱 Connect with Janman Legal Team</h3>
+  <p>Outstanding achievement! Our PIL team can collaborate with you on constitutional litigation and rights enforcement in Bihar.</p>
+  <a class="wa-link" id="waLink" href="#" target="_blank">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Join Janman's PIL Network on WhatsApp
+  </a>
+</div>
+
+</div><!-- /container -->
+
+<button id="contactBtn" onclick="toggleContact()">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Contact Us
+</button>
+<div class="contact-overlay" id="contactOverlay" onclick="toggleContact()"></div>
+<div class="contact-modal" id="contactModal">
+  <h3>📞 Janman Legal Team</h3>
+  <p>Reach our lawyers for PIL and constitutional law support</p>
+  <img src="wa-qr.png" alt="WhatsApp QR">
+  <a href="https://wa.me/918507715870?text=Hello%20Janman%20%F0%9F%99%8F%0AI%20am%20studying%20constitutional%20law%20and%20want%20to%20discuss%20PIL%20strategies." class="wa-btn-modal" target="_blank">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat on WhatsApp
+  </a>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'d',q4:'c',q5:'b',q6:'b',q7:'b',q8:'c',q9:'b',q10:'b',q11:'d',q12:'b',q13:'b',q14:'b',q15:'d',q16:'b',q17:'b',q18:'b',q19:'b',q20:'a',q21:'b',q22:'b',q23:'c',q24:'c',q25:'b'};
+var FEEDBACK={
+  q1:'Kesavananda Bharati v. State of Kerala (1973) — decided by 13 judges, 7:6 majority — established the Basic Structure Doctrine. Parliament has unlimited power to amend but cannot alter the essential features/basic structure of the Constitution.',
+  q2:'Maneka Gandhi overruled A.K. Gopalan and held that procedure under Art 21 must be "right and just and fair and not arbitrary, fanciful or oppressive" — not merely a law on paper. This transformed Art 21 jurisprudence.',
+  q3:'Kesavananda Bharati was heard by a 13-judge constitutional bench — the largest ever in Indian legal history. The 7:6 majority opinion established the Basic Structure Doctrine.',
+  q4:'The 50% rule: Indra Sawhney held that reservations cannot exceed 50% of the available posts in any cadre. This was described as "a constitutional requirement which cannot be exceeded." The EWS reservation (10%) was later upheld as a separate category beyond this cap.',
+  q5:'The Puttaswamy privacy judgment established a triple test for infringement: (1) Legality — must be backed by law; (2) Legitimate aim — the State must have a valid goal; (3) Proportionality — the means must be proportionate to the aim. This test is now used for all privacy-related challenges.',
+  q6:'The Electoral Bond Scheme was struck down unanimously by the 5-judge bench in Feb 2024. Voters have a FR under Art 19(1)(a) to know who is funding political parties. Anonymous bonds violated this right. The Court ordered SBI to disclose all bond data.',
+  q7:'Rudul Sah v. State of Bihar (1983): Rudul Sah was acquitted in 1968 but remained in jail until 1982 — 14 years of illegal detention. The SC awarded compensation of ₹30,000 under Art 32, establishing the constitutional tort doctrine. This was the first time monetary compensation was awarded under Art 32.',
+  q8:'PIL in the Supreme Court is filed under Art 32 — the right to move the SC for enforcement of Fundamental Rights. PIL in High Courts is filed under Art 226. Art 136 (SLP) and Art 142 (complete justice) are different remedies.',
+  q9:'The 5-judge bench in Supriyo (2023) held that the right to marry is not itself a Fundamental Right guaranteed by the Constitution. The Court left it to Parliament to legislate. However, it reaffirmed Navtej Singh Johar (2018) — same-sex relationships are not criminal.',
+  q10:'Bandhua Mukti Morcha established that the SC\'s PIL jurisdiction is not confined to formal petitions. Letters, telegrams, postcards — even news reports — can be treated as PIL petitions. Any public-spirited person can trigger the SC\'s constitutional jurisdiction.',
+  q11:'All three are correct: Kesavananda established Basic Structure; Minerva Mills confirmed judicial review as part of it; L. Chandra Kumar (1997) specifically held that judicial review by the SC and HCs is part of the Basic Structure and cannot be excluded even by constitutional amendment.',
+  q12:'Shantistar Builders v. Narayan Khimalal Totame (1990) held that the right to shelter is part of Art 21. The right to life includes the right to live with human dignity, and a reasonable home is a basic necessity for dignified living.',
+  q13:'DK Basu v. State of West Bengal (1997) issued detailed guidelines for arrest, detention, and interrogation to prevent custodial torture and deaths. These became mandatory directions — violation is itself a constitutional tort deserving compensation. The BNS 2023 has codified some of these guidelines.',
+  q14:'Nilabati Behera (1993) distinguished public law remedies from private law torts. When the State causes death in custody, it must pay compensation under Art 32/226 as a constitutional tort. The State cannot claim sovereign immunity for constitutional violations — unlike the tort law rule in Kasturilal (1965).',
+  q15:'Both B and D are correct: Indira Gandhi v. Raj Narain was the first practical application of the Basic Structure doctrine (from Kesavananda 1973). The Court struck down the 39th Amendment for shielding the PM\'s election from judicial review — violating the Basic Structure rule of law and free/fair elections. This led to the Emergency Declaration in June 1975.',
+  q16:'Art 226 gives High Courts wider jurisdiction than the SC\'s Art 32 — HCs can issue writs not only for FR enforcement but "for any other purpose" as well. This makes Art 226 broader than Art 32, and HCs are often preferred for state-level matters and non-FR-based writ petitions.',
+  q17:'Indra Sawhney (1992) introduced the creamy layer concept — those OBC members who are socially and economically advanced (above a certain income threshold) are excluded from OBC reservations. The creamy layer income threshold is periodically revised by the government.',
+  q18:'In Property Owners Association (2024), a 9-judge bench overruled the minority view in Sanjeev Coke (1982) that had treated all private property as "material resources of the community." The majority held that whether private property constitutes community resources depends on the nature of the resource, not just private ownership.',
+  q19:'The Patna High Court\'s writ jurisdiction is exercised under Art 226 of the Constitution. Art 226 allows HCs to issue writs for FR violations and "for any other purpose" within their territorial jurisdiction. Art 32 is only for the Supreme Court.',
+  q20:'The "Golden Triangle" — coined in Maneka Gandhi (1978) — comprises Art 14 (equality), Art 19 (freedoms), and Art 21 (life and liberty). These must be read together: any law affecting Art 21 must also satisfy Art 14 (not arbitrary) and Art 19 (not unreasonable restriction).',
+  q21:'Indira Gandhi v. Raj Narain (1975) held that free and fair elections are an essential feature of the democratic republican form of government which is itself part of the Basic Structure. The 39th Amendment trying to immunise the PM\'s election from review violated this.',
+  q22:'Habeas Corpus under Art 32 can be filed by ANY person — not just the detenu. A lawyer, relative, human rights activist, NGO, or any citizen can file on behalf of an illegally detained person. This is a crucial tool for Janman legal volunteers visiting jails.',
+  q23:'After the 44th Amendment (1978), Art 20 (protection in conviction) and Art 21 (life and liberty) CANNOT be suspended even during a National Emergency under Art 352 via Presidential order under Art 359. Art 19 freedoms CAN be suspended during an external emergency. Art 32 CAN be suspended by Presidential order under Art 359.',
+  q24:'The EWS reservation case (Janhit Abhiyan v. UoI, 2022) was decided by a 3:2 majority — three judges upheld, two (Justices Ravindra Bhat and B.V. Nagaredha/Trivedi) dissented. The minority held that excluding SC/ST/OBC from EWS violated Art 14 and equality as Basic Structure.',
+  q25:'Francis Coralie Mullin v. Union Territory of Delhi (1981) held that the right to life under Art 21 includes the right to live with human dignity and all that goes along with it — food, clothing, shelter, and facilities for reading, writing, expressing oneself in diverse forms, moving about and mixing and commingling with other human beings.'
+};
+var selected={};
+function choose(q,opt){
+  if(document.getElementById('submitBtn').disabled)return;
+  selected[q]=opt;
+  var opts=document.querySelectorAll('#'+q+' .option');
+  opts.forEach(function(o){o.style.background='';o.style.borderColor='';});
+  var idx={'a':0,'b':1,'c':2,'d':3}[opt];
+  if(opts[idx]){opts[idx].style.background='#fff0f0';opts[idx].style.borderColor='#c0392b';}
+}
+function submitQuiz(){
+  var total=Object.keys(ANSWERS).length;
+  if(Object.keys(selected).length<total){alert('Please answer all '+total+' questions before submitting.');return;}
+  var score=0;
+  Object.keys(ANSWERS).forEach(function(q){
+    var correct=ANSWERS[q];var chosen=selected[q];
+    var opts=document.querySelectorAll('#'+q+' .option');
+    opts.forEach(function(o){o.style.pointerEvents='none';});
+    ['a','b','c','d'].forEach(function(l,i){
+      if(l===correct)opts[i].classList.add('correct');
+      else if(l===chosen&&chosen!==correct)opts[i].classList.add('wrong');
+    });
+    if(chosen===correct)score++;
+    var fb=document.getElementById('fb'+q.replace('q',''));
+    fb.textContent=(chosen===correct?'✅ Correct! ':'❌ Incorrect. ')+FEEDBACK[q];
+    fb.className='feedback show '+(chosen===correct?'correct':'wrong');
+  });
+  document.getElementById('submitBtn').disabled=true;
+  var pct=Math.round(score/total*100);var pass=pct>=70;
+  var rp=document.getElementById('resultPanel');rp.style.display='block';
+  rp.className='result-panel '+(pass?'pass':'fail');
+  document.getElementById('resultTitle').textContent=pass?'🎉 Excellent! You Passed Level 3!':'❌ Not Passed — Please Review and Retry';
+  document.getElementById('resultText').textContent='Your score: '+score+'/'+total+' ('+pct+'%). '+(pass?'Outstanding! Fill the form below to get your Level 3 certificate.':'You need 70% to pass. Review the content above and try again.');
+  document.getElementById('scoreDisplay').textContent=score+'/'+total+' ('+pct+'%)';
+  if(pass){
+    document.getElementById('certForm').style.display='block';
+    window._quizScore=pct;
+    localStorage.setItem('janman_fr_l3_score',pct);
+    localStorage.setItem('janman_fr_l3_date',new Date().toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'}));
+  }
+}
+function generateCertificate(){
+  var name=document.getElementById('pName').value.trim();
+  var phone=document.getElementById('pPhone').value.trim();
+  if(!name){alert('Please enter your full name.');return;}
+  if(!phone){alert('Please enter your phone number.');return;}
+  var org=document.getElementById('pOrg').value.trim();
+  var desig=document.getElementById('pDesig').value.trim();
+  var state=document.getElementById('pState').value.trim();
+  var district=document.getElementById('pDistrict').value.trim();
+  var now=new Date();
+  var certNo='JPF-FR-L3-'+now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.floor(Math.random()*9000+1000);
+  var dateStr=now.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
+  var score=window._quizScore||localStorage.getItem('janman_fr_l3_score')||'70';
+  document.getElementById('certName').textContent=name;
+  document.getElementById('certOrgLine').textContent=(desig||'')+(desig&&org?', ':'')+org+(org&&district?', ':'')+district+(district&&state?' — ':'')+state;
+  document.getElementById('certScore').textContent='Score: '+score+'%';
+  document.getElementById('certNo').textContent=certNo;
+  document.getElementById('certDate').textContent=dateStr;
+  document.getElementById('certSigName').textContent=name;
+  document.getElementById('certSigLabel').textContent=desig||'Participant';
+  document.getElementById('certPreview').style.display='block';
+  document.getElementById('certForm').style.display='none';
+  localStorage.setItem('janman_fr_l3_done','true');
+  localStorage.setItem('janman_fr_l3_cert_no',certNo);
+  localStorage.setItem('janman_fr_name',name);
+  localStorage.setItem('janman_fr_phone',phone);
+  localStorage.setItem('janman_fr_org',org);
+  localStorage.setItem('janman_fr_desig',desig);
+  localStorage.setItem('janman_fr_state',state);
+  localStorage.setItem('janman_fr_district',district);
+  // Check if all 3 done
+  var l1=localStorage.getItem('janman_fr_l1_done');
+  var l2=localStorage.getItem('janman_fr_l2_done');
+  if(l1&&l2){document.getElementById('finalUnlock').style.display='block';}
+  var msg='Hello Janman Legal Team 🙏%0A%0AI have completed *Level 3: Landmark Cases & PIL* of the Constitutional Law training.%0A%0AName: *'+encodeURIComponent(name)+'*'+(org?'%0AOrganisation: '+encodeURIComponent(org):'')+(district?'%0ADistrict: '+encodeURIComponent(district):'')+(state?', '+encodeURIComponent(state):'')+'%0ACertificate No: *'+encodeURIComponent(certNo)+'*%0AScore: *'+score+'%*%0A%0AI would like to join Janman\'s PIL and Constitutional Litigation Network.';
+  document.getElementById('waLink').href='https://wa.me/918507715870?text='+msg;
+  document.getElementById('supportCard').style.display='block';
+  window.scrollTo({top:document.getElementById('certPreview').offsetTop-20,behavior:'smooth'});
+}
+function downloadCert(){window.print();}
+function toggleContact(){
+  document.getElementById('contactModal').classList.toggle('open');
+  document.getElementById('contactOverlay').classList.toggle('open');
+}
+(function(){
+  var n=localStorage.getItem('janman_fr_name');
+  if(n&&document.getElementById('pName')){
+    document.getElementById('pName').value=n;
+    [['pPhone','janman_fr_phone'],['pOrg','janman_fr_org'],['pDesig','janman_fr_desig'],['pState','janman_fr_state'],['pDistrict','janman_fr_district']].forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});
+  }
+})();
+</script>
+</body>
+</html>

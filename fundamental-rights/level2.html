@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2: DPSP & Fundamental Duties — Janman Constitutional Law</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f0f4ff;color:#1a2a4a;}
+.nav{background:linear-gradient(135deg,#1a2a4a,#7b2d8b);padding:14px 24px;display:flex;align-items:center;gap:14px;}
+.nav-logo{width:44px;height:44px;border-radius:50%;border:2px solid rgba(255,255,255,.4);object-fit:cover;}
+.nav-title{color:#fff;font-size:1rem;font-weight:700;}
+.nav-sub{color:rgba(255,255,255,.7);font-size:.78rem;}
+.nav-back{margin-left:auto;background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);padding:7px 14px;border-radius:20px;text-decoration:none;font-size:.82rem;}
+.hero{background:linear-gradient(135deg,#7b2d8b,#2d4a8a);padding:36px 24px;color:#fff;text-align:center;}
+.level-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:5px 14px;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:6px;}
+.hero p{opacity:.85;font-size:.95rem;max-width:560px;margin:0 auto 16px;}
+.hero-meta{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
+.meta-item{text-align:center;}
+.meta-num{font-size:1.4rem;font-weight:800;color:#ffd700;}
+.meta-label{font-size:.7rem;opacity:.8;text-transform:uppercase;}
+.container{max-width:800px;margin:0 auto;padding:32px 24px;}
+.section{background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.07);margin-bottom:24px;overflow:hidden;}
+.section-header{background:linear-gradient(135deg,#7b2d8b,#2d4a8a);padding:20px 24px;color:#fff;}
+.section-header h2{font-size:1.15rem;font-weight:700;margin-bottom:4px;}
+.section-header p{opacity:.85;font-size:.85rem;}
+.section-body{padding:24px;}
+.art-block{border-left:4px solid #7b2d8b;background:#fdf5ff;border-radius:0 10px 10px 0;padding:16px;margin-bottom:16px;}
+.art-block h3{color:#7b2d8b;font-size:.95rem;font-weight:700;margin-bottom:8px;}
+.art-block p{color:#444;font-size:.88rem;line-height:1.65;}
+.art-block ul{list-style:none;margin-top:8px;}
+.art-block ul li{font-size:.87rem;color:#555;padding:3px 0;display:flex;align-items:flex-start;gap:8px;}
+.art-block ul li::before{content:'▸';color:#7b2d8b;flex-shrink:0;}
+.case-box{background:linear-gradient(135deg,#fffdf0,#fff8dc);border:1px solid #ffd700;border-radius:10px;padding:14px;margin:12px 0;}
+.case-box h4{color:#8b6914;font-size:.85rem;font-weight:700;margin-bottom:6px;}
+.case-box p{color:#6b5414;font-size:.83rem;line-height:1.55;}
+.important-note{background:linear-gradient(135deg,#f0fff4,#dcfce7);border:1px solid #28a745;border-radius:10px;padding:14px;margin:12px 0;}
+.important-note h4{color:#1a5c2e;font-size:.85rem;font-weight:700;margin-bottom:4px;}
+.important-note p{color:#2d5a3d;font-size:.83rem;line-height:1.55;}
+.art-pill{display:inline-block;background:#7b2d8b;color:#fff;border-radius:20px;padding:2px 10px;font-size:.75rem;font-weight:600;margin-bottom:8px;}
+.duties-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+.duty-item{background:#fdf5ff;border-radius:8px;padding:10px;border-left:3px solid #7b2d8b;font-size:.82rem;color:#444;line-height:1.4;}
+.duty-num{font-weight:700;color:#7b2d8b;display:block;margin-bottom:3px;}
+.compare-table{width:100%;border-collapse:collapse;font-size:.85rem;margin-top:12px;}
+.compare-table th{background:#7b2d8b;color:#fff;padding:10px;text-align:left;}
+.compare-table td{padding:10px;border-bottom:1px solid #f0e8f5;vertical-align:top;}
+.compare-table tr:nth-child(even) td{background:#fdf5ff;}
+.quiz-section{background:#fff;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.07);margin-bottom:24px;overflow:hidden;}
+.quiz-header{background:linear-gradient(135deg,#7b2d8b,#2d4a8a);padding:20px 24px;color:#fff;}
+.quiz-header h2{font-size:1.15rem;font-weight:700;margin-bottom:4px;}
+.quiz-header p{opacity:.85;font-size:.85rem;}
+.quiz-body{padding:24px;}
+.question{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid #f0f4ff;}
+.question:last-child{border-bottom:none;}
+.q-num{font-size:.72rem;color:#7b2d8b;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+.q-text{font-size:.95rem;color:#1a2a4a;font-weight:600;margin-bottom:14px;line-height:1.5;}
+.option{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:8px;margin-bottom:8px;cursor:pointer;border:1.5px solid #e8edf5;transition:all .15s;}
+.option:hover{background:#fdf5ff;border-color:#7b2d8b;}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#7b2d8b;}
+.option label{font-size:.88rem;color:#444;cursor:pointer;line-height:1.45;}
+.option.correct{background:#dcfce7;border-color:#28a745;}
+.option.wrong{background:#fce8e8;border-color:#dc3545;}
+.option.correct label,.option.correct .opt-letter{color:#1a5c2e;}
+.option.wrong label,.option.wrong .opt-letter{color:#7d1a1a;}
+.opt-letter{font-weight:700;color:#7b2d8b;font-size:.88rem;flex-shrink:0;width:18px;}
+.feedback{padding:10px 14px;border-radius:8px;font-size:.83rem;margin-top:8px;display:none;line-height:1.5;}
+.feedback.show{display:block;}
+.feedback.correct{background:#dcfce7;color:#1a5c2e;border-left:3px solid #28a745;}
+.feedback.wrong{background:#fce8e8;color:#7d1a1a;border-left:3px solid #dc3545;}
+.quiz-controls{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid #f0f4ff;}
+.score-display{font-size:1rem;font-weight:700;color:#1a2a4a;}
+.btn-submit{background:linear-gradient(135deg,#7b2d8b,#2d4a8a);color:#fff;border:none;padding:12px 28px;border-radius:10px;font-size:.95rem;font-weight:600;cursor:pointer;transition:opacity .2s;}
+.btn-submit:hover{opacity:.9;}
+.btn-submit:disabled{background:#ccc;cursor:default;}
+.result-panel{display:none;background:linear-gradient(135deg,#1a6a4a,#0d4a2a);color:#fff;border-radius:12px;padding:24px;text-align:center;margin-top:20px;}
+.result-panel.fail{background:linear-gradient(135deg,#8b1a1a,#5c1010);}
+.result-panel h3{font-size:1.3rem;margin-bottom:8px;}
+.result-panel p{opacity:.9;font-size:.9rem;}
+.cert-form{background:#fff;border-radius:16px;padding:28px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,.1);display:none;}
+.cert-form h3{color:#1a2a4a;font-size:1.1rem;margin-bottom:6px;}
+.cert-form p{color:#666;font-size:.85rem;margin-bottom:20px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-group{display:flex;flex-direction:column;gap:5px;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-size:.8rem;color:#555;font-weight:600;}
+.form-group input,.form-group select{padding:9px 12px;border:1.5px solid #dde3f0;border-radius:8px;font-size:.88rem;color:#1a2a4a;outline:none;transition:border .15s;}
+.form-group input:focus,.form-group select:focus{border-color:#7b2d8b;}
+.btn-cert{background:linear-gradient(135deg,#ffd700,#ff9f00);color:#1a2a4a;border:none;padding:14px 28px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px;transition:opacity .2s;}
+.btn-cert:hover{opacity:.9;}
+.cert-preview{display:none;margin-top:24px;}
+.cert-outer{background:linear-gradient(135deg,#3d0d5c,#2d1a6a,#0d2a1e);border-radius:16px;padding:4px;box-shadow:0 8px 40px rgba(0,0,0,.3);}
+.cert-inner{background:linear-gradient(135deg,#fafdf8,#f5f0e8);border-radius:14px;padding:36px;text-align:center;position:relative;overflow:hidden;}
+.cert-inner::before{content:'🏛️';position:absolute;top:-20px;left:-20px;font-size:120px;opacity:.04;}
+.cert-logo{width:70px;height:70px;border-radius:50%;border:3px solid #7b2d8b;object-fit:cover;margin:0 auto 12px;}
+.cert-org{color:#7b2d8b;font-size:.8rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px;}
+.cert-presents{color:#666;font-size:.8rem;margin-bottom:16px;}
+.cert-main-title{font-size:1.5rem;font-weight:800;color:#1a2a4a;margin-bottom:4px;}
+.cert-subtitle{color:#666;font-size:.85rem;margin-bottom:20px;}
+.cert-to{color:#555;font-size:.85rem;margin-bottom:4px;}
+.cert-name{font-size:1.6rem;font-weight:800;color:#7b2d8b;margin-bottom:4px;}
+.cert-org-name{color:#444;font-size:.9rem;margin-bottom:20px;}
+.cert-desc{color:#555;font-size:.82rem;line-height:1.65;max-width:480px;margin:0 auto 24px;}
+.cert-score{display:inline-block;background:linear-gradient(135deg,#7b2d8b,#2d4a8a);color:#fff;border-radius:20px;padding:6px 18px;font-size:.85rem;font-weight:700;margin-bottom:24px;}
+.cert-meta{display:flex;justify-content:space-around;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+.cert-meta-item{text-align:center;}
+.cert-meta-label{font-size:.7rem;color:#888;text-transform:uppercase;letter-spacing:.5px;}
+.cert-meta-value{font-size:.9rem;font-weight:700;color:#1a2a4a;}
+.sig-section{display:flex;justify-content:space-around;margin-top:16px;flex-wrap:wrap;gap:16px;}
+.sig-block{text-align:center;}
+.sig-name{font-family:'Dancing Script',cursive;font-size:1.6rem;color:#1a2a4a;line-height:1;}
+.sig-line{width:140px;height:1px;background:#999;margin:4px auto;}
+.sig-label{font-size:.7rem;color:#888;margin-top:2px;}
+.cert-footer{margin-top:20px;padding-top:16px;border-top:1px solid #ddd;font-size:.72rem;color:#999;}
+.wa-support{background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:1px solid #28a745;border-radius:14px;padding:24px;margin-top:24px;display:none;text-align:center;}
+.wa-support h3{color:#1a5c2e;margin-bottom:8px;font-size:1rem;}
+.wa-support p{color:#2d5a3d;font-size:.85rem;margin-bottom:16px;}
+.wa-link{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;}
+#contactBtn{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border:none;border-radius:50px;padding:14px 20px;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:.9rem;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;animation:contactPulse 2s infinite;}
+@keyframes contactPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 4px 20px rgba(37,211,102,.5),0 0 0 8px rgba(37,211,102,0)}}
+.contact-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998;}
+.contact-overlay.open{display:block;}
+.contact-modal{display:none;position:fixed;bottom:90px;right:24px;background:#fff;border-radius:16px;padding:24px;width:300px;box-shadow:0 8px 40px rgba(0,0,0,.2);z-index:999;}
+.contact-modal.open{display:block;}
+.contact-modal h3{color:#1a2a4a;margin-bottom:4px;font-size:1rem;}
+.contact-modal p{color:#666;font-size:.8rem;margin-bottom:16px;}
+.contact-modal img{width:120px;height:120px;display:block;margin:0 auto 12px;border-radius:8px;}
+.wa-btn-modal{display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;padding:12px;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;}
+.btn-download{background:linear-gradient(135deg,#7b2d8b,#2d4a8a);color:#fff;border:none;padding:12px 24px;border-radius:10px;font-size:.9rem;font-weight:600;cursor:pointer;margin-top:12px;width:100%;}
+@media print{.nav,.quiz-section,.cert-form,.wa-support,#contactBtn,.contact-overlay,.contact-modal,.btn-download{display:none!important;}.cert-preview{display:block!important;}body{background:#fff;}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <img src="janman-logo.png" alt="Janman" class="nav-logo">
+  <div><div class="nav-title">Janman People's Foundation</div><div class="nav-sub">Constitutional Law · Level 2</div></div>
+  <a href="index.html" class="nav-back">← FR &amp; DPSP Hub</a>
+</nav>
+
+<div class="hero">
+  <div class="level-badge">📜 Level 2 · Intermediate</div>
+  <h1>DPSP &amp; Fundamental Duties</h1>
+  <p>Directive Principles of State Policy (Part IV), their relationship with Fundamental Rights, and the 11 Fundamental Duties (Art 51A)</p>
+  <div class="hero-meta">
+    <div class="meta-item"><div class="meta-num">5</div><div class="meta-label">Sections</div></div>
+    <div class="meta-item"><div class="meta-num">16</div><div class="meta-label">Articles (DPSP)</div></div>
+    <div class="meta-item"><div class="meta-num">20</div><div class="meta-label">Questions</div></div>
+    <div class="meta-item"><div class="meta-num">70%</div><div class="meta-label">Pass Mark</div></div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: Introduction to DPSP -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 1: Introduction to Directive Principles (Art 36–51)</h2>
+    <p>Non-justiciable but fundamental in governance — borrowed from the Irish Constitution</p>
+  </div>
+  <div class="section-body">
+    <div class="art-block">
+      <span class="art-pill">Art 36–37</span>
+      <h3>Definition and Application</h3>
+      <p>Art 36 defines "State" for Part IV (same as Art 12 for Part III). Art 37 provides that DPSP are <strong>not enforceable by any court</strong>, but they are fundamental in governance. The State shall apply these principles in making laws. DPSP are non-justiciable — you cannot file a writ petition to enforce them directly. However, they provide guidance for legislation and can be used to interpret ambiguous statutes.</p>
+    </div>
+    <div class="important-note">
+      <h4>💡 Three Categories of DPSP</h4>
+      <p><strong>Socialistic Principles (Art 38-43A):</strong> Equal pay for equal work, right to work, education, public assistance, maternity relief, living wage, worker participation in management.<br>
+      <strong>Gandhian Principles (Art 40, 43, 47-48):</strong> Panchayati Raj, cottage industries, prohibition of intoxicants, cow protection, village governance.<br>
+      <strong>Liberal-Intellectual Principles (Art 44-45, 48A-50):</strong> Uniform Civil Code, early childhood care, environment protection, separation of judiciary from executive.</p>
+    </div>
+    <div class="case-box">
+      <h4>⚖️ State of Madras v. Champakam Dorairajan (1951)</h4>
+      <p>First major FR-DPSP conflict. The SC held that in case of conflict between FR (Part III) and DPSP (Part IV), FR prevail. This led to the First Constitutional Amendment which added Art 15(4) to permit reservations, and Art 31A to protect agrarian reform laws.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: Key DPSP Articles -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 2: Key Directive Principles in Practice</h2>
+    <p>The DPSP provisions most relevant to rights-based litigation and governance</p>
+  </div>
+  <div class="section-body">
+    <div class="art-block">
+      <span class="art-pill">Art 38</span>
+      <h3>State to Secure a Social Order for Welfare</h3>
+      <p>The State shall strive to promote the welfare of the people by securing and protecting a social order in which justice — social, economic, and political — shall inform all institutions of national life. Art 38(2) requires minimising inequalities in income, status, facilities, and opportunities.</p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 39</span>
+      <h3>Certain Principles of Policy (Most Litigated DPSP)</h3>
+      <ul>
+        <li><strong>Art 39(a):</strong> Adequate means of livelihood for all citizens</li>
+        <li><strong>Art 39(b):</strong> Ownership and control of material resources distributed to serve common good</li>
+        <li><strong>Art 39(c):</strong> Prevent concentration of wealth to common detriment</li>
+        <li><strong>Art 39(d):</strong> Equal pay for equal work for both men and women</li>
+        <li><strong>Art 39(e):</strong> Protect health and strength of workers, children</li>
+        <li><strong>Art 39(f):</strong> Children given opportunities for healthy development</li>
+      </ul>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 39A</span>
+      <h3>Equal Justice and Free Legal Aid (Added by 42nd Amendment 1976)</h3>
+      <p>The State shall secure that the operation of the legal system promotes justice on a basis of equal opportunity, and shall, in particular, provide free legal aid, by suitable legislation or schemes or in any other way, to ensure that opportunities for securing justice are not denied to any citizen by reason of economic or other disabilities. <strong>This is the constitutional basis for the Legal Services Authorities Act 1987 and NALSA.</strong></p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 40</span>
+      <h3>Organisation of Village Panchayats</h3>
+      <p>The State shall take steps to organise village panchayats and endow them with such powers and authority as may be necessary to enable them to function as units of self-government. Implemented through the 73rd Constitutional Amendment 1992 (Panchayati Raj).</p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 41</span>
+      <h3>Right to Work, Education and Public Assistance</h3>
+      <p>The State shall, within the limits of its economic capacity and development, make effective provision for securing the right to work, to education, and to public assistance in cases of unemployment, old age, sickness, and disablement. Courts have read Art 41 with Art 21 to derive enforceable rights to livelihood and social security.</p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 43</span>
+      <h3>Living Wage for Workers</h3>
+      <p>The State shall endeavour to secure, by suitable legislation or economic organisation, to all workers a living wage, conditions of work ensuring a decent standard of life and full enjoyment of leisure and social and cultural opportunities. The minimum wage laws give effect to this.</p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 44</span>
+      <h3>Uniform Civil Code</h3>
+      <p>The State shall endeavour to secure for the citizens a Uniform Civil Code throughout the territory of India. This remains one of the most contested DPSP — the SC has repeatedly urged the State to implement UCC (Mohd. Ahmed Khan v. Shah Bano Begum, 1985; Sarla Mudgal v. UoI, 1995) but it has not been implemented yet. The Uttarakhand UCC law (2024) is India's first.</p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 45</span>
+      <h3>Early Childhood Care and Education</h3>
+      <p>The State shall endeavour to provide early childhood care and education for all children until they complete the age of six years. (Pre-86th Amendment, Art 45 mandated free and compulsory education up to age 14 — this was moved to FR under Art 21A after 2002.)</p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 47</span>
+      <h3>Duty to Raise Nutrition, Standard of Living and Public Health</h3>
+      <p>The State shall regard the raising of the level of nutrition and the standard of living of its people and the improvement of public health as among its primary duties. Art 47 also requires the State to endeavour to bring about prohibition of the consumption of intoxicating drinks and drugs that are injurious to health.</p>
+    </div>
+    <div class="art-block">
+      <span class="art-pill">Art 48A</span>
+      <h3>Protection and Improvement of Environment</h3>
+      <p>Added by the 42nd Amendment 1976. The State shall endeavour to protect and improve the environment and to safeguard the forests and wildlife. Read with Art 51A(g) (Fundamental Duty to protect environment), this forms the constitutional foundation for all environmental legislation and PIL on environmental protection.</p>
+    </div>
+    <div class="case-box">
+      <h4>⚖️ Olga Tellis v. Bombay Municipal Corporation (1985)</h4>
+      <p>The SC read Art 39(a) (right to livelihood) with Art 21 to hold that the right to livelihood is part of Art 21. Therefore, the right to life includes the right to livelihood. Eviction of pavement dwellers without notice or alternative accommodation violates Art 21. This is the classic example of DPSP being used to expand FR through judicial interpretation.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: FR vs DPSP Conflict and Harmony -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 3: FR vs DPSP — Conflict, Harmony, and Key Amendments</h2>
+    <p>The most examined constitutional law question — and how courts have resolved it</p>
+  </div>
+  <div class="section-body">
+    <table class="compare-table">
+      <tr><th>Feature</th><th>Fundamental Rights (Part III)</th><th>DPSP (Part IV)</th></tr>
+      <tr><td><strong>Justiciability</strong></td><td>Enforceable in court</td><td>Not directly enforceable</td></tr>
+      <tr><td><strong>Nature</strong></td><td>Negative rights (restraints on State)</td><td>Positive obligations on State</td></tr>
+      <tr><td><strong>Suspension</strong></td><td>Some can be suspended (emergency)</td><td>Cannot be suspended</td></tr>
+      <tr><td><strong>Priority</strong></td><td>Prevail over DPSP (generally)</td><td>Cannot override FR</td></tr>
+      <tr><td><strong>Amendment</strong></td><td>Can be amended (subject to Basic Structure)</td><td>Can be amended freely</td></tr>
+    </table>
+    <div class="art-block" style="margin-top:16px;">
+      <span class="art-pill">Art 31C</span>
+      <h3>Protection of Laws Giving Effect to DPSP</h3>
+      <p>Added by 25th Amendment 1971: Laws giving effect to Art 39(b) and (c) cannot be challenged as violating Art 14, 19, or 31 (now omitted). The 42nd Amendment extended this to ALL DPSP, but in Minerva Mills (1980), the SC struck down this extension as destroying the FR-DPSP balance that is part of Basic Structure.</p>
+    </div>
+    <div class="case-box">
+      <h4>⚖️ Minerva Mills Ltd v. Union of India (1980)</h4>
+      <p>SC held that: (1) Harmony between FR and DPSP is part of the Basic Structure. (2) Parliament cannot give absolute primacy to DPSP over FR. (3) The 42nd Amendment's extension of Art 31C to all DPSP was struck down. The balance between FR and DPSP is itself a fundamental feature of the Constitution that cannot be destroyed.</p>
+    </div>
+    <div class="important-note">
+      <h4>💡 The Harmony Doctrine</h4>
+      <p>Post-Kesavananda Bharati and Minerva Mills, the accepted position is: FR and DPSP are complementary, not contradictory. They must be read harmoniously. Laws implementing DPSP can restrict FR if they pass the proportionality test. Courts try to reconcile both rather than declare absolute primacy of one over the other.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: Fundamental Duties -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 4: Fundamental Duties (Article 51A)</h2>
+    <p>Added by 42nd Amendment 1976 (10 duties) + 86th Amendment 2002 (11th duty on education)</p>
+  </div>
+  <div class="section-body">
+    <p style="font-size:.88rem;color:#555;margin-bottom:16px;">The 11 Fundamental Duties under Art 51A — citizens' obligations to the nation:</p>
+    <div class="duties-grid">
+      <div class="duty-item"><span class="duty-num">Art 51A(a)</span>Abide by the Constitution and respect its ideals, institutions, national flag and national anthem</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(b)</span>Cherish and follow noble ideals which inspired our national struggle for freedom</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(c)</span>Uphold and protect the sovereignty, unity and integrity of India</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(d)</span>Defend the country and render national service when called upon</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(e)</span>Promote harmony and the spirit of common brotherhood among all people of India; renounce derogatory practices</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(f)</span>Value and preserve the rich heritage of India's composite culture</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(g)</span>Protect and improve the natural environment including forests, lakes, rivers and wildlife</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(h)</span>Develop scientific temper, humanism and the spirit of inquiry and reform</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(i)</span>Safeguard public property and abjure violence</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(j)</span>Strive towards excellence in all spheres of individual and collective activity</div>
+      <div class="duty-item"><span class="duty-num">Art 51A(k)</span>Provide opportunities for education to child (parent/guardian's duty) — added by 86th Amendment 2002</div>
+    </div>
+    <div class="important-note" style="margin-top:16px;">
+      <h4>💡 Are Fundamental Duties Enforceable?</h4>
+      <p>FDs are not directly enforceable in courts (no writ can be filed for breach). However: (1) Parliament can legislate to enforce them — e.g., laws punishing disrespect to national anthem (Prevention of Insults to National Honour Act). (2) Courts use FDs to interpret laws — if a law promotes FDs, it has better chances of being upheld. (3) In Bijoe Emmanuel v. State of Kerala (1986), the SC balanced FD to respect the national anthem with the FR of Jehovah's Witnesses not to sing it (religion-based) — a nuanced balancing exercise.</p>
+    </div>
+    <div class="case-box">
+      <h4>⚖️ M.C. Mehta v. Union of India — Environment FDs in Action</h4>
+      <p>The SC has repeatedly invoked Art 48A (DPSP on environment) and Art 51A(g) (FD to protect environment) to issue directions for pollution control, closing polluting industries, and protecting forests. FDs strengthen PIL claims in environmental matters.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: Key DPSP in Contemporary Litigation -->
+<div class="section">
+  <div class="section-header">
+    <h2>Section 5: DPSP in Contemporary Litigation and Rights Advocacy</h2>
+    <p>How legal practitioners use DPSP to expand rights and challenge State inaction</p>
+  </div>
+  <div class="section-body">
+    <div class="art-block">
+      <h3>DPSP as Constitutional Basis for Social Legislation</h3>
+      <p>Most welfare laws in India derive their constitutional validity from DPSP. Key examples:</p>
+      <ul>
+        <li><strong>MGNREGA 2005</strong> — right to work (Art 39, 41)</li>
+        <li><strong>National Food Security Act 2013</strong> — nutrition and food security (Art 47)</li>
+        <li><strong>Legal Services Authorities Act 1987</strong> — free legal aid (Art 39A)</li>
+        <li><strong>Right to Education Act 2009</strong> — education (Art 21A + formerly Art 45)</li>
+        <li><strong>Child Labour Act 1986</strong> — child protection (Art 39(f), 24)</li>
+        <li><strong>Environment Protection Act 1986</strong> — environment (Art 48A)</li>
+        <li><strong>Maternity Benefit Act</strong> — maternity relief (Art 42)</li>
+      </ul>
+    </div>
+    <div class="art-block">
+      <h3>Using DPSP to Enforce Rights in PIL</h3>
+      <p>When a FR cannot be directly invoked, lawyers use DPSP with Art 21 to argue:</p>
+      <ul>
+        <li>Art 39A + Art 21: Right to free legal aid as part of right to life</li>
+        <li>Art 41 + Art 21: Right to social security as part of dignified life</li>
+        <li>Art 47 + Art 21: Right to healthcare as part of right to life (Paschim Banga Khet Mazdoor Sabha, 1996)</li>
+        <li>Art 48A + Art 21: Right to clean environment as part of right to life (Subhash Kumar v. State of Bihar, 1991)</li>
+      </ul>
+    </div>
+    <div class="case-box">
+      <h4>⚖️ Paschim Banga Khet Mazdoor Sabha v. State of West Bengal (1996)</h4>
+      <p>The SC held that Article 21 includes the right to emergency medical treatment in State hospitals. A farm worker seriously injured in an accident was refused treatment in multiple government hospitals due to lack of beds. The SC read Art 21 with Art 47 (DPSP on public health) to hold that denial of emergency medical care violates Art 21. State ordered to pay compensation and improve hospital facilities.</p>
+    </div>
+    <div class="important-note">
+      <h4>💡 Art 39A in Action: Legal Aid as a Fundamental Right</h4>
+      <p>In Hussainara Khatoon v. Home Secretary, State of Bihar (1979), the SC held that the right to free legal aid for an accused who cannot afford a lawyer is an essential ingredient of 'reasonable, fair and just' procedure under Art 21. This reading of Art 39A through Art 21 makes free legal aid a justiciable Fundamental Right — not merely a directive principle.</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-section">
+  <div class="quiz-header">
+    <h2>🧠 Level 2 Assessment Quiz</h2>
+    <p>20 questions · 70% required to pass and earn your Level 2 certificate</p>
+  </div>
+  <div class="quiz-body">
+
+    <div class="question" id="q1">
+      <div class="q-num">Question 1 of 20</div>
+      <div class="q-text">Directive Principles of State Policy are described in Article 37 as:</div>
+      <div class="option" onclick="choose('q1','a')"><input type="radio" name="q1"><span class="opt-letter">A</span><label>Enforceable by any court in India</label></div>
+      <div class="option" onclick="choose('q1','b')"><input type="radio" name="q1"><span class="opt-letter">B</span><label>Not enforceable by any court but fundamental in governance</label></div>
+      <div class="option" onclick="choose('q1','c')"><input type="radio" name="q1"><span class="opt-letter">C</span><label>Enforceable only by the Supreme Court</label></div>
+      <div class="option" onclick="choose('q1','d')"><input type="radio" name="q1"><span class="opt-letter">D</span><label>Part of the Basic Structure of the Constitution</label></div>
+      <div class="feedback" id="fb1"></div>
+    </div>
+
+    <div class="question" id="q2">
+      <div class="q-num">Question 2 of 20</div>
+      <div class="q-text">Article 39A (free legal aid) was added to the Constitution by which Amendment?</div>
+      <div class="option" onclick="choose('q2','a')"><input type="radio" name="q2"><span class="opt-letter">A</span><label>25th Amendment, 1971</label></div>
+      <div class="option" onclick="choose('q2','b')"><input type="radio" name="q2"><span class="opt-letter">B</span><label>42nd Amendment, 1976</label></div>
+      <div class="option" onclick="choose('q2','c')"><input type="radio" name="q2"><span class="opt-letter">C</span><label>44th Amendment, 1978</label></div>
+      <div class="option" onclick="choose('q2','d')"><input type="radio" name="q2"><span class="opt-letter">D</span><label>86th Amendment, 2002</label></div>
+      <div class="feedback" id="fb2"></div>
+    </div>
+
+    <div class="question" id="q3">
+      <div class="q-num">Question 3 of 20</div>
+      <div class="q-text">In Minerva Mills v. Union of India (1980), the Supreme Court held that:</div>
+      <div class="option" onclick="choose('q3','a')"><input type="radio" name="q3"><span class="opt-letter">A</span><label>DPSP have absolute primacy over Fundamental Rights</label></div>
+      <div class="option" onclick="choose('q3','b')"><input type="radio" name="q3"><span class="opt-letter">B</span><label>The harmony between FR and DPSP is part of the Basic Structure</label></div>
+      <div class="option" onclick="choose('q3','c')"><input type="radio" name="q3"><span class="opt-letter">C</span><label>FR have absolute primacy and DPSP can be ignored</label></div>
+      <div class="option" onclick="choose('q3','d')"><input type="radio" name="q3"><span class="opt-letter">D</span><label>Parliament can amend any provision without judicial review</label></div>
+      <div class="feedback" id="fb3"></div>
+    </div>
+
+    <div class="question" id="q4">
+      <div class="q-num">Question 4 of 20</div>
+      <div class="q-text">Which Article directs the State to secure a Uniform Civil Code throughout India?</div>
+      <div class="option" onclick="choose('q4','a')"><input type="radio" name="q4"><span class="opt-letter">A</span><label>Article 40</label></div>
+      <div class="option" onclick="choose('q4','b')"><input type="radio" name="q4"><span class="opt-letter">B</span><label>Article 44</label></div>
+      <div class="option" onclick="choose('q4','c')"><input type="radio" name="q4"><span class="opt-letter">C</span><label>Article 51A</label></div>
+      <div class="option" onclick="choose('q4','d')"><input type="radio" name="q4"><span class="opt-letter">D</span><label>Article 25</label></div>
+      <div class="feedback" id="fb4"></div>
+    </div>
+
+    <div class="question" id="q5">
+      <div class="q-num">Question 5 of 20</div>
+      <div class="q-text">The right to free legal aid was held to be part of Article 21 (right to life) in which landmark case?</div>
+      <div class="option" onclick="choose('q5','a')"><input type="radio" name="q5"><span class="opt-letter">A</span><label>Maneka Gandhi v. Union of India (1978)</label></div>
+      <div class="option" onclick="choose('q5','b')"><input type="radio" name="q5"><span class="opt-letter">B</span><label>Hussainara Khatoon v. Home Secretary, Bihar (1979)</label></div>
+      <div class="option" onclick="choose('q5','c')"><input type="radio" name="q5"><span class="opt-letter">C</span><label>Indira Gandhi v. Raj Narain (1975)</label></div>
+      <div class="option" onclick="choose('q5','d')"><input type="radio" name="q5"><span class="opt-letter">D</span><label>Kesavananda Bharati v. State of Kerala (1973)</label></div>
+      <div class="feedback" id="fb5"></div>
+    </div>
+
+    <div class="question" id="q6">
+      <div class="q-num">Question 6 of 20</div>
+      <div class="q-text">The 11th Fundamental Duty (Art 51A(k)) was added by the 86th Amendment in 2002. It relates to:</div>
+      <div class="option" onclick="choose('q6','a')"><input type="radio" name="q6"><span class="opt-letter">A</span><label>Protecting the national flag</label></div>
+      <div class="option" onclick="choose('q6','b')"><input type="radio" name="q6"><span class="opt-letter">B</span><label>Preserving cultural heritage</label></div>
+      <div class="option" onclick="choose('q6','c')"><input type="radio" name="q6"><span class="opt-letter">C</span><label>Parent or guardian's duty to provide opportunities for their child's education</label></div>
+      <div class="option" onclick="choose('q6','d')"><input type="radio" name="q6"><span class="opt-letter">D</span><label>Duty to vote in elections</label></div>
+      <div class="feedback" id="fb6"></div>
+    </div>
+
+    <div class="question" id="q7">
+      <div class="q-num">Question 7 of 20</div>
+      <div class="q-text">In Olga Tellis v. BMC (1985), the Supreme Court read Article 39(a) with Article 21 to hold that:</div>
+      <div class="option" onclick="choose('q7','a')"><input type="radio" name="q7"><span class="opt-letter">A</span><label>Pavement dwellers have no right to resist eviction</label></div>
+      <div class="option" onclick="choose('q7','b')"><input type="radio" name="q7"><span class="opt-letter">B</span><label>The right to livelihood is part of the right to life under Art 21</label></div>
+      <div class="option" onclick="choose('q7','c')"><input type="radio" name="q7"><span class="opt-letter">C</span><label>Urban land cannot be used for housing the poor</label></div>
+      <div class="option" onclick="choose('q7','d')"><input type="radio" name="q7"><span class="opt-letter">D</span><label>DPSP override FR in matters of land acquisition</label></div>
+      <div class="feedback" id="fb7"></div>
+    </div>
+
+    <div class="question" id="q8">
+      <div class="q-num">Question 8 of 20</div>
+      <div class="q-text">Article 48A (protection of environment) was added to the Constitution by which amendment?</div>
+      <div class="option" onclick="choose('q8','a')"><input type="radio" name="q8"><span class="opt-letter">A</span><label>25th Amendment, 1971</label></div>
+      <div class="option" onclick="choose('q8','b')"><input type="radio" name="q8"><span class="opt-letter">B</span><label>42nd Amendment, 1976</label></div>
+      <div class="option" onclick="choose('q8','c')"><input type="radio" name="q8"><span class="opt-letter">C</span><label>44th Amendment, 1978</label></div>
+      <div class="option" onclick="choose('q8','d')"><input type="radio" name="q8"><span class="opt-letter">D</span><label>86th Amendment, 2002</label></div>
+      <div class="feedback" id="fb8"></div>
+    </div>
+
+    <div class="question" id="q9">
+      <div class="q-num">Question 9 of 20</div>
+      <div class="q-text">Which DPSP is the constitutional basis for the Legal Services Authorities Act 1987 and NALSA?</div>
+      <div class="option" onclick="choose('q9','a')"><input type="radio" name="q9"><span class="opt-letter">A</span><label>Article 38</label></div>
+      <div class="option" onclick="choose('q9','b')"><input type="radio" name="q9"><span class="opt-letter">B</span><label>Article 39</label></div>
+      <div class="option" onclick="choose('q9','c')"><input type="radio" name="q9"><span class="opt-letter">C</span><label>Article 39A</label></div>
+      <div class="option" onclick="choose('q9','d')"><input type="radio" name="q9"><span class="opt-letter">D</span><label>Article 43</label></div>
+      <div class="feedback" id="fb9"></div>
+    </div>
+
+    <div class="question" id="q10">
+      <div class="q-num">Question 10 of 20</div>
+      <div class="q-text">Fundamental Duties (Art 51A) were originally added by which constitutional amendment?</div>
+      <div class="option" onclick="choose('q10','a')"><input type="radio" name="q10"><span class="opt-letter">A</span><label>25th Amendment, 1971</label></div>
+      <div class="option" onclick="choose('q10','b')"><input type="radio" name="q10"><span class="opt-letter">B</span><label>42nd Amendment, 1976</label></div>
+      <div class="option" onclick="choose('q10','c')"><input type="radio" name="q10"><span class="opt-letter">C</span><label>44th Amendment, 1978</label></div>
+      <div class="option" onclick="choose('q10','d')"><input type="radio" name="q10"><span class="opt-letter">D</span><label>52nd Amendment, 1985</label></div>
+      <div class="feedback" id="fb10"></div>
+    </div>
+
+    <div class="question" id="q11">
+      <div class="q-num">Question 11 of 20</div>
+      <div class="q-text">In State of Madras v. Champakam Dorairajan (1951), the SC ruled that in conflict between FR and DPSP:</div>
+      <div class="option" onclick="choose('q11','a')"><input type="radio" name="q11"><span class="opt-letter">A</span><label>DPSP prevail over FR</label></div>
+      <div class="option" onclick="choose('q11','b')"><input type="radio" name="q11"><span class="opt-letter">B</span><label>FR prevail over DPSP</label></div>
+      <div class="option" onclick="choose('q11','c')"><input type="radio" name="q11"><span class="opt-letter">C</span><label>Both are equally supreme</label></div>
+      <div class="option" onclick="choose('q11','d')"><input type="radio" name="q11"><span class="opt-letter">D</span><label>Only Parliament can decide which prevails</label></div>
+      <div class="feedback" id="fb11"></div>
+    </div>
+
+    <div class="question" id="q12">
+      <div class="q-num">Question 12 of 20</div>
+      <div class="q-text">Article 39(d) directs the State to ensure:</div>
+      <div class="option" onclick="choose('q12','a')"><input type="radio" name="q12"><span class="opt-letter">A</span><label>Right to form trade unions</label></div>
+      <div class="option" onclick="choose('q12','b')"><input type="radio" name="q12"><span class="opt-letter">B</span><label>Equal pay for equal work for men and women</label></div>
+      <div class="option" onclick="choose('q12','c')"><input type="radio" name="q12"><span class="opt-letter">C</span><label>Right to 8-hour working day</label></div>
+      <div class="option" onclick="choose('q12','d')"><input type="radio" name="q12"><span class="opt-letter">D</span><label>Reservation for women in government jobs</label></div>
+      <div class="feedback" id="fb12"></div>
+    </div>
+
+    <div class="question" id="q13">
+      <div class="q-num">Question 13 of 20</div>
+      <div class="q-text">Which Fundamental Duty requires citizens to protect and improve the natural environment?</div>
+      <div class="option" onclick="choose('q13','a')"><input type="radio" name="q13"><span class="opt-letter">A</span><label>Art 51A(e)</label></div>
+      <div class="option" onclick="choose('q13','b')"><input type="radio" name="q13"><span class="opt-letter">B</span><label>Art 51A(f)</label></div>
+      <div class="option" onclick="choose('q13','c')"><input type="radio" name="q13"><span class="opt-letter">C</span><label>Art 51A(g)</label></div>
+      <div class="option" onclick="choose('q13','d')"><input type="radio" name="q13"><span class="opt-letter">D</span><label>Art 51A(h)</label></div>
+      <div class="feedback" id="fb13"></div>
+    </div>
+
+    <div class="question" id="q14">
+      <div class="q-num">Question 14 of 20</div>
+      <div class="q-text">The Panchayati Raj system was constitutionally established by which amendment, implementing Art 40 DPSP?</div>
+      <div class="option" onclick="choose('q14','a')"><input type="radio" name="q14"><span class="opt-letter">A</span><label>42nd Amendment, 1976</label></div>
+      <div class="option" onclick="choose('q14','b')"><input type="radio" name="q14"><span class="opt-letter">B</span><label>73rd Amendment, 1992</label></div>
+      <div class="option" onclick="choose('q14','c')"><input type="radio" name="q14"><span class="opt-letter">C</span><label>86th Amendment, 2002</label></div>
+      <div class="option" onclick="choose('q14','d')"><input type="radio" name="q14"><span class="opt-letter">D</span><label>92nd Amendment, 2003</label></div>
+      <div class="feedback" id="fb14"></div>
+    </div>
+
+    <div class="question" id="q15">
+      <div class="q-num">Question 15 of 20</div>
+      <div class="q-text">In Paschim Banga Khet Mazdoor Sabha (1996), the SC held that denial of emergency medical treatment by government hospitals violates:</div>
+      <div class="option" onclick="choose('q15','a')"><input type="radio" name="q15"><span class="opt-letter">A</span><label>Art 14 (equality before law)</label></div>
+      <div class="option" onclick="choose('q15','b')"><input type="radio" name="q15"><span class="opt-letter">B</span><label>Art 21 (right to life), read with Art 47 DPSP</label></div>
+      <div class="option" onclick="choose('q15','c')"><input type="radio" name="q15"><span class="opt-letter">C</span><label>Art 19 (right to freedom)</label></div>
+      <div class="option" onclick="choose('q15','d')"><input type="radio" name="q15"><span class="opt-letter">D</span><label>Only Art 47 DPSP (not Art 21)</label></div>
+      <div class="feedback" id="fb15"></div>
+    </div>
+
+    <div class="question" id="q16">
+      <div class="q-num">Question 16 of 20</div>
+      <div class="q-text">Are Fundamental Duties directly enforceable in courts?</div>
+      <div class="option" onclick="choose('q16','a')"><input type="radio" name="q16"><span class="opt-letter">A</span><label>Yes, any citizen can file a writ for breach of FD</label></div>
+      <div class="option" onclick="choose('q16','b')"><input type="radio" name="q16"><span class="opt-letter">B</span><label>No, but Parliament can legislate to enforce them</label></div>
+      <div class="option" onclick="choose('q16','c')"><input type="radio" name="q16"><span class="opt-letter">C</span><label>Yes, but only in the Supreme Court</label></div>
+      <div class="option" onclick="choose('q16','d')"><input type="radio" name="q16"><span class="opt-letter">D</span><label>No, and they cannot be given any legal effect</label></div>
+      <div class="feedback" id="fb16"></div>
+    </div>
+
+    <div class="question" id="q17">
+      <div class="q-num">Question 17 of 20</div>
+      <div class="q-text">Article 31C was added by the 25th Amendment to protect laws implementing:</div>
+      <div class="option" onclick="choose('q17','a')"><input type="radio" name="q17"><span class="opt-letter">A</span><label>All DPSP under Art 36-51</label></div>
+      <div class="option" onclick="choose('q17','b')"><input type="radio" name="q17"><span class="opt-letter">B</span><label>Art 39(b) and Art 39(c) only</label></div>
+      <div class="option" onclick="choose('q17','c')"><input type="radio" name="q17"><span class="opt-letter">C</span><label>Art 14 and Art 19 only</label></div>
+      <div class="option" onclick="choose('q17','d')"><input type="radio" name="q17"><span class="opt-letter">D</span><label>Fundamental Duties under Art 51A</label></div>
+      <div class="feedback" id="fb17"></div>
+    </div>
+
+    <div class="question" id="q18">
+      <div class="q-num">Question 18 of 20</div>
+      <div class="q-text">Which of these is classified as a Gandhian Directive Principle?</div>
+      <div class="option" onclick="choose('q18','a')"><input type="radio" name="q18"><span class="opt-letter">A</span><label>Article 39A (free legal aid)</label></div>
+      <div class="option" onclick="choose('q18','b')"><input type="radio" name="q18"><span class="opt-letter">B</span><label>Article 44 (Uniform Civil Code)</label></div>
+      <div class="option" onclick="choose('q18','c')"><input type="radio" name="q18"><span class="opt-letter">C</span><label>Article 40 (village panchayats)</label></div>
+      <div class="option" onclick="choose('q18','d')"><input type="radio" name="q18"><span class="opt-letter">D</span><label>Article 50 (separation of judiciary from executive)</label></div>
+      <div class="feedback" id="fb18"></div>
+    </div>
+
+    <div class="question" id="q19">
+      <div class="q-num">Question 19 of 20</div>
+      <div class="q-text">The MGNREGA (2005) is constitutionally grounded primarily in which DPSP?</div>
+      <div class="option" onclick="choose('q19','a')"><input type="radio" name="q19"><span class="opt-letter">A</span><label>Art 38 (social order)</label></div>
+      <div class="option" onclick="choose('q19','b')"><input type="radio" name="q19"><span class="opt-letter">B</span><label>Art 39 and Art 41 (right to work)</label></div>
+      <div class="option" onclick="choose('q19','c')"><input type="radio" name="q19"><span class="opt-letter">C</span><label>Art 44 (Uniform Civil Code)</label></div>
+      <div class="option" onclick="choose('q19','d')"><input type="radio" name="q19"><span class="opt-letter">D</span><label>Art 48 (organisation of agriculture)</label></div>
+      <div class="feedback" id="fb19"></div>
+    </div>
+
+    <div class="question" id="q20">
+      <div class="q-num">Question 20 of 20</div>
+      <div class="q-text">The concept of DPSP was borrowed by India's Constitution makers from the Constitution of:</div>
+      <div class="option" onclick="choose('q20','a')"><input type="radio" name="q20"><span class="opt-letter">A</span><label>United States of America</label></div>
+      <div class="option" onclick="choose('q20','b')"><input type="radio" name="q20"><span class="opt-letter">B</span><label>United Kingdom</label></div>
+      <div class="option" onclick="choose('q20','c')"><input type="radio" name="q20"><span class="opt-letter">C</span><label>Ireland</label></div>
+      <div class="option" onclick="choose('q20','d')"><input type="radio" name="q20"><span class="opt-letter">D</span><label>Canada</label></div>
+      <div class="feedback" id="fb20"></div>
+    </div>
+
+    <div class="quiz-controls">
+      <div class="score-display" id="scoreDisplay">Select all answers, then submit</div>
+      <button class="btn-submit" id="submitBtn" onclick="submitQuiz()">Submit Quiz</button>
+    </div>
+    <div class="result-panel" id="resultPanel">
+      <h3 id="resultTitle"></h3><p id="resultText"></p>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATE FORM -->
+<div class="cert-form" id="certForm">
+  <h3>🎓 Claim Your Level 2 Certificate</h3>
+  <p>Please confirm your details to generate your Level 2 certificate.</p>
+  <div class="form-grid">
+    <div class="form-group full"><label>Full Name *</label><input type="text" id="pName" placeholder="As on Level 1 certificate"></div>
+    <div class="form-group"><label>Phone (WhatsApp) *</label><input type="tel" id="pPhone" placeholder="10-digit mobile number"></div>
+    <div class="form-group"><label>Email Address</label><input type="email" id="pEmail" placeholder="your@email.com"></div>
+    <div class="form-group"><label>Organisation</label><input type="text" id="pOrg" placeholder="NGO / Law firm / University"></div>
+    <div class="form-group"><label>Designation / Role</label><input type="text" id="pDesig" placeholder="Lawyer / Paralegal / Social Worker"></div>
+    <div class="form-group"><select id="pOrgType"><option value="">Organisation Type</option><option>NGO / Civil Society</option><option>Legal Aid / DLSA / SLSA</option><option>Government / OSC</option><option>Law Firm / Advocate</option><option>Academic / University</option><option>Community Organisation</option><option>Individual / Freelance</option></select></div>
+    <div class="form-group"><label>State</label><input type="text" id="pState" placeholder="State"></div>
+    <div class="form-group"><label>District</label><input type="text" id="pDistrict" placeholder="District"></div>
+    <div class="form-group full"><label>Interested in Janman's Constitutional Law Network?</label><select id="pNetwork"><option value="">Select</option><option value="yes">Yes — connect me</option><option value="maybe">Maybe</option><option value="no">No</option></select></div>
+    <div class="form-group full"><label>Can you help host a training in your area?</label><select id="pHost"><option value="">Select</option><option value="yes">Yes</option><option value="maybe">Maybe</option><option value="no">Not now</option></select></div>
+  </div>
+  <button class="btn-cert" onclick="generateCertificate()">Generate My Level 2 Certificate 🎓</button>
+</div>
+
+<!-- CERTIFICATE PREVIEW -->
+<div class="cert-preview" id="certPreview">
+  <div class="cert-outer">
+    <div class="cert-inner">
+      <img src="janman-logo.png" alt="Janman" class="cert-logo">
+      <div class="cert-org">Janman People's Foundation</div>
+      <div class="cert-presents">Jan Nyay Abhiyan · Constitutional Law Series</div>
+      <div class="cert-main-title">Certificate of Achievement</div>
+      <div class="cert-subtitle">DPSP &amp; Fundamental Duties — Level 2</div>
+      <div class="cert-to">This is to certify that</div>
+      <div class="cert-name" id="certName">—</div>
+      <div class="cert-org-name" id="certOrgLine">—</div>
+      <div class="cert-desc">has successfully completed <strong>Level 2: Directive Principles of State Policy &amp; Fundamental Duties (Art 36–51, Art 51A)</strong> of the Janman Constitutional Law Training Series, demonstrating proficiency in DPSP jurisprudence, the FR–DPSP harmony doctrine, and Fundamental Duties.</div>
+      <div class="cert-score" id="certScore">Score: —</div>
+      <div class="cert-meta">
+        <div class="cert-meta-item"><div class="cert-meta-label">Certificate No.</div><div class="cert-meta-value" id="certNo">—</div></div>
+        <div class="cert-meta-item"><div class="cert-meta-label">Date Issued</div><div class="cert-meta-value" id="certDate">—</div></div>
+        <div class="cert-meta-item"><div class="cert-meta-label">Programme</div><div class="cert-meta-value">FR &amp; DPSP Series</div></div>
+        <div class="cert-meta-item"><div class="cert-meta-label">Level</div><div class="cert-meta-value">Intermediate (L2)</div></div>
+      </div>
+      <div class="sig-section">
+        <div class="sig-block">
+          <div class="sig-name">Shourya Roy</div>
+          <div class="sig-line"></div>
+          <div class="sig-label">Executive Director, Janman People's Foundation</div>
+        </div>
+        <div class="sig-block">
+          <div class="sig-name" id="certSigName" style="font-family:'Dancing Script',cursive;font-size:1.4rem;color:#1a2a4a;"></div>
+          <div class="sig-line"></div>
+          <div class="sig-label" id="certSigLabel">Participant</div>
+        </div>
+      </div>
+      <div class="cert-footer">Janman People's Foundation · janmanindia.org · shashwat@janmanindia.org · Free legal training for all</div>
+    </div>
+  </div>
+  <button class="btn-download" onclick="downloadCert()">⬇️ Download / Print Certificate</button>
+</div>
+
+<!-- WA SUPPORT -->
+<div class="wa-support" id="supportCard">
+  <h3>📱 Connect with Janman Legal Team</h3>
+  <p>Excellent work completing Level 2! Our constitutional law team can help you apply DPSP jurisprudence in real cases and PIL work.</p>
+  <a class="wa-link" id="waLink" href="#" target="_blank">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Message Janman Legal Team on WhatsApp
+  </a>
+  <p style="margin-top:12px;font-size:.8rem;color:#2d5a3d;">Next: <a href="level3.html" style="color:#1a5c2e;font-weight:700;">Start Level 3 — Landmark Cases &amp; PIL →</a></p>
+</div>
+
+</div><!-- /container -->
+
+<button id="contactBtn" onclick="toggleContact()">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Contact Us
+</button>
+<div class="contact-overlay" id="contactOverlay" onclick="toggleContact()"></div>
+<div class="contact-modal" id="contactModal">
+  <h3>📞 Janman Legal Team</h3>
+  <p>Reach our lawyers instantly for free legal support</p>
+  <img src="wa-qr.png" alt="WhatsApp QR">
+  <a href="https://wa.me/918507715870?text=Hello%20Janman%20%F0%9F%99%8F%0AI%20need%20legal%20assistance%20regarding%20DPSP%20and%20constitutional%20rights." class="wa-btn-modal" target="_blank">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Chat on WhatsApp
+  </a>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'b',q4:'b',q5:'b',q6:'c',q7:'b',q8:'b',q9:'c',q10:'b',q11:'b',q12:'b',q13:'c',q14:'b',q15:'b',q16:'b',q17:'b',q18:'c',q19:'b',q20:'c'};
+var FEEDBACK={
+  q1:'Art 37 says DPSP are "not enforceable by any court" but they are "fundamental in the governance of the country" and it shall be the duty of the State to apply these principles in making laws.',
+  q2:'Art 39A was inserted by the 42nd Constitutional Amendment Act, 1976 — the same amendment that also added Fundamental Duties (Art 51A) and made several other changes during the Emergency period.',
+  q3:'Minerva Mills (1980) held that the harmony and balance between FR and DPSP is itself part of the Basic Structure. Parliament cannot destroy this balance by giving DPSP absolute primacy over FR.',
+  q4:'Article 44 directs the State to endeavour to secure a Uniform Civil Code throughout India. The SC has periodically urged implementation (Shah Bano 1985, Sarla Mudgal 1995), but UCC has not been enacted nationally.',
+  q5:'In Hussainara Khatoon (1979), Bihar undertrial prisoners had been in jail longer than the maximum sentence for their alleged offences. SC held that Art 39A read with Art 21 makes free legal aid a fundamental right, not just a directive principle.',
+  q6:'Art 51A(k) was added by the 86th Amendment 2002 (same amendment that inserted Art 21A on right to education): it makes it a fundamental duty of every parent or guardian to provide opportunities for education to their child aged 6-14.',
+  q7:'Olga Tellis established that the right to livelihood is part of Art 21 (right to life). Evicting pavement dwellers without notice or alternative accommodation deprives them of their livelihood and violates Art 21 read with Art 39(a).',
+  q8:'Art 48A (protection and improvement of environment and safeguarding of forests and wildlife) was inserted by the 42nd Amendment 1976. It is the constitutional basis for environmental legislation in India.',
+  q9:'Art 39A specifically directs the State to provide free legal aid to ensure justice is not denied due to economic disabilities. This is the direct constitutional basis for the Legal Services Authorities Act 1987 that created NALSA, SLSA, and DLSA.',
+  q10:'The 42nd Constitutional Amendment Act 1976, passed during the Emergency period, added Art 51A with 10 Fundamental Duties. The 86th Amendment 2002 added the 11th duty under Art 51A(k).',
+  q11:'In Champakam Dorairajan, the SC held that FR prevail over DPSP. This immediately led Parliament to amend the Constitution (1st Amendment) to add Art 15(4) permitting reservations for backward classes, overcoming this ruling.',
+  q12:'Art 39(d) directs the State to ensure equal pay for equal work for both men and women. The Supreme Court has also treated this as a principle enforceable through Art 14 when employers pay unequal wages for the same work.',
+  q13:'Art 51A(g) — the duty to "protect and improve the natural environment including forests, lakes, rivers and wildlife, and to have compassion for living creatures" is the Fundamental Duty on environment protection.',
+  q14:'The 73rd Constitutional Amendment Act, 1992 gave constitutional status to Panchayati Raj institutions (Part IX, Art 243 onwards), implementing Art 40 DPSP. The 74th Amendment did the same for urban local bodies.',
+  q15:'In Paschim Banga, the SC held that Art 21 includes the right to receive emergency medical treatment at State hospitals. Reading Art 21 with Art 47 (DPSP on public health), failure to provide such treatment violates the right to life.',
+  q16:'FDs are not directly enforceable — no writ can be filed for their breach. However, Parliament can legislate to enforce them (e.g., Prevention of Insults to National Honour Act for Art 51A(a)). Courts also use them to interpret statutes and assess proportionality of restrictions on FR.',
+  q17:'Art 31C as originally inserted by the 25th Amendment protected laws giving effect to Art 39(b) (distribution of ownership/control of material resources) and Art 39(c) (prevention of concentration of wealth). The 42nd Amendment\'s extension to all DPSP was struck down in Minerva Mills.',
+  q18:'Gandhian Principles include: Art 40 (village panchayats), Art 43 (cottage industries), Art 46 (promotion of SC/ST/OBC interests), Art 47 (prohibition), Art 48 (cow protection). UCC (Art 44) and legal separation (Art 50) are liberal-intellectual principles.',
+  q19:'MGNREGA (Mahatma Gandhi National Rural Employment Guarantee Act 2005) guarantees 100 days of wage employment. It is grounded in Art 39 (adequate means of livelihood) and Art 41 (right to work), reading these DPSP with Art 21 to create an enforceable entitlement.',
+  q20:'The concept of DPSP was borrowed from the Irish Constitution 1937, which in turn was influenced by the Spanish Constitution. Dr. Ambedkar and the Constituent Assembly saw DPSP as instructions to future governments on social and economic policy.'
+};
+var selected={};
+function choose(q,opt){
+  if(document.getElementById('submitBtn').disabled)return;
+  selected[q]=opt;
+  var opts=document.querySelectorAll('#'+q+' .option');
+  opts.forEach(function(o){o.style.background='';o.style.borderColor='';});
+  var idx={'a':0,'b':1,'c':2,'d':3}[opt];
+  if(opts[idx]){opts[idx].style.background='#f0e8f8';opts[idx].style.borderColor='#7b2d8b';}
+}
+function submitQuiz(){
+  var total=Object.keys(ANSWERS).length;
+  if(Object.keys(selected).length<total){alert('Please answer all '+total+' questions before submitting.');return;}
+  var score=0;
+  Object.keys(ANSWERS).forEach(function(q){
+    var correct=ANSWERS[q];var chosen=selected[q];
+    var opts=document.querySelectorAll('#'+q+' .option');
+    opts.forEach(function(o){o.style.pointerEvents='none';});
+    ['a','b','c','d'].forEach(function(l,i){
+      if(l===correct)opts[i].classList.add('correct');
+      else if(l===chosen&&chosen!==correct)opts[i].classList.add('wrong');
+    });
+    if(chosen===correct)score++;
+    var fb=document.getElementById('fb'+q.replace('q',''));
+    fb.textContent=(chosen===correct?'✅ Correct! ':'❌ Incorrect. ')+FEEDBACK[q];
+    fb.className='feedback show '+(chosen===correct?'correct':'wrong');
+  });
+  document.getElementById('submitBtn').disabled=true;
+  var pct=Math.round(score/total*100);var pass=pct>=70;
+  var rp=document.getElementById('resultPanel');rp.style.display='block';
+  rp.className='result-panel '+(pass?'pass':'fail');
+  document.getElementById('resultTitle').textContent=pass?'🎉 Congratulations! You Passed!':'❌ Not Passed — Please Review and Retry';
+  document.getElementById('resultText').textContent='Your score: '+score+'/'+total+' ('+pct+'%). '+(pass?'Excellent! Fill the form below to get your Level 2 certificate.':'You need 70% to pass. Review the content and try again.');
+  document.getElementById('scoreDisplay').textContent=score+'/'+total+' ('+pct+'%)';
+  if(pass){
+    document.getElementById('certForm').style.display='block';
+    window._quizScore=pct;
+    localStorage.setItem('janman_fr_l2_score',pct);
+    localStorage.setItem('janman_fr_l2_date',new Date().toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'}));
+  }
+}
+function generateCertificate(){
+  var name=document.getElementById('pName').value.trim();
+  var phone=document.getElementById('pPhone').value.trim();
+  if(!name){alert('Please enter your full name.');return;}
+  if(!phone){alert('Please enter your phone number.');return;}
+  var org=document.getElementById('pOrg').value.trim();
+  var desig=document.getElementById('pDesig').value.trim();
+  var orgType=document.getElementById('pOrgType').value;
+  var state=document.getElementById('pState').value.trim();
+  var district=document.getElementById('pDistrict').value.trim();
+  var now=new Date();
+  var certNo='JPF-FR-L2-'+now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+String(now.getDate()).padStart(2,'0')+'-'+Math.floor(Math.random()*9000+1000);
+  var dateStr=now.toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
+  var score=window._quizScore||localStorage.getItem('janman_fr_l2_score')||'70';
+  document.getElementById('certName').textContent=name;
+  document.getElementById('certOrgLine').textContent=(desig||'')+(desig&&org?', ':'')+org+(org&&district?', ':'')+district+(district&&state?' — ':'')+state;
+  document.getElementById('certScore').textContent='Score: '+score+'%';
+  document.getElementById('certNo').textContent=certNo;
+  document.getElementById('certDate').textContent=dateStr;
+  document.getElementById('certSigName').textContent=name;
+  document.getElementById('certSigLabel').textContent=desig||'Participant';
+  document.getElementById('certPreview').style.display='block';
+  document.getElementById('certForm').style.display='none';
+  localStorage.setItem('janman_fr_l2_done','true');
+  localStorage.setItem('janman_fr_l2_cert_no',certNo);
+  localStorage.setItem('janman_fr_name',name);
+  localStorage.setItem('janman_fr_phone',phone);
+  localStorage.setItem('janman_fr_org',org);
+  localStorage.setItem('janman_fr_desig',desig);
+  localStorage.setItem('janman_fr_state',state);
+  localStorage.setItem('janman_fr_district',district);
+  var msg='Hello Janman Legal Team 🙏%0A%0AI have completed *Level 2: DPSP & Fundamental Duties* of the Constitutional Law training.%0A%0AName: *'+encodeURIComponent(name)+'*'+(org?'%0AOrganisation: '+encodeURIComponent(org):'')+(district?'%0ADistrict: '+encodeURIComponent(district):'')+(state?', '+encodeURIComponent(state):'')+'%0ACertificate No: *'+encodeURIComponent(certNo)+'*%0A%0AI would like to discuss PIL and DPSP-based litigation strategies with the Janman team.';
+  document.getElementById('waLink').href='https://wa.me/918507715870?text='+msg;
+  document.getElementById('supportCard').style.display='block';
+  window.scrollTo({top:document.getElementById('certPreview').offsetTop-20,behavior:'smooth'});
+}
+function downloadCert(){window.print();}
+function toggleContact(){
+  document.getElementById('contactModal').classList.toggle('open');
+  document.getElementById('contactOverlay').classList.toggle('open');
+}
+(function(){
+  var n=localStorage.getItem('janman_fr_name');
+  if(n&&document.getElementById('pName')){
+    document.getElementById('pName').value=n;
+    [['pPhone','janman_fr_phone'],['pOrg','janman_fr_org'],['pDesig','janman_fr_desig'],['pState','janman_fr_state'],['pDistrict','janman_fr_district']].forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});
+  }
+})();
+</script>
+</body>
+</html>
