@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Worker & OSC Track — Child Rights | Janman</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#7a3500,#c05e0a,#e67e22);min-height:100vh;color:#fff;}
+.header{text-align:center;padding:48px 20px 24px;position:relative;}
+.logo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.3);margin-bottom:14px;display:block;margin-left:auto;margin-right:auto;}
+.nav-back{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;position:absolute;top:20px;left:20px;background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;}
+.track-badge{display:inline-block;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px;}
+h1{font-size:clamp(26px,5vw,40px);font-weight:800;margin-bottom:8px;}
+.subtitle{color:rgba(255,255,255,0.8);font-size:14px;max-width:560px;margin:0 auto 6px;}
+.progress-section{max-width:700px;margin:20px auto;padding:0 20px;}
+.prog-bar{background:rgba(255,255,255,0.2);border-radius:6px;height:10px;overflow:hidden;}
+.prog-fill{height:100%;background:linear-gradient(90deg,#fff8,#fffd);border-radius:6px;transition:width 0.6s ease;}
+.prog-label{font-size:12px;color:rgba(255,255,255,0.7);margin-top:6px;text-align:center;}
+.modules-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;padding:20px 24px 40px;max-width:900px;margin:0 auto;}
+.module-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.2);border-radius:18px;padding:24px;transition:transform 0.2s;}
+.module-card:not(.locked):hover{transform:translateY(-3px);}
+.locked{opacity:0.5;cursor:not-allowed;}
+.lock-icon{font-size:28px;margin-bottom:10px;}
+.level-num{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:4px;}
+.module-title{font-size:18px;font-weight:700;margin-bottom:6px;}
+.module-desc{font-size:12px;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:14px;}
+.topics{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:16px;}
+.topic{font-size:10px;background:rgba(255,255,255,0.15);padding:3px 8px;border-radius:10px;}
+.module-btn{display:block;text-align:center;padding:10px 16px;border-radius:10px;font-weight:700;font-size:13px;text-decoration:none;background:rgba(255,255,255,0.2);color:#fff;border:1px solid rgba(255,255,255,0.3);}
+.module-btn:hover{background:rgba(255,255,255,0.3);}
+.card-btn{display:block;text-align:center;padding:10px;font-size:13px;color:rgba(255,255,255,0.35);border:1px dashed rgba(255,255,255,0.2);border-radius:10px;}
+.done-badge{display:inline-block;background:#27ae60;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;}
+.final-card{background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(255,255,255,0.05));border:2px solid rgba(255,255,255,0.3);}
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="../index.html" class="nav-back">← Child Rights Hub</a>
+  <img src="janman-logo.png" alt="Janman" class="logo">
+  <div class="track-badge">👩‍💼 Social Worker & OSC Track</div>
+  <h1>Child Protection for Frontline Workers</h1>
+  <p class="subtitle">POCSO mandatory reporting, JJ Act welfare mechanisms, OSC integrated response and convergence protocols</p>
+</div>
+<div class="progress-section">
+  <div class="prog-bar"><div class="prog-fill" id="progressFill" style="width:0%"></div></div>
+  <div class="prog-label" id="progressLabel">Loading your progress…</div>
+</div>
+<div class="modules-grid">
+  <div class="module-card" id="card1">
+    <div class="lock-icon">🔓</div>
+    <div class="level-num">Level 1 — Foundation</div>
+    <div class="module-title">POCSO Act 2012: Fundamentals <span class="done-badge" id="done1" style="display:none">✓ Done</span></div>
+    <div class="module-desc">Definitions, types of sexual offences, mandatory reporting obligations, child-friendly procedures, medical examination, and special courts under POCSO.</div>
+    <div class="topics"><span class="topic">Mandatory Reporting</span><span class="topic">FIR Process</span><span class="topic">Medical Exam</span><span class="topic">In-Camera Trial</span><span class="topic">OSC Role</span></div>
+    <a href="level1.html" class="module-btn" id="btn1">Start Level 1 →</a>
+  </div>
+  <div class="module-card locked" id="card2">
+    <div class="lock-icon">🔒</div>
+    <div class="level-num">Level 2 — Intermediate</div>
+    <div class="module-title">JJ Act 2015: CWC, DCPU & Welfare <span class="done-badge" id="done2" style="display:none">✓ Done</span></div>
+    <div class="module-desc">Child in need of care and protection, CWC inquiry powers, DCPU case management, CCIs, restoration and rehabilitation, child-friendly procedures under JJ Act.</div>
+    <div class="topics"><span class="topic">CNCP Definition</span><span class="topic">CWC Powers</span><span class="topic">DCPU Functions</span><span class="topic">SIR/ICP</span><span class="topic">Restoration</span></div>
+    <span class="card-btn" id="btn2">🔒 Complete Level 1 to unlock</span>
+  </div>
+  <div class="module-card locked" id="card3">
+    <div class="lock-icon">🔒</div>
+    <div class="level-num">Level 3 — Advanced</div>
+    <div class="module-title">Convergence & Field Practice <span class="done-badge" id="done3" style="display:none">✓ Done</span></div>
+    <div class="module-desc">Inter-departmental convergence framework, Mission Vatsalya schemes, referral pathways, documentation standards, district child protection grid, and SOPs.</div>
+    <div class="topics"><span class="topic">Convergence Matrix</span><span class="topic">Mission Vatsalya</span><span class="topic">Referral Pathways</span><span class="topic">SOP Checklists</span><span class="topic">Case Studies</span></div>
+    <span class="card-btn" id="btn3">🔒 Complete Levels 1 & 2 to unlock</span>
+  </div>
+  <div class="module-card final-card locked" id="cardFinal">
+    <div class="lock-icon">🏆</div>
+    <div class="level-num">Final Certificate</div>
+    <div class="module-title">Certificate of Completion — Social Worker</div>
+    <div class="module-desc">Complete all three levels to earn your Janman Child Protection Practitioner Certificate, issued under Shourya Roy's authority.</div>
+    <div class="topics"><span class="topic">JPF-SW-FINAL</span><span class="topic">Network Registration</span></div>
+    <span class="card-btn" id="btnFinal">🔒 Complete all 3 levels to unlock</span>
+  </div>
+</div>
+<script>
+(function(){
+  var l1=localStorage.getItem('janman_sw_l1_done');
+  var l2=localStorage.getItem('janman_sw_l2_done');
+  var l3=localStorage.getItem('janman_sw_l3_done');
+  var done=[l1,l2,l3].filter(Boolean).length;
+  document.getElementById('progressFill').style.width=(done/3*100)+'%';
+  document.getElementById('progressLabel').textContent=done+' of 3 levels completed — '+(done===3?'all done! Unlock your certificate.':('keep going!'));
+  if(l1){document.getElementById('done1').style.display='inline';document.getElementById('card2').classList.remove('locked');document.getElementById('btn2').outerHTML='<a href="level2.html" class="module-btn" id="btn2">Start Level 2 →</a>';}
+  if(l2&&l1){document.getElementById('done2').style.display='inline';document.getElementById('card3').classList.remove('locked');document.getElementById('btn3').outerHTML='<a href="level3.html" class="module-btn" id="btn3">Start Level 3 →</a>';}
+  if(l3){document.getElementById('done3').style.display='inline';}
+  if(l1&&l2&&l3){document.getElementById('cardFinal').classList.remove('locked');document.getElementById('btnFinal').outerHTML='<a href="final-certificate.html" class="module-btn" id="btnFinal" style="background:linear-gradient(135deg,#f39c12,#e67e22);">🏆 Claim Your Certificate →</a>';}
+})();
+</script>
+</body>
+</html>

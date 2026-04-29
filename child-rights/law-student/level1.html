@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1: Constitutional & Statutory Framework | Child Rights Legal Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0d1b4a, #1a2e7a, #2440b8);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        header {
+            margin-bottom: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .subtitle {
+            color: #b8d4ff;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+            padding-bottom: 15px;
+        }
+        
+        .provision {
+            margin-bottom: 25px;
+        }
+        
+        .provision-title {
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .provision-text {
+            color: #b8d4ff;
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        
+        .case-cite {
+            background: rgba(76, 175, 80, 0.15);
+            padding: 8px 12px;
+            border-left: 3px solid #4caf50;
+            color: #90ee90;
+            font-size: 14px;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+        
+        .key-point {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 12px 15px;
+            border-left: 3px solid #ffd700;
+            color: #ffd4a8;
+            font-size: 14px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .quiz-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #ffd700;
+            margin-bottom: 25px;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border-left: 3px solid #ffd700;
+        }
+        
+        .q-text {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 12px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+        
+        .option label {
+            cursor: pointer;
+            color: #b8d4ff;
+            font-size: 14px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: #ffd700;
+            color: #0d1b4a;
+        }
+        
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .result {
+            background: rgba(76, 175, 80, 0.15);
+            border: 1px solid #4caf50;
+            color: #90ee90;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result.fail {
+            background: rgba(244, 67, 54, 0.15);
+            border-color: #f44336;
+            color: #ff8a80;
+        }
+        
+        .result-text {
+            margin-bottom: 10px;
+        }
+        
+        .score {
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .qr-popup {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 999;
+        }
+        
+        .qr-popup.active {
+            display: block;
+        }
+        
+        .qr-popup img {
+            width: 200px;
+            height: 200px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #a0c4ff;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 28px; }
+            .section-title { font-size: 22px; }
+            .container { padding: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to LAW STUDENT Track</a>
+        
+        <header>
+            <h1>Constitutional & Statutory Framework for Child Rights</h1>
+            <p class="subtitle">Foundational legal provisions protecting children in India</p>
+        </header>
+        
+        <div class="content-section">
+            <h2 class="section-title">1. Constitutional Provisions</h2>
+            
+            <div class="provision">
+                <div class="provision-title">Article 15(3): Special Provisions for Women and Children</div>
+                <div class="provision-text">Article 15(3) grants Parliament power to make special laws for women and children. This is an enabling provision that allows protective legislation.</div>
+                <div class="key-point">Key Concept: Article 15(3) is the constitutional basis for gender-specific and child-protective laws like PCMA 2006 and provisions in POCSO Act.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Article 21: Right to Life and Dignity</div>
+                <div class="provision-text">The right to life extends beyond mere survival to include a dignified life. The Supreme Court has progressively expanded this right through landmark judgments.</div>
+                <div class="case-cite">Unnikrishnan v. State of AP (1993) — Right to education flows from Article 21, applicable to children aged 6-14.</div>
+                <div class="case-cite">Gaurav Jain v. UOI (1997) — Children of sex workers have a right to dignified life and education under Article 21 and 39(f).</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Article 21A: Free and Compulsory Education (44th Amendment, 2002)</div>
+                <div class="provision-text">The State shall provide free and compulsory education to all children of the age of six to fourteen years. This constitutional mandate became the foundation of the Right to Free and Compulsory Education Act, 2009.</div>
+                <div class="key-point">Statutory Consequence: The RTE Act 2009 operationalizes Article 21A. Private unaided non-minority schools must reserve 25% seats for disadvantaged children.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Article 23: Prohibition of Traffic in Human Beings and Forced Labour</div>
+                <div class="provision-text">Traffic in human beings and forced labour are prohibited. Violation is a criminal offense. Children are uniquely vulnerable to trafficking and forced labour exploitation.</div>
+                <div class="case-cite">NHRC v. State of Arunachal Pradesh (1996) — State has constitutional duty to prevent child trafficking and provide rehabilitation.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Article 24: Prohibition of Child Labour in Hazardous Employment</div>
+                <div class="provision-text">No child below 15 years shall be employed in any factory, mine, or in any other hazardous occupation. This is an absolute prohibition, not subject to reasonable restrictions.</div>
+                <div class="case-cite">M.C. Mehta v. State of Tamil Nadu (1996) — Hazardous child labour violates Article 24. Court directed elimination of child labour in match and cracker industries in Sivakasi.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Articles 39(e) and 39(f): Directive Principles</div>
+                <div class="provision-text">Article 39(e) requires the State to ensure that childhood and youth are protected against exploitation and moral and material abandonment. Article 39(f) obligates protection of children against economic exploitation.</div>
+                <div class="key-point">Interpretive Tool: DPSP are not directly enforceable but serve as interpretive aids for Articles 14, 19, and 21. Courts increasingly use DPSP to enlarge rights of children.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Article 51A(k): Fundamental Duty</div>
+                <div class="provision-text">Every parent/guardian shall provide education to child between 6-14 years. This fundamental duty complements Article 21A as a constitutional obligation.</div>
+                <div class="key-point">Enforcement: While not directly actionable, Article 51A(k) is used to justify state action against parents failing to send children to school.</div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">2. International Law Framework</h2>
+            
+            <div class="provision">
+                <div class="provision-title">United Nations Convention on the Rights of the Child (UNCRC), 1989</div>
+                <div class="provision-text">India ratified UNCRC in 1992 without reservations on substantive provisions. UNCRC defines a child as person below 18 years and establishes 4 pillars: survival, development, protection, and participation.</div>
+                <div class="key-point">Key Articles: Art 1 (definition), Art 3 (best interests), Art 12 (right to be heard), Art 19 (protection from violence), Art 34 (protection from sexual exploitation).</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Optional Protocol on Sale of Children, Child Prostitution and Child Pornography (2000)</div>
+                <div class="provision-text">India ratified in 2009. Strengthens child protection against sexual exploitation and commercial abuse. Criminalizes production, distribution, and possession of child sexual abuse material.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">ILO Convention No. 182 on Worst Forms of Child Labour</div>
+                <div class="provision-text">India ratified in 1999. Requires elimination of worst forms of child labour including slavery, forced labour, hazardous work, and sexual exploitation of children.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Use of UNCRC in Indian Courts</div>
+                <div class="provision-text">Following the Vishaka approach (1997), Indian courts increasingly rely on UNCRC principles to interpret Indian law and expand child rights. The Supreme Court treats UNCRC as interpretive aid for Articles 14, 19, 21.</div>
+                <div class="case-cite">Bachpan Bachao Andolan (2011) — Used UNCRC principles on child trafficking and protection to direct comprehensive state action.</div>
+                <div class="case-cite">M.C. Mehta (1996) — Applied UNCRC standards on child labour to interpret Article 24 expansively.</div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">3. Statutory Framework Overview</h2>
+            
+            <div class="provision">
+                <div class="provision-title">Protection of Children from Sexual Offences (POCSO) Act, 2012 + 2019 Amendment</div>
+                <div class="provision-text">Gender-neutral statute that criminalizes all forms of sexual abuse against children (persons below 18). Key features: strict liability (no age exception), special courts, child-friendly procedure, in-camera trials, identity protection.</div>
+                <div class="key-point">2019 Amendment: Added provisions on child pornography, child grooming, and aggravated forms of sexual assault with enhanced penalties.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Juvenile Justice Act (Care and Protection of Children) Rules, 2015 + 2021 Amendment</div>
+                <div class="provision-text">Applies "best interests of the child" standard in all proceedings affecting juveniles. Distinguishes between children in conflict with law (JCL) and children in need of care and protection (CNCP). Mandates reformative rather than punitive approach.</div>
+                <div class="key-point">2021 Amendment: Transferred CCI registration powers from JJB to District Magistrate. Strengthened CCI inspections and monitoring.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Prohibition of Child Marriage Act (PCMA), 2006</div>
+                <div class="provision-text">Replaced outdated Child Marriage Restraint Act of 1929. Makes child marriage void (not merely voidable). Recognizes marriage of boys below 21 and girls below 18 as void ab initio.</div>
+                <div class="case-cite">Independent Thought v. UOI (2017) — Court struck down Exception 2 to Section 375 IPC that exempted marital rape of girls 15-17 years, aligning with PCMA's protection.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Child Labour (Prohibition and Regulation) Amendment Act, 2016</div>
+                <div class="provision-text">Prohibits employment of children below 14 in hazardous industries. Amendment raised minimum age for light work from 13 to 14 years. Requires registration of CCIs and training of inspectors.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Right to Free and Compulsory Education (RTE) Act, 2009</div>
+                <div class="provision-text">Makes education a fundamental right. Mandates free and compulsory education for all children aged 6-14. Requires private unaided non-minority schools to reserve 25% seats for disadvantaged children (Section 12(1)(c)).</div>
+                <div class="case-cite">Society for Unaided Private Schools v. UOI (2012) — Supreme Court upheld constitutionality of 25% reservation in private schools.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Protection of Children from Sexual Offences Rules, 2020</div>
+                <div class="provision-text">Procedural rules implementing POCSO Act. Establish special investigation units, victim support schemes, guidelines for child-friendly trial procedures, and compensation framework.</div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2 class="section-title">4. Legal Principles in Child Law</h2>
+            
+            <div class="provision">
+                <div class="provision-title">Best Interests of the Child</div>
+                <div class="provision-text">This international standard, originating from UNCRC Article 3, has been codified in Indian law through Section 2(9) of the Juvenile Justice Act. Every decision affecting a child must prioritize the child's best interests.</div>
+                <div class="key-point">Application: Courts must balance child's welfare against other considerations (including state interests) in custody, guardianship, and protection matters.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Child-Friendly Procedures</div>
+                <div class="provision-text">POCSO Act mandates child-friendly procedures including in-camera trials, use of screens/closed-circuit television, presence of support person, and minimal cross-examination.</div>
+                <div class="key-point">Constitutional Obligation: Courts recognize child-friendly procedure as a facet of Article 21 right to dignity and fair trial.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Parens Patriae Doctrine</div>
+                <div class="provision-text">The state acts as parent (parens patriae) when a child's welfare is jeopardized. This doctrine originated in English common law but has constitutional roots in Article 39(f) and Article 21.</div>
+                <div class="key-point">Application: Justifies state intervention in rescue, rehabilitation, adoption, and institutional care of vulnerable children.</div>
+            </div>
+            
+            <div class="provision">
+                <div class="provision-title">Age Determination Jurisprudence</div>
+                <div class="provision-text">When child's age is disputed, courts must apply protective presumptions. The issue is critical in determining jurisdiction (JJB vs. criminal court) and applicability of child protection laws.</div>
+                <div class="case-cite">Pratap Singh v. State of Jharkhand (2005) — Age must be determined as on date of offense, not date of trial. Five-Judge Constitutional Bench judgment.</div>
+                <div class="case-cite">Abuzar Hossain v. State of WB (2012) — Ossification test not sole determinant. Benefit of doubt (2-year margin) given in favor of accused claiming to be minor.</div>
+            </div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2 class="quiz-title">📋 Knowledge Assessment Quiz</h2>
+            <p style="color: #b8d4ff; margin-bottom: 25px;">Answer all 20 questions to complete this level. You need 70% to pass (14 correct answers).</p>
+            
+            <form id="quizForm">
+                <div class="quiz-question">
+                    <div class="q-text">Q1. Which article grants Parliament power to make special laws for children?</div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="a">
+                        <label>Article 14</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="b">
+                        <label>Article 15(3)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="c">
+                        <label>Article 21</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="d">
+                        <label>Article 39</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q2. In which year was Article 21A (right to education) added to the Constitution?</div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="a">
+                        <label>1989</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="b">
+                        <label>2002</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="c">
+                        <label>2009</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="d">
+                        <label>2015</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q3. India ratified UNCRC in which year?</div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="a">
+                        <label>1989</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="b">
+                        <label>1992</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="c">
+                        <label>1995</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="d">
+                        <label>2000</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q4. What is the defining age criterion of a child under UNCRC?</div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="a">
+                        <label>Below 16 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="b">
+                        <label>Below 18 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="c">
+                        <label>Below 21 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="d">
+                        <label>Below 14 years</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q5. According to Article 24, no child below how many years can be employed in hazardous work?</div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="a">
+                        <label>12 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="b">
+                        <label>14 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="c">
+                        <label>15 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="d">
+                        <label>18 years</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q6. In which case did the Supreme Court extend Article 21 to include right to education?</div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="a">
+                        <label>Gaurav Jain (1997)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="b">
+                        <label>Unnikrishnan (1993)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="c">
+                        <label>Bachpan Bachao Andolan (2011)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="d">
+                        <label>M.C. Mehta (1996)</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q7. Which of the 4 UNCRC pillars includes the right to be heard?</div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="a">
+                        <label>Survival</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="b">
+                        <label>Development</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="c">
+                        <label>Protection</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="d">
+                        <label>Participation</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q8. POCSO Act applies to children below how many years?</div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="a">
+                        <label>14 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="b">
+                        <label>16 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="c">
+                        <label>18 years</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="d">
+                        <label>21 years</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q9. What is a key feature of POCSO that distinguishes it from IPC provisions?</div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="a">
+                        <label>Gender-specific (applies only to girls)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="b">
+                        <label>Strict liability (no age exception)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="c">
+                        <label>Requires witness testimony</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="d">
+                        <label>Allows private settlement</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q10. Which act replaced the Child Marriage Restraint Act of 1929?</div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="a">
+                        <label>JJ Act 2015</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="b">
+                        <label>Prohibition of Child Marriage Act 2006</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="c">
+                        <label>POCSO Act 2012</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="d">
+                        <label>RTE Act 2009</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q11. The RTE Act 2009 operationalizes which constitutional article?</div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="a">
+                        <label>Article 21</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="b">
+                        <label>Article 21A</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="c">
+                        <label>Article 39(e)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="d">
+                        <label>Article 45</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q12. What percentage of seats must unaided non-minority schools reserve for disadvantaged children under RTE?</div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="a">
+                        <label>10%</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="b">
+                        <label>15%</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="c">
+                        <label>25%</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="d">
+                        <label>33%</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q13. Which article recognizes parental duty to provide education under the Constitution?</div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="a">
+                        <label>Article 39(f)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="b">
+                        <label>Article 45</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="c">
+                        <label>Article 51A(k)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="d">
+                        <label>Article 51A(j)</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q14. What is the legal definition of "best interests of the child" under JJ Act?</div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="a">
+                        <label>Section 2(8)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="b">
+                        <label>Section 2(9)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="c">
+                        <label>Section 3(1)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="d">
+                        <label>Section 4(1)</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q15. In the M.C. Mehta case (1996), which industries were specifically targeted for elimination of child labour?</div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="a">
+                        <label>Textile and garment</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="b">
+                        <label>Match and cracker (Sivakasi)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="c">
+                        <label>Mining and quarrying</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="d">
+                        <label>Agriculture and farming</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q16. When did India ratify the Optional Protocol on Sale of Children, Child Prostitution and Child Pornography?</div>
+                    <div class="option">
+                        <input type="radio" name="q16" value="a">
+                        <label>2000</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q16" value="b">
+                        <label>2005</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q16" value="c">
+                        <label>2009</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q16" value="d">
+                        <label>2012</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q17. What is "parens patriae" doctrine in the context of child law?</div>
+                    <div class="option">
+                        <input type="radio" name="q17" value="a">
+                        <label>Parent's absolute right over child</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q17" value="b">
+                        <label>State's role as parent when child welfare is jeopardized</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q17" value="c">
+                        <label>Child's right to biological parent</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q17" value="d">
+                        <label>Court's power to punish child offenders</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q18. How should age be determined when a child's birth certificate is unavailable?</div>
+                    <div class="option">
+                        <input type="radio" name="q18" value="a">
+                        <label>Ossification test alone</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q18" value="b">
+                        <label>School certificate and other documents with 2-year margin of benefit</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q18" value="c">
+                        <label>Physical appearance</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q18" value="d">
+                        <label>Parent/guardian statement alone</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q19. Which case established that marital exception to rape doesn't apply to girls below 18?</div>
+                    <div class="option">
+                        <input type="radio" name="q19" value="a">
+                        <label>Vishaka v. State of Rajasthan</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q19" value="b">
+                        <label>Independent Thought v. UOI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q19" value="c">
+                        <label>Gaurav Jain v. UOI</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q19" value="d">
+                        <label>Salil Bali v. UOI</label>
+                    </div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q20. In the Gaurav Jain case, what right was extended to children of sex workers?</div>
+                    <div class="option">
+                        <input type="radio" name="q20" value="a">
+                        <label>Right to economic support only</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q20" value="b">
+                        <label>Right to dignified life, education, and rehabilitation</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q20" value="c">
+                        <label>Right to inherit parent's property</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q20" value="d">
+                        <label>Right to name change</label>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="submitQuiz()">Submit Quiz</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+            
+            <div class="result" id="result">
+                <div class="result-text">Quiz submission in progress...</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="floating-btn" id="floating-btn">💬</div>
+    <div class="qr-popup" id="qr-popup">
+        <img src="wa-qr.png" alt="WhatsApp QR Code">
+        <div style="color: #0d1b4a; font-size: 12px; margin-top: 10px; text-align: center;">Scan to connect</div>
+    </div>
+    
+    <footer>
+        © 2026 Janman People's Foundation | Child Rights Legal Training Platform
+    </footer>
+    
+    <script>
+        const ANSWERS = {
+            q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'c',
+            q6: 'b', q7: 'd', q8: 'c', q9: 'b', q10: 'b',
+            q11: 'b', q12: 'c', q13: 'c', q14: 'b', q15: 'b',
+            q16: 'c', q17: 'b', q18: 'b', q19: 'b', q20: 'b'
+        };
+        
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            let score = 0;
+            
+            for (let i = 1; i <= 20; i++) {
+                const q = 'q' + i;
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === ANSWERS[q]) {
+                    score++;
+                }
+            }
+            
+            const percentage = (score / 20) * 100;
+            const result = document.getElementById('result');
+            const passed = percentage >= 70;
+            
+            result.classList.add('show');
+            result.classList.toggle('fail', !passed);
+            
+            result.innerHTML = `<div class="result-text"><strong>Score: <span class="score">${score}/20 (${percentage.toFixed(1)}%)</span></strong></div>
+                <div class="result-text">${passed ? '✅ Congratulations! You passed this level.' : '❌ You need 70% to pass. Please review the material and try again.'}</div>
+                ${passed ? '<div class="result-text" style="margin-top: 15px;"><strong>Next Step:</strong> Your progress has been saved. Return to the main page to unlock Level 2.</div>' : ''}`;
+            
+            if (passed) {
+                localStorage.setItem('janman_ls_l1_done', 'true');
+                setTimeout(() => {
+                    alert('Level 1 completed! You can now access Level 2.');
+                }, 500);
+            }
+        }
+        
+        function resetQuiz() {
+            document.getElementById('quizForm').reset();
+            document.getElementById('result').classList.remove('show');
+        }
+        
+        document.getElementById('floating-btn').addEventListener('click', () => {
+            document.getElementById('qr-popup').classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            const popup = document.getElementById('qr-popup');
+            const btn = document.getElementById('floating-btn');
+            if (!popup.contains(e.target) && !btn.contains(e.target)) {
+                popup.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 3: Convergence & Field Practice — Social Worker | Janman</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#3d1a00,#7a3500,#b55000);min-height:100vh;color:#fff;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(0,0,0,0.2);}
+.nav-back{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;}
+.level-tag{background:rgba(255,255,255,0.15);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;}
+.hero{text-align:center;padding:40px 20px 28px;}
+.hero h1{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:8px;}
+.hero p{color:rgba(255,255,255,0.8);font-size:14px;max-width:600px;margin:0 auto;}
+.container{max-width:860px;margin:0 auto;padding:0 20px 60px;}
+.section{background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:28px;margin-bottom:20px;}
+.section h2{font-size:18px;font-weight:700;margin-bottom:16px;}
+.section h3{font-size:15px;font-weight:700;margin:18px 0 10px;color:#ffd180;}
+.art-block{background:rgba(0,0,0,0.25);border-left:4px solid #d4700a;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.art-block .art-num{font-size:11px;font-weight:700;letter-spacing:1px;color:#f5c842;text-transform:uppercase;margin-bottom:4px;}
+.important{background:rgba(231,76,60,0.2);border:1px solid rgba(231,76,60,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.important::before{content:'⚠️ ';}
+.tip{background:rgba(39,174,96,0.2);border:1px solid rgba(39,174,96,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.tip::before{content:'✅ ';}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+th{background:rgba(0,0,0,0.3);padding:10px 12px;text-align:left;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.08);}
+tr:hover td{background:rgba(255,255,255,0.04);}
+p{font-size:14px;line-height:1.75;margin-bottom:10px;}
+ul,ol{padding-left:20px;font-size:14px;line-height:1.8;}
+ul li,ol li{margin-bottom:4px;}
+.case-study{background:linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04));border:1px solid rgba(255,255,255,0.2);border-radius:14px;padding:20px;margin:14px 0;}
+.case-study h4{font-size:14px;font-weight:700;color:#ffd180;margin-bottom:10px;}
+.step-list{counter-reset:steps;list-style:none;padding:0;}
+.step-list li{counter-increment:steps;padding:10px 14px 10px 44px;position:relative;font-size:14px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.06);}
+.step-list li::before{content:counter(steps);position:absolute;left:10px;top:10px;background:#d4700a;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;}
+.quiz-section{background:rgba(0,0,0,0.3);border-radius:20px;padding:32px;margin-top:20px;}
+.quiz-section h2{font-size:20px;font-weight:800;margin-bottom:6px;text-align:center;}
+.quiz-subtitle{text-align:center;color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:24px;}
+.question-block{background:rgba(255,255,255,0.06);border-radius:14px;padding:20px;margin-bottom:16px;}
+.q-num{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+.q-text{font-size:15px;font-weight:600;margin-bottom:14px;line-height:1.5;}
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);transition:all 0.2s;font-size:14px;}
+.opt:hover{background:rgba(255,255,255,0.1);}
+.opt.correct{background:rgba(39,174,96,0.25)!important;border-color:#27ae60!important;}
+.opt.wrong{background:rgba(231,76,60,0.25)!important;border-color:#e74c3c!important;}
+.opt.disabled{cursor:not-allowed;pointer-events:none;}
+.opt-letter{font-weight:700;min-width:18px;color:#f5c842;}
+.score-block{display:none;text-align:center;padding:28px;background:rgba(255,255,255,0.08);border-radius:16px;margin-top:20px;}
+.score-num{font-size:52px;font-weight:800;margin-bottom:8px;}
+.score-pass{color:#6be878;}
+.score-fail{color:#ff7675;}
+.submit-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#d4700a,#9a4500);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin-top:20px;}
+.cert-section{display:none;background:rgba(255,255,255,0.06);border-radius:20px;padding:28px;margin-top:20px;}
+.cert-section h3{font-size:18px;font-weight:700;margin-bottom:16px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:5px;}
+.form-group input{width:100%;padding:10px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-size:14px;font-family:inherit;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.gen-cert-btn{display:block;width:100%;padding:14px;background:linear-gradient(135deg,#d4700a,#7a3500);border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;}
+.cert-display{display:none;background:linear-gradient(135deg,#1a0a00,#3d1500,#7a3500);border:3px solid #d4700a;border-radius:16px;padding:32px;margin-top:20px;text-align:center;}
+.cert-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#f5c842;margin-bottom:8px;}
+.cert-name{font-size:28px;font-weight:800;margin-bottom:6px;}
+.cert-body{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px;}
+.cert-no{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:16px;}
+.cert-sign{font-family:'Dancing Script',cursive;font-size:24px;color:#f5c842;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;margin-top:4px;}
+.cert-sign-label{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.print-btn{margin-top:14px;padding:10px 24px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:10px;color:#fff;font-weight:600;cursor:pointer;font-size:13px;}
+.final-unlock{background:linear-gradient(135deg,rgba(243,156,18,0.2),rgba(230,126,34,0.1));border:2px solid rgba(243,156,18,0.5);border-radius:16px;padding:20px;text-align:center;margin-top:20px;display:none;}
+.final-unlock h4{font-size:18px;font-weight:800;color:#f5c842;margin-bottom:8px;}
+.final-btn{display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#f39c12,#e67e22);border-radius:12px;color:#fff;font-weight:700;font-size:15px;text-decoration:none;margin-top:10px;}
+.contact-float{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.4);z-index:100;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 30px rgba(37,211,102,0.8);}}
+.contact-popup{display:none;position:fixed;bottom:90px;right:24px;background:#1e1e2e;border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:20px;width:260px;z-index:101;text-align:center;}
+.contact-popup h4{font-size:14px;font-weight:700;margin-bottom:6px;}
+.contact-popup p{font-size:12px;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+.contact-popup img{width:100px;height:100px;margin:0 auto 10px;display:block;border-radius:8px;}
+.wa-btn{display:block;padding:9px;background:#25d366;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;font-size:13px;}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <a href="index.html" class="nav-back">← Track Hub</a>
+  <span class="level-tag">👩‍💼 Social Worker | Level 3 of 3</span>
+</div>
+<div class="hero">
+  <h1>🔗 Convergence & Field Practice</h1>
+  <p>Inter-departmental convergence, Mission Vatsalya schemes, SIR/ICP documentation, referral pathways and SOPs</p>
+</div>
+<div class="container">
+
+<div class="section">
+<h2>🔗 Child Protection Convergence Framework</h2>
+<p>The convergence framework establishes a multi-agency coordinated response to child protection — where Police, CWC, DCPU, Health, Education, Labour and DLSA work together under district administration oversight. No single department can effectively protect a child alone.</p>
+<div class="art-block">
+  <div class="art-num">Core Principle</div>
+  Child protection is a <strong>shared institutional responsibility</strong>. The framework ensures no child "falls through the cracks" between departments. Each department has defined roles, timelines, and convergence points with other departments.
+</div>
+</div>
+
+<div class="section">
+<h2>📊 Department-Wise Roles & Timelines</h2>
+<table>
+<tr><th>Department</th><th>Primary Role</th><th>Key Timeline</th><th>Converges With</th></tr>
+<tr><td><strong>District Administration</strong></td><td>Lead governance, chair review meetings, supervise CCIs</td><td>Monthly review</td><td>All departments</td></tr>
+<tr><td><strong>Police / SJPU</strong></td><td>Rescue, FIR, produce before CWC, child-friendly investigation</td><td>FIR: immediate; Production: 24 hrs</td><td>CWC, DCPU, Health, DLSA</td></tr>
+<tr><td><strong>CWC</strong></td><td>Inquiry, care orders, placement, restoration, CCI monitoring</td><td>Inquiry: 4 months</td><td>Police, DCPU, Health, Education</td></tr>
+<tr><td><strong>DCPU</strong></td><td>SIR, ICP, case management, home verification, follow-up</td><td>SIR: 15 days</td><td>CWC, Police, Education, Health</td></tr>
+<tr><td><strong>Health</strong></td><td>Medical exam, MLC, trauma care, age assessment</td><td>Immediate / within 24 hrs</td><td>Police, CWC, DCPU</td></tr>
+<tr><td><strong>Education</strong></td><td>School re-enrolment, bridge courses, dropout tracking</td><td>Within 30 days of restoration</td><td>DCPU, CWC, Labour</td></tr>
+<tr><td><strong>Labour</strong></td><td>Inspect, rescue child labour, prosecution, rehabilitation linkage</td><td>Immediate rescue</td><td>Police, CWC, DCPU</td></tr>
+<tr><td><strong>DLSA</strong></td><td>Legal aid, compensation support, legal awareness</td><td>Immediate on request</td><td>Police, CWC, Courts</td></tr>
+<tr><td><strong>Childline 1098</strong></td><td>Emergency response, referral</td><td>Immediate response</td><td>CWC, DCPU, Police, Shelters</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🚨 Situation-Wise Response Grid</h2>
+<table>
+<tr><th>Situation</th><th>Lead Department</th><th>Key Law</th><th>Action</th></tr>
+<tr><td>POCSO case</td><td>Police / SJPU</td><td>POCSO Act</td><td>Immediate FIR; medical care; produce before CWC</td></tr>
+<tr><td>Child trafficking</td><td>Police</td><td>IPC/BNS + JJ Act</td><td>Rescue; FIR; CWC production; DCPU for rehabilitation</td></tr>
+<tr><td>Child labour rescue</td><td>Labour Department</td><td>Child Labour Act, 2016</td><td>Inspection & rescue; CWC production; education linkage</td></tr>
+<tr><td>Missing child</td><td>Police</td><td>Missing Child SOP</td><td>Immediate FIR; treat as cognizable; trace child</td></tr>
+<tr><td>Child marriage</td><td>District Administration</td><td>PCMA 2006</td><td>Immediate prevention; DM/CWC intervention; protection order</td></tr>
+<tr><td>Abandoned child</td><td>Police / Childline</td><td>JJ Act</td><td>Safe custody; CWC production within 24 hours</td></tr>
+<tr><td>Institutional abuse</td><td>District Administration</td><td>JJ Act + Rules</td><td>Immediate inquiry; protection of children in CCI</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>🌟 Mission Vatsalya — Child Welfare Scheme</h2>
+<p>Mission Vatsalya (formerly Child Protection Services) is a centrally sponsored scheme under MoWCD for strengthening child protection systems across India.</p>
+<h3>Key Components:</h3>
+<ul>
+  <li><strong>Institutional Care:</strong> Funding for CCIs — Children's Homes, Shelter Homes, Observation Homes, Special Homes, Places of Safety</li>
+  <li><strong>Non-Institutional Care:</strong> Foster care, sponsorship (financial support to families), adoption support</li>
+  <li><strong>Service Delivery:</strong> DCPU staffing, CWC/JJB support, SCPCR/DCPCR functioning</li>
+  <li><strong>Emergency Outreach:</strong> Open shelters, mobile teams for street children</li>
+  <li><strong>Childline 1098:</strong> 24×7 emergency helpline — funded under Mission Vatsalya</li>
+</ul>
+<div class="tip">Under Mission Vatsalya, a family below poverty line with a child at risk can receive <strong>sponsorship support</strong> (up to ₹4,000/month per child) to prevent institutionalisation. Social workers should actively identify and link eligible families to this scheme through DCPU.</div>
+</div>
+
+<div class="section">
+<h2>📝 Documentation Standards: SIR and ICP</h2>
+<h3>Social Investigation Report (SIR)</h3>
+<p>The SIR is the most critical document in a child's case file. It provides the CWC with information needed to determine the child's best interests.</p>
+<div class="art-block">
+  <div class="art-num">SIR Contents (JJ Model Rules)</div>
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li>Child's personal details, age, education, health status</li>
+    <li>Family background — parents, siblings, economic condition</li>
+    <li>Circumstances leading to child's situation</li>
+    <li>Assessment of home safety (for potential restoration)</li>
+    <li>Risk factors — substance abuse in home, domestic violence, exploitation history</li>
+    <li>Child's own views and wishes</li>
+    <li>Recommendations for placement and rehabilitation</li>
+  </ul>
+</div>
+<div class="important">The SIR must be objective, based on home visits and interviews — NOT assumptions. The child's voice must be recorded. Timeline: ordinarily 15 days from CWC direction, but should be prepared as early as possible.</div>
+<h3>Individual Care Plan (ICP)</h3>
+<p>The ICP is a personalised plan for each child in institutional care, reviewed quarterly. It covers education, health, vocational training, family contact, restoration timeline, and long-term goals.</p>
+</div>
+
+<div class="section">
+<h2>🔄 Complete Field Workflow — POCSO Case (OSC Worker's Guide)</h2>
+<ol class="step-list">
+  <li><strong>Receive referral / child arrives at OSC</strong> — Ensure immediate physical safety. Private space. Do NOT ask child to repeat their story multiple times.</li>
+  <li><strong>Medical assistance</strong> — Take child to hospital immediately. Ensure woman doctor for girl child. Do NOT make child bathe or change clothes. Request MLC.</li>
+  <li><strong>FIR support</strong> — Accompany family/child to police station or SJPU. Ensure child statement is recorded at residence/OSC, not at police station. Ensure no night detention.</li>
+  <li><strong>Produce before CWC within 24 hours</strong> — SJPU responsibility; OSC to coordinate and accompany. CWC to pass interim protection order.</li>
+  <li><strong>DCPU coordination</strong> — Request SIR preparation. Provide case details. Coordinate ICP for institutionalised child.</li>
+  <li><strong>DLSA coordination</strong> — Connect family to legal aid. Ensure victim compensation claim under NALSA/SVCS scheme.</li>
+  <li><strong>Counselling</strong> — Begin trauma-informed psychosocial support for child and family. Do NOT force disclosure. Allow child to set the pace.</li>
+  <li><strong>Court accompaniment</strong> — Support family/child during trial. Ensure in-camera proceedings. Coordinate with special public prosecutor.</li>
+  <li><strong>Follow-up</strong> — Monthly follow-up visits. Monitor school re-enrolment. Assess safety. Reconnect if support needed.</li>
+  <li><strong>MIS documentation</strong> — All case details entered in MIS within 24 hours. Maintain strict confidentiality. No identity disclosure.</li>
+</ol>
+</div>
+
+<div class="section">
+<h2>📋 SOC Checklists for Field Practice</h2>
+<div class="case-study">
+<h4>Police Checklist (POCSO case)</h4>
+<ul>
+  <li>☐ FIR registered immediately</li>
+  <li>☐ Child not detained at police station at night</li>
+  <li>☐ Medical examination arranged — woman doctor for girl</li>
+  <li>☐ Child produced before CWC within 24 hours</li>
+  <li>☐ Statement recorded at child's residence/place of choice</li>
+  <li>☐ Child not confronted with accused</li>
+  <li>☐ Identity not disclosed to media</li>
+</ul>
+</div>
+<div class="case-study">
+<h4>CWC Checklist</h4>
+<ul>
+  <li>☐ Inquiry initiated upon production</li>
+  <li>☐ Interim safety/placement order passed</li>
+  <li>☐ SIR ordered from DCPU (15 days)</li>
+  <li>☐ ICP reviewed quarterly</li>
+  <li>☐ Restoration order only after home verification</li>
+  <li>☐ Monthly CCI visits conducted</li>
+</ul>
+</div>
+<div class="case-study">
+<h4>OSC Worker Checklist</h4>
+<ul>
+  <li>☐ Child's safety secured first</li>
+  <li>☐ Medical examination facilitated</li>
+  <li>☐ FIR support provided</li>
+  <li>☐ CWC production coordinated</li>
+  <li>☐ DLSA/legal aid connected</li>
+  <li>☐ Counselling initiated</li>
+  <li>☐ MIS entry done (confidentially)</li>
+  <li>☐ Monthly follow-up scheduled</li>
+</ul>
+</div>
+</div>
+
+<div class="quiz-section" id="quizSection">
+<h2>📝 Level 3 Assessment</h2>
+<p class="quiz-subtitle">20 questions | Pass mark: 70% (14/20)</p>
+
+<div class="question-block">
+<div class="q-num">Question 1 of 20</div>
+<div class="q-text">In the convergence framework, who leads district-level child protection governance?</div>
+<div class="options" id="q1">
+  <div class="opt" onclick="choose('q1','a',this)"><span class="opt-letter">A</span>District Magistrate / District Administration</div>
+  <div class="opt" onclick="choose('q1','b',this)"><span class="opt-letter">B</span>CWC Chairperson</div>
+  <div class="opt" onclick="choose('q1','c',this)"><span class="opt-letter">C</span>DCPU Director</div>
+  <div class="opt" onclick="choose('q1','d',this)"><span class="opt-letter">D</span>SP Police</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 2 of 20</div>
+<div class="q-text">Mission Vatsalya is administered by which ministry?</div>
+<div class="options" id="q2">
+  <div class="opt" onclick="choose('q2','a',this)"><span class="opt-letter">A</span>Ministry of Home Affairs</div>
+  <div class="opt" onclick="choose('q2','b',this)"><span class="opt-letter">B</span>Ministry of Women and Child Development</div>
+  <div class="opt" onclick="choose('q2','c',this)"><span class="opt-letter">C</span>Ministry of Law and Justice</div>
+  <div class="opt" onclick="choose('q2','d',this)"><span class="opt-letter">D</span>Ministry of Social Justice</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 3 of 20</div>
+<div class="q-text">The Childline emergency helpline number is:</div>
+<div class="options" id="q3">
+  <div class="opt" onclick="choose('q3','a',this)"><span class="opt-letter">A</span>181</div>
+  <div class="opt" onclick="choose('q3','b',this)"><span class="opt-letter">B</span>112</div>
+  <div class="opt" onclick="choose('q3','c',this)"><span class="opt-letter">C</span>1098</div>
+  <div class="opt" onclick="choose('q3','d',this)"><span class="opt-letter">D</span>100</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 4 of 20</div>
+<div class="q-text">What should an OSC worker do FIRST when a POCSO survivor arrives?</div>
+<div class="options" id="q4">
+  <div class="opt" onclick="choose('q4','a',this)"><span class="opt-letter">A</span>Ask child to repeat their story to all staff</div>
+  <div class="opt" onclick="choose('q4','b',this)"><span class="opt-letter">B</span>Ensure immediate physical safety, private space, do not force disclosure</div>
+  <div class="opt" onclick="choose('q4','c',this)"><span class="opt-letter">C</span>Call media for awareness</div>
+  <div class="opt" onclick="choose('q4','d',this)"><span class="opt-letter">D</span>Make child bathe and change clothes</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 5 of 20</div>
+<div class="q-text">Under the convergence framework, the Labour Department's role in child labour cases is:</div>
+<div class="options" id="q5">
+  <div class="opt" onclick="choose('q5','a',this)"><span class="opt-letter">A</span>Only to file FIR</div>
+  <div class="opt" onclick="choose('q5','b',this)"><span class="opt-letter">B</span>Inspect, rescue, prosecute employers, and link to rehabilitation</div>
+  <div class="opt" onclick="choose('q5','c',this)"><span class="opt-letter">C</span>Only to provide counselling</div>
+  <div class="opt" onclick="choose('q5','d',this)"><span class="opt-letter">D</span>Only to conduct medical examination</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 6 of 20</div>
+<div class="q-text">Before a POCSO survivor goes for medical examination, the OSC worker should ensure:</div>
+<div class="options" id="q6">
+  <div class="opt" onclick="choose('q6','a',this)"><span class="opt-letter">A</span>Child has bathed and changed clothes</div>
+  <div class="opt" onclick="choose('q6','b',this)"><span class="opt-letter">B</span>FIR is first registered</div>
+  <div class="opt" onclick="choose('q6','c',this)"><span class="opt-letter">C</span>Child has NOT bathed or changed clothes; FIR not needed before exam</div>
+  <div class="opt" onclick="choose('q6','d',this)"><span class="opt-letter">D</span>Accused is arrested first</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 7 of 20</div>
+<div class="q-text">The SIR (Social Investigation Report) must include:</div>
+<div class="options" id="q7">
+  <div class="opt" onclick="choose('q7','a',this)"><span class="opt-letter">A</span>Only child's name and age</div>
+  <div class="opt" onclick="choose('q7','b',this)"><span class="opt-letter">B</span>Family background, risk assessment, home safety, child's wishes, placement recommendations</div>
+  <div class="opt" onclick="choose('q7','c',this)"><span class="opt-letter">C</span>Only police investigation details</div>
+  <div class="opt" onclick="choose('q7','d',this)"><span class="opt-letter">D</span>Medical examination report only</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 8 of 20</div>
+<div class="q-text">For a missing child, police must treat it as:</div>
+<div class="options" id="q8">
+  <div class="opt" onclick="choose('q8','a',this)"><span class="opt-letter">A</span>Non-cognizable and wait 24 hours</div>
+  <div class="opt" onclick="choose('q8','b',this)"><span class="opt-letter">B</span>Immediately cognizable and begin tracing</div>
+  <div class="opt" onclick="choose('q8','c',this)"><span class="opt-letter">C</span>Refer to DCPU only</div>
+  <div class="opt" onclick="choose('q8','d',this)"><span class="opt-letter">D</span>Wait for parent to file application</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 9 of 20</div>
+<div class="q-text">The Mission Vatsalya sponsorship scheme provides financial support to:</div>
+<div class="options" id="q9">
+  <div class="opt" onclick="choose('q9','a',this)"><span class="opt-letter">A</span>CWC members</div>
+  <div class="opt" onclick="choose('q9','b',this)"><span class="opt-letter">B</span>Vulnerable families to prevent child institutionalisation</div>
+  <div class="opt" onclick="choose('q9','c',this)"><span class="opt-letter">C</span>Accused persons for bail</div>
+  <div class="opt" onclick="choose('q9','d',this)"><span class="opt-letter">D</span>NGOs running CCIs</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 10 of 20</div>
+<div class="q-text">In a POCSO case, court proceedings are conducted:</div>
+<div class="options" id="q10">
+  <div class="opt" onclick="choose('q10','a',this)"><span class="opt-letter">A</span>In open court with media</div>
+  <div class="opt" onclick="choose('q10','b',this)"><span class="opt-letter">B</span>In-camera (private proceedings)</div>
+  <div class="opt" onclick="choose('q10','c',this)"><span class="opt-letter">C</span>Via police station video link</div>
+  <div class="opt" onclick="choose('q10','d',this)"><span class="opt-letter">D</span>By family court</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 11 of 20</div>
+<div class="q-text">School re-enrolment for a restored child should happen preferably within:</div>
+<div class="options" id="q11">
+  <div class="opt" onclick="choose('q11','a',this)"><span class="opt-letter">A</span>1 year</div>
+  <div class="opt" onclick="choose('q11','b',this)"><span class="opt-letter">B</span>6 months</div>
+  <div class="opt" onclick="choose('q11','c',this)"><span class="opt-letter">C</span>30 days</div>
+  <div class="opt" onclick="choose('q11','d',this)"><span class="opt-letter">D</span>No timeline prescribed</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 12 of 20</div>
+<div class="q-text">The MIS entry for a POCSO case at OSC must be done with:</div>
+<div class="options" id="q12">
+  <div class="opt" onclick="choose('q12','a',this)"><span class="opt-letter">A</span>Full name published on website</div>
+  <div class="opt" onclick="choose('q12','b',this)"><span class="opt-letter">B</span>Strict confidentiality — identity never disclosed</div>
+  <div class="opt" onclick="choose('q12','c',this)"><span class="opt-letter">C</span>Shared with media for awareness</div>
+  <div class="opt" onclick="choose('q12','d',this)"><span class="opt-letter">D</span>Posted on social media for advocacy</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 13 of 20</div>
+<div class="q-text">What is the convergence role of DLSA in child protection cases?</div>
+<div class="options" id="q13">
+  <div class="opt" onclick="choose('q13','a',this)"><span class="opt-letter">A</span>Conduct CCI inspections</div>
+  <div class="opt" onclick="choose('q13','b',this)"><span class="opt-letter">B</span>Provide legal aid, compensation support, and legal awareness</div>
+  <div class="opt" onclick="choose('q13','c',this)"><span class="opt-letter">C</span>Register FIR</div>
+  <div class="opt" onclick="choose('q13','d',this)"><span class="opt-letter">D</span>Conduct medical examination</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 14 of 20</div>
+<div class="q-text">A child marriage case is led by which department under the convergence framework?</div>
+<div class="options" id="q14">
+  <div class="opt" onclick="choose('q14','a',this)"><span class="opt-letter">A</span>Labour Department</div>
+  <div class="opt" onclick="choose('q14','b',this)"><span class="opt-letter">B</span>District Administration</div>
+  <div class="opt" onclick="choose('q14','c',this)"><span class="opt-letter">C</span>DCPU only</div>
+  <div class="opt" onclick="choose('q14','d',this)"><span class="opt-letter">D</span>DLSA</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 15 of 20</div>
+<div class="q-text">The ICP (Individual Care Plan) for an institutionalised child must be reviewed:</div>
+<div class="options" id="q15">
+  <div class="opt" onclick="choose('q15','a',this)"><span class="opt-letter">A</span>Annually</div>
+  <div class="opt" onclick="choose('q15','b',this)"><span class="opt-letter">B</span>Never — it is a one-time document</div>
+  <div class="opt" onclick="choose('q15','c',this)"><span class="opt-letter">C</span>Quarterly</div>
+  <div class="opt" onclick="choose('q15','d',this)"><span class="opt-letter">D</span>Only at discharge</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 16 of 20</div>
+<div class="q-text">In a POCSO case, after FIR is registered, the child must be produced before CWC within:</div>
+<div class="options" id="q16">
+  <div class="opt" onclick="choose('q16','a',this)"><span class="opt-letter">A</span>48 hours</div>
+  <div class="opt" onclick="choose('q16','b',this)"><span class="opt-letter">B</span>72 hours</div>
+  <div class="opt" onclick="choose('q16','c',this)"><span class="opt-letter">C</span>24 hours</div>
+  <div class="opt" onclick="choose('q16','d',this)"><span class="opt-letter">D</span>1 week</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 17 of 20</div>
+<div class="q-text">Which statement about medical examination in POCSO is correct?</div>
+<div class="options" id="q17">
+  <div class="opt" onclick="choose('q17','a',this)"><span class="opt-letter">A</span>FIR is mandatory before medical examination</div>
+  <div class="opt" onclick="choose('q17','b',this)"><span class="opt-letter">B</span>Medical examination can happen before FIR</div>
+  <div class="opt" onclick="choose('q17','c',this)"><span class="opt-letter">C</span>Only male doctor can conduct</div>
+  <div class="opt" onclick="choose('q17','d',this)"><span class="opt-letter">D</span>Child must bathe first</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 18 of 20</div>
+<div class="q-text">The OSC Computer Operator's primary role is:</div>
+<div class="options" id="q18">
+  <div class="opt" onclick="choose('q18','a',this)"><span class="opt-letter">A</span>Conduct police investigation</div>
+  <div class="opt" onclick="choose('q18','b',this)"><span class="opt-letter">B</span>Secure documentation and MIS entry (confidentially)</div>
+  <div class="opt" onclick="choose('q18','c',this)"><span class="opt-letter">C</span>Identify accused publicly</div>
+  <div class="opt" onclick="choose('q18','d',this)"><span class="opt-letter">D</span>Share case details on social media</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 19 of 20</div>
+<div class="q-text">The convergence review for POCSO investigation progress is conducted by Police:</div>
+<div class="options" id="q19">
+  <div class="opt" onclick="choose('q19','a',this)"><span class="opt-letter">A</span>Annually</div>
+  <div class="opt" onclick="choose('q19','b',this)"><span class="opt-letter">B</span>Quarterly only</div>
+  <div class="opt" onclick="choose('q19','c',this)"><span class="opt-letter">C</span>Monthly</div>
+  <div class="opt" onclick="choose('q19','d',this)"><span class="opt-letter">D</span>Never — no review needed</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 20 of 20</div>
+<div class="q-text">Post-restoration follow-up visits by DCPU are conducted:</div>
+<div class="options" id="q20">
+  <div class="opt" onclick="choose('q20','a',this)"><span class="opt-letter">A</span>Never — restoration ends DCPU involvement</div>
+  <div class="opt" onclick="choose('q20','b',this)"><span class="opt-letter">B</span>Once every 2 years</div>
+  <div class="opt" onclick="choose('q20','c',this)"><span class="opt-letter">C</span>Periodically / monthly or as ordered by CWC</div>
+  <div class="opt" onclick="choose('q20','d',this)"><span class="opt-letter">D</span>Only if child reports abuse again</div>
+</div>
+</div>
+
+<button class="submit-btn" id="submitBtn" onclick="submitQuiz()">Submit Final Assessment</button>
+<div class="score-block" id="scoreBlock">
+  <div class="score-num" id="scoreNum"></div>
+  <div id="scoreMsg"></div>
+</div>
+</div>
+
+<div class="cert-section" id="certSection">
+<h3>🎓 Level 3 Certificate</h3>
+<div class="form-row">
+  <div class="form-group"><label>Full Name</label><input type="text" id="pName" placeholder="Your full name"></div>
+  <div class="form-group"><label>Designation</label><input type="text" id="pDesig" placeholder="Your designation"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>Organisation</label><input type="text" id="pOrg" placeholder="Organisation name"></div>
+  <div class="form-group"><label>District</label><input type="text" id="pDistrict" placeholder="Your district"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>State</label><input type="text" id="pState" placeholder="State"></div>
+  <div class="form-group"><label>Phone</label><input type="tel" id="pPhone" placeholder="WhatsApp number"></div>
+</div>
+<button class="gen-cert-btn" onclick="generateCertificate()">Generate Level 3 Certificate →</button>
+<div class="cert-display" id="certDisplay">
+  <div class="cert-title">Janman People's Foundation</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;">Child Rights Programme | Jan Nyaya Abhiyan</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;">This is to certify that</div>
+  <div class="cert-name" id="cName"></div>
+  <div class="cert-body" id="cBody"></div>
+  <div class="cert-no" id="cNo"></div>
+  <div class="cert-sign">Shourya Roy</div>
+  <div class="cert-sign-label">Director — Janman People's Foundation</div>
+  <button class="print-btn" onclick="window.print()">⬇ Download Certificate</button>
+</div>
+</div>
+
+<div class="final-unlock" id="finalUnlock">
+  <h4>🏆 All 3 Levels Complete!</h4>
+  <p>You have completed the Social Worker & OSC track. Claim your Final Practitioner Certificate now.</p>
+  <a href="final-certificate.html" class="final-btn">Claim Final Certificate →</a>
+</div>
+
+<div class="contact-float" onclick="toggleContact()">💬</div>
+<div class="contact-popup" id="contactPopup">
+  <h4>Legal Support</h4>
+  <p>Child protection emergency?</p>
+  <img src="wa-qr.png" alt="WhatsApp QR">
+  <a href="https://wa.me/918507715870?text=Child+Rights+Training+%E2%80%94+Field+Support" class="wa-btn" target="_blank">WhatsApp Helpline</a>
+</div>
+
+<script>
+var ANSWERS={q1:'a',q2:'b',q3:'c',q4:'b',q5:'b',q6:'c',q7:'b',q8:'b',q9:'b',q10:'b',q11:'c',q12:'b',q13:'b',q14:'b',q15:'c',q16:'c',q17:'b',q18:'b',q19:'c',q20:'c'};
+var userAnswers={};var submitted=false;var myScore=0;
+function choose(qid,opt,el){if(submitted)return;userAnswers[qid]=opt;var opts=document.getElementById(qid).querySelectorAll('.opt');opts.forEach(function(o){o.style.background='';o.style.borderColor='';});el.style.background='rgba(255,255,255,0.2)';el.style.borderColor='rgba(255,255,255,0.5)';}
+function submitQuiz(){if(submitted)return;var total=Object.keys(ANSWERS).length;var answered=Object.keys(userAnswers).length;if(answered<total){alert('Please answer all questions.');return;}submitted=true;document.getElementById('submitBtn').disabled=true;var correct=0;Object.keys(ANSWERS).forEach(function(qid){var opts=document.getElementById(qid).querySelectorAll('.opt');var letters=['a','b','c','d'];opts.forEach(function(opt,i){opt.classList.add('disabled');if(letters[i]===ANSWERS[qid])opt.classList.add('correct');else if(letters[i]===userAnswers[qid]&&userAnswers[qid]!==ANSWERS[qid])opt.classList.add('wrong');});if(userAnswers[qid]===ANSWERS[qid])correct++;});myScore=Math.round(correct/total*100);var sb=document.getElementById('scoreBlock');sb.style.display='block';document.getElementById('scoreNum').textContent=correct+'/'+total+' ('+myScore+'%)';document.getElementById('scoreNum').className='score-num '+(myScore>=70?'score-pass':'score-fail');document.getElementById('scoreMsg').innerHTML=myScore>=70?'<strong>✅ Passed!</strong> Claim your certificate below.':'<strong>❌ Not passed.</strong> 70% required. Please review and retake.';if(myScore>=70){document.getElementById('certSection').style.display='block';prefillForm();}localStorage.setItem('janman_sw_l3_score',myScore);}
+function prefillForm(){var fields=[['pName','janman_sw_name'],['pPhone','janman_sw_phone'],['pOrg','janman_sw_org'],['pDistrict','janman_sw_district'],['pState','janman_sw_state'],['pDesig','janman_sw_desig']];fields.forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});}
+function generateCertificate(){var n=document.getElementById('pName').value.trim();if(!n){alert('Enter your name.');return;}var d=document.getElementById('pDesig').value.trim();var o=document.getElementById('pOrg').value.trim();var dist=document.getElementById('pDistrict').value.trim();localStorage.setItem('janman_sw_name',n);localStorage.setItem('janman_sw_desig',d);localStorage.setItem('janman_sw_org',o);localStorage.setItem('janman_sw_district',dist);localStorage.setItem('janman_sw_phone',document.getElementById('pPhone').value.trim());localStorage.setItem('janman_sw_state',document.getElementById('pState').value.trim());var certNo='JPF-SW-L3-'+Date.now().toString(36).toUpperCase();localStorage.setItem('janman_sw_l3_done','yes');localStorage.setItem('janman_sw_l3_cert_no',certNo);document.getElementById('cName').textContent=n;document.getElementById('cBody').innerHTML=(d?d+', ':'')+o+(dist?', '+dist:'')+' has successfully completed <strong>Level 3: Convergence & Field Practice</strong><br>under the Social Worker & OSC Child Rights Training Programme, Janman People\'s Foundation.<br><br>Score: <strong>'+myScore+'%</strong> | Date: '+new Date().toLocaleDateString();document.getElementById('cNo').textContent='Certificate No: '+certNo;document.getElementById('certDisplay').style.display='block';checkFinalUnlock();}
+function checkFinalUnlock(){if(localStorage.getItem('janman_sw_l1_done')&&localStorage.getItem('janman_sw_l2_done')&&localStorage.getItem('janman_sw_l3_done')){document.getElementById('finalUnlock').style.display='block';}}
+function toggleContact(){var p=document.getElementById('contactPopup');p.style.display=p.style.display==='block'?'none':'block';}
+(function(){var fields=[['pName','janman_sw_name'],['pOrg','janman_sw_org'],['pDistrict','janman_sw_district'],['pState','janman_sw_state'],['pDesig','janman_sw_desig'],['pPhone','janman_sw_phone']];fields.forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});checkFinalUnlock();})();
+</script>
+</body>
+</html>

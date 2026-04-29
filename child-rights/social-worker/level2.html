@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2: JJ Act & CWC — Social Worker Track | Janman</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#5c2000,#9a4500,#c05e0a);min-height:100vh;color:#fff;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(0,0,0,0.2);}
+.nav-back{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;}
+.level-tag{background:rgba(255,255,255,0.15);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;}
+.hero{text-align:center;padding:40px 20px 28px;}
+.hero h1{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:8px;}
+.hero p{color:rgba(255,255,255,0.8);font-size:14px;max-width:600px;margin:0 auto;}
+.container{max-width:860px;margin:0 auto;padding:0 20px 60px;}
+.section{background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:28px;margin-bottom:20px;}
+.section h2{font-size:18px;font-weight:700;margin-bottom:16px;}
+.section h3{font-size:15px;font-weight:700;margin:18px 0 10px;color:#ffd180;}
+.art-block{background:rgba(0,0,0,0.25);border-left:4px solid #e67e22;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.art-block .art-num{font-size:11px;font-weight:700;letter-spacing:1px;color:#f5c842;text-transform:uppercase;margin-bottom:4px;}
+.important{background:rgba(231,76,60,0.2);border:1px solid rgba(231,76,60,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.important::before{content:'⚠️ ';}
+.tip{background:rgba(39,174,96,0.2);border:1px solid rgba(39,174,96,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.tip::before{content:'✅ ';}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0;}
+.info-card{background:rgba(0,0,0,0.2);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.1);}
+.info-card .ic-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+.info-card .ic-val{font-size:13px;font-weight:600;line-height:1.5;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+th{background:rgba(0,0,0,0.3);padding:10px 12px;text-align:left;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.08);}
+tr:hover td{background:rgba(255,255,255,0.04);}
+p{font-size:14px;line-height:1.75;margin-bottom:10px;}
+ul,ol{padding-left:20px;font-size:14px;line-height:1.8;}
+ul li,ol li{margin-bottom:4px;}
+.quiz-section{background:rgba(0,0,0,0.3);border-radius:20px;padding:32px;margin-top:20px;}
+.quiz-section h2{font-size:20px;font-weight:800;margin-bottom:6px;text-align:center;}
+.quiz-subtitle{text-align:center;color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:24px;}
+.question-block{background:rgba(255,255,255,0.06);border-radius:14px;padding:20px;margin-bottom:16px;}
+.q-num{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+.q-text{font-size:15px;font-weight:600;margin-bottom:14px;line-height:1.5;}
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);transition:all 0.2s;font-size:14px;}
+.opt:hover{background:rgba(255,255,255,0.1);}
+.opt.correct{background:rgba(39,174,96,0.25)!important;border-color:#27ae60!important;}
+.opt.wrong{background:rgba(231,76,60,0.25)!important;border-color:#e74c3c!important;}
+.opt.disabled{cursor:not-allowed;pointer-events:none;}
+.opt-letter{font-weight:700;min-width:18px;color:#f5c842;}
+.score-block{display:none;text-align:center;padding:28px;background:rgba(255,255,255,0.08);border-radius:16px;margin-top:20px;}
+.score-num{font-size:52px;font-weight:800;margin-bottom:8px;}
+.score-pass{color:#6be878;}
+.score-fail{color:#ff7675;}
+.submit-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#e67e22,#c05e0a);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin-top:20px;}
+.cert-section{display:none;background:rgba(255,255,255,0.06);border-radius:20px;padding:28px;margin-top:20px;}
+.cert-section h3{font-size:18px;font-weight:700;margin-bottom:16px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:5px;}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-size:14px;font-family:inherit;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.gen-cert-btn{display:block;width:100%;padding:14px;background:linear-gradient(135deg,#e67e22,#c05e0a);border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;}
+.cert-display{display:none;background:linear-gradient(135deg,#1a0a00,#3d1500,#7a3500);border:3px solid #e67e22;border-radius:16px;padding:32px;margin-top:20px;text-align:center;}
+.cert-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#f5c842;margin-bottom:8px;}
+.cert-name{font-size:28px;font-weight:800;margin-bottom:6px;}
+.cert-body{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px;}
+.cert-no{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:16px;}
+.cert-sign{font-family:'Dancing Script',cursive;font-size:24px;color:#f5c842;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;margin-top:4px;}
+.cert-sign-label{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.print-btn{margin-top:14px;padding:10px 24px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:10px;color:#fff;font-weight:600;cursor:pointer;font-size:13px;}
+.contact-float{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.4);z-index:100;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 30px rgba(37,211,102,0.8);}}
+.contact-popup{display:none;position:fixed;bottom:90px;right:24px;background:#1e1e2e;border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:20px;width:260px;z-index:101;text-align:center;}
+.contact-popup h4{font-size:14px;font-weight:700;margin-bottom:6px;}
+.contact-popup p{font-size:12px;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+.contact-popup img{width:100px;height:100px;margin:0 auto 10px;display:block;border-radius:8px;}
+.wa-btn{display:block;padding:9px;background:#25d366;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;font-size:13px;}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <a href="index.html" class="nav-back">← Track Hub</a>
+  <span class="level-tag">👩‍💼 Social Worker | Level 2 of 3</span>
+</div>
+<div class="hero">
+  <h1>⚖️ JJ Act 2015: CWC, DCPU & Welfare</h1>
+  <p>Child in need of care and protection, CWC inquiry, DCPU case management, CCIs, restoration and rehabilitation</p>
+</div>
+<div class="container">
+
+<div class="section">
+<h2>📜 Juvenile Justice (Care and Protection of Children) Act, 2015</h2>
+<p>The JJ Act, 2015 (amended in 2021) is the primary legislation governing both children in need of care and protection (CNCP) and children in conflict with the law (CCL). It replaced the Juvenile Justice (Care and Protection of Children) Act, 2000.</p>
+<div class="info-grid">
+  <div class="info-card"><div class="ic-label">Enacted</div><div class="ic-val">2015; JJ Amendment Act 2021</div></div>
+  <div class="info-card"><div class="ic-label">Model Rules</div><div class="ic-val">JJ Model Rules, 2016</div></div>
+  <div class="info-card"><div class="ic-label">Key Bodies</div><div class="ic-val">CWC, JJB, DCPU, SCPCR/DCPCR</div></div>
+  <div class="info-card"><div class="ic-label">CNCP Production</div><div class="ic-val">Before CWC within 24 hours</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>👶 Child in Need of Care and Protection (CNCP)</h2>
+<div class="art-block">
+  <div class="art-num">Section 2(14) JJ Act — Definition of CNCP</div>
+  A child is CNCP if the child:
+  (a) is found without any home, settled place of abode, and without any ostensible means of subsistence;
+  (b) is found begging, or is either a street child or a working child;
+  (c) resides with a person (guardian/parent) who has threatened to kill or injure the child;
+  (d) is mentally ill or is differently-abled or has illness with no support;
+  (e) has parent/guardian who is unfit or incapacitated;
+  (f) does not have parents or has missing parents;
+  (g) is victim of, or is at risk of, abuse/neglect/exploitation;
+  (h) is a victim of trafficking or is at risk of trafficking;
+  (i) is a child marriage survivor or a child in forced labour.
+</div>
+<div class="tip">Any child who is a victim of POCSO offence is automatically CNCP and must be produced before CWC within 24 hours. The CWC then determines suitable placement — restoration with family, fit person, foster care, or CCI.</div>
+</div>
+
+<div class="section">
+<h2>🏛️ Child Welfare Committee (CWC)</h2>
+<div class="art-block">
+  <div class="art-num">Section 27 JJ Act — Composition of CWC</div>
+  Each district shall have a Child Welfare Committee (CWC) consisting of:
+  <ul style="margin-top:8px;padding-left:18px;">
+    <li>1 Chairperson (with social work background)</li>
+    <li>4 members (at least 1 woman, 1 child expert)</li>
+  </ul>
+  Members hold quasi-judicial powers. Term: 3 years.
+</div>
+<h3>Key Powers and Functions of CWC (Sections 29-30)</h3>
+<table>
+<tr><th>Function</th><th>Details</th></tr>
+<tr><td>Production of child</td><td>Any CNCP to be produced before CWC within 24 hours of being found/rescued</td></tr>
+<tr><td>Inquiry</td><td>CWC conducts inquiry to determine child's status; ordinarily completed within 4 months</td></tr>
+<tr><td>Interim orders</td><td>Immediate placement orders for safety while inquiry is underway</td></tr>
+<tr><td>Final orders</td><td>Restoration with family / fit person / foster care / placement in CCI / adoption</td></tr>
+<tr><td>SIR review</td><td>Reviews Social Investigation Report prepared by DCPU</td></tr>
+<tr><td>ICP review</td><td>Reviews Individual Care Plan for each child in institutional care</td></tr>
+<tr><td>CCI monitoring</td><td>Monthly visits to CCIs; can issue improvement directions</td></tr>
+</table>
+<div class="important">The CWC is NOT a criminal court. It does not try the accused. Its sole purpose is the care and protection of the child. Never confuse CWC (child protection body) with JJB (juvenile justice body for CCL).</div>
+</div>
+
+<div class="section">
+<h2>📋 District Child Protection Unit (DCPU)</h2>
+<div class="art-block">
+  <div class="art-num">Section 106 JJ Act — District Child Protection Unit</div>
+  Every district shall have a DCPU to coordinate district-level child protection activities, maintain case records, prepare SIR and ICP, and facilitate restoration and rehabilitation.
+</div>
+<h3>DCPU Key Functions:</h3>
+<ul>
+  <li><strong>Social Investigation Report (SIR):</strong> Prepared within 15 days of a child being placed in institutional care. Contains family background, circumstances, risk assessment, recommendations for placement.</li>
+  <li><strong>Individual Care Plan (ICP):</strong> Comprehensive plan for each child's rehabilitation — education, health, vocational training, family contact, restoration timeline.</li>
+  <li><strong>Home Verification:</strong> Visits child's home before restoration to assess safety.</li>
+  <li><strong>Follow-Up Visits:</strong> Monthly visits after restoration to monitor child's well-being.</li>
+  <li><strong>Database maintenance:</strong> Records of all CNCP children — missing, trafficked, rescued, institutionalised.</li>
+  <li><strong>Sponsorship coordination:</strong> Linking eligible children to Mission Vatsalya sponsorship scheme.</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>🏠 Child Care Institutions (CCIs)</h2>
+<p>CCIs under JJ Act include: Observation Homes, Special Homes, Places of Safety, Children's Homes, and Shelter Homes. After the 2021 amendment, ALL CCIs must be registered under the JJ Act — even those run by NGOs.</p>
+<div class="info-grid">
+  <div class="info-card"><div class="ic-label">Observation Home</div><div class="ic-val">For children in conflict with law pending inquiry</div></div>
+  <div class="info-card"><div class="ic-label">Children's Home</div><div class="ic-val">For CNCP children requiring institutional care</div></div>
+  <div class="info-card"><div class="ic-label">Shelter Home</div><div class="ic-val">For immediate short-term shelter — children in street situations</div></div>
+  <div class="info-card"><div class="ic-label">Place of Safety</div><div class="ic-val">For children above 16 tried as adults, or for safety placements</div></div>
+  <div class="info-card"><div class="ic-label">Special Home</div><div class="ic-val">For children in conflict with law requiring long-term care</div></div>
+  <div class="info-card"><div class="ic-label">2021 Amendment</div><div class="ic-val">All CCIs must register under JJ Act; district magistrate has new oversight role</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>🔄 Restoration & Rehabilitation</h2>
+<h3>Restoration (Section 40)</h3>
+<p>Restoration of a child to their family is the preferred outcome. It shall be done only after CWC satisfies itself that restoration is in the best interest of the child. DCPU prepares home verification report.</p>
+<div class="tip">Restoration is NOT automatic. The home must be verified. The family/guardian must be willing and capable. There must be no risk of further harm. A post-restoration follow-up plan must be in place.</div>
+<h3>Rehabilitation Measures Available:</h3>
+<ul>
+  <li><strong>Family-Based Care:</strong> Restoration to parents/relatives; guardian appointment</li>
+  <li><strong>Foster Care (Section 44):</strong> Child placed with approved foster family while efforts continue for restoration</li>
+  <li><strong>Sponsorship (Section 45):</strong> Financial support to families to prevent institutionalisation (Mission Vatsalya)</li>
+  <li><strong>Adoption (Chapter V):</strong> For children declared legally free for adoption by CWC; processed through CARA</li>
+  <li><strong>After-Care (Section 46):</strong> Support for children leaving CCIs upon turning 18 — vocational training, residential support</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>👮 JJB — Juvenile Justice Board (for Children in Conflict with Law)</h2>
+<div class="art-block">
+  <div class="art-num">Section 4 JJ Act — Juvenile Justice Board</div>
+  Each district shall have a JJB comprising a Metropolitan/Judicial Magistrate (1st Class) + 2 social workers (at least 1 woman). JJB handles all cases involving children alleged to have committed an offence.
+</div>
+<div class="important">A child in conflict with law (CCL) goes to JJB — NOT CWC. If a 10-year-old is accused of theft, they appear before JJB. If a 10-year-old is trafficked, they are CNCP and go to CWC. These are distinct bodies with distinct functions.</div>
+<h3>JJB Key Principles:</h3>
+<ul>
+  <li><strong>Bail-first approach (Section 12):</strong> Child to be released on bail unless there are reasonable grounds that release will bring them into association with known criminals</li>
+  <li><strong>Child-friendly inquiry:</strong> No aggressive questioning; no handcuffs; no uniform for police/lawyers</li>
+  <li><strong>Preliminary Assessment (Section 15):</strong> For heinous offences by child aged 16+, JJB conducts preliminary assessment on mental/physical capacity; may send to Children's Court if needed</li>
+</ul>
+</div>
+
+<div class="quiz-section" id="quizSection">
+<h2>📝 Level 2 Assessment</h2>
+<p class="quiz-subtitle">20 questions | Pass mark: 70% (14/20)</p>
+
+<div class="question-block">
+<div class="q-num">Question 1 of 20</div>
+<div class="q-text">A child who is a victim of trafficking under the JJ Act is classified as:</div>
+<div class="options" id="q1">
+  <div class="opt" onclick="choose('q1','a',this)"><span class="opt-letter">A</span>Child in Conflict with Law (CCL)</div>
+  <div class="opt" onclick="choose('q1','b',this)"><span class="opt-letter">B</span>Child in Need of Care and Protection (CNCP)</div>
+  <div class="opt" onclick="choose('q1','c',this)"><span class="opt-letter">C</span>Adult in distress</div>
+  <div class="opt" onclick="choose('q1','d',this)"><span class="opt-letter">D</span>Delinquent child</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 2 of 20</div>
+<div class="q-text">Any CNCP child must be produced before the CWC within:</div>
+<div class="options" id="q2">
+  <div class="opt" onclick="choose('q2','a',this)"><span class="opt-letter">A</span>72 hours</div>
+  <div class="opt" onclick="choose('q2','b',this)"><span class="opt-letter">B</span>24 hours</div>
+  <div class="opt" onclick="choose('q2','c',this)"><span class="opt-letter">C</span>48 hours</div>
+  <div class="opt" onclick="choose('q2','d',this)"><span class="opt-letter">D</span>7 days</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 3 of 20</div>
+<div class="q-text">The Social Investigation Report (SIR) under JJ Act must ordinarily be prepared within:</div>
+<div class="options" id="q3">
+  <div class="opt" onclick="choose('q3','a',this)"><span class="opt-letter">A</span>7 days</div>
+  <div class="opt" onclick="choose('q3','b',this)"><span class="opt-letter">B</span>1 month</div>
+  <div class="opt" onclick="choose('q3','c',this)"><span class="opt-letter">C</span>15 days</div>
+  <div class="opt" onclick="choose('q3','d',this)"><span class="opt-letter">D</span>3 months</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 4 of 20</div>
+<div class="q-text">The CWC inquiry must ordinarily be completed within:</div>
+<div class="options" id="q4">
+  <div class="opt" onclick="choose('q4','a',this)"><span class="opt-letter">A</span>6 months</div>
+  <div class="opt" onclick="choose('q4','b',this)"><span class="opt-letter">B</span>1 year</div>
+  <div class="opt" onclick="choose('q4','c',this)"><span class="opt-letter">C</span>2 years</div>
+  <div class="opt" onclick="choose('q4','d',this)"><span class="opt-letter">D</span>4 months</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 5 of 20</div>
+<div class="q-text">The CWC is a __________ body while the JJB is a __________ body.</div>
+<div class="options" id="q5">
+  <div class="opt" onclick="choose('q5','a',this)"><span class="opt-letter">A</span>Criminal / Civil</div>
+  <div class="opt" onclick="choose('q5','b',this)"><span class="opt-letter">B</span>Child protection / Juvenile justice</div>
+  <div class="opt" onclick="choose('q5','c',this)"><span class="opt-letter">C</span>Police / Court</div>
+  <div class="opt" onclick="choose('q5','d',this)"><span class="opt-letter">D</span>Executive / Legislative</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 6 of 20</div>
+<div class="q-text">Under JJ Act 2021 amendment, all Child Care Institutions (CCIs) must:</div>
+<div class="options" id="q6">
+  <div class="opt" onclick="choose('q6','a',this)"><span class="opt-letter">A</span>Get ISO certification</div>
+  <div class="opt" onclick="choose('q6','b',this)"><span class="opt-letter">B</span>Register under JJ Act regardless of who runs them</div>
+  <div class="opt" onclick="choose('q6','c',this)"><span class="opt-letter">C</span>Be run only by government</div>
+  <div class="opt" onclick="choose('q6','d',this)"><span class="opt-letter">D</span>Report to NHRC</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 7 of 20</div>
+<div class="q-text">The Individual Care Plan (ICP) is prepared by:</div>
+<div class="options" id="q7">
+  <div class="opt" onclick="choose('q7','a',this)"><span class="opt-letter">A</span>Police station</div>
+  <div class="opt" onclick="choose('q7','b',this)"><span class="opt-letter">B</span>CWC Chairperson alone</div>
+  <div class="opt" onclick="choose('q7','c',this)"><span class="opt-letter">C</span>DCPU / social worker in coordination with CCI</div>
+  <div class="opt" onclick="choose('q7','d',this)"><span class="opt-letter">D</span>JJB</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 8 of 20</div>
+<div class="q-text">Mission Vatsalya is a government scheme under which ministry?</div>
+<div class="options" id="q8">
+  <div class="opt" onclick="choose('q8','a',this)"><span class="opt-letter">A</span>Ministry of Home Affairs</div>
+  <div class="opt" onclick="choose('q8','b',this)"><span class="opt-letter">B</span>Ministry of Women and Child Development</div>
+  <div class="opt" onclick="choose('q8','c',this)"><span class="opt-letter">C</span>Ministry of Labour</div>
+  <div class="opt" onclick="choose('q8','d',this)"><span class="opt-letter">D</span>Ministry of Education</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 9 of 20</div>
+<div class="q-text">Under the JJ Act, "Sponsorship" (Section 45) is meant to:</div>
+<div class="options" id="q9">
+  <div class="opt" onclick="choose('q9','a',this)"><span class="opt-letter">A</span>Pay salaries of DCPU staff</div>
+  <div class="opt" onclick="choose('q9','b',this)"><span class="opt-letter">B</span>Provide financial support to families to prevent institutionalisation</div>
+  <div class="opt" onclick="choose('q9','c',this)"><span class="opt-letter">C</span>Pay lawyers' fees</div>
+  <div class="opt" onclick="choose('q9','d',this)"><span class="opt-letter">D</span>Fund CCI construction</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 10 of 20</div>
+<div class="q-text">The "bail-first" principle under JJ Act Section 12 applies to:</div>
+<div class="options" id="q10">
+  <div class="opt" onclick="choose('q10','a',this)"><span class="opt-letter">A</span>CNCP children</div>
+  <div class="opt" onclick="choose('q10','b',this)"><span class="opt-letter">B</span>Children in Conflict with Law (CCL)</div>
+  <div class="opt" onclick="choose('q10','c',this)"><span class="opt-letter">C</span>CWC members</div>
+  <div class="opt" onclick="choose('q10','d',this)"><span class="opt-letter">D</span>OSC workers</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 11 of 20</div>
+<div class="q-text">Before restoring a CNCP child to their family, which report must be prepared?</div>
+<div class="options" id="q11">
+  <div class="opt" onclick="choose('q11','a',this)"><span class="opt-letter">A</span>FIR only</div>
+  <div class="opt" onclick="choose('q11','b',this)"><span class="opt-letter">B</span>Home verification report + follow-up plan</div>
+  <div class="opt" onclick="choose('q11','c',this)"><span class="opt-letter">C</span>No report needed</div>
+  <div class="opt" onclick="choose('q11','d',this)"><span class="opt-letter">D</span>Adoption order</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 12 of 20</div>
+<div class="q-text">An Observation Home under JJ Act is for:</div>
+<div class="options" id="q12">
+  <div class="opt" onclick="choose('q12','a',this)"><span class="opt-letter">A</span>CNCP girls only</div>
+  <div class="opt" onclick="choose('q12','b',this)"><span class="opt-letter">B</span>Children in Conflict with Law pending inquiry</div>
+  <div class="opt" onclick="choose('q12','c',this)"><span class="opt-letter">C</span>Abandoned elderly persons</div>
+  <div class="opt" onclick="choose('q12','d',this)"><span class="opt-letter">D</span>Trafficking victims permanently</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 13 of 20</div>
+<div class="q-text">The Section 15 "Preliminary Assessment" under JJ Act applies to:</div>
+<div class="options" id="q13">
+  <div class="opt" onclick="choose('q13','a',this)"><span class="opt-letter">A</span>All children accused of any offence</div>
+  <div class="opt" onclick="choose('q13','b',this)"><span class="opt-letter">B</span>Children aged 16+ accused of heinous offences — to assess if they should be tried as adults</div>
+  <div class="opt" onclick="choose('q13','c',this)"><span class="opt-letter">C</span>CNCP children for restoration</div>
+  <div class="opt" onclick="choose('q13','d',this)"><span class="opt-letter">D</span>Children for CCI admission only</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 14 of 20</div>
+<div class="q-text">Under JJ Act, "After-Care" (Section 46) provides support to:</div>
+<div class="options" id="q14">
+  <div class="opt" onclick="choose('q14','a',this)"><span class="opt-letter">A</span>Children below age 5 in CCIs</div>
+  <div class="opt" onclick="choose('q14','b',this)"><span class="opt-letter">B</span>Children leaving CCIs upon turning 18</div>
+  <div class="opt" onclick="choose('q14','c',this)"><span class="opt-letter">C</span>DCPU staff members</div>
+  <div class="opt" onclick="choose('q14','d',this)"><span class="opt-letter">D</span>CWC members post-retirement</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 15 of 20</div>
+<div class="q-text">Which authority processes inter-country and domestic adoption under JJ Act?</div>
+<div class="options" id="q15">
+  <div class="opt" onclick="choose('q15','a',this)"><span class="opt-letter">A</span>NHRC</div>
+  <div class="opt" onclick="choose('q15','b',this)"><span class="opt-letter">B</span>CWC (declares child legally free for adoption) + CARA (coordination)</div>
+  <div class="opt" onclick="choose('q15','c',this)"><span class="opt-letter">C</span>High Court only</div>
+  <div class="opt" onclick="choose('q15','d',this)"><span class="opt-letter">D</span>JJB</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 16 of 20</div>
+<div class="q-text">A CWC consists of how many members?</div>
+<div class="options" id="q16">
+  <div class="opt" onclick="choose('q16','a',this)"><span class="opt-letter">A</span>3 (1 chairperson + 2 members)</div>
+  <div class="opt" onclick="choose('q16','b',this)"><span class="opt-letter">B</span>7 members total</div>
+  <div class="opt" onclick="choose('q16','c',this)"><span class="opt-letter">C</span>5 (1 chairperson + 4 members, at least 1 woman)</div>
+  <div class="opt" onclick="choose('q16','d',this)"><span class="opt-letter">D</span>10 members</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 17 of 20</div>
+<div class="q-text">Foster care under Section 44 JJ Act means:</div>
+<div class="options" id="q17">
+  <div class="opt" onclick="choose('q17','a',this)"><span class="opt-letter">A</span>Permanent adoption by foster family</div>
+  <div class="opt" onclick="choose('q17','b',this)"><span class="opt-letter">B</span>Temporary placement of child with approved family while restoration efforts continue</div>
+  <div class="opt" onclick="choose('q17','c',this)"><span class="opt-letter">C</span>Placement in CCI</div>
+  <div class="opt" onclick="choose('q17','d',this)"><span class="opt-letter">D</span>Child placed with OSC</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 18 of 20</div>
+<div class="q-text">DCPU stands for:</div>
+<div class="options" id="q18">
+  <div class="opt" onclick="choose('q18','a',this)"><span class="opt-letter">A</span>District Crime Prevention Unit</div>
+  <div class="opt" onclick="choose('q18','b',this)"><span class="opt-letter">B</span>District Child Protection Unit</div>
+  <div class="opt" onclick="choose('q18','c',this)"><span class="opt-letter">C</span>Divisional Child Prosecution Unit</div>
+  <div class="opt" onclick="choose('q18','d',this)"><span class="opt-letter">D</span>District Child Police Unit</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 19 of 20</div>
+<div class="q-text">The JJB's child-friendly inquiry approach requires:</div>
+<div class="options" id="q19">
+  <div class="opt" onclick="choose('q19','a',this)"><span class="opt-letter">A</span>Use of handcuffs for safety</div>
+  <div class="opt" onclick="choose('q19','b',this)"><span class="opt-letter">B</span>Police in full uniform</div>
+  <div class="opt" onclick="choose('q19','c',this)"><span class="opt-letter">C</span>Public gallery to observe proceedings</div>
+  <div class="opt" onclick="choose('q19','d',this)"><span class="opt-letter">D</span>No handcuffs, child-friendly language, no uniforms, private proceedings</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 20 of 20</div>
+<div class="q-text">A child victim of POCSO offence is produced before which authority?</div>
+<div class="options" id="q20">
+  <div class="opt" onclick="choose('q20','a',this)"><span class="opt-letter">A</span>JJB (Juvenile Justice Board)</div>
+  <div class="opt" onclick="choose('q20','b',this)"><span class="opt-letter">B</span>CWC (Child Welfare Committee)</div>
+  <div class="opt" onclick="choose('q20','c',this)"><span class="opt-letter">C</span>Sessions Court</div>
+  <div class="opt" onclick="choose('q20','d',this)"><span class="opt-letter">D</span>District Magistrate</div>
+</div>
+</div>
+
+<button class="submit-btn" id="submitBtn" onclick="submitQuiz()">Submit Assessment</button>
+<div class="score-block" id="scoreBlock">
+  <div class="score-num" id="scoreNum"></div>
+  <div id="scoreMsg"></div>
+</div>
+</div>
+
+<div class="cert-section" id="certSection">
+<h3>🎓 Level 2 Certificate</h3>
+<div class="form-row">
+  <div class="form-group"><label>Full Name</label><input type="text" id="pName" placeholder="Your full name"></div>
+  <div class="form-group"><label>Designation</label><input type="text" id="pDesig" placeholder="e.g., Social Worker, Case Worker"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>Organisation</label><input type="text" id="pOrg" placeholder="Organisation name"></div>
+  <div class="form-group"><label>District</label><input type="text" id="pDistrict" placeholder="Your district"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>State</label><input type="text" id="pState" placeholder="State"></div>
+  <div class="form-group"><label>Phone</label><input type="tel" id="pPhone" placeholder="WhatsApp number"></div>
+</div>
+<button class="gen-cert-btn" onclick="generateCertificate()">Generate Level 2 Certificate →</button>
+<div class="cert-display" id="certDisplay">
+  <div class="cert-title">Janman People's Foundation</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;">Child Rights Programme | Jan Nyaya Abhiyan</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;">This is to certify that</div>
+  <div class="cert-name" id="cName"></div>
+  <div class="cert-body" id="cBody"></div>
+  <div class="cert-no" id="cNo"></div>
+  <div class="cert-sign">Shourya Roy</div>
+  <div class="cert-sign-label">Director — Janman People's Foundation</div>
+  <button class="print-btn" onclick="window.print()">⬇ Download Certificate</button>
+</div>
+</div>
+
+<div class="contact-float" onclick="toggleContact()">💬</div>
+<div class="contact-popup" id="contactPopup">
+  <h4>Legal Support</h4>
+  <p>Child protection query?</p>
+  <img src="wa-qr.png" alt="WhatsApp QR">
+  <a href="https://wa.me/918507715870?text=Child+Rights+Training+%E2%80%94+JJ+Act+Query" class="wa-btn" target="_blank">WhatsApp Helpline</a>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'c',q4:'d',q5:'b',q6:'b',q7:'c',q8:'b',q9:'b',q10:'b',q11:'b',q12:'b',q13:'b',q14:'b',q15:'b',q16:'c',q17:'b',q18:'b',q19:'d',q20:'b'};
+var userAnswers={};var submitted=false;var myScore=0;
+function choose(qid,opt,el){if(submitted)return;userAnswers[qid]=opt;var opts=document.getElementById(qid).querySelectorAll('.opt');opts.forEach(function(o){o.style.background='';o.style.borderColor='';});el.style.background='rgba(255,255,255,0.2)';el.style.borderColor='rgba(255,255,255,0.5)';}
+function submitQuiz(){if(submitted)return;var total=Object.keys(ANSWERS).length;var answered=Object.keys(userAnswers).length;if(answered<total){alert('Please answer all questions.');return;}submitted=true;document.getElementById('submitBtn').disabled=true;var correct=0;Object.keys(ANSWERS).forEach(function(qid){var opts=document.getElementById(qid).querySelectorAll('.opt');var letters=['a','b','c','d'];opts.forEach(function(opt,i){opt.classList.add('disabled');if(letters[i]===ANSWERS[qid])opt.classList.add('correct');else if(letters[i]===userAnswers[qid]&&userAnswers[qid]!==ANSWERS[qid])opt.classList.add('wrong');});if(userAnswers[qid]===ANSWERS[qid])correct++;});myScore=Math.round(correct/total*100);var sb=document.getElementById('scoreBlock');sb.style.display='block';document.getElementById('scoreNum').textContent=correct+'/'+total+' ('+myScore+'%)';document.getElementById('scoreNum').className='score-num '+(myScore>=70?'score-pass':'score-fail');document.getElementById('scoreMsg').innerHTML=myScore>=70?'<strong>✅ Passed!</strong> Claim your Level 2 certificate below.':'<strong>❌ Not passed.</strong> 70% required. Please review and retake.';if(myScore>=70){document.getElementById('certSection').style.display='block';prefillForm();}localStorage.setItem('janman_sw_l2_score',myScore);}
+function prefillForm(){var fields=[['pName','janman_sw_name'],['pPhone','janman_sw_phone'],['pOrg','janman_sw_org'],['pDistrict','janman_sw_district'],['pState','janman_sw_state'],['pDesig','janman_sw_desig']];fields.forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});}
+function generateCertificate(){var n=document.getElementById('pName').value.trim();if(!n){alert('Enter your name.');return;}var d=document.getElementById('pDesig').value.trim();var o=document.getElementById('pOrg').value.trim();var dist=document.getElementById('pDistrict').value.trim();['pName','pPhone','pOrg','pDistrict','pState','pDesig'].forEach(function(id){if(document.getElementById(id))localStorage.setItem('janman_sw_'+id.replace('p','').toLowerCase(),document.getElementById(id).value);});localStorage.setItem('janman_sw_name',n);var certNo='JPF-SW-L2-'+Date.now().toString(36).toUpperCase();localStorage.setItem('janman_sw_l2_done','yes');localStorage.setItem('janman_sw_l2_cert_no',certNo);document.getElementById('cName').textContent=n;document.getElementById('cBody').innerHTML=(d?d+', ':'')+o+(dist?', '+dist:'')+' has successfully completed <strong>Level 2: JJ Act 2015 — CWC, DCPU & Child Welfare</strong><br>under the Child Rights Legal Training Programme, Janman People\'s Foundation.<br><br>Score: <strong>'+myScore+'%</strong> | Date: '+new Date().toLocaleDateString();document.getElementById('cNo').textContent='Certificate No: '+certNo;document.getElementById('certDisplay').style.display='block';}
+function toggleContact(){var p=document.getElementById('contactPopup');p.style.display=p.style.display==='block'?'none':'block';}
+(function(){var fields=[['pName','janman_sw_name'],['pOrg','janman_sw_org'],['pDistrict','janman_sw_district'],['pState','janman_sw_state'],['pDesig','janman_sw_desig'],['pPhone','janman_sw_phone']];fields.forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});})();
+</script>
+</body>
+</html>

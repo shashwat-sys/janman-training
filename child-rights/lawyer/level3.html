@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 3: Advanced Litigation - Lawyer Track</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0505, #3a0a0a, #5b1010);
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(0,0,0,0.4);
+            padding: 30px;
+            border-left: 5px solid #ffd700;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .content {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d4af3755;
+        }
+        
+        .section h3 {
+            color: #d4af37;
+            font-size: 1.15rem;
+            margin-top: 20px;
+            margin-bottom: 12px;
+        }
+        
+        .section p {
+            color: #e0e0e0;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .list-item {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            color: #e0e0e0;
+        }
+        
+        .highlight {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #ffd700;
+            font-weight: 500;
+        }
+        
+        .strategy-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid #d4af37;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .quiz-section {
+            background: rgba(0,0,0,0.5);
+            padding: 30px;
+            border-left: 5px solid #d4af37;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .quiz-section h2 {
+            color: #ffd700;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .question {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #d4af37;
+        }
+        
+        .question p {
+            color: #f0f0f0;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .options {
+            margin-left: 20px;
+        }
+        
+        .option {
+            margin: 10px 0;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .option label {
+            cursor: pointer;
+            color: #e0e0e0;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #1a0505;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background: rgba(212, 175, 55, 0.2);
+            color: #ffd700;
+            border: 1px solid #d4af37;
+        }
+        
+        .result {
+            display: none;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result.pass {
+            background: rgba(74, 222, 128, 0.15);
+            border: 2px solid #4ade80;
+            color: #4ade80;
+        }
+        
+        .result.fail {
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid #ef4444;
+            color: #ef4444;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Lawyer Track</a>
+        
+        <div class="header">
+            <h1>Level 3: Advanced Litigation</h1>
+            <p style="color: #d4af37;">Bail, Compensation, PIL & Constitutional Remedies</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>SECTION 1: Bail in Child Rights Cases</h2>
+                
+                <h3>POCSO Bail Framework</h3>
+                <p>POCSO does not contain any specific bail restriction provision. Therefore, general CrPC provisions apply: <span class="highlight">Section 437</span> (bail by police/magistrate) and <span class="highlight">Section 439</span> (bail by court/HC).</p>
+                <p>However, courts exercise heightened caution in POCSO cases. Bail is available but courts examine:</p>
+                
+                <div class="list-item">— Nature and gravity of offence (penetrative assault vs. harassment)</div>
+                <div class="list-item">— Age of victim (younger children = stronger ground to deny bail)</div>
+                <div class="list-item">— Accused's criminal antecedents</div>
+                <div class="list-item">— Flight risk assessment</div>
+                <div class="list-item">— Witness tampering risk (living in same locality)</div>
+                <div class="list-item">— Victim's safety and fear after accused release</div>
+                <div class="list-item">— Strength of prosecution case at bail stage</div>
+                <div class="list-item">— No specific statutory bar to bail in POCSO; but judicial reluctance common</div>
+                
+                <h3>Victim's Right to Oppose Bail</h3>
+                <p>Per <span class="highlight">Asha Ranjan v. State of Bihar</span>, victim has constitutional locus to oppose bail. Procedure:</p>
+                <div class="strategy-box">
+                    <p><strong>Filing Victim Opposition to Bail:</strong></p>
+                    <p>— Engage victim counsel at bail stage</p>
+                    <p>— File sworn objection statement (not petition)</p>
+                    <p>— Highlight: child's fear, accused's threat history, same locality residence</p>
+                    <p>— Assert Art 21 interest in personal safety</p>
+                    <p>— Reference Asha Ranjan for victim's locus</p>
+                    <p>— Court will hear victim counsel before granting bail</p>
+                </div>
+                
+                <h3>Anticipatory Bail in POCSO Cases</h3>
+                <p>Anticipatory bail available under Section 438 CrPC; but courts very reluctant. To obtain:</p>
+                <div class="list-item">— Prove absence of prima facie case</div>
+                <div class="list-item">— Show disproportionality (serious investigation, weak evidence)</div>
+                <div class="list-item">— Conditions often stringent: daily reporting, no contact with victim/witnesses, passport surrender</div>
+                
+                <h3>Bail Conditions When Granted</h3>
+                <p>Standard conditions in POCSO cases:</p>
+                <div class="list-item">— Stay away from victim (minimum 1 km radius, often entire locality)</div>
+                <div class="list-item">— Not to approach or contact witnesses</div>
+                <div class="list_item">— Surrender passport</div>
+                <div class="list_item">— Regular police reporting (weekly/twice-weekly)</div>
+                <div class="list_item">— No communication with family of victim without court permission</div>
+                
+                <h3>High Court Jurisdiction for Bail (Section 439/BNSS Sec 483)</h3>
+                <p>If trial court denies bail, HC has inherent power under Section 439 to grant bail. Challenge strategy:</p>
+                <div class="list-item">— File Writ Petition in HC</div>
+                <div class="list-item">— Show trial court's error in appreciation of Section 437 conditions</div>
+                <div class="list-item">— Emphasize accused's right to liberty vs. prosecution convenience</div>
+                <div class="list-item">— HC often grants bail in strong cases where trial court too cautious</div>
+            </div>
+            
+            <div class="section">
+                <h2>SECTION 2: Victim Compensation Strategy</h2>
+                
+                <h3>Combined Compensation Approach</h3>
+                <p>Child victims have multiple routes to compensation:</p>
+                <div class="list-item">1. <span class="highlight">Section 357A CrPC (BNSS Section 395)</span> — Criminal court directs compensation during trial</div>
+                <div class="list-item">2. <span class="highlight">POCSO Rules 2020 Rule 7</span> — Compensation guidelines specific to POCSO offences</div>
+                <div class="list-item">3. <span class="highlight">NALSA Scheme</span> — National Legal Services Authority victim compensation scheme (state-wise)</div>
+                <div class="list-item">4. <span class="highlight">State Victim Compensation Schemes</span> — Many states have enhanced amounts for child victims</div>
+                
+                <h3>Filing for Compensation</h3>
+                <div class="strategy-box">
+                    <p><strong>Before Trial Court (Preferred):</strong></p>
+                    <p>— File application under Section 357A during evidence/final arguments stage</p>
+                    <p>— Attach medical report, school certificates (education interrupted), income loss if applicable</p>
+                    <p>— Specify quantum with justification</p>
+                    <p>— Court can order provisional/interim compensation even during trial</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>Before District Legal Services Authority (DLSA):</strong></p>
+                    <p>— Post-conviction, apply to DLSA if trial court compensation inadequate</p>
+                    <p>— DLSA can award enhanced compensation from state/NALSA fund</p>
+                    <p>— Even on acquittal, DLSA can award compensation (Section 357A permits)</p>
+                </div>
+                
+                <h3>Interim Compensation (POCSO Rules 2020 Rule 7)</h3>
+                <p>Child victim can apply for immediate interim compensation at any stage of trial (even before trial begins):</p>
+                <div class="list-item">— Application to Special Court citing POCSO Rules 2020 Rule 7</div>
+                <div class="list-item">— No conviction required; injury/trauma sufficient</div>
+                <div class="list-item">— Court directs state to immediately pay relief amount</div>
+                <div class="list-item">— Typically ₹5,000-₹50,000 depending on injury severity</div>
+                
+                <h3>Quantum of Compensation</h3>
+                <p>Child victims receive enhanced compensation under most state schemes:</p>
+                <div class="list-item">— <span class="highlight">Bihar:</span> ₹5 lakhs for POCSO Sec 7 (sexual assault); ₹10 lakhs for Sec 3/5 (penetrative/aggravated)</div>
+                <div class="list-item">— <span class="highlight">UP:</span> ₹3-8 lakhs depending on offence and injury</div>
+                <div class="list-item">— <span class="highlight">Delhi:</span> ₹7-10 lakhs for aggravated offences</div>
+                <div class="list-item">— Factors: nature of offence, injury degree, lost education, psychological trauma</div>
+                <div class="list-item">— Interim compensation: ₹20,000-₹2 lakhs for immediate relief</div>
+                
+                <h3>Compensation Even on Acquittal</h3>
+                <p>Section 357A permits compensation award even if accused acquitted, if court believes victim suffered injury. Strategy:</p>
+                <div class="list-item">— Despite acquittal, file Section 357A application</div>
+                <div class="list-item">— Emphasize investigative/trial process trauma, medical expenses, school interruption</div>
+                <div class="list-item">— Reference: Maru Ram v. UOI — compensation available on acquittal if victim proved suffering</div>
+            </div>
+            
+            <div class="section">
+                <h2>SECTION 3: PIL Strategy for Child Rights</h2>
+                
+                <h3>When to File PIL vs. Individual Writ</h3>
+                <p><span class="highlight">File PIL when:</span></p>
+                <div class="list-item">— Mass violations (e.g., systemic CCI abuse, multiple missing children)</div>
+                <div class="list-item">— Systemic failure (e.g., POCSO trial delay across state)</div>
+                <div class="list-item">— Government inaction (e.g., no SJPU formed despite mandate)</div>
+                <div class="list-item">— Structural remedies needed (e.g., CCI inspection protocol overhaul)</div>
+                
+                <p><span class="highlight">File Individual Writ when:</span></p>
+                <div class="list-item">— Single child needs immediate relief (habeas corpus for wrongful detention)</div>
+                <div class="list-item">— Specific institution/official action challenged</div>
+                <div class="list-item">— Compensation/specific relief for individual victim sought</div>
+                
+                <h3>Which Court: HC vs. SC</h3>
+                <div class="strategy-box">
+                    <p><strong>HC under Art 226 (Preferred for child cases):</strong></p>
+                    <p>— More accessible; faster hearings</p>
+                    <p>— State-level systemic issues (CCI abuse, POCSO trial pendency)</p>
+                    <p>— Can issue mandamus to state authorities (DM, SP, education minister)</p>
+                    <p>— Can frame district-level rehabilitation protocols</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>SC under Art 32 (For nationwide issues):</strong></p>
+                    <p>— Multi-state systemic failure (e.g., POCSO trial delays nationally)</p>
+                    <p>— Constitutional questions (e.g., validity of bail procedures in POCSO)</p>
+                    <p>— Requires demonstration of larger public importance</p>
+                </div>
+                
+                <h3>Locus Standi in Child Rights PILs</h3>
+                <p>Very liberal in child cases. Any person can file:</p>
+                <div class="list-item">— Child's guardian (preferred)</div>
+                <div class="list-item">— Child rights organization on behalf of child</div>
+                <div class="list-item">— NGO with prior HC recognition</div>
+                <div class="list-item">— Episotolary jurisdiction: Even letter to court constitutes PIL petition</div>
+                
+                <h3>Relief to Seek in Child Rights PIL</h3>
+                <div class="list-item">— <span class="highlight">Mandamus:</span> Compel action (e.g., "DM shall designate CCI inspector within 2 weeks")</div>
+                <div class="list-item">— <span class="highlight">Habeas Corpus:</span> Release child from illegal detention in institution</div>
+                <div class="list-item">— <span class="highlight">Prohibition:</span> Stop ongoing abuse (e.g., "CCI staff shall not administer corporal punishment")</div>
+                <div class="list-item">— <span class="highlight">Directions:</span> Structural reforms (e.g., establish SJPU in each district by date X)</div>
+                <div class="list-item">— <span class="highlight">Compensation:</span> For affected children (interim/final)</div>
+                <div class="list-item">— <span class="highlight">Contempt:</span> If government violates PIL compliance order</div>
+                
+                <h3>Stay Applications in Child Protection PILs</h3>
+                <p>Child cases receive expedited stay decisions:</p>
+                <div class="list-item">— Interim relief granted quickly (e.g., stay on child's removal from CCI pending inquiry)</div>
+                <div class="list-item">— Burden on government to justify inaction</div>
+                <div class="list-item">— Child's best interest presumed in stay analysis</div>
+            </div>
+            
+            <div class="section">
+                <h2>SECTION 4: Trial Strategy in POCSO Cases</h2>
+                
+                <h3>Prosecution Angle: Building the Case</h3>
+                <div class="strategy-box">
+                    <p><strong>Medical Evidence (MLC):</strong></p>
+                    <p>— Medical examination primordial; capture within 72 hours (DNA, injury, trauma)</p>
+                    <p>— Medical report corroborates child's version; also rebuts "consent" claim</p>
+                    <p>— Genital injury/infection strongly supports case</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>Section 164 Statement:</strong></p>
+                    <p>— Recorded by trained officer; preferably female; at safe location</p>
+                    <p>— Consistency between 164 statement and trial testimony is gold standard</p>
+                    <p>— Retraction of 164 statement must be explained (Rishipal: retraction alone insufficient for acquittal)</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>Digital/CCTV Evidence:</strong></p>
+                    <p>— CCTV footage from school, neighborhood, accused's home</p>
+                    <p>— WhatsApp/SMS messages (grooming patterns)</p>
+                    <p>— Mobile location data (accused near victim at time of alleged assault)</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>Expert Testimony:</strong></p>
+                    <p>— Forensic expert on child trauma/abuse patterns</p>
+                    <p>— Psychologist on victim's behavior (fear, shame-driven retraction)</p>
+                    <p>— Medical expert on injury consistency with allegations</p>
+                </div>
+                
+                <h3>Prosecution: Child Witness Examination</h3>
+                <div class="list-item">— <span class="highlight">Competency test (Evidence Act Sec 118):</span> Child must understand nature of oath, questions. Most children above 5-6 years pass.</div>
+                <div class="list-item">— <span class="highlight">Leading questions not allowed:</span> Child's narrative is paramount; open-ended questions preferred</div>
+                <div class="list-item">— <span class="highlight">Court's protective role:</span> Judge stops aggressive cross-examination; prevents secondary victimization</div>
+                <div class="list-item">— <span class="highlight">Support person present:</span> Mother/counselor in courtroom to ease child's anxiety</div>
+                
+                <h3>Prosecution: Dealing with Victim Retractions</h3>
+                <p>Per <span class="highlight">Rishipal v. Uttarakhand</span>, retraction is not fatal if explained:</p>
+                <div class="list-item">— <strong>Why do victims retract?</strong> Pressure from accused/family, shame, economic dependence on accused, fear of social ostracism</div>
+                <div class="list-item">— <strong>Strategy:</strong> Examine reasons for retraction. If pressure/fear, retraction loses value.</div>
+                <div class="list-item">— <strong>Corroboration:</strong> Medical evidence, digital evidence, other witness testimony.</div>
+                <div class="list-item">— <strong>Argument:</strong> "Retraction is expected in child sexual assault due to social pressure; but medical injury, 164 statement, and accused's proximity to victim on date corroborate original complaint."</div>
+                
+                <h3>Defence Angle: Fair Trial Advocacy</h3>
+                <div class="strategy-box">
+                    <p><strong>Challenge Age of Victim:</strong></p>
+                    <p>— Ossification test limitations (2-year margin of error); if test shows 17-19, argue child not below 18</p>
+                    <p>— School records may be falsified; cross-examine school principal</p>
+                    <p>— If child's age ambiguous, benefit to accused (JJ Act protections don't apply to adults)</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>Challenge Identification:</strong></p>
+                    <p>— Was child present at alleged location? Test Identification Parade.</p>
+                    <p>— Dock identification by child (of accused in court) is weak; cross-examine on visibility at crime scene</p>
+                    <p>— Mistaken identity: Child may confuse accused with another person</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>False Complaint (Section 22 POCSO):</strong></p>
+                    <p>— Is there motive for false complaint? (Custody dispute, property conflict?)</p>
+                    <p>— Examine inconsistencies in child's testimony</p>
+                    <p>— Section 22: Burden on accused to prove falsity with knowledge; but circumstantial evidence of motive helps</p>
+                    <p>— Note: False complaint conviction rare; conviction for falsity requires very strong evidence</p>
+                </div>
+                
+                <div class="strategy-box">
+                    <p><strong>Bail Strategy for Defence:</strong></p>
+                    <p>— Challenge prosecution's case strength at bail stage</p>
+                    <p>— Argue: Medical evidence weak, child's statement inconsistent, no corroboration</p>
+                    <p>— Emphasize accused's ties to locality, no flight risk, no antecedents</p>
+                    <p>— Oppose victim's opposition by proving falsity of allegations</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>SECTION 5: International Law Arguments</h2>
+                
+                <h3>Using UNCRC Before Indian Courts</h3>
+                <p>Per <span class="highlight">Vishaka v. State of Rajasthan</span>, international conventions are interpretive aids (not binding but persuasive):</p>
+                <div class="list-item">— Cite UNCRC Articles in arguments to strengthen child rights positions</div>
+                <div class="list-item">— Example: "Article 3 of UNCRC requires child's best interests be paramount; this court should prioritize victim's safety over accused's bail"</div>
+                <div class="list-item">— SC often references UNCRC when interpreting Constitution articles</div>
+                
+                <h3>Key UNCRC Articles for India Arguments</h3>
+                <div class="list-item"><span class="highlight">Article 3:</span> Child's best interests shall be primary consideration</div>
+                <div class="list-item"><span class="highlight">Article 12:</span> Child's right to be heard in legal proceedings</div>
+                <div class="list-item"><span class="highlight">Article 19:</span> Protection from violence, abuse, neglect</div>
+                <div class="list-item"><span class="highlight">Article 34:</span> Protection from sexual exploitation and abuse</div>
+                
+                <h3>CRC Committee Observations on India</h3>
+                <p>CRC Committee has issued periodic observations on India's child protection record; cite in PIL arguments:</p>
+                <div class="list-item">— India must strengthen POCSO trial capacity</div>
+                <div class="list-item">— Child Labour remediation remains weak</div>
+                <div class="list-item">— CCI oversight needs strengthening</div>
+                <div class="list-item">— SC can use these observations to justify PIL directions to government</div>
+                
+                <h3>Bangalore Principles on International Law</h3>
+                <p>Principles on relationship of domestic and international law in argument:</p>
+                <div class="list-item">— UNCRC is persuasive authority for interpreting ambiguous Constitution provisions</div>
+                <div class="list-item">— When Indian law is silent, international norms can guide interpretation</div>
+                <div class="list-item">— Does not substitute Indian law; merely informs judicial reasoning</div>
+            </div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2>Assessment: 25 Questions — Advanced Litigation Strategy</h2>
+            <form id="quizForm">
+                <div class="question">
+                    <p>1. POCSO contains which specific bail restriction provision?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q1" value="a"> A. Absolute prohibition on bail in Sec 3 cases</div>
+                        <div class="option"><input type="radio" name="q1" value="b"> B. Bail available only to women</div>
+                        <div class="option"><input type="radio" name="q1" value="c"> C. No specific restriction; general CrPC Sec 437/439 applies</div>
+                        <div class="option"><input type="radio" name="q1" value="d"> D. Bail requires victim's written consent</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>2. Under Asha Ranjan v. Bihar, victim can oppose bail by:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q2" value="a"> A. Filing police complaint</div>
+                        <div class="option"><input type="radio" name="q2" value="b"> B. Filing sworn objection statement; victim counsel has constitutional locus</div>
+                        <div class="option"><input type="radio" name="q2" value="c"> C. Victim has no right to oppose</div>
+                        <div class="option"><input type="radio" name="q2" value="d"> D. Only prosecutor can oppose</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>3. POCSO Rules 2020 Rule 7 governs:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q3" value="a"> A. Trial procedure</div>
+                        <div class="option"><input type="radio" name="q3" value="b"> B. Victim compensation guidelines; interim compensation available</div>
+                        <div class="option"><input type="radio" name="q3" value="c"> C. Police investigation protocol</div>
+                        <div class="option"><input type="radio" name="q3" value="d"> D. Bail conditions</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>4. Section 357A CrPC can award compensation:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q4" value="a"> A. Only on conviction</div>
+                        <div class="option"><input type="radio" name="q4" value="b"> B. On conviction or even acquittal (Maru Ram); injury to victim suffices</div>
+                        <div class="option"><input type="radio" name="q4" value="c"> C. Never for child victims</div>
+                        <div class="option"><input type="radio" name="q4" value="d"> D. Only for adults</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>5. Interim compensation under POCSO Rules 2020 Rule 7:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q5" value="a"> A. Available after trial only</div>
+                        <div class="option"><input type="radio" name="q5" value="b"> B. Available at ANY stage of trial; no conviction required</div>
+                        <div class="option"><input type="radio" name="q5" value="c"> C. Never available</div>
+                        <div class="option"><input type="radio" name="q5" value="d"> D. Only for adult victims</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>6. PIL under Art 226 HC is PREFERRED for child cases because:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q6" value="a"> A. More accessible; faster; can issue state-level mandamus</div>
+                        <div class="option"><input type="radio" name="q6" value="b"> B. No merit to child cases</div>
+                        <div class="option"><input type="radio" name="q6" value="c"> C. SC always preferred</div>
+                        <div class="option"><input type="radio" name="q6" value="d"> D. PIL not available for children</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>7. Locus standi for filing child rights PIL:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q7" value="a"> A. Only guardian can file</div>
+                        <div class="option"><input type="radio" name="q7" value="b"> B. Any person; NGO; epistolary jurisdiction (even letter to court)</div>
+                        <div class="option"><input type="radio" name="q7" value="c"> C. Only government agencies</div>
+                        <div class="option"><input type="radio" name="q7" value="d"> D. Child must be >18 to file</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>8. In prosecuting POCSO cases, which evidence is PRIMARY?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q8" value="a"> A. Child's testimony alone</div>
+                        <div class="option"><input type="radio" name="q8" value="b"> B. Medical evidence (MLC) + Section 164 statement + corroborating evidence</div>
+                        <div class="option"><input type="radio" name="q8" value="c"> C. Accused's confession</div>
+                        <div class="option"><input type="radio" name="q8" value="d"> D. Witness testimony</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>9. Rishipal v. Uttarakhand on victim RETRACTION:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q9" value="a"> A. Retraction always justifies acquittal</div>
+                        <div class="option"><input type="radio" name="q9" value="b"> B. Retraction must be analyzed for pressure/coercion; other corroboration examined</div>
+                        <div class="option"><input type="radio" name="q9" value="c"> C. Retraction is irrelevant</div>
+                        <div class="option"><input type="radio" name="q9" value="d"> D. Retraction means victim is criminal</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>10. Under Evidence Act Section 118, child witness competency requires:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q10" value="a"> A. Child must be >12 years</div>
+                        <div class="option"><input type="radio" name="q10" value="b"> B. Child must understand nature of oath and questions (most 5+ pass)</div>
+                        <div class="option"><input type="radio" name="q10" value="c"> C. Child cannot testify</div>
+                        <div class="option"><input type="radio" name="q10" value="d"> D. Parent's permission required</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>11. In POCSO trial, can prosecution use LEADING QUESTIONS with child?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q11" value="a"> A. Yes, always</div>
+                        <div class="option"><input type="radio" name="q11" value="b"> B. No; child's natural narrative is paramount; open-ended questions preferred</div>
+                        <div class="option"><input type="radio" name="q11" value="c"> C. Only if child is reluctant</div>
+                        <div class="option"><input type="radio" name="q11" value="d"> D. At judge's discretion only</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>12. For defence in POCSO, challenging age of victim using ossification test:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q12" value="a"> A. Test is always accurate</div>
+                        <div class="option"><input type="radio" name="q12" value="b"> B. Test has 2-year margin of error; if shows 17-19, benefit to accused</div>
+                        <div class="option"><input type="radio" name="q12" value="c"> C. Test is irrelevant</div>
+                        <div class="option"><input type="radio" name="q12" value="d"> D. Test always confirms child status</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>13. Section 22 POCSO allows false complaint prosecution; who bears burden?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q13" value="a"> A. Prosecution must prove falsity with knowledge</div>
+                        <div class="option"><input type="radio" name="q13" value="b"> B. Accused must prove falsity with knowledge of falsity; difficult burden</div>
+                        <div class="option"><input type="radio" name="q13" value="c"> C. Child must prove truth</div>
+                        <div class="option"><input type="radio" name="q13" value="d"> D. No burden; child charged automatically</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>14. Uncrc Article 3 (used in Indian arguments) establishes:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q14" value="a"> A. Child's best interests shall be PRIMARY consideration</div>
+                        <div class="option"><input type="radio" name="q14" value="b"> B. Parents' rights paramount</div>
+                        <div class="option"><input type="radio" name="q14" value="c"> C. State's interest paramount</div>
+                        <div class="option"><input type="radio" name="q14" value="d"> D. No child interest protection</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>15. Bangalore Principles — International law relationship to Indian law:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q15" value="a"> A. International law overrides Constitution</div>
+                        <div class="option"><input type="radio" name="q15" value="b"> B. Persuasive authority to interpret ambiguous Indian law; not binding substitute</div>
+                        <div class="option"><input type="radio" name="q15" value="c"> C. International law irrelevant in India</div>
+                        <div class="option"><input type="radio" name="q15" value="d"> D. Only IPC applies; no international consideration</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>16. Standard bail conditions in POCSO cases typically include:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q16" value="a"> A. No restrictions</div>
+                        <div class="option"><input type="radio" name="q16" value="b"> B. Stay away from victim (1 km), no witness contact, surrender passport, regular reporting</div>
+                        <div class="option"><input type="radio" name="q16" value="c"> C. Bail is unconditional</div>
+                        <div class="option"><input type="radio" name="q16" value="d"> D. Bail not available</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>17. Anticipatory bail under Section 438 in POCSO cases:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q17" value="a"> A. Always granted</div>
+                        <div class="option"><input type="radio" name="q17" value="b"> B. Available but courts very reluctant; require absence of prima facie case</div>
+                        <div class="option"><input type="radio" name="q17" value="c"> C. Never available</div>
+                        <div class="option"><input type="radio" name="q17" value="d"> D. Depends on prosecutor</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>18. Can a PIL be filed via LETTER to court (epistolary jurisdiction)?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q18" value="a"> A. Never</div>
+                        <div class="option"><input type="radio" name="q18" value="b"> B. Only in emergencies</div>
+                        <div class="option"><input type="radio" name="q18" value="c"> C. Yes, in child rights cases; liberal locus standi</div>
+                        <div class="option"><input type="radio" name="q18" value="d"> D. Only by government</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>19. Mandamus relief in child PIL can direct:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q19" value="a"> A. Compensation only</div>
+                        <div class="option"><input type="radio" name="q19" value="b"> B. Action by government; e.g., "DM shall designate CCI inspector within 2 weeks"</div>
+                        <div class="option"><input type="radio" name="q19" value="c"> C. Private actions</div>
+                        <div class="option"><input type="radio" name="q19" value="d"> D. Criminal proceedings</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>20. HC vs. SC for child rights PIL — SC is PREFERRED when:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q20" value="a"> A. Always prefer SC</div>
+                        <div class="option"><input type="radio" name="q20" value="b"> B. Multi-state systemic failure or nationwide constitutional issues</div>
+                        <div class="option"><input type="radio" name="q20" value="c"> C. Single-child relief needed</div>
+                        <div class="option"><input type="radio" name="q20" value="d"> D. SC never hears child cases</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>21. Medical evidence (MLC) in POCSO should be collected within:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q21" value="a"> A. 1 week</div>
+                        <div class="option"><input type="radio" name="q21" value="b"> B. 72 hours (for DNA, injury, trauma capture)</div>
+                        <div class="option"><input type="radio" name="q21" value="c"> C. 1 month</div>
+                        <div class="option"><input type="radio" name="q21" value="d"> D. No time limit</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>22. In prosecution closing argument on retraction, emphasize:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q22" value="a"> A. Retraction proves innocence</div>
+                        <div class="option"><input type="radio" name="q22" value="b"> B. Retractions common due to social pressure; medical injury, 164 statement, proximity corroborate original complaint</div>
+                        <div class="option"><input type="radio" name="q22" value="c"> C. Child's retraction irrelevant</div>
+                        <div class="option"><input type="radio" name="q22" value="d"> D. Child is lying</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>23. Defence strategy: FALSE COMPLAINT under Section 22 POCSO — establish:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q23" value="a"> A. No need to establish anything</div>
+                        <div class="option"><input type="radio" name="q23" value="b"> B. Motive for false complaint; inconsistencies; circumstantial evidence of falseity</div>
+                        <div class="option"><input type="radio" name="q23" value="c"> C. Child's identity</div>
+                        <div class="option"><input type="radio" name="q23" value="d"> D. Age of victim</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>24. Bail court should weigh (per CrPC 437/439 in POCSO):</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q24" value="a"> A. Accused's rights only</div>
+                        <div class="option"><input type="radio" name="q24" value="b"> B. Nature of charge, victim age, flight risk, witness tampering, victim safety, case strength</div>
+                        <div class="option"><input type="radio" name="q24" value="c"> C. Prosecutor's opinion</div>
+                        <div class="option"><input type="radio" name="q24" value="d"> D. No weighing needed</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>25. UNCRC Article 34 (used in child arguments) requires:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q25" value="a"> A. Child education only</div>
+                        <div class="option"><input type="radio" name="q25" value="b"> B. Protection from sexual exploitation and abuse; states shall take measures</div>
+                        <div class="option"><input type="radio" name="q25" value="c"> C. No protection required</div>
+                        <div class="option"><input type="radio" name="q25" value="d"> D. Child labor permitted</div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()">Reset</button>
+                    <button type="submit" class="btn btn-primary">Submit Assessment</button>
+                </div>
+            </form>
+            
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Janman People's Foundation — Child Rights Legal Training</p>
+    </div>
+    
+    <script>
+        const correctAnswers = {
+            q1: 'c', q2: 'b', q3: 'b', q4: 'b', q5: 'b',
+            q6: 'a', q7: 'b', q8: 'b', q9: 'b', q10: 'b',
+            q11: 'b', q12: 'b', q13: 'b', q14: 'a', q15: 'b',
+            q16: 'b', q17: 'b', q18: 'c', q19: 'b', q20: 'b',
+            q21: 'b', q22: 'b', q23: 'b', q24: 'b', q25: 'b'
+        };
+        
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let score = 0;
+            for (let i = 1; i <= 25; i++) {
+                const questionName = 'q' + i;
+                const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+                if (selected && selected.value === correctAnswers[questionName]) {
+                    score++;
+                }
+            }
+            
+            const percentage = (score / 25) * 100;
+            const resultDiv = document.getElementById('result');
+            const passed = percentage >= 70;
+            
+            resultDiv.innerHTML = `<div>Score: ${score}/25 (${percentage.toFixed(1)}%)</div>
+            <div>${passed ? 'PASS — Master of advanced child rights litigation. Proceed to Final Certificate.' : 'Review litigation strategies and retake. Focus on bail jurisprudence, compensation routes, and PIL strategy.'}</div>`;
+            resultDiv.className = 'result show ' + (passed ? 'pass' : 'fail');
+            
+            if (passed) {
+                localStorage.setItem('janman_lw_l3_done', 'true');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            }
+        });
+        
+        function resetQuiz() {
+            document.getElementById('quizForm').reset();
+            document.getElementById('result').className = 'result';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lawyer Track - Child Rights Legal Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0505, #4a0a0a, #8b1a1a);
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(212, 175, 55, 0.4);
+        }
+        
+        .user-info {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            border-left: 4px solid #ffd700;
+        }
+        
+        .user-info p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+        }
+        
+        .user-info strong {
+            color: #ffd700;
+        }
+        
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .module-card {
+            background: rgba(0,0,0,0.4);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,215,0,0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .module-card:hover::before {
+            left: 100%;
+        }
+        
+        .module-card:hover:not(.locked) {
+            background: rgba(0,0,0,0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255,215,0,0.2);
+        }
+        
+        .module-card.locked {
+            opacity: 0.5;
+            border-color: #666;
+        }
+        
+        .module-card.locked .lock-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .module-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .module-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        
+        .module-description {
+            font-size: 0.9rem;
+            color: #d4af37;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .module-questions {
+            font-size: 0.85rem;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+        
+        .module-status {
+            display: inline-block;
+            padding: 8px 15px;
+            background: rgba(255,215,0,0.15);
+            border-radius: 20px;
+            color: #ffd700;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .module-card.locked .module-status {
+            background: rgba(100,100,100,0.3);
+            color: #999;
+        }
+        
+        .module-card:not(.locked) .module-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #1a0505;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .module-card:not(.locked) .module-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255,215,0,0.3);
+        }
+        
+        .completion-overview {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ffd700;
+            margin-top: 30px;
+        }
+        
+        .completion-overview h3 {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+        
+        .progress-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .progress-item.complete .status-icon {
+            color: #4ade80;
+        }
+        
+        .progress-item.incomplete .status-icon {
+            color: #888;
+        }
+        
+        .status-icon {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-size: 1.8rem;
+        }
+        
+        .floating-contact:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+        
+        .contact-popup {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: rgba(0,0,0,0.95);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 99;
+            max-width: 300px;
+        }
+        
+        .contact-popup.show {
+            display: block;
+        }
+        
+        .contact-popup h4 {
+            color: #ffd700;
+            margin-bottom: 12px;
+        }
+        
+        .contact-popup p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            color: #d4af37;
+        }
+        
+        .contact-popup a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #1a0505;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #999;
+            font-size: 0.9rem;
+            border-top: 1px solid #d4af3755;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            margin: 8px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .modules-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-contact {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Child Rights Portal</a>
+        
+        <div class="header">
+            <h1>Lawyer Track</h1>
+            <p>Advanced Legal Training in Child Rights — For Practising Lawyers</p>
+        </div>
+        
+        <div class="user-info" id="userInfo" style="display:none;">
+            <p><strong>Welcome,</strong> <span id="userName">Lawyer</span></p>
+            <p><strong>Bar No:</strong> <span id="userBarNo">—</span></p>
+            <p><strong>District/State:</strong> <span id="userLocation">—</span></p>
+        </div>
+        
+        <div class="modules-grid">
+            <!-- Level 1 -->
+            <div class="module-card" id="module1">
+                <div class="module-number">1</div>
+                <div class="module-title">Complete Legislative Framework</div>
+                <div class="module-description">POCSO, JJ Act & All Child Laws</div>
+                <div class="module-questions">20 Questions</div>
+                <div class="module-status" id="status1">Not Started</div>
+            </div>
+            
+            <!-- Level 2 -->
+            <div class="module-card locked" id="module2">
+                <div class="lock-icon">🔒</div>
+                <div class="module-number">2</div>
+                <div class="module-title">Exhaustive Case Law</div>
+                <div class="module-description">Supreme Court & High Court Analysis</div>
+                <div class="module-questions">25 Questions</div>
+                <div class="module-status">Complete Level 1 First</div>
+            </div>
+            
+            <!-- Level 3 -->
+            <div class="module-card locked" id="module3">
+                <div class="lock-icon">🔒</div>
+                <div class="module-number">3</div>
+                <div class="module-title">Advanced Litigation</div>
+                <div class="module-description">Bail, Compensation, PIL & Constitutional Remedies</div>
+                <div class="module-questions">25 Questions</div>
+                <div class="module-status">Complete Level 2 First</div>
+            </div>
+            
+            <!-- Final Certificate -->
+            <div class="module-card locked" id="module4">
+                <div class="lock-icon">🎓</div>
+                <div class="module-number">F</div>
+                <div class="module-title">Final Certificate</div>
+                <div class="module-description">Professional Credential & Network Profile</div>
+                <div class="module-questions">JPF-LW Certification</div>
+                <div class="module-status">Complete All 3 Levels</div>
+            </div>
+        </div>
+        
+        <div class="completion-overview">
+            <h3>Your Progress</h3>
+            <div class="progress-item" id="progress1">
+                <span class="status-icon">○</span>
+                <span>Level 1: Complete Legislative Framework</span>
+            </div>
+            <div class="progress-item" id="progress2">
+                <span class="status-icon">○</span>
+                <span>Level 2: Exhaustive Case Law</span>
+            </div>
+            <div class="progress-item" id="progress3">
+                <span class="status-icon">○</span>
+                <span>Level 3: Advanced Litigation</span>
+            </div>
+            <div class="progress-item" id="progress4">
+                <span class="status-icon">○</span>
+                <span>Final Certificate</span>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Janman People's Foundation</strong></p>
+            <p>Child Rights Legal Training Platform</p>
+            <p>For practising lawyers, law students, and child rights advocates</p>
+        </div>
+    </div>
+    
+    <div class="floating-contact" id="contactBtn" title="Contact Support">
+        💬
+    </div>
+    
+    <div class="contact-popup" id="contactPopup">
+        <h4>Need Help?</h4>
+        <p>Connect with our legal training support team for clarifications on legislation, case law, or litigation strategy.</p>
+        <a href="https://wa.me/918507715870" target="_blank">WhatsApp Support</a>
+    </div>
+    
+    <script>
+        // Initialize user data from localStorage
+        function initializeUser() {
+            const name = localStorage.getItem('janman_lw_name');
+            const barNo = localStorage.getItem('janman_lw_bar_no');
+            const location = localStorage.getItem('janman_lw_district') + (localStorage.getItem('janman_lw_state') ? ', ' + localStorage.getItem('janman_lw_state') : '');
+            
+            if (name) {
+                document.getElementById('userName').textContent = name;
+                document.getElementById('userBarNo').textContent = barNo || '—';
+                document.getElementById('userLocation').textContent = location || '—';
+                document.getElementById('userInfo').style.display = 'block';
+            }
+        }
+        
+        // Check completion status and update UI
+        function updateCompletionStatus() {
+            const l1Done = localStorage.getItem('janman_lw_l1_done') === 'true';
+            const l2Done = localStorage.getItem('janman_lw_l2_done') === 'true';
+            const l3Done = localStorage.getItem('janman_lw_l3_done') === 'true';
+            
+            // Update module 1
+            if (l1Done) {
+                document.getElementById('status1').textContent = '✓ Complete';
+                document.getElementById('status1').style.color = '#4ade80';
+                document.getElementById('progress1').classList.add('complete');
+                document.getElementById('progress1').querySelector('.status-icon').textContent = '✓';
+            } else {
+                document.getElementById('module1').innerHTML += '<a href="level1.html" class="module-link">Start Level 1</a>';
+            }
+            
+            // Update module 2
+            if (l1Done) {
+                document.getElementById('module2').classList.remove('locked');
+                document.getElementById('module2').querySelector('.lock-icon').style.display = 'none';
+                if (l2Done) {
+                    document.getElementById('module2').querySelector('.module-status').textContent = '✓ Complete';
+                    document.getElementById('progress2').classList.add('complete');
+                    document.getElementById('progress2').querySelector('.status-icon').textContent = '✓';
+                } else {
+                    document.getElementById('module2').innerHTML += '<a href="level2.html" class="module-link">Start Level 2</a>';
+                }
+            }
+            
+            // Update module 3
+            if (l2Done) {
+                document.getElementById('module3').classList.remove('locked');
+                document.getElementById('module3').querySelector('.lock-icon').style.display = 'none';
+                if (l3Done) {
+                    document.getElementById('module3').querySelector('.module-status').textContent = '✓ Complete';
+                    document.getElementById('progress3').classList.add('complete');
+                    document.getElementById('progress3').querySelector('.status-icon').textContent = '✓';
+                } else {
+                    document.getElementById('module3').innerHTML += '<a href="level3.html" class="module-link">Start Level 3</a>';
+                }
+            }
+            
+            // Update module 4 (Final Certificate)
+            if (l3Done) {
+                document.getElementById('module4').classList.remove('locked');
+                document.getElementById('module4').querySelector('.lock-icon').style.display = 'none';
+                document.getElementById('module4').innerHTML += '<a href="final-certificate.html" class="module-link">Get Certificate</a>';
+            }
+        }
+        
+        // Floating contact button
+        document.getElementById('contactBtn').addEventListener('click', function() {
+            const popup = document.getElementById('contactPopup');
+            popup.classList.toggle('show');
+        });
+        
+        // Close popup when clicking outside
+        document.addEventListener('click', function(event) {
+            const popup = document.getElementById('contactPopup');
+            const btn = document.getElementById('contactBtn');
+            if (!popup.contains(event.target) && !btn.contains(event.target)) {
+                popup.classList.remove('show');
+            }
+        });
+        
+        // Initialize on load
+        initializeUser();
+        updateCompletionStatus();
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Child Rights & Protection — Janman Legal Training Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a1628,#1a3a5c,#0d2a1e);min-height:100vh;color:#fff;}
+.header{text-align:center;padding:48px 20px 24px;position:relative;}
+.logo{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.3);margin-bottom:16px;display:block;margin-left:auto;margin-right:auto;}
+.nav-back{color:rgba(255,255,255,0.7);text-decoration:none;font-size:13px;letter-spacing:0.5px;position:absolute;top:20px;left:20px;background:rgba(255,255,255,0.1);padding:6px 14px;border-radius:20px;transition:background 0.2s;}
+.nav-back:hover{background:rgba(255,255,255,0.2);}
+.badge{display:inline-block;background:linear-gradient(135deg,#c0392b,#e74c3c);color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,44px);font-weight:700;line-height:1.2;margin-bottom:10px;}
+.subtitle{color:rgba(255,255,255,0.75);font-size:15px;max-width:600px;margin:0 auto 8px;}
+.meta{color:rgba(255,255,255,0.5);font-size:13px;}
+.section-title{text-align:center;padding:20px 20px 8px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+.tracks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:12px 24px 48px;max-width:1100px;margin:0 auto;}
+.track-card{background:rgba(255,255,255,0.07);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:28px;transition:transform 0.2s,box-shadow 0.2s;position:relative;overflow:hidden;}
+.track-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.4);}
+.track-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.track-sw::before{background:linear-gradient(90deg,#f39c12,#e67e22,#d4700a);}
+.track-pl::before{background:linear-gradient(90deg,#27ae60,#2ecc71,#1abc9c);}
+.track-ls::before{background:linear-gradient(90deg,#2980b9,#3498db,#1565c0);}
+.track-lw::before{background:linear-gradient(90deg,#c0392b,#e74c3c,#c9a600);}
+.track-icon{font-size:36px;margin-bottom:12px;}
+.track-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;opacity:0.65;}
+.track-title{font-size:22px;font-weight:800;margin-bottom:8px;line-height:1.25;}
+.track-desc{font-size:13px;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:16px;}
+.level-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;}
+.pill{font-size:10px;font-weight:600;letter-spacing:0.5px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,0.1);}
+.pill-sw{border:1px solid rgba(243,156,18,0.4);color:#f5c842;}
+.pill-pl{border:1px solid rgba(39,174,96,0.4);color:#6be8a0;}
+.pill-ls{border:1px solid rgba(52,152,219,0.4);color:#74c7ff;}
+.pill-lw{border:1px solid rgba(192,57,43,0.4);color:#ff8f80;}
+.progress-bar{background:rgba(255,255,255,0.08);border-radius:4px;height:6px;margin-bottom:16px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:4px;transition:width 0.5s ease;}
+.fill-sw{background:linear-gradient(90deg,#f39c12,#e67e22);}
+.fill-pl{background:linear-gradient(90deg,#27ae60,#2ecc71);}
+.fill-ls{background:linear-gradient(90deg,#2980b9,#3498db);}
+.fill-lw{background:linear-gradient(90deg,#c0392b,#e74c3c);}
+.progress-label{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:12px;}
+.track-btn{display:block;text-align:center;padding:12px 20px;border-radius:12px;font-weight:700;font-size:14px;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;width:100%;}
+.btn-sw{background:linear-gradient(135deg,#f39c12,#e67e22);color:#fff;}
+.btn-pl{background:linear-gradient(135deg,#27ae60,#1abc9c);color:#fff;}
+.btn-ls{background:linear-gradient(135deg,#2980b9,#1565c0);color:#fff;}
+.btn-lw{background:linear-gradient(135deg,#c0392b,#922b21);color:#fff;}
+.track-btn:hover{filter:brightness(1.12);transform:scale(1.02);}
+.coming-soon{display:block;text-align:center;padding:12px;font-size:13px;color:rgba(255,255,255,0.35);border:1px dashed rgba(255,255,255,0.15);border-radius:12px;letter-spacing:0.5px;}
+.info-strip{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:20px 24px;margin:0 24px 32px;max-width:1052px;margin-left:auto;margin-right:auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;align-items:center;}
+.info-item{text-align:center;}
+.info-num{font-size:28px;font-weight:800;color:#74c7ff;}
+.info-lbl{font-size:11px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;}
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="../index.html" class="nav-back">← Janman Academy</a>
+  <img src="janman-logo.png" alt="Janman" class="logo">
+  <div class="badge">Child Rights & Protection</div>
+  <h1>Child Rights Legal Training</h1>
+  <p class="subtitle">4 specialised learning tracks — POCSO, JJ Act, Convergence Framework, Case Law</p>
+  <p class="meta">Janman People's Foundation | Jan Nyaya Abhiyan</p>
+</div>
+
+<div class="info-strip">
+  <div class="info-item"><div class="info-num">4</div><div class="info-lbl">Learning Tracks</div></div>
+  <div class="info-item"><div class="info-num">16</div><div class="info-lbl">Training Levels</div></div>
+  <div class="info-item"><div class="info-num">80+</div><div class="info-lbl">Quiz Questions</div></div>
+  <div class="info-item"><div class="info-num">30+</div><div class="info-lbl">Case Laws</div></div>
+  <div class="info-item"><div class="info-num">4</div><div class="info-lbl">Certificates</div></div>
+</div>
+
+<div class="section-title">Choose Your Learning Track</div>
+
+<div class="tracks-grid">
+
+  <div class="track-card track-sw">
+    <div class="track-icon">👩‍💼</div>
+    <div class="track-label">Track 1</div>
+    <div class="track-title">Social Worker & OSC</div>
+    <div class="track-desc">Practical field-oriented training on POCSO mandatory reporting, JJ Act child welfare mechanisms, OSC integrated response, and convergence protocols for frontline workers.</div>
+    <div class="level-pills">
+      <span class="pill pill-sw">L1: POCSO Fundamentals</span>
+      <span class="pill pill-sw">L2: JJ Act & CWC</span>
+      <span class="pill pill-sw">L3: Convergence & Field</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill fill-sw" id="progSW" style="width:0%"></div></div>
+    <div class="progress-label" id="labSW">0 of 3 levels completed</div>
+    <a href="social-worker/index.html" class="track-btn btn-sw">Enter Social Worker Track →</a>
+  </div>
+
+  <div class="track-card track-pl">
+    <div class="track-icon">⚖️</div>
+    <div class="track-label">Track 2</div>
+    <div class="track-title">Paralegal Volunteer</div>
+    <div class="track-desc">Legal framework mastery for paralegals — POCSO & JJ Act provisions, victim assistance, DLSA legal aid, NALSA compensation, and drafting representations for child victims.</div>
+    <div class="level-pills">
+      <span class="pill pill-pl">L1: Legal Framework</span>
+      <span class="pill pill-pl">L2: Victim Support & Aid</span>
+      <span class="pill pill-pl">L3: Field Practice & PIL</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill fill-pl" id="progPL" style="width:0%"></div></div>
+    <div class="progress-label" id="labPL">0 of 3 levels completed</div>
+    <a href="paralegal/index.html" class="track-btn btn-pl">Enter Paralegal Track →</a>
+  </div>
+
+  <div class="track-card track-ls">
+    <div class="track-icon">📚</div>
+    <div class="track-label">Track 3</div>
+    <div class="track-title">Law Student</div>
+    <div class="track-desc">Constitutional foundations, statutory interpretation, and landmark case law analysis. POCSO, JJ Act, PCMA, RTE Act, Art 21 jurisprudence, PIL filing, and moot scenarios.</div>
+    <div class="level-pills">
+      <span class="pill pill-ls">L1: Constitutional Framework</span>
+      <span class="pill pill-ls">L2: Case Law Analysis</span>
+      <span class="pill pill-ls">L3: PIL & Constitutional Remedies</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill fill-ls" id="progLS" style="width:0%"></div></div>
+    <div class="progress-label" id="labLS">0 of 3 levels completed</div>
+    <a href="law-student/index.html" class="track-btn btn-ls">Enter Law Student Track →</a>
+  </div>
+
+  <div class="track-card track-lw">
+    <div class="track-icon">🏛️</div>
+    <div class="track-label">Track 4</div>
+    <div class="track-title">Lawyer</div>
+    <div class="track-desc">Advanced litigation training — complete legislation with 2019/2021 amendments, 30+ Supreme Court and High Court judgments with detailed analysis, prosecution strategy, bail law, victim compensation, and constitutional remedies.</div>
+    <div class="level-pills">
+      <span class="pill pill-lw">L1: Complete Legislation</span>
+      <span class="pill pill-lw">L2: Exhaustive Case Law</span>
+      <span class="pill pill-lw">L3: Advanced Litigation</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill fill-lw" id="progLW" style="width:0%"></div></div>
+    <div class="progress-label" id="labLW">0 of 3 levels completed</div>
+    <a href="lawyer/index.html" class="track-btn btn-lw">Enter Lawyer Track →</a>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var tracks=[
+    {keys:['janman_sw_l1_done','janman_sw_l2_done','janman_sw_l3_done'],prog:'progSW',lab:'labSW'},
+    {keys:['janman_pl_l1_done','janman_pl_l2_done','janman_pl_l3_done'],prog:'progPL',lab:'labPL'},
+    {keys:['janman_ls_l1_done','janman_ls_l2_done','janman_ls_l3_done'],prog:'progLS',lab:'labLS'},
+    {keys:['janman_lw_l1_done','janman_lw_l2_done','janman_lw_l3_done'],prog:'progLW',lab:'labLW'},
+  ];
+  tracks.forEach(function(t){
+    var done=t.keys.filter(function(k){return localStorage.getItem(k);}).length;
+    document.getElementById(t.prog).style.width=(done/3*100)+'%';
+    document.getElementById(t.lab).textContent=done+' of 3 levels completed';
+  });
+})();
+</script>
+</body>
+</html>

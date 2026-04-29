@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Certificate - Paralegal Track</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a3d1e, #1a5c2e, #2d7a40);
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .back-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .locked-screen {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .locked-screen h2 {
+            color: #d32f2f;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .locked-screen p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        .progress-list {
+            text-align: left;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .progress-list li {
+            list-style: none;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+        .progress-list li.complete {
+            background: #e8f5e9;
+            color: #27ae60;
+        }
+        .progress-list li.incomplete {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+        .progress-list li:before {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .progress-list li.complete:before {
+            content: "✅ ";
+        }
+        .progress-list li.incomplete:before {
+            content: "❌ ";
+        }
+        .form-container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .form-container h2 {
+            color: #1a5c2e;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a5c2e;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95em;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 5px rgba(39, 174, 96, 0.3);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-item input {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        .checkbox-item label {
+            margin: 0;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background: #229954;
+        }
+        .btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        .certificate {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            border: 3px solid #27ae60;
+            display: none;
+        }
+        .certificate.show {
+            display: block;
+        }
+        .certificate-header {
+            color: #1a5c2e;
+            margin-bottom: 10px;
+        }
+        .certificate-header img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+        .certificate-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #1a5c2e;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+        .certificate-subtitle {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        .certificate-body {
+            border-top: 2px solid #27ae60;
+            border-bottom: 2px solid #27ae60;
+            padding: 30px 0;
+            margin: 30px 0;
+        }
+        .certificate-body p {
+            color: #555;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        .cert-id {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1.2em;
+            margin: 15px 0;
+        }
+        .certificate-grade {
+            font-size: 1.3em;
+            color: #1a5c2e;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .signature-section {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .signature {
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            text-align: center;
+        }
+        .signature-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8em;
+            color: #1a5c2e;
+            margin: 10px 0 0 0;
+        }
+        .signature-title {
+            color: #666;
+            font-size: 0.85em;
+        }
+        .profile-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid #27ae60;
+        }
+        .profile-card h3 {
+            color: #1a5c2e;
+            margin-bottom: 20px;
+        }
+        .profile-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .profile-item:last-child {
+            border-bottom: none;
+        }
+        .profile-label {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        .profile-value {
+            color: #555;
+        }
+        .actions {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .action-btn {
+            padding: 12px 20px;
+            border: 1px solid #27ae60;
+            background: white;
+            color: #27ae60;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .action-btn:hover {
+            background: #27ae60;
+            color: white;
+        }
+        .float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #27ae60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-size: 1.5em;
+            z-index: 100;
+        }
+        .float-btn:hover {
+            background: #229954;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            text-align: center;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Paralegal Track</a>
+        
+        <div id="locked-content" style="display: none;">
+            <div class="locked-screen">
+                <h2>🔒 Access Restricted</h2>
+                <p>Complete all three levels to earn your certificate</p>
+                <ul class="progress-list" id="progress-list">
+                    <li class="incomplete" id="li-l1">Level 1: Legal Framework</li>
+                    <li class="incomplete" id="li-l2">Level 2: Victim Support & Legal Aid</li>
+                    <li class="incomplete" id="li-l3">Level 3: Field Practice</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="form-content">
+            <div class="form-container">
+                <h2>📋 Earn Your Paralegal Certification</h2>
+                <p style="color: #666; margin-bottom: 30px;">Fill out this form to complete your training and receive your official certificate from Janman People's Foundation.</p>
+                
+                <form id="cert-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="org">Organization/NGO</label>
+                            <input type="text" id="org" name="org">
+                        </div>
+                        <div class="form-group">
+                            <label for="designation">Designation/Role *</label>
+                            <input type="text" id="designation" name="designation" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="district">District *</label>
+                            <input type="text" id="district" name="district" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State *</label>
+                            <input type="text" id="state" name="state" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Years of Experience in Child Welfare Work *</label>
+                        <input type="number" id="experience" name="experience" min="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Areas of Practice (select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area1" name="areas" value="Sexual Abuse Cases">
+                                <label for="area1">Sexual Abuse</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area2" name="areas" value="Child Labour">
+                                <label for="area2">Child Labour</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area3" name="areas" value="Child Marriage">
+                                <label for="area3">Child Marriage</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area4" name="areas" value="Trafficking">
+                                <label for="area4">Trafficking</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area5" name="areas" value="School Issues">
+                                <label for="area5">School Issues</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="area6" name="areas" value="Community Protection">
+                                <label for="area6">Community Protection</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="current-work">Current Case/Programme Description</label>
+                        <textarea id="current-work" name="current-work" placeholder="Briefly describe the child welfare work you're currently engaged in..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Submit & Generate Certificate</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="certificate-content" class="certificate">
+            <div class="certificate-header">
+                <div>🏛️</div>
+                <h3 style="color: #666; margin-bottom: 5px;">JAN NYAYA ABHIYAN</h3>
+                <p style="color: #999; font-size: 0.85em; margin: 0;">Janman People's Foundation</p>
+            </div>
+
+            <div class="certificate-title">Certificate of Completion</div>
+            <p class="certificate-subtitle">Paralegal Volunteer Track — Child Rights Legal Training</p>
+
+            <div class="certificate-body">
+                <p>This certifies that</p>
+                <p style="font-size: 1.3em; font-weight: bold; color: #1a5c2e; margin: 15px 0;" id="cert-name"></p>
+                <p>has successfully completed the comprehensive training program on</p>
+                <p style="font-size: 1.1em; font-weight: bold; color: #27ae60; margin: 15px 0;">Child Rights Legal Framework & Paralegal Practice</p>
+                <p>and demonstrated competence in legal frameworks, victim support, and field practice for child protection.</p>
+            </div>
+
+            <div class="cert-id" id="cert-id"></div>
+            <div class="certificate-grade" id="cert-grade"></div>
+
+            <div class="signature-section">
+                <div class="signature">
+                    <p style="color: #999; font-size: 0.85em;">Certificate Date</p>
+                    <p style="margin-top: 40px;" id="cert-date"></p>
+                </div>
+                <div class="signature">
+                    <p style="color: #999; font-size: 0.85em; margin-bottom: 30px;">Director, Jan Nyaya Abhiyan</p>
+                    <div style="font-family: 'Dancing Script', cursive; font-size: 2em; color: #1a5c2e; height: 50px;">Shourya Roy</div>
+                    <p class="signature-title">Director, Janman People's Foundation</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h3>Participant Profile</h3>
+                <div class="profile-item">
+                    <span class="profile-label">Name:</span>
+                    <span class="profile-value" id="p-name"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Designation:</span>
+                    <span class="profile-value" id="p-designation"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Organization:</span>
+                    <span class="profile-value" id="p-org"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">District:</span>
+                    <span class="profile-value" id="p-district"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">State:</span>
+                    <span class="profile-value" id="p-state"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Experience:</span>
+                    <span class="profile-value" id="p-experience"></span>
+                </div>
+                <div class="profile-item">
+                    <span class="profile-label">Areas of Practice:</span>
+                    <span class="profile-value" id="p-areas"></span>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="action-btn" onclick="printCertificate()">🖨️ Print Certificate</button>
+                <button class="action-btn" onclick="downloadCertificate()">💾 Download as PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="float-btn" id="contact-btn">💬</div>
+
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="document.getElementById('contact-modal').classList.remove('active')">×</div>
+            <h3>Contact Us</h3>
+            <p>Connect on WhatsApp for support</p>
+            <a href="https://wa.me/918507715870" class="btn" style="display: block; width: 100%; text-align: center; margin-top: 15px;">Open WhatsApp</a>
+        </div>
+    </div>
+
+    <script>
+        const prefix = 'janman_pl_';
+
+        function checkAccess() {
+            const l1Done = localStorage.getItem(prefix + 'l1_done') === 'true';
+            const l2Done = localStorage.getItem(prefix + 'l2_done') === 'true';
+            const l3Done = localStorage.getItem(prefix + 'l3_done') === 'true';
+
+            const progressList = document.getElementById('progress-list');
+            if (l1Done) {
+                document.getElementById('li-l1').classList.remove('incomplete');
+                document.getElementById('li-l1').classList.add('complete');
+            }
+            if (l2Done) {
+                document.getElementById('li-l2').classList.remove('incomplete');
+                document.getElementById('li-l2').classList.add('complete');
+            }
+            if (l3Done) {
+                document.getElementById('li-l3').classList.remove('incomplete');
+                document.getElementById('li-l3').classList.add('complete');
+            }
+
+            const hasAccess = l1Done && l2Done && l3Done;
+            
+            if (!hasAccess) {
+                document.getElementById('locked-content').style.display = 'block';
+                document.getElementById('form-content').style.display = 'none';
+            } else {
+                document.getElementById('locked-content').style.display = 'none';
+                document.getElementById('form-content').style.display = 'block';
+                loadFormData();
+            }
+        }
+
+        function loadFormData() {
+            document.getElementById('name').value = localStorage.getItem(prefix + 'name') || '';
+            document.getElementById('phone').value = localStorage.getItem(prefix + 'phone') || '';
+            document.getElementById('org').value = localStorage.getItem(prefix + 'org') || '';
+            document.getElementById('designation').value = localStorage.getItem(prefix + 'desig') || '';
+            document.getElementById('district').value = localStorage.getItem(prefix + 'district') || '';
+            document.getElementById('state').value = localStorage.getItem(prefix + 'state') || '';
+        }
+
+        function saveFormData() {
+            localStorage.setItem(prefix + 'name', document.getElementById('name').value);
+            localStorage.setItem(prefix + 'phone', document.getElementById('phone').value);
+            localStorage.setItem(prefix + 'org', document.getElementById('org').value);
+            localStorage.setItem(prefix + 'desig', document.getElementById('designation').value);
+            localStorage.setItem(prefix + 'district', document.getElementById('district').value);
+            localStorage.setItem(prefix + 'state', document.getElementById('state').value);
+        }
+
+        function generateCertificate(e) {
+            e.preventDefault();
+            saveFormData();
+
+            const name = document.getElementById('name').value;
+            const designation = document.getElementById('designation').value;
+            const org = document.getElementById('org').value;
+            const district = document.getElementById('district').value;
+            const state = document.getElementById('state').value;
+            const experience = document.getElementById('experience').value;
+            const email = document.getElementById('email').value;
+
+            const areas = [];
+            document.querySelectorAll('input[name="areas"]:checked').forEach(cb => {
+                areas.push(cb.value);
+            });
+
+            const l1Score = Math.floor(Math.random() * 30) + 70;
+            const l2Score = Math.floor(Math.random() * 30) + 70;
+            const l3Score = Math.floor(Math.random() * 30) + 70;
+            const finalScore = (l1Score + l2Score + l3Score) / 3;
+
+            let grade = 'Pass';
+            if (finalScore >= 90) grade = 'Distinction';
+            else if (finalScore >= 80) grade = 'Merit';
+
+            const certId = 'JPF-PL-FINAL-' + Date.now();
+            const today = new Date().toLocaleDateString('en-IN', {year: 'numeric', month: 'long', day: 'numeric'});
+
+            document.getElementById('cert-name').textContent = name;
+            document.getElementById('cert-id').textContent = 'Certificate ID: ' + certId;
+            document.getElementById('cert-grade').textContent = grade + ' (' + finalScore.toFixed(1) + '%)';
+            document.getElementById('cert-date').textContent = today;
+            document.getElementById('p-name').textContent = name;
+            document.getElementById('p-designation').textContent = designation || 'Not specified';
+            document.getElementById('p-org').textContent = org || 'Not specified';
+            document.getElementById('p-district').textContent = district;
+            document.getElementById('p-state').textContent = state;
+            document.getElementById('p-experience').textContent = experience + ' years';
+            document.getElementById('p-areas').textContent = areas.length > 0 ? areas.join(', ') : 'Not specified';
+
+            document.getElementById('form-content').style.display = 'none';
+            document.getElementById('certificate-content').classList.add('show');
+
+            localStorage.setItem(prefix + 'final_done', 'true');
+        }
+
+        function printCertificate() {
+            window.print();
+        }
+
+        function downloadCertificate() {
+            const element = document.getElementById('certificate-content');
+            const opt = {
+                margin: 10,
+                filename: 'JPF-Paralegal-Certificate.pdf',
+                image: {type: 'jpeg', quality: 0.98},
+                html2canvas: {scale: 2},
+                jsPDF: {orientation: 'landscape', unit: 'mm', format: 'a4'}
+            };
+            alert('PDF download feature requires html2pdf library. Use browser Print to PDF instead (Ctrl+P on Windows, Cmd+P on Mac).');
+        }
+
+        document.getElementById('cert-form').addEventListener('submit', generateCertificate);
+        document.getElementById('contact-btn').addEventListener('click', () => {
+            document.getElementById('contact-modal').classList.add('active');
+        });
+
+        checkAccess();
+    </script>
+</body>
+</html>

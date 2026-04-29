@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1: Complete Legislative Framework - Lawyer Track</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0505, #4a0a0a, #8b1a1a);
+            color: #f0f0f0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(0,0,0,0.4);
+            padding: 30px;
+            border-left: 5px solid #ffd700;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: #ffd700;
+            margin-bottom: 10px;
+            font-size: 2rem;
+        }
+        
+        .header p {
+            color: #d4af37;
+            margin: 5px 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .content {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d4af3755;
+        }
+        
+        .subsection {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+        
+        .subsection h3 {
+            color: #d4af37;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+        
+        .subsection p {
+            color: #e0e0e0;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .law-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+        }
+        
+        .law-table th {
+            background: rgba(212, 175, 55, 0.15);
+            color: #ffd700;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .law-table td {
+            padding: 12px;
+            border-bottom: 1px solid #d4af3744;
+        }
+        
+        .law-table tr:hover {
+            background: rgba(212, 175, 55, 0.08);
+        }
+        
+        .highlight {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #ffd700;
+            font-weight: 500;
+        }
+        
+        .quiz-section {
+            background: rgba(0,0,0,0.5);
+            padding: 30px;
+            border-left: 5px solid #d4af37;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .quiz-section h2 {
+            color: #ffd700;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+        }
+        
+        .question {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border-left: 3px solid #d4af37;
+        }
+        
+        .question p {
+            color: #f0f0f0;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+        
+        .options {
+            margin-left: 20px;
+        }
+        
+        .option {
+            margin: 10px 0;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            color: #e0e0e0;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #1a0505;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255,215,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(212, 175, 55, 0.2);
+            color: #ffd700;
+            border: 1px solid #d4af37;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.35);
+        }
+        
+        .result {
+            display: none;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result.pass {
+            background: rgba(74, 222, 128, 0.15);
+            border: 2px solid #4ade80;
+            color: #4ade80;
+        }
+        
+        .result.fail {
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid #ef4444;
+            color: #ef4444;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .law-table {
+                font-size: 0.8rem;
+            }
+            
+            .law-table th, .law-table td {
+                padding: 8px;
+            }
+            
+            .controls {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Lawyer Track</a>
+        
+        <div class="header">
+            <h1>Level 1: Complete Legislative Framework</h1>
+            <p>POCSO, JJ Act & All Child Laws</p>
+            <p style="font-size: 0.9rem; margin-top: 10px;">Comprehensive legislative map for practising lawyers handling child rights cases</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>SECTION 1: POCSO Act 2012 — Complete Legislative Map</h2>
+                
+                <div class="subsection">
+                    <h3>Pre-Legislative History</h3>
+                    <p><span class="highlight">Sakshi v. UOI (2004)</span> — Supreme Court found IPC inadequate for child sexual assault. This judgment led to POCSO enactment in 2012 as specialized legislation for child sexual abuse.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Definitional Framework</h3>
+                    <p><span class="highlight">Section 2(d)</span> — "child" means any person below 18 years. Includes both male and female children.</p>
+                    <p><span class="highlight">Section 3</span> — "Penetrative sexual assault" — Penetration of vagina/anus/mouth with penis/object/any body part with sexual intent. Punishment: 7-10 years, fine up to ₹15 lakhs.</p>
+                    <p><span class="highlight">Section 5</span> — "Aggravated penetrative sexual assault" — 17 aggravating circumstances (police, teacher, caregiver, acts causing grievous injury, etc.). Punishment: 10-14 years, fine up to ₹21 lakhs.</p>
+                    <p><span class="highlight">Section 7</span> — "Sexual assault" — Intentional touching/making child touch for sexual gratification. Punishment: 3-5 years, fine up to ₹10 lakhs.</p>
+                    <p><span class="highlight">Section 9</span> — "Aggravated sexual assault" — Similar aggravating factors. Punishment: 5-7 years, fine up to ₹15 lakhs.</p>
+                    <p><span class="highlight">Section 11</span> — "Sexual harassment" — Inappropriate remarks, physical conduct, demand for sexual favor. Punishment: 3 months-2 years, fine up to ₹6 lakhs.</p>
+                    <p><span class="highlight">Section 13</span> — "Pornography" — Producing/distributing/possessing child sexual abuse material (CSAM). Punishment: 3 months-3 years, fine up to ₹5 lakhs.</p>
+                    <p><span class="highlight">Section 15</span> — "Storing CSAM" — Punishment: 3 months-3 years, fine up to ₹5 lakhs.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Punishment Structure (With 2019 Amendments)</h3>
+                    <table class="law-table">
+                        <tr>
+                            <th>Offence</th>
+                            <th>Section</th>
+                            <th>Punishment</th>
+                        </tr>
+                        <tr>
+                            <td>Penetrative Sexual Assault</td>
+                            <td>3</td>
+                            <td>7-10 years RI + fine up to ₹15L</td>
+                        </tr>
+                        <tr>
+                            <td>Aggravated Penetrative Assault</td>
+                            <td>5</td>
+                            <td>10-14 years RI + fine up to ₹21L</td>
+                        </tr>
+                        <tr>
+                            <td>Sexual Assault</td>
+                            <td>7</td>
+                            <td>3-5 years RI + fine up to ₹10L</td>
+                        </tr>
+                        <tr>
+                            <td>Aggravated Sexual Assault</td>
+                            <td>9</td>
+                            <td>5-7 years RI + fine up to ₹15L</td>
+                        </tr>
+                        <tr>
+                            <td>Sexual Harassment</td>
+                            <td>11</td>
+                            <td>3M-2 years RI + fine up to ₹6L</td>
+                        </tr>
+                        <tr>
+                            <td>Pornography/Producing CSAM</td>
+                            <td>13</td>
+                            <td>3M-3 years RI + fine up to ₹5L</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Chapter IV: Procedures</h3>
+                    <p><span class="highlight">Section 19</span> — Mandatory reporting by any person who knows of child sexual abuse. Failure to report is not criminalized but duty exists.</p>
+                    <p><span class="highlight">Section 20</span> — Media cannot identify child in news reporting.</p>
+                    <p><span class="highlight">Section 21</span> — Failure to report by professionals (doctors, teachers, officers) does not attract criminal punishment but violates duty.</p>
+                    <p><span class="highlight">Section 22</span> — False complaint with knowledge of falsity is punishable. Defense must prove knowledge of falsity; benefit of doubt goes to complainant.</p>
+                    <p><span class="highlight">Section 23</span> — Identity of child protected; use pseudonym in all proceedings.</p>
+                    <p><span class="highlight">Section 24</span> — Child's statement recorded by trained official; preferably female; in child-friendly manner.</p>
+                    <p><span class="highlight">Section 25</span> — Magistrate can record child's statement under CrPC Section 164; conducted by trained officer.</p>
+                    <p><span class="highlight">Section 26</span> — Medical examination of child with consent; refusal not to be held against child.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Chapter V: Special Courts</h3>
+                    <p><span class="highlight">Section 28</span> — Designation of Special Courts by High Court; preferably one per district.</p>
+                    <p><span class="highlight">Section 29</span> — <strong>Presumption of guilt</strong> — Once child's testimony is found credible, presumption shifts to accused; accused must prove innocence. Major evidentiary advantage to prosecution.</p>
+                    <p><span class="highlight">Section 30</span> — Presumption re culpable mental state; if physical injury evident, presumption that accused knew child was below 18.</p>
+                    <p><span class="highlight">Section 31</span> — Special Court conduct trial; CrPC applies; but child-friendly modifications mandatory.</p>
+                    <p><span class="highlight">Section 33</span> — Child-friendly trial atmosphere; trained judges; protective measures during examination.</p>
+                    <p><span class="highlight">Section 35</span> — <strong>Trial within 1 year</strong> of FIR; compliance monitored by High Court.</p>
+                    <p><span class="highlight">Section 36</span> — Protection of child from accused during trial; separate entrance; protective screens.</p>
+                    <p><span class="highlight">Section 37</span> — In-camera trial mandatory; privacy of child protected.</p>
+                    <p><span class="highlight">Section 38</span> — Public Prosecutor for prosecution; Central government to provide.</p>
+                    <p><span class="highlight">Section 39</span> — Support person during trial; social worker/family member.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Chapter VI: Victim Compensation</h3>
+                    <p><span class="highlight">Section 33(8)</span> — Interim compensation; Special Court can direct state to pay pending trial.</p>
+                    <p><span class="highlight">POCSO Rules 2020 Rule 7</span> — Compensation guidelines; quantum depends on aggravation and injury.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>POCSO Rules 2020 — Key Changes from 2012 Rules</h3>
+                    <p>— Extended support person role; can be present during all interactions with child</p>
+                    <p>— SJPU (Special Juvenile Police Unit) protocols for child handling</p>
+                    <p>— Child-friendly atmosphere in police stations; separate rooms for recording statements</p>
+                    <p>— Video recording of child's statement mandatory; can be used in evidence</p>
+                    <p>— Section 34: Child not to be called to police station; statement recorded at safe location</p>
+                    <p>— Section 35: Trial within 1 year of FIR registration</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>SECTION 2: JJ Act 2015 — Complete with 2021 Amendment</h2>
+                
+                <div class="subsection">
+                    <h3>2021 Amendment — Key Changes</h3>
+                    <p>(1) <span class="highlight">DM/ADM</span> now have quasi-judicial powers for Child Care Institution oversight — previously only JJB/CWC</p>
+                    <p>(2) <span class="highlight">Adoption orders</span> now by District Magistrate, not Child Welfare Committee (though CWC prepares report)</p>
+                    <p>(3) <span class="highlight">Definitions expanded</span> — CNCP, CCL definitions broadened</p>
+                    <p>(4) <span class="highlight">Stricter CCI registration</span> — Fingerprint verification, character certificates mandatory; surprise inspections</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>CNCP — Child in Need of Care and Protection (Sec 2(14))</h3>
+                    <p>Includes 11 clauses: orphan, disabled, exploited, abused, POCSO victim, victim of trafficking, at risk of trafficking, substance abuse, no safe place, without education, extreme poverty.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>CCL — Child in Conflict with Law (Sec 2(13))</h3>
+                    <p>Child involved in conduct constituting offence under criminal law; requires rehabilitation not punishment; focus on restoration.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>CWC — Child Welfare Committee (Sec 27-40)</h3>
+                    <p>Powers: Inquiry into cases, issue orders for child's welfare. Composition: one chairperson + 4 members. Orders available: release to parent/guardian, placement in CCI, sponsorship, foster care, adoption.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>JJB — Juvenile Justice Board (Sec 4-26)</h3>
+                    <p>Composition: one Magistrate + two social workers. Bail (Sec 12): Presumption of liberty; bail generally granted unless serious danger. Preliminary assessment (Sec 15): Nature of offense, child's background, rehabilitation potential. Orders (Sec 18): Probation, community service, transfer to court (for 16-18 year old in heinous crime), etc.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Child Care Institutions (Sec 50-73)</h3>
+                    <p>Types: Children's homes, open shelters, observation homes, special homes (for CCL), after-care centers. Registration now stricter post-2021. Inspection: Monthly by DM/ADM; Surprise inspections by JJB.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Rehabilitation (Sec 39-48)</h3>
+                    <p>Restoration: Return to family where safe. Foster care: Temporary arrangement. Sponsorship: Economic support while child remains at home. Adoption: Permanent alternative. After-care: Support post-18.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>DCPU — District Child Protection Unit (Sec 106)</h3>
+                    <p>SIR (Social Investigation Report), ICP (Initial Care Plan), case management.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>SECTION 3: Allied Legislation</h2>
+                
+                <div class="subsection">
+                    <h3>Child Labour (Prohibition and Regulation) Amendment Act 2016</h3>
+                    <p><span class="highlight">Complete ban below 14 years</span> — No child labour permitted. <span class="highlight">Ban below 18</span> in hazardous occupation/processes (mining, manufacturing explosives, etc.). Exceptions: family business, entertainment, sports. Penalties enhanced: ₹1-3 lakhs fine, 3-5 years imprisonment.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Prohibition of Child Marriage Act (PCMA) 2006</h3>
+                    <p><span class="highlight">Void vs. Voidable</span> (Sec 3, 12): Child's marriage voided if either party below 18. <span class="highlight">Preventive injunction</span> (Sec 13): District Judge can prevent threatened marriage. Role of <span class="highlight">Prohibition Officers</span>: District administration appoints officers to prevent marriages.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Right to Free and Compulsory Education Act (RTE) 2009</h3>
+                    <p><span class="highlight">Article 21A implementation</span> — Education as fundamental right. <span class="highlight">Neighbourhood school</span> concept: Child has right to school near residence. <span class="highlight">Section 12(1)(c)</span> — 25% reservation in private schools for economically weaker sections. <span class="highlight">Section 17</span> — Prohibition on physical punishment; corporal punishment banned. <span class="highlight">No-detention policy</span> — Child cannot be detained in same class; continuous evaluation.</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>CNCP-CCL Overlap</h3>
+                    <p>When POCSO victim is also in conflict with law (e.g., child victim who committed petty crime to survive): JJ Act principles apply; focus on rehabilitation; child's victim status takes precedence; special support arrangements.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>SECTION 4: BNS/BNSS Provisions (New Criminal Laws)</h2>
+                
+                <div class="subsection">
+                    <h3>Bhartiya Nyaya Sanhita (BNS) — Relevant Sections</h3>
+                    <p><span class="highlight">Section 94</span> — Trafficking (general)</p>
+                    <p><span class="highlight">Section 95</span> — Trafficking of child for exploitation — Enhanced to 14 years minimum punishment (previously 7 years)</p>
+                    <p><span class="highlight">Section 96</span> — Exploitation of trafficked person</p>
+                    <p><span class="highlight">Sections 74, 75, 76</span> — Offences against women and children; rape and gang rape</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Bhartiya Nagrik Suraksha Sanhita (BNSS) — Relevant Sections</h3>
+                    <p><span class="highlight">Section 163</span> — Statement recording (former CrPC Section 161)</p>
+                    <p><span class="highlight">Section 183</span> — Magistrate statement (former Section 164)</p>
+                    <p><span class="highlight">Section 176</span> — Inquest (former Section 174)</p>
+                    <p><span class="highlight">Section 528</span> — Inherent powers (former Section 482 CrPC)</p>
+                </div>
+                
+                <div class="subsection">
+                    <h3>Transitional Provisions</h3>
+                    <p>Cases registered <span class="highlight">before July 1, 2024</span> continue under old IPC/CrPC. <span class="highlight">New cases from July 1, 2024</span> onwards under BNS/BNSS. Practitioners must be conversant with both regimes during transition period.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quiz-section">
+            <h2>Assessment: 20 Questions</h2>
+            <form id="quizForm">
+                <div class="question">
+                    <p>1. Which Supreme Court judgment found IPC inadequate for child sexual assault and led to POCSO enactment?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q1" value="a"> A. Nipun Saxena v. UOI</div>
+                        <div class="option"><input type="radio" name="q1" value="b"> B. Sakshi v. UOI (2004)</div>
+                        <div class="option"><input type="radio" name="q1" value="c"> C. Alakh Alok v. UOI</div>
+                        <div class="option"><input type="radio" name="q1" value="d"> D. Asha Ranjan v. State</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>2. Section 29 POCSO creates which legal presumption?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q2" value="a"> A. Presumption of child's age</div>
+                        <div class="option"><input type="radio" name="q2" value="b"> B. Presumption of guilt once child's testimony is found credible</div>
+                        <div class="option"><input type="radio" name="q2" value="c"> C. Presumption of innocence</div>
+                        <div class="option"><input type="radio" name="q2" value="d"> D. Presumption of motive</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>3. What is the punishment for Aggravated Penetrative Sexual Assault under Section 5 POCSO?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q3" value="a"> A. 3-5 years</div>
+                        <div class="option"><input type="radio" name="q3" value="b"> B. 5-7 years</div>
+                        <div class="option"><input type="radio" name="q3" value="c"> C. 7-10 years</div>
+                        <div class="option"><input type="radio" name="q3" value="d"> D. 10-14 years with fine up to ₹21 lakhs</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>4. Under Section 22 POCSO, who bears the burden of proving falsity of complaint?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q4" value="a"> A. Prosecution must prove complaint is true</div>
+                        <div class="option"><input type="radio" name="q4" value="b"> B. Accused must prove complaint is false with knowledge of falsity</div>
+                        <div class="option"><input type="radio" name="q4" value="c"> C. Child must prove complaint is true</div>
+                        <div class="option"><input type="radio" name="q4" value="d"> D. Police must investigate without presumption</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>5. What is the mandatory time limit for POCSO trial completion?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q5" value="a"> A. 6 months</div>
+                        <div class="option"><input type="radio" name="q5" value="b"> B. 1 year (Section 35)</div>
+                        <div class="option"><input type="radio" name="q5" value="c"> C. 2 years</div>
+                        <div class="option"><input type="radio" name="q5" value="d"> D. 3 years</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>6. CNCP definition (Section 2(14) JJ Act) includes how many categories?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q6" value="a"> A. 8 categories</div>
+                        <div class="option"><input type="radio" name="q6" value="b"> B. 10 categories</div>
+                        <div class="option"><input type="radio" name="q6" value="c"> C. 11 categories</div>
+                        <div class="option"><input type="radio" name="q6" value="d"> D. 13 categories</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>7. Under PCMA 2006, a child marriage where both parties are below 18 is:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q7" value="a"> A. Valid but voidable by either party</div>
+                        <div class="option"><input type="radio" name="q7" value="b"> B. Valid and binding</div>
+                        <div class="option"><input type="radio" name="q7" value="c"> C. Void and cannot be enforced</div>
+                        <div class="option"><input type="radio" name="q7" value="d"> D. Voidable only by guardian</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>8. RTE Act 2009 mandates what percentage of seats for EWS in private schools?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q8" value="a"> A. 20%</div>
+                        <div class="option"><input type="radio" name="q8" value="b"> B. 25% (Section 12(1)(c))</div>
+                        <div class="option"><input type="radio" name="q8" value="c"> C. 33%</div>
+                        <div class="option"><input type="radio" name="q8" value="d"> D. 50%</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>9. Which amendment to Child Labour Act 2016 increased penalties to ₹1-3 lakhs fine?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q9" value="a"> A. 2015 Amendment</div>
+                        <div class="option"><input type="radio" name="q9" value="b"> B. 2016 Amendment</div>
+                        <div class="option"><input type="radio" name="q9" value="c"> C. 2019 Amendment</div>
+                        <div class="option"><input type="radio" name="q9" value="d"> D. 2021 Amendment</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>10. JJ Act 2021 Amendment made adoption orders issued by whom?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q10" value="a"> A. Child Welfare Committee only</div>
+                        <div class="option"><input type="radio" name="q10" value="b"> B. Juvenile Justice Board</div>
+                        <div class="option"><input type="radio" name="q10" value="c"> C. District Magistrate (not CWC)</div>
+                        <div class="option"><input type="radio" name="q10" value="d"> D. High Court</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>11. Section 30 POCSO presumes which mental element?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q11" value="a"> A. Intent to harm</div>
+                        <div class="option"><input type="radio" name="q11" value="b"> B. Knowledge that child is below 18 (when injury evident)</div>
+                        <div class="option"><input type="radio" name="q11" value="c"> C. Premeditation</div>
+                        <div class="option"><input type="radio" name="q11" value="d"> D. Criminal conspiracy</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>12. POCSO Rules 2020 Rule 7 governs which aspect?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q12" value="a"> A. Medical examination protocol</div>
+                        <div class="option"><input type="radio" name="q12" value="b"> B. Victim compensation guidelines</div>
+                        <div class="option"><input type="radio" name="q12" value="c"> C. Trial procedure</div>
+                        <div class="option"><input type="radio" name="q12" value="d"> D. Police investigation</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>13. In JJ Act, which body has quasi-judicial powers for CCI oversight post-2021?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q13" value="a"> A. CWC only</div>
+                        <div class="option"><input type="radio" name="q13" value="b"> B. JJB only</div>
+                        <div class="option"><input type="radio" name="q13" value="c"> C. DM/ADM (quasi-judicial powers added)</div>
+                        <div class="option"><input type="radio" name="q13" value="d"> D. High Court</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>14. Section 39 POCSO provides for which right?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q14" value="a"> A. Right to legal counsel</div>
+                        <div class="option"><input type="radio" name="q14" value="b"> B. Support person during trial</div>
+                        <div class="option"><input type="radio" name="q14" value="c"> C. Right to cross-examination</div>
+                        <div class="option"><input type="radio" name="q14" value="d"> D. Right to appeal</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>15. BNS Section 95 (child trafficking for exploitation) mandates minimum imprisonment of:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q15" value="a"> A. 7 years</div>
+                        <div class="option"><input type="radio" name="q15" value="b"> B. 10 years</div>
+                        <div class="option"><input type="radio" name="q15" value="c"> C. 14 years (increased from 7)</div>
+                        <div class="option"><input type="radio" name="q15" value="d"> D. Life imprisonment</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>16. RTE Act Section 17 prohibits which practice in schools?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q16" value="a"> A. Exclusion of poor students</div>
+                        <div class="option"><input type="radio" name="q16" value="b"> B. Physical punishment and corporal punishment</div>
+                        <div class="option"><input type="radio" name="q16" value="c"> C. Homework assignment</div>
+                        <div class="option"><input type="radio" name="q16" value="d"> D. Detention after school</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>17. Which section defines "child" as any person below 18 years?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q17" value="a"> A. Section 2(c)</div>
+                        <div class="option"><input type="radio" name="q17" value="b"> B. Section 2(d) POCSO</div>
+                        <div class="option"><input type="radio" name="q17" value="c"> C. Section 2(a) JJ Act</div>
+                        <div class="option"><input type="radio" name="q17" value="d"> D. Section 2(e) PCMA</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>18. Transitional provisions in BNS/BNSS mean cases registered before July 1, 2024 continue under:</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q18" value="a"> A. BNS/BNSS only</div>
+                        <div class="option"><input type="radio" name="q18" value="b"> B. Old IPC/CrPC</div>
+                        <div class="option"><input type="radio" name="q18" value="c"> C. Either IPC/CrPC or BNS/BNSS (prosecutor's choice)</div>
+                        <div class="option"><input type="radio" name="q18" value="d"> D. Special POCSO provisions only</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>19. What is the threshold for conviction in POCSO given Section 29's presumption?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q19" value="a"> A. Accused must prove innocence (reverse burden)</div>
+                        <div class="option"><input type="radio" name="q19" value="b"> B. Child's credible testimony shifts presumption; accused must prove guilt beyond doubt</div>
+                        <div class="option"><input type="radio" name="q19" value="c"> C. Prosecution still bears standard burden of proof beyond doubt (presumption aids evidentiary evaluation)</div>
+                        <div class="option"><input type="radio" name="q19" value="d"> D. Any evidence of assault suffices</div>
+                    </div>
+                </div>
+                
+                <div class="question">
+                    <p>20. Which of the following is NOT a category in CNCP definition?</p>
+                    <div class="options">
+                        <div class="option"><input type="radio" name="q20" value="a"> A. Orphan child</div>
+                        <div class="option"><input type="radio" name="q20" value="b"> B. Child victim of trafficking</div>
+                        <div class="option"><input type="radio" name="q20" value="c"> C. Child with parental conflict</div>
+                        <div class="option"><input type="radio" name="q20" value="d"> D. Child in extreme poverty</div>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <button type="button" class="btn btn-secondary" onclick="resetQuiz()">Reset</button>
+                    <button type="submit" class="btn btn-primary">Submit Assessment</button>
+                </div>
+            </form>
+            
+            <div id="result" class="result"></div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>Janman People's Foundation — Child Rights Legal Training</p>
+    </div>
+    
+    <script>
+        const correctAnswers = {
+            q1: 'b', q2: 'b', q3: 'd', q4: 'b', q5: 'b',
+            q6: 'c', q7: 'c', q8: 'b', q9: 'b', q10: 'c',
+            q11: 'b', q12: 'b', q13: 'c', q14: 'b', q15: 'c',
+            q16: 'b', q17: 'b', q18: 'b', q19: 'c', q20: 'c'
+        };
+        
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let score = 0;
+            for (let i = 1; i <= 20; i++) {
+                const questionName = 'q' + i;
+                const selected = document.querySelector(`input[name="${questionName}"]:checked`);
+                if (selected && selected.value === correctAnswers[questionName]) {
+                    score++;
+                }
+            }
+            
+            const percentage = (score / 20) * 100;
+            const resultDiv = document.getElementById('result');
+            const passed = percentage >= 70;
+            
+            resultDiv.innerHTML = `<div>Score: ${score}/20 (${percentage.toFixed(1)}%)</div>
+            <div>${passed ? 'PASS — Excellent understanding of legislative framework. Proceed to Level 2.' : 'Please review material and retake. Focus on POCSO Sections 29-30, JJ Act 2021 changes, and BNS provisions.'}</div>`;
+            resultDiv.className = 'result show ' + (passed ? 'pass' : 'fail');
+            
+            if (passed) {
+                localStorage.setItem('janman_lw_l1_done', 'true');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 3000);
+            }
+        });
+        
+        function resetQuiz() {
+            document.getElementById('quizForm').reset();
+            document.getElementById('result').className = 'result';
+        }
+    </script>
+</body>
+</html>

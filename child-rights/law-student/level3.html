@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 3: PIL & Constitutional Remedies — Law Student | Janman</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#080f30,#141f5c,#1e2f8a);min-height:100vh;color:#fff;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(0,0,0,0.25);}
+.nav-back{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;}
+.level-tag{background:rgba(255,255,255,0.15);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;}
+.hero{text-align:center;padding:40px 20px 28px;}
+.hero h1{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:8px;}
+.hero p{color:rgba(255,255,255,0.8);font-size:14px;max-width:600px;margin:0 auto;}
+.container{max-width:860px;margin:0 auto;padding:0 20px 60px;}
+.section{background:rgba(255,255,255,0.07);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.14);border-radius:18px;padding:28px;margin-bottom:20px;}
+.section h2{font-size:18px;font-weight:700;margin-bottom:16px;}
+.section h3{font-size:15px;font-weight:700;margin:18px 0 10px;color:#74c7ff;}
+.art-block{background:rgba(0,0,0,0.25);border-left:4px solid #3498db;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.art-block .art-num{font-size:11px;font-weight:700;letter-spacing:1px;color:#74c7ff;text-transform:uppercase;margin-bottom:4px;}
+.important{background:rgba(231,76,60,0.2);border:1px solid rgba(231,76,60,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.important::before{content:'⚠️ ';}
+.tip{background:rgba(39,174,96,0.2);border:1px solid rgba(39,174,96,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.tip::before{content:'✅ ';}
+.case-block{background:linear-gradient(135deg,rgba(52,152,219,0.1),rgba(41,128,185,0.05));border:1px solid rgba(52,152,219,0.3);border-radius:14px;padding:18px;margin:14px 0;}
+.case-block .case-name{font-size:14px;font-weight:700;color:#74c7ff;margin-bottom:6px;}
+.case-block .case-cite{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:10px;font-style:italic;}
+.case-block .case-principle{font-size:13px;line-height:1.65;color:rgba(255,255,255,0.85);}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+th{background:rgba(0,0,0,0.3);padding:10px 12px;text-align:left;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.08);}
+p{font-size:14px;line-height:1.75;margin-bottom:10px;}
+ul,ol{padding-left:20px;font-size:14px;line-height:1.8;}
+ul li,ol li{margin-bottom:6px;}
+.step-list{counter-reset:steps;list-style:none;padding:0;}
+.step-list li{counter-increment:steps;padding:10px 14px 10px 46px;position:relative;font-size:14px;line-height:1.65;border-bottom:1px solid rgba(255,255,255,0.06);}
+.step-list li::before{content:counter(steps);position:absolute;left:10px;top:11px;background:#2980b9;color:#fff;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;}
+.quiz-section{background:rgba(0,0,0,0.3);border-radius:20px;padding:32px;margin-top:20px;}
+.quiz-section h2{font-size:20px;font-weight:800;margin-bottom:6px;text-align:center;}
+.quiz-subtitle{text-align:center;color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:24px;}
+.question-block{background:rgba(255,255,255,0.06);border-radius:14px;padding:20px;margin-bottom:16px;}
+.q-num{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+.q-text{font-size:15px;font-weight:600;margin-bottom:14px;line-height:1.5;}
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);transition:all 0.2s;font-size:14px;}
+.opt:hover{background:rgba(255,255,255,0.1);}
+.opt.correct{background:rgba(39,174,96,0.25)!important;border-color:#27ae60!important;}
+.opt.wrong{background:rgba(231,76,60,0.25)!important;border-color:#e74c3c!important;}
+.opt.disabled{cursor:not-allowed;pointer-events:none;}
+.opt-letter{font-weight:700;min-width:18px;color:#74c7ff;}
+.score-block{display:none;text-align:center;padding:28px;background:rgba(255,255,255,0.08);border-radius:16px;margin-top:20px;}
+.score-num{font-size:52px;font-weight:800;margin-bottom:8px;}
+.score-pass{color:#6be878;}
+.score-fail{color:#ff7675;}
+.submit-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#2980b9,#1565c0);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin-top:20px;}
+.cert-section{display:none;background:rgba(255,255,255,0.06);border-radius:20px;padding:28px;margin-top:20px;}
+.cert-section h3{font-size:18px;font-weight:700;margin-bottom:16px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:5px;}
+.form-group input{width:100%;padding:10px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-size:14px;font-family:inherit;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.gen-cert-btn{display:block;width:100%;padding:14px;background:linear-gradient(135deg,#2980b9,#1565c0);border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;}
+.cert-display{display:none;background:linear-gradient(135deg,#050a20,#0d1440,#1a2580);border:3px solid #3498db;border-radius:16px;padding:32px;margin-top:20px;text-align:center;}
+.cert-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#74c7ff;margin-bottom:8px;}
+.cert-name{font-size:28px;font-weight:800;margin-bottom:6px;}
+.cert-body{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px;}
+.cert-no{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:16px;}
+.cert-sign{font-family:'Dancing Script',cursive;font-size:24px;color:#74c7ff;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;margin-top:4px;}
+.cert-sign-label{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.print-btn{margin-top:14px;padding:10px 24px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:10px;color:#fff;font-weight:600;cursor:pointer;font-size:13px;}
+.final-unlock{background:linear-gradient(135deg,rgba(52,152,219,0.2),rgba(41,128,185,0.1));border:2px solid rgba(52,152,219,0.5);border-radius:16px;padding:20px;text-align:center;margin-top:20px;display:none;}
+.final-unlock h4{font-size:18px;font-weight:800;color:#74c7ff;margin-bottom:8px;}
+.final-btn{display:inline-block;padding:14px 28px;background:linear-gradient(135deg,#2980b9,#1565c0);border-radius:12px;color:#fff;font-weight:700;font-size:15px;text-decoration:none;margin-top:10px;}
+.contact-float{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.4);z-index:100;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 30px rgba(37,211,102,0.8);}}
+.contact-popup{display:none;position:fixed;bottom:90px;right:24px;background:#1e1e2e;border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:20px;width:260px;z-index:101;text-align:center;}
+.contact-popup h4{font-size:14px;font-weight:700;margin-bottom:6px;}
+.contact-popup p{font-size:12px;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+.contact-popup img{width:100px;height:100px;margin:0 auto 10px;display:block;border-radius:8px;}
+.wa-btn{display:block;padding:9px;background:#25d366;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;font-size:13px;}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <a href="index.html" class="nav-back">← Track Hub</a>
+  <span class="level-tag">📚 Law Student | Level 3 of 3</span>
+</div>
+<div class="hero">
+  <h1>⚖️ PIL, Constitutional Remedies & Advanced Child Rights</h1>
+  <p>Public Interest Litigation strategy, constitutional tort, international law in Indian courts, bail jurisprudence and moot scenarios</p>
+</div>
+<div class="container">
+
+<div class="section">
+<h2>🏛️ Public Interest Litigation for Child Rights</h2>
+<p>PIL is the most powerful tool for systemic child rights enforcement in India. Since Bandhua Mukti Morcha (1984), the SC has relaxed locus standi — <em>any person acting bona fide in the public interest</em> can file a PIL for child rights violations.</p>
+<h3>Locus Standi in Child Rights PILs</h3>
+<div class="case-block">
+  <div class="case-name">Bandhua Mukti Morcha v. Union of India</div>
+  <div class="case-cite">(1984) 3 SCC 161</div>
+  <div class="case-principle">Any member of public having sufficient interest can approach SC under Art 32 or HC under Art 226 for enforcement of fundamental rights of the poor. Letter to court treated as writ petition. Epistolary jurisdiction established.</div>
+</div>
+<div class="case-block">
+  <div class="case-name">PUDR v. Union of India</div>
+  <div class="case-cite">(1982) 3 SCC 235</div>
+  <div class="case-principle">For enforcement of rights under Art 21/23, third-party can file — court does not require the actual victim to be the petitioner. Extended access to justice for voiceless populations including children.</div>
+</div>
+<h3>When to File PIL vs. Individual Writ</h3>
+<table>
+<tr><th>Factor</th><th>PIL</th><th>Individual Writ</th></tr>
+<tr><td>Issue</td><td>Systemic failure — many children affected</td><td>Individual child's specific grievance</td></tr>
+<tr><td>Standing</td><td>Any person, NGO, lawyer</td><td>Aggrieved person or guardian</td></tr>
+<tr><td>Court</td><td>HC (Art 226) or SC (Art 32)</td><td>HC (Art 226) usually preferred</td></tr>
+<tr><td>Relief</td><td>Directions to government; policy changes; monitoring</td><td>Specific mandamus, compensation, habeas corpus</td></tr>
+<tr><td>Time</td><td>Longer — monitoring required</td><td>Can be faster for urgent cases</td></tr>
+</table>
+<h3>Steps to File a Child Rights PIL</h3>
+<ol class="step-list">
+  <li><strong>Identify the systemic violation</strong> — POCSO pendency? CCI abuse? Child labour persistence? Child marriage? Lack of SJPU?</li>
+  <li><strong>Gather evidence</strong> — RTI data, media reports, NCPCR reports, HC reports, academic studies</li>
+  <li><strong>Draft petition</strong> — Facts, constitutional provisions violated, reliefs sought, urgency</li>
+  <li><strong>Choose court</strong> — State-level = High Court (Art 226); national = SC (Art 32)</li>
+  <li><strong>File with affidavit</strong> — Attach evidence; submit to HC/SC Registry</li>
+  <li><strong>Seek interim directions</strong> — If urgent, apply for interim mandamus at first hearing</li>
+  <li><strong>Monitoring</strong> — Participate in compliance reporting; engage amicus curiae if appointed</li>
+</ol>
+</div>
+
+<div class="section">
+<h2>💰 Constitutional Tort — Compensation under Art 32/226</h2>
+<div class="case-block">
+  <div class="case-name">Rudul Sah v. State of Bihar</div>
+  <div class="case-cite">(1983) 4 SCC 141</div>
+  <div class="case-principle">First case recognising right to compensation under Art 32 for violation of fundamental rights by state. SC held that power under Art 32 to issue directions includes power to award compensation. State cannot commit constitutional wrong and escape liability. Child rights violations by state can attract Rudul Sah damages.</div>
+</div>
+<div class="case-block">
+  <div class="case-name">Nilabati Behera v. State of Orissa</div>
+  <div class="case-cite">(1993) 2 SCC 746</div>
+  <div class="case-principle">SC awarded compensation for custodial death under Art 32/226. Distinguished from civil suit — public law remedy. State vicariously liable for acts of its officers. Constitutional tort doctrine firmly established. Applicable to cases of children dying or being harmed in institutional care (CCIs, observation homes).</div>
+</div>
+<div class="tip">For child rights cases: If a child dies or is harmed in a government CCI (observation home/children's home), constitutional tort under Nilabati is available directly in HC under Art 226. No need to wait for criminal conviction.</div>
+<h3>Art 32 vs. Art 226 for Child Rights</h3>
+<div class="art-block">
+  <div class="art-num">Strategic Comparison</div>
+  Art 32 (SC): Can award monetary compensation; broader reach for national issues; constitutional tort fully developed. Art 226 (HC): Wider scope — can enforce statutory rights, not just fundamental rights; faster access; can compel DM/state government action on POCSO/JJ Act failures; territorial jurisdiction.
+</div>
+</div>
+
+<div class="section">
+<h2>🌍 International Law in Indian Courts</h2>
+<h3>The Vishaka Approach</h3>
+<div class="case-block">
+  <div class="case-name">Vishaka v. State of Rajasthan</div>
+  <div class="case-cite">(1997) 6 SCC 241</div>
+  <div class="case-principle">In absence of domestic legislation on sexual harassment, SC used CEDAW (international convention) as interpretive aid and issued binding guidelines. Established that international conventions ratified by India can be used as interpretive tools for Art 14, 19, 21 even without domestic legislation implementing them.</div>
+</div>
+<h3>Using UNCRC in Child Rights Arguments</h3>
+<p>India ratified the UNCRC in 1992. Key provisions for litigation:</p>
+<table>
+<tr><th>UNCRC Article</th><th>Content</th><th>Domestic Application</th></tr>
+<tr><td>Art 1</td><td>Child = below 18</td><td>Supports POCSO's 18-year definition</td></tr>
+<tr><td>Art 3</td><td>Best interests of child — primary consideration</td><td>JJ Act Section 2(9); CWC decisions</td></tr>
+<tr><td>Art 12</td><td>Child's right to be heard in proceedings</td><td>Child's voice in CWC inquiry, court proceedings</td></tr>
+<tr><td>Art 19</td><td>Protection from violence, abuse, neglect</td><td>POCSO, JJ Act, mandatory reporting</td></tr>
+<tr><td>Art 34</td><td>Protection from sexual exploitation</td><td>POCSO; strengthens prosecution arguments</td></tr>
+<tr><td>Art 37</td><td>No torture; liberty deprivation as last resort</td><td>Bail-first principle in JJ Act</td></tr>
+<tr><td>Art 40</td><td>Rehabilitative approach for child offenders</td><td>JJ Act reformative purpose; Salil Bali</td></tr>
+</table>
+<div class="tip">Cite CRC Committee General Comments in PIL arguments. CRC Committee General Comment No. 13 (Violence against Children) and No. 25 (Digital Environment) are particularly powerful for POCSO-related arguments. Also cite CRC Committee's Concluding Observations on India's periodic reports.</div>
+</div>
+
+<div class="section">
+<h2>⚖️ Bail Jurisprudence in Child Cases</h2>
+<h3>Bail in POCSO Cases</h3>
+<p>POCSO has no specific bail restriction unlike NDPS, but courts exercise caution given the gravity of offences and child victim's vulnerability.</p>
+<div class="case-block">
+  <div class="case-name">Asha Ranjan v. State of Bihar</div>
+  <div class="case-cite">(2017) 4 SCC 397</div>
+  <div class="case-principle">Victim (or parent/guardian acting for child victim) has a right to oppose bail application. Victim's counsel can appear at bail hearings. Court must consider: (a) victim's safety if bail granted; (b) risk of witness tampering; (c) accused's proximity to victim; (d) nature of offence.</div>
+</div>
+<h3>Factors for Bail in Child Cases</h3>
+<ul>
+  <li>Severity of offence — aggravated penetrative sexual assault: courts very reluctant to grant bail</li>
+  <li>Accused's relationship to victim — family member/teacher/neighbour: heightened witness tampering risk</li>
+  <li>Risk of further abuse if bail granted</li>
+  <li>Whether trial is progressing — prolonged incarceration without trial also violates Art 21</li>
+  <li>Medical evidence: strong MLC evidence weighs against bail</li>
+</ul>
+<div class="art-block">
+  <div class="art-num">Anticipatory Bail in POCSO</div>
+  Available under Section 438 CrPC/BNSS 482. Courts increasingly reluctant to grant in heinous POCSO offences. If granted, strict conditions: no contact with victim/family, surrender passport, report to police station weekly, etc.
+</div>
+</div>
+
+<div class="section">
+<h2>🎭 Moot Scenario: "State of Bihar v. X"</h2>
+<div class="case-block">
+  <div class="case-name">Moot Problem: Child Rights — Multiple Issues</div>
+  <div class="case-cite">For Moot Court / Academic Exercise</div>
+  <div class="case-principle">
+<strong>Facts:</strong> X, a 35-year-old teacher at a private school in Patna, is accused of committing sexual assault (Section 7/8 POCSO) on "Y," a 13-year-old female student. FIR registered. X applies for bail. Medical examination done by male doctor (mother had refused woman doctor). Section 164 statement recorded at police station, not at child's residence. X claims Y's age is actually 14.5 years and the alleged act did not involve skin-to-skin contact, hence not "sexual assault."
+<br><br>
+<strong>Issues for Advocates:</strong><br>
+(1) Was medical examination procedurally valid? (No — woman doctor mandatory for girl child under Section 27 POCSO)<br>
+(2) Was Section 164 statement properly recorded? (No — must be at child's residence/place of choice, not police station)<br>
+(3) Does "no skin-to-skin contact" provide any defence? (No — AG v. Satish 2021 settled this)<br>
+(4) How to determine age — no birth certificate? (Abuzar Hossain methodology — school records first)<br>
+(5) Should bail be granted? (Asha Ranjan — victim's right to oppose; teacher-student power dynamic; risk to child)<br>
+(6) Identity of child disclosed in media report — what remedy? (Nipun Saxena; Section 23 POCSO; FIR against reporter)
+  </div>
+</div>
+</div>
+
+<div class="quiz-section" id="quizSection">
+<h2>📝 Level 3 Assessment</h2>
+<p class="quiz-subtitle">25 questions | Pass mark: 70% (18/25)</p>
+
+<div class="question-block"><div class="q-num">Q1 of 25</div><div class="q-text">The principle that any person can file a PIL for enforcement of child rights was established in:</div><div class="options" id="q1"><div class="opt" onclick="choose('q1','a',this)"><span class="opt-letter">A</span>Vishaka v. State of Rajasthan</div><div class="opt" onclick="choose('q1','b',this)"><span class="opt-letter">B</span>Bandhua Mukti Morcha v. Union of India (1984)</div><div class="opt" onclick="choose('q1','c',this)"><span class="opt-letter">C</span>Salil Bali v. UOI</div><div class="opt" onclick="choose('q1','d',this)"><span class="opt-letter">D</span>Gaurav Jain v. UOI</div></div></div>
+
+<div class="question-block"><div class="q-num">Q2 of 25</div><div class="q-text">Constitutional tort compensation under Art 32/226 was first recognized in:</div><div class="options" id="q2"><div class="opt" onclick="choose('q2','a',this)"><span class="opt-letter">A</span>Nilabati Behera v. State of Orissa</div><div class="opt" onclick="choose('q2','b',this)"><span class="opt-letter">B</span>Rudul Sah v. State of Bihar (1983)</div><div class="opt" onclick="choose('q2','c',this)"><span class="opt-letter">C</span>Asha Ranjan v. State of Bihar</div><div class="opt" onclick="choose('q2','d',this)"><span class="opt-letter">D</span>Bachpan Bachao Andolan case</div></div></div>
+
+<div class="question-block"><div class="q-num">Q3 of 25</div><div class="q-text">The Vishaka judgment established that international conventions can be used in Indian courts as:</div><div class="options" id="q3"><div class="opt" onclick="choose('q3','a',this)"><span class="opt-letter">A</span>Binding primary law</div><div class="opt" onclick="choose('q3','b',this)"><span class="opt-letter">B</span>Not applicable at all</div><div class="opt" onclick="choose('q3','c',this)"><span class="opt-letter">C</span>Interpretive aids for fundamental rights in absence of domestic legislation</div><div class="opt" onclick="choose('q3','d',this)"><span class="opt-letter">D</span>Only for criminal law purposes</div></div></div>
+
+<div class="question-block"><div class="q-num">Q4 of 25</div><div class="q-text">UNCRC Article 3 establishes:</div><div class="options" id="q4"><div class="opt" onclick="choose('q4','a',this)"><span class="opt-letter">A</span>Child's right to privacy</div><div class="opt" onclick="choose('q4','b',this)"><span class="opt-letter">B</span>Best interests of the child as a primary consideration in all actions</div><div class="opt" onclick="choose('q4','c',this)"><span class="opt-letter">C</span>Child's right to education</div><div class="opt" onclick="choose('q4','d',this)"><span class="opt-letter">D</span>Child's right to vote</div></div></div>
+
+<div class="question-block"><div class="q-num">Q5 of 25</div><div class="q-text">In the moot scenario, the accused argues "no skin-to-skin contact" — this defence is:</div><div class="options" id="q5"><div class="opt" onclick="choose('q5','a',this)"><span class="opt-letter">A</span>Valid — skin contact required under Section 7 POCSO</div><div class="opt" onclick="choose('q5','b',this)"><span class="opt-letter">B</span>Invalid — AG v. Satish (2021) settled that touch over clothing with sexual intent is sufficient</div><div class="opt" onclick="choose('q5','c',this)"><span class="opt-letter">C</span>Valid only if accused is a relative</div><div class="opt" onclick="choose('q5','d',this)"><span class="opt-letter">D</span>Valid in High Courts but not Supreme Court</div></div></div>
+
+<div class="question-block"><div class="q-num">Q6 of 25</div><div class="q-text">Art 226 of the Constitution gives the High Court power to issue writs for enforcement of:</div><div class="options" id="q6"><div class="opt" onclick="choose('q6','a',this)"><span class="opt-letter">A</span>Only fundamental rights</div><div class="opt" onclick="choose('q6','b',this)"><span class="opt-letter">B</span>Fundamental rights and any other legal right</div><div class="opt" onclick="choose('q6','c',this)"><span class="opt-letter">C</span>Only statutory rights</div><div class="opt" onclick="choose('q6','d',this)"><span class="opt-letter">D</span>Only contractual rights</div></div></div>
+
+<div class="question-block"><div class="q-num">Q7 of 25</div><div class="q-text">In the moot: Section 164 statement recorded at police station is problematic because:</div><div class="options" id="q7"><div class="opt" onclick="choose('q7','a',this)"><span class="opt-letter">A</span>Police station statements are inadmissible</div><div class="opt" onclick="choose('q7','b',this)"><span class="opt-letter">B</span>Section 24 POCSO requires statement at child's residence or place of child's choice — not police station</div><div class="opt" onclick="choose('q7','c',this)"><span class="opt-letter">C</span>Magistrate must always record Section 164</div><div class="opt" onclick="choose('q7','d',this)"><span class="opt-letter">D</span>Police station is actually the correct place</div></div></div>
+
+<div class="question-block"><div class="q-num">Q8 of 25</div><div class="q-text">The Nilabati Behera case established state liability for:</div><div class="options" id="q8"><div class="opt" onclick="choose('q8','a',this)"><span class="opt-letter">A</span>Contract breach</div><div class="opt" onclick="choose('q8','b',this)"><span class="opt-letter">B</span>Constitutional tort — state's liability for custodial/institutional harm under Art 32/226</div><div class="opt" onclick="choose('q8','c',this)"><span class="opt-letter">C</span>Only civil negligence in consumer cases</div><div class="opt" onclick="choose('q8','d',this)"><span class="opt-letter">D</span>Only after criminal conviction of officials</div></div></div>
+
+<div class="question-block"><div class="q-num">Q9 of 25</div><div class="q-text">UNCRC Article 12 provides children the right to:</div><div class="options" id="q9"><div class="opt" onclick="choose('q9','a',this)"><span class="opt-letter">A</span>Vote in elections</div><div class="opt" onclick="choose('q9','b',this)"><span class="opt-letter">B</span>Be heard in all matters affecting them — right to participate</div><div class="opt" onclick="choose('q9','c',this)"><span class="opt-letter">C</span>Free education at all levels</div><div class="opt" onclick="choose('q9','d',this)"><span class="opt-letter">D</span>Own property</div></div></div>
+
+<div class="question-block"><div class="q-num">Q10 of 25</div><div class="q-text">For age determination in the moot (no birth certificate), which document takes priority under Abuzar Hossain?</div><div class="options" id="q10"><div class="opt" onclick="choose('q10','a',this)"><span class="opt-letter">A</span>Ossification test result</div><div class="opt" onclick="choose('q10','b',this)"><span class="opt-letter">B</span>School/matriculation certificate or other official document</div><div class="opt" onclick="choose('q10','c',this)"><span class="opt-letter">C</span>Police officer's estimate</div><div class="opt" onclick="choose('q10','d',this)"><span class="opt-letter">D</span>Doctor's visual estimate</div></div></div>
+
+<div class="question-block"><div class="q-num">Q11 of 25</div><div class="q-text">Anticipatory bail in POCSO cases is:</div><div class="options" id="q11"><div class="opt" onclick="choose('q11','a',this)"><span class="opt-letter">A</span>Expressly prohibited by POCSO</div><div class="opt" onclick="choose('q11','b',this)"><span class="opt-letter">B</span>Available but courts are cautious; strict conditions imposed when granted</div><div class="opt" onclick="choose('q11','c',this)"><span class="opt-letter">C</span>Always granted as a right</div><div class="opt" onclick="choose('q11','d',this)"><span class="opt-letter">D</span>Only available for accused below 18</div></div></div>
+
+<div class="question-block"><div class="q-num">Q12 of 25</div><div class="q-text">Under Asha Ranjan, when a bail application is filed in a POCSO case, the victim can:</div><div class="options" id="q12"><div class="opt" onclick="choose('q12','a',this)"><span class="opt-letter">A</span>Not participate — bail is between state and accused</div><div class="opt" onclick="choose('q12','b',this)"><span class="opt-letter">B</span>Appear through counsel and oppose bail</div><div class="opt" onclick="choose('q12','c',this)"><span class="opt-letter">C</span>Only send written submission</div><div class="opt" onclick="choose('q12','d',this)"><span class="opt-letter">D</span>File a criminal complaint separately</div></div></div>
+
+<div class="question-block"><div class="q-num">Q13 of 25</div><div class="q-text">In the moot, medical examination by a male doctor for a girl child is problematic because:</div><div class="options" id="q13"><div class="opt" onclick="choose('q13','a',this)"><span class="opt-letter">A</span>Male doctors are not allowed to treat children</div><div class="opt" onclick="choose('q13','b',this)"><span class="opt-letter">B</span>Section 27 POCSO requires a woman doctor for medical examination of a girl child</div><div class="opt" onclick="choose('q13','c',this)"><span class="opt-letter">C</span>It is not problematic — any doctor is fine</div><div class="opt" onclick="choose('q13','d',this)"><span class="opt-letter">D</span>Male doctors require separate POCSO certification</div></div></div>
+
+<div class="question-block"><div class="q-num">Q14 of 25</div><div class="q-text">For a child whose identity has been disclosed in media (POCSO case), the remedy includes:</div><div class="options" id="q14"><div class="opt" onclick="choose('q14','a',this)"><span class="opt-letter">A</span>Only civil defamation suit</div><div class="opt" onclick="choose('q14','b',this)"><span class="opt-letter">B</span>FIR against reporter under Section 23 POCSO + contempt of court if court order violated (Nipun Saxena)</div><div class="opt" onclick="choose('q14','c',this)"><span class="opt-letter">C</span>No remedy — media has free speech right</div><div class="opt" onclick="choose('q14','d',this)"><span class="opt-letter">D</span>Only complaint to Press Council</div></div></div>
+
+<div class="question-block"><div class="q-num">Q15 of 25</div><div class="q-text">The epistolary jurisdiction established in Bandhua Mukti Morcha means:</div><div class="options" id="q15"><div class="opt" onclick="choose('q15','a',this)"><span class="opt-letter">A</span>Court can only accept formal petitions in prescribed format</div><div class="opt" onclick="choose('q15','b',this)"><span class="opt-letter">B</span>A letter to the court by any person can be treated as a writ petition</div><div class="opt" onclick="choose('q15','c',this)"><span class="opt-letter">C</span>Only lawyers can write to courts</div><div class="opt" onclick="choose('q15','d',this)"><span class="opt-letter">D</span>Courts cannot accept post</div></div></div>
+
+<div class="question-block"><div class="q-num">Q16 of 25</div><div class="q-text">Victim compensation under Section 357A CrPC/BNSS 395 is available:</div><div class="options" id="q16"><div class="opt" onclick="choose('q16','a',this)"><span class="opt-letter">A</span>Only after conviction of accused</div><div class="opt" onclick="choose('q16','b',this)"><span class="opt-letter">B</span>Even if accused is acquitted or case is otherwise disposed of</div><div class="opt" onclick="choose('q16','c',this)"><span class="opt-letter">C</span>Only if victim requests it within 30 days of offence</div><div class="opt" onclick="choose('q16','d',this)"><span class="opt-letter">D</span>Only in Sessions Court</div></div></div>
+
+<div class="question-block"><div class="q-num">Q17 of 25</div><div class="q-text">UNCRC Article 37 is relevant to the JJ Act because it:</div><div class="options" id="q17"><div class="opt" onclick="choose('q17','a',this)"><span class="opt-letter">A</span>Mandates death penalty for child offences</div><div class="opt" onclick="choose('q17','b',this)"><span class="opt-letter">B</span>Requires that detention of child be used as last resort and for shortest period</div><div class="opt" onclick="choose('q17','c',this)"><span class="opt-letter">C</span>Requires children to be tried as adults</div><div class="opt" onclick="choose('q17','d',this)"><span class="opt-letter">D</span>Prohibits bail for child offenders</div></div></div>
+
+<div class="question-block"><div class="q-num">Q18 of 25</div><div class="q-text">Art 32 of the Constitution empowers the Supreme Court to issue writs for enforcement of:</div><div class="options" id="q18"><div class="opt" onclick="choose('q18','a',this)"><span class="opt-letter">A</span>Only statutory rights</div><div class="opt" onclick="choose('q18','b',this)"><span class="opt-letter">B</span>Only criminal law</div><div class="opt" onclick="choose('q18','c',this)"><span class="opt-letter">C</span>Fundamental Rights — and this right itself is a fundamental right</div><div class="opt" onclick="choose('q18','d',this)"><span class="opt-letter">D</span>Only civil rights</div></div></div>
+
+<div class="question-block"><div class="q-num">Q19 of 25</div><div class="q-text">If a PIL is filed on POCSO case pendency, the most appropriate relief to seek is:</div><div class="options" id="q19"><div class="opt" onclick="choose('q19','a',this)"><span class="opt-letter">A</span>Compensation for individual child</div><div class="opt" onclick="choose('q19','b',this)"><span class="opt-letter">C</span>Direction to establish Fast Track Special Courts; time-bound trial completion; appointment of Special PPs</div><div class="opt" onclick="choose('q19','c',this)"><span class="opt-letter">B</span>Writ of habeas corpus for accused</div><div class="opt" onclick="choose('q19','d',this)"><span class="opt-letter">D</span>Transfer of case to another state</div></div></div>
+
+<div class="question-block"><div class="q-num">Q20 of 25</div><div class="q-text">In Nilabati Behera, the court distinguished constitutional tort remedy from civil suit remedy because:</div><div class="options" id="q20"><div class="opt" onclick="choose('q20','a',this)"><span class="opt-letter">A</span>Civil suits are faster</div><div class="opt" onclick="choose('q20','b',this)"><span class="opt-letter">B</span>Constitutional tort is a public law remedy against state violation of fundamental rights; no sovereign immunity</div><div class="opt" onclick="choose('q20','c',this)"><span class="opt-letter">C</span>Civil suits do not award compensation</div><div class="opt" onclick="choose('q20','d',this)"><span class="opt-letter">D</span>No distinction — they are the same</div></div></div>
+
+<div class="question-block"><div class="q-num">Q21 of 25</div><div class="q-text">POCSO interim compensation (POCSO Rules 2020, Rule 7) can be awarded:</div><div class="options" id="q21"><div class="opt" onclick="choose('q21','a',this)"><span class="opt-letter">A</span>Only at sentencing after conviction</div><div class="opt" onclick="choose('q21','b',this)"><span class="opt-letter">B</span>At any stage during trial — even during investigation</div><div class="opt" onclick="choose('q21','c',this)"><span class="opt-letter">C</span>Only by Supreme Court</div><div class="opt" onclick="choose('q21','d',this)"><span class="opt-letter">D</span>Only if family below poverty line</div></div></div>
+
+<div class="question-block"><div class="q-num">Q22 of 25</div><div class="q-text">The PUDR v. Union of India (1982) case is relevant for child PIL because it:</div><div class="options" id="q22"><div class="opt" onclick="choose('q22','a',this)"><span class="opt-letter">A</span>Established POCSO Act</div><div class="opt" onclick="choose('q22','b',this)"><span class="opt-letter">B</span>Allowed third parties to enforce rights of exploited persons under Art 21/23 through PIL</div><div class="opt" onclick="choose('q22','c',this)"><span class="opt-letter">C</span>Restricted PIL to affected parties only</div><div class="opt" onclick="choose('q22','d',this)"><span class="opt-letter">D</span>Abolished locus standi requirements</div></div></div>
+
+<div class="question-block"><div class="q-num">Q23 of 25</div><div class="q-text">In the moot: the teacher-student relationship makes bail more difficult because:</div><div class="options" id="q23"><div class="opt" onclick="choose('q23','a',this)"><span class="opt-letter">A</span>Teachers cannot get bail under any law</div><div class="opt" onclick="choose('q23','b',this)"><span class="opt-letter">B</span>Power imbalance creates serious witness tampering/further harm risk; aggravated circumstances (Section 5(f) POCSO)</div><div class="opt" onclick="choose('q23','c',this)"><span class="opt-letter">C</span>Courts always deny bail to teachers</div><div class="opt" onclick="choose('q23','d',this)"><span class="opt-letter">D</span>Schools are public places where bail is inapplicable</div></div></div>
+
+<div class="question-block"><div class="q-num">Q24 of 25</div><div class="q-text">CRC Committee General Comments are useful in child rights PIL because they:</div><div class="options" id="q24"><div class="opt" onclick="choose('q24','a',this)"><span class="opt-letter">A</span>Are binding Indian law</div><div class="opt" onclick="choose('q24','b',this)"><span class="opt-letter">B</span>Provide authoritative interpretation of UNCRC — useful as persuasive authority and interpretive aid</div><div class="opt" onclick="choose('q24','c',this)"><span class="opt-letter">C</span>Cannot be cited in Indian courts</div><div class="opt" onclick="choose('q24','d',this)"><span class="opt-letter">D</span>Only relevant to criminal law</div></div></div>
+
+<div class="question-block"><div class="q-num">Q25 of 25</div><div class="q-text">The "Bangalore Principles" (1988) state that domestic courts should:</div><div class="options" id="q25"><div class="opt" onclick="choose('q25','a',this)"><span class="opt-letter">A</span>Ignore international law entirely</div><div class="opt" onclick="choose('q25','b',this)"><span class="opt-letter">B</span>Treat international law as superior to domestic law</div><div class="opt" onclick="choose('q25','c',this)"><span class="opt-letter">C</span>Use international norms to resolve ambiguity in domestic law and fill gaps — judicial dialogue with international standards</div><div class="opt" onclick="choose('q25','d',this)"><span class="opt-letter">D</span>Only apply UNCRC provisions expressly enacted in legislation</div></div></div>
+
+<button class="submit-btn" id="submitBtn" onclick="submitQuiz()">Submit Level 3 Assessment</button>
+<div class="score-block" id="scoreBlock">
+  <div class="score-num" id="scoreNum"></div>
+  <div id="scoreMsg"></div>
+</div>
+</div>
+
+<div class="cert-section" id="certSection">
+<h3>🎓 Level 3 Certificate</h3>
+<div class="form-row">
+  <div class="form-group"><label>Full Name</label><input type="text" id="pName" placeholder="Your full name"></div>
+  <div class="form-group"><label>Law School / Institution</label><input type="text" id="pOrg" placeholder="Your law school"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>Year of Study</label><input type="text" id="pDesig" placeholder="e.g., 3rd Year LLB"></div>
+  <div class="form-group"><label>District</label><input type="text" id="pDistrict" placeholder="District"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>State</label><input type="text" id="pState" placeholder="State"></div>
+  <div class="form-group"><label>Phone</label><input type="tel" id="pPhone" placeholder="WhatsApp number"></div>
+</div>
+<button class="gen-cert-btn" onclick="generateCertificate()">Generate Level 3 Certificate →</button>
+<div class="cert-display" id="certDisplay">
+  <div class="cert-title">Janman People's Foundation</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;">Child Rights Programme | Jan Nyaya Abhiyan</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;">This is to certify that</div>
+  <div class="cert-name" id="cName"></div>
+  <div class="cert-body" id="cBody"></div>
+  <div class="cert-no" id="cNo"></div>
+  <div class="cert-sign">Shourya Roy</div>
+  <div class="cert-sign-label">Director — Janman People's Foundation</div>
+  <button class="print-btn" onclick="window.print()">⬇ Download Certificate</button>
+</div>
+</div>
+
+<div class="final-unlock" id="finalUnlock">
+  <h4>🏆 All 3 Levels Complete!</h4>
+  <p>You have completed the Law Student track. Claim your Final Certificate now.</p>
+  <a href="final-certificate.html" class="final-btn">Claim Final Certificate →</a>
+</div>
+
+<div class="contact-float" onclick="toggleContact()">💬</div>
+<div class="contact-popup" id="contactPopup">
+  <h4>Legal Support</h4>
+  <p>Child rights law query?</p>
+  <img src="wa-qr.png" alt="WhatsApp QR">
+  <a href="https://wa.me/918507715870?text=Child+Rights+PIL+%26+Litigation+Query" class="wa-btn" target="_blank">WhatsApp Helpline</a>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'c',q4:'b',q5:'b',q6:'b',q7:'b',q8:'b',q9:'b',q10:'b',q11:'b',q12:'b',q13:'b',q14:'b',q15:'b',q16:'b',q17:'b',q18:'c',q19:'b',q20:'b',q21:'b',q22:'b',q23:'b',q24:'b',q25:'c'};
+var userAnswers={};var submitted=false;var myScore=0;
+function choose(qid,opt,el){if(submitted)return;userAnswers[qid]=opt;var opts=document.getElementById(qid).querySelectorAll('.opt');opts.forEach(function(o){o.style.background='';o.style.borderColor='';});el.style.background='rgba(255,255,255,0.2)';el.style.borderColor='rgba(255,255,255,0.5)';}
+function submitQuiz(){if(submitted)return;var total=Object.keys(ANSWERS).length;var answered=Object.keys(userAnswers).length;if(answered<total){alert('Please answer all '+total+' questions.');return;}submitted=true;document.getElementById('submitBtn').disabled=true;var correct=0;Object.keys(ANSWERS).forEach(function(qid){var opts=document.getElementById(qid).querySelectorAll('.opt');var letters=['a','b','c','d'];opts.forEach(function(opt,i){opt.classList.add('disabled');if(letters[i]===ANSWERS[qid])opt.classList.add('correct');else if(letters[i]===userAnswers[qid]&&userAnswers[qid]!==ANSWERS[qid])opt.classList.add('wrong');});if(userAnswers[qid]===ANSWERS[qid])correct++;});myScore=Math.round(correct/total*100);var sb=document.getElementById('scoreBlock');sb.style.display='block';document.getElementById('scoreNum').textContent=correct+'/'+total+' ('+myScore+'%)';document.getElementById('scoreNum').className='score-num '+(myScore>=70?'score-pass':'score-fail');document.getElementById('scoreMsg').innerHTML=myScore>=70?'<strong>✅ Passed!</strong> Claim your certificate below.':'<strong>❌ Not passed.</strong> 70% required. Review and retake.';if(myScore>=70){document.getElementById('certSection').style.display='block';prefillForm();}localStorage.setItem('janman_ls_l3_score',myScore);}
+function prefillForm(){var fields=[['pName','janman_ls_name'],['pPhone','janman_ls_phone'],['pOrg','janman_ls_org'],['pDistrict','janman_ls_district'],['pState','janman_ls_state'],['pDesig','janman_ls_desig']];fields.forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});}
+function generateCertificate(){var n=document.getElementById('pName').value.trim();if(!n){alert('Enter your name.');return;}var d=document.getElementById('pDesig').value.trim();var o=document.getElementById('pOrg').value.trim();var dist=document.getElementById('pDistrict').value.trim();localStorage.setItem('janman_ls_name',n);localStorage.setItem('janman_ls_desig',d);localStorage.setItem('janman_ls_org',o);localStorage.setItem('janman_ls_district',dist);localStorage.setItem('janman_ls_phone',document.getElementById('pPhone').value);localStorage.setItem('janman_ls_state',document.getElementById('pState').value);var certNo='JPF-LS-L3-'+Date.now().toString(36).toUpperCase();localStorage.setItem('janman_ls_l3_done','yes');localStorage.setItem('janman_ls_l3_cert_no',certNo);document.getElementById('cName').textContent=n;document.getElementById('cBody').innerHTML=(d?d+', ':'')+o+(dist?', '+dist:'')+' has successfully completed <strong>Level 3: PIL, Constitutional Remedies & Advanced Child Rights Law</strong><br>Child Rights Legal Training Programme, Janman People\'s Foundation.<br><br>Score: <strong>'+myScore+'%</strong> | Date: '+new Date().toLocaleDateString();document.getElementById('cNo').textContent='Certificate No: '+certNo;document.getElementById('certDisplay').style.display='block';checkFinalUnlock();}
+function checkFinalUnlock(){if(localStorage.getItem('janman_ls_l1_done')&&localStorage.getItem('janman_ls_l2_done')&&localStorage.getItem('janman_ls_l3_done')){document.getElementById('finalUnlock').style.display='block';}}
+function toggleContact(){var p=document.getElementById('contactPopup');p.style.display=p.style.display==='block'?'none':'block';}
+(function(){checkFinalUnlock();var fields=[['pName','janman_ls_name'],['pOrg','janman_ls_org'],['pDistrict','janman_ls_district'],['pState','janman_ls_state'],['pDesig','janman_ls_desig'],['pPhone','janman_ls_phone']];fields.forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});})();
+</script>
+</body>
+</html>

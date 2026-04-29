@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAW STUDENT Track - Child Rights Legal Training | Janman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0d1b4a, #1a2e7a, #2440b8);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #ffd700;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #b8d4ff;
+            margin-bottom: 10px;
+        }
+        
+        .track-info {
+            font-size: 14px;
+            color: #a0c4ff;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .modules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .module-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
+        }
+        
+        .module-card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        .module-card.locked::after {
+            content: '🔒';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        
+        .module-card:not(.locked):hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .module-number {
+            display: inline-block;
+            background: #ffd700;
+            color: #0d1b4a;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .module-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+        
+        .module-description {
+            font-size: 14px;
+            color: #b8d4ff;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .module-status {
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .status-completed {
+            background: rgba(76, 175, 80, 0.3);
+            color: #90ee90;
+        }
+        
+        .status-pending {
+            background: rgba(255, 193, 7, 0.3);
+            color: #ffd700;
+        }
+        
+        .start-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #ffd700;
+            color: #0d1b4a;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .start-btn:hover:not(:disabled) {
+            background: #ffed4e;
+            transform: scale(1.05);
+        }
+        
+        .start-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .progress-section {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .progress-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .progress-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .progress-check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: 700;
+        }
+        
+        .progress-check.completed {
+            background: #4caf50;
+            color: #fff;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .qr-popup {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 999;
+        }
+        
+        .qr-popup.active {
+            display: block;
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .qr-popup img {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .qr-text {
+            color: #0d1b4a;
+            font-size: 12px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #a0c4ff;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            .modules {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .qr-popup {
+                bottom: 80px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Child Rights Training</a>
+        
+        <header>
+            <div class="logo">🏛️ Janman People's Foundation</div>
+            <h1>LAW STUDENT Track</h1>
+            <p class="subtitle">Child Rights Legal Training Platform</p>
+            <p class="track-info">Comprehensive legal education for aspiring child rights lawyers</p>
+        </header>
+        
+        <div class="progress-section">
+            <h2 class="progress-title">Your Progress</h2>
+            <div class="progress-item">
+                <div class="progress-check" id="l1-check">1</div>
+                <span>Level 1: Constitutional & Statutory Framework</span>
+            </div>
+            <div class="progress-item">
+                <div class="progress-check" id="l2-check">2</div>
+                <span>Level 2: Landmark Case Law Analysis</span>
+            </div>
+            <div class="progress-item">
+                <div class="progress-check" id="l3-check">3</div>
+                <span>Level 3: PIL, Constitutional Remedies & Advanced Law</span>
+            </div>
+            <div class="progress-item">
+                <div class="progress-check" id="final-check">✓</div>
+                <span>Final Certificate</span>
+            </div>
+        </div>
+        
+        <div class="modules">
+            <div class="module-card" id="l1-card">
+                <div class="module-number">1</div>
+                <h2 class="module-title">Constitutional & Statutory Framework</h2>
+                <p class="module-description">Master the foundational legal provisions protecting children in India — from constitutional articles to international conventions.</p>
+                <div class="module-status status-pending" id="l1-status">Not Started</div>
+                <a href="level1.html" class="start-btn" id="l1-btn">Start Module</a>
+            </div>
+            
+            <div class="module-card locked" id="l2-card">
+                <div class="module-number">2</div>
+                <h2 class="module-title">Landmark Case Law Analysis</h2>
+                <p class="module-description">Deep dive into 15+ landmark cases that shaped child rights jurisprudence — essential for litigation and moot court.</p>
+                <div class="module-status status-pending" id="l2-status">Locked</div>
+                <button class="start-btn" id="l2-btn" disabled>Complete Level 1 First</button>
+            </div>
+            
+            <div class="module-card locked" id="l3-card">
+                <div class="module-number">3</div>
+                <h2 class="module-title">PIL, Constitutional Remedies & Advanced Law</h2>
+                <p class="module-description">Strategic litigation in child rights — PILs, bail jurisprudence, compensation claims, and mock moot scenarios.</p>
+                <div class="module-status status-pending" id="l3-status">Locked</div>
+                <button class="start-btn" id="l3-btn" disabled>Complete Level 2 First</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="floating-btn" id="floating-btn">💬</div>
+    <div class="qr-popup" id="qr-popup">
+        <img src="wa-qr.png" alt="WhatsApp QR Code">
+        <div class="qr-text">Scan to connect on WhatsApp</div>
+    </div>
+    
+    <footer>
+        <p>© 2026 Janman People's Foundation | Child Rights Legal Training Platform</p>
+    </footer>
+    
+    <script>
+        // Initialize localStorage
+        function initLS() {
+            if (!localStorage.getItem('janman_ls_name')) {
+                localStorage.setItem('janman_ls_name', '');
+            }
+            if (!localStorage.getItem('janman_ls_phone')) {
+                localStorage.setItem('janman_ls_phone', '');
+            }
+            if (!localStorage.getItem('janman_ls_org')) {
+                localStorage.setItem('janman_ls_org', '');
+            }
+            if (!localStorage.getItem('janman_ls_district')) {
+                localStorage.setItem('janman_ls_district', '');
+            }
+            if (!localStorage.getItem('janman_ls_state')) {
+                localStorage.setItem('janman_ls_state', '');
+            }
+            if (!localStorage.getItem('janman_ls_desig')) {
+                localStorage.setItem('janman_ls_desig', '');
+            }
+        }
+        
+        // Check completion status
+        function checkCompletion() {
+            const l1Done = localStorage.getItem('janman_ls_l1_done') === 'true';
+            const l2Done = localStorage.getItem('janman_ls_l2_done') === 'true';
+            const l3Done = localStorage.getItem('janman_ls_l3_done') === 'true';
+            
+            // Update progress checks
+            if (l1Done) {
+                document.getElementById('l1-check').textContent = '✓';
+                document.getElementById('l1-check').classList.add('completed');
+                document.getElementById('l1-status').textContent = 'Completed';
+                document.getElementById('l1-status').classList.remove('status-pending');
+                document.getElementById('l1-status').classList.add('status-completed');
+            }
+            
+            if (l2Done) {
+                document.getElementById('l2-check').textContent = '✓';
+                document.getElementById('l2-check').classList.add('completed');
+                document.getElementById('l2-status').textContent = 'Completed';
+                document.getElementById('l2-status').classList.remove('status-pending');
+                document.getElementById('l2-status').classList.add('status-completed');
+            }
+            
+            if (l3Done) {
+                document.getElementById('l3-check').textContent = '✓';
+                document.getElementById('l3-check').classList.add('completed');
+                document.getElementById('l3-status').textContent = 'Completed';
+                document.getElementById('l3-status').classList.remove('status-pending');
+                document.getElementById('l3-status').classList.add('status-completed');
+            }
+            
+            // Unlock Level 2 if Level 1 done
+            if (l1Done) {
+                document.getElementById('l2-card').classList.remove('locked');
+                document.getElementById('l2-btn').disabled = false;
+                document.getElementById('l2-btn').textContent = 'Start Module';
+                document.getElementById('l2-btn').onclick = () => window.location.href = 'level2.html';
+                document.getElementById('l2-status').textContent = 'Ready';
+            }
+            
+            // Unlock Level 3 if Level 2 done
+            if (l2Done) {
+                document.getElementById('l3-card').classList.remove('locked');
+                document.getElementById('l3-btn').disabled = false;
+                document.getElementById('l3-btn').textContent = 'Start Module';
+                document.getElementById('l3-btn').onclick = () => window.location.href = 'level3.html';
+                document.getElementById('l3-status').textContent = 'Ready';
+            }
+            
+            // Show final certificate link if all done
+            if (l1Done && l2Done && l3Done) {
+                document.getElementById('final-check').classList.add('completed');
+                // Add certificate option
+                const certLink = document.createElement('a');
+                certLink.href = 'final-certificate.html';
+                certLink.className = 'start-btn';
+                certLink.textContent = 'Get Certificate';
+                certLink.style.marginTop = '20px';
+                certLink.style.display = 'inline-block';
+            }
+        }
+        
+        // Floating button and QR popup
+        document.getElementById('floating-btn').addEventListener('click', () => {
+            document.getElementById('qr-popup').classList.toggle('active');
+        });
+        
+        // Close QR popup on outside click
+        document.addEventListener('click', (e) => {
+            const popup = document.getElementById('qr-popup');
+            const btn = document.getElementById('floating-btn');
+            if (!popup.contains(e.target) && !btn.contains(e.target)) {
+                popup.classList.remove('active');
+            }
+        });
+        
+        // Initialize on load
+        window.addEventListener('load', () => {
+            initLS();
+            checkCompletion();
+        });
+    </script>
+</body>
+</html>

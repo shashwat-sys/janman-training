@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 2: Landmark Case Law Analysis | Child Rights Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a1535, #16235f, #2140a8);
+            min-height: 100vh;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        
+        header {
+            margin-bottom: 40px;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .subtitle {
+            color: #b8d4ff;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .case-card {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 3px solid #ffd700;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .case-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-left-color: #ffed4e;
+        }
+        
+        .case-number {
+            display: inline-block;
+            background: #ffd700;
+            color: #0d1b4a;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .case-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        
+        .case-citation {
+            color: #ffd700;
+            font-weight: 600;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .case-section {
+            margin-bottom: 14px;
+        }
+        
+        .case-label {
+            color: #b8d4ff;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+        
+        .case-text {
+            color: #c8d9ff;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        .significance {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 12px 15px;
+            border-left: 3px solid #4caf50;
+            border-radius: 4px;
+            color: #90ee90;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-top: 12px;
+        }
+        
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .quiz-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: #ffd700;
+            margin-bottom: 25px;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 18px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            border-left: 3px solid #ffd700;
+        }
+        
+        .q-text {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        .option input[type="radio"] {
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            cursor: pointer;
+            color: #b8d4ff;
+            font-size: 13px;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .btn-primary {
+            background: #ffd700;
+            color: #0d1b4a;
+        }
+        
+        .btn-primary:hover {
+            background: #ffed4e;
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .result {
+            background: rgba(76, 175, 80, 0.15);
+            border: 1px solid #4caf50;
+            color: #90ee90;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+        
+        .result.fail {
+            background: rgba(244, 67, 54, 0.15);
+            border-color: #f44336;
+            color: #ff8a80;
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .qr-popup {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 999;
+        }
+        
+        .qr-popup.active {
+            display: block;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #a0c4ff;
+            font-size: 13px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 28px; }
+            .container { padding: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to LAW STUDENT Track</a>
+        
+        <header>
+            <h1>Landmark Case Law Analysis</h1>
+            <p class="subtitle">Deep dive into 15+ landmark cases shaping child rights jurisprudence</p>
+        </header>
+        
+        <div class="case-card">
+            <div class="case-number">1</div>
+            <h3 class="case-title">Nipun Saxena v. Union of India</h3>
+            <div class="case-citation">2019 2 SCC 703 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Public Interest Litigation filed for protection of identity of child victims under POCSO and Section 228A IPC. The case led to comprehensive directions for safeguarding victim identity in sexual offense cases.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Right to privacy of child victim vs. public information; applicability of Section 23 POCSO; application of Section 228A IPC; court's obligation to protect identity in judicial proceedings.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Identity of child victim — name, address, family details, school, photograph — shall NEVER be disclosed in any document, proceeding, or judgment. Pseudonyms or initials must be used exclusively. In-camera trials mandatory. Courts must ensure strict confidentiality of identity.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Landmark judgment that authoritatively settled child victim identity protection across all Indian courts. Now binding protocol in all courts.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">2</div>
+            <h3 class="case-title">Alakh Alok Srivastava v. Union of India</h3>
+            <div class="case-citation">2018 2 SCC 116 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Public Interest Litigation highlighting severe pendency of POCSO cases across states — thousands of cases pending for years, delaying justice for child victims.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Article 21 right to speedy trial; Section 35 POCSO (1-year time limit); access to justice for vulnerable child victims; court infrastructure and resource allocation.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Directed establishment of Fast Track Special Courts (FTSCs) for POCSO cases. Each district to have at least one FTSC. Trial completion to be completed within 1 year. States directed to allocate resources and appoint dedicated judges.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Led to creation of 1,023 FTSCs across India, significantly reducing POCSO case pendency and ensuring timely justice for child victims.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">3</div>
+            <h3 class="case-title">Attorney General v. Satish & Another</h3>
+            <div class="case-citation">2021 5 SCC 1 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Bombay HC in Satish Ragde (2021) acquitted accused in POCSO case, holding that "skin-to-skin contact" was required for "sexual assault" under Section 7 POCSO. AG challenged this regressive interpretation.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Statutory interpretation of "touch" in Section 7 POCSO; scope of "sexual assault"; protective intent of POCSO; preventing technical loopholes that allow abusers to escape.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">"Touch" in Section 7 POCSO means ANY physical contact with sexual intent — skin contact NOT required. Touching over clothing with sexual intent constitutes sexual assault. Physical contact includes any part of body or object used, with sexual intent.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Prevented regressive interpretation that would have allowed abusers to escape liability by using clothing. Critical for ensuring comprehensive child protection.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">4</div>
+            <h3 class="case-title">Independent Thought v. Union of India</h3>
+            <div class="case-citation">2017 10 SCC 800 (Constitutional Bench)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">PIL challenging Exception 2 to Section 375 IPC which allowed sexual intercourse by husband with wife not below 15 years, creating exemption for marital rape of child brides.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Articles 14 (equality), 15(3) (protection of children), 19(1)(g) (freedom), 21 (dignity); POCSO's age of consent at 18; rights of child brides; marital exception to rape.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Exception 2 violates Articles 14, 15, 19, 21. Sexual intercourse with girl child (below 18) by husband is RAPE regardless of "marital" status. Exception struck down to extent it applied to girls 15-17. Marital status does not exempt from POCSO prosecution.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Eliminated marital exception for child rape. Aligned IPC with POCSO's protective regime. Major victory for rights of child brides and girls in exploitative marriages.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">5</div>
+            <h3 class="case-title">Bachpan Bachao Andolan v. Union of India</h3>
+            <div class="case-citation">2011 5 SCC 1 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">PIL on trafficking and exploitation of children in circuses, including use in performances, physical abuse, and denial of education. Extensive evidence of systemic abuse.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Articles 23, 24, 39(f) on trafficking and child labour; JJ Act obligations; right to education; state's protective duty toward trafficked children; rehabilitation framework.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Directed comprehensive rescue and rehabilitation framework. Children prohibited from employment in circuses. CWC functioning standards established. Schools to be set up for rescued child workers. Rehabilitation to focus on education and vocational training. Regular monitoring by state.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Foundational child rights PIL establishing comprehensive directions for rescue, rehabilitation, and educational integration of trafficked children.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">6</div>
+            <h3 class="case-title">M.C. Mehta v. State of Tamil Nadu</h3>
+            <div class="case-citation">1996 6 SCC 756 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Children employed in hazardous match factories and firecracker industries in Sivakasi, Tamil Nadu — exposed to chemicals, long work hours, unsafe conditions, denied education.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Articles 24, 39(f); child labour in hazardous occupations; state's enforcement obligations; rehabilitation of working children; right to education even for working children.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Hazardous child labour violates Article 24 absolutely. Directed elimination of child labour in hazardous industries. Employers to contribute to Child Labour Rehabilitation Fund. Alternative education mandated for working children. Cannot employ below 14 in any hazardous industry.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Foundation of child labour rehabilitation jurisprudence. Sivakasi directions influenced Child Labour Act Amendment 2016. Established employer's financial obligation to rehabilitation.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">7</div>
+            <h3 class="case-title">Pratap Singh v. State of Jharkhand</h3>
+            <div class="case-citation">2005 3 SCC 551 (5-Judge Constitutional Bench)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Question: Should age determination under JJ Act be done on date of offense or date of appearance/inquiry before Magistrate? Critical for determining jurisdiction — JJB vs. criminal court.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Interpretation of JJ Act sections; minority claim at trial; age determination as jurisdictional fact; constitutional principles on protection of juveniles; right to child-specific procedure.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Age MUST be determined as on DATE OF OFFENSE, NOT date of Magisterial inquiry or appearance. 5-Judge Constitutional Bench judgment establishing binding precedent. Protects genuinely young offenders from adult prosecution.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Constitutional Bench settlement protecting juveniles. Still applied in every age determination case. Critical for ensuring juvenile-specific protections apply correctly.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">8</div>
+            <h3 class="case-title">Abuzar Hossain v. State of West Bengal</h3>
+            <div class="case-citation">2012 10 SCC 489 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Question: What evidentiary methodology should be applied for age determination when birth certificate is unavailable? How much weight to ossification test vs. documentary evidence?</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Evidentiary standards for age determination; reliability of ossification test; documentary evidence hierarchy; benefit of doubt for accused; erroneous age assessment risks.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Ossification test NOT sole determinant. Court must rely on school leaving certificate, matriculation, birth certificate, other documents. Ossification only if documents unavailable. Benefit of doubt given — 2-year error margin in accused's favor. Documentary evidence preferred.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Protects juveniles from being wrongly prosecuted as adults due to test limitations. Establishes documentary evidence hierarchy for age determination.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">9</div>
+            <h3 class="case-title">Salil Bali v. Union of India</h3>
+            <div class="case-citation">2013 7 SCC 705 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">PIL challenging constitutional validity of JJ Act — whether providing separate, protective treatment for juveniles in heinous crimes violates equality principles.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Article 14 (equal treatment vs. protective classification); Article 21 (right to life); reformative vs. punitive justice; constitutional basis for separate juvenile justice system; heinous crime threshold.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">JJ Act is CONSTITUTIONALLY VALID. Different treatment of juveniles is not discrimination under Art 14 but legitimate protective classification. Reformative justice is constitutional mandate. Heinous crime by 16-17 year old does NOT automatically justify treating as adult.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Settled constitutional validity of JJ Act's protective approach. Prevents arguments that child offenders should face adult punitive justice regardless of age or rehabilitation potential.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">10</div>
+            <h3 class="case-title">Gaurav Jain v. Union of India</h3>
+            <div class="case-citation">1997 8 SCC 114 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">PIL on children of sex workers — their right to education, dignity, rehabilitation, and protection from exploitation and being forced into sex work.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Article 21 (right to life and dignity), Article 39(f) (protection from economic exploitation), discrimination based on parent's profession, state's positive obligation, right to education.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Children of sex workers have EQUAL right to dignified life, education, rehabilitation. Cannot be punished or stigmatized for parent's profession. State has positive duty to establish homes, schools, vocational training for such children. Extended Article 21 and 39(f) to most marginalized children.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Extended constitutional protection to most marginalized children. Established state's positive duty for rehabilitation. Landmark on rights of children of sex workers.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">11</div>
+            <h3 class="case-title">Lakshmi Kant Pandey v. Union of India</h3>
+            <div class="case-citation">1984 2 SCC 244 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">PIL on malpractices in inter-country adoption — children being sent abroad under irregular procedures, inadequate safeguards, trafficking risks.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Article 21 (right to life), guardianship law, inter-country adoption standards, child trafficking via adoption, state regulatory responsibility.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Comprehensive adoption guidelines issued. Domestic adoption preferred over inter-country. Child's best interests paramount in all adoption decisions. CARA-like regulatory body needed. Indian Guardian and Wards Act must be followed. Inter-country adoption only when domestic options unavailable.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> First landmark adoption judgment. Established regulatory framework that led to creation of CARA. Continues to influence adoption law and practice.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">12</div>
+            <h3 class="case-title">Vishaka v. State of Rajasthan</h3>
+            <div class="case-citation">1997 6 SCC 241 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Gang rape of Bhanwari Devi (social worker) who tried to prevent child marriage. Case raised intersection of sexual harassment, child marriage, and violence against women.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Child marriage context, sexual harassment at workplace, Articles 14, 19, 21, workplace safety, violence against those protecting child rights.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Sexual harassment violates Articles 14, 19, 21. Vishaka guidelines issued (later replaced by POSH Act 2013). Case arose from child marriage prevention context — illustrates intersection of child protection and women's rights.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Though primarily on workplace harassment, arose from child marriage context. Shows child protection's connection to gender justice. Vishaka approach to international conventions still influential.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">13</div>
+            <h3 class="case-title">Society for Unaided Private Schools v. Union of India</h3>
+            <div class="case-citation">2012 6 SCC 1 (Supreme Court, 5:2 Majority)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Constitutional challenge to Section 12(1)(c) RTE Act requiring unaided non-minority schools to reserve 25% seats for disadvantaged children and provide free education.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Article 19(1)(g) (freedom of profession), Article 21A (right to education), Article 30 (minority institutions), constitutional power to regulate private schools, social welfare vs. private autonomy.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Section 12(1)(c) CONSTITUTIONAL (5:2 majority). State's obligation under Articles 21A and 45 permits regulation of private schools. RTE applies to unaided non-minority schools. 25% reservation justified under welfare state principles.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Upheld 25% reservation in private schools for disadvantaged children. Major tool for access to education. Though narrow majority, binding precedent.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">14</div>
+            <h3 class="case-title">Asha Ranjan v. State of Bihar</h3>
+            <div class="case-citation">2017 4 SCC 397 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Victim (minor girl's mother) challenged grant of bail to accused in POCSO case, raising question of victim's locus and right to be heard in bail proceedings.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">Victim's participatory rights in bail proceedings, Article 21 of accused vs. Article 21 of victim, consideration of child's safety in bail decisions, victim support framework.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">Victim (including third party acting for victim) has RIGHT TO OPPOSE BAIL. Courts must consider victim's safety when granting bail. Bail in POCSO cases requires careful consideration of child's protection and non-intimidation. Victim's voice must be heard.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Recognized victim's participatory rights in bail proceedings. Expanded victim's role in criminal justice. Critical for POCSO case management and victim safety.
+            </div>
+        </div>
+        
+        <div class="case-card">
+            <div class="case-number">15</div>
+            <h3 class="case-title">Re: Exploitation of Children in Orphanages — Tamil Nadu</h3>
+            <div class="case-citation">2017 13 SCC 750 (Supreme Court)</div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts</div>
+                <div class="case-text">Suo motu cognizance of systemic abuse in orphanages and child care institutions (CCIs) — physical abuse, sexual abuse, exploitation, unsafe conditions.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Legal Issues</div>
+                <div class="case-text">JJ Act Sections on CCI registration and inspection, institutional accountability, Article 21 of institutionalised children, state's protective duty toward abandoned children.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Ratio</div>
+                <div class="case-text">All CCIs must be registered with JJB. Mandatory monthly inspections. State must ensure CCI standards compliance. CWC to conduct unannounced visits. Central monitoring mechanism for CCIs. Staff to be trained and certified. Children's grievance redressal mandatory.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance:</strong> Led to strengthening of CCI inspection regime. Foundation for JJ Amendment 2021's stricter registration. Established institutional accountability framework for child protection.
+            </div>
+        </div>
+        
+
+        <!-- 2024 INSC 790 - Child Marriage -->
+        <div class="case-card">
+            <div class="case-header">
+                <div class="case-number">Case 16</div>
+                <div class="case-title">Society for Enlightenment and Voluntary Action v. Union of India</div>
+                <div class="case-meta">2024 INSC 790 | WP(C) No. 1234 of 2017 | Supreme Court of India | October 18, 2024</div>
+                <div class="case-meta">Bench: CJI Dr. D.Y. Chandrachud (141-page Judgment)</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Facts &amp; Background</div>
+                <div class="case-text">An NGO petitioned under Article 32 challenging the rampant prevalence of child marriage despite the Prohibition of Child Marriage Act 2006 (PCMA). NFHS-5 data showed 23.3% of girls and 17.7% of boys marry below the legal age. The petitioner sought stronger enforcement mechanisms, dedicated Child Marriage Prohibition Officers (CMPOs), and comprehensive support systems. The SC directed the Ministry of Women &amp; Child Development to file a status report, and after hearing submissions in July 2024, reserved judgment — delivering a sweeping 141-page ruling in October 2024.</div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Issues Decided</div>
+                <div class="case-text">
+                    (i) Does child marriage violate fundamental rights under the Constitution?<br>
+                    (ii) What are the State's constitutional obligations to prevent child marriage?<br>
+                    (iii) Does PCMA prevail over personal laws?<br>
+                    (iv) What comprehensive directions should be issued for effective PCMA enforcement?<br>
+                    (v) What is the constitutional framework of rights accruing against child marriage?
+                </div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Constitutional Analysis — Article 21 &amp; Child Marriage</div>
+                <div class="case-text">
+                    <strong>Right to Self-Determination &amp; Autonomy (Art. 21):</strong> The Court held child marriage deprives children of agency, autonomy and right to development. The right to free choice includes: (a) right to free and informed consent, (b) right against gender-based violence, and (c) right to sexual autonomy. Child marriage operates as "multi-dimensional assault" — oppressive not only to heterosexual girls and boys but to all gender and sexual minorities. Article 21 protects choices in matters of sexuality, partner selection, time of marriage, and reproductive freedom.<br><br>
+                    <strong>Right to Health (Art. 21):</strong> Adolescent pregnancies, early sterilization, increased STI risk, and life-long psychological damage inflicted by child marriage make the right to health "illusory." Citing <em>Independent Thought v. UOI</em>, the Court held forced sexual relations within child marriage violate the right to health.<br><br>
+                    <strong>Right to Childhood, Education &amp; Development (Arts. 21 &amp; 21A):</strong> "Childhood represents the best of what human life has to offer." Marriage for women in patriarchal societies becomes "an announcement of educational conclusion." Art. 21-A's mandatory education (6–14 years) cannot restrict children's right to information on life-altering dangers. Citing <em>Sheela Barse II</em>, the State has a positive obligation to create conditions for full development of children's personality.
+                </div>
+            </div>
+            
+            <div class="case-section">
+                <div class="case-label">Held / Key Directions (Part IX — Way Forward)</div>
+                <div class="case-text">
+                    The SC adopted a <em>prevention → protection → penalisation</em> framework and issued comprehensive directions:<br><br>
+                    <strong>A. Legal Enforcement:</strong> CMPOs must be solely dedicated — not burdened with additional duties. States to upload quarterly CMPO reports on NCPCR website. Mandatory six-monthly training refreshers for CMPOs.<br><br>
+                    <strong>B. Reporting &amp; Awareness:</strong> Dedicated online portal for anonymous reporting of child marriages (MHA + MoWCD + NALSA). Panchayats, Sarpanchs, and local leaders must complete child marriage prevention training within <strong>3 months</strong> and report suspected marriages within <strong>48 hours</strong>.<br><br>
+                    <strong>C. Child-Centred Rehabilitation:</strong> Individual Care Plans (ICPs) for at-risk girls in compliance with Section 10 JJ Act; monthly DCPU monitoring for the first year post-intervention.<br><br>
+                    <strong>D. NALSA &amp; NCPCR Directions:</strong> NALSA to formulate SOP for legal support services and rehabilitation for child marriage victims; NCPCR to draft SOP for accountability for non-reporting.<br><br>
+                    <strong>E. Compensation:</strong> Ministry to consider providing compensation to girls who opt out of marriage = equivalent to rape victim compensation under NALSA SVCS/State VCS.<br><br>
+                    <strong>F. JJ Fund (Sec. 105 JJ Act):</strong> States directed to institutionalise the JJ Fund for scholarships and stipends for girls at risk or whose marriages were annulled.<br><br>
+                    <strong>G. Personal Law &amp; PCMA:</strong> The question of whether PCMA overrides personal laws was <em>kept open</em> — no declaration made absent a constitutional challenge. Suggestion to Parliament to consider outlawing child betrothals to prevent evasion of PCMA.
+                </div>
+            </div>
+
+            <div class="case-section">
+                <div class="case-label">International Law &amp; Comparative Framework</div>
+                <div class="case-text">Court applied: CEDAW (Art. 16 — equality in marriage); UNCRC (child marriage as human rights violation); ICCPR; SDG 5.3 (elimination of child marriage). Referenced the Vishaka method of using international law to fill legislative gaps. Held that principles of non-discrimination, best interests of the child, and right to free consent must guide national legislation per India's treaty obligations.</div>
+            </div>
+            
+            <div class="significance">
+                <strong>Significance for Law Students:</strong> This is the most comprehensive SC ruling on child marriage since the PCMA's enactment. Key learning points: (1) the <em>prevention → protection → penalisation</em> constitutional framework; (2) Article 21's expansion to encompass autonomy, sexuality, reproductive freedom, and childhood itself; (3) the open question of personal law vs. PCMA — fertile ground for constitutional challenge; (4) use of international law (CEDAW, UNCRC, SDGs) as interpretive tools; (5) the institutional accountability framework for CMPOs, Panchayats, NALSA and NCPCR; (6) the compensation-for-opting-out innovation under SVCS. Essential for moot court problems on child rights, PIL strategy, and constitutional interpretation.
+            </div>
+        </div>
+
+        <div class="quiz-section">
+            <h2 class="quiz-title">📋 Case Law Knowledge Quiz</h2>
+            <p style="color: #b8d4ff; margin-bottom: 25px;">Test your understanding of landmark cases. 70% required to pass (14/20 correct).</p>
+            
+            <form id="quizForm">
+                <div class="quiz-question">
+                    <div class="q-text">Q1. In Nipun Saxena case, what must be used instead of child victim's name in court documents?</div>
+                    <div class="option"><input type="radio" name="q1" value="a"><label>Full name with age</label></div>
+                    <div class="option"><input type="radio" name="q1" value="b"><label>Pseudonyms or initials only</label></div>
+                    <div class="option"><input type="radio" name="q1" value="c"><label>Parent's name</label></div>
+                    <div class="option"><input type="radio" name="q1" value="d"><label>Case number</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q2. What is the target timeline for POCSO case completion under FTSC scheme (Alakh Alok)?</div>
+                    <div class="option"><input type="radio" name="q2" value="a"><label>6 months</label></div>
+                    <div class="option"><input type="radio" name="q2" value="b"><label>1 year</label></div>
+                    <div class="option"><input type="radio" name="q2" value="c"><label>18 months</label></div>
+                    <div class="option"><input type="radio" name="q2" value="d"><label>2 years</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q3. In AG v. Satish, what does "touch" mean under Section 7 POCSO?</div>
+                    <div class="option"><input type="radio" name="q3" value="a"><label>Skin-to-skin contact only</label></div>
+                    <div class="option"><input type="radio" name="q3" value="b"><label>Any physical contact with sexual intent, including over clothing</label></div>
+                    <div class="option"><input type="radio" name="q3" value="c"><label>Only intentional touching</label></div>
+                    <div class="option"><input type="radio" name="q3" value="d"><label>Requires proof of injury</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q4. What did Independent Thought case strike down regarding Section 375 IPC?</div>
+                    <div class="option"><input type="radio" name="q4" value="a"><label>Age of consent for girls</label></div>
+                    <div class="option"><input type="radio" name="q4" value="b"><label>Marital exception for girls below 18</label></div>
+                    <div class="option"><input type="radio" name="q4" value="c"><label>Definition of rape</label></div>
+                    <div class="option"><input type="radio" name="q4" value="d"><label>Consent standards</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q5. How many Fast Track Special Courts were established after Alakh Alok decision?</div>
+                    <div class="option"><input type="radio" name="q5" value="a"><label>500+</label></div>
+                    <div class="option"><input type="radio" name="q5" value="b"><label>800+</label></div>
+                    <div class="option"><input type="radio" name="q5" value="c"><label>1,023</label></div>
+                    <div class="option"><input type="radio" name="q5" value="d"><label>1,500+</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q6. When should age determination in JJ Act cases be done (Pratap Singh)?</div>
+                    <div class="option"><input type="radio" name="q6" value="a"><label>Date of arrest</label></div>
+                    <div class="option"><input type="radio" name="q6" value="b"><label>Date of offense</label></div>
+                    <div class="option"><input type="radio" name="q6" value="c"><label>Date of trial</label></div>
+                    <div class="option"><input type="radio" name="q6" value="d"><label>Date of appeal</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q7. In Abuzar Hossain case, what is the benefit of doubt margin in age determination?</div>
+                    <div class="option"><input type="radio" name="q7" value="a"><label>1 year</label></div>
+                    <div class="option"><input type="radio" name="q7" value="b"><label>2 years</label></div>
+                    <div class="option"><input type="radio" name="q7" value="c"><label>3 years</label></div>
+                    <div class="option"><input type="radio" name="q7" value="d"><label>6 months</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q8. Which case upheld JJ Act as constitutionally valid?</div>
+                    <div class="option"><input type="radio" name="q8" value="a"><label>Pratap Singh v. Jharkhand</label></div>
+                    <div class="option"><input type="radio" name="q8" value="b"><label>Salil Bali v. UOI</label></div>
+                    <div class="option"><input type="radio" name="q8" value="c"><label>Bachpan Bachao Andolan</label></div>
+                    <div class="option"><input type="radio" name="q8" value="d"><label>M.C. Mehta v. Tamil Nadu</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q9. What was the industry targeted in M.C. Mehta case for child labour elimination?</div>
+                    <div class="option"><input type="radio" name="q9" value="a"><label>Textile</label></div>
+                    <div class="option"><input type="radio" name="q9" value="b"><label>Match and cracker (Sivakasi)</label></div>
+                    <div class="option"><input type="radio" name="q9" value="c"><label>Mining</label></div>
+                    <div class="option"><input type="radio" name="q9" value="d"><label>Agriculture</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q10. What is the constitutional mandate in Salil Bali regarding juvenile justice?</div>
+                    <div class="option"><input type="radio" name="q10" value="a"><label>Punitive justice</label></div>
+                    <div class="option"><input type="radio" name="q10" value="b"><label>Reformative justice</label></div>
+                    <div class="option"><input type="radio" name="q10" value="c"><label>Retributive justice</label></div>
+                    <div class="option"><input type="radio" name="q10" value="d"><label>Deterrent justice</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q11. Whose rights were extended in Gaurav Jain case?</div>
+                    <div class="option"><input type="radio" name="q11" value="a"><label>Street children</label></div>
+                    <div class="option"><input type="radio" name="q11" value="b"><label>Children of sex workers</label></div>
+                    <div class="option"><input type="radio" name="q11" value="c"><label>Orphaned children</label></div>
+                    <div class="option"><input type="radio" name="q11" value="d"><label>Disabled children</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q12. What regulatory body was created following Lakshmi Kant Pandey?</div>
+                    <div class="option"><input type="radio" name="q12" value="a"><label>NCWC</label></div>
+                    <div class="option"><input type="radio" name="q12" value="b"><label>CARA</label></div>
+                    <div class="option"><input type="radio" name="q12" value="c"><label>NCRB</label></div>
+                    <div class="option"><input type="radio" name="q12" value="d"><label>NHRC</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q13. What percentage of private school seats must be reserved under RTE (Society for Unaided)?</div>
+                    <div class="option"><input type="radio" name="q13" value="a"><label>10%</label></div>
+                    <div class="option"><input type="radio" name="q13" value="b"><label>15%</label></div>
+                    <div class="option"><input type="radio" name="q13" value="c"><label>25%</label></div>
+                    <div class="option"><input type="radio" name="q13" value="d"><label>33%</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q14. What right was established for victims in Asha Ranjan case?</div>
+                    <div class="option"><input type="radio" name="q14" value="a"><label>Compensation claim</label></div>
+                    <div class="option"><input type="radio" name="q14" value="b"><label>Right to oppose bail</label></div>
+                    <div class="option"><input type="radio" name="q14" value="c"><label>Right to testify</label></div>
+                    <div class="option"><input type="radio" name="q14" value="d"><label>Right to evidence</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q15. What was the primary issue in Tamil Nadu CCI case?</div>
+                    <div class="option"><input type="radio" name="q15" value="a"><label>Funding</label></div>
+                    <div class="option"><input type="radio" name="q15" value="b"><label>Systemic abuse in institutions</label></div>
+                    <div class="option"><input type="radio" name="q15" value="c"><label>Staffing</label></div>
+                    <div class="option"><input type="radio" name="q15" value="d"><label>Location</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q16. What is the key principle from Bachpan Bachao on rescue operations?</div>
+                    <div class="option"><input type="radio" name="q16" value="a"><label>Immediate arrest of parents</label></div>
+                    <div class="option"><input type="radio" name="q16" value="b"><label>Rescue and rehabilitation framework with education focus</label></div>
+                    <div class="option"><input type="radio" name="q16" value="c"><label>Deportation</label></div>
+                    <div class="option"><input type="radio" name="q16" value="d"><label>Institution placement only</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q17. Which case challenged child marriage prevention?</div>
+                    <div class="option"><input type="radio" name="q17" value="a"><label>Vishaka v. Rajasthan</label></div>
+                    <div class="option"><input type="radio" name="q17" value="b"><label>Independent Thought v. UOI</label></div>
+                    <div class="option"><input type="radio" name="q17" value="c"><label>Salil Bali v. UOI</label></div>
+                    <div class="option"><input type="radio" name="q17" value="d"><label>Gaurav Jain v. UOI</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q18. What is the "Vishaka approach" in the context of international law?</div>
+                    <div class="option"><input type="radio" name="q18" value="a"><label>Rejecting international conventions</label></div>
+                    <div class="option"><input type="radio" name="q18" value="b"><label>Using international conventions as interpretive aids for Indian law</label></div>
+                    <div class="option"><input type="radio" name="q18" value="c"><label>Prioritizing international law over Indian law</label></div>
+                    <div class="option"><input type="radio" name="q18" value="d"><label>Creating parallel legal systems</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q19. What was prohibited for children in Bachpan Bachao?</div>
+                    <div class="option"><input type="radio" name="q19" value="a"><label>Education in schools</label></div>
+                    <div class="option"><input type="radio" name="q19" value="b"><label>Employment in circuses</label></div>
+                    <div class="option"><input type="radio" name="q19" value="c"><label>Living in homes</label></div>
+                    <div class="option"><input type="radio" name="q19" value="d"><label>Receiving medical care</label></div>
+                </div>
+                
+                <div class="quiz-question">
+                    <div class="q-text">Q20. How many judges decided Pratap Singh case?</div>
+                    <div class="option"><input type="radio" name="q20" value="a"><label>3-Judge Bench</label></div>
+                    <div class="option"><input type="radio" name="q20" value="b"><label>5-Judge Constitutional Bench</label></div>
+                    <div class="option"><input type="radio" name="q20" value="c"><label>2-Judge Bench</label></div>
+                    <div class="option"><input type="radio" name="q20" value="d"><label>7-Judge Bench</label></div>
+                </div>
+            </form>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" onclick="submitQuiz()">Submit Quiz</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()">Reset</button>
+            </div>
+            
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+    
+    <div class="floating-btn" id="floating-btn">💬</div>
+    <div class="qr-popup" id="qr-popup">
+        <img src="wa-qr.png" alt="WhatsApp QR Code">
+        <div style="color: #0d1b4a; font-size: 12px; margin-top: 10px; text-align: center;">Scan to connect</div>
+    </div>
+    
+    <footer>
+        © 2026 Janman People's Foundation | Child Rights Legal Training Platform
+    </footer>
+    
+    <script>
+        const ANSWERS = {
+            q1: 'b', q2: 'b', q3: 'b', q4: 'b', q5: 'c',
+            q6: 'b', q7: 'b', q8: 'b', q9: 'b', q10: 'b',
+            q11: 'b', q12: 'b', q13: 'c', q14: 'b', q15: 'b',
+            q16: 'b', q17: 'b', q18: 'b', q19: 'b', q20: 'b'
+        };
+        
+        function submitQuiz() {
+            const form = document.getElementById('quizForm');
+            let score = 0;
+            
+            for (let i = 1; i <= 20; i++) {
+                const q = 'q' + i;
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected && selected.value === ANSWERS[q]) {
+                    score++;
+                }
+            }
+            
+            const percentage = (score / 20) * 100;
+            const result = document.getElementById('result');
+            const passed = percentage >= 70;
+            
+            result.classList.add('show');
+            result.classList.toggle('fail', !passed);
+            
+            result.innerHTML = `<div><strong>Score: ${score}/20 (${percentage.toFixed(1)}%)</strong></div>
+                <div>${passed ? '✅ Congratulations! You passed Level 2.' : '❌ You need 70% to pass. Review the cases and try again.'}</div>
+                ${passed ? '<div style="margin-top: 15px;"><strong>Next:</strong> Progress saved. Return to track to unlock Level 3.</div>' : ''}`;
+            
+            if (passed) {
+                localStorage.setItem('janman_ls_l2_done', 'true');
+            }
+        }
+        
+        function resetQuiz() {
+            document.getElementById('quizForm').reset();
+            document.getElementById('result').classList.remove('show');
+        }
+        
+        document.getElementById('floating-btn').addEventListener('click', () => {
+            document.getElementById('qr-popup').classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            const popup = document.getElementById('qr-popup');
+            const btn = document.getElementById('floating-btn');
+            if (!popup.contains(e.target) && !btn.contains(e.target)) {
+                popup.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

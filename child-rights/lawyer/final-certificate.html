@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Certificate - Lawyer Track</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0505, #3a0a0a, #5b1010);
+            color: #f0f0f0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            border-radius: 5px;
+            color: #ffd700;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .locked-screen {
+            background: rgba(0,0,0,0.5);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .locked-screen h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .locked-screen p {
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .form-container {
+            background: rgba(0,0,0,0.4);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+            margin-bottom: 30px;
+        }
+        
+        .form-container h1 {
+            font-family: 'Playfair Display', serif;
+            color: #ffd700;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            text-align: center;
+        }
+        
+        .form-container h2 {
+            color: #d4af37;
+            font-size: 1.2rem;
+            margin: 25px 0 15px 0;
+            border-bottom: 1px solid #d4af3755;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #ffd700;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d4af37;
+            background: rgba(0,0,0,0.5);
+            color: #f0f0f0;
+            border-radius: 5px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 8px rgba(255,215,0,0.2);
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .result-section {
+            background: rgba(0,0,0,0.4);
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #ffd700;
+            text-align: center;
+            display: none;
+        }
+        
+        .result-section.show {
+            display: block;
+        }
+        
+        .certificate-grade {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ffd700;
+            margin: 20px 0;
+        }
+        
+        .certificate-id {
+            font-family: monospace;
+            font-size: 1.3rem;
+            color: #d4af37;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+        
+        .certificate-info {
+            color: #e0e0e0;
+            margin: 15px 0;
+            font-size: 1rem;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #1a0505;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(255,215,0,0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(212, 175, 55, 0.2);
+            color: #ffd700;
+            border: 1px solid #d4af37;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.35);
+        }
+        
+        .requirements {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid #4ade80;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .requirements h3 {
+            color: #4ade80;
+            margin-bottom: 12px;
+        }
+        
+        .requirement-item {
+            color: #e0e0e0;
+            margin: 8px 0;
+        }
+        
+        .requirement-item.complete {
+            color: #4ade80;
+        }
+        
+        .requirement-item.incomplete {
+            color: #ef4444;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        .floating-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-size: 1.8rem;
+        }
+        
+        .floating-contact:hover {
+            transform: scale(1.1);
+        }
+        
+        .contact-popup {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: rgba(0,0,0,0.95);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            z-index: 99;
+            max-width: 280px;
+        }
+        
+        .contact-popup.show {
+            display: block;
+        }
+        
+        .contact-popup h4 {
+            color: #ffd700;
+            margin-bottom: 12px;
+        }
+        
+        .contact-popup p {
+            color: #d4af37;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+        
+        .contact-popup a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #d4af37, #ffd700);
+            color: #1a0505;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-container h1 {
+                font-size: 1.6rem;
+            }
+            
+            .floating-contact {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Lawyer Track</a>
+        
+        <div id="lockedScreen" class="locked-screen">
+            <h2>🔒 Certification Locked</h2>
+            <p>Complete all three levels to access the Final Certificate.</p>
+            <p style="font-size: 1rem;">Level 1, Level 2, and Level 3 must all be passed with ≥70% score.</p>
+        </div>
+        
+        <div id="formContainer" class="form-container" style="display: none;">
+            <h1>JPF Lawyer Track Certificate</h1>
+            <p style="text-align: center; color: #d4af37; margin-bottom: 25px;">Complete your professional credential & network profile</p>
+            
+            <form id="certForm">
+                <h2>Personal Information</h2>
+                
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="As per bar council enrollment" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="barNo">Bar Council Enrollment Number *</label>
+                        <input type="text" id="barNo" name="barNo" placeholder="e.g., DLSC/2020/1234" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="yearEnrolled">Year of Enrollment *</label>
+                        <input type="number" id="yearEnrolled" name="yearEnrolled" min="1990" max="2026" placeholder="YYYY" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="highCourt">High Court (Jurisdiction) *</label>
+                    <select id="highCourt" name="highCourt" required>
+                        <option value="">Select High Court</option>
+                        <option value="Supreme Court">Supreme Court of India</option>
+                        <option value="Delhi HC">Delhi High Court</option>
+                        <option value="Bombay HC">Bombay High Court</option>
+                        <option value="Calcutta HC">Calcutta High Court</option>
+                        <option value="Madras HC">Madras High Court</option>
+                        <option value="Punjab & Haryana HC">Punjab & Haryana High Court</option>
+                        <option value="Rajasthan HC">Rajasthan High Court</option>
+                        <option value="Gujarat HC">Gujarat High Court</option>
+                        <option value="Himachal Pradesh HC">Himachal Pradesh High Court</option>
+                        <option value="Jharkhand HC">Jharkhand High Court</option>
+                        <option value="Uttar Pradesh HC">Uttar Pradesh High Court</option>
+                        <option value="Allahabad HC">Allahabad High Court</option>
+                        <option value="Guwahati HC">Guwahati High Court</option>
+                        <option value="Karnataka HC">Karnataka High Court</option>
+                        <option value="Kerala HC">Kerala High Court</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="district">District *</label>
+                        <input type="text" id="district" name="district" placeholder="Where you primarily practice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <input type="text" id="state" name="state" placeholder="State" required>
+                    </div>
+                </div>
+                
+                <h2>Contact Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" placeholder="10-digit mobile" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                
+                <h2>Practice Profile</h2>
+                
+                <div class="form-group">
+                    <label for="areas">Areas of Practice (Check All That Apply)</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;">
+                        <div>
+                            <input type="checkbox" id="area1" name="areas" value="Child Sexual Abuse (POCSO)">
+                            <label for="area1" style="display: inline; margin-left: 5px; font-weight: 400;">Child Sexual Abuse (POCSO)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="area2" name="areas" value="Juvenile Justice">
+                            <label for="area2" style="display: inline; margin-left: 5px; font-weight: 400;">Juvenile Justice</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="area3" name="areas" value="Child Labour">
+                            <label for="area3" style="display: inline; margin-left: 5px; font-weight: 400;">Child Labour</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="area4" name="areas" value="Child Marriage">
+                            <label for="area4" style="display: inline; margin-left: 5px; font-weight: 400;">Child Marriage</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="area5" name="areas" value="Custody & Guardianship">
+                            <label for="area5" style="display: inline; margin-left: 5px; font-weight: 400;">Custody & Guardianship</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="area6" name="areas" value="Education Rights (RTE)">
+                            <label for="area6" style="display: inline; margin-left: 5px; font-weight: 400;">Education Rights (RTE)</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="area7" name="areas" value="Child Trafficking">
+                            <label for="area7" style="display: inline; margin-left: 5px; font-weight: 400;">Child Trafficking</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="area8" name="areas" value="Public Interest Litigation">
+                            <label for="area8" style="display: inline; margin-left: 5px; font-weight: 400;">Public Interest Litigation</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="caseExperience">Current or Recent Child Rights Case/Matter (Optional)</label>
+                    <textarea id="caseExperience" name="caseExperience" placeholder="Brief description of your recent work..."></textarea>
+                </div>
+                
+                <div class="controls">
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">Clear</button>
+                    <button type="submit" class="btn btn-primary">Generate Certificate</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="resultSection" class="result-section">
+            <h2 style="color: #ffd700; margin-bottom: 20px;">🎓 Certification Complete</h2>
+            
+            <div style="background: rgba(212, 175, 55, 0.1); padding: 30px; border-radius: 8px; margin: 20px 0;">
+                <p style="color: #d4af37; font-size: 0.9rem; margin-bottom: 10px;">CERTIFICATE ID:</p>
+                <div class="certificate-id" id="certId"></div>
+                
+                <p style="color: #e0e0e0; margin-top: 20px;">Awarded to:</p>
+                <p style="color: #ffd700; font-size: 1.3rem; font-weight: 600;" id="certName"></p>
+                
+                <p style="color: #e0e0e0; margin-top: 15px;">Grade:</p>
+                <div class="certificate-grade" id="certGrade"></div>
+                
+                <p style="color: #d4af37; margin-top: 20px;" id="certMessage"></p>
+                
+                <p style="color: #999; font-size: 0.9rem; margin-top: 20px;">
+                    Signer: <strong>Shourya Roy</strong>, Director<br>
+                    Janman People's Foundation
+                </p>
+            </div>
+            
+            <div style="margin-top: 20px; color: #d4af37; font-size: 0.95rem;">
+                <p>✓ You are now part of the JPF Lawyer Network</p>
+                <p>✓ Your profile has been recorded for professional connections</p>
+                <p>✓ Access to ongoing legal updates and case resources available</p>
+            </div>
+            
+            <div class="controls">
+                <button type="button" class="btn btn-secondary" onclick="downloadCertificate()">Download Certificate</button>
+                <button type="button" class="btn btn-primary" onclick="goHome()">Return to Track Home</button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Janman People's Foundation</strong></p>
+            <p>Child Rights Legal Training Platform</p>
+            <p>Empowering lawyers to defend child rights across India</p>
+        </div>
+    </div>
+    
+    <div class="floating-contact" id="contactBtn" title="Contact Support">
+        💬
+    </div>
+    
+    <div class="contact-popup" id="contactPopup">
+        <h4>Certificate Support</h4>
+        <p>Questions about your certification or network profile?</p>
+        <a href="https://wa.me/918507715870" target="_blank">WhatsApp Support</a>
+    </div>
+    
+    <script>
+        // Check completion status on load
+        function initializePage() {
+            const l1Done = localStorage.getItem('janman_lw_l1_done') === 'true';
+            const l2Done = localStorage.getItem('janman_lw_l2_done') === 'true';
+            const l3Done = localStorage.getItem('janman_lw_l3_done') === 'true';
+            
+            if (l1Done && l2Done && l3Done) {
+                // All levels complete — show form
+                document.getElementById('lockedScreen').style.display = 'none';
+                document.getElementById('formContainer').style.display = 'block';
+                
+                // Pre-fill known data
+                const name = localStorage.getItem('janman_lw_name');
+                const phone = localStorage.getItem('janman_lw_phone');
+                const barNo = localStorage.getItem('janman_lw_bar_no');
+                const district = localStorage.getItem('janman_lw_district');
+                const state = localStorage.getItem('janman_lw_state');
+                
+                if (name) document.getElementById('name').value = name;
+                if (phone) document.getElementById('phone').value = phone;
+                if (barNo) document.getElementById('barNo').value = barNo;
+                if (district) document.getElementById('district').value = district;
+                if (state) document.getElementById('state').value = state;
+            } else {
+                // Incomplete — show locked screen
+                document.getElementById('lockedScreen').style.display = 'block';
+                document.getElementById('formContainer').style.display = 'none';
+            }
+        }
+        
+        // Floating contact button
+        document.getElementById('contactBtn').addEventListener('click', function() {
+            const popup = document.getElementById('contactPopup');
+            popup.classList.toggle('show');
+        });
+        
+        document.addEventListener('click', function(event) {
+            const popup = document.getElementById('contactPopup');
+            const btn = document.getElementById('contactBtn');
+            if (!popup.contains(event.target) && !btn.contains(event.target)) {
+                popup.classList.remove('show');
+            }
+        });
+        
+        // Form submission
+        document.getElementById('certForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const barNo = document.getElementById('barNo').value;
+            const yearEnrolled = document.getElementById('yearEnrolled').value;
+            const highCourt = document.getElementById('highCourt').value;
+            const district = document.getElementById('district').value;
+            const state = document.getElementById('state').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            
+            // Save to localStorage
+            localStorage.setItem('janman_lw_name', name);
+            localStorage.setItem('janman_lw_bar_no', barNo);
+            localStorage.setItem('janman_lw_year_enrolled', yearEnrolled);
+            localStorage.setItem('janman_lw_high_court', highCourt);
+            localStorage.setItem('janman_lw_district', district);
+            localStorage.setItem('janman_lw_state', state);
+            localStorage.setItem('janman_lw_phone', phone);
+            localStorage.setItem('janman_lw_email', email);
+            
+            // Get average score (example: we'll assume excellent performance across all levels)
+            // In real implementation, track individual quiz scores
+            const l1Score = 85; // Example scores
+            const l2Score = 88;
+            const l3Score = 92;
+            const avgScore = (l1Score + l2Score + l3Score) / 3;
+            
+            let grade, message;
+            if (avgScore >= 90) {
+                grade = 'DISTINCTION';
+                message = 'Awarded with distinction for exceptional legal expertise in child rights.';
+            } else if (avgScore >= 80) {
+                grade = 'MERIT';
+                message = 'Awarded with merit for distinguished legal proficiency in child rights.';
+            } else {
+                grade = 'PASS';
+                message = 'Successfully completed the Lawyer Track certification.';
+            }
+            
+            // Generate Certificate ID
+            const timestamp = Date.now().toString().slice(-6);
+            const certId = 'JPF-LW-FINAL-' + timestamp + '-' + barNo.slice(-4);
+            
+            // Show result
+            document.getElementById('certId').textContent = certId;
+            document.getElementById('certName').textContent = name;
+            document.getElementById('certGrade').textContent = grade;
+            document.getElementById('certMessage').textContent = message;
+            
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('resultSection').classList.add('show');
+        });
+        
+        function resetForm() {
+            document.getElementById('certForm').reset();
+        }
+        
+        function downloadCertificate() {
+            alert('Certificate download feature will open PDF viewer.\n\nIn production, this would generate a PDF certificate with the secure ID and digital signature.');
+        }
+        
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+        
+        // Initialize on load
+        initializePage();
+    </script>
+</body>
+</html>

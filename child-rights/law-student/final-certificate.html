@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Law Student Track — Final Certificate | Janman Child Rights Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#1e293b;min-height:100vh}
+.top-bar{background:linear-gradient(135deg,#1e3a8a,#3730a3);padding:16px 24px;display:flex;align-items:center;gap:16px}
+.top-bar .logo{width:44px;height:44px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;color:#1e3a8a}
+.top-bar h1{color:#fff;font-size:18px;font-weight:700}
+.top-bar .sub{color:#bfdbfe;font-size:13px}
+.back-link{color:#93c5fd;text-decoration:none;font-size:13px;margin-left:auto}
+.back-link:hover{color:#fff}
+
+/* locked screen */
+.locked-screen{display:none;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;gap:20px;padding:40px}
+.lock-icon{font-size:72px}
+.locked-screen h2{font-size:28px;font-weight:800;color:#fff;text-align:center}
+.locked-screen p{color:#94a3b8;text-align:center;max-width:480px;line-height:1.6}
+.lock-btn{display:inline-block;background:linear-gradient(135deg,#1e3a8a,#3730a3);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;margin-top:8px}
+
+/* main content */
+.main-wrap{max-width:860px;margin:0 auto;padding:32px 20px 60px}
+
+/* score summary */
+.score-section{background:#fff;border-radius:16px;padding:28px;margin-bottom:28px;box-shadow:0 4px 20px rgba(0,0,0,0.25)}
+.score-section h2{font-size:22px;font-weight:800;color:#1e3a8a;margin-bottom:20px;border-bottom:2px solid #e2e8f0;padding-bottom:12px}
+.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px}
+.score-card{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-radius:12px;padding:16px;text-align:center;border:1px solid #bfdbfe}
+.score-card .level-label{font-size:11px;font-weight:700;color:#1e3a8a;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.score-card .level-title{font-size:12px;color:#3730a3;margin-bottom:10px;line-height:1.4}
+.score-card .score-num{font-size:36px;font-weight:800;color:#1e3a8a}
+.score-card .score-pct{font-size:13px;color:#6366f1;font-weight:600}
+.final-grade{background:linear-gradient(135deg,#1e3a8a,#3730a3);border-radius:12px;padding:20px;display:flex;align-items:center;justify-content:space-between;color:#fff}
+.final-grade .avg-label{font-size:14px;font-weight:600;opacity:0.85}
+.final-grade .avg-num{font-size:42px;font-weight:800}
+.final-grade .grade-badge{background:#fff;color:#1e3a8a;border-radius:8px;padding:8px 20px;font-size:18px;font-weight:800}
+.grade-note{font-size:13px;color:#64748b;margin-top:12px;font-style:italic}
+
+/* form */
+.form-section{background:#fff;border-radius:16px;padding:28px;margin-bottom:28px;box-shadow:0 4px 20px rgba(0,0,0,0.25)}
+.form-section h2{font-size:22px;font-weight:800;color:#1e3a8a;margin-bottom:8px}
+.form-section .form-intro{font-size:14px;color:#64748b;margin-bottom:20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:13px;font-weight:700;color:#374151}
+.form-group label .req{color:#ef4444}
+.form-group input,.form-group select,.form-group textarea{padding:10px 14px;border:2px solid #e2e8f0;border-radius:8px;font-size:14px;font-family:'Inter',sans-serif;transition:border-color 0.2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#3730a3}
+.form-group textarea{resize:vertical;min-height:70px}
+.submit-btn{margin-top:20px;width:100%;background:linear-gradient(135deg,#1e3a8a,#3730a3);color:#fff;border:none;padding:14px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(30,58,138,0.5)}
+
+/* certificate */
+.cert-section{display:none}
+.cert-box{background:#fff;border-radius:16px;padding:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3);margin-bottom:24px}
+.cert-inner{border:4px double #1e3a8a;border-radius:12px;padding:40px;background:linear-gradient(135deg,#f8faff 0%,#eff6ff 50%,#f0f4ff 100%);position:relative;overflow:hidden}
+.cert-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 80%,rgba(30,58,138,0.04) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(99,102,241,0.04) 0%,transparent 50%)}
+.cert-logo-row{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:24px}
+.cert-logo{width:52px;height:52px;background:linear-gradient(135deg,#1e3a8a,#3730a3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:18px}
+.cert-org{font-size:15px;font-weight:800;color:#1e3a8a;text-align:center;line-height:1.4}
+.cert-divider{width:100%;height:2px;background:linear-gradient(90deg,transparent,#1e3a8a,transparent);margin:20px 0}
+.cert-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:800;text-align:center;color:#1e293b;line-height:1.3;margin-bottom:6px}
+.cert-subtitle{text-align:center;font-size:14px;color:#6366f1;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.cert-presented{text-align:center;font-size:14px;color:#64748b;margin-bottom:4px}
+.cert-name{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;text-align:center;color:#1e3a8a;margin-bottom:16px}
+.cert-body{text-align:center;font-size:14px;color:#374151;line-height:1.8;margin-bottom:20px;max-width:600px;margin-left:auto;margin-right:auto}
+.cert-meta-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:20px 0}
+.cert-meta-item{background:#eff6ff;border-radius:8px;padding:10px;text-align:center;border:1px solid #bfdbfe}
+.cert-meta-item .meta-label{font-size:10px;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:1px;display:block;margin-bottom:2px}
+.cert-meta-item .meta-val{font-size:14px;font-weight:700;color:#1e293b}
+.cert-sig-row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:24px}
+.cert-sig-block{text-align:center}
+.cert-sig-name{font-family:'Dancing Script',cursive;font-size:28px;color:#1e3a8a;font-weight:700}
+.cert-sig-line{width:180px;height:1px;background:#94a3b8;margin:4px auto}
+.cert-sig-title{font-size:11px;color:#64748b;font-weight:600}
+.cert-id-row{text-align:center;margin-top:16px;font-size:11px;color:#94a3b8;font-family:monospace}
+.cert-stamp{position:absolute;bottom:24px;right:24px;width:64px;height:64px;border-radius:50%;border:3px solid rgba(30,58,138,0.25);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:rgba(30,58,138,0.35);text-align:center;text-transform:uppercase;letter-spacing:0.5px;line-height:1.3;background:rgba(30,58,138,0.04)}
+
+/* profile card */
+.profile-card{background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,0.25)}
+.profile-card h3{font-size:18px;font-weight:800;color:#1e3a8a;margin-bottom:16px}
+.profile-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.profile-item{display:flex;flex-direction:column;gap:2px}
+.profile-item .pi-label{font-size:11px;font-weight:700;color:#6366f1;text-transform:uppercase;letter-spacing:1px}
+.profile-item .pi-val{font-size:14px;color:#1e293b;font-weight:500}
+.profile-item.full{grid-column:1/-1}
+
+/* action buttons */
+.action-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.action-btn{flex:1;min-width:180px;padding:14px 20px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all 0.2s;text-align:center}
+.btn-download{background:linear-gradient(135deg,#1e3a8a,#3730a3);color:#fff}
+.btn-download:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(30,58,138,0.5)}
+.btn-whatsapp{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff}
+.btn-whatsapp:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(22,163,74,0.4)}
+.btn-restart{background:#f1f5f9;color:#334155;border:2px solid #e2e8f0}
+.btn-restart:hover{background:#e2e8f0}
+
+.floating-btn{position:fixed;bottom:24px;right:24px;background:#16a34a;color:#fff;padding:14px 20px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.3);z-index:999;text-decoration:none;display:flex;align-items:center;gap:8px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 4px 16px rgba(22,163,74,0.4)}50%{box-shadow:0 4px 28px rgba(22,163,74,0.8)}}
+
+@media(max-width:600px){
+  .score-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .cert-meta-grid{grid-template-columns:1fr 1fr}
+  .profile-grid{grid-template-columns:1fr}
+  .action-row{flex-direction:column}
+  .cert-title{font-size:26px}
+  .cert-name{font-size:24px}
+}
+@media print{
+  .top-bar,.score-section,.form-section,.profile-card,.action-row,.floating-btn{display:none!important}
+  .cert-section{display:block!important}
+  .main-wrap{padding:0;max-width:100%}
+  body{background:#fff}
+  .cert-box{box-shadow:none;padding:0}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="logo">JA</div>
+  <div>
+    <h1>Janman Child Rights Academy</h1>
+    <div class="sub">Law Student Track — Final Certificate</div>
+  </div>
+  <a href="index.html" class="back-link">← Back to Track Hub</a>
+</div>
+
+<!-- LOCKED SCREEN -->
+<div class="locked-screen" id="lockedScreen">
+  <div class="lock-icon">🔒</div>
+  <h2>Complete All Three Levels First</h2>
+  <p>You must successfully pass all three levels of the Law Student Track before you can claim your Final Certificate of Excellence.</p>
+  <div id="lockStatus" style="background:rgba(255,255,255,0.08);border-radius:10px;padding:16px;margin-top:8px;color:#94a3b8;font-size:14px;text-align:center;width:100%;max-width:400px"></div>
+  <a href="index.html" class="lock-btn">Return to Track Hub</a>
+</div>
+
+<!-- MAIN CONTENT (scores + form) -->
+<div class="main-wrap" id="mainContent" style="display:none">
+
+  <!-- Score Summary -->
+  <div class="score-section">
+    <h2>📊 Your Performance Summary</h2>
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="level-label">Level 1</div>
+        <div class="level-title">Constitutional & Statutory Framework</div>
+        <div class="score-num" id="s1">—</div>
+        <div class="score-pct">out of 100</div>
+      </div>
+      <div class="score-card">
+        <div class="level-label">Level 2</div>
+        <div class="level-title">Landmark Jurisprudence & Case Analysis</div>
+        <div class="score-num" id="s2">—</div>
+        <div class="score-pct">out of 100</div>
+      </div>
+      <div class="score-card">
+        <div class="level-label">Level 3</div>
+        <div class="level-title">Advanced Practice, PIL & Constitutional Remedies</div>
+        <div class="score-num" id="s3">—</div>
+        <div class="score-pct">out of 100</div>
+      </div>
+    </div>
+    <div class="final-grade">
+      <div>
+        <div class="avg-label">Aggregate Average</div>
+        <div class="avg-num" id="avgScore">—</div>
+      </div>
+      <div class="grade-badge" id="gradeBadge">—</div>
+    </div>
+    <p class="grade-note">Distinction ≥ 90% &nbsp;|&nbsp; Merit ≥ 80% &nbsp;|&nbsp; Pass ≥ 70%</p>
+  </div>
+
+  <!-- Registration Form -->
+  <div class="form-section" id="formSection">
+    <h2>🎓 Generate Your Certificate</h2>
+    <p class="form-intro">Fill in your details to generate a personalised Certificate of Excellence. These details will appear on your certificate.</p>
+    <form id="certForm">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="fName" placeholder="As it should appear on certificate" required>
+        </div>
+        <div class="form-group">
+          <label>Law School / University <span class="req">*</span></label>
+          <input type="text" id="fInst" placeholder="Name of your institution" required>
+        </div>
+        <div class="form-group">
+          <label>Year of Study <span class="req">*</span></label>
+          <select id="fYear" required>
+            <option value="">Select year</option>
+            <option>1st Year (BA LLB / BBA LLB)</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+            <option>5th Year (Final Year)</option>
+            <option>LLM (1st Year)</option>
+            <option>LLM (2nd Year)</option>
+            <option>PhD Scholar</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>District <span class="req">*</span></label>
+          <input type="text" id="fDistrict" placeholder="Your district" required>
+        </div>
+        <div class="form-group">
+          <label>State <span class="req">*</span></label>
+          <input type="text" id="fState" placeholder="Your state" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number <span class="req">*</span></label>
+          <input type="tel" id="fPhone" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+        <div class="form-group full">
+          <label>Email Address <span class="req">*</span></label>
+          <input type="email" id="fEmail" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group full">
+          <label>Legal Areas of Interest</label>
+          <textarea id="fAreas" placeholder="e.g., Child rights litigation, criminal law, public interest litigation, constitutional law..."></textarea>
+        </div>
+        <div class="form-group full">
+          <label>Current Projects / Moot Participation</label>
+          <textarea id="fProject" placeholder="e.g., Moot court competitions, legal aid clinic work, internships, research projects..."></textarea>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn">✨ Generate My Certificate</button>
+    </form>
+  </div>
+</div>
+
+<!-- CERTIFICATE SECTION -->
+<div class="cert-section" id="certSection">
+  <div class="main-wrap">
+
+    <div class="action-row">
+      <button class="action-btn btn-download" onclick="window.print()">⬇ Download / Print Certificate</button>
+      <button class="action-btn btn-whatsapp" id="waBtn">💬 Share on WhatsApp</button>
+      <button class="action-btn btn-restart" onclick="location.href='index.html'">← Back to Track Hub</button>
+    </div>
+
+    <!-- Certificate -->
+    <div class="cert-box">
+      <div class="cert-inner">
+        <div class="cert-logo-row">
+          <div class="cert-logo">JA</div>
+          <div class="cert-org">Janman People's Foundation<br><span style="font-size:12px;font-weight:600;color:#6366f1">Jan Nyaya Abhiyan — Child Rights Academy</span></div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-title">Certificate of Excellence</div>
+        <div class="cert-subtitle">Child Rights Law &amp; Practice</div>
+        <div class="cert-presented">This is to certify that</div>
+        <div class="cert-name" id="certName"></div>
+        <div class="cert-body" id="certBody"></div>
+        <div class="cert-meta-grid">
+          <div class="cert-meta-item">
+            <span class="meta-label">Track</span>
+            <span class="meta-val">Law Student</span>
+          </div>
+          <div class="cert-meta-item">
+            <span class="meta-label">Grade</span>
+            <span class="meta-val" id="certGrade"></span>
+          </div>
+          <div class="cert-meta-item">
+            <span class="meta-label">Score</span>
+            <span class="meta-val" id="certScore"></span>
+          </div>
+        </div>
+        <div class="cert-divider"></div>
+        <div class="cert-sig-row">
+          <div class="cert-sig-block">
+            <div class="cert-sig-name">Shourya Roy</div>
+            <div class="cert-sig-line"></div>
+            <div class="cert-sig-title">Executive Director, Janman People's Foundation</div>
+          </div>
+          <div class="cert-sig-block">
+            <div style="font-family:'Dancing Script',cursive;font-size:28px;color:#3730a3;font-weight:700">Jan Nyaya Abhiyan</div>
+            <div class="cert-sig-line"></div>
+            <div class="cert-sig-title">Child Rights Legal Programme</div>
+          </div>
+        </div>
+        <div class="cert-id-row">Certificate ID: <span id="certId"></span> &nbsp;|&nbsp; Issued: <span id="certDate"></span></div>
+        <div class="cert-stamp">Janman<br>People's<br>Foundation<br>✓ Verified</div>
+      </div>
+    </div>
+
+    <!-- Profile card -->
+    <div class="profile-card">
+      <h3>👤 Your Network Profile</h3>
+      <div class="profile-grid" id="profileGrid"></div>
+    </div>
+
+    <div class="action-row">
+      <button class="action-btn btn-download" onclick="window.print()">⬇ Download / Print Certificate</button>
+      <button class="action-btn btn-whatsapp" id="waBtn2">💬 Share on WhatsApp</button>
+      <button class="action-btn btn-restart" onclick="location.href='index.html'">← Back to Track Hub</button>
+    </div>
+
+  </div>
+</div>
+
+<a class="floating-btn" href="https://wa.me/918507715870?text=Hello%2C%20I%20need%20support%20with%20the%20Child%20Rights%20Law%20Student%20Training" target="_blank">💬 Need Help?</a>
+
+<script>
+var l1=parseInt(localStorage.getItem('janman_ls_l1_score')||'0');
+var l2=parseInt(localStorage.getItem('janman_ls_l2_score')||'0');
+var l3=parseInt(localStorage.getItem('janman_ls_l3_score')||'0');
+var d1=localStorage.getItem('janman_ls_l1_done');
+var d2=localStorage.getItem('janman_ls_l2_done');
+var d3=localStorage.getItem('janman_ls_l3_done');
+
+function checkAccess(){
+  var missing=[];
+  if(!d1) missing.push('Level 1: Constitutional & Statutory Framework');
+  if(!d2) missing.push('Level 2: Landmark Jurisprudence & Case Analysis');
+  if(!d3) missing.push('Level 3: Advanced Practice, PIL & Constitutional Remedies');
+  if(missing.length>0){
+    document.getElementById('lockedScreen').style.display='flex';
+    var ls=document.getElementById('lockStatus');
+    ls.innerHTML='<strong>Still pending:</strong><br>'+missing.map(function(m){return '❌ '+m}).join('<br>');
+  } else {
+    document.getElementById('mainContent').style.display='block';
+    loadScores();
+  }
+}
+
+function loadScores(){
+  document.getElementById('s1').textContent=l1;
+  document.getElementById('s2').textContent=l2;
+  document.getElementById('s3').textContent=l3;
+  var avg=Math.round((l1+l2+l3)/3);
+  document.getElementById('avgScore').textContent=avg+'%';
+  var grade=avg>=90?'Distinction':avg>=80?'Merit':avg>=70?'Pass':'Incomplete';
+  document.getElementById('gradeBadge').textContent=grade;
+}
+
+document.getElementById('certForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var name=document.getElementById('fName').value.trim();
+  var inst=document.getElementById('fInst').value.trim();
+  var year=document.getElementById('fYear').value;
+  var dist=document.getElementById('fDistrict').value.trim();
+  var state=document.getElementById('fState').value.trim();
+  var phone=document.getElementById('fPhone').value.trim();
+  var email=document.getElementById('fEmail').value.trim();
+  var areas=document.getElementById('fAreas').value.trim();
+  var project=document.getElementById('fProject').value.trim();
+  if(!name||!inst||!year||!dist||!state||!phone||!email){alert('Please fill all required fields.');return;}
+
+  var avg=Math.round((l1+l2+l3)/3);
+  var grade=avg>=90?'Distinction with Honours':avg>=80?'Merit':avg>=70?'Pass':'Incomplete';
+  var gradeShort=avg>=90?'Distinction':avg>=80?'Merit':avg>=70?'Pass':'Incomplete';
+  var certId='JPF-LS-FINAL-'+Date.now().toString(36).toUpperCase();
+  var now=new Date();
+  var dateStr=now.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+
+  document.getElementById('certName').textContent=name;
+  document.getElementById('certBody').innerHTML=
+    'studying at <strong>'+inst+'</strong> ('+year+')<br>'+
+    'has successfully completed the <strong>Child Rights Law Student Track</strong> of the<br>'+
+    'Jan Nyaya Abhiyan Child Rights Legal Training Programme<br>'+
+    'covering Constitutional Framework, Landmark Child Rights Jurisprudence,<br>'+
+    'and Advanced Practice in PIL & Constitutional Remedies.<br><br>'+
+    'Awarded with <strong>'+grade+'</strong> with an aggregate score of <strong>'+avg+'%</strong>.';
+  document.getElementById('certGrade').textContent=gradeShort;
+  document.getElementById('certScore').textContent=avg+'%';
+  document.getElementById('certId').textContent=certId;
+  document.getElementById('certDate').textContent=dateStr;
+
+  var profItems=[
+    {l:'Full Name',v:name},{l:'Institution',v:inst},{l:'Year of Study',v:year},
+    {l:'District',v:dist},{l:'State',v:state},{l:'Phone',v:phone},{l:'Email',v:email,full:true},
+    {l:'Areas of Interest',v:areas||'—',full:true},{l:'Current Projects',v:project||'—',full:true}
+  ];
+  var pg=document.getElementById('profileGrid');
+  pg.innerHTML='';
+  profItems.forEach(function(it){
+    var d=document.createElement('div');
+    d.className='profile-item'+(it.full?' full':'');
+    d.innerHTML='<span class="pi-label">'+it.l+'</span><span class="pi-val">'+it.v+'</span>';
+    pg.appendChild(d);
+  });
+
+  var waMsg=encodeURIComponent('I have completed the Janman Child Rights Law Student Training Programme with '+gradeShort+' ('+avg+'%). Certificate ID: '+certId+'. Name: '+name+', '+year+' at '+inst+', '+dist+', '+state+'. Contact: '+phone+' / '+email);
+  var waUrl='https://wa.me/918507715870?text='+waMsg;
+  document.getElementById('waBtn').onclick=function(){window.open(waUrl,'_blank')};
+  document.getElementById('waBtn2').onclick=function(){window.open(waUrl,'_blank')};
+
+  document.getElementById('mainContent').style.display='none';
+  document.getElementById('certSection').style.display='block';
+  localStorage.setItem('janman_ls_final_done','1');
+  localStorage.setItem('janman_ls_cert_id',certId);
+  window.scrollTo(0,0);
+});
+
+checkAccess();
+</script>
+</body>
+</html>

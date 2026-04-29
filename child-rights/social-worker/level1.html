@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 1: POCSO Fundamentals — Social Worker Track | Janman</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#7a3500,#c05e0a,#d4700a);min-height:100vh;color:#fff;}
+.top-bar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:rgba(0,0,0,0.2);}
+.nav-back{color:rgba(255,255,255,0.8);text-decoration:none;font-size:13px;background:rgba(255,255,255,0.15);padding:6px 14px;border-radius:20px;}
+.level-tag{background:rgba(255,255,255,0.15);padding:4px 14px;border-radius:20px;font-size:12px;font-weight:700;}
+.hero{text-align:center;padding:40px 20px 28px;}
+.hero h1{font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:8px;}
+.hero p{color:rgba(255,255,255,0.8);font-size:14px;max-width:600px;margin:0 auto;}
+.container{max-width:860px;margin:0 auto;padding:0 20px 60px;}
+.section{background:rgba(255,255,255,0.08);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:28px;margin-bottom:20px;}
+.section h2{font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section h3{font-size:15px;font-weight:700;margin:18px 0 10px;color:#ffd180;}
+.art-block{background:rgba(0,0,0,0.25);border-left:4px solid #f39c12;border-radius:0 10px 10px 0;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.art-block .art-num{font-size:11px;font-weight:700;letter-spacing:1px;color:#f5c842;text-transform:uppercase;margin-bottom:4px;}
+.important{background:rgba(231,76,60,0.2);border:1px solid rgba(231,76,60,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.important::before{content:'⚠️ ';font-size:14px;}
+.tip{background:rgba(39,174,96,0.2);border:1px solid rgba(39,174,96,0.4);border-radius:10px;padding:14px 16px;margin:12px 0;font-size:13px;line-height:1.7;}
+.tip::before{content:'✅ ';font-size:14px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:14px 0;}
+.info-card{background:rgba(0,0,0,0.2);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.1);}
+.info-card .ic-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+.info-card .ic-val{font-size:13px;font-weight:600;line-height:1.5;}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+th{background:rgba(0,0,0,0.3);padding:10px 12px;text-align:left;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;}
+td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.08);}
+tr:hover td{background:rgba(255,255,255,0.04);}
+p{font-size:14px;line-height:1.75;margin-bottom:10px;}
+ul,ol{padding-left:20px;font-size:14px;line-height:1.8;}
+ul li,ol li{margin-bottom:4px;}
+.quiz-section{background:rgba(0,0,0,0.3);border-radius:20px;padding:32px;margin-top:20px;}
+.quiz-section h2{font-size:20px;font-weight:800;margin-bottom:6px;text-align:center;}
+.quiz-subtitle{text-align:center;color:rgba(255,255,255,0.65);font-size:13px;margin-bottom:24px;}
+.question-block{background:rgba(255,255,255,0.06);border-radius:14px;padding:20px;margin-bottom:16px;}
+.q-num{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:6px;}
+.q-text{font-size:15px;font-weight:600;margin-bottom:14px;line-height:1.5;}
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);transition:all 0.2s;font-size:14px;}
+.opt:hover{background:rgba(255,255,255,0.1);}
+.opt.correct{background:rgba(39,174,96,0.25)!important;border-color:#27ae60!important;}
+.opt.wrong{background:rgba(231,76,60,0.25)!important;border-color:#e74c3c!important;}
+.opt.disabled{cursor:not-allowed;pointer-events:none;}
+.opt-letter{font-weight:700;min-width:18px;color:#f5c842;}
+.score-block{display:none;text-align:center;padding:28px;background:rgba(255,255,255,0.08);border-radius:16px;margin-top:20px;}
+.score-num{font-size:52px;font-weight:800;margin-bottom:8px;}
+.score-pass{color:#6be878;}
+.score-fail{color:#ff7675;}
+.submit-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#f39c12,#e67e22);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;margin-top:20px;transition:filter 0.2s;}
+.submit-btn:hover{filter:brightness(1.1);}
+.submit-btn:disabled{opacity:0.4;cursor:not-allowed;}
+.cert-section{display:none;background:rgba(255,255,255,0.06);border-radius:20px;padding:28px;margin-top:20px;}
+.cert-section h3{font-size:18px;font-weight:700;margin-bottom:16px;}
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:5px;}
+.form-group input,.form-group select{width:100%;padding:10px 14px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;color:#fff;font-size:14px;font-family:inherit;}
+.form-group input::placeholder{color:rgba(255,255,255,0.35);}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.gen-cert-btn{display:block;width:100%;padding:14px;background:linear-gradient(135deg,#27ae60,#1abc9c);border:none;border-radius:12px;color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;}
+.cert-display{display:none;background:linear-gradient(135deg,#1a0a00,#3d1500,#7a3500);border:3px solid #f39c12;border-radius:16px;padding:32px;margin-top:20px;text-align:center;}
+.cert-title{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#f5c842;margin-bottom:8px;}
+.cert-name{font-size:28px;font-weight:800;margin-bottom:6px;}
+.cert-body{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:16px;}
+.cert-no{font-size:11px;color:rgba(255,255,255,0.45);margin-bottom:16px;}
+.cert-sign{font-family:'Dancing Script',cursive;font-size:24px;color:#f5c842;border-top:1px solid rgba(255,255,255,0.2);padding-top:12px;margin-top:4px;}
+.cert-sign-label{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+.print-btn{margin-top:14px;padding:10px 24px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:10px;color:#fff;font-weight:600;cursor:pointer;font-size:13px;}
+.contact-float{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.4);z-index:100;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}50%{box-shadow:0 4px 30px rgba(37,211,102,0.8);}}
+.contact-popup{display:none;position:fixed;bottom:90px;right:24px;background:#1e1e2e;border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:20px;width:260px;z-index:101;text-align:center;}
+.contact-popup h4{font-size:14px;font-weight:700;margin-bottom:6px;}
+.contact-popup p{font-size:12px;color:rgba(255,255,255,0.65);margin-bottom:12px;}
+.contact-popup img{width:100px;height:100px;margin:0 auto 10px;display:block;border-radius:8px;}
+.wa-btn{display:block;padding:9px;background:#25d366;border-radius:10px;color:#fff;text-decoration:none;font-weight:700;font-size:13px;}
+@media print{.top-bar,.quiz-section,.cert-section button,.contact-float,.contact-popup{display:none!important;}.cert-display{display:block!important;}}
+</style>
+</head>
+<body>
+<div class="top-bar">
+  <a href="index.html" class="nav-back">← Track Hub</a>
+  <span class="level-tag">👩‍💼 Social Worker | Level 1 of 3</span>
+</div>
+
+<div class="hero">
+  <h1>🏛️ POCSO Act 2012: Fundamentals</h1>
+  <p>Mandatory reporting, child-friendly procedures, medical examination, and the OSC integrated response pathway</p>
+</div>
+
+<div class="container">
+
+<div class="section">
+<h2>📋 Overview & Applicability</h2>
+<p>The Protection of Children from Sexual Offences Act, 2012 (POCSO) is a comprehensive law enacted to protect children below the age of 18 from sexual abuse and exploitation. It is <strong>gender-neutral</strong> — it protects all children regardless of sex — and provides for special child-friendly procedures throughout the legal process.</p>
+<div class="art-block">
+  <div class="art-num">Section 2(d) — Definition of Child</div>
+  A "child" means any person below the age of <strong>18 years</strong>. The law is silent on the minimum age, meaning even infants are protected.
+</div>
+<div class="info-grid">
+  <div class="info-card"><div class="ic-label">Enacted</div><div class="ic-val">2012; in force from 14 November 2012</div></div>
+  <div class="info-card"><div class="ic-label">Amended</div><div class="ic-val">POCSO Amendment Act 2019 — enhanced penalties including death penalty in aggravated penetrative sexual assault</div></div>
+  <div class="info-card"><div class="ic-label">Rules</div><div class="ic-val">POCSO Rules 2020 (replaced 2012 Rules) — child-friendly measures, victim support</div></div>
+  <div class="info-card"><div class="ic-label">Jurisdiction</div><div class="ic-val">Pan-India; special courts designated in each district</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>🔍 Types of Offences under POCSO</h2>
+<h3>1. Penetrative Sexual Assault (Section 3)</h3>
+<p>Any person who does any of the following acts to a child is said to commit "penetrative sexual assault":</p>
+<ul>
+  <li>Penetration of penis into vagina, mouth, urethra or anus of child</li>
+  <li>Insertion of any object or body part (other than penis) into any of the above</li>
+  <li>Manipulation of child's body for penetration</li>
+  <li>Application of mouth to genital, anus or breast</li>
+</ul>
+<div class="art-block">
+  <div class="art-num">Section 4 — Punishment for Penetrative Sexual Assault</div>
+  Minimum <strong>10 years</strong> (extendable to life imprisonment) + fine. After 2019 amendment: if victim is below 16 years — minimum <strong>20 years</strong> extendable to life.
+</div>
+
+<h3>2. Aggravated Penetrative Sexual Assault (Section 5)</h3>
+<p>Penetrative sexual assault becomes "aggravated" when committed by police officer, armed forces, public servant, management/staff of jail/hospital/institution, relative, on child below 12 years, gang rape, pregnant child, disabled child, or child under mental/physical incapacity.</p>
+<div class="art-block">
+  <div class="art-num">Section 6 — Punishment for Aggravated Penetrative Sexual Assault</div>
+  Minimum <strong>20 years</strong> (extendable to life/death) + fine payable to victim. 2019 amendment added death penalty as an option.
+</div>
+
+<h3>3. Sexual Assault (Section 7) — "Skin-to-Skin" Controversy Resolved</h3>
+<p>A person commits sexual assault if, with sexual intent, he touches vagina, penis, anus or breast of child; or makes the child touch these parts of any person; or does any other act with sexual intent involving physical contact without penetration.</p>
+<div class="important">The Bombay HC's 2021 controversial "skin-to-skin" judgment (Satish Ragde case) holding that touching through clothing is not sexual assault was <strong>overturned by the Supreme Court</strong> in Attorney General v. Satish (2021) 5 SCC 1. Any physical contact with sexual intent — with or without skin-to-skin contact — constitutes sexual assault.</div>
+
+<h3>4. Harassment (Section 11) — Sexual Harassment</h3>
+<div class="art-block">
+  <div class="art-num">Section 11 — Sexual Harassment</div>
+  Includes: making sexually explicit remarks, showing pornographic material, making obscene gestures, stalking online or otherwise. Punishable under Section 12: up to 3 years + fine.
+</div>
+
+<h3>5. Use of Child for Pornography (Section 13)</h3>
+<p>Any person who uses a child for pornographic purposes shall be punishable with imprisonment up to 5 years (first conviction), 7 years (subsequent conviction) and fine. Storing child pornography under Section 15 after 2019 amendment is also an offence.</p>
+</div>
+
+<div class="section">
+<h2>📞 Mandatory Reporting — Your Most Important Duty</h2>
+<div class="art-block">
+  <div class="art-num">Section 19 — Reporting of Offences</div>
+  <strong>Any person</strong> (including a child) who apprehends that an offence under POCSO is likely to be committed or has knowledge that such an offence has been committed <strong>shall provide such information to the Special Juvenile Police Unit (SJPU) or local police</strong>. This is a mandatory, not discretionary, obligation.
+</div>
+<div class="important">Section 21 — Failure to report by a person in charge of institution (school, hospital, CCI, etc.) is an offence punishable with up to 6 months imprisonment and/or fine. Failure to report by media, hotel, lodge, hospital — punishable with up to 1 year imprisonment.</div>
+<div class="tip">As an OSC/social worker, if you come to know of a POCSO offence — through the child directly, through a family member, through community — you <strong>must</strong> report it immediately to SJPU or local police station. Never wait for the family's permission.</div>
+<h3>Procedure on Receiving Information (Section 19(6))</h3>
+<ul>
+  <li>Police to record information in writing</li>
+  <li>Read over to informant</li>
+  <li>Signature to be taken</li>
+  <li>Copy to be given to informant</li>
+  <li>If child gives information, record in simple language child can understand</li>
+</ul>
+<h3>SJPU Obligations (Section 19(5-6))</h3>
+<ul>
+  <li>Immediately provide care and protection to child</li>
+  <li>Take child to nearest hospital within 24 hours if needed</li>
+  <li>Produce child before CWC within 24 hours</li>
+  <li>Register FIR as applicable</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>🏥 Medical Examination of Child (Section 27)</h2>
+<div class="art-block">
+  <div class="art-num">Section 27 — Medical Examination</div>
+  Medical examination of a child alleged to be victim of sexual offence shall be conducted as per Section 164A CrPC/BNSS. The examination shall be conducted by <strong>a woman doctor</strong> if the victim is a girl. No prior FIR or police complaint is required to seek medical examination — it can be done before FIR.
+</div>
+<div class="tip">Key OSC Practice: Medical examination should NOT wait for FIR to be registered. Take the child directly to hospital. Ensure it is done by a woman doctor for girl children. MLC report must be prepared. Do NOT make the child bathe or change clothes before examination.</div>
+<div class="info-grid">
+  <div class="info-card"><div class="ic-label">Who conducts</div><div class="ic-val">Registered medical practitioner (woman doctor for girl child)</div></div>
+  <div class="info-card"><div class="ic-label">When</div><div class="ic-val">Immediately / without delay; within 24 hours ideally</div></div>
+  <div class="info-card"><div class="ic-label">Consent</div><div class="ic-val">Child's consent (+ parent/guardian if available; not mandatory to wait)</div></div>
+  <div class="info-card"><div class="ic-label">Report</div><div class="ic-val">Medico-Legal Certificate (MLC) — to be given to police, copy to guardian</div></div>
+</div>
+</div>
+
+<div class="section">
+<h2>🎙️ Recording Statement of Child</h2>
+<div class="art-block">
+  <div class="art-num">Section 24 — Procedure for Recording Statement</div>
+  The statement of a child shall be recorded at the <strong>child's residence or place of choice</strong> — NOT necessarily at the police station. A woman police officer shall record the statement. No child shall be detained at police station at night. No child to be brought in contact with accused.
+</div>
+<div class="art-block">
+  <div class="art-num">Section 25 — Recording by Magistrate</div>
+  The Magistrate records the child's statement under Section 164 CrPC/BNSS. The Magistrate shall use child-friendly language, shall not allow wearing of uniform, shall not intimidate the child.
+</div>
+<div class="important">Never confront the child with the accused. The child must never be asked to identify the accused in person. Video conferencing can be used for court testimony. The child's identity must never be disclosed (Section 23 POCSO + Section 228A IPC/BNS).</div>
+</div>
+
+<div class="section">
+<h2>👩‍⚖️ Special Courts & Trial Procedure</h2>
+<p>State Governments designate Special Courts for each district for speedy trial of POCSO offences. The Special Public Prosecutor is appointed for each Special Court.</p>
+<div class="info-grid">
+  <div class="info-card"><div class="ic-label">Time limit for trial</div><div class="ic-val">Ordinarily within 1 year of cognizance (Section 35)</div></div>
+  <div class="info-card"><div class="ic-label">Trial mode</div><div class="ic-val">In-camera trial (Section 37) — no public or press allowed</div></div>
+  <div class="info-card"><div class="ic-label">Identity</div><div class="ic-val">Identity of child never to be disclosed — Nipun Saxena guidelines</div></div>
+  <div class="info-card"><div class="ic-label">Presumption</div><div class="ic-val">Section 29: Rebuttable presumption of guilt against accused once penetrative sexual assault is established</div></div>
+</div>
+<div class="art-block">
+  <div class="art-num">Section 33 — Child-Friendly Procedures in Court</div>
+  Court shall ensure child is not confronted by accused, questions put through judge, no aggressive cross-examination, breaks allowed, support person present, child-friendly atmosphere.
+</div>
+</div>
+
+<div class="section">
+<h2>🏢 Role of the One Stop Centre (OSC)</h2>
+<p>The OSC (Sakhi) is a government-run centre co-located with public hospitals, providing integrated services to women and child victims of violence. Under POCSO, OSC has a critical convergence role:</p>
+<table>
+<tr><th>Service</th><th>OSC Function</th></tr>
+<tr><td>Emergency Response</td><td>Receive referrals from police, hospitals, community; ensure immediate safety</td></tr>
+<tr><td>Medical Assistance</td><td>Facilitate medical examination; ensure woman doctor for girl child</td></tr>
+<tr><td>Legal Aid</td><td>Connect victim to DLSA; assist in drafting complaint; explain rights</td></tr>
+<tr><td>Counselling</td><td>Psychosocial first aid; trauma-informed counselling; family counselling</td></tr>
+<tr><td>FIR Support</td><td>Accompany survivor to police station; ensure child-friendly procedures</td></tr>
+<tr><td>CWC Liaison</td><td>Ensure child produced before CWC within 24 hours; coordinate with DCPU</td></tr>
+<tr><td>Shelter</td><td>Short-term shelter for those unable to return home safely</td></tr>
+<tr><td>Follow-Up</td><td>Monitor case progress; court accompaniment; long-term support</td></tr>
+</table>
+<div class="tip">OSC Computer Operator's primary role: <strong>secure documentation / MIS entry</strong>. All case details to be entered confidentially. Identity of child NEVER to be shared publicly or on social media.</div>
+</div>
+
+<div class="section">
+<h2>🔒 Confidentiality & Media Restrictions</h2>
+<div class="art-block">
+  <div class="art-num">Section 23 — Prohibition on Disclosure of Identity</div>
+  No report in any media shall disclose the identity of a child — name, address, photograph, family details, school, neighbourhood or any other detail. Violation punishable with up to 6 months imprisonment. This applies to ALL media including social media.
+</div>
+<div class="important">Do NOT post photos, names, or case details of child victims on WhatsApp groups, Facebook, or any social media — even with good intentions. This is a criminal offence under Section 23 POCSO.</div>
+</div>
+
+<div class="quiz-section" id="quizSection">
+<h2>📝 Level 1 Assessment</h2>
+<p class="quiz-subtitle">20 questions | Pass mark: 70% (14/20) | Select the best answer for each</p>
+
+<div class="question-block">
+<div class="q-num">Question 1 of 20</div>
+<div class="q-text">Under POCSO Act, 2012, "child" means any person below the age of:</div>
+<div class="options" id="q1">
+  <div class="opt" onclick="choose('q1','a',this)"><span class="opt-letter">A</span>16 years</div>
+  <div class="opt" onclick="choose('q1','b',this)"><span class="opt-letter">B</span>18 years</div>
+  <div class="opt" onclick="choose('q1','c',this)"><span class="opt-letter">C</span>14 years</div>
+  <div class="opt" onclick="choose('q1','d',this)"><span class="opt-letter">D</span>21 years</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 2 of 20</div>
+<div class="q-text">Which section of POCSO imposes mandatory reporting obligation on any person with knowledge of a POCSO offence?</div>
+<div class="options" id="q2">
+  <div class="opt" onclick="choose('q2','a',this)"><span class="opt-letter">A</span>Section 15</div>
+  <div class="opt" onclick="choose('q2','b',this)"><span class="opt-letter">B</span>Section 19</div>
+  <div class="opt" onclick="choose('q2','c',this)"><span class="opt-letter">C</span>Section 21</div>
+  <div class="opt" onclick="choose('q2','d',this)"><span class="opt-letter">D</span>Section 27</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 3 of 20</div>
+<div class="q-text">The statement of a child victim under POCSO should preferably be recorded at:</div>
+<div class="options" id="q3">
+  <div class="opt" onclick="choose('q3','a',this)"><span class="opt-letter">A</span>Police station only</div>
+  <div class="opt" onclick="choose('q3','b',this)"><span class="opt-letter">B</span>Child's residence or place of child's choice</div>
+  <div class="opt" onclick="choose('q3','c',this)"><span class="opt-letter">C</span>Special Court</div>
+  <div class="opt" onclick="choose('q3','d',this)"><span class="opt-letter">D</span>CWC office</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 4 of 20</div>
+<div class="q-text">Medical examination of a girl child victim of POCSO should be conducted by:</div>
+<div class="options" id="q4">
+  <div class="opt" onclick="choose('q4','a',this)"><span class="opt-letter">A</span>Any available doctor</div>
+  <div class="opt" onclick="choose('q4','b',this)"><span class="opt-letter">B</span>A woman doctor</div>
+  <div class="opt" onclick="choose('q4','c',this)"><span class="opt-letter">C</span>A male surgeon</div>
+  <div class="opt" onclick="choose('q4','d',this)"><span class="opt-letter">D</span>CMO only</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 5 of 20</div>
+<div class="q-text">Under POCSO Act, can a child be detained at a police station at night?</div>
+<div class="options" id="q5">
+  <div class="opt" onclick="choose('q5','a',this)"><span class="opt-letter">A</span>Yes, if FIR not yet filed</div>
+  <div class="opt" onclick="choose('q5','b',this)"><span class="opt-letter">B</span>No — the Act prohibits this</div>
+  <div class="opt" onclick="choose('q5','c',this)"><span class="opt-letter">C</span>Yes, with parent's consent</div>
+  <div class="opt" onclick="choose('q5','d',this)"><span class="opt-letter">D</span>Yes, if directed by Magistrate</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 6 of 20</div>
+<div class="q-text">Which section of POCSO deals with "Sexual Harassment" of a child (non-contact offences like showing pornographic material)?</div>
+<div class="options" id="q6">
+  <div class="opt" onclick="choose('q6','a',this)"><span class="opt-letter">A</span>Section 7</div>
+  <div class="opt" onclick="choose('q6','b',this)"><span class="opt-letter">B</span>Section 9</div>
+  <div class="opt" onclick="choose('q6','c',this)"><span class="opt-letter">C</span>Section 11</div>
+  <div class="opt" onclick="choose('q6','d',this)"><span class="opt-letter">D</span>Section 13</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 7 of 20</div>
+<div class="q-text">The POCSO (Amendment) Act 2019 introduced which significant change?</div>
+<div class="options" id="q7">
+  <div class="opt" onclick="choose('q7','a',this)"><span class="opt-letter">A</span>Reduced age of child to 16 years</div>
+  <div class="opt" onclick="choose('q7','b',this)"><span class="opt-letter">B</span>Made POCSO applicable only to girls</div>
+  <div class="opt" onclick="choose('q7','c',this)"><span class="opt-letter">C</span>Removed mandatory reporting</div>
+  <div class="opt" onclick="choose('q7','d',this)"><span class="opt-letter">D</span>Enhanced penalties including death penalty for aggravated penetrative sexual assault on child below 12</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 8 of 20</div>
+<div class="q-text">Section 23 POCSO prohibits which activity?</div>
+<div class="options" id="q8">
+  <div class="opt" onclick="choose('q8','a',this)"><span class="opt-letter">A</span>Filing FIR</div>
+  <div class="opt" onclick="choose('q8','b',this)"><span class="opt-letter">B</span>Disclosure of identity of child victim in any media</div>
+  <div class="opt" onclick="choose('q8','c',this)"><span class="opt-letter">C</span>Medical examination</div>
+  <div class="opt" onclick="choose('q8','d',this)"><span class="opt-letter">D</span>Legal aid to victim</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 9 of 20</div>
+<div class="q-text">Can medical examination of a child victim be done before an FIR is registered?</div>
+<div class="options" id="q9">
+  <div class="opt" onclick="choose('q9','a',this)"><span class="opt-letter">A</span>No — FIR must come first</div>
+  <div class="opt" onclick="choose('q9','b',this)"><span class="opt-letter">B</span>Yes — no FIR is required before medical examination</div>
+  <div class="opt" onclick="choose('q9','c',this)"><span class="opt-letter">C</span>Only with Magistrate's order</div>
+  <div class="opt" onclick="choose('q9','d',this)"><span class="opt-letter">D</span>Only if parent consents</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 10 of 20</div>
+<div class="q-text">Under POCSO, trials in Special Courts are conducted:</div>
+<div class="options" id="q10">
+  <div class="opt" onclick="choose('q10','a',this)"><span class="opt-letter">A</span>In open court with public present</div>
+  <div class="opt" onclick="choose('q10','b',this)"><span class="opt-letter">B</span>With media cameras present</div>
+  <div class="opt" onclick="choose('q10','c',this)"><span class="opt-letter">C</span>In-camera (private proceedings)</div>
+  <div class="opt" onclick="choose('q10','d',this)"><span class="opt-letter">D</span>Via video link from police station</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 11 of 20</div>
+<div class="q-text">What is the minimum punishment for Penetrative Sexual Assault (Section 4 POCSO) if victim is below 16 years (post-2019 amendment)?</div>
+<div class="options" id="q11">
+  <div class="opt" onclick="choose('q11','a',this)"><span class="opt-letter">A</span>7 years</div>
+  <div class="opt" onclick="choose('q11','b',this)"><span class="opt-letter">B</span>10 years</div>
+  <div class="opt" onclick="choose('q11','c',this)"><span class="opt-letter">C</span>20 years</div>
+  <div class="opt" onclick="choose('q11','d',this)"><span class="opt-letter">D</span>Life imprisonment only</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 12 of 20</div>
+<div class="q-text">Section 29 POCSO provides for:</div>
+<div class="options" id="q12">
+  <div class="opt" onclick="choose('q12','a',this)"><span class="opt-letter">A</span>Mandatory acquittal if child retracts</div>
+  <div class="opt" onclick="choose('q12','b',this)"><span class="opt-letter">B</span>Rebuttable presumption of guilt against accused once basic facts are established</div>
+  <div class="opt" onclick="choose('q12','c',this)"><span class="opt-letter">C</span>Right of accused to cross-examine child freely</div>
+  <div class="opt" onclick="choose('q12','d',this)"><span class="opt-letter">D</span>Free legal aid to accused</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 13 of 20</div>
+<div class="q-text">The primary role of an OSC (One Stop Centre) in a POCSO case is:</div>
+<div class="options" id="q13">
+  <div class="opt" onclick="choose('q13','a',this)"><span class="opt-letter">A</span>To conduct police investigation</div>
+  <div class="opt" onclick="choose('q13','b',this)"><span class="opt-letter">B</span>To prosecute the accused</div>
+  <div class="opt" onclick="choose('q13','c',this)"><span class="opt-letter">C</span>Integrated support — medical, legal, counselling, FIR support, coordination</div>
+  <div class="opt" onclick="choose('q13','d',this)"><span class="opt-letter">D</span>To shelter the accused</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 14 of 20</div>
+<div class="q-text">Posting a photograph of a child POCSO victim on social media, even without their name, is:</div>
+<div class="options" id="q14">
+  <div class="opt" onclick="choose('q14','a',this)"><span class="opt-letter">A</span>Allowed for awareness purposes</div>
+  <div class="opt" onclick="choose('q14','b',this)"><span class="opt-letter">B</span>A criminal offence under Section 23 POCSO</div>
+  <div class="opt" onclick="choose('q14','c',this)"><span class="opt-letter">C</span>Allowed with police permission</div>
+  <div class="opt" onclick="choose('q14','d',this)"><span class="opt-letter">D</span>Allowed if face is blurred</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 15 of 20</div>
+<div class="q-text">Under POCSO, the child victim is to be produced before the CWC within:</div>
+<div class="options" id="q15">
+  <div class="opt" onclick="choose('q15','a',this)"><span class="opt-letter">A</span>48 hours</div>
+  <div class="opt" onclick="choose('q15','b',this)"><span class="opt-letter">B</span>72 hours</div>
+  <div class="opt" onclick="choose('q15','c',this)"><span class="opt-letter">C</span>7 days</div>
+  <div class="opt" onclick="choose('q15','d',this)"><span class="opt-letter">D</span>24 hours</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 16 of 20</div>
+<div class="q-text">Under Section 35 POCSO, the Special Court shall complete the trial ordinarily within:</div>
+<div class="options" id="q16">
+  <div class="opt" onclick="choose('q16','a',this)"><span class="opt-letter">A</span>6 months</div>
+  <div class="opt" onclick="choose('q16','b',this)"><span class="opt-letter">B</span>2 years</div>
+  <div class="opt" onclick="choose('q16','c',this)"><span class="opt-letter">C</span>1 year from date of taking cognizance</div>
+  <div class="opt" onclick="choose('q16','d',this)"><span class="opt-letter">D</span>3 months</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 17 of 20</div>
+<div class="q-text">Section 21 POCSO — failure to report a POCSO offence by a person in charge of an institution is punishable with:</div>
+<div class="options" id="q17">
+  <div class="opt" onclick="choose('q17','a',this)"><span class="opt-letter">A</span>Only civil penalty</div>
+  <div class="opt" onclick="choose('q17','b',this)"><span class="opt-letter">B</span>Imprisonment up to 6 months and/or fine</div>
+  <div class="opt" onclick="choose('q17','c',this)"><span class="opt-letter">C</span>Imprisonment up to 5 years</div>
+  <div class="opt" onclick="choose('q17','d',this)"><span class="opt-letter">D</span>Warning and suspension only</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 18 of 20</div>
+<div class="q-text">Is POCSO Act gender-neutral?</div>
+<div class="options" id="q18">
+  <div class="opt" onclick="choose('q18','a',this)"><span class="opt-letter">A</span>No — it protects only girls</div>
+  <div class="opt" onclick="choose('q18','b',this)"><span class="opt-letter">B</span>Yes — it protects all children regardless of gender</div>
+  <div class="opt" onclick="choose('q18','c',this)"><span class="opt-letter">C</span>No — it protects only boys</div>
+  <div class="opt" onclick="choose('q18','d',this)"><span class="opt-letter">D</span>It applies only in urban areas</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 19 of 20</div>
+<div class="q-text">In POCSO cases, the accused can be confronted with the child victim during investigation:</div>
+<div class="options" id="q19">
+  <div class="opt" onclick="choose('q19','a',this)"><span class="opt-letter">A</span>Yes, for identification purposes</div>
+  <div class="opt" onclick="choose('q19','b',this)"><span class="opt-letter">B</span>Never — the child shall never be brought in contact with accused</div>
+  <div class="opt" onclick="choose('q19','c',this)"><span class="opt-letter">C</span>Yes, with court permission</div>
+  <div class="opt" onclick="choose('q19','d',this)"><span class="opt-letter">D</span>Only at the police station</div>
+</div>
+</div>
+
+<div class="question-block">
+<div class="q-num">Question 20 of 20</div>
+<div class="q-text">What is the first priority when an OSC worker receives a POCSO case referral?</div>
+<div class="options" id="q20">
+  <div class="opt" onclick="choose('q20','a',this)"><span class="opt-letter">A</span>Inform media</div>
+  <div class="opt" onclick="choose('q20','b',this)"><span class="opt-letter">B</span>Identify the accused</div>
+  <div class="opt" onclick="choose('q20','c',this)"><span class="opt-letter">C</span>Post on social media</div>
+  <div class="opt" onclick="choose('q20','d',this)"><span class="opt-letter">D</span>Ensure immediate safety of the child</div>
+</div>
+</div>
+
+<button class="submit-btn" id="submitBtn" onclick="submitQuiz()">Submit Assessment</button>
+
+<div class="score-block" id="scoreBlock">
+  <div class="score-num" id="scoreNum"></div>
+  <div id="scoreMsg"></div>
+</div>
+</div>
+
+<div class="cert-section" id="certSection">
+<h3>🎓 Claim Your Level 1 Certificate</h3>
+<div class="form-row">
+  <div class="form-group"><label>Full Name</label><input type="text" id="pName" placeholder="Your full name"></div>
+  <div class="form-group"><label>Designation / Post</label><input type="text" id="pDesig" placeholder="e.g., OSC Worker, Social Worker"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>Organisation</label><input type="text" id="pOrg" placeholder="Organisation name"></div>
+  <div class="form-group"><label>District</label><input type="text" id="pDistrict" placeholder="Your district"></div>
+</div>
+<div class="form-row">
+  <div class="form-group"><label>State</label><input type="text" id="pState" placeholder="State"></div>
+  <div class="form-group"><label>Phone</label><input type="tel" id="pPhone" placeholder="WhatsApp number"></div>
+</div>
+<div class="form-group"><label>Email</label><input type="email" id="pEmail" placeholder="email@domain.com"></div>
+<button class="gen-cert-btn" onclick="generateCertificate()">Generate My Certificate →</button>
+
+<div class="cert-display" id="certDisplay">
+  <div class="cert-title">Janman People's Foundation</div>
+  <div style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:12px;">Jan Nyaya Abhiyan — Child Rights Programme</div>
+  <div style="font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:16px;">This is to certify that</div>
+  <div class="cert-name" id="cName"></div>
+  <div class="cert-body" id="cBody"></div>
+  <div class="cert-no" id="cNo"></div>
+  <div class="cert-sign">Shourya Roy</div>
+  <div class="cert-sign-label">Director — Janman People's Foundation</div>
+  <button class="print-btn" onclick="window.print()">⬇ Download / Print Certificate</button>
+</div>
+</div>
+
+<div class="contact-float" onclick="toggleContact()">💬</div>
+<div class="contact-popup" id="contactPopup">
+  <h4>Legal Support</h4>
+  <p>Child protection emergency or case query?</p>
+  <img src="wa-qr.png" alt="WhatsApp QR">
+  <a href="https://wa.me/918507715870?text=Child+Rights+Training+Support+%E2%80%94+POCSO+Query" class="wa-btn" target="_blank">WhatsApp Helpline</a>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'b',q4:'b',q5:'b',q6:'c',q7:'d',q8:'b',q9:'b',q10:'c',q11:'c',q12:'b',q13:'c',q14:'b',q15:'d',q16:'c',q17:'b',q18:'b',q19:'b',q20:'d'};
+var userAnswers={};var submitted=false;var myScore=0;
+function choose(qid,opt,el){if(submitted)return;userAnswers[qid]=opt;var opts=document.getElementById(qid).querySelectorAll('.opt');opts.forEach(function(o){o.style.background='';o.style.borderColor='';});el.style.background='rgba(255,255,255,0.2)';el.style.borderColor='rgba(255,255,255,0.5)';}
+function submitQuiz(){if(submitted)return;var total=Object.keys(ANSWERS).length;var answered=Object.keys(userAnswers).length;if(answered<total){alert('Please answer all '+total+' questions before submitting.');return;}submitted=true;document.getElementById('submitBtn').disabled=true;var correct=0;Object.keys(ANSWERS).forEach(function(qid){var opts=document.getElementById(qid).querySelectorAll('.opt');var letters=['a','b','c','d'];opts.forEach(function(opt,i){opt.classList.add('disabled');if(letters[i]===ANSWERS[qid])opt.classList.add('correct');else if(letters[i]===userAnswers[qid]&&userAnswers[qid]!==ANSWERS[qid])opt.classList.add('wrong');});if(userAnswers[qid]===ANSWERS[qid])correct++;});myScore=Math.round(correct/total*100);var sb=document.getElementById('scoreBlock');sb.style.display='block';document.getElementById('scoreNum').textContent=correct+'/'+total+' ('+myScore+'%)';document.getElementById('scoreNum').className='score-num '+(myScore>=70?'score-pass':'score-fail');document.getElementById('scoreMsg').innerHTML=myScore>=70?'<strong>✅ Passed!</strong> You have cleared Level 1. Claim your certificate below.':'<strong>❌ Not passed.</strong> Minimum 70% required. Please review the content and retake.';if(myScore>=70){document.getElementById('certSection').style.display='block';prefillForm();}localStorage.setItem('janman_sw_l1_score',myScore);localStorage.setItem('janman_sw_l1_date',new Date().toLocaleDateString());}
+function prefillForm(){var n=localStorage.getItem('janman_sw_name');if(n&&document.getElementById('pName'))document.getElementById('pName').value=n;var fields=[['pPhone','janman_sw_phone'],['pEmail','janman_sw_email'],['pOrg','janman_sw_org'],['pDistrict','janman_sw_district'],['pState','janman_sw_state'],['pDesig','janman_sw_desig']];fields.forEach(function(f){var v=localStorage.getItem(f[1]);if(v&&document.getElementById(f[0]))document.getElementById(f[0]).value=v;});}
+function generateCertificate(){var n=document.getElementById('pName').value.trim();var d=document.getElementById('pDesig').value.trim();var o=document.getElementById('pOrg').value.trim();var dist=document.getElementById('pDistrict').value.trim();var st=document.getElementById('pState').value.trim();if(!n){alert('Please enter your name.');return;}localStorage.setItem('janman_sw_name',n);localStorage.setItem('janman_sw_desig',d);localStorage.setItem('janman_sw_org',o);localStorage.setItem('janman_sw_district',dist);localStorage.setItem('janman_sw_state',st);localStorage.setItem('janman_sw_phone',document.getElementById('pPhone').value);localStorage.setItem('janman_sw_email',document.getElementById('pEmail').value);var certNo='JPF-SW-L1-'+Date.now().toString(36).toUpperCase();localStorage.setItem('janman_sw_l1_done','yes');localStorage.setItem('janman_sw_l1_cert_no',certNo);document.getElementById('cName').textContent=n;document.getElementById('cBody').innerHTML=(d?d+', ':'')+o+(dist?', '+dist:'')+' has successfully completed <strong>Level 1: POCSO Act 2012 Fundamentals</strong><br>under the Child Rights Legal Training Programme, Janman People\'s Foundation.<br><br>Score: <strong>'+myScore+'%</strong> | Date: '+new Date().toLocaleDateString();document.getElementById('cNo').textContent='Certificate No: '+certNo;document.getElementById('certDisplay').style.display='block';}
+function toggleContact(){var p=document.getElementById('contactPopup');p.style.display=p.style.display==='block'?'none':'block';}
+(function(){var n=localStorage.getItem('janman_sw_name');if(n&&document.getElementById('pName'))document.getElementById('pName').value=n;})();
+</script>
+</body>
+</html>

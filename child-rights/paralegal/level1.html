@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1: Legal Framework - Paralegal Track</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a3d1e, #1a5c2e, #2d7a40);
+            min-height: 100vh;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            background: rgba(255,255,255,0.95);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header h1 {
+            color: #1a5c2e;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #666;
+        }
+        .back-link {
+            display: inline-block;
+            color: #27ae60;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            line-height: 1.8;
+        }
+        .content h2 {
+            color: #1a5c2e;
+            font-size: 1.5em;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #27ae60;
+        }
+        .content h3 {
+            color: #2d7a40;
+            margin: 20px 0 10px 0;
+            font-size: 1.1em;
+        }
+        .content p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .art-block {
+            background: #f8f9fa;
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .important {
+            background: #fff3cd;
+            border-left: 4px solid #d32f2f;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #555;
+        }
+        .important:before {
+            content: "⚠️ ";
+            font-weight: bold;
+            color: #d32f2f;
+        }
+        .tip {
+            background: #e8f5e9;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #555;
+        }
+        .tip:before {
+            content: "✅ ";
+            font-weight: bold;
+            color: #27ae60;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+        table th {
+            background: #1a5c2e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        table tr:hover {
+            background: #f8f9fa;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .info-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 4px;
+            border-left: 4px solid #27ae60;
+        }
+        .info-card h4 {
+            color: #1a5c2e;
+            margin-bottom: 10px;
+        }
+        .quiz-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        .quiz-section h2 {
+            color: #1a5c2e;
+            margin-bottom: 20px;
+        }
+        .question {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            border-left: 4px solid #27ae60;
+        }
+        .question.correct {
+            border-left-color: #27ae60;
+            background: #e8f5e9;
+        }
+        .question.wrong {
+            border-left-color: #d32f2f;
+            background: #ffebee;
+        }
+        .option {
+            padding: 10px;
+            margin: 8px 0;
+            cursor: pointer;
+            border-radius: 4px;
+            background: #f0f0f0;
+            transition: all 0.3s;
+        }
+        .option:hover {
+            background: #e0e0e0;
+        }
+        .option.selected {
+            background: #27ae60;
+            color: white;
+        }
+        .option.correct {
+            background: #27ae60;
+            color: white;
+        }
+        .option.wrong {
+            background: #d32f2f;
+            color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #27ae60;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #229954;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 1em;
+            margin-top: 20px;
+        }
+        .result {
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        .result.pass {
+            background: #e8f5e9;
+            color: #27ae60;
+            border: 2px solid #27ae60;
+        }
+        .result.fail {
+            background: #ffebee;
+            color: #d32f2f;
+            border: 2px solid #d32f2f;
+        }
+        .float-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: #27ae60;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            font-size: 1.5em;
+            z-index: 100;
+        }
+        .float-btn:hover {
+            background: #229954;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.active {
+            display: flex;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 400px;
+            text-align: center;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Paralegal Track</a>
+        
+        <div class="header">
+            <h1>Legal Framework: POCSO, JJ Act & Child Offences</h1>
+            <p>Understanding the legal provisions that protect children in India</p>
+        </div>
+
+        <div class="content">
+            <h2>1. POCSO Act, 2012 — Child Sexual Abuse Protection</h2>
+            
+            <div class="art-block">
+                <h3>Key Sections for Paralegals</h3>
+                <ul style="margin-left: 20px; margin-bottom: 15px;">
+                    <li><strong>Section 3-6:</strong> Offences (penetrative abuse, non-penetrative abuse, sexual harassment)</li>
+                    <li><strong>Section 19:</strong> Mandatory reporting obligation — ANY person who suspects abuse MUST report to police</li>
+                    <li><strong>Section 24:</strong> Recording of child's statement — child-friendly, non-threatening environment required</li>
+                    <li><strong>Section 27:</strong> Medical examination — can be done without child's consent if abuse suspected</li>
+                    <li><strong>Section 39:</strong> Support person role — accompany child in proceedings</li>
+                </ul>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Offence Type</th>
+                        <th>Section</th>
+                        <th>Punishment</th>
+                        <th>Key Element</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Penetrative Sexual Abuse</td>
+                        <td>Sec 3</td>
+                        <td>7 years to life</td>
+                        <td>Any sexual act involving penetration</td>
+                    </tr>
+                    <tr>
+                        <td>Aggravated Penetrative Abuse</td>
+                        <td>Sec 5</td>
+                        <td>10 years to life</td>
+                        <td>By parent, custodian, repeat offense</td>
+                    </tr>
+                    <tr>
+                        <td>Non-penetrative Sexual Abuse</td>
+                        <td>Sec 7</td>
+                        <td>3-5 years</td>
+                        <td>Sexual act without penetration</td>
+                    </tr>
+                    <tr>
+                        <td>Sexual Harassment</td>
+                        <td>Sec 11</td>
+                        <td>3 years</td>
+                        <td>Unwanted sexual acts, comments, gestures</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="important">Section 19 POCSO mandates ANY person (including paralegals, teachers, healthcare workers) to report suspected abuse to police immediately. Non-reporting can attract prosecution.</div>
+
+            <h2>2. Juvenile Justice Act, 2015 — Child Welfare & Justice</h2>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Child in Need of Care & Protection (CNCP) — Sec 2(14)</h4>
+                    <p>A child who lacks proper guardianship, is abused, neglected, abandoned, trafficked, or living on streets. Handled by Child Welfare Committee.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Child Welfare Committee (CWC) — Sec 27-30</h4>
+                    <p>District-level body. Hears cases of CNCP children. Paralegals assist by representing children or filing representations.</p>
+                </div>
+                <div class="info-card">
+                    <h4>District Child Protection Unit (DCPU) — Sec 106</h4>
+                    <p>Implements child welfare schemes. Registers CNCP cases. Paralegals can advocate for welfare schemes here.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Juvenile Justice Board (JJB) — Sec 4-8</h4>
+                    <p>Handles children in conflict with law (accused of crime). Focuses on rehabilitation, not punishment.</p>
+                </div>
+            </div>
+
+            <div class="tip">As a paralegal, you can accompany a child victim to CWC proceedings, explain the process in simple language, and file written representations on behalf of the child's welfare.</div>
+
+            <h2>3. Bharatiya Nyaya Sanhita (BNS), 2023 — Child Offences</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>BNS Section</th>
+                        <th>Offence</th>
+                        <th>Punishment</th>
+                        <th>Related IPC (old)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Sec 74</td>
+                        <td>Assault/use of force on woman/child</td>
+                        <td>3 months to 2 years</td>
+                        <td>IPC 351-352</td>
+                    </tr>
+                    <tr>
+                        <td>Sec 75</td>
+                        <td>Sexual harassment</td>
+                        <td>3 years</td>
+                        <td>IPC 354</td>
+                    </tr>
+                    <tr>
+                        <td>Sec 94</td>
+                        <td>Trafficking of person</td>
+                        <td>7 years to life</td>
+                        <td>IPC 370</td>
+                    </tr>
+                    <tr>
+                        <td>Sec 95</td>
+                        <td>Trafficking of child (aggravated)</td>
+                        <td>10 years to life</td>
+                        <td>IPC 371</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Prohibition of Child Marriage Act (PCMA), 2006</h2>
+
+            <div class="art-block">
+                <h3>Paralegal Action Points</h3>
+                <p><strong>Section 12:</strong> Child marriage is void (has no legal validity). Parties have right to void it at any time even after attaining majority (up to 2 years after attaining 18).</p>
+                <p><strong>Section 13:</strong> Grounds for annulment of child marriage — lack of consent, fraud, coercion. Petition can be filed by child, parent, guardian, or any interested person.</p>
+                <p><strong>Prevention:</strong> Paralegal can be part of Bal Vivah Pratirodh Dal (Anti-Child Marriage Task Force) to identify and prevent child marriages in community.</p>
+            </div>
+
+            <h2>5. Child Labour (Prohibition & Regulation) Amendment Act, 2016</h2>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>Complete Ban Below 14</h4>
+                    <p>NO work permitted for children below 14 years in any occupation. This includes domestic work.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Hazardous Work Ban Below 18</h4>
+                    <p>Children 14-18 cannot work in hazardous industries: mining, manufacturing, construction.</p>
+                </div>
+                <div class="info-card">
+                    <h4>Enforcement</h4>
+                    <p>Report violations to Labour Department. Child can be rescued and referred to CWC for care.</p>
+                </div>
+            </div>
+
+            <h2>6. Right to Free and Compulsory Education (RTE) Act, 2009</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Right</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Age Group</td>
+                        <td>6-14 years are entitled to free and compulsory education</td>
+                    </tr>
+                    <tr>
+                        <td>Non-admission/Exclusion Prohibited</td>
+                        <td>School cannot refuse admission to any child; cannot expel without due process</td>
+                    </tr>
+                    <tr>
+                        <td>Neighbourhood School</td>
+                        <td>Child has right to attend school in neighborhood area; state must provide within 1 km</td>
+                    </tr>
+                    <tr>
+                        <td>No Fee/Cost</td>
+                        <td>Free education; school cannot demand fees from poor families</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="tip">Paralegals can help families file RTI to get school records of excluded children, and approach CWC if child is out of school due to neglect or abuse.</div>
+
+        </div>
+
+        <div class="quiz-section">
+            <h2>Knowledge Check: 20-Question Quiz</h2>
+            <p style="margin-bottom: 20px; color: #666;">Answer all questions. You need 70% to pass (14 correct answers).</p>
+
+            <div id="quiz-container"></div>
+
+            <button class="btn btn-submit" onclick="submitQuiz()">Submit Quiz</button>
+
+            <div id="result"></div>
+            <div id="quiz-result-msg" style="margin-top: 20px; display: none;"></div>
+        </div>
+    </div>
+
+    <div class="float-btn" id="contact-btn">💬</div>
+
+    <div class="modal" id="contact-modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="document.getElementById('contact-modal').classList.remove('active')">×</div>
+            <h3>Contact Us</h3>
+            <p>Connect on WhatsApp for support</p>
+            <a href="https://wa.me/918507715870" class="btn" style="display: block; width: 100%; text-align: center; margin-top: 15px;">Open WhatsApp</a>
+        </div>
+    </div>
+
+    <script>
+        const prefix = 'janman_pl_';
+
+        const quizData = [
+            {
+                q: "Which section of POCSO Act makes it mandatory for ANY person to report suspected child abuse?",
+                opts: ["Section 19", "Section 3", "Section 24", "Section 27"],
+                ans: 0
+            },
+            {
+                q: "What is the punishment for penetrative sexual abuse under POCSO Section 3?",
+                opts: ["3-5 years", "7 years to life", "10 years to life", "5-7 years"],
+                ans: 1
+            },
+            {
+                q: "Under JJ Act 2015, what does CNCP stand for?",
+                opts: ["Child Neglect Care Program", "Child in Need of Care & Protection", "Community Care of Neglected Persons", "Child Notification & Protection"],
+                ans: 1
+            },
+            {
+                q: "What is the role of a Support Person under Section 39 POCSO?",
+                opts: ["Give evidence in court", "Accompany child & facilitate communication", "Conduct medical exam", "Record child's statement"],
+                ans: 1
+            },
+            {
+                q: "Under Bharatiya Nyaya Sanhita (BNS), which section covers trafficking of children?",
+                opts: ["Sec 93", "Sec 94", "Sec 95", "Sec 96"],
+                ans: 2
+            },
+            {
+                q: "What is the punishment for aggravated penetrative sexual abuse under POCSO Section 5?",
+                opts: ["7 years to life", "10 years to life", "3-5 years", "5-10 years"],
+                ans: 1
+            },
+            {
+                q: "Under PCMA 2006, is a child marriage valid?",
+                opts: ["Yes, if parents consent", "No, child marriages are void", "Yes, if child consents after 16", "Only if solemnized in temple"],
+                ans: 1
+            },
+            {
+                q: "What is the age limit for complete ban on child labour?",
+                opts: ["Below 16 years", "Below 18 years", "Below 14 years", "Below 12 years"],
+                ans: 2
+            },
+            {
+                q: "Under RTE Act, what is the age group entitled to free and compulsory education?",
+                opts: ["5-13 years", "6-14 years", "7-15 years", "6-16 years"],
+                ans: 1
+            },
+            {
+                q: "Which body hears cases of CNCP children under JJ Act?",
+                opts: ["Juvenile Justice Board", "Child Welfare Committee", "District Court", "High Court"],
+                ans: 1
+            },
+            {
+                q: "Can a school refuse admission to a child under RTE Act?",
+                opts: ["Yes, if school is full", "No, non-admission is prohibited", "Yes, with parents' consent", "Only for conduct reasons"],
+                ans: 1
+            },
+            {
+                q: "What is Section 164 related to in child abuse cases?",
+                opts: ["Punishment", "Recording of child's statement", "Compensation", "Bail"],
+                ans: 1
+            },
+            {
+                q: "Under BNS Section 75, what is the punishment for sexual harassment?",
+                opts: ["1 year", "2 years", "3 years", "5 years"],
+                ans: 2
+            },
+            {
+                q: "What does DCPU stand for?",
+                opts: ["District Child Protection Unit", "Department for Child Persons Unit", "District Court Protection Unit", "Department of Child Personnel Unit"],
+                ans: 0
+            },
+            {
+                q: "Under POCSO Section 24, where should a child's statement be recorded?",
+                opts: ["Police station", "Court", "Child-friendly, non-threatening environment", "Judge's chamber"],
+                ans: 2
+            },
+            {
+                q: "What is the hazardous work ban age under Child Labour Amendment Act?",
+                opts: ["Below 14 years", "Below 16 years", "Below 18 years", "Below 21 years"],
+                ans: 2
+            },
+            {
+                q: "Can a child annul a child marriage after attaining majority?",
+                opts: ["No, marriage is binding", "Yes, up to 2 years after age 18", "Yes, up to 5 years after age 18", "Only with parent's consent"],
+                ans: 1
+            },
+            {
+                q: "Under POCSO, Section 27 deals with:",
+                opts: ["Bail conditions", "Medical examination", "Witness protection", "Compensation"],
+                ans: 1
+            },
+            {
+                q: "What is the pass threshold for this quiz?",
+                opts: ["60%", "70%", "75%", "80%"],
+                ans: 1
+            },
+            {
+                q: "As a paralegal, which act requires you to report child abuse immediately?",
+                opts: ["JJ Act", "POCSO Act Section 19", "CrPC", "IPC"],
+                ans: 1
+            }
+        ];
+
+        let userAnswers = [];
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            quizData.forEach((item, idx) => {
+                const qDiv = document.createElement('div');
+                qDiv.className = 'question';
+                qDiv.id = 'q' + idx;
+                
+                let optionsHTML = '';
+                item.opts.forEach((opt, optIdx) => {
+                    optionsHTML += `<div class="option" onclick="selectAnswer(${idx}, ${optIdx})" id="opt${idx}-${optIdx}">${opt}</div>`;
+                });
+                
+                qDiv.innerHTML = `<strong>Q${idx+1}. ${item.q}</strong><br>${optionsHTML}`;
+                container.appendChild(qDiv);
+            });
+        }
+
+        function selectAnswer(qIdx, optIdx) {
+            userAnswers[qIdx] = optIdx;
+            document.querySelectorAll(`#q${qIdx} .option`).forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.getElementById(`opt${qIdx}-${optIdx}`).classList.add('selected');
+        }
+
+        function submitQuiz() {
+            let correct = 0;
+            quizData.forEach((item, idx) => {
+                const qDiv = document.getElementById('q' + idx);
+                if (userAnswers[idx] === undefined) {
+                    qDiv.classList.add('wrong');
+                } else {
+                    if (userAnswers[idx] === item.ans) {
+                        correct++;
+                        qDiv.classList.add('correct');
+                        document.getElementById(`opt${idx}-${item.ans}`).classList.add('correct');
+                    } else {
+                        qDiv.classList.add('wrong');
+                        document.getElementById(`opt${idx}-${userAnswers[idx]}`).classList.add('wrong');
+                        document.getElementById(`opt${idx}-${item.ans}`).classList.add('correct');
+                    }
+                }
+            });
+
+            const percentage = (correct / quizData.length) * 100;
+            const passing = percentage >= 70;
+
+            const resultDiv = document.getElementById('quiz-result-msg');
+            resultDiv.style.display = 'block';
+            if (passing) {
+                resultDiv.className = 'result pass';
+                resultDiv.innerHTML = `✅ PASSED! Score: ${correct}/${quizData.length} (${percentage.toFixed(1)}%)<br>You've unlocked Level 2!`;
+                localStorage.setItem(prefix + 'l1_done', 'true');
+            } else {
+                resultDiv.className = 'result fail';
+                resultDiv.innerHTML = `❌ NOT PASSED. Score: ${correct}/${quizData.length} (${percentage.toFixed(1)}%)<br>You need 14 correct answers to pass. Review and try again!`;
+            }
+        }
+
+        document.getElementById('contact-btn').addEventListener('click', () => {
+            document.getElementById('contact-modal').classList.add('active');
+        });
+
+        renderQuiz();
+    </script>
+</body>
+</html>
