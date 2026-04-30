@@ -1,294 +1,790 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Janman Legal Training Academy | Jan Nyay Abhiyan</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jan Nyaya Resource Centre — Legal Learning for Everyone</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--saffron:#FF6B00;--navy:#1a2a4a;--green:#2d6a4f;--light:#f8f9fa;--gray:#6c757d}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Noto Sans Devanagari',sans-serif;background:var(--light);color:#222;min-height:100vh}
-/* HERO */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,#2c3e6b 60%,#1a3a5c 100%);color:#fff;padding:40px 24px 50px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-logo{width:88px;height:88px;border-radius:50%;object-fit:cover;border:3px solid var(--saffron);margin:0 auto 16px;display:block;position:relative}
-.hero h1{font-size:1.6rem;font-weight:700;line-height:1.3;margin-bottom:8px}
-.hero h1 span{color:var(--saffron)}
-.hero p{font-size:.9rem;opacity:.85;max-width:540px;margin:0 auto 16px;line-height:1.7}
-.hero-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
-.hero-badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 16px;font-size:.75rem}
-/* STATS */
-.stats{display:flex;justify-content:center;gap:0;background:#fff;border-bottom:1px solid #dee2e6}
-.stat{flex:1;max-width:180px;text-align:center;padding:18px 12px;border-right:1px solid #dee2e6}
-.stat:last-child{border-right:none}
-.stat .num{font-size:1.6rem;font-weight:700;color:var(--saffron)}
-.stat .lbl{font-size:.72rem;color:var(--gray);margin-top:2px}
-/* CONTAINER */
-.container{max-width:960px;margin:0 auto;padding:36px 16px}
-.section-title{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px}
-.section-sub{font-size:.83rem;color:var(--gray);margin-bottom:24px}
-/* PROGRAMME CARDS */
-.programmes{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:40px}
-.prog-card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);transition:.2s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
-.prog-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
-.prog-card.locked{opacity:.7;cursor:default}
-.prog-banner{height:8px}
-.prog-banner.gbv{background:linear-gradient(90deg,#FF6B00,#f4a261)}
-.prog-banner.fr{background:linear-gradient(90deg,#2d6a4f,#52b788)}
-.prog-banner.labour{background:linear-gradient(90deg,#1a2a4a,#3a5a8a)}
-.prog-banner.child{background:linear-gradient(90deg,#9b2226,#e63946)}
-.prog-body{padding:20px 22px;flex:1;display:flex;flex-direction:column}
-.prog-tag{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
-.prog-tag.gbv{color:#FF6B00}
-.prog-tag.fr{color:#2d6a4f}
-.prog-tag.coming{color:#6c757d}
-.prog-title{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px}
-.prog-subtitle{font-size:.8rem;color:var(--gray);margin-bottom:12px}
-.prog-topics{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
-.topic-chip{background:var(--light);border:1px solid #dee2e6;border-radius:6px;font-size:.7rem;padding:2px 8px;color:var(--gray)}
-.prog-progress{margin-bottom:14px}
-.prog-progress-bar{height:6px;background:#e9ecef;border-radius:4px;overflow:hidden;margin-top:4px}
-.prog-progress-fill{height:100%;border-radius:4px;transition:width .5s}
-.prog-progress-fill.gbv{background:linear-gradient(90deg,#FF6B00,#2d6a4f)}
-.prog-progress-fill.fr{background:linear-gradient(90deg,#2d6a4f,#52b788)}
-.prog-progress-label{font-size:.72rem;color:var(--gray);display:flex;justify-content:space-between;margin-bottom:3px}
-.prog-btn{display:block;text-align:center;padding:11px;border-radius:9px;font-weight:700;font-size:.88rem;margin-top:auto;text-decoration:none}
-.prog-btn.active-gbv{background:var(--navy);color:#fff}
-.prog-btn.active-gbv:hover{background:var(--saffron);color:#fff}
-.prog-btn.active-fr{background:#2d6a4f;color:#fff}
-.prog-btn.active-fr:hover{background:#1b4332;color:#fff}
-.prog-btn.soon{background:#e9ecef;color:#6c757d;cursor:not-allowed}
-.coming-soon-badge{background:#fff3cd;color:#856404;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:10px}
-/* ABOUT */
-.about-strip{background:var(--navy);color:#fff;border-radius:16px;padding:28px 32px;display:flex;gap:24px;align-items:center;margin-bottom:32px;flex-wrap:wrap}
-.about-strip .about-text{flex:1;min-width:220px}
-.about-strip h3{font-size:1rem;margin-bottom:8px}
-.about-strip p{font-size:.83rem;opacity:.85;line-height:1.7}
-.about-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.about-link{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 16px;border-radius:8px;font-size:.8rem;text-decoration:none;font-weight:600}
-.about-link:hover{background:var(--saffron);border-color:var(--saffron)}
-/* CONTACT FLOAT */
-#contactBtn{position:fixed;bottom:24px;right:24px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;border-radius:50px;padding:12px 18px 12px 14px;display:flex;align-items:center;gap:8px;cursor:pointer;z-index:9999;box-shadow:0 4px 20px rgba(37,211,102,.4);animation:contactPulse 2s infinite;user-select:none}
-.contact-pulse{position:absolute;inset:-4px;border-radius:50px;background:rgba(37,211,102,.4);animation:ripple 2s infinite;z-index:-1}
-.contact-label{font-weight:700;font-size:.88rem;white-space:nowrap}
-@keyframes contactPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.4)}50%{box-shadow:0 4px 28px rgba(37,211,102,.6),0 0 0 8px rgba(37,211,102,0)}}
-@keyframes ripple{0%{transform:scale(1);opacity:.4}100%{transform:scale(1.3);opacity:0}}
-#contactOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10000;backdrop-filter:blur(2px)}
-#contactModal{display:none;position:fixed;bottom:84px;right:24px;width:min(480px,calc(100vw - 32px));background:#fff;border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.2);z-index:10001;padding:24px;max-height:90vh;overflow-y:auto}
-#contactModal.open,#contactOverlay.open{display:block}
-.modal-close{position:absolute;top:12px;right:14px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#6c757d}
-.modal-logo{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.modal-tagline{font-size:.82rem;color:#555;background:#f8f9fa;padding:10px 14px;border-radius:8px;margin-bottom:14px;line-height:1.6}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-.contact-item{display:flex;align-items:flex-start;gap:10px;background:#f8f9fa;border-radius:8px;padding:10px 12px}
-.ci-icon{font-size:1.2rem;flex-shrink:0}
-.ci-label{font-size:.7rem;color:#6c757d;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
-.ci-value{font-size:.82rem;color:#1a2a4a;font-weight:600;text-decoration:none;word-break:break-all}
-.qr-section{display:flex;gap:16px;align-items:flex-start;border-top:1px solid #dee2e6;padding-top:16px}
-.qr-box{text-align:center;flex-shrink:0}
-.qr-label{font-size:.72rem;color:#6c757d;margin-top:6px;font-weight:600}
-.qr-number{font-size:.85rem;color:#1a2a4a;font-weight:700;margin-top:2px}
-.wa-direct-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none}
-footer{background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:18px;font-size:.75rem}
-footer strong{color:#fff}
-@media(max-width:600px){.stats{flex-wrap:wrap}.stat{min-width:calc(50% - 1px)}.about-strip{flex-direction:column}.qr-section{flex-direction:column;align-items:center}.contact-grid{grid-template-columns:1fr}}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --indigo:#312e81;
+  --indigo-mid:#4338ca;
+  --indigo-light:#6366f1;
+  --purple:#7c3aed;
+  --orange:#ea580c;
+  --amber:#f59e0b;
+  --green:#16a34a;
+  --teal:#0d9488;
+  --crimson:#9f1239;
+  --slate:#1e293b;
+  --muted:#64748b;
+  --border:#e2e8f0;
+  --bg:#f8fafc;
+  --white:#ffffff;
+  --card-shadow:0 2px 12px rgba(0,0,0,0.08);
+  --card-hover:0 8px 32px rgba(0,0,0,0.14);
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--slate);line-height:1.5}
+a{text-decoration:none;color:inherit}
+
+/* ── NAV ── */
+.nav{background:var(--indigo);position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,0.3)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:20px}
+.nav-logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.3)}
+.nav-brand{color:#fff;font-size:15px;font-weight:800;line-height:1.2}
+.nav-brand span{display:block;font-size:10px;font-weight:500;color:#a5b4fc;letter-spacing:.5px;text-transform:uppercase}
+.nav-divider{width:1px;height:28px;background:rgba(255,255,255,0.15)}
+.nav-links{display:flex;gap:4px;flex:1}
+.nav-link{color:#c7d2fe;font-size:13.5px;font-weight:500;padding:6px 12px;border-radius:6px;transition:all .15s;cursor:pointer;white-space:nowrap}
+.nav-link:hover,.nav-link.active{background:rgba(255,255,255,0.12);color:#fff}
+.nav-right{display:flex;align-items:center;gap:10px;margin-left:auto}
+.nav-search{display:flex;align-items:center;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:6px 12px;gap:8px;width:200px;transition:all .2s}
+.nav-search:focus-within{background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.4);width:260px}
+.nav-search input{background:transparent;border:none;outline:none;color:#fff;font-size:13px;width:100%;font-family:'Inter',sans-serif}
+.nav-search input::placeholder{color:#a5b4fc}
+.nav-search-icon{color:#a5b4fc;font-size:14px}
+.nav-wa-btn{background:#16a34a;color:#fff;border:none;border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px}
+.nav-wa-btn:hover{background:#15803d}
+@media(max-width:768px){
+  .nav-links,.nav-divider,.nav-search{display:none}
+  .nav-brand span{display:none}
+}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 40%,#4c1d95 70%,#1e1b4b 100%);padding:64px 24px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23fff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-inner{max-width:900px;margin:0 auto;text-align:center;position:relative}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:6px 16px;margin-bottom:24px}
+.hero-eyebrow span{color:#c7d2fe;font-size:12.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.hero-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(28px,5vw,52px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:16px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,#a5b4fc,#c084fc,#f0abfc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(14px,2.5vw,18px);color:#c7d2fe;max-width:640px;margin:0 auto 32px;font-weight:400}
+.hero-search{display:flex;background:#fff;border-radius:12px;padding:6px 6px 6px 20px;gap:8px;max-width:600px;margin:0 auto 28px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.hero-search input{flex:1;border:none;outline:none;font-size:15px;font-family:'Inter',sans-serif;color:var(--slate)}
+.hero-search input::placeholder{color:#94a3b8}
+.hero-search-btn{background:var(--indigo-mid);color:#fff;border:none;border-radius:8px;padding:12px 24px;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .15s}
+.hero-search-btn:hover{background:var(--indigo)}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.hero-tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);color:#e0e7ff;border-radius:20px;padding:5px 14px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}
+.hero-tag:hover{background:rgba(255,255,255,0.2);color:#fff}
+
+/* ── STATS ── */
+.stats{background:#fff;border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1200px;margin:0 auto;padding:20px 24px;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap}
+.stat-item{text-align:center;padding:8px 32px;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-size:22px;font-weight:800;color:var(--indigo)}
+.stat-label{font-size:12px;color:var(--muted);font-weight:500;margin-top:2px}
+@media(max-width:480px){.stat-item{padding:8px 18px}}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:1200px;margin:0 auto;padding:40px 24px 80px}
+
+/* ── SECTION HEADER ── */
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.section-title{font-size:22px;font-weight:800;color:var(--slate)}
+.section-title span{font-size:14px;font-weight:500;color:var(--muted);margin-left:8px}
+.view-all{font-size:13px;font-weight:600;color:var(--indigo-light);cursor:pointer}
+.view-all:hover{color:var(--indigo)}
+
+/* ── AUDIENCE FILTER ── */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.filter-chip{display:flex;align-items:center;gap:6px;background:#fff;border:2px solid var(--border);border-radius:24px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer;transition:all .15s;color:var(--muted)}
+.filter-chip:hover{border-color:var(--indigo-light);color:var(--indigo-light)}
+.filter-chip.active{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.filter-chip .chip-icon{font-size:16px}
+.filter-chip .chip-count{background:rgba(0,0,0,0.1);border-radius:10px;padding:1px 7px;font-size:11px}
+.filter-chip.active .chip-count{background:rgba(255,255,255,0.2)}
+
+/* ── COURSE GRID ── */
+.course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px}
+@media(max-width:900px){.course-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.course-grid{grid-template-columns:1fr}}
+
+/* ── COURSE CARD ── */
+.course-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--card-shadow);transition:all .2s;cursor:pointer;display:flex;flex-direction:column}
+.course-card:hover{box-shadow:var(--card-hover);transform:translateY(-3px)}
+.course-thumb{height:144px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.thumb-icon{font-size:52px;z-index:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3))}
+.thumb-pattern{position:absolute;inset:0;opacity:.15}
+.course-badges{position:absolute;top:12px;left:12px;display:flex;gap:6px;flex-wrap:wrap}
+.badge{border-radius:12px;padding:3px 10px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.badge-new{background:#4ade80;color:#14532d}
+.badge-updated{background:#fbbf24;color:#78350f}
+.badge-popular{background:#f87171;color:#7f1d1d}
+.badge-cert{background:rgba(255,255,255,0.92);color:#1e293b}
+.course-body{padding:18px;flex:1;display:flex;flex-direction:column;gap:10px}
+.course-title{font-size:15px;font-weight:800;color:var(--slate);line-height:1.3}
+.course-title-hindi{font-size:12px;font-weight:500;color:var(--muted);margin-top:2px}
+.course-desc{font-size:12.5px;color:var(--muted);line-height:1.5;flex:1}
+.course-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.meta-pill{display:flex;align-items:center;gap:4px;font-size:11.5px;color:var(--muted);font-weight:500}
+.meta-pill svg{width:13px;height:13px}
+.audience-tags{display:flex;gap:5px;flex-wrap:wrap}
+.aud-tag{border-radius:10px;padding:2px 9px;font-size:10.5px;font-weight:700}
+.aud-sw{background:#fff7ed;color:#c2410c;border:1px solid #fed7aa}
+.aud-pl{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0}
+.aud-ls{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe}
+.aud-lw{background:#fdf2f8;color:#9d174d;border:1px solid #fbcfe8}
+.aud-all{background:#f1f5f9;color:#475569;border:1px solid #e2e8f0}
+.course-footer{padding:14px 18px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.progress-mini{flex:1;margin-right:12px}
+.progress-label{font-size:10.5px;color:var(--muted);font-weight:600;margin-bottom:4px}
+.progress-bar{height:5px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;border-radius:3px;transition:width .5s}
+.course-btn{border:none;border-radius:8px;padding:8px 16px;font-size:12.5px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .15s;font-family:'Inter',sans-serif}
+.btn-start{background:var(--indigo);color:#fff}
+.btn-start:hover{background:var(--indigo-mid)}
+.btn-continue{background:#dcfce7;color:#15803d}
+.btn-continue:hover{background:#bbf7d0}
+.btn-soon{background:#f1f5f9;color:#94a3b8;cursor:not-allowed}
+
+/* ── LEARNING PATHS ── */
+.paths-section{margin-bottom:48px}
+.paths-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:640px){.paths-grid{grid-template-columns:1fr}}
+.path-card{border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.path-card:hover{transform:translateY(-3px);box-shadow:var(--card-hover)}
+.path-card::before{content:'';position:absolute;inset:0;opacity:.08;background:repeating-linear-gradient(45deg,#fff 0,#fff 2px,transparent 0,transparent 50%);background-size:10px 10px}
+.path-icon{font-size:36px}
+.path-title{font-size:18px;font-weight:800;line-height:1.2}
+.path-desc{font-size:13px;opacity:.85;line-height:1.5}
+.path-meta{display:flex;gap:12px;flex-wrap:wrap}
+.path-stat{display:flex;align-items:center;gap:5px;font-size:12px;font-weight:700;opacity:.8}
+.path-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.4);border-radius:8px;padding:8px 16px;font-size:13px;font-weight:700;transition:all .15s;width:fit-content}
+.path-btn:hover{background:rgba(255,255,255,0.4)}
+.path-sw{background:linear-gradient(135deg,#c2410c,#ea580c);color:#fff}
+.path-pl{background:linear-gradient(135deg,#15803d,#16a34a);color:#fff}
+.path-ls{background:linear-gradient(135deg,#1d4ed8,#3b82f6);color:#fff}
+.path-lw{background:linear-gradient(135deg,#9d174d,#be185d);color:#fff}
+
+/* ── FEATURED BANNER ── */
+.featured-banner{background:linear-gradient(135deg,#0f172a,#1e1b4b);border-radius:16px;padding:32px;display:flex;align-items:center;gap:32px;margin-bottom:48px;overflow:hidden;position:relative}
+.featured-banner::after{content:'⚖️';position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:100px;opacity:.07}
+.featured-content{flex:1}
+.featured-eyebrow{display:inline-block;background:#6366f1;color:#fff;border-radius:6px;padding:3px 10px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:12px}
+.featured-title{font-size:22px;font-weight:800;color:#fff;line-height:1.3;margin-bottom:8px}
+.featured-sub{font-size:13.5px;color:#a5b4fc;line-height:1.5;margin-bottom:16px}
+.featured-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.featured-tag{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#e0e7ff;border-radius:12px;padding:3px 12px;font-size:11.5px;font-weight:600}
+.featured-cta{display:inline-flex;align-items:center;gap:8px;background:#6366f1;color:#fff;border-radius:10px;padding:12px 24px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'Inter',sans-serif;transition:background .15s}
+.featured-cta:hover{background:#4f46e5}
+@media(max-width:560px){.featured-banner{flex-direction:column}.featured-banner::after{display:none}}
+
+/* ── ABOUT STRIP ── */
+.about-strip{background:#fff;border-top:1px solid var(--border);border-radius:14px;padding:28px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.about-logo{width:56px;height:56px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.about-text{flex:1;min-width:200px}
+.about-text h3{font-size:15px;font-weight:800;color:var(--slate);margin-bottom:4px}
+.about-text p{font-size:13px;color:var(--muted);line-height:1.5}
+.about-links{display:flex;gap:10px;flex-wrap:wrap}
+.about-link{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--border);color:var(--slate);border-radius:8px;padding:8px 14px;font-size:12.5px;font-weight:600;transition:all .15s;cursor:pointer}
+.about-link:hover{border-color:var(--indigo-light);color:var(--indigo-light)}
+
+/* ── FLOATING WA ── */
+.floating-wa{position:fixed;bottom:24px;right:24px;background:#16a34a;color:#fff;padding:14px 18px;border-radius:50px;font-size:13.5px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(22,163,74,0.45);z-index:999;display:flex;align-items:center;gap:8px;animation:pulse-wa 2.5s infinite;text-decoration:none}
+@keyframes pulse-wa{0%,100%{box-shadow:0 4px 20px rgba(22,163,74,.45)}50%{box-shadow:0 4px 32px rgba(22,163,74,.8)}}
+
+/* ── COMING SOON OVERLAY ── */
+.coming-soon-overlay{position:absolute;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(1px)}
+.coming-soon-badge-card{background:#fff;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:.5px}
+
+/* responsive nav */
+@media(max-width:768px){
+  .main{padding:28px 16px 60px}
+  .hero{padding:40px 16px}
+  .nav-inner{padding:0 16px}
+}
+
+/* hidden class for filter */
+.course-card.hidden{display:none}
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <img src="janman-logo.png" alt="Janman Logo" class="hero-logo">
-  <h1>Janman <span>Legal Training Academy</span></h1>
-  <p>Free online legal training programmes for GBV practitioners, OSC workers, paralegals, lawyers, and social workers — by Janman People's Foundation.</p>
-  <div class="hero-badges">
-    <span class="hero-badge">🏛️ Jan Nyay Abhiyan</span>
-    <span class="hero-badge">📍 Bihar, India</span>
-    <span class="hero-badge">🎓 Free Certification</span>
-    <span class="hero-badge">⚖️ Live Legal Support</span>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <img src="janman-logo.png" alt="Janman">
+      <div class="nav-brand">
+        Jan Nyaya Resource Centre
+        <span>by Janman People's Foundation</span>
+      </div>
+    </div>
+    <div class="nav-divider"></div>
+    <div class="nav-links">
+      <a class="nav-link active" href="#">Courses</a>
+      <a class="nav-link" href="#">Learning Paths</a>
+      <a class="nav-link" href="#">Resources</a>
+      <a class="nav-link" href="#">About</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-search">
+        <span class="nav-search-icon">🔍</span>
+        <input type="text" placeholder="Search courses..." id="navSearch">
+      </div>
+      <button class="nav-wa-btn" onclick="window.open('https://wa.me/918507715870?text=Hello%2C%20I%20need%20help%20with%20a%20course%20on%20the%20Jan%20Nyaya%20Resource%20Centre','_blank')">
+        💬 Get Help
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="hero-dot"></div>
+      <span>Free · Open Access · Certificate Courses</span>
+    </div>
+    <h1>Legal knowledge for<br><em>everyone who needs it</em></h1>
+    <p class="hero-sub">Interdisciplinary socio-legal courses for frontline workers, paralegals, law students and lawyers — grounded in Indian law and designed for real-world practice.</p>
+    <div class="hero-search">
+      <input type="text" placeholder="Search: POCSO, JJ Act, child rights, victim compensation…" id="heroSearch">
+      <button class="hero-search-btn" onclick="doSearch()">Search</button>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag" onclick="setFilter('sw')">👷 Social Workers</span>
+      <span class="hero-tag" onclick="setFilter('pl')">📋 Paralegals</span>
+      <span class="hero-tag" onclick="setFilter('ls')">🎓 Law Students</span>
+      <span class="hero-tag" onclick="setFilter('lw')">⚖️ Lawyers</span>
+      <span class="hero-tag" onclick="setFilter('all')">🌐 All Courses</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Programmes Live</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">13</div>
+      <div class="stat-label">Courses &amp; Tracks</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Hours of Content</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Landmark Case Analyses</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">🎓</div>
+      <div class="stat-label">Certificates Issued</div>
+    </div>
   </div>
 </div>
 
-<div class="stats">
-  <div class="stat"><div class="num" id="totalCerts">0</div><div class="lbl">Certificates Earned</div></div>
-  <div class="stat"><div class="num" id="totalModules">2</div><div class="lbl">Active Programmes</div></div>
-  <div class="stat"><div class="num">6</div><div class="lbl">Training Levels</div></div>
-  <div class="stat"><div class="num">Free</div><div class="lbl">Always</div></div>
-</div>
+<!-- MAIN -->
+<main class="main">
 
-<div class="container">
-
-  <div class="section-title">📚 Training Programmes</div>
-  <div class="section-sub">Complete any programme at your own pace and earn a Janman-certified certificate.</div>
-
-  <div class="programmes">
-
-    <!-- GBV Programme -->
-    <a class="prog-card" href="gbv/index.html" id="gbvCard">
-      <div class="prog-banner gbv"></div>
-      <div class="prog-body">
-        <div class="prog-tag gbv">Gender-Based Violence Laws</div>
-        <div class="prog-title">महिला संरक्षण कानून</div>
-        <div class="prog-subtitle">Women's Protection Laws — 3 Levels</div>
-        <div class="prog-topics">
-          <span class="topic-chip">POSH</span><span class="topic-chip">PWDVA</span>
-          <span class="topic-chip">POCSO</span><span class="topic-chip">BNS</span>
-          <span class="topic-chip">PCMA</span><span class="topic-chip">Evidence</span>
-          <span class="topic-chip">PIL</span>
-        </div>
-        <div class="prog-progress">
-          <div class="prog-progress-label"><span>Progress</span><span id="gbvPct">0%</span></div>
-          <div class="prog-progress-bar"><div class="prog-progress-fill gbv" id="gbvBar" style="width:0%"></div></div>
-        </div>
-        <span class="prog-btn active-gbv" id="gbvBtn">▶ Start / Continue</span>
+  <!-- FEATURED -->
+  <div class="featured-banner">
+    <div class="featured-content">
+      <span class="featured-eyebrow">🆕 Just Launched</span>
+      <div class="featured-title">Child Rights &amp; Protection — 4-Track Programme</div>
+      <div class="featured-sub">POCSO · JJ Act · Child Marriage · 2024 INSC 790 · 16 levels · 4 specialised tracks tailored to your role.</div>
+      <div class="featured-tags">
+        <span class="featured-tag">Social Workers</span>
+        <span class="featured-tag">Paralegals</span>
+        <span class="featured-tag">Law Students</span>
+        <span class="featured-tag">Lawyers</span>
+        <span class="featured-tag">Free Certificate</span>
       </div>
-    </a>
+      <a href="child-rights/index.html" class="featured-cta">Explore Programme →</a>
+    </div>
+  </div>
 
-    <!-- Fundamental Rights Programme -->
-    <a class="prog-card" href="fundamental-rights/index.html" id="frCard">
-      <div class="prog-banner fr"></div>
-      <div class="prog-body">
-        <div class="prog-tag fr">Constitutional Law</div>
-        <div class="prog-title">मौलिक अधिकार और DPSP</div>
-        <div class="prog-subtitle">Fundamental Rights &amp; Directive Principles — 3 Levels</div>
-        <div class="prog-topics">
-          <span class="topic-chip">Part III</span><span class="topic-chip">Part IV</span>
-          <span class="topic-chip">Art 14–32</span><span class="topic-chip">DPSP</span>
-          <span class="topic-chip">Fundamental Duties</span><span class="topic-chip">PIL</span>
-          <span class="topic-chip">Kesavananda</span>
+  <!-- AUDIENCE FILTER -->
+  <div class="filter-row" id="filterRow">
+    <div class="filter-chip active" data-filter="all" onclick="setFilter('all')">
+      <span class="chip-icon">🌐</span> All Courses <span class="chip-count" id="cnt-all">13</span>
+    </div>
+    <div class="filter-chip" data-filter="sw" onclick="setFilter('sw')">
+      <span class="chip-icon">👷</span> Social Workers &amp; OSC <span class="chip-count" id="cnt-sw">9</span>
+    </div>
+    <div class="filter-chip" data-filter="pl" onclick="setFilter('pl')">
+      <span class="chip-icon">📋</span> Paralegal Volunteers <span class="chip-count" id="cnt-pl">9</span>
+    </div>
+    <div class="filter-chip" data-filter="ls" onclick="setFilter('ls')">
+      <span class="chip-icon">🎓</span> Law Students <span class="chip-count" id="cnt-ls">10</span>
+    </div>
+    <div class="filter-chip" data-filter="lw" onclick="setFilter('lw')">
+      <span class="chip-icon">⚖️</span> Lawyers <span class="chip-count" id="cnt-lw">10</span>
+    </div>
+  </div>
+
+  <!-- COURSE GRID -->
+  <div class="section-header">
+    <div class="section-title">Available Courses <span id="course-count-label"></span></div>
+  </div>
+
+  <div class="course-grid" id="courseGrid">
+
+    <!-- GBV & Women's Protection Laws -->
+    <div class="course-card" data-audience="sw pl ls lw" data-keywords="gbv gender violence pocso domestic violence posh sexual harassment workplace">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#7c2d12,#c2410c)">
+        <div class="thumb-pattern" style="background:linear-gradient(45deg,rgba(255,255,255,.05) 25%,transparent 25%,transparent 75%,rgba(255,255,255,.05) 75%)"></div>
+        <span class="thumb-icon">⚖️</span>
+        <div class="course-badges">
+          <span class="badge badge-popular">Popular</span>
+          <span class="badge badge-cert">🎓 Certificate</span>
         </div>
-        <div class="prog-progress">
-          <div class="prog-progress-label"><span>Progress</span><span id="frPct">0%</span></div>
-          <div class="prog-progress-bar"><div class="prog-progress-fill fr" id="frBar" style="width:0%"></div></div>
-        </div>
-        <span class="prog-btn active-fr" id="frBtn">▶ Start / Continue</span>
       </div>
-    </a>
+      <div class="course-body">
+        <div>
+          <div class="course-title">Gender-Based Violence &amp; Women's Protection Laws</div>
+          <div class="course-title-hindi">महिला संरक्षण कानून</div>
+        </div>
+        <div class="course-desc">IPC/BNS provisions, POCSO, PWDVA, POSH Act, and Vishaka guidelines — with landmark case analysis including Bhanwari Devi, Vishaka, and Nirbhaya.</div>
+        <div class="audience-tags">
+          <span class="aud-tag aud-sw">Social Worker</span>
+          <span class="aud-tag aud-pl">Paralegal</span>
+          <span class="aud-tag aud-ls">Law Student</span>
+          <span class="aud-tag aud-lw">Lawyer</span>
+        </div>
+        <div class="course-meta">
+          <span class="meta-pill">📚 3 Levels</span>
+          <span class="meta-pill">⏱ ~6 hrs</span>
+          <span class="meta-pill">🎯 All tracks</span>
+        </div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#c2410c"></div></div>
+        </div>
+        <a href="gbv/index.html"><button class="course-btn btn-start">Start →</button></a>
+      </div>
+    </div>
+
+    <!-- GBV Social Worker Track -->
+    <div class="course-card" data-audience="sw" data-keywords="gbv social worker osc field practice domestic violence first responder">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#9a3412,#ea580c)">
+        <span class="thumb-icon">👷</span>
+        <div class="course-badges"><span class="badge badge-cert">🎓 Certificate</span></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title">GBV for Social Workers &amp; OSC Staff</div>
+          <div class="course-title-hindi">सामाजिक कार्यकर्ता ट्रैक</div>
+        </div>
+        <div class="course-desc">Field-focused track on survivor support, mandatory reporting, crisis intervention, referral pathways, and multidisciplinary team coordination.</div>
+        <div class="audience-tags"><span class="aud-tag aud-sw">Social Worker</span></div>
+        <div class="course-meta"><span class="meta-pill">📚 3 Levels</span><span class="meta-pill">⏱ ~5 hrs</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#ea580c"></div></div>
+        </div>
+        <a href="gbv/social-worker/index.html"><button class="course-btn btn-start">Start →</button></a>
+      </div>
+    </div>
+
+    <!-- Fundamental Rights & DPSP -->
+    <div class="course-card" data-audience="ls lw pl" data-keywords="fundamental rights constitution dpsp directive principles article 21 equality liberty">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#1d4ed8,#3b82f6)">
+        <span class="thumb-icon">🏛️</span>
+        <div class="course-badges">
+          <span class="badge badge-updated">Updated</span>
+          <span class="badge badge-cert">🎓 Certificate</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title">Fundamental Rights &amp; Directive Principles</div>
+          <div class="course-title-hindi">मौलिक अधिकार एवं नीति निदेशक तत्व</div>
+        </div>
+        <div class="course-desc">Articles 12–35 and 36–51 with PIL strategy, constitutional remedies (Art. 32 / Art. 226), landmark writ jurisprudence and socio-economic rights.</div>
+        <div class="audience-tags">
+          <span class="aud-tag aud-pl">Paralegal</span>
+          <span class="aud-tag aud-ls">Law Student</span>
+          <span class="aud-tag aud-lw">Lawyer</span>
+        </div>
+        <div class="course-meta"><span class="meta-pill">📚 3 Levels</span><span class="meta-pill">⏱ ~7 hrs</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#3b82f6"></div></div>
+        </div>
+        <a href="fundamental-rights/index.html"><button class="course-btn btn-start">Start →</button></a>
+      </div>
+    </div>
+
+    <!-- Child Rights Hub -->
+    <div class="course-card" data-audience="sw pl ls lw" data-keywords="child rights pocso jj act child marriage cwc dcpu mission vatsalya">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#0f766e,#14b8a6)">
+        <span class="thumb-icon">👶</span>
+        <div class="course-badges">
+          <span class="badge badge-new">New</span>
+          <span class="badge badge-cert">🎓 Certificate</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title">Child Rights &amp; Protection — Full Programme</div>
+          <div class="course-title-hindi">बाल अधिकार एवं संरक्षण</div>
+        </div>
+        <div class="course-desc">POCSO · JJ Act · PCMA · Child Labour · RTE · 4 audience tracks · 2024 INSC 790 (child marriage) · 29 landmark cases analysed.</div>
+        <div class="audience-tags">
+          <span class="aud-tag aud-sw">Social Worker</span>
+          <span class="aud-tag aud-pl">Paralegal</span>
+          <span class="aud-tag aud-ls">Law Student</span>
+          <span class="aud-tag aud-lw">Lawyer</span>
+        </div>
+        <div class="course-meta"><span class="meta-pill">📚 16 Levels</span><span class="meta-pill">⏱ ~20 hrs</span><span class="meta-pill">4 Tracks</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#14b8a6"></div></div>
+        </div>
+        <a href="child-rights/index.html"><button class="course-btn btn-start">Explore →</button></a>
+      </div>
+    </div>
+
+    <!-- Child Rights Social Worker -->
+    <div class="course-card" data-audience="sw" data-keywords="child rights social worker pocso jj act cwc field practice mandatory reporting">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#c2410c,#f97316)">
+        <span class="thumb-icon">🛡️</span>
+        <div class="course-badges"><span class="badge badge-cert">🎓 Certificate</span></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title">Child Rights: Social Worker Track</div>
+          <div class="course-title-hindi">OSC / बाल संरक्षण कार्यकर्ता</div>
+        </div>
+        <div class="course-desc">POCSO fundamentals, JJ Act procedures, CWC referrals, convergence framework, SIR/ICP documentation, and situation-wise field response grids.</div>
+        <div class="audience-tags"><span class="aud-tag aud-sw">Social Worker</span></div>
+        <div class="course-meta"><span class="meta-pill">📚 3 Levels</span><span class="meta-pill">⏱ ~5 hrs</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#f97316"></div></div>
+        </div>
+        <a href="child-rights/social-worker/index.html"><button class="course-btn btn-start">Start →</button></a>
+      </div>
+    </div>
+
+    <!-- Child Rights Paralegal -->
+    <div class="course-card" data-audience="pl" data-keywords="child rights paralegal pocso complaints rti childline nhrc">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#15803d,#22c55e)">
+        <span class="thumb-icon">📋</span>
+        <div class="course-badges"><span class="badge badge-cert">🎓 Certificate</span></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title">Child Rights: Paralegal Track</div>
+          <div class="course-title-hindi">पैरालीगल स्वयंसेवक ट्रैक</div>
+        </div>
+        <div class="course-desc">Legal framework, Section 164 statements, DLSA/NALSA legal aid, SVCS compensation, RTI, NHRC complaints, Childline, and VCPC mobilisation.</div>
+        <div class="audience-tags"><span class="aud-tag aud-pl">Paralegal</span></div>
+        <div class="course-meta"><span class="meta-pill">📚 3 Levels</span><span class="meta-pill">⏱ ~5 hrs</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#22c55e"></div></div>
+        </div>
+        <a href="child-rights/paralegal/index.html"><button class="course-btn btn-start">Start →</button></a>
+      </div>
+    </div>
+
+    <!-- Child Rights Law Student -->
+    <div class="course-card" data-audience="ls" data-keywords="child rights law student constitutional analysis case law moot court PIL">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#1d4ed8,#6366f1)">
+        <span class="thumb-icon">🎓</span>
+        <div class="course-badges">
+          <span class="badge badge-new">New</span>
+          <span class="badge badge-cert">🎓 Certificate</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title">Child Rights: Law Student Track</div>
+          <div class="course-title-hindi">विधि छात्र ट्रैक</div>
+        </div>
+        <div class="course-desc">Constitutional framework (Art. 21/21A), 16 landmark cases with full analysis, PIL strategy, constitutional tort, moot scenario, and 2024 INSC 790.</div>
+        <div class="audience-tags"><span class="aud-tag aud-ls">Law Student</span></div>
+        <div class="course-meta"><span class="meta-pill">📚 3 Levels</span><span class="meta-pill">⏱ ~7 hrs</span><span class="meta-pill">16 Cases</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#6366f1"></div></div>
+        </div>
+        <a href="child-rights/law-student/index.html"><button class="course-btn btn-start">Start →</button></a>
+      </div>
+    </div>
+
+    <!-- Child Rights Lawyer -->
+    <div class="course-card" data-audience="lw" data-keywords="child rights lawyer case law trial bail strategy PIL victim compensation POCSO SVCS">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#9d174d,#be185d)">
+        <span class="thumb-icon">⚖️</span>
+        <div class="course-badges">
+          <span class="badge badge-new">New</span>
+          <span class="badge badge-cert">🎓 Certificate</span>
+        </div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title">Child Rights: Lawyer Track</div>
+          <div class="course-title-hindi">अधिवक्ता ट्रैक</div>
+        </div>
+        <div class="course-desc">Full legislative framework, 29 landmark cases, bail strategy, SVCS compensation, PIL drafting, prosecution/defence trial strategy, and BNS/BNSS provisions.</div>
+        <div class="audience-tags"><span class="aud-tag aud-lw">Lawyer</span></div>
+        <div class="course-meta"><span class="meta-pill">📚 3 Levels</span><span class="meta-pill">⏱ ~8 hrs</span><span class="meta-pill">29 Cases</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini">
+          <div class="progress-label">Your progress</div>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%;background:#be185d"></div></div>
+        </div>
+        <a href="child-rights/lawyer/index.html"><button class="course-btn btn-start">Start →</button></a>
+      </div>
+    </div>
 
     <!-- Coming Soon: Labour Laws -->
-    <div class="prog-card locked">
-      <div class="prog-banner labour"></div>
-      <div class="prog-body">
-        <div class="coming-soon-badge">🔜 Coming Soon</div>
-        <div class="prog-tag coming">Labour &amp; Employment Law</div>
-        <div class="prog-title">श्रम अधिकार</div>
-        <div class="prog-subtitle">Labour Rights — 3 Levels</div>
-        <div class="prog-topics">
-          <span class="topic-chip">BOCW</span><span class="topic-chip">MGNREGS</span>
-          <span class="topic-chip">Minimum Wages</span><span class="topic-chip">ESIC</span>
-          <span class="topic-chip">Unorganised Workers</span>
+    <div class="course-card" data-audience="sw pl ls lw" data-keywords="labour law BOCW MGNREGS ESIC bonded labour minimum wages">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#374151,#6b7280);position:relative">
+        <span class="thumb-icon" style="opacity:.4">🏗️</span>
+        <div class="coming-soon-overlay"><div class="coming-soon-badge-card">🔜 Coming Soon</div></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title" style="color:#94a3b8">Labour Laws &amp; Workers' Rights</div>
+          <div class="course-title-hindi" style="color:#cbd5e1">श्रम कानून</div>
         </div>
-        <span class="prog-btn soon">🔒 Coming Soon</span>
+        <div class="course-desc" style="color:#cbd5e1">BOCW Act, MGNREGS, ESIC, bonded labour, minimum wages, Contract Labour Act — for field workers and legal aid practitioners.</div>
+        <div class="audience-tags">
+          <span class="aud-tag aud-all">All Tracks</span>
+        </div>
+        <div class="course-meta"><span class="meta-pill" style="color:#94a3b8">📚 3+ Levels planned</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini"><div class="progress-label" style="color:#cbd5e1">Coming soon</div></div>
+        <button class="course-btn btn-soon">🔒 Soon</button>
       </div>
     </div>
 
-    <!-- Child Rights — LIVE -->
-    <div class="prog-card">
-      <div class="prog-banner child"></div>
-      <div class="prog-body">
-        <div class="prog-tag">Child Rights &amp; Protection</div>
-        <div class="prog-title">बाल अधिकार</div>
-        <div class="prog-subtitle">POCSO · JJ Act · Child Marriage · 4 Tracks · 16 Levels</div>
-        <div class="prog-topics">
-          <span class="topic-chip">POCSO 2012</span><span class="topic-chip">JJ Act 2015</span>
-          <span class="topic-chip">PCMA 2006</span><span class="topic-chip">Child Labour</span>
-          <span class="topic-chip">CWC / DCPU</span><span class="topic-chip">Mission Vatsalya</span>
+    <!-- Coming Soon: SC/ST Atrocities -->
+    <div class="course-card" data-audience="sw pl ls lw" data-keywords="scheduled caste tribe atrocities SC ST POA act">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#374151,#6b7280);position:relative">
+        <span class="thumb-icon" style="opacity:.4">🛡️</span>
+        <div class="coming-soon-overlay"><div class="coming-soon-badge-card">🔜 Coming Soon</div></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title" style="color:#94a3b8">SC/ST Atrocities &amp; Caste Discrimination</div>
+          <div class="course-title-hindi" style="color:#cbd5e1">अनुसूचित जाति/जनजाति अधिनियम</div>
         </div>
-        <a href="child-rights/index.html" class="prog-btn">Start Learning →</a>
+        <div class="course-desc" style="color:#cbd5e1">POA Act 1989, PCR Act, SC/ST Amendment 2018 — with landmark judgments, FIR registration rights, and compensation mechanisms.</div>
+        <div class="audience-tags"><span class="aud-tag aud-all">All Tracks</span></div>
+        <div class="course-meta"><span class="meta-pill" style="color:#94a3b8">📚 3+ Levels planned</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini"><div class="progress-label" style="color:#cbd5e1">Coming soon</div></div>
+        <button class="course-btn btn-soon">🔒 Soon</button>
+      </div>
+    </div>
+
+    <!-- Coming Soon: Victim Compensation -->
+    <div class="course-card" data-audience="sw pl ls lw" data-keywords="victim compensation SVCS NALSA 357A CrPC BNSS">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#374151,#6b7280);position:relative">
+        <span class="thumb-icon" style="opacity:.4">💰</span>
+        <div class="coming-soon-overlay"><div class="coming-soon-badge-card">🔜 Coming Soon</div></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title" style="color:#94a3b8">Victim Compensation &amp; Rehabilitation</div>
+          <div class="course-title-hindi" style="color:#cbd5e1">पीड़ित मुआवज़ा</div>
+        </div>
+        <div class="course-desc" style="color:#cbd5e1">NALSA SVCS, Section 357A/357B/357C CrPC/BNSS, POCSO Rules, constitutional compensation (Rudul Sah, Nilabati Behera), and DLSA claim process.</div>
+        <div class="audience-tags"><span class="aud-tag aud-all">All Tracks</span></div>
+        <div class="course-meta"><span class="meta-pill" style="color:#94a3b8">📚 3+ Levels planned</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini"><div class="progress-label" style="color:#cbd5e1">Coming soon</div></div>
+        <button class="course-btn btn-soon">🔒 Soon</button>
+      </div>
+    </div>
+
+    <!-- Coming Soon: Mental Health -->
+    <div class="course-card" data-audience="sw pl ls lw" data-keywords="mental health MHCA 2017 legal capacity rights disability">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#374151,#6b7280);position:relative">
+        <span class="thumb-icon" style="opacity:.4">🧠</span>
+        <div class="coming-soon-overlay"><div class="coming-soon-badge-card">🔜 Coming Soon</div></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title" style="color:#94a3b8">Mental Health &amp; Disability Rights Law</div>
+          <div class="course-title-hindi" style="color:#cbd5e1">मानसिक स्वास्थ्य एवं विकलांगता</div>
+        </div>
+        <div class="course-desc" style="color:#cbd5e1">MHCA 2017, RPwD Act 2016, UNCRPD, legal capacity, advance directives, and rights of persons with psychosocial disabilities.</div>
+        <div class="audience-tags"><span class="aud-tag aud-all">All Tracks</span></div>
+        <div class="course-meta"><span class="meta-pill" style="color:#94a3b8">📚 3+ Levels planned</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini"><div class="progress-label" style="color:#cbd5e1">Coming soon</div></div>
+        <button class="course-btn btn-soon">🔒 Soon</button>
+      </div>
+    </div>
+
+    <!-- Coming Soon: Welfare & Social Security -->
+    <div class="course-card" data-audience="sw pl" data-keywords="welfare social security pension PMAY ration card Ayushman schemes">
+      <div class="course-thumb" style="background:linear-gradient(135deg,#374151,#6b7280);position:relative">
+        <span class="thumb-icon" style="opacity:.4">🏠</span>
+        <div class="coming-soon-overlay"><div class="coming-soon-badge-card">🔜 Coming Soon</div></div>
+      </div>
+      <div class="course-body">
+        <div>
+          <div class="course-title" style="color:#94a3b8">Social Security &amp; Welfare Entitlements</div>
+          <div class="course-title-hindi" style="color:#cbd5e1">सामाजिक सुरक्षा योजनाएं</div>
+        </div>
+        <div class="course-desc" style="color:#cbd5e1">PMAY, NFSA, Ayushman Bharat, IGNOAPS, PMMVY, UDID — eligibility, exclusion errors, RTI for welfare, and grievance redressal.</div>
+        <div class="audience-tags">
+          <span class="aud-tag aud-sw">Social Worker</span>
+          <span class="aud-tag aud-pl">Paralegal</span>
+        </div>
+        <div class="course-meta"><span class="meta-pill" style="color:#94a3b8">📚 3+ Levels planned</span></div>
+      </div>
+      <div class="course-footer">
+        <div class="progress-mini"><div class="progress-label" style="color:#cbd5e1">Coming soon</div></div>
+        <button class="course-btn btn-soon">🔒 Soon</button>
       </div>
     </div>
 
   </div>
 
+  <!-- LEARNING PATHS -->
+  <div class="paths-section">
+    <div class="section-header">
+      <div class="section-title">Learning Paths <span>Curated journeys by role</span></div>
+    </div>
+    <div class="paths-grid">
+      <div class="path-card path-sw" onclick="location.href='child-rights/social-worker/index.html'">
+        <div class="path-icon">👷</div>
+        <div class="path-title">Frontline &amp; OSC Worker Path</div>
+        <div class="path-desc">From mandatory reporting to convergence SOPs — everything a field worker needs to protect children and women effectively.</div>
+        <div class="path-meta">
+          <span class="path-stat">📚 6 courses</span>
+          <span class="path-stat">⏱ ~12 hrs</span>
+          <span class="path-stat">🎓 2 certificates</span>
+        </div>
+        <div class="path-btn">Explore Path →</div>
+      </div>
+      <div class="path-card path-pl" onclick="location.href='child-rights/paralegal/index.html'">
+        <div class="path-icon">📋</div>
+        <div class="path-title">Paralegal Volunteer Path</div>
+        <div class="path-desc">Legal framework, complaint drafting, RTI, NALSA aid, Childline coordination — everything to be an effective community legal aid worker.</div>
+        <div class="path-meta">
+          <span class="path-stat">📚 6 courses</span>
+          <span class="path-stat">⏱ ~11 hrs</span>
+          <span class="path-stat">🎓 2 certificates</span>
+        </div>
+        <div class="path-btn">Explore Path →</div>
+      </div>
+      <div class="path-card path-ls" onclick="location.href='child-rights/law-student/index.html'">
+        <div class="path-icon">🎓</div>
+        <div class="path-title">Law Student Path</div>
+        <div class="path-desc">Constitutional jurisprudence, landmark case analyses, PIL strategy, moot scenarios — bridge the gap between textbook law and real-world practice.</div>
+        <div class="path-meta">
+          <span class="path-stat">📚 5 courses</span>
+          <span class="path-stat">⏱ ~15 hrs</span>
+          <span class="path-stat">🎓 3 certificates</span>
+        </div>
+        <div class="path-btn">Explore Path →</div>
+      </div>
+      <div class="path-card path-lw" onclick="location.href='child-rights/lawyer/index.html'">
+        <div class="path-icon">⚖️</div>
+        <div class="path-title">Practising Lawyer Path</div>
+        <div class="path-desc">Deep-dive case law, trial strategy, bail jurisprudence, PIL drafting, victim compensation mechanics — for lawyers working on socio-legal matters.</div>
+        <div class="path-meta">
+          <span class="path-stat">📚 5 courses</span>
+          <span class="path-stat">⏱ ~16 hrs</span>
+          <span class="path-stat">🎓 3 certificates</span>
+        </div>
+        <div class="path-btn">Explore Path →</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT STRIP -->
   <div class="about-strip">
-    <img src="janman-logo.png" alt="Janman" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid #FF6B00;flex-shrink:0">
+    <img src="janman-logo.png" alt="Janman" class="about-logo">
     <div class="about-text">
-      <h3>About Janman People's Foundation</h3>
-      <p>Janman People's Foundation works on access to justice, gender-based violence, disability rights, hate crime documentation, and social security for marginalised communities across Bihar and India — under the Jan Nyay Abhiyan initiative.</p>
-      <div class="about-links">
-        <a href="https://janmanindia.org" target="_blank" class="about-link">🌐 janmanindia.org</a>
-        <a href="mailto:shashwat@janmanindia.org" class="about-link">📧 Email Us</a>
-        <a href="https://wa.me/918507715870" target="_blank" class="about-link">💬 WhatsApp</a>
-      </div>
+      <h3>Jan Nyaya Resource Centre — by Janman People's Foundation</h3>
+      <p>Free, open-access legal education for frontline workers, paralegals, law students, and lawyers working on socio-legal issues in India. All courses are grounded in Indian statute and Supreme Court jurisprudence. Supported by Jan Nyaya Abhiyan.</p>
+    </div>
+    <div class="about-links">
+      <a class="about-link" href="https://wa.me/918507715870" target="_blank">💬 WhatsApp Support</a>
+      <a class="about-link" href="https://janmanindia.org" target="_blank">🌐 Janman Website</a>
+      <a class="about-link" href="mailto:shashwat@janmanindia.org">✉️ Contact Us</a>
     </div>
   </div>
 
-</div>
+</main>
 
-<footer>
-  <strong>Janman Legal Training Academy</strong> · Janman People's Foundation · Jan Nyay Abhiyan · Bihar, India<br>
-  All training materials are free for educational purposes. For legal advice, consult a qualified lawyer.
-</footer>
-
-<!-- CONTACT FLOAT -->
-<div id="contactBtn" onclick="toggleContact()">
-  <div class="contact-pulse"></div>
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-  <span class="contact-label">Legal Help</span>
-</div>
-<div id="contactOverlay" onclick="toggleContact()"></div>
-<div id="contactModal">
-  <button class="modal-close" onclick="toggleContact()">✕</button>
-  <div class="modal-logo">
-    <img src="janman-logo.png" alt="Janman" style="width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid #FF6B00">
-    <div><div style="font-weight:700;color:#1a2a4a;font-size:1rem">Janman People's Foundation</div><div style="font-size:.75rem;color:#6c757d">Jan Nyay Abhiyan · Bihar, India</div></div>
-  </div>
-  <p class="modal-tagline">Our legal team supports GBV cases, documentation, legal referrals, PIL drafting and more.</p>
-  <div class="contact-grid">
-    <div class="contact-item"><span class="ci-icon">📧</span><div><div class="ci-label">Email</div><a href="mailto:shashwat@janmanindia.org" class="ci-value">shashwat@janmanindia.org</a></div></div>
-    <div class="contact-item"><span class="ci-icon">🌐</span><div><div class="ci-label">Website</div><a href="https://janmanindia.org" target="_blank" class="ci-value">janmanindia.org</a></div></div>
-  </div>
-  <div class="qr-section">
-    <div class="qr-box">
-      <img src="wa-qr.png" alt="WhatsApp QR" style="width:150px;height:150px">
-      <div class="qr-label">Scan to WhatsApp us</div>
-      <div class="qr-number">85077 15870</div>
-    </div>
-    <div class="qr-info">
-      <p style="font-size:.85rem;font-weight:700;color:#1a2a4a;margin-bottom:8px">Scan with your phone camera to open WhatsApp chat with our legal team directly.</p>
-      <a href="https://wa.me/918507715870" target="_blank" class="wa-direct-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L.057 23.882a.5.5 0 0 0 .61.61l6.058-1.466A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.896 0-3.668-.52-5.188-1.428l-.37-.222-3.836.929.93-3.836-.222-.37A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
-        Open WhatsApp Directly
-      </a>
-    </div>
-  </div>
-</div>
+<a class="floating-wa" href="https://wa.me/918507715870?text=Hello%2C%20I%20need%20help%20with%20a%20course%20on%20the%20Jan%20Nyaya%20Resource%20Centre" target="_blank">
+  💬 Get Support
+</a>
 
 <script>
-function toggleContact(){
-  document.getElementById('contactModal').classList.toggle('open');
-  document.getElementById('contactOverlay').classList.toggle('open');
+var activeFilter = 'all';
+
+function setFilter(f) {
+  activeFilter = f;
+  // Update chips
+  document.querySelectorAll('.filter-chip').forEach(function(chip) {
+    chip.classList.toggle('active', chip.dataset.filter === f);
+  });
+  // Filter cards
+  var cards = document.querySelectorAll('.course-card');
+  var visible = 0;
+  cards.forEach(function(card) {
+    var aud = card.dataset.audience || 'all';
+    var show = (f === 'all') || aud.split(' ').indexOf(f) >= 0;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  document.getElementById('course-count-label').textContent = '(' + visible + ')';
+  // Update hero tags active state
+  document.querySelectorAll('.hero-tag').forEach(function(t) { t.style.background = ''; t.style.color = ''; });
 }
-window.onload = function(){
-  // GBV progress from localStorage
-  var gbvDone = ['janman_l1_done','janman_l2_done','janman_l3_done']
-    .filter(k=>localStorage.getItem(k)==='true'||localStorage.getItem(k)==='1').length;
-  var gbvPct = Math.round(gbvDone/3*100);
-  document.getElementById('gbvBar').style.width = gbvPct+'%';
-  document.getElementById('gbvPct').textContent = gbvPct+'%';
-  if(gbvDone===3){
-    document.getElementById('gbvBtn').textContent='✅ Completed — Review';
-  } else if(gbvDone>0){
-    document.getElementById('gbvBtn').textContent='▶ Continue ('+gbvDone+'/3)';
-  }
-  // FR progress
-  var frDone = ['janman_fr_l1_done','janman_fr_l2_done','janman_fr_l3_done']
-    .filter(k=>localStorage.getItem(k)==='true').length;
-  var frPct = Math.round(frDone/3*100);
-  document.getElementById('frBar').style.width = frPct+'%';
-  document.getElementById('frPct').textContent = frPct+'%';
-  if(frDone===3){
-    document.getElementById('frBtn').textContent='✅ Completed — Review';
-  } else if(frDone>0){
-    document.getElementById('frBtn').textContent='▶ Continue ('+frDone+'/3)';
-  }
-  // Total certs
-  var certs = ['janman_l1_cert_no','janman_l2_cert_no','janman_l3_cert_no',
-    'janman_final_cert_no','janman_fr_l1_cert_no','janman_fr_l2_cert_no',
-    'janman_fr_l3_cert_no','janman_fr_final_cert_no']
-    .filter(k=>localStorage.getItem(k)).length;
-  document.getElementById('totalCerts').textContent = certs;
-};
+
+function doSearch() {
+  var q = (document.getElementById('heroSearch').value || document.getElementById('navSearch').value || '').toLowerCase().trim();
+  if (!q) { setFilter('all'); return; }
+  var cards = document.querySelectorAll('.course-card');
+  var visible = 0;
+  cards.forEach(function(card) {
+    var text = (card.textContent + ' ' + (card.dataset.keywords || '')).toLowerCase();
+    var show = text.indexOf(q) >= 0;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  document.querySelectorAll('.filter-chip').forEach(function(c) { c.classList.remove('active'); });
+  document.getElementById('course-count-label').textContent = '(' + visible + ' results for "' + q + '")';
+}
+
+document.getElementById('heroSearch').addEventListener('keydown', function(e) { if (e.key === 'Enter') doSearch(); });
+document.getElementById('navSearch').addEventListener('keydown', function(e) { if (e.key === 'Enter') doSearch(); });
+
+// Init
+setFilter('all');
 </script>
+
 </body>
 </html>
