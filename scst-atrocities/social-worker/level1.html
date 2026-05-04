@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Level 1 — Understanding the Act | Social Worker Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#fff7ed;color:#1e293b;line-height:1.7}
+.navbar{background:#9a3412;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,#ea580c,#9a3412);color:#fff;padding:40px 28px 28px;text-align:center}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.hero p{opacity:.9;font-size:.95rem;max-width:600px;margin:0 auto}
+.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto}
+.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
+.content{max-width:860px;margin:0 auto;padding:32px 24px 60px}
+.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15rem;font-weight:800;color:#9a3412;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #fed7aa}
+.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
+.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
+.info-box{background:#fff7ed;border-left:4px solid #ea580c;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#92400e}
+.info-box strong{color:#9a3412}
+.law-tag{background:#9a3412;color:#fff;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:6px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.85rem}
+th{background:#9a3412;color:#fff;padding:10px 12px;text-align:left}
+td{padding:9px 12px;border-bottom:1px solid #fde68a;color:#374151}
+tr:nth-child(even) td{background:#fff7ed}
+.offence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin:12px 0}
+.offence-card{background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:12px 14px;font-size:.83rem}
+.offence-card .sec{font-weight:700;color:#c2410c;margin-bottom:4px;font-size:.78rem}
+.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
+.quiz-section h2{font-size:1.1rem;font-weight:800;color:#9a3412;margin-bottom:20px}
+.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #fde68a}
+.question:last-of-type{border-bottom:none}
+.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
+.option:hover{border-color:#fdba74;background:#fff7ed}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#ea580c}
+.option.correct{background:#dcfce7;border-color:#86efac;color:#15803d}
+.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
+.submit-btn{background:#ea580c;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px;transition:background .2s}
+.submit-btn:hover{background:#c2410c}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
+#result.pass{background:#dcfce7;color:#15803d}
+#result.fail{background:#fee2e2;color:#dc2626}
+#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+#result p{font-size:.9rem}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#fed7aa">Level 1 — Understanding the Act</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <h1>Level 1: Understanding the Act</h1>
+  <p>PCR Act 1955, POA Act 1989, key definitions, 38+ scheduled offences, who can file and mandatory reporting duties</p>
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+</div>
+<div class="content">
+
+<div class="section">
+  <h2>Constitutional Foundation</h2>
+  <p><strong>Article 17</strong> of the Constitution abolishes "untouchability" and makes its practice a punishable offence. This is the bedrock on which all SC/ST protection legislation rests.</p>
+  <p><strong>Article 341 &amp; 342</strong> empower the President to specify Scheduled Castes and Scheduled Tribes respectively. Only those on the Presidential List enjoy protection under the POA Act.</p>
+  <div class="info-box"><strong>Key Point:</strong> A person must belong to an SC or ST as notified by the President for their State/UT to claim protection under the SC/ST (PoA) Act 1989. Being an OBC or belonging to a non-notified community does not attract this Act.</div>
+  <table>
+    <tr><th>Article</th><th>Subject</th><th>Significance</th></tr>
+    <tr><td>Art. 17</td><td>Abolition of untouchability</td><td>Absolute right — enforceable against private persons</td></tr>
+    <tr><td>Art. 15(2)</td><td>Non-discrimination in public places</td><td>Access to shops, restaurants, wells, hotels</td></tr>
+    <tr><td>Art. 46</td><td>Upliftment of SC/ST</td><td>DPSP — state duty to promote educational and economic interests</td></tr>
+    <tr><td>Art. 341</td><td>Scheduled Castes</td><td>Presidential notification community-wise, state-wise</td></tr>
+    <tr><td>Art. 342</td><td>Scheduled Tribes</td><td>Presidential notification; Forest dwellers</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Protection of Civil Rights Act, 1955</h2>
+  <p>The PCR Act penalises <strong>enforcement of disabilities arising from untouchability</strong>. It deals with access to places and services, not physical violence.</p>
+  <h3>Key Offences under PCR Act</h3>
+  <div class="offence-grid">
+    <div class="offence-card"><div class="sec">Sec 3</div>Preventing access to public worship places, tanks, wells, bathing ghats, roads, and other places of public resort</div>
+    <div class="offence-card"><div class="sec">Sec 4</div>Enforcing social disabilities — refusing to sell goods, refusing service in hospitals, refusing admission to schools</div>
+    <div class="offence-card"><div class="sec">Sec 5</div>Refusing to admit persons to hospitals, dispensaries, educational institutions</div>
+    <div class="offence-card"><div class="sec">Sec 7A</div>Compelling persons to practice scavenging, flaying, or other customary occupations based on caste</div>
+  </div>
+  <div class="info-box"><strong>Punishment:</strong> PCR Act — imprisonment up to 6 months and/or fine up to ₹500 (enhanced for subsequent offences). Less severe than POA Act, but covers civil disabilities that may not qualify as "atrocities."</div>
+</div>
+
+<div class="section">
+  <h2>SC/ST (Prevention of Atrocities) Act, 1989</h2>
+  <p>The POA Act addresses <strong>physical, social, economic and psychological atrocities</strong> committed against SC/ST persons by non-SC/ST persons. It is far more powerful than the PCR Act.</p>
+  <h3>Critical Definitions</h3>
+  <table>
+    <tr><th>Term</th><th>Meaning</th></tr>
+    <tr><td>Atrocity</td><td>Any offence under Sec 3(1) or 3(2) of the POA Act</td></tr>
+    <tr><td>Non-SC/ST perpetrator</td><td>Offence must be committed by a person who is NOT an SC or ST — inter-community aspect is essential</td></tr>
+    <tr><td>Victim</td><td>SC/ST person against whom an atrocity offence is committed or attempted</td></tr>
+    <tr><td>Dependent</td><td>Relatives dependent on victim for maintenance — entitled to relief</td></tr>
+    <tr><td>Public servant</td><td>Police, magistrates, revenue officials who wilfully neglect duties under the Act</td></tr>
+  </table>
+  <div class="info-box"><strong>Critical Rule:</strong> If both accused and victim belong to SC/ST, the POA Act does not apply. The offence must be perpetrated by a non-SC/ST person against an SC/ST person.</div>
+</div>
+
+<div class="section">
+  <h2>38+ Scheduled Offences — Section 3</h2>
+  <h3>Original 22 Offences (1989 Act)</h3>
+  <div class="offence-grid">
+    <div class="offence-card"><div class="sec">Sec 3(1)(i)</div>Force-feeding inedible substances (excreta, urine, carrion etc.)</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(ii)</div>Dumping excreta, carcasses, or objects causing harm in front of their house</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(iii)</div>Forcing bonded/begar/similar forms of forced labour</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(iv)</div>Wrongful dispossession from land/premises; interfering with enjoyment of rights</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(v)</div>Converting from caste occupation; preventing access to roads, water sources, burial grounds</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(vi)</div>Assault, use of force with intent to dishonour — targeting women</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(vii)</div>Sexual exploitation of SC/ST women by persons in dominant positions</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(viii)</div>Polluting water sources — wells, ponds, springs used by SC/ST</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(ix)</div>Forcing out of house, village, neighbourhood by wrongful means</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(x)</div>Insulting, humiliating in public view — words, acts, gestures</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(xi)</div>False/malicious prosecution in court or before public servant</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(i)</div>Giving false evidence to cause SC/ST person to be convicted</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(ii)</div>Fabricating false evidence to convict SC/ST</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(iii)</div>Arson — setting fire to house, goods, places of worship</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(iv)</div>Mischief causing damage ≥ ₹10,000</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(v)</div>Rape or gang rape of SC/ST women</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(vi)</div>Holding position of dominance with intent to make SC/ST person do forced labour</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(vii)</div>Corruption/obstruction of public servant's duty under the Act</div>
+  </div>
+
+  <h3>19 New Offences Added by 2016 Amendment</h3>
+  <div class="offence-grid">
+    <div class="offence-card"><div class="sec">Sec 3(1)(r)</div>Intentional public humiliation and abuse on grounds of untouchability</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(s)</div>Garlanding with footwear, parading naked/semi-naked</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(t)</div>Wrongful occupation or cultivation of land allotted to SC/ST by govt.</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(u)</div>Denying right to use common property resources — burial ground, pasture land</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(v)</div>Intimidating or preventing participation in elections, panchayat proceedings</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(w)</div>Causing injury or damage by any means after a court conviction</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(va)</div>Attempting/conspiring/abetting an atrocity offence (IPC aligned)</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(vii)</div>Harassment of victim/witness/dependant post-complaint</div>
+  </div>
+  <div class="info-box"><strong>Punishment:</strong> Minimum 6 months, maximum 5 years imprisonment for most offences. Gang rape: minimum 6 years (may extend to life). Repeat offences attract enhanced punishment.</div>
+</div>
+
+<div class="section">
+  <h2>Who Can File a Complaint?</h2>
+  <p><span class="law-tag">Sec 9</span> Any SC/ST victim or their relative can file. There is NO requirement to first approach police — a complaint can be made directly to a Magistrate.</p>
+  <h3>Mandatory Reporting Duty</h3>
+  <div class="info-box"><strong>Sec 4 — Wilful Neglect:</strong> Any public servant who willfully neglects his duties under the Act is punishable with imprisonment up to 1 year. This includes police officers who refuse to register FIRs, and revenue/administrative officials who fail to provide relief.</div>
+  <p><strong>As a field worker, your role includes:</strong></p>
+  <ul style="margin:10px 0 0 20px;font-size:.88rem;color:#374151">
+    <li>Supporting victim in writing complaint</li>
+    <li>Accompanying victim to police station</li>
+    <li>Documenting refusal to register FIR (create a written record)</li>
+    <li>Escalating to SP/DSP if station-level police refuse</li>
+    <li>Informing DLSA for free legal aid (Sec 12 LSA Act)</li>
+  </ul>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-section">
+  <h2>📝 Level 1 Assessment — 20 Questions (Pass: 70%)</h2>
+  <form id="quiz-form">
+
+  <div class="question">
+    <div class="q-text">Q1. Which Constitutional Article absolutely abolishes untouchability?</div>
+    <label class="option"><input type="radio" name="q1" value="a"> Article 14</label>
+    <label class="option"><input type="radio" name="q1" value="b"> Article 17</label>
+    <label class="option"><input type="radio" name="q1" value="c"> Article 21</label>
+    <label class="option"><input type="radio" name="q1" value="d"> Article 46</label>
+    <div class="explanation" id="exp-q1">Art. 17 abolishes untouchability and makes its practice an offence punishable by law — the only Fundamental Right that applies directly against private persons.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q2. The PCR Act 1955 primarily deals with which type of offences?</div>
+    <label class="option"><input type="radio" name="q2" value="a"> Physical violence against SC/ST</label>
+    <label class="option"><input type="radio" name="q2" value="b"> Land grabbing offences</label>
+    <label class="option"><input type="radio" name="q2" value="c"> Civil disabilities arising from untouchability</label>
+    <label class="option"><input type="radio" name="q2" value="d"> Sexual exploitation</label>
+    <div class="explanation" id="exp-q2">PCR Act targets enforcement of civil disabilities — denial of access to wells, temples, shops, schools — based on untouchability practice.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q3. For the POA Act to apply, the accused must be:</div>
+    <label class="option"><input type="radio" name="q3" value="a"> A government servant</label>
+    <label class="option"><input type="radio" name="q3" value="b"> A person who is NOT an SC or ST</label>
+    <label class="option"><input type="radio" name="q3" value="c"> A person from an upper caste only</label>
+    <label class="option"><input type="radio" name="q3" value="d"> Any person regardless of caste</label>
+    <div class="explanation" id="exp-q3">The inter-community element is essential — the offence must be committed by a non-SC/ST person against an SC/ST person. If both parties belong to SC/ST, the POA Act does not apply.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q4. Which section deals with dumping excreta or carcasses at an SC/ST person's home?</div>
+    <label class="option"><input type="radio" name="q4" value="a"> Sec 3(1)(i)</label>
+    <label class="option"><input type="radio" name="q4" value="b"> Sec 3(1)(ii)</label>
+    <label class="option"><input type="radio" name="q4" value="c"> Sec 3(1)(iii)</label>
+    <label class="option"><input type="radio" name="q4" value="d"> Sec 3(2)(iii)</label>
+    <div class="explanation" id="exp-q4">Sec 3(1)(ii) covers dumping excreta, waste, carcasses, or objects of a fouling nature in the premises or neighborhood of an SC/ST person.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q5. The 2016 Amendment added how many new offences to the POA Act?</div>
+    <label class="option"><input type="radio" name="q5" value="a"> 10</label>
+    <label class="option"><input type="radio" name="q5" value="b"> 15</label>
+    <label class="option"><input type="radio" name="q5" value="c"> 19</label>
+    <label class="option"><input type="radio" name="q5" value="d"> 22</label>
+    <div class="explanation" id="exp-q5">The SC/ST (Prevention of Atrocities) Amendment Act 2016 added 19 new offences to the original 22, bringing the total to 41+ scheduled offences.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q6. Garlanding with footwear or parading someone naked is covered under:</div>
+    <label class="option"><input type="radio" name="q6" value="a"> Sec 3(1)(i)</label>
+    <label class="option"><input type="radio" name="q6" value="b"> Sec 3(1)(r)</label>
+    <label class="option"><input type="radio" name="q6" value="c"> Sec 3(1)(s)</label>
+    <label class="option"><input type="radio" name="q6" value="d"> Sec 3(2)(v)</label>
+    <div class="explanation" id="exp-q6">Sec 3(1)(s) — inserted by 2016 Amendment — specifically covers garlanding with footwear and parading naked or semi-naked as atrocity offences.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q7. Under Sec 4 POA Act, a public servant who willfully neglects duties is punishable with imprisonment up to:</div>
+    <label class="option"><input type="radio" name="q7" value="a"> 6 months</label>
+    <label class="option"><input type="radio" name="q7" value="b"> 1 year</label>
+    <label class="option"><input type="radio" name="q7" value="c"> 2 years</label>
+    <label class="option"><input type="radio" name="q7" value="d"> 3 years</label>
+    <div class="explanation" id="exp-q7">Sec 4 prescribes punishment of up to 1 year's imprisonment for public servants who willfully neglect their duties under the Act — this is a powerful tool against uncooperative police.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q8. Which Article empowers the President to specify Scheduled Castes?</div>
+    <label class="option"><input type="radio" name="q8" value="a"> Art. 338</label>
+    <label class="option"><input type="radio" name="q8" value="b"> Art. 15</label>
+    <label class="option"><input type="radio" name="q8" value="c"> Art. 341</label>
+    <label class="option"><input type="radio" name="q8" value="d"> Art. 342</label>
+    <div class="explanation" id="exp-q8">Art. 341 — Scheduled Castes; Art. 342 — Scheduled Tribes. Both require Presidential notification, which is community-specific and State/UT-specific.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q9. Wrongful dispossession from land allotted by government to SC/ST falls under:</div>
+    <label class="option"><input type="radio" name="q9" value="a"> PCR Act Sec 5</label>
+    <label class="option"><input type="radio" name="q9" value="b"> POA Act Sec 3(1)(t)</label>
+    <label class="option"><input type="radio" name="q9" value="c"> POA Act Sec 3(2)(iii)</label>
+    <label class="option"><input type="radio" name="q9" value="d"> IPC Sec 447</label>
+    <div class="explanation" id="exp-q9">Sec 3(1)(t) — added by 2016 Amendment — covers wrongful occupation or cultivation of land allotted, or notified, to be allotted to SC/ST members or acquired by them.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q10. A complaint under the POA Act can be filed directly to a:</div>
+    <label class="option"><input type="radio" name="q10" value="a"> District Collector only</label>
+    <label class="option"><input type="radio" name="q10" value="b"> Magistrate or police officer</label>
+    <label class="option"><input type="radio" name="q10" value="c"> High Court only</label>
+    <label class="option"><input type="radio" name="q10" value="d"> NHRC only</label>
+    <div class="explanation" id="exp-q10">Under Sec 9, complaints can be made to any police officer or to a Magistrate. There is no requirement to first approach the police — the Magistrate route bypasses uncooperative police.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q11. False/malicious prosecution against an SC/ST person is covered under:</div>
+    <label class="option"><input type="radio" name="q11" value="a"> Sec 3(1)(x)</label>
+    <label class="option"><input type="radio" name="q11" value="b"> Sec 3(1)(xi)</label>
+    <label class="option"><input type="radio" name="q11" value="c"> Sec 3(2)(i)</label>
+    <label class="option"><input type="radio" name="q11" value="d"> Sec 4</label>
+    <div class="explanation" id="exp-q11">Sec 3(1)(xi) covers false or malicious prosecution before a court or public servant — a common tactic used to harass SC/ST persons who raise voices against atrocities.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q12. Forcing bonded labour on SC/ST persons falls under which section?</div>
+    <label class="option"><input type="radio" name="q12" value="a"> Sec 3(1)(ii)</label>
+    <label class="option"><input type="radio" name="q12" value="b"> Sec 3(1)(iii)</label>
+    <label class="option"><input type="radio" name="q12" value="c"> Sec 3(2)(vi)</label>
+    <label class="option"><input type="radio" name="q12" value="d"> Sec 7A PCR Act</label>
+    <div class="explanation" id="exp-q12">Sec 3(1)(iii) covers compelling SC/ST persons to do begar or other forms of forced or bonded labour. Sec 3(2)(vi) covers compelling through dominant position.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q13. Rape or gang rape of an SC/ST woman by a non-SC/ST man is punishable under:</div>
+    <label class="option"><input type="radio" name="q13" value="a"> IPC 376 only</label>
+    <label class="option"><input type="radio" name="q13" value="b"> POCSO Act</label>
+    <label class="option"><input type="radio" name="q13" value="c"> Sec 3(2)(v) POA Act</label>
+    <label class="option"><input type="radio" name="q13" value="d"> PCR Act Sec 4</label>
+    <div class="explanation" id="exp-q13">Sec 3(2)(v) specifically covers rape and gang rape of SC/ST women — minimum 6 years imprisonment. This is ADDITIONAL to IPC provisions and provides enhanced punishment.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q14. Arson — setting fire to the house or property of an SC/ST — falls under:</div>
+    <label class="option"><input type="radio" name="q14" value="a"> Sec 3(1)(iv)</label>
+    <label class="option"><input type="radio" name="q14" value="b"> Sec 3(2)(ii)</label>
+    <label class="option"><input type="radio" name="q14" value="c"> Sec 3(2)(iii)</label>
+    <label class="option"><input type="radio" name="q14" value="d"> Sec 3(2)(iv)</label>
+    <div class="explanation" id="exp-q14">Sec 3(2)(iii) covers arson — deliberately setting fire to any house, goods, vehicles, crops, or other property belonging to SC/ST persons.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q15. Which section prevents SC/ST persons from using common property resources like burial grounds?</div>
+    <label class="option"><input type="radio" name="q15" value="a"> Sec 3(1)(s)</label>
+    <label class="option"><input type="radio" name="q15" value="b"> Sec 3(1)(u)</label>
+    <label class="option"><input type="radio" name="q15" value="c"> Sec 3(1)(v)</label>
+    <label class="option"><input type="radio" name="q15" value="d"> Sec 3(2)(vii)</label>
+    <div class="explanation" id="exp-q15">Sec 3(1)(u) — added by 2016 Amendment — covers denial of rights over common property resources including burial grounds, pasture land, and water sources.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q16. A public humiliation or abusive insult in public based on SC/ST identity is covered by:</div>
+    <label class="option"><input type="radio" name="q16" value="a"> Sec 3(1)(x)</label>
+    <label class="option"><input type="radio" name="q16" value="b"> Sec 3(1)(r)</label>
+    <label class="option"><input type="radio" name="q16" value="c"> Both Sec 3(1)(x) and 3(1)(r)</label>
+    <label class="option"><input type="radio" name="q16" value="d"> PCR Act Sec 3</label>
+    <div class="explanation" id="exp-q16">Sec 3(1)(x) covers intentional insult/intimidation in public; Sec 3(1)(r) — added 2016 — covers intentional public humiliation specifically targeting caste identity. Both may apply together.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q17. Polluting a water source used by SC/ST persons falls under:</div>
+    <label class="option"><input type="radio" name="q17" value="a"> PCR Act Sec 3</label>
+    <label class="option"><input type="radio" name="q17" value="b"> POA Act Sec 3(1)(viii)</label>
+    <label class="option"><input type="radio" name="q17" value="c"> POA Act Sec 3(1)(iv)</label>
+    <label class="option"><input type="radio" name="q17" value="d"> IPC Sec 269</label>
+    <div class="explanation" id="exp-q17">Sec 3(1)(viii) covers polluting water sources — wells, springs, ponds — or making them unfit for use that SC/ST communities habitually use.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q18. If a police officer refuses to register an FIR for an atrocity offence, the appropriate escalation is to the:</div>
+    <label class="option"><input type="radio" name="q18" value="a"> District Collector</label>
+    <label class="option"><input type="radio" name="q18" value="b"> Superintendent of Police or DSP</label>
+    <label class="option"><input type="radio" name="q18" value="c"> State Human Rights Commission</label>
+    <label class="option"><input type="radio" name="q18" value="d"> National Commission for SCs</label>
+    <div class="explanation" id="exp-q18">The immediate superior of the station officer is the DSP/SP. A written complaint to SP attracts their supervisory duty. The Magistrate route is also available for direct FIR-equivalent complaints.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q19. Compelling forcing of caste-based occupation (e.g., scavenging, flaying) is covered under PCR Act:</div>
+    <label class="option"><input type="radio" name="q19" value="a"> Sec 5</label>
+    <label class="option"><input type="radio" name="q19" value="b"> Sec 4</label>
+    <label class="option"><input type="radio" name="q19" value="c"> Sec 7A</label>
+    <label class="option"><input type="radio" name="q19" value="d"> Sec 3</label>
+    <div class="explanation" id="exp-q19">PCR Act Sec 7A specifically penalises compelling people to do scavenging, flaying, removing carcasses or similar customary occupations tied to untouchability.</div>
+  </div>
+
+  <div class="question">
+    <div class="q-text">Q20. A field worker accompanying a victim to the police station should document police refusal to register FIR by:</div>
+    <label class="option"><input type="radio" name="q20" value="a"> Filing a PIL in the High Court</label>
+    <label class="option"><input type="radio" name="q20" value="b"> Immediately calling the media</label>
+    <label class="option"><input type="radio" name="q20" value="c"> Creating a written record signed by witnesses and escalating to SP/DSP</label>
+    <label class="option"><input type="radio" name="q20" value="d"> Waiting 24 hours before taking any action</label>
+    <div class="explanation" id="exp-q20">A written record of refusal, with witness signatures, is essential evidence. Immediate escalation to SP/DSP and simultaneous notification to DLSA for legal aid is the correct protocol.</div>
+  </div>
+
+  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Assessment</button>
+  <div id="result"></div>
+</form>
+</div>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'c',q3:'b',q4:'b',q5:'c',q6:'c',q7:'b',q8:'c',q9:'b',q10:'b',q11:'b',q12:'b',q13:'c',q14:'c',q15:'b',q16:'c',q17:'b',q18:'b',q19:'c',q20:'c'};
+var total=20;
+function submitQuiz(){
+  var score=0;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    var opts=document.querySelectorAll('input[name="'+q+'"]');
+    opts.forEach(function(o){
+      var lbl=o.parentElement;
+      if(o.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(o.checked)lbl.classList.add('wrong');
+      o.disabled=true;
+    });
+    if(sel&&sel.value===ANSWERS[q])score++;
+    document.getElementById('exp-'+q).style.display='block';
+  }
+  document.getElementById('submit-btn').disabled=true;
+  var pct=Math.round(score/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  var res=document.getElementById('result');
+  res.style.display='block';
+  if(pct>=70){
+    res.className='pass';
+    res.innerHTML='<h3>✅ Level 1 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>You understand the legal framework. Proceed to Level 2: First Response & FIR Support.</p><br><a href="level2.html" style="background:#16a34a;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none">Start Level 2 →</a>';
+    localStorage.setItem('janman_scst_sw_l1_done','1');
+    localStorage.setItem('janman_scst_sw_l1_score',pct);
+  } else {
+    res.className='fail';
+    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>You need 70% to pass. Review the material and try again.</p><br><button onclick="location.reload()" style="background:#ea580c;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

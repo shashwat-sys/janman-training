@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Level 1 — Full Legal Framework | Paralegal Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f0fdf4;color:#1e293b;line-height:1.7}
+.navbar{background:#15803d;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;padding:40px 28px 28px;text-align:center}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.hero p{opacity:.9;font-size:.95rem;max-width:640px;margin:0 auto}
+.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:640px;margin-left:auto;margin-right:auto}
+.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
+.content{max-width:900px;margin:0 auto;padding:32px 24px 60px}
+.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15rem;font-weight:800;color:#15803d;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #86efac}
+.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
+.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
+.info-box{background:#f0fdf4;border-left:4px solid #16a34a;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#166534}
+.law-tag{background:#15803d;color:#fff;font-size:.7rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:6px;vertical-align:middle}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.84rem}
+th{background:#15803d;color:#fff;padding:10px 12px;text-align:left}
+td{padding:9px 12px;border-bottom:1px solid #bbf7d0;color:#374151}
+tr:nth-child(even) td{background:#f0fdf4}
+.offence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:12px 0}
+.offence-card{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px;font-size:.83rem}
+.offence-card .sec{font-weight:700;color:#15803d;margin-bottom:4px;font-size:.78rem}
+.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
+.quiz-section h2{font-size:1.1rem;font-weight:800;color:#15803d;margin-bottom:20px}
+.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #bbf7d0}
+.question:last-of-type{border-bottom:none}
+.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
+.option:hover{border-color:#86efac;background:#f0fdf4}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#16a34a}
+.option.correct{background:#dcfce7;border-color:#4ade80;color:#15803d}
+.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
+.submit-btn{background:#16a34a;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px}
+.submit-btn:hover{background:#15803d}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
+#result.pass{background:#dcfce7;color:#15803d}
+#result.fail{background:#fee2e2;color:#dc2626}
+#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#bbf7d0">Level 1 — Full Legal Framework</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <h1>Level 1: Full Legal Framework</h1>
+  <p>PCR Act 1955 complete scheme, POA Act 1989 all provisions, 2016 & 2018 Amendments, Rules 1995 — everything a paralegal needs to know</p>
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+</div>
+<div class="content">
+
+<div class="section">
+  <h2>PCR Act 1955 — Complete Scheme</h2>
+  <p>The Protection of Civil Rights Act 1955 is the successor to the Untouchability (Offences) Act 1955. It penalises every form of disability enforced on grounds of untouchability.</p>
+  <h3>Full Section Map</h3>
+  <table>
+    <tr><th>Section</th><th>Offence</th><th>Punishment</th></tr>
+    <tr><td>Sec 3</td><td>Enforcing religious disabilities — denial of temple/place of worship, tank, well, burial ground, road access</td><td>Min 1 month, Max 6 months + fine ₹100-500</td></tr>
+    <tr><td>Sec 4</td><td>Enforcing social disabilities — refusing to sell goods, provide service, admit to institution, hospital</td><td>Min 1 month, Max 6 months + fine</td></tr>
+    <tr><td>Sec 5</td><td>Refusing to admit in hospitals, dispensaries, educational institutions on grounds of untouchability</td><td>Min 1 month, Max 6 months</td></tr>
+    <tr><td>Sec 6</td><td>Enforcing occupational disabilities — preventing from following occupation on ground of untouchability</td><td>Min 1 month, Max 6 months</td></tr>
+    <tr><td>Sec 7</td><td>Enforcing other disabilities — preventing voting, using public conveyance, constructing/using buildings</td><td>Min 1 month, Max 6 months</td></tr>
+    <tr><td>Sec 7A</td><td>Compelling to perform scavenging, flaying, or customary caste-based occupation</td><td>Min 3 months, Max 6 months + fine</td></tr>
+    <tr><td>Sec 8</td><td>Enhanced punishment for second or subsequent conviction</td><td>Double the minimum; max 1 year</td></tr>
+    <tr><td>Sec 10</td><td>Cancellation of licence for trade for persons practising untouchability</td><td>Forfeiture of licence</td></tr>
+    <tr><td>Sec 14</td><td>Presumption: if disability is enforced on SC person, untouchability motive presumed</td><td>Shifts burden of proof</td></tr>
+    <tr><td>Sec 15A</td><td>Duty of State Government to ensure abolition — rehabilitation and protective duties</td><td>Constitutional obligation</td></tr>
+  </table>
+  <div class="info-box"><strong>Paralegal tip:</strong> PCR Act offences are cognizable and non-bailable under Sec 13 — FIR registration is mandatory. However, PCR cases are typically tried by ordinary magistrate courts, unlike POA Act which has Special Courts.</div>
+</div>
+
+<div class="section">
+  <h2>POA Act 1989 — Complete Statutory Scheme</h2>
+  <h3>Chapter I — Preliminary (Sec 1-2)</h3>
+  <p><span class="law-tag">Sec 2(a)</span> "Atrocity" means an offence punishable under Sec 3(1) or 3(2). <span class="law-tag">Sec 2(b)</span> "Code" means the Code of Criminal Procedure 1973. <span class="law-tag">Sec 2(c)</span> "Scheduled Castes and Scheduled Tribes" as defined under Arts. 341 and 342 of the Constitution.</p>
+
+  <h3>Chapter II — Offences of Atrocities (Sec 3)</h3>
+  <p>Sec 3 contains ALL scheduled offences. The 2016 Amendment expanded the original 22 to 38+ by re-lettering subsections:</p>
+  <div class="offence-grid">
+    <div class="offence-card"><div class="sec">Sec 3(1)(a) [formerly 3(1)(i)]</div>Force-feeding inedible substances — excreta, urine, carrion, etc.</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(b) [formerly 3(1)(ii)]</div>Dumping excreta/carcasses/foul objects near SC/ST premises</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(c) [formerly 3(1)(iii)]</div>Forced begar or bonded labour</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(d) [formerly 3(1)(iv)]</div>Wrongful dispossession from land/premises</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(e) [formerly 3(1)(v)]</div>Preventing use of waterways, roads, burial grounds</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(f)</div>Assault/use of force with intent to dishonour a woman</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(g)</div>Sexual exploitation of SC/ST woman — domination-based</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(h)</div>Polluting water sources — wells, springs, ponds</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(i)</div>Wrongfully forcing out of house/village/neighbourhood</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(j)</div>Insulting, humiliating — words, acts, gestures in public</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(k)</div>False/malicious prosecution in court or before public servant</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(l)</div>Outraging modesty — touching, using gestures of sexual nature</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(m)</div>Damaging/desecrating property of religious significance</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(n)</div>Forcing SC/ST person to open defecation or in open</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(o)</div>Committing any offence under IPC punishable with 10+ years</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(p)</div>Dedicating SC/ST woman as devadasi or equivalent practice</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(q)</div>Social or economic boycott of SC/ST person or community</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(r)</div>Preventing SC/ST from using common rights — pasture, forest</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(s)</div>Parading naked/semi-naked; garlanding with footwear</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(t)</div>Wrongfully occupying govt-allotted land of SC/ST</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(u)</div>Preventing use of common burial ground, common pasture, bathing ghat</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(v)</div>Preventing participation in elections, panchayat proceedings</div>
+    <div class="offence-card"><div class="sec">Sec 3(1)(w)</div>Causing hurt/damage by any means after SC conviction</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(i)</div>False evidence causing SC/ST conviction for capital offence</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(ii)</div>Fabricating evidence to convict SC/ST of capital offence</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(iii)</div>Arson — fire to house, goods, place of worship of SC/ST</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(iv)</div>Mischief causing damage of ≥ ₹10,000</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(v)</div>Rape or gang rape of SC/ST women — minimum 6 years</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(va)</div>Attempt, conspiracy, abetment of atrocity offences [2016]</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(vi)</div>Compelling forced labour through dominant position</div>
+    <div class="offence-card"><div class="sec">Sec 3(2)(vii)</div>Wilful neglect of duties by public servant under the Act</div>
+  </div>
+
+  <h3>Chapter III — Special Courts (Sec 14-14B)</h3>
+  <table>
+    <tr><th>Provision</th><th>Content</th></tr>
+    <tr><td>Sec 14</td><td>State Government shall specify a Court of Session as a Special Court for each district</td></tr>
+    <tr><td>Sec 14A</td><td>Exclusive Special Courts — where workload is high, state may establish dedicated Exclusive Special Courts</td></tr>
+    <tr><td>Sec 14B</td><td>Appointment of Special Public Prosecutor by State Government for each Special Court</td></tr>
+    <tr><td>Sec 15</td><td>Special Courts can take cognizance without committal proceedings — direct trial without pre-trial filtering</td></tr>
+  </table>
+
+  <h3>Chapter IV — Prevention & Relief (Sec 16-21)</h3>
+  <table>
+    <tr><th>Section</th><th>Provision</th></tr>
+    <tr><td>Sec 16</td><td>Power to impose collective fine on entire village/community if atrocity aided/abetted by community</td></tr>
+    <tr><td>Sec 17</td><td>Preventive measures — SP can prohibit movement in atrocity-prone areas; extern suspects</td></tr>
+    <tr><td>Sec 18</td><td>No anticipatory bail for any person accused of atrocity under Sec 3(1) or 3(2)</td></tr>
+    <tr><td>Sec 18A</td><td>[2016] No preliminary inquiry before FIR; mandatory arrest; SP approval not required for arrest</td></tr>
+    <tr><td>Sec 19</td><td>Protection given to action under the Act — no suit or legal proceedings against persons acting in good faith</td></tr>
+    <tr><td>Sec 21</td><td>Duty of Government to take measures for effective implementation; annual report to Parliament</td></tr>
+  </table>
+
+  <h3>2016 Amendment — Critical New Provisions</h3>
+  <div class="info-box">
+    <strong>Sec 15A (Victim & Witness Rights):</strong> Right to be informed, heard, protected; identity protection; state safety measures; relocation; video-conferencing testimony; right to engage their own advocate.<br><br>
+    <strong>Sec 18A (Mandatory Arrest):</strong> No preliminary inquiry before registration; no prior approval from SP for arrest; charge-sheet within 60 days.<br><br>
+    <strong>Chapter IVA — Rights of Victims & Witnesses (Sec 15A):</strong> The most comprehensive victim protection provision in Indian criminal law.
+  </div>
+
+  <h3>Prathvi Raj Chauhan v. Union of India (2020) 4 SCC 727</h3>
+  <p>5-judge Constitution Bench of the Supreme Court:</p>
+  <ul style="margin:8px 0 0 20px;font-size:.88rem;color:#374151;line-height:1.8">
+    <li>Upheld the constitutionality of Sec 18A of the POA Act</li>
+    <li>Reversed the earlier Subhash Kashinath Mahajan (2018) ruling that had diluted the Act</li>
+    <li>Held: No preliminary inquiry; no SP approval for arrest; No anticipatory bail — all restored as mandatory</li>
+    <li>Confirmed that Art. 21 rights of accused do not override special protection for SC/ST communities</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>SC/ST (PoA) Rules 1995 — Key Rules</h2>
+  <table>
+    <tr><th>Rule</th><th>Subject</th><th>Key Content</th></tr>
+    <tr><td>Rule 5</td><td>Atrocity-prone areas</td><td>District Magistrate to identify and notify atrocity-prone areas; special surveillance</td></tr>
+    <tr><td>Rule 6</td><td>Preventive measures</td><td>SP to take preventive action; biweekly camp visits in atrocity-prone areas</td></tr>
+    <tr><td>Rule 7</td><td>Investigation</td><td>Investigation by officer not below rank of DSP; charge-sheet within 60 days of FIR</td></tr>
+    <tr><td>Rule 12</td><td>Victim relief</td><td>Full compensation schedule — interim relief on FIR; balance on conviction; application by DM</td></tr>
+    <tr><td>Rule 13</td><td>Rehabilitation</td><td>Housing, agricultural land restoration, employment, transport of SHG goods</td></tr>
+    <tr><td>Rule 17(3)</td><td>DVMC</td><td>District Vigilance and Monitoring Committee — quarterly meetings, chaired by DM</td></tr>
+    <tr><td>Rule 18</td><td>State-level monitoring</td><td>State-level Vigilance and Monitoring Committee chaired by Chief Minister</td></tr>
+  </table>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-section">
+  <h2>📝 Level 1 Assessment — 20 Questions (Pass: 70%)</h2>
+  <form id="quiz-form">
+  <div class="question"><div class="q-text">Q1. PCR Act offences under Sec 13 are classified as:</div>
+    <label class="option"><input type="radio" name="q1" value="a"> Non-cognizable, bailable</label>
+    <label class="option"><input type="radio" name="q1" value="b"> Cognizable, non-bailable</label>
+    <label class="option"><input type="radio" name="q1" value="c"> Cognizable, bailable</label>
+    <label class="option"><input type="radio" name="q1" value="d"> Compoundable and bailable</label>
+    <div class="explanation" id="exp-q1">PCR Act Sec 13 classifies all offences as cognizable and non-bailable — mandatory FIR registration and no right to bail as of right.</div>
+  </div>
+  <div class="question"><div class="q-text">Q2. Which PCR Act section presumes untouchability motive when disability is enforced against an SC person?</div>
+    <label class="option"><input type="radio" name="q2" value="a"> Sec 7A</label>
+    <label class="option"><input type="radio" name="q2" value="b"> Sec 10</label>
+    <label class="option"><input type="radio" name="q2" value="c"> Sec 14</label>
+    <label class="option"><input type="radio" name="q2" value="d"> Sec 15A</label>
+    <div class="explanation" id="exp-q2">PCR Act Sec 14 creates a presumption — if a disability is enforced against an SC person, the court shall presume the motive was untouchability, shifting the burden of proof to the accused.</div>
+  </div>
+  <div class="question"><div class="q-text">Q3. Under the post-2016 renumbering, rape of an SC/ST woman falls under:</div>
+    <label class="option"><input type="radio" name="q3" value="a"> Sec 3(1)(f)</label>
+    <label class="option"><input type="radio" name="q3" value="b"> Sec 3(2)(iii)</label>
+    <label class="option"><input type="radio" name="q3" value="c"> Sec 3(2)(v)</label>
+    <label class="option"><input type="radio" name="q3" value="d"> Sec 3(1)(g)</label>
+    <div class="explanation" id="exp-q3">Sec 3(2)(v) covers rape and gang rape of SC/ST women by non-SC/ST persons — minimum 6 years imprisonment, in addition to IPC rape provisions.</div>
+  </div>
+  <div class="question"><div class="q-text">Q4. Sec 16 of the POA Act allows the imposition of:</div>
+    <label class="option"><input type="radio" name="q4" value="a"> Preventive detention on accused</label>
+    <label class="option"><input type="radio" name="q4" value="b"> Collective fine on a village or community</label>
+    <label class="option"><input type="radio" name="q4" value="c"> Forfeiture of property of accused</label>
+    <label class="option"><input type="radio" name="q4" value="d"> Externment of non-SC/ST accused</label>
+    <div class="explanation" id="exp-q4">Sec 16 empowers the state to impose a collective fine on an entire locality/community if the atrocity was committed with their knowledge, connivance, or abetment without informing police.</div>
+  </div>
+  <div class="question"><div class="q-text">Q5. Rule 7 requires investigation to be conducted by an officer not below the rank of:</div>
+    <label class="option"><input type="radio" name="q5" value="a"> Inspector</label>
+    <label class="option"><input type="radio" name="q5" value="b"> Sub-Inspector</label>
+    <label class="option"><input type="radio" name="q5" value="c"> DSP (Deputy Superintendent of Police)</label>
+    <label class="option"><input type="radio" name="q5" value="d"> SP (Superintendent of Police)</label>
+    <div class="explanation" id="exp-q5">Rule 7 mandates investigation by an officer not below the rank of DSP — this ensures experienced officers handle atrocity cases, not low-ranking constables who may be biased.</div>
+  </div>
+  <div class="question"><div class="q-text">Q6. Dedicating an SC/ST woman as a devadasi is covered under:</div>
+    <label class="option"><input type="radio" name="q6" value="a"> Sec 3(1)(f)</label>
+    <label class="option"><input type="radio" name="q6" value="b"> Sec 3(1)(p)</label>
+    <label class="option"><input type="radio" name="q6" value="c"> Sec 3(1)(g)</label>
+    <label class="option"><input type="radio" name="q6" value="d"> Sec 3(2)(v)</label>
+    <div class="explanation" id="exp-q6">Sec 3(1)(p) covers the practice of dedicating SC/ST women as devadasis or similar customary practice — recognizes this as a form of sexual exploitation and social atrocity.</div>
+  </div>
+  <div class="question"><div class="q-text">Q7. Charge-sheet in atrocity cases must be filed within how many days of FIR under Rule 7?</div>
+    <label class="option"><input type="radio" name="q7" value="a"> 30 days</label>
+    <label class="option"><input type="radio" name="q7" value="b"> 45 days</label>
+    <label class="option"><input type="radio" name="q7" value="c"> 60 days</label>
+    <label class="option"><input type="radio" name="q7" value="d"> 90 days</label>
+    <div class="explanation" id="exp-q7">Rule 7 mandates filing of charge-sheet within 60 days of FIR registration — a paralegal can use RTI or application to Special Court to ensure this deadline is met.</div>
+  </div>
+  <div class="question"><div class="q-text">Q8. The State-level Vigilance and Monitoring Committee under Rule 18 is chaired by:</div>
+    <label class="option"><input type="radio" name="q8" value="a"> Home Minister</label>
+    <label class="option"><input type="radio" name="q8" value="b"> Chief Secretary</label>
+    <label class="option"><input type="radio" name="q8" value="c"> Chief Minister</label>
+    <label class="option"><input type="radio" name="q8" value="d"> DGP</label>
+    <div class="explanation" id="exp-q8">Rule 18 constitutes a State-level Vigilance and Monitoring Committee chaired by the Chief Minister — the highest political accountability mechanism under the POA Rules.</div>
+  </div>
+  <div class="question"><div class="q-text">Q9. Social or economic boycott of an SC/ST person or community falls under:</div>
+    <label class="option"><input type="radio" name="q9" value="a"> Sec 3(1)(j)</label>
+    <label class="option"><input type="radio" name="q9" value="b"> Sec 3(1)(q)</label>
+    <label class="option"><input type="radio" name="q9" value="c"> Sec 3(1)(k)</label>
+    <label class="option"><input type="radio" name="q9" value="d"> Sec 3(1)(r)</label>
+    <div class="explanation" id="exp-q9">Sec 3(1)(q) specifically criminalises social and economic boycott — covering situations where the community is denied services, markets, or social interactions collectively.</div>
+  </div>
+  <div class="question"><div class="q-text">Q10. The Prathvi Raj Chauhan (2020) SC ruling reversed which earlier dilutive judgment?</div>
+    <label class="option"><input type="radio" name="q10" value="a"> Parmanand Katara v. UOI</label>
+    <label class="option"><input type="radio" name="q10" value="b"> Subhash Kashinath Mahajan v. Maharashtra (2018)</label>
+    <label class="option"><input type="radio" name="q10" value="c"> Kashinath v. State (2016)</label>
+    <label class="option"><input type="radio" name="q10" value="d"> PUDR v. UOI</label>
+    <div class="explanation" id="exp-q10">Subhash Kashinath Mahajan (2018) had introduced preliminary inquiry requirements and SP approval for arrest — Prathvi Raj Chauhan (2020) reversed both and restored the Act's mandatory provisions.</div>
+  </div>
+  <div class="question"><div class="q-text">Q11. Sec 14A POA Act provides for the establishment of:</div>
+    <label class="option"><input type="radio" name="q11" value="a"> Additional Sessions Courts</label>
+    <label class="option"><input type="radio" name="q11" value="b"> Exclusive Special Courts where workload warrants</label>
+    <label class="option"><input type="radio" name="q11" value="c"> Fast Track Courts for all criminal cases</label>
+    <label class="option"><input type="radio" name="q11" value="d"> Lok Adalats for atrocity cases</label>
+    <div class="explanation" id="exp-q11">Sec 14A allows states to establish Exclusive Special Courts — entirely dedicated to atrocity cases — where volume of cases warrants it, ensuring faster disposal.</div>
+  </div>
+  <div class="question"><div class="q-text">Q12. Preventing SC/ST persons from participation in panchayat/election proceedings is covered by:</div>
+    <label class="option"><input type="radio" name="q12" value="a"> Sec 3(1)(j)</label>
+    <label class="option"><input type="radio" name="q12" value="b"> Sec 3(1)(u)</label>
+    <label class="option"><input type="radio" name="q12" value="c"> Sec 3(1)(v)</label>
+    <label class="option"><input type="radio" name="q12" value="d"> Sec 3(1)(t)</label>
+    <div class="explanation" id="exp-q12">Sec 3(1)(v) covers preventing SC/ST persons from exercising their political rights — standing for election, voting, participating in panchayat proceedings.</div>
+  </div>
+  <div class="question"><div class="q-text">Q13. Sec 18A (2016 Amendment) requires that the charge-sheet be filed within:</div>
+    <label class="option"><input type="radio" name="q13" value="a"> 30 days</label>
+    <label class="option"><input type="radio" name="q13" value="b"> 45 days</label>
+    <label class="option"><input type="radio" name="q13" value="c"> 60 days</label>
+    <label class="option"><input type="radio" name="q13" value="d"> 90 days</label>
+    <div class="explanation" id="exp-q13">Sec 18A read with Rule 7 requires the charge-sheet to be filed within 60 days of FIR registration — a binding deadline that can be monitored by paralegals through RTI.</div>
+  </div>
+  <div class="question"><div class="q-text">Q14. Rule 5 requires the District Magistrate to identify and notify:</div>
+    <label class="option"><input type="radio" name="q14" value="a"> SC/ST population census areas</label>
+    <label class="option"><input type="radio" name="q14" value="b"> Atrocity-prone areas within the district</label>
+    <label class="option"><input type="radio" name="q14" value="c"> Special Court locations</label>
+    <label class="option"><input type="radio" name="q14" value="d"> DVMC meeting venues</label>
+    <div class="explanation" id="exp-q14">Rule 5 mandates DM to identify atrocity-prone areas and notify them — this triggers enhanced surveillance, biweekly SP visits, and preventive action under Rule 6.</div>
+  </div>
+  <div class="question"><div class="q-text">Q15. Sec 21 POA Act imposes a duty on the Government to submit a report on implementation to:</div>
+    <label class="option"><input type="radio" name="q15" value="a"> Supreme Court</label>
+    <label class="option"><input type="radio" name="q15" value="b"> President of India</label>
+    <label class="option"><input type="radio" name="q15" value="c"> Parliament (annually)</label>
+    <label class="option"><input type="radio" name="q15" value="d"> National Commission for SCs</label>
+    <div class="explanation" id="exp-q15">Sec 21 mandates the Government to annually report to Parliament on all measures taken for effective implementation of the POA Act — creating legislative accountability.</div>
+  </div>
+  <div class="question"><div class="q-text">Q16. Forcing someone to defecate in the open (manual scavenging-adjacent offence) is covered under:</div>
+    <label class="option"><input type="radio" name="q16" value="a"> Sec 3(1)(b)</label>
+    <label class="option"><input type="radio" name="q16" value="b"> Sec 3(1)(c)</label>
+    <label class="option"><input type="radio" name="q16" value="c"> Sec 3(1)(n)</label>
+    <label class="option"><input type="radio" name="q16" value="d"> Sec 3(1)(o)</label>
+    <div class="explanation" id="exp-q16">Sec 3(1)(n) — added by 2016 Amendment — covers compelling SC/ST persons to dispose of or carry human or animal remains and forcing to do filthy/unclean work including open defecation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q17. Rule 13 of SC/ST PoA Rules covers:</div>
+    <label class="option"><input type="radio" name="q17" value="a"> Investigation procedure</label>
+    <label class="option"><input type="radio" name="q17" value="b"> Rehabilitation assistance — housing, land, employment</label>
+    <label class="option"><input type="radio" name="q17" value="c"> Compensation amounts</label>
+    <label class="option"><input type="radio" name="q17" value="d"> Special Court jurisdiction</label>
+    <div class="explanation" id="exp-q17">Rule 13 covers rehabilitation assistance — restoration of agricultural land, housing construction, MGNREGS employment priority, transport of SHG goods — for displaced or damaged SC/ST persons.</div>
+  </div>
+  <div class="question"><div class="q-text">Q18. Sec 19 POA Act provides protection to persons who act:</div>
+    <label class="option"><input type="radio" name="q18" value="a"> In violation of the Act</label>
+    <label class="option"><input type="radio" name="q18" value="b"> In good faith under the Act — immunity from suit</label>
+    <label class="option"><input type="radio" name="q18" value="c"> On behalf of accused persons</label>
+    <label class="option"><input type="radio" name="q18" value="d"> As private prosecutors</label>
+    <div class="explanation" id="exp-q18">Sec 19 provides immunity from civil suit or legal proceedings to persons acting in good faith in execution of powers or duties under the POA Act — protects officials and advocates from vexatious litigation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q19. Damaging or desecrating property of religious significance to SC/ST falls under:</div>
+    <label class="option"><input type="radio" name="q19" value="a"> Sec 3(1)(h)</label>
+    <label class="option"><input type="radio" name="q19" value="b"> Sec 3(1)(m)</label>
+    <label class="option"><input type="radio" name="q19" value="c"> Sec 3(2)(iii)</div>
+    <label class="option"><input type="radio" name="q19" value="d"> Sec 3(2)(iv)</label>
+    <div class="explanation" id="exp-q19">Sec 3(1)(m) covers damaging or desecrating property or objects of religious significance to SC/ST persons — temples, deities, sacred objects, burial grounds.</div>
+  </div>
+  <div class="question"><div class="q-text">Q20. A Special Public Prosecutor under Sec 14B is appointed by:</div>
+    <label class="option"><input type="radio" name="q20" value="a"> The Special Court judge</label>
+    <label class="option"><input type="radio" name="q20" value="b"> The District Magistrate</label>
+    <label class="option"><input type="radio" name="q20" value="c"> The State Government</label>
+    <label class="option"><input type="radio" name="q20" value="d"> The Supreme Court</label>
+    <div class="explanation" id="exp-q20">Sec 14B mandates the State Government to appoint a Special Public Prosecutor for each Special Court — ensuring a dedicated prosecutor with expertise handles atrocity cases.</div>
+  </div>
+
+  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Assessment</button>
+  <div id="result"></div>
+</form>
+</div>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'c',q3:'c',q4:'b',q5:'c',q6:'b',q7:'c',q8:'c',q9:'b',q10:'b',q11:'b',q12:'c',q13:'c',q14:'b',q15:'c',q16:'c',q17:'b',q18:'b',q19:'b',q20:'c'};
+function submitQuiz(){
+  var score=0,total=20;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){
+      var lbl=o.parentElement;
+      if(o.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(o.checked)lbl.classList.add('wrong');
+      o.disabled=true;
+    });
+    if(sel&&sel.value===ANSWERS[q])score++;
+    document.getElementById('exp-'+q).style.display='block';
+  }
+  document.getElementById('submit-btn').disabled=true;
+  var pct=Math.round(score/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  var res=document.getElementById('result');
+  res.style.display='block';
+  if(pct>=70){
+    res.className='pass';
+    res.innerHTML='<h3>✅ Level 1 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>Excellent! Proceed to Level 2: Complaint Drafting & Special Courts.</p><br><a href="level2.html" style="background:#15803d;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none">Start Level 2 →</a>';
+    localStorage.setItem('janman_scst_pl_l1_done','1');
+    localStorage.setItem('janman_scst_pl_l1_score',pct);
+  } else {
+    res.className='fail';
+    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>Need 70% to pass. Review the material and try again.</p><br><button onclick="location.reload()" style="background:#16a34a;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

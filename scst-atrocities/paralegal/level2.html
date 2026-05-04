@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Level 2 — Complaint Drafting & Special Courts | Paralegal Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f0fdf4;color:#1e293b;line-height:1.7}
+.navbar{background:#15803d;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;padding:40px 28px 28px;text-align:center}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.hero p{opacity:.9;font-size:.95rem;max-width:640px;margin:0 auto}
+.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:640px;margin-left:auto;margin-right:auto}
+.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
+.content{max-width:900px;margin:0 auto;padding:32px 24px 60px}
+.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15rem;font-weight:800;color:#15803d;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #86efac}
+.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
+.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
+.info-box{background:#f0fdf4;border-left:4px solid #16a34a;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#166534}
+.draft-box{background:#1e293b;color:#86efac;border-radius:10px;padding:20px;font-family:monospace;font-size:.82rem;line-height:1.8;margin:14px 0;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.84rem}
+th{background:#15803d;color:#fff;padding:10px 12px;text-align:left}
+td{padding:9px 12px;border-bottom:1px solid #bbf7d0;color:#374151}
+tr:nth-child(even) td{background:#f0fdf4}
+.step-card{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:14px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.step-num{background:#16a34a;color:#fff;font-weight:800;font-size:.85rem;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-text h4{font-weight:700;color:#15803d;margin-bottom:3px;font-size:.9rem}
+.step-text p{font-size:.84rem;color:#374151;margin:0}
+.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
+.quiz-section h2{font-size:1.1rem;font-weight:800;color:#15803d;margin-bottom:20px}
+.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #bbf7d0}
+.question:last-of-type{border-bottom:none}
+.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
+.option:hover{border-color:#86efac;background:#f0fdf4}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#16a34a}
+.option.correct{background:#dcfce7;border-color:#4ade80;color:#15803d}
+.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
+.submit-btn{background:#16a34a;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px}
+.submit-btn:hover{background:#15803d}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
+#result.pass{background:#dcfce7;color:#15803d}
+#result.fail{background:#fee2e2;color:#dc2626}
+#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#bbf7d0">Level 2 — Complaint Drafting & Special Courts</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <h1>Level 2: Complaint Drafting & Special Courts</h1>
+  <p>Drafting technically sound FIRs and magistrate complaints, navigating Special Court procedures, Sec 18A mandatory arrest, witness rights and police accountability mechanisms</p>
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+</div>
+<div class="content">
+
+<div class="section">
+  <h2>Drafting an Atrocity Complaint — Model Structure</h2>
+  <p>A well-drafted complaint is the foundation of a successful atrocity prosecution. As a paralegal, you must ensure all essential legal elements are present.</p>
+  <div class="draft-box">To,
+The Officer-in-Charge,
+[Police Station Name], [District]
+
+Sub: Complaint under SC/ST (Prevention of Atrocities) Act 1989 &
+     Protection of Civil Rights Act 1955
+
+Respected Sir/Madam,
+
+I, [VICTIM'S FULL NAME], son/daughter of [Father's Name],
+resident of [Full address with village/ward, block, district],
+belonging to [SC/ST community name] Scheduled Caste/Tribe
+(as notified under Art. 341/342 of the Constitution),
+do hereby state as follows:
+
+FACTS OF THE OFFENCE:
+On [DATE] at approximately [TIME], at [EXACT LOCATION],
+the accused [ACCUSED FULL NAME(S)], son/daughter of [Father's Name],
+resident of [Address], caste: [NON-SC/ST CASTE NAME],
+committed the following atrocity against me:
+
+[DETAILED DESCRIPTION OF INCIDENT — what happened, how,
+words used, weapons/means, injuries, witnesses present]
+
+SECTIONS APPLICABLE:
+The above conduct attracts the following provisions:
+1. Section 3(1)[__] SC/ST (Prevention of Atrocities) Act 1989
+   [State the specific sub-section and its description]
+2. [Any additional POA Act sections]
+3. IPC Section [__] [if applicable alongside POA offence]
+
+PRAYER:
+I humbly request you to:
+1. Register FIR under the above provisions forthwith
+2. Arrest the accused under Sec 18A of the POA Act
+3. Conduct investigation through a DSP-rank officer (Rule 7)
+4. Initiate interim relief proceedings under Rule 12
+5. Refer me to DLSA for free legal aid under LSA Act 1987
+
+[WITNESS NAMES AND ADDRESSES]
+
+Yours faithfully,
+[VICTIM'S SIGNATURE / THUMB IMPRESSION]
+[DATE]</div>
+  <div class="info-box"><strong>Critical elements a paralegal must verify:</strong> (1) Caste of victim explicitly stated as SC/ST; (2) Caste of accused stated as non-SC/ST; (3) Specific POA section cited; (4) Prayer includes Sec 18A arrest and Rule 12 relief; (5) Witness names and addresses included.</div>
+</div>
+
+<div class="section">
+  <h2>When to File Where — Complaint Routing</h2>
+  <table>
+    <tr><th>Route</th><th>When to Use</th><th>Legal Basis</th></tr>
+    <tr><td>Police Station (OC)</td><td>Standard first step — get FIR registered with station diary number</td><td>Sec 154 CrPC; POA Act Sec 9</td></tr>
+    <tr><td>DSP/SP (in writing)</td><td>Station officer refuses FIR registration; use this as escalation</td><td>Sec 4 POA (wilful neglect); Sec 154(3) CrPC</td></tr>
+    <tr><td>Magistrate — Sec 156(3) CrPC</td><td>Police refuses despite SP complaint; Magistrate can direct FIR + investigation</td><td>Sec 156(3) CrPC</td></tr>
+    <tr><td>Special Court</td><td>Cognizance application if police and magistrate both unresponsive</td><td>Sec 15 POA Act — no committal needed</td></tr>
+    <tr><td>NCSC / NCST</td><td>Pattern of systemic refusal; state-level inaction</td><td>Arts. 338-338B Constitution</td></tr>
+    <tr><td>State Human Rights Commission</td><td>Gross human rights violation with state complicity</td><td>Protection of Human Rights Act 1993</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Special Courts — Jurisdiction & Procedure</h2>
+  <h3>Cognizance Without Committal (Sec 15)</h3>
+  <p>A unique feature — Special Courts under the POA Act can take direct cognizance of atrocity offences <strong>without requiring committal proceedings</strong> from a Magistrate. This bypasses the normal CrPC procedure and speeds up trial.</p>
+  <h3>Trial Procedure in Special Courts</h3>
+  <div class="step-card"><div class="step-num">1</div><div class="step-text"><h4>Cognizance</h4><p>Special Court takes cognizance either on police report (charge-sheet) or on complaint — no committal required (Sec 15)</p></div></div>
+  <div class="step-card"><div class="step-num">2</div><div class="step-text"><h4>Charges Framed</h4><p>Court frames charges against accused; victim/PLV should verify correct POA sections are charged — not just IPC sections</p></div></div>
+  <div class="step-card"><div class="step-num">3</div><div class="step-text"><h4>Evidence Stage</h4><p>Prosecution (Special PP) examines witnesses; defense cross-examination. PLV role: ensure victim knows their right to be heard (Sec 15A)</p></div></div>
+  <div class="step-card"><div class="step-num">4</div><div class="step-text"><h4>Victim Hearing at Bail</h4><p>Sec 15A — victim must be heard before bail is granted to accused. PLV must alert victim of bail hearing dates immediately</p></div></div>
+  <div class="step-card"><div class="step-num">5</div><div class="step-text"><h4>Judgment & Sentence</h4><p>Conviction must trigger automatic application for balance Rule 12 compensation. File within 30 days of conviction order.</p></div></div>
+  <div class="info-box"><strong>Paralegal duty at Special Court:</strong> File vakalatnama for victim's private advocate (Sec 15A right to engage own lawyer); attend all dates; ensure victim is informed of each hearing; file Form I for Rule 12 relief immediately after conviction.</div>
+</div>
+
+<div class="section">
+  <h2>Sec 18A — Mandatory Arrest: Drafting an Arrest Application</h2>
+  <p>When police delay or refuse arrest despite FIR registration, a paralegal can draft and file an application to the SP citing Sec 18A and the constitutional mandate.</p>
+  <div class="draft-box">To,
+The Superintendent of Police,
+[District], [State]
+
+Sub: Application under Section 18A SC/ST (PoA) Act 1989
+     for immediate arrest of accused
+
+Sir,
+
+FIR No. [___] dated [DATE], registered at PS [NAME],
+under Sections [___] SC/ST (PoA) Act 1989, names the following accused:
+1. [NAME], son of [FATHER], Village [___], Caste: [NON-SC/ST]
+
+As of today [DATE], the accused has NOT been arrested despite [X] days
+having elapsed since FIR registration.
+
+Section 18A of the SC/ST (PoA) Act 1989 (inserted by 2016 Amendment)
+mandates that:
+(a) No preliminary inquiry shall be required prior to FIR registration;
+(b) The accused SHALL be arrested; and
+(c) No sanction of SP is required.
+
+The Supreme Court in Prathvi Raj Chauhan v. UOI (2020) 4 SCC 727
+confirmed that Sec 18A is constitutionally valid and mandatory.
+
+Non-arrest despite the mandate of Sec 18A constitutes wilful neglect
+under Sec 4 POA Act, punishable with imprisonment up to 1 year.
+
+I therefore request you to:
+1. Direct immediate arrest of the accused under Sec 18A
+2. Initiate departmental action against SHO [NAME] for inaction
+3. Acknowledge receipt of this complaint
+
+Complainant: [VICTIM NAME], [ADDRESS]
+Through PLV: [YOUR NAME], DLSA [DISTRICT]
+
+Date: [DATE]</div>
+</div>
+
+<div class="section">
+  <h2>Witness Rights & Protection</h2>
+  <p>Witness intimidation is common in atrocity cases. Sec 15A provides the following protections that a paralegal must be aware of and help enforce:</p>
+  <table>
+    <tr><th>Right</th><th>How to Enforce</th></tr>
+    <tr><td>Identity protection — no media disclosure</td><td>File complaint to SP if media publishes victim/witness name; Sec 15A is enforceable</td></tr>
+    <tr><td>Video-conferencing testimony</td><td>Apply to Special Court for order permitting VC testimony if witness faces threat</td></tr>
+    <tr><td>State security</td><td>Application to SP for police protection to witness's home; escalate to DM if refused</td></tr>
+    <tr><td>Relocation</td><td>Application to DM citing Sec 15A for temporary or permanent relocation of victim/witness</td></tr>
+    <tr><td>Travel expenses</td><td>State must pay travel/maintenance expenses for witness attending court — apply to Special PP</td></tr>
+  </table>
+  <div class="info-box"><strong>Harassment of witness is a fresh offence:</strong> Sec 3(2)(vii) makes it an atrocity offence to harass a victim/witness/dependent after filing of complaint — a new FIR can be filed for post-complaint harassment.</div>
+</div>
+
+<div class="quiz-section">
+  <h2>📝 Level 2 Assessment — 20 Questions (Pass: 70%)</h2>
+  <form id="quiz-form">
+  <div class="question"><div class="q-text">Q1. Special Courts under POA Act can take cognizance of atrocity offences:</div>
+    <label class="option"><input type="radio" name="q1" value="a"> Only after committal by Magistrate</label>
+    <label class="option"><input type="radio" name="q1" value="b"> Without committal proceedings (Sec 15)</label>
+    <label class="option"><input type="radio" name="q1" value="c"> Only on victim's private complaint</label>
+    <label class="option"><input type="radio" name="q1" value="d"> Only after High Court permission</label>
+    <div class="explanation" id="exp-q1">Sec 15 POA Act allows Special Courts to take direct cognizance without requiring committal proceedings from a Magistrate — this speeds up trial significantly.</div>
+  </div>
+  <div class="question"><div class="q-text">Q2. A complaint under POA Act can be filed directly with a Magistrate when:</div>
+    <label class="option"><input type="radio" name="q2" value="a"> Police have already filed charge-sheet</label>
+    <label class="option"><input type="radio" name="q2" value="b"> The victim does not know the accused's caste</label>
+    <label class="option"><input type="radio" name="q2" value="c"> Police refuse to register FIR even after SP complaint</label>
+    <label class="option"><input type="radio" name="q2" value="d"> The offence occurred in a different district</label>
+    <div class="explanation" id="exp-q2">After exhausting police and SP routes, a complaint to the Magistrate under Sec 156(3) CrPC directing FIR and investigation is the next step — the Magistrate has jurisdiction to order police to register FIR.</div>
+  </div>
+  <div class="question"><div class="q-text">Q3. What is the critical inter-community element that must appear in every atrocity complaint?</div>
+    <label class="option"><input type="radio" name="q3" value="a"> That the offence occurred in a rural area</label>
+    <label class="option"><input type="radio" name="q3" value="b"> That the victim is SC/ST and the accused is non-SC/ST</label>
+    <label class="option"><input type="radio" name="q3" value="c"> That the accused is a government servant</label>
+    <label class="option"><input type="radio" name="q3" value="d"> That the offence was witnessed by multiple persons</label>
+    <div class="explanation" id="exp-q3">The jurisdictional prerequisite for POA Act is the inter-community element — both victim's SC/ST identity and accused's non-SC/ST identity must be stated clearly in the complaint/FIR.</div>
+  </div>
+  <div class="question"><div class="q-text">Q4. Post-complaint harassment of a victim/witness constitutes a fresh atrocity under:</div>
+    <label class="option"><input type="radio" name="q4" value="a"> Sec 3(1)(k)</label>
+    <label class="option"><input type="radio" name="q4" value="b"> Sec 3(2)(vi)</label>
+    <label class="option"><input type="radio" name="q4" value="c"> Sec 3(2)(vii)</label>
+    <label class="option"><input type="radio" name="q4" value="d"> Sec 15A</label>
+    <div class="explanation" id="exp-q4">Sec 3(2)(vii) makes it a separate atrocity offence to harass a victim/witness/dependent after filing of complaint — this enables a fresh FIR for post-complaint intimidation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q5. A victim's right to be heard at the bail hearing of the accused is guaranteed under:</div>
+    <label class="option"><input type="radio" name="q5" value="a"> Sec 18 POA Act</label>
+    <label class="option"><input type="radio" name="q5" value="b"> Sec 15A POA Act (2016 Amendment)</label>
+    <label class="option"><input type="radio" name="q5" value="c"> CrPC Sec 437</label>
+    <label class="option"><input type="radio" name="q5" value="d"> POA Act Sec 14B</label>
+    <div class="explanation" id="exp-q5">Sec 15A guarantees the victim's right to be heard at every stage of proceedings including bail hearings — the PLV must ensure the victim is informed of all bail hearing dates.</div>
+  </div>
+  <div class="question"><div class="q-text">Q6. Wilful neglect of duty by a police officer who refuses to register FIR attracts prosecution under:</div>
+    <label class="option"><input type="radio" name="q6" value="a"> IPC Sec 217</label>
+    <label class="option"><input type="radio" name="q6" value="b"> POA Act Sec 4</label>
+    <label class="option"><input type="radio" name="q6" value="c"> CrPC Sec 154</label>
+    <label class="option"><input type="radio" name="q6" value="d"> POA Act Sec 18A</label>
+    <div class="explanation" id="exp-q6">Sec 4 POA Act — wilful neglect of duties — carries up to 1 year's imprisonment. This section is enforceable against any public servant (police, magistrate, revenue official) who deliberately ignores their duties.</div>
+  </div>
+  <div class="question"><div class="q-text">Q7. A well-drafted atrocity complaint must include as Prayer:</div>
+    <label class="option"><input type="radio" name="q7" value="a"> Request for acquittal of accused</label>
+    <label class="option"><input type="radio" name="q7" value="b"> FIR registration, Sec 18A arrest, Rule 7 DSP investigation, Rule 12 relief, DLSA referral</label>
+    <label class="option"><input type="radio" name="q7" value="c"> Media coverage of the incident</label>
+    <label class="option"><input type="radio" name="q7" value="d"> Compensation from accused personally</label>
+    <div class="explanation" id="exp-q7">A complete prayer covers all five points: (1) FIR registration; (2) Arrest under Sec 18A; (3) DSP-level investigation per Rule 7; (4) Interim relief under Rule 12; (5) DLSA referral for free legal aid.</div>
+  </div>
+  <div class="question"><div class="q-text">Q8. Under Sec 15A, travel expenses for witnesses attending court must be paid by:</div>
+    <label class="option"><input type="radio" name="q8" value="a"> The complainant</label>
+    <label class="option"><input type="radio" name="q8" value="b"> The Special Public Prosecutor</label>
+    <label class="option"><input type="radio" name="q8" value="c"> The State Government</label>
+    <label class="option"><input type="radio" name="q8" value="d"> The accused if convicted</label>
+    <div class="explanation" id="exp-q8">Sec 15A mandates that the state bear travel and maintenance expenses for victims and witnesses attending court — apply to the Special PP or the court registry for disbursement.</div>
+  </div>
+  <div class="question"><div class="q-text">Q9. Under Sec 18A, the SP's approval for arrest in atrocity cases is:</div>
+    <label class="option"><input type="radio" name="q9" value="a"> Mandatory</label>
+    <label class="option"><input type="radio" name="q9" value="b"> Required only for senior accused</label>
+    <label class="option"><input type="radio" name="q9" value="c"> Not required — arrest is mandatory without SP sanction</label>
+    <label class="option"><input type="radio" name="q9" value="d"> Required within 48 hours of FIR</label>
+    <div class="explanation" id="exp-q9">Sec 18A explicitly provides that no sanction or approval of SP or other officer is required before arrest in atrocity cases — the station officer must arrest without seeking higher approval.</div>
+  </div>
+  <div class="question"><div class="q-text">Q10. After conviction in an atrocity case, the paralegal's immediate duty is to:</div>
+    <label class="option"><input type="radio" name="q10" value="a"> File an appeal on behalf of the accused</label>
+    <label class="option"><input type="radio" name="q10" value="b"> File Form I with DM for balance Rule 12 compensation within 30 days</label>
+    <label class="option"><input type="radio" name="q10" value="c"> Wait for 6 months before claiming compensation</label>
+    <label class="option"><input type="radio" name="q10" value="d"> Seek media coverage of the conviction</label>
+    <div class="explanation" id="exp-q10">On conviction, the balance of Rule 12 compensation becomes immediately claimable — file Form I with the DM within 30 days of the conviction order to initiate payment.</div>
+  </div>
+  <div class="question"><div class="q-text">Q11. Identity of victim and witnesses must NOT be disclosed to:</div>
+    <label class="option"><input type="radio" name="q11" value="a"> The Special Court judge</label>
+    <label class="option"><input type="radio" name="q11" value="b"> The Special Public Prosecutor</label>
+    <label class="option"><input type="radio" name="q11" value="c"> Media or in public proceedings (Sec 15A)</label>
+    <label class="option"><input type="radio" name="q11" value="d"> DLSA advocates</label>
+    <div class="explanation" id="exp-q11">Sec 15A mandates that names and addresses of victims and witnesses shall not be disclosed to the media or in public — violation of this is itself an offence and a grievance to be filed before the SP/DM.</div>
+  </div>
+  <div class="question"><div class="q-text">Q12. A vakalatnama filed by the victim's private advocate in Special Court is authorised by:</div>
+    <label class="option"><input type="radio" name="q12" value="a"> The Special PP</label>
+    <label class="option"><input type="radio" name="q12" value="b"> The victim's right under Sec 15A to engage own counsel</label>
+    <label class="option"><input type="radio" name="q12" value="c"> The District Collector</label>
+    <label class="option"><input type="radio" name="q12" value="d"> The DLSA advocate only</label>
+    <div class="explanation" id="exp-q12">Sec 15A explicitly grants victims the right to engage their own advocate in addition to the Special PP — the victim's private lawyer can appear and represent their interests alongside the state prosecutor.</div>
+  </div>
+  <div class="question"><div class="q-text">Q13. If the Special Court charges only IPC sections and omits POA sections, a paralegal should:</div>
+    <label class="option"><input type="radio" name="q13" value="a"> Accept the charges as filed</label>
+    <label class="option"><input type="radio" name="q13" value="b"> File an application for amendment of charges to include correct POA sections</label>
+    <label class="option"><input type="radio" name="q13" value="c"> File a writ petition in the High Court immediately</label>
+    <label class="option"><input type="radio" name="q13" value="d"> Approach the District Collector</label>
+    <div class="explanation" id="exp-q13">Filing an application for amendment of charges is the immediate remedy — ensuring POA Act sections are charged is critical because the enhanced punishments and victim relief provisions only apply if POA sections are in the charge sheet.</div>
+  </div>
+  <div class="question"><div class="q-text">Q14. The Sec 156(3) CrPC application to Magistrate is appropriate when:</div>
+    <label class="option"><input type="radio" name="q14" value="a"> Victim wants to file complaint directly in court</label>
+    <label class="option"><input type="radio" name="q14" value="b"> Police and SP have both refused FIR registration</label>
+    <label class="option"><input type="radio" name="q14" value="c"> Charge-sheet is filed but incomplete</label>
+    <label class="option"><input type="radio" name="q14" value="d"> Bail has been granted to accused</label>
+    <div class="explanation" id="exp-q14">After police refusal and SP escalation failure, Sec 156(3) CrPC allows the Magistrate to direct the police to register FIR and investigate — a powerful tool for paralegal use.</div>
+  </div>
+  <div class="question"><div class="q-text">Q15. When drafting an FIR/complaint, the caste of the accused must be stated as:</div>
+    <label class="option"><input type="radio" name="q15" value="a"> Unknown unless verified by Aadhaar</label>
+    <label class="option"><input type="radio" name="q15" value="b"> Dominant caste or upper caste only</label>
+    <label class="option"><input type="radio" name="q15" value="c"> Non-Scheduled Caste / Non-Scheduled Tribe (specific caste name)</label>
+    <label class="option"><input type="radio" name="q15" value="d"> OBC or general category</label>
+    <div class="explanation" id="exp-q15">The accused's specific caste name must be stated and it must be established that they are NOT an SC or ST — this inter-community element is the jurisdictional basis for POA Act application.</div>
+  </div>
+  <div class="question"><div class="q-text">Q16. For witnesses facing threat, Sec 15A allows testimony through:</div>
+    <label class="option"><input type="radio" name="q16" value="a"> Written affidavit only</label>
+    <label class="option"><input type="radio" name="q16" value="b"> Video-conferencing ordered by the Special Court</label>
+    <label class="option"><input type="radio" name="q16" value="c"> Telephonic statement to SP</label>
+    <label class="option"><input type="radio" name="q16" value="d"> Newspaper publication of statement</label>
+    <div class="explanation" id="exp-q16">Apply to the Special Court for a video-conferencing order under Sec 15A — the court can allow witnesses to testify remotely to avoid face-to-face confrontation with the accused or their supporters.</div>
+  </div>
+  <div class="question"><div class="q-text">Q17. NCSC (National Commission for Scheduled Castes) can be approached when:</div>
+    <label class="option"><input type="radio" name="q17" value="a"> Victim needs free legal aid</label>
+    <label class="option"><input type="radio" name="q17" value="b"> There is a systemic pattern of state-level refusal to act</label>
+    <label class="option"><input type="radio" name="q17" value="c"> The accused is a government servant</label>
+    <label class="option"><input type="radio" name="q17" value="d"> The FIR has already been registered</label>
+    <div class="explanation" id="exp-q17">NCSC (under Art. 338) is appropriate for systemic complaints — pattern of police inaction, state complicity, or high-level officials failing their statutory duties under POA Act.</div>
+  </div>
+  <div class="question"><div class="q-text">Q18. The model complaint must include the prayer for Rule 7 investigation by:</div>
+    <label class="option"><input type="radio" name="q18" value="a"> Any available police officer</label>
+    <label class="option"><input type="radio" name="q18" value="b"> A DSP-rank officer or above</label>
+    <label class="option"><input type="radio" name="q18" value="c"> An SP-rank officer only</label>
+    <label class="option"><input type="radio" name="q18" value="d"> A magistrate-delegated officer</label>
+    <div class="explanation" id="exp-q18">Rule 7 mandates investigation by an officer not below the rank of DSP — the prayer must specifically request DSP-level investigation to prevent the case being handed to sub-inspector level officers.</div>
+  </div>
+  <div class="question"><div class="q-text">Q19. An atrocity complaint should NOT include a request for:</div>
+    <label class="option"><input type="radio" name="q19" value="a"> Arrest under Sec 18A</label>
+    <label class="option"><input type="radio" name="q19" value="b"> Rule 12 interim relief</label>
+    <label class="option"><input type="radio" name="q19" value="c"> Settlement or compromise with accused</label>
+    <label class="option"><input type="radio" name="q19" value="d"> DLSA referral for legal aid</label>
+    <div class="explanation" id="exp-q19">Atrocity offences are non-compoundable — they cannot be settled or compromised. Including a request for compromise would undermine the complaint and is legally impermissible.</div>
+  </div>
+  <div class="question"><div class="q-text">Q20. A paralegal's duty to the victim at Special Court includes ensuring:</div>
+    <label class="option"><input type="radio" name="q20" value="a"> That the victim never enters the court premises</label>
+    <label class="option"><input type="radio" name="q20" value="b"> All hearing dates communicated; vakalatnama filed; Sec 15A rights exercised; bail hearings attended</label>
+    <label class="option"><input type="radio" name="q20" value="c"> That the victim directly questions the accused</label>
+    <label class="option"><input type="radio" name="q20" value="d"> That the Special PP shares all prosecution documents with victim</label>
+    <div class="explanation" id="exp-q20">The PLV's core duty at Special Court: communicate all dates; file vakalatnama for private advocate; ensure Sec 15A rights (right to be heard, identity protection) are exercised; monitor bail hearings; file Rule 12 applications on conviction.</div>
+  </div>
+
+  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Assessment</button>
+  <div id="result"></div>
+</form>
+</div>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'c',q3:'b',q4:'c',q5:'b',q6:'b',q7:'b',q8:'c',q9:'c',q10:'b',q11:'c',q12:'b',q13:'b',q14:'b',q15:'c',q16:'b',q17:'b',q18:'b',q19:'c',q20:'b'};
+function submitQuiz(){
+  var score=0,total=20;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){
+      var lbl=o.parentElement;
+      if(o.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(o.checked)lbl.classList.add('wrong');
+      o.disabled=true;
+    });
+    if(sel&&sel.value===ANSWERS[q])score++;
+    document.getElementById('exp-'+q).style.display='block';
+  }
+  document.getElementById('submit-btn').disabled=true;
+  var pct=Math.round(score/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  var res=document.getElementById('result');
+  res.style.display='block';
+  if(pct>=70){
+    res.className='pass';
+    res.innerHTML='<h3>✅ Level 2 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>Excellent! Proceed to Level 3: RTI, Compensation & DLSA Access.</p><br><a href="level3.html" style="background:#15803d;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none">Start Level 3 →</a>';
+    localStorage.setItem('janman_scst_pl_l2_done','1');
+    localStorage.setItem('janman_scst_pl_l2_score',pct);
+  } else {
+    res.className='fail';
+    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>Need 70% to pass. Review and try again.</p><br><button onclick="location.reload()" style="background:#16a34a;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

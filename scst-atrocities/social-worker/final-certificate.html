@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Field Worker Certificate — SC/ST Atrocities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#fff7ed;color:#1e293b}
+.navbar{background:#9a3412;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.locked-screen{max-width:600px;margin:80px auto;text-align:center;padding:40px;background:#fff;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,.1)}
+.locked-screen h2{font-size:1.4rem;font-weight:800;color:#9a3412;margin-bottom:16px}
+.locked-screen p{color:#64748b;margin-bottom:20px}
+.missing-list{list-style:none;margin:16px 0;text-align:left}
+.missing-list li{padding:10px 14px;margin-bottom:8px;background:#fff7ed;border-radius:8px;border-left:4px solid #fdba74;font-size:.88rem;color:#92400e}
+.btn-back{display:inline-block;padding:12px 28px;background:#ea580c;color:#fff;border-radius:8px;font-weight:700;text-decoration:none}
+.container{max-width:860px;margin:0 auto;padding:32px 24px 60px}
+.scores-card{background:#fff;border-radius:14px;padding:24px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.scores-card h3{font-size:1rem;font-weight:700;color:#9a3412;margin-bottom:16px}
+.score-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #fde68a;font-size:.9rem}
+.score-row:last-child{border-bottom:none;font-weight:700;font-size:1rem;color:#9a3412}
+.score-badge{background:#dcfce7;color:#15803d;font-weight:700;padding:4px 12px;border-radius:12px;font-size:.82rem}
+.form-section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.form-section h3{font-size:1rem;font-weight:700;color:#9a3412;margin-bottom:18px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+label{font-size:.82rem;font-weight:600;color:#374151}
+input,select,textarea{padding:10px 14px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:.88rem;font-family:'Inter',sans-serif;outline:none;transition:border .2s}
+input:focus,select:focus,textarea:focus{border-color:#ea580c}
+textarea{resize:vertical;min-height:70px}
+.generate-btn{background:#9a3412;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:8px;transition:background .2s}
+.generate-btn:hover{background:#7c2d12}
+.certificate-wrapper{display:none;background:#fff;border-radius:16px;padding:40px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,.12);text-align:center;border:3px solid #ea580c;position:relative}
+.cert-corner{position:absolute;font-size:1.8rem;opacity:.15}
+.cert-corner.tl{top:16px;left:20px}
+.cert-corner.tr{top:16px;right:20px}
+.cert-corner.bl{bottom:16px;left:20px}
+.cert-corner.br{bottom:16px;right:20px}
+.cert-org{font-size:.85rem;font-weight:700;color:#9a3412;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.cert-logo{font-size:2.5rem;margin-bottom:8px}
+.cert-title{font-family:'Playfair Display',serif;font-size:2rem;color:#9a3412;margin-bottom:6px}
+.cert-subtitle{font-size:.82rem;color:#64748b;letter-spacing:.05em;text-transform:uppercase;margin-bottom:24px}
+.cert-presents{font-size:.9rem;color:#64748b;margin-bottom:8px}
+.cert-name{font-family:'Playfair Display',serif;font-size:2.2rem;color:#1e293b;font-weight:800;margin-bottom:6px;border-bottom:2px solid #ea580c;display:inline-block;padding-bottom:4px;min-width:300px}
+.cert-body{font-size:.92rem;color:#374151;margin:16px 0;line-height:1.8}
+.cert-grade{display:inline-block;padding:8px 24px;background:#fff7ed;border:2px solid #ea580c;border-radius:30px;font-weight:800;color:#9a3412;font-size:1rem;margin:12px 0}
+.cert-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:32px;padding-top:20px;border-top:1px solid #e2e8f0}
+.cert-sig{text-align:center}
+.sig-name{font-family:'Dancing Script',cursive;font-size:1.6rem;color:#1e293b}
+.sig-title{font-size:.72rem;color:#64748b;margin-top:2px}
+.cert-id{font-size:.7rem;color:#94a3b8;margin-top:16px}
+.action-btns{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+.action-btn{flex:1;padding:12px;border:none;border-radius:8px;font-weight:700;font-size:.88rem;cursor:pointer;text-align:center;text-decoration:none;display:block}
+.btn-wa{background:#25d366;color:#fff}
+.btn-print{background:#9a3412;color:#fff}
+@media print{.navbar,.form-section,.scores-card,.action-btns,.generate-btn{display:none!important}.certificate-wrapper{display:block!important;box-shadow:none;border:3px solid #ea580c}}
+@media(max-width:600px){.form-grid{grid-template-columns:1fr}.cert-footer{flex-direction:column;gap:16px}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#fed7aa">Field Worker Certificate</span>
+  <a href="../../index.html">Home</a>
+</nav>
+
+<div id="locked-view" style="display:none">
+  <div class="locked-screen">
+    <div style="font-size:3rem;margin-bottom:16px">🔒</div>
+    <h2>Certificate Locked</h2>
+    <p>Complete the following levels to unlock your certificate:</p>
+    <ul class="missing-list" id="missing-levels"></ul>
+    <a href="index.html" class="btn-back">← Return to Track Hub</a>
+  </div>
+</div>
+
+<div id="main-view" style="display:none">
+<div class="container">
+  <div class="scores-card">
+    <h3>📊 Your Level Scores</h3>
+    <div class="score-row"><span>Level 1 — Understanding the Act</span><span class="score-badge" id="s1">-</span></div>
+    <div class="score-row"><span>Level 2 — First Response & FIR Support</span><span class="score-badge" id="s2">-</span></div>
+    <div class="score-row"><span>Level 3 — Compensation & Rehabilitation</span><span class="score-badge" id="s3">-</span></div>
+    <div class="score-row"><span>Average Score</span><span id="savg" style="font-weight:800;color:#9a3412">-</span></div>
+  </div>
+
+  <div class="form-section">
+    <h3>📋 Complete Your Profile to Generate Certificate</h3>
+    <div class="form-grid">
+      <div class="form-group"><label>Full Name *</label><input id="f-name" type="text" placeholder="Your full name"></div>
+      <div class="form-group"><label>Organisation / NGO</label><input id="f-org" type="text" placeholder="Organisation name"></div>
+      <div class="form-group"><label>Designation</label><input id="f-desg" type="text" placeholder="Your role/designation"></div>
+      <div class="form-group"><label>District</label><input id="f-dist" type="text" placeholder="District of work"></div>
+      <div class="form-group"><label>State</label>
+        <select id="f-state">
+          <option value="">Select state</option>
+          <option>Bihar</option><option>Uttar Pradesh</option><option>Jharkhand</option><option>Delhi</option><option>Rajasthan</option><option>Maharashtra</option><option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Phone</label><input id="f-phone" type="tel" placeholder="+91 XXXXX XXXXX"></div>
+      <div class="form-group full"><label>Email</label><input id="f-email" type="email" placeholder="your@email.com"></div>
+      <div class="form-group full"><label>Years of experience in social work / legal aid</label>
+        <select id="f-exp">
+          <option value="">Select</option>
+          <option>Less than 1 year</option><option>1-3 years</option><option>3-5 years</option><option>5-10 years</option><option>More than 10 years</option>
+        </select>
+      </div>
+      <div class="form-group full"><label>Types of SC/ST cases you work on (optional)</label><textarea id="f-cases" placeholder="E.g. land dispossession, sexual violence, public humiliation, labour exploitation..."></textarea></div>
+    </div>
+    <button class="generate-btn" onclick="generateCert()">Generate My Certificate 🏅</button>
+  </div>
+
+  <div class="certificate-wrapper" id="cert-wrap">
+    <span class="cert-corner tl">⚖️</span><span class="cert-corner tr">⚖️</span>
+    <span class="cert-corner bl">🌟</span><span class="cert-corner br">🌟</span>
+    <div class="cert-org">Janman People's Foundation</div>
+    <div class="cert-logo">⚖️</div>
+    <div class="cert-title">Certificate of Completion</div>
+    <div class="cert-subtitle">Jan Nyaya Resource Centre — SC/ST Rights Training</div>
+    <div class="cert-presents">This is to certify that</div>
+    <div class="cert-name" id="c-name">—</div>
+    <div class="cert-body">
+      has successfully completed the <strong>Social Worker / Field Worker Track</strong><br>
+      of the <strong>SC/ST Atrocities & Caste Discrimination</strong> training module<br>
+      covering the PCR Act 1955, SC/ST (Prevention of Atrocities) Act 1989 & 2016 Amendment,<br>
+      first response protocols, victim rights, compensation systems & rehabilitation
+    </div>
+    <div class="cert-grade" id="c-grade">Pass</div>
+    <div class="cert-footer">
+      <div class="cert-sig">
+        <div class="sig-name">Shourya Roy</div>
+        <div class="sig-title">Director, Janman People's Foundation</div>
+      </div>
+      <div class="cert-sig">
+        <div style="font-size:.8rem;color:#64748b;margin-bottom:4px">Date of Completion</div>
+        <div id="c-date" style="font-weight:700;color:#1e293b;font-size:.9rem"></div>
+      </div>
+    </div>
+    <div class="cert-id" id="c-id"></div>
+  </div>
+
+  <div class="action-btns" id="action-btns" style="display:none">
+    <a class="action-btn btn-wa" id="wa-btn" href="#" target="_blank">💬 Share on WhatsApp</a>
+    <button class="action-btn btn-print" onclick="window.print()">🖨️ Download / Print</button>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  var l1=localStorage.getItem('janman_scst_sw_l1_done');
+  var l2=localStorage.getItem('janman_scst_sw_l2_done');
+  var l3=localStorage.getItem('janman_scst_sw_l3_done');
+  var missing=[];
+  if(l1!=='1')missing.push('Level 1 — Understanding the Act');
+  if(l2!=='1')missing.push('Level 2 — First Response & FIR Support');
+  if(l3!=='1')missing.push('Level 3 — Compensation & Rehabilitation');
+  if(missing.length){
+    document.getElementById('locked-view').style.display='block';
+    var ml=document.getElementById('missing-levels');
+    missing.forEach(function(m){ml.innerHTML+='<li>🔒 '+m+'</li>';});
+  } else {
+    document.getElementById('main-view').style.display='block';
+    var s1=parseInt(localStorage.getItem('janman_scst_sw_l1_score')||0);
+    var s2=parseInt(localStorage.getItem('janman_scst_sw_l2_score')||0);
+    var s3=parseInt(localStorage.getItem('janman_scst_sw_l3_score')||0);
+    var avg=Math.round((s1+s2+s3)/3);
+    document.getElementById('s1').textContent=s1+'%';
+    document.getElementById('s2').textContent=s2+'%';
+    document.getElementById('s3').textContent=s3+'%';
+    document.getElementById('savg').textContent=avg+'%';
+  }
+})();
+
+function generateCert(){
+  var name=document.getElementById('f-name').value.trim();
+  if(!name){alert('Please enter your full name');return;}
+  var s1=parseInt(localStorage.getItem('janman_scst_sw_l1_score')||0);
+  var s2=parseInt(localStorage.getItem('janman_scst_sw_l2_score')||0);
+  var s3=parseInt(localStorage.getItem('janman_scst_sw_l3_score')||0);
+  var avg=Math.round((s1+s2+s3)/3);
+  var grade=avg>=90?'Distinction':avg>=80?'Merit':'Pass';
+  var id='JPF-SW-SCST-FINAL-'+Date.now().toString(36).toUpperCase();
+  var now=new Date();
+  var dateStr=now.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('c-name').textContent=name;
+  document.getElementById('c-grade').textContent=grade+' — '+avg+'%';
+  document.getElementById('c-date').textContent=dateStr;
+  document.getElementById('c-id').textContent='Certificate ID: '+id;
+  document.getElementById('cert-wrap').style.display='block';
+  document.getElementById('action-btns').style.display='flex';
+  var msg=encodeURIComponent('I have successfully completed the SC/ST Atrocities & Caste Discrimination (Social Worker Track) training at the Jan Nyaya Resource Centre by Janman People\'s Foundation, scoring '+avg+'% ('+grade+'). Certificate ID: '+id+'. I am now better equipped to support Dalit and Adivasi survivors of atrocities. Access free legal training at https://shashwat-sys.github.io/janman-training/');
+  document.getElementById('wa-btn').href='https://wa.me/?text='+msg;
+  document.getElementById('cert-wrap').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

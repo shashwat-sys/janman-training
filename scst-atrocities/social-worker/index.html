@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Social Worker Track — SC/ST Atrocities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#fff7ed;color:#1e293b}
+.navbar{background:#9a3412;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.95rem}
+.hero{background:linear-gradient(135deg,#ea580c,#9a3412);color:#fff;padding:48px 28px 36px;text-align:center}
+.hero-badge{background:rgba(255,255,255,.2);padding:5px 16px;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:.06em;display:inline-block;margin-bottom:16px}
+.hero h1{font-size:2rem;font-weight:800;margin-bottom:10px}
+.hero p{opacity:.9;max-width:560px;margin:0 auto;font-size:.95rem}
+.container{max-width:800px;margin:40px auto;padding:0 24px 60px}
+.levels-title{font-size:1.1rem;font-weight:700;color:#9a3412;margin-bottom:20px;text-transform:uppercase;letter-spacing:.05em}
+.level-card{background:#fff;border-radius:14px;padding:24px 28px;margin-bottom:18px;box-shadow:0 2px 10px rgba(0,0,0,.07);border-left:5px solid #ea580c;display:flex;align-items:center;gap:20px}
+.level-card.locked{opacity:.55;border-left-color:#cbd5e1}
+.level-num{font-size:2rem;font-weight:800;color:#ea580c;min-width:48px}
+.level-card.locked .level-num{color:#94a3b8}
+.level-info h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.level-info p{font-size:.85rem;color:#64748b;margin-bottom:8px}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap}
+.badge{background:#fff7ed;border:1px solid #fdba74;color:#c2410c;font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:12px}
+.badge.done{background:#dcfce7;border-color:#86efac;color:#15803d}
+.btn{display:inline-block;padding:10px 22px;background:#ea580c;color:#fff;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;transition:background .2s}
+.btn:hover{background:#c2410c}
+.btn-locked{display:inline-block;padding:10px 22px;background:#e2e8f0;color:#94a3b8;border-radius:8px;font-weight:700;font-size:.85rem;cursor:not-allowed}
+.cert-card{background:linear-gradient(135deg,#fff7ed,#ffedd5);border:2px dashed #fb923c;border-radius:14px;padding:28px;text-align:center;margin-top:28px}
+.cert-card h3{font-size:1.1rem;font-weight:800;color:#9a3412;margin-bottom:8px}
+.cert-card p{color:#92400e;font-size:.88rem;margin-bottom:16px}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="../index.html">← SC/ST Module</a>
+  <span style="color:#fed7aa;font-size:.85rem">Social Worker Track</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <div class="hero-badge">SOCIAL WORKER / FIELD WORKER</div>
+  <h1>SC/ST Atrocities</h1>
+  <p>Build field-level expertise — recognise atrocity offences, support survivors in filing FIRs, and connect them to compensation and rehabilitation systems.</p>
+</div>
+<div class="container">
+  <div class="levels-title">Your Learning Journey</div>
+  <div id="level-cards"></div>
+  <div class="cert-card">
+    <h3>🏅 Field Worker Certificate</h3>
+    <p>Complete all 3 levels to earn your certificate and join the Janman network of trained SC/ST rights defenders.</p>
+    <div id="cert-link"><span class="btn-locked">🔒 Complete all 3 levels first</span></div>
+  </div>
+</div>
+<script>
+const levels=[
+  {n:1,title:"Understanding the Act",desc:"PCR Act 1955, POA Act 1989, definitions, 38+ scheduled offences, mandatory reporting",href:"level1.html",key:"janman_scst_sw_l1_done"},
+  {n:2,title:"First Response & FIR Support",desc:"FIR anatomy, police escalation, medical examination, interim relief under Rule 12, Sec 15A victim rights",href:"level2.html",key:"janman_scst_sw_l2_done"},
+  {n:3,title:"Compensation & Rehabilitation",desc:"Full Rule 12 table, NALSA/DLSA access, DVMC monitoring, rehabilitation schemes for survivors",href:"level3.html",key:"janman_scst_sw_l3_done"},
+];
+const c=document.getElementById('level-cards');
+let allDone=true;
+levels.forEach((lv,i)=>{
+  const done=localStorage.getItem(lv.key)==='1';
+  const prevDone=i===0||localStorage.getItem(levels[i-1].key)==='1';
+  if(!done)allDone=false;
+  const locked=!prevDone&&!done;
+  c.innerHTML+=`<div class="level-card${locked?' locked':''}">
+    <div class="level-num">L${lv.n}</div>
+    <div class="level-info">
+      <h3>${lv.title}</h3>
+      <p>${lv.desc}</p>
+      <div class="badge-row">
+        <span class="badge${done?' done':''}"> ${done?'✅ Passed':'📖 20 Questions'}</span>
+        <span class="badge">~45 min</span>
+      </div>
+      <div style="margin-top:12px">
+        ${locked?'<span class="btn-locked">🔒 Complete Level '+(lv.n-1)+' first</span>':
+          done?'<a class="btn" href="'+lv.href+'" style="background:#15803d">✅ Revisit Level '+lv.n+'</a>':
+               '<a class="btn" href="'+lv.href+'">Start Level '+lv.n+' →</a>'}
+      </div>
+    </div>
+  </div>`;
+});
+if(allDone){
+  document.getElementById('cert-link').innerHTML='<a class="btn" href="final-certificate.html" style="background:#9a3412;font-size:1rem;padding:14px 32px">🏅 Claim Your Certificate →</a>';
+}
+</script>
+</body>
+</html>

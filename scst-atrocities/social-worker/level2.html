@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Level 2 — First Response & FIR Support | Social Worker Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#fff7ed;color:#1e293b;line-height:1.7}
+.navbar{background:#9a3412;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,#ea580c,#9a3412);color:#fff;padding:40px 28px 28px;text-align:center}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.hero p{opacity:.9;font-size:.95rem;max-width:600px;margin:0 auto}
+.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto}
+.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
+.content{max-width:860px;margin:0 auto;padding:32px 24px 60px}
+.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15rem;font-weight:800;color:#9a3412;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #fed7aa}
+.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
+.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
+.info-box{background:#fff7ed;border-left:4px solid #ea580c;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#92400e}
+.step-card{background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.step-num{background:#ea580c;color:#fff;font-weight:800;font-size:.9rem;min-width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-text h4{font-weight:700;color:#9a3412;margin-bottom:4px;font-size:.92rem}
+.step-text p{font-size:.85rem;color:#374151;margin:0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.85rem}
+th{background:#9a3412;color:#fff;padding:10px 12px;text-align:left}
+td{padding:9px 12px;border-bottom:1px solid #fde68a;color:#374151}
+tr:nth-child(even) td{background:#fff7ed}
+.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
+.quiz-section h2{font-size:1.1rem;font-weight:800;color:#9a3412;margin-bottom:20px}
+.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #fde68a}
+.question:last-of-type{border-bottom:none}
+.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
+.option:hover{border-color:#fdba74;background:#fff7ed}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#ea580c}
+.option.correct{background:#dcfce7;border-color:#86efac;color:#15803d}
+.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
+.submit-btn{background:#ea580c;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px;transition:background .2s}
+.submit-btn:hover{background:#c2410c}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
+#result.pass{background:#dcfce7;color:#15803d}
+#result.fail{background:#fee2e2;color:#dc2626}
+#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#fed7aa">Level 2 — First Response & FIR Support</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <h1>Level 2: First Response & FIR Support</h1>
+  <p>FIR anatomy, mandatory arrest, police escalation, medical examination, interim relief under Rule 12, and victim protection under Sec 15A</p>
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+</div>
+<div class="content">
+
+<div class="section">
+  <h2>The FIR: 6 Critical Elements</h2>
+  <p>An FIR (First Information Report) is mandatory when a cognizable atrocity offence is reported. <strong>All SC/ST atrocity offences are cognizable</strong> — police cannot refuse to register the FIR.</p>
+  <div class="step-card"><div class="step-num">1</div><div class="step-text"><h4>Date, Time and Place of Offence</h4><p>Exact location — village/ward/district; approximate time and date; any witnesses present</p></div></div>
+  <div class="step-card"><div class="step-num">2</div><div class="step-text"><h4>Identity of Victim and Caste Mention</h4><p>Name, village, caste/SC/ST community with sub-caste; must explicitly state complainant's SC/ST identity</p></div></div>
+  <div class="step-card"><div class="step-num">3</div><div class="step-text"><h4>Identity of Accused and Non-SC/ST Status</h4><p>Name(s) of accused, their caste (non-SC/ST), village; establish the inter-community element clearly</p></div></div>
+  <div class="step-card"><div class="step-num">4</div><div class="step-text"><h4>Specific Sections of POA Act</h4><p>Name the exact section violated — e.g., "Sec 3(1)(x) — intentional insult in public view" — do not rely on police to identify correct sections</p></div></div>
+  <div class="step-card"><div class="step-num">5</div><div class="step-text"><h4>Nature of Offence in Detail</h4><p>What happened, how, with what weapon/means; any words used; any humiliation/injury; witnesses' names</p></div></div>
+  <div class="step-card"><div class="step-num">6</div><div class="step-text"><h4>Prayer/Relief Sought</h4><p>Request for arrest under Sec 18A; request for interim relief under Rule 12; request for DLSA legal aid</p></div></div>
+  <div class="info-box"><strong>Field tip:</strong> Always get a copy of the FIR with station diary number. If police refuse, note the refusal in writing, note the officer's name/badge number, and escalate immediately to DSP/SP.</div>
+</div>
+
+<div class="section">
+  <h2>Mandatory Arrest — Section 18A (2016 Amendment)</h2>
+  <p>The 2016 Amendment inserted <strong>Sec 18A</strong> which mandates that for atrocity offences, the police officer SHALL arrest the accused and NO anticipatory bail shall be granted.</p>
+  <div class="info-box"><strong>No Anticipatory Bail:</strong> Section 18 POA Act bars Courts from granting anticipatory bail for atrocity offences. The Supreme Court in <em>Prathvi Raj Chauhan v. UOI (2020)</em> confirmed this — Sec 18A is constitutionally valid and mandatory arrest applies.</div>
+  <h3>What to Do If Police Delay Arrest</h3>
+  <div class="step-card"><div class="step-num">1</div><div class="step-text"><h4>Written Complaint to SP/DSP</h4><p>File written complaint citing Sec 18A — mandatory duty to arrest. Document the FIR number, accused name, and days elapsed.</p></div></div>
+  <div class="step-card"><div class="step-num">2</div><div class="step-text"><h4>Application to Special Court / Magistrate</h4><p>File application for direction to police to arrest; Magistrate can pass directions under Sec 156(3) CrPC</p></div></div>
+  <div class="step-card"><div class="step-num">3</div><div class="step-text"><h4>Complaint to State SC/ST Cell</h4><p>Most states have a dedicated SC/ST cell at police HQ — written complaint attracts supervisory scrutiny</p></div></div>
+  <div class="step-card"><div class="step-num">4</div><div class="step-text"><h4>NCSC / NCST Complaint</h4><p>National Commission for Scheduled Castes (NCSC) and National Commission for Scheduled Tribes (NCST) can issue directions and summon officials</p></div></div>
+</div>
+
+<div class="section">
+  <h2>Medical Examination — When and How</h2>
+  <p>For sexual offences and physical injuries, immediate medical examination is critical for preserving evidence. <strong>Rule 11 of POA Rules</strong> mandates prompt medical care.</p>
+  <table>
+    <tr><th>Issue</th><th>Protocol</th></tr>
+    <tr><td>Female survivor</td><td>Examination MUST be by a female medical officer</td></tr>
+    <tr><td>MLC (Medico-Legal Certificate)</td><td>Document all injuries with dimensions, nature, cause; must mention "alleged POA offence"</td></tr>
+    <tr><td>Rape/sexual assault</td><td>Two-finger test is PROHIBITED (SC ruling); DNA preservation is mandatory</td></tr>
+    <tr><td>Mental trauma</td><td>Psychological assessment can be requested; mental harm is a compensable injury</td></tr>
+    <tr><td>Timing</td><td>Do not delay — evidence degrades; police cannot refuse to facilitate medical exam</td></tr>
+  </table>
+  <div class="info-box"><strong>Field action:</strong> If police delay medical exam, take the survivor directly to a government hospital and ask for MLC under POA offence. Hospital cannot refuse emergency medical care.</div>
+</div>
+
+<div class="section">
+  <h2>Interim Relief — Rule 12 (Selected Key Amounts)</h2>
+  <p>Under <strong>Rule 12 of SC/ST (PoA) Rules 1995</strong>, interim relief must be provided immediately upon FIR registration — do not wait for conviction or charge-sheet.</p>
+  <table>
+    <tr><th>Offence</th><th>Interim Relief</th><th>Timeline</th></tr>
+    <tr><td>Death of victim</td><td>₹2,00,000 (50% of total ₹8,25,000)</td><td>Within 2 months of death</td></tr>
+    <tr><td>Rape</td><td>₹1,25,000 (25% of total ₹5,00,000)</td><td>Within 3 months of offence</td></tr>
+    <tr><td>Gang Rape</td><td>₹2,06,250 (25% of total ₹8,25,000)</td><td>Within 3 months</td></tr>
+    <tr><td>Hurt causing grievous injury</td><td>₹50,000 (50% of ₹1,00,000)</td><td>Within 1 month</td></tr>
+    <tr><td>Arson/property destruction</td><td>₹25,000 minimum</td><td>Within 1 month</td></tr>
+    <tr><td>Dispossession from land</td><td>Restoration of possession + ₹25,000</td><td>Immediately</td></tr>
+  </table>
+  <div class="info-box"><strong>Who pays:</strong> State government must pay relief from the SC/ST Development Fund — NOT the accused. Relief is paid regardless of conviction. Your role is to help victim apply for relief to the District Magistrate/Collector.</div>
+</div>
+
+<div class="section">
+  <h2>Victim Rights — Section 15A (2016 Amendment)</h2>
+  <p>Sec 15A, inserted by the 2016 Amendment, is the most comprehensive victim protection provision in Indian criminal law. It guarantees multiple rights to atrocity victims and witnesses.</p>
+  <h3>Key Rights Under Sec 15A</h3>
+  <table>
+    <tr><th>Right</th><th>Detail</th></tr>
+    <tr><td>Right to be informed</td><td>Victim must be informed about progress of investigation, charge-sheet filing, trial dates</td></tr>
+    <tr><td>Right to be heard</td><td>Victim has right to be heard at every stage — bail hearing, discharge, plea bargaining</td></tr>
+    <tr><td>Protection of identity</td><td>Name/address of victim and witnesses NOT to be disclosed in media or public</td></tr>
+    <tr><td>Safety and security</td><td>State must provide reasonable protection to victim, witnesses and their families</td></tr>
+    <tr><td>Relocation if needed</td><td>Victim/witnesses can be relocated for safety at state expense</td></tr>
+    <tr><td>Video-conferencing testimony</td><td>Victims/witnesses can give evidence through video-conferencing to avoid intimidation</td></tr>
+  </table>
+</div>
+
+<div class="quiz-section">
+  <h2>📝 Level 2 Assessment — 20 Questions (Pass: 70%)</h2>
+  <form id="quiz-form">
+  <div class="question"><div class="q-text">Q1. All atrocity offences under the POA Act are:</div>
+    <label class="option"><input type="radio" name="q1" value="a"> Bailable and non-cognizable</label>
+    <label class="option"><input type="radio" name="q1" value="b"> Non-cognizable only</label>
+    <label class="option"><input type="radio" name="q1" value="c"> Cognizable — police must register FIR</label>
+    <label class="option"><input type="radio" name="q1" value="d"> Only triable by High Court</label>
+    <div class="explanation" id="exp-q1">All atrocity offences are cognizable — police must register FIR without requiring a Magistrate's order and must investigate immediately.</div>
+  </div>
+  <div class="question"><div class="q-text">Q2. Which section mandates arrest without anticipatory bail for atrocity offences?</div>
+    <label class="option"><input type="radio" name="q2" value="a"> Sec 15A</label>
+    <label class="option"><input type="radio" name="q2" value="b"> Sec 4</label>
+    <label class="option"><input type="radio" name="q2" value="c"> Sec 18A</label>
+    <label class="option"><input type="radio" name="q2" value="d"> Sec 9</label>
+    <div class="explanation" id="exp-q2">Sec 18A, inserted by 2016 Amendment, mandates arrest and prohibits anticipatory bail for atrocity offences. Upheld in Prathvi Raj Chauhan (2020).</div>
+  </div>
+  <div class="question"><div class="q-text">Q3. When a female survivor reports sexual assault under POA Act, the medical examination must be conducted by:</div>
+    <label class="option"><input type="radio" name="q3" value="a"> Any available doctor</label>
+    <label class="option"><input type="radio" name="q3" value="b"> A female medical officer</label>
+    <label class="option"><input type="radio" name="q3" value="c"> A male forensic expert</label>
+    <label class="option"><input type="radio" name="q3" value="d"> A psychiatrist</label>
+    <div class="explanation" id="exp-q3">Female survivor's medical examination must be done by a female medical officer — this is mandatory protocol and refusal to comply is itself a violation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q4. Interim relief for death of an SC/ST victim must be paid within:</div>
+    <label class="option"><input type="radio" name="q4" value="a"> 1 week</label>
+    <label class="option"><input type="radio" name="q4" value="b"> 1 month</label>
+    <label class="option"><input type="radio" name="q4" value="c"> 2 months</label>
+    <label class="option"><input type="radio" name="q4" value="d"> 6 months after conviction</label>
+    <div class="explanation" id="exp-q4">Rule 12 prescribes that interim relief for death must be paid within 2 months of the death — NOT after conviction. Relief is independent of trial outcome.</div>
+  </div>
+  <div class="question"><div class="q-text">Q5. The two-finger test during medical examination of rape survivors is:</div>
+    <label class="option"><input type="radio" name="q5" value="a"> Mandatory per Rule 11</label>
+    <label class="option"><input type="radio" name="q5" value="b"> Optional</label>
+    <label class="option"><input type="radio" name="q5" value="c"> Prohibited by Supreme Court ruling</label>
+    <label class="option"><input type="radio" name="q5" value="d"> Required for DNA evidence</label>
+    <div class="explanation" id="exp-q5">The Supreme Court in Lillu v. State of Haryana (2013) and later in Independent Thought v. UOI banned the two-finger test as it violates dignity and is medically meaningless.</div>
+  </div>
+  <div class="question"><div class="q-text">Q6. The interim relief for rape under Rule 12 is what percentage of the total compensation?</div>
+    <label class="option"><input type="radio" name="q6" value="a"> 10%</label>
+    <label class="option"><input type="radio" name="q6" value="b"> 50%</label>
+    <label class="option"><input type="radio" name="q6" value="c"> 25%</label>
+    <label class="option"><input type="radio" name="q6" value="d"> 75%</label>
+    <div class="explanation" id="exp-q6">Rule 12 provides 25% of total compensation as interim relief for rape (₹1,25,000 of total ₹5,00,000), payable within 3 months of the offence.</div>
+  </div>
+  <div class="question"><div class="q-text">Q7. Sec 15A of the POA Act (2016 Amendment) primarily deals with:</div>
+    <label class="option"><input type="radio" name="q7" value="a"> Special courts</label>
+    <label class="option"><input type="radio" name="q7" value="b"> Victim and witness rights and protection</label>
+    <label class="option"><input type="radio" name="q7" value="c"> Mandatory arrest</label>
+    <label class="option"><input type="radio" name="q7" value="d"> Compensation amounts</label>
+    <div class="explanation" id="exp-q7">Sec 15A is the victim rights chapter — it guarantees rights to information, being heard, identity protection, safety, relocation and video-conferencing testimony.</div>
+  </div>
+  <div class="question"><div class="q-text">Q8. An FIR must specifically mention which element to attract POA Act provisions?</div>
+    <label class="option"><input type="radio" name="q8" value="a"> The property value involved</label>
+    <label class="option"><input type="radio" name="q8" value="b"> That the accused is a government servant</label>
+    <label class="option"><input type="radio" name="q8" value="c"> The inter-community element — victim is SC/ST, accused is non-SC/ST</label>
+    <label class="option"><input type="radio" name="q8" value="d"> The exact time of offence to the minute</label>
+    <div class="explanation" id="exp-q8">The FIR must establish the caste identity of both victim (SC/ST) and accused (non-SC/ST) — this inter-community element is the jurisdictional prerequisite for POA Act application.</div>
+  </div>
+  <div class="question"><div class="q-text">Q9. Interim relief under Rule 12 is paid by:</div>
+    <label class="option"><input type="radio" name="q9" value="a"> The accused's family</label>
+    <label class="option"><input type="radio" name="q9" value="b"> The State Government from SC/ST Development Fund</label>
+    <label class="option"><input type="radio" name="q9" value="c"> The court from penalty funds</label>
+    <label class="option"><input type="radio" name="q9" value="d"> After conviction by the convict</label>
+    <div class="explanation" id="exp-q9">State government pays relief from the SC/ST Development Fund — it is independent of trial and conviction. The victim receives relief even if the accused is acquitted.</div>
+  </div>
+  <div class="question"><div class="q-text">Q10. If police refuse to register FIR for an atrocity, what is the FIRST escalation step?</div>
+    <label class="option"><input type="radio" name="q10" value="a"> Filing PIL in High Court</label>
+    <label class="option"><input type="radio" name="q10" value="b"> Written complaint to SP/DSP with FIR details</label>
+    <label class="option"><input type="radio" name="q10" value="c"> Going to National Commission for SCs</label>
+    <label class="option"><input type="radio" name="q10" value="d"> Calling the media immediately</label>
+    <div class="explanation" id="exp-q10">Immediate escalation to SP/DSP with a written complaint documenting the refusal — this triggers their supervisory duty. Magistrate complaint under Sec 156(3) CrPC is another simultaneous option.</div>
+  </div>
+  <div class="question"><div class="q-text">Q11. Under Sec 15A, victims can give evidence through ___ to avoid face-to-face intimidation:</div>
+    <label class="option"><input type="radio" name="q11" value="a"> Affidavit only</label>
+    <label class="option"><input type="radio" name="q11" value="b"> Video-conferencing</label>
+    <label class="option"><input type="radio" name="q11" value="c"> Phone call</label>
+    <label class="option"><input type="radio" name="q11" value="d"> Anonymous letter</label>
+    <div class="explanation" id="exp-q11">Sec 15A specifically provides for video-conferencing testimony to protect victims and witnesses from intimidation during court appearances.</div>
+  </div>
+  <div class="question"><div class="q-text">Q12. Which court has jurisdiction to try atrocity offences?</div>
+    <label class="option"><input type="radio" name="q12" value="a"> Chief Judicial Magistrate only</label>
+    <label class="option"><input type="radio" name="q12" value="b"> Session Court</label>
+    <label class="option"><input type="radio" name="q12" value="c"> Exclusive Special Court under POA Act</label>
+    <label class="option"><input type="radio" name="q12" value="d"> High Court directly</label>
+    <div class="explanation" id="exp-q12">The POA Act mandates Exclusive Special Courts for trial — Sessions Courts can also be designated as Special Courts. This ensures faster trials.</div>
+  </div>
+  <div class="question"><div class="q-text">Q13. MLC in the context of a medical examination stands for:</div>
+    <label class="option"><input type="radio" name="q13" value="a"> Medical Leave Certificate</label>
+    <label class="option"><input type="radio" name="q13" value="b"> Medico-Legal Certificate</label>
+    <label class="option"><input type="radio" name="q13" value="c"> Mental Health Listing Criteria</label>
+    <label class="option"><input type="radio" name="q13" value="d"> Medical Liability Claim</label>
+    <div class="explanation" id="exp-q13">MLC — Medico-Legal Certificate — documents all physical injuries with dimensions, nature, probable cause, and is a critical piece of evidence in atrocity cases.</div>
+  </div>
+  <div class="question"><div class="q-text">Q14. Relief for dispossession from government-allotted land under Rule 12 includes:</div>
+    <label class="option"><input type="radio" name="q14" value="a"> Monetary compensation only</label>
+    <label class="option"><input type="radio" name="q14" value="b"> Restoration of possession AND monetary relief</label>
+    <label class="option"><input type="radio" name="q14" value="c"> Resettlement in another district</label>
+    <label class="option"><input type="radio" name="q14" value="d"> Substituting land of equal value</label>
+    <div class="explanation" id="exp-q14">Rule 12 for land dispossession cases requires both restoration of possession and monetary compensation (minimum ₹25,000) — restoration is the primary remedy.</div>
+  </div>
+  <div class="question"><div class="q-text">Q15. Under Sec 15A, the state must protect the ___ of the victim and witnesses:</div>
+    <label class="option"><input type="radio" name="q15" value="a"> Financial records</label>
+    <label class="option"><input type="radio" name="q15" value="b"> Identity and address from public disclosure</label>
+    <label class="option"><input type="radio" name="q15" value="c"> Court appearance dates</label>
+    <label class="option"><input type="radio" name="q15" value="d"> Legal representation</label>
+    <div class="explanation" id="exp-q15">Sec 15A mandates that names and addresses of victims and witnesses shall not be disclosed to the media or in public proceedings — identity protection is a fundamental right under this section.</div>
+  </div>
+  <div class="question"><div class="q-text">Q16. How many elements are critical in a well-drafted FIR for an atrocity offence?</div>
+    <label class="option"><input type="radio" name="q16" value="a"> 2 (victim name and offence)</label>
+    <label class="option"><input type="radio" name="q16" value="b"> 4 (parties, date, place, offence)</label>
+    <label class="option"><input type="radio" name="q16" value="c"> 6 (date/time/place, victim caste, accused non-SC/ST, sections, offence details, prayer)</label>
+    <label class="option"><input type="radio" name="q16" value="d"> 10 (include all witness statements)</label>
+    <div class="explanation" id="exp-q16">A complete atrocity FIR has 6 elements: date/time/place; victim's SC/ST identity; accused's non-SC/ST identity; specific POA sections; detailed nature of offence; and specific prayer/relief sought.</div>
+  </div>
+  <div class="question"><div class="q-text">Q17. The Supreme Court ruling in Prathvi Raj Chauhan (2020) held that Sec 18A is:</div>
+    <label class="option"><input type="radio" name="q17" value="a"> Unconstitutional</label>
+    <label class="option"><input type="radio" name="q17" value="b"> Optional for courts to apply</label>
+    <label class="option"><input type="radio" name="q17" value="c"> Constitutionally valid — mandatory arrest and no anticipatory bail apply</label>
+    <label class="option"><input type="radio" name="q17" value="d"> Only applicable in tribal areas</label>
+    <div class="explanation" id="exp-q17">Prathvi Raj Chauhan v. UOI (2020) SC 5-judge bench upheld Sec 18A — restored mandatory arrest and no anticipatory bail for atrocity offences, reversing the earlier Subhash Kashinath Mahajan dilution.</div>
+  </div>
+  <div class="question"><div class="q-text">Q18. Interim relief under Rule 12 is payable:</div>
+    <label class="option"><input type="radio" name="q18" value="a"> Only after FIR, charge-sheet AND conviction</label>
+    <label class="option"><input type="radio" name="q18" value="b"> After FIR registration — independent of trial outcome</label>
+    <label class="option"><input type="radio" name="q18" value="c"> Only if the victim files a separate civil suit</label>
+    <label class="option"><input type="radio" name="q18" value="d"> Only in cases where accused is arrested</label>
+    <div class="explanation" id="exp-q18">Relief under Rule 12 is payable on FIR registration — it does not wait for charge-sheet or conviction. The state pays from development funds regardless of trial outcome.</div>
+  </div>
+  <div class="question"><div class="q-text">Q19. Victims can be relocated by the state under Sec 15A when:</div>
+    <label class="option"><input type="radio" name="q19" value="a"> They request a better house</label>
+    <label class="option"><input type="radio" name="q19" value="b"> Their safety is threatened due to the atrocity case</label>
+    <label class="option"><input type="radio" name="q19" value="c"> They lose employment</label>
+    <label class="option"><input type="radio" name="q19" value="d"> The trial is in a distant court</label>
+    <div class="explanation" id="exp-q19">Sec 15A provides for relocation of victims and witnesses at state expense when their safety is threatened as a result of the atrocity or their participation in the criminal process.</div>
+  </div>
+  <div class="question"><div class="q-text">Q20. A field worker's primary duty when accompanying a survivor to the police station is to:</div>
+    <label class="option"><input type="radio" name="q20" value="a"> Negotiate a settlement between parties</label>
+    <label class="option"><input type="radio" name="q20" value="b"> Ensure FIR is registered with correct POA sections and get a signed copy</label>
+    <label class="option"><input type="radio" name="q20" value="c"> Speak to media outside the station</label>
+    <label class="option"><input type="radio" name="q20" value="d"> Fill out the FIR on behalf of the survivor</label>
+    <div class="explanation" id="exp-q20">The field worker ensures: FIR registered with correct POA sections; inter-community element mentioned; copy obtained; immediate escalation path identified if refused. Settlement/compromise of atrocity offences is illegal.</div>
+  </div>
+
+  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Assessment</button>
+  <div id="result"></div>
+</form>
+</div>
+</div>
+
+<script>
+var ANSWERS={q1:'c',q2:'c',q3:'b',q4:'c',q5:'c',q6:'c',q7:'b',q8:'c',q9:'b',q10:'b',q11:'b',q12:'c',q13:'b',q14:'b',q15:'b',q16:'c',q17:'c',q18:'b',q19:'b',q20:'b'};
+function submitQuiz(){
+  var score=0,total=20;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){
+      var lbl=o.parentElement;
+      if(o.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(o.checked)lbl.classList.add('wrong');
+      o.disabled=true;
+    });
+    if(sel&&sel.value===ANSWERS[q])score++;
+    document.getElementById('exp-'+q).style.display='block';
+  }
+  document.getElementById('submit-btn').disabled=true;
+  var pct=Math.round(score/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  var res=document.getElementById('result');
+  res.style.display='block';
+  if(pct>=70){
+    res.className='pass';
+    res.innerHTML='<h3>✅ Level 2 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>Excellent! Proceed to Level 3: Compensation & Rehabilitation Systems.</p><br><a href="level3.html" style="background:#16a34a;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none">Start Level 3 →</a>';
+    localStorage.setItem('janman_scst_sw_l2_done','1');
+    localStorage.setItem('janman_scst_sw_l2_score',pct);
+  } else {
+    res.className='fail';
+    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>Need 70% to pass. Review the material and try again.</p><br><button onclick="location.reload()" style="background:#ea580c;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

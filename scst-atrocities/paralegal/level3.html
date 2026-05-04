@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Level 3 — RTI, Compensation & DLSA Access | Paralegal Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f0fdf4;color:#1e293b;line-height:1.7}
+.navbar{background:#15803d;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;padding:40px 28px 28px;text-align:center}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.hero p{opacity:.9;font-size:.95rem;max-width:640px;margin:0 auto}
+.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:640px;margin-left:auto;margin-right:auto}
+.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
+.content{max-width:900px;margin:0 auto;padding:32px 24px 60px}
+.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15rem;font-weight:800;color:#15803d;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #86efac}
+.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
+.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
+.info-box{background:#f0fdf4;border-left:4px solid #16a34a;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#166534}
+.draft-box{background:#1e293b;color:#86efac;border-radius:10px;padding:20px;font-family:monospace;font-size:.8rem;line-height:1.8;margin:14px 0;white-space:pre-wrap}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.84rem}
+th{background:#15803d;color:#fff;padding:9px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #bbf7d0;color:#374151}
+tr:nth-child(even) td{background:#f0fdf4}
+.step-card{background:#f0fdf4;border:1px solid #86efac;border-radius:10px;padding:14px 18px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.step-num{background:#16a34a;color:#fff;font-weight:800;font-size:.85rem;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-text h4{font-weight:700;color:#15803d;margin-bottom:3px;font-size:.9rem}
+.step-text p{font-size:.84rem;color:#374151;margin:0}
+.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
+.quiz-section h2{font-size:1.1rem;font-weight:800;color:#15803d;margin-bottom:20px}
+.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #bbf7d0}
+.question:last-of-type{border-bottom:none}
+.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
+.option:hover{border-color:#86efac;background:#f0fdf4}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#16a34a}
+.option.correct{background:#dcfce7;border-color:#4ade80;color:#15803d}
+.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
+.submit-btn{background:#16a34a;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px}
+.submit-btn:hover{background:#15803d}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
+#result.pass{background:#dcfce7;color:#15803d}
+#result.fail{background:#fee2e2;color:#dc2626}
+#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#bbf7d0">Level 3 — RTI, Compensation & DLSA</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <h1>Level 3: RTI, Compensation & DLSA Access</h1>
+  <p>Step-by-step Rule 12 claim process, drafting RTI applications to track case progress, navigating NALSA/DLSA services, and engaging DVMC for community-level accountability</p>
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+</div>
+<div class="content">
+
+<div class="section">
+  <h2>Rule 12 Claim — Step-by-Step Process</h2>
+  <div class="step-card"><div class="step-num">1</div><div class="step-text"><h4>Obtain FIR Copy</h4><p>Collect certified copy of FIR from police station (paid for or free under RTI). Verify POA sections are correctly cited.</p></div></div>
+  <div class="step-card"><div class="step-num">2</div><div class="step-text"><h4>Obtain SC/ST Caste Certificate</h4><p>From Tehsildar/SDM — original or certified copy. This proves the victim's SC/ST identity as a jurisdictional prerequisite.</p></div></div>
+  <div class="step-card"><div class="step-num">3</div><div class="step-text"><h4>Obtain MLC / Medical Certificate</h4><p>From government hospital — documents injuries for physical offences; required for rape, hurt, and death cases.</p></div></div>
+  <div class="step-card"><div class="step-num">4</div><div class="step-text"><h4>Draft Form I Application</h4><p>Form I (Application for Relief under SC/ST PoA Rules) addressed to District Magistrate/Collector. Attach all documents.</p></div></div>
+  <div class="step-card"><div class="step-num">5</div><div class="step-text"><h4>Submit to DM/Collector</h4><p>Submit at DM office — obtain stamped acknowledgment with date. Keep receipt safe — use it to track response.</p></div></div>
+  <div class="step-card"><div class="step-num">6</div><div class="step-text"><h4>Follow Up — RTI if No Response</h4><p>If DM does not respond within 30 days, file RTI to district welfare office asking for status of Form I application.</p></div></div>
+  <div class="step-card"><div class="step-num">7</div><div class="step-text"><h4>Escalate Delays to DVMC</h4><p>File written representation before DVMC meeting citing delay. DVMC can direct DM to act on pending relief applications.</p></div></div>
+
+  <div class="info-box"><strong>Timeline tracker for paralegals:</strong> Death case — interim relief within 2 months. Rape — within 3 months. Grievous hurt — within 1 month. For arson and dispossession — immediate possession restoration first, then monetary relief.</div>
+</div>
+
+<div class="section">
+  <h2>RTI Applications for Case Monitoring</h2>
+  <p>The Right to Information Act 2005 is a powerful paralegal tool — use it to monitor police investigation, charge-sheet timelines, and compensation disbursement.</p>
+  <h3>Key RTI Targets in Atrocity Cases</h3>
+  <table>
+    <tr><th>Information Sought</th><th>Filed With</th><th>Use</th></tr>
+    <tr><td>FIR registration status, copy of FIR</td><td>PIO — Police Station / SP Office</td><td>Confirm registration; identify sections cited</td></tr>
+    <tr><td>Investigation progress; charge-sheet filing status</td><td>PIO — SP Office / Police HQ</td><td>Enforce 60-day charge-sheet deadline (Rule 7)</td></tr>
+    <tr><td>Status of Form I Rule 12 application</td><td>PIO — DM/Collector Office</td><td>Track compensation disbursement</td></tr>
+    <tr><td>DVMC meeting records; action taken on complaints</td><td>PIO — DM Office / District Welfare</td><td>Accountability for committee meetings</td></tr>
+    <tr><td>Special Court hearing dates; charge-sheet copy</td><td>PIO — Special Court Registry</td><td>Ensure victim informed of trial dates</td></tr>
+    <tr><td>State SC/ST Development Fund disbursements</td><td>PIO — Social Welfare Department</td><td>Budget monitoring; systemic advocacy</td></tr>
+  </table>
+
+  <h3>Model RTI Application — Charge-Sheet Status</h3>
+  <div class="draft-box">To,
+The Public Information Officer,
+Office of the Superintendent of Police,
+[District], [State]
+
+Application under Section 6 of the Right to Information Act 2005
+
+Subject: Information regarding investigation and charge-sheet in FIR
+         No. [___] dated [DATE], PS [STATION NAME]
+
+I hereby seek the following information:
+
+1. Current status of investigation in the above FIR
+2. Name and rank of Investigating Officer currently in charge
+3. Date on which charge-sheet (if any) has been filed in Special Court
+4. If charge-sheet not filed: reasons for non-filing given Rule 7 SC/ST
+   (PoA) Rules 1995 which mandates filing within 60 days
+5. Whether the accused has been arrested; if not, reasons for non-arrest
+   given Section 18A SC/ST (PoA) Act 1989
+6. Whether any preliminary inquiry was conducted before FIR registration
+   (which is prohibited under Sec 18A)
+
+I request certified copies of:
+(a) Case diary entries from [DATE of FIR] to present
+(b) Any written orders from supervisory officers regarding this case
+
+Applicant: [NAME], [ADDRESS]
+Date: [DATE]
+Fee: ₹10/- (or as applicable)
+      [Attach IPO/court fee stamp]</div>
+</div>
+
+<div class="section">
+  <h2>NALSA & DLSA — Full Services Map</h2>
+  <table>
+    <tr><th>Service</th><th>Provider</th><th>How to Access</th></tr>
+    <tr><td>Free lawyer in Special Court</td><td>DLSA Panel Advocate</td><td>Written application to Secretary, DLSA with FIR copy + caste certificate</td></tr>
+    <tr><td>PLV support for victim</td><td>DLSA Para Legal Volunteer</td><td>Request to DLSA Secretary; or call NALSA helpline 15100</td></tr>
+    <tr><td>Lok Adalat settlement for civil matters</td><td>DLSA</td><td>Application to DLSA for referral — useful for land restoration cases</td></tr>
+    <tr><td>Legal aid for appeal/revision</td><td>SLSA/NALSA</td><td>If Special Court acquits, SLSA can provide lawyer for appeal in HC</td></tr>
+    <tr><td>Free legal advice (pre-complaint)</td><td>Legal Services Clinic / DLSA</td><td>Walk-in at District Court premises DLSA office</td></tr>
+    <tr><td>Victim compensation scheme (Sec 357A CrPC)</td><td>SLSA/DLSA</td><td>Apply to DLSA for interim compensation even before conviction</td></tr>
+    <tr><td>Victim compensation on acquittal</td><td>SLSA</td><td>Apply to SLSA under Sec 357A — state can grant compensation even if accused acquitted</td></tr>
+  </table>
+  <div class="info-box"><strong>Section 357A CrPC / Section 395 BNSS:</strong> State Victim Compensation Scheme — independent of Rule 12. SLSA can recommend compensation for victims of violent crimes even before conviction and even if accused is acquitted. This is a supplementary remedy.</div>
+</div>
+
+<div class="section">
+  <h2>DVMC Engagement — Paralegal's Role</h2>
+  <p>The District Vigilance and Monitoring Committee (DVMC) is a quarterly accountability body. As a PLV, you can leverage it for systemic complaints and policy advocacy.</p>
+  <h3>How to Engage DVMC</h3>
+  <div class="step-card"><div class="step-num">1</div><div class="step-text"><h4>Find DVMC Meeting Dates</h4><p>File RTI with DM office asking for DVMC meeting schedule for the year — they are mandated to meet quarterly.</p></div></div>
+  <div class="step-card"><div class="step-num">2</div><div class="step-text"><h4>Submit Written Representation</h4><p>Send written representation to DM office (Chairperson, DVMC) 7 days before meeting with specific complaints: pending FIRs, delayed relief, police inaction.</p></div></div>
+  <div class="step-card"><div class="step-num">3</div><div class="step-text"><h4>Request to Attend as NGO Member</h4><p>Rule 17(3) provides for NGO/civil society representatives on DVMC — apply formally to DM to be included as a member from your organisation.</p></div></div>
+  <div class="step-card"><div class="step-num">4</div><div class="step-text"><h4>Follow Up on Action Taken Report (ATR)</h4><p>After each DVMC meeting, file RTI for minutes and Action Taken Report — ensures accountability for commitments made.</p></div></div>
+</div>
+
+<div class="quiz-section">
+  <h2>📝 Level 3 Assessment — 20 Questions (Pass: 70%)</h2>
+  <form id="quiz-form">
+  <div class="question"><div class="q-text">Q1. RTI applications to monitor atrocity investigations are filed with the:</div>
+    <label class="option"><input type="radio" name="q1" value="a"> National Information Commission</label>
+    <label class="option"><input type="radio" name="q1" value="b"> Public Information Officer (PIO) of the concerned department</label>
+    <label class="option"><input type="radio" name="q1" value="c"> Special Court registry only</label>
+    <label class="option"><input type="radio" name="q1" value="d"> District Collector directly</label>
+    <div class="explanation" id="exp-q1">RTI applications go to the designated PIO of the relevant department — SP office for investigation status, DM office for relief applications, Special Court registry for trial dates.</div>
+  </div>
+  <div class="question"><div class="q-text">Q2. RTI can be used to enforce the 60-day charge-sheet deadline by seeking information from:</div>
+    <label class="option"><input type="radio" name="q2" value="a"> State Home Ministry</label>
+    <label class="option"><input type="radio" name="q2" value="b"> PIO at SP Office — asking for investigation progress and charge-sheet date</label>
+    <label class="option"><input type="radio" name="q2" value="c"> National Information Commission</label>
+    <label class="option"><input type="radio" name="q2" value="d"> NALSA helpline 15100</label>
+    <div class="explanation" id="exp-q2">RTI to SP office PIO asking for charge-sheet date and reasons for non-filing (if beyond 60 days) creates a documented record that can be used before the Magistrate or SP for escalation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q3. Section 357A CrPC (Section 395 BNSS) victim compensation can be accessed through:</div>
+    <label class="option"><input type="radio" name="q3" value="a"> POA Act Rule 12 only</label>
+    <label class="option"><input type="radio" name="q3" value="b"> SLSA/DLSA — as a supplementary remedy even before conviction</label>
+    <label class="option"><input type="radio" name="q3" value="c"> Income Tax department</label>
+    <label class="option"><input type="radio" name="q3" value="d"> National Commission for SCs</label>
+    <div class="explanation" id="exp-q3">Sec 357A CrPC / Sec 395 BNSS state victim compensation schemes are administered through SLSA/DLSA — they supplement Rule 12 and can provide compensation even before conviction or even if accused acquitted.</div>
+  </div>
+  <div class="question"><div class="q-text">Q4. Form I (Rule 12 relief application) must be submitted with which four documents?</div>
+    <label class="option"><input type="radio" name="q4" value="a"> Aadhaar, voter ID, income certificate, property records</label>
+    <label class="option"><input type="radio" name="q4" value="b"> FIR copy, caste certificate, Aadhaar, medical/MLC certificate</label>
+    <label class="option"><input type="radio" name="q4" value="c"> FIR copy, bank statement, land record, photo ID</label>
+    <label class="option"><input type="radio" name="q4" value="d"> BPL card, ration card, bank account, FIR copy</label>
+    <div class="explanation" id="exp-q4">The four essential documents for Form I are: (1) Certified copy of FIR; (2) SC/ST Caste Certificate from Tehsildar/SDM; (3) Aadhaar card; (4) MLC/Medical Certificate (where applicable).</div>
+  </div>
+  <div class="question"><div class="q-text">Q5. If the DM does not respond to Form I within 30 days, the paralegal should:</div>
+    <label class="option"><input type="radio" name="q5" value="a"> File a writ petition directly in the High Court</label>
+    <label class="option"><input type="radio" name="q5" value="b"> File RTI with district welfare office asking for status of application</label>
+    <label class="option"><input type="radio" name="q5" value="c"> Wait 6 months before following up</label>
+    <label class="option"><input type="radio" name="q5" value="d"> Approach NALSA national headquarters</label>
+    <div class="explanation" id="exp-q5">RTI to the district welfare office (PIO) is the immediate step — asking for status of Form I application. If no response even to RTI, escalate to First Appellate Authority and simultaneously approach DVMC.</div>
+  </div>
+  <div class="question"><div class="q-text">Q6. DVMC engagement for systemic complaints requires filing written representation with:</div>
+    <label class="option"><input type="radio" name="q6" value="a"> State Home Department</label>
+    <label class="option"><input type="radio" name="q6" value="b"> DM office (Chairperson, DVMC) at least 7 days before meeting</label>
+    <label class="option"><input type="radio" name="q6" value="c"> National Commission for STs</label>
+    <label class="option"><input type="radio" name="q6" value="d"> Special Court Registrar</label>
+    <div class="explanation" id="exp-q6">Written representation to DM office 7 days before the quarterly DVMC meeting ensures it is placed before the committee for discussion — this creates an official record and triggers the committee's action duty.</div>
+  </div>
+  <div class="question"><div class="q-text">Q7. SLSA can provide legal aid for which stage after Special Court verdict?</div>
+    <label class="option"><input type="radio" name="q7" value="a"> Only trial stage</label>
+    <label class="option"><input type="radio" name="q7" value="b"> Appeal/revision in High Court if victim is dissatisfied</label>
+    <label class="option"><input type="radio" name="q7" value="c"> Only if accused appeals</label>
+    <label class="option"><input type="radio" name="q7" value="d"> Lok Adalat settlement only</label>
+    <div class="explanation" id="exp-q7">SLSA (State Legal Services Authority) provides legal aid for appeals/revision petitions in the High Court — ensuring victims can challenge inadequate sentences or acquittals.</div>
+  </div>
+  <div class="question"><div class="q-text">Q8. RTI information about DVMC meetings — minutes and Action Taken Reports — is obtained from:</div>
+    <label class="option"><input type="radio" name="q8" value="a"> Special Court registry</label>
+    <label class="option"><input type="radio" name="q8" value="b"> PIO at DM/Collector Office or District Social Welfare Office</label>
+    <label class="option"><input type="radio" name="q8" value="c"> State SC/ST Welfare Commissioner</label>
+    <label class="option"><input type="radio" name="q8" value="d"> NALSA headquarters</label>
+    <div class="explanation" id="exp-q8">DVMC records (minutes, ATR, resolutions) are held at DM/Collector office — PIO at DM office or District SC/ST Welfare Department is the correct RTI target.</div>
+  </div>
+  <div class="question"><div class="q-text">Q9. Free legal aid for SC/ST victims under DLSA is accessible:</div>
+    <label class="option"><input type="radio" name="q9" value="a"> Only for persons below poverty line</label>
+    <label class="option"><input type="radio" name="q9" value="b"> Only after FIR is registered</label>
+    <label class="option"><input type="radio" name="q9" value="c"> Regardless of income — Sec 12(c) LSA Act 1987</label>
+    <label class="option"><input type="radio" name="q9" value="d"> Only for SC persons, not ST</label>
+    <div class="explanation" id="exp-q9">Sec 12(c) LSA Act 1987 provides an absolute right to free legal services for SC/ST persons regardless of income — no means test is applicable.</div>
+  </div>
+  <div class="question"><div class="q-text">Q10. For land dispossession atrocity cases, the primary relief under Rule 12 is:</div>
+    <label class="option"><input type="radio" name="q10" value="a"> Monetary compensation only — ₹8,25,000</label>
+    <label class="option"><input type="radio" name="q10" value="b"> Restoration of possession as the primary remedy plus monetary compensation</label>
+    <label class="option"><input type="radio" name="q10" value="c"> Alternative land allocation in another district</label>
+    <label class="option"><input type="radio" name="q10" value="d"> MGNREGS employment as substitute</label>
+    <div class="explanation" id="exp-q10">Restoration of possession is the primary remedy for land dispossession under Rule 12 — the wrongfully dispossessed person gets their land back plus monetary compensation (minimum ₹25,000).</div>
+  </div>
+  <div class="question"><div class="q-text">Q11. RTI to the state Social Welfare Department can be used to monitor:</div>
+    <label class="option"><input type="radio" name="q11" value="a"> Case diaries of police</label>
+    <label class="option"><input type="radio" name="q11" value="b"> SC/ST Development Fund disbursements for systemic advocacy</label>
+    <label class="option"><input type="radio" name="q11" value="c"> Special Court verdict records</label>
+    <label class="option"><input type="radio" name="q11" value="d"> NALSA budget allocations</label>
+    <div class="explanation" id="exp-q11">RTI to Social Welfare Department for SC/ST Development Fund disbursements reveals whether compensation funds are being allocated and spent — useful for systemic advocacy and budget monitoring.</div>
+  </div>
+  <div class="question"><div class="q-text">Q12. What should a PLV do immediately after receiving a DM acknowledgment of Form I?</div>
+    <label class="option"><input type="radio" name="q12" value="a"> File the original FIR copy with the DM</label>
+    <label class="option"><input type="radio" name="q12" value="b"> Keep acknowledgment receipt, note DM deadline, set follow-up date 30 days later</label>
+    <label class="option"><input type="radio" name="q12" value="c"> Approach the accused for out-of-court settlement</label>
+    <label class="option"><input type="radio" name="q12" value="d"> File a copy with the Special PP</label>
+    <div class="explanation" id="exp-q12">The acknowledgment receipt is critical evidence — keep it, note the date, calculate the 30-day response deadline, and calendar a follow-up date to file RTI if no response within that window.</div>
+  </div>
+  <div class="question"><div class="q-text">Q13. Lok Adalat is appropriate for which type of matter in atrocity-related cases?</div>
+    <label class="option"><input type="radio" name="q13" value="a"> Criminal prosecution for atrocity offences</label>
+    <label class="option"><input type="radio" name="q13" value="b"> Civil matters — land restoration, property disputes arising from atrocity</label>
+    <label class="option"><input type="radio" name="q13" value="c"> Appeal against acquittal</label>
+    <label class="option"><input type="radio" name="q13" value="d"> Filing of charge-sheet</label>
+    <div class="explanation" id="exp-q13">Lok Adalat handles civil matters — land restoration and property recovery associated with atrocity cases can be pursued through Lok Adalat for faster resolution. Criminal atrocity charges are NOT compoundable at Lok Adalat.</div>
+  </div>
+  <div class="question"><div class="q-text">Q14. Caste certificate for Rule 12 application must be obtained from:</div>
+    <label class="option"><input type="radio" name="q14" value="a"> Police station</label>
+    <label class="option"><input type="radio" name="q14" value="b"> DLSA office</label>
+    <label class="option"><input type="radio" name="q14" value="c"> Tehsildar or Sub-Divisional Magistrate</label>
+    <label class="option"><input type="radio" name="q14" value="d"> District SC/ST Welfare Officer</label>
+    <div class="explanation" id="exp-q14">SC/ST caste certificates are issued by the Tehsildar/SDM — a certified copy (original or attested) must accompany Form I to establish the victim's SC/ST identity.</div>
+  </div>
+  <div class="question"><div class="q-text">Q15. After DVMC meeting, the paralegal should file RTI for:</div>
+    <label class="option"><input type="radio" name="q15" value="a"> List of DVMC members' phone numbers</label>
+    <label class="option"><input type="radio" name="q15" value="b"> Minutes of meeting and Action Taken Report (ATR)</label>
+    <label class="option"><input type="radio" name="q15" value="c"> DM's personal file</label>
+    <label class="option"><input type="radio" name="q15" value="d"> SP's monthly leave record</label>
+    <div class="explanation" id="exp-q15">Minutes and ATR create an accountability trail — if DVMC resolved to take action, the ATR proves whether action was taken. Non-compliance with ATR is grounds for further escalation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q16. Total Rule 12 compensation for gang rape is:</div>
+    <label class="option"><input type="radio" name="q16" value="a"> ₹5,00,000</label>
+    <label class="option"><input type="radio" name="q16" value="b"> ₹6,00,000</label>
+    <label class="option"><input type="radio" name="q16" value="c"> ₹8,25,000</label>
+    <label class="option"><input type="radio" name="q16" value="d"> ₹10,00,000</label>
+    <div class="explanation" id="exp-q16">Gang rape attracts the highest Rule 12 compensation of ₹8,25,000 — same as death and permanent disability — reflecting the severity of the offence. Interim relief is 25% (₹2,06,250) on FIR registration.</div>
+  </div>
+  <div class="question"><div class="q-text">Q17. DVMC representation from civil society/NGOs is enabled by:</div>
+    <label class="option"><input type="radio" name="q17" value="a"> POA Act Sec 21</label>
+    <label class="option"><input type="radio" name="q17" value="b"> Rule 17(3) SC/ST PoA Rules</label>
+    <label class="option"><input type="radio" name="q17" value="c"> LSA Act Sec 12</label>
+    <label class="option"><input type="radio" name="q17" value="d"> CrPC Sec 156</label>
+    <div class="explanation" id="exp-q17">Rule 17(3) provides for NGO/civil society representatives on DVMC — formal application to DM requesting inclusion as a member from the organisation enables direct participation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q18. Under the RTI Act 2005, the fee for a standard information request is:</div>
+    <label class="option"><input type="radio" name="q18" value="a"> ₹50</label>
+    <label class="option"><input type="radio" name="q18" value="b"> ₹10</label>
+    <label class="option"><input type="radio" name="q18" value="c"> ₹100</label>
+    <label class="option"><input type="radio" name="q18" value="d"> No fee for SC/ST applicants</label>
+    <div class="explanation" id="exp-q18">Standard RTI application fee is ₹10, payable by Indian Postal Order, court fee stamp, or online. BPL cardholders are exempt from fees — SC/ST persons should check if their state provides exemption.</div>
+  </div>
+  <div class="question"><div class="q-text">Q19. The primary purpose of obtaining acknowledgment receipt from DM on Form I submission is to:</div>
+    <label class="option"><input type="radio" name="q19" value="a"> Show it to the Special Court</label>
+    <label class="option"><input type="radio" name="q19" value="b"> Establish the filing date for calculating response deadline and enabling RTI follow-up</label>
+    <label class="option"><input type="radio" name="q19" value="c"> Submit it to DLSA for lawyer assignment</label>
+    <label class="option"><input type="radio" name="q19" value="d"> File with the NCSC as evidence</label>
+    <div class="explanation" id="exp-q19">The acknowledgment establishes the filing date — critical for calculating the 30-day response deadline (for interim relief) and for supporting any RTI or escalation complaint about non-response.</div>
+  </div>
+  <div class="question"><div class="q-text">Q20. A PLV's complete toolkit for an atrocity case includes all of the following EXCEPT:</div>
+    <label class="option"><input type="radio" name="q20" value="a"> Drafting FIR/complaint with correct POA sections</label>
+    <label class="option"><input type="radio" name="q20" value="b"> Filing Form I with DM for Rule 12 relief</label>
+    <label class="option"><input type="radio" name="q20" value="c"> Negotiating a settlement between victim and accused</label>
+    <label class="option"><input type="radio" name="q20" value="d"> RTI monitoring of investigation and charge-sheet</label>
+    <div class="explanation" id="exp-q20">Settlement/negotiation between victim and accused is NOT in a paralegal's toolkit — atrocity offences are non-compoundable. The PLV's role is legal empowerment and access to justice, not compromise facilitation.</div>
+  </div>
+
+  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Final Assessment</button>
+  <div id="result"></div>
+</form>
+</div>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'b',q4:'b',q5:'b',q6:'b',q7:'b',q8:'b',q9:'c',q10:'b',q11:'b',q12:'b',q13:'b',q14:'c',q15:'b',q16:'c',q17:'b',q18:'b',q19:'b',q20:'c'};
+function submitQuiz(){
+  var score=0,total=20;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){
+      var lbl=o.parentElement;
+      if(o.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(o.checked)lbl.classList.add('wrong');
+      o.disabled=true;
+    });
+    if(sel&&sel.value===ANSWERS[q])score++;
+    document.getElementById('exp-'+q).style.display='block';
+  }
+  document.getElementById('submit-btn').disabled=true;
+  var pct=Math.round(score/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  var res=document.getElementById('result');
+  res.style.display='block';
+  if(pct>=70){
+    res.className='pass';
+    res.innerHTML='<h3>✅ Level 3 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>All 3 levels complete! Claim your Paralegal Certificate now.</p><br><a href="final-certificate.html" style="background:#15803d;color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;text-decoration:none;font-size:1.05rem">🏅 Claim Certificate →</a>';
+    localStorage.setItem('janman_scst_pl_l3_done','1');
+    localStorage.setItem('janman_scst_pl_l3_score',pct);
+  } else {
+    res.className='fail';
+    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>Need 70% to pass. Review and try again.</p><br><button onclick="location.reload()" style="background:#16a34a;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>

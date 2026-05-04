@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Level 3 — Compensation & Rehabilitation | Social Worker Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#fff7ed;color:#1e293b;line-height:1.7}
+.navbar{background:#9a3412;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,#ea580c,#9a3412);color:#fff;padding:40px 28px 28px;text-align:center}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.hero p{opacity:.9;font-size:.95rem;max-width:600px;margin:0 auto}
+.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:600px;margin-left:auto;margin-right:auto}
+.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
+.content{max-width:860px;margin:0 auto;padding:32px 24px 60px}
+.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15rem;font-weight:800;color:#9a3412;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #fed7aa}
+.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
+.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
+.info-box{background:#fff7ed;border-left:4px solid #ea580c;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#92400e}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.82rem}
+th{background:#9a3412;color:#fff;padding:9px 12px;text-align:left}
+td{padding:8px 12px;border-bottom:1px solid #fde68a;color:#374151}
+tr:nth-child(even) td{background:#fff7ed}
+.scheme-card{background:#fff7ed;border:1px solid #fdba74;border-radius:10px;padding:16px;margin-bottom:10px}
+.scheme-card h4{color:#9a3412;font-weight:700;margin-bottom:6px;font-size:.92rem}
+.scheme-card p{font-size:.84rem;color:#374151;margin:0}
+.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
+.quiz-section h2{font-size:1.1rem;font-weight:800;color:#9a3412;margin-bottom:20px}
+.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #fde68a}
+.question:last-of-type{border-bottom:none}
+.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
+.option:hover{border-color:#fdba74;background:#fff7ed}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#ea580c}
+.option.correct{background:#dcfce7;border-color:#86efac;color:#15803d}
+.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
+.submit-btn{background:#ea580c;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px}
+.submit-btn:hover{background:#c2410c}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
+#result.pass{background:#dcfce7;color:#15803d}
+#result.fail{background:#fee2e2;color:#dc2626}
+#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#fed7aa">Level 3 — Compensation & Rehabilitation</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <h1>Level 3: Compensation & Rehabilitation</h1>
+  <p>Complete Rule 12 compensation table, NALSA/DLSA free legal aid, DVMC community monitoring, and rehabilitation schemes for survivors</p>
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+</div>
+<div class="content">
+
+<div class="section">
+  <h2>Complete Rule 12 Compensation Table</h2>
+  <p>Rule 12 of the SC/ST (Prevention of Atrocities) Rules 1995 (as amended) sets out the mandatory relief and rehabilitation assistance for different categories of atrocity offences.</p>
+  <table>
+    <tr><th>Offence Category</th><th>Total Relief</th><th>Interim (on FIR)</th><th>Balance (on conviction)</th></tr>
+    <tr><td>Death of victim</td><td>₹8,25,000</td><td>₹2,00,000</td><td>₹6,25,000</td></tr>
+    <tr><td>Grievous hurt with permanent disability</td><td>₹8,25,000</td><td>₹2,00,000</td><td>₹6,25,000</td></tr>
+    <tr><td>Gang rape</td><td>₹8,25,000</td><td>₹2,06,250 (25%)</td><td>Balance on conviction</td></tr>
+    <tr><td>Rape (single perpetrator)</td><td>₹5,00,000</td><td>₹1,25,000 (25%)</td><td>Balance on conviction</td></tr>
+    <tr><td>Hurt causing grievous injury</td><td>₹1,00,000</td><td>₹50,000</td><td>₹50,000</td></tr>
+    <tr><td>Arson / property destruction</td><td>₹5,00,000+</td><td>₹25,000+</td><td>Balance</td></tr>
+    <tr><td>Wrongful dispossession from land</td><td>₹25,000+</td><td>Possession restoration</td><td>Balance</td></tr>
+    <tr><td>Insulting/humiliating in public</td><td>₹50,000</td><td>₹25,000</td><td>₹25,000</td></tr>
+    <tr><td>Forcing begar/bonded labour</td><td>₹50,000</td><td>₹25,000</td><td>₹25,000</td></tr>
+    <tr><td>Social boycott</td><td>₹1,00,000</td><td>₹50,000</td><td>₹50,000</td></tr>
+    <tr><td>Mischief causing damage ≥₹10,000</td><td>Market value + ₹50,000</td><td>25%</td><td>Balance</td></tr>
+    <tr><td>Hurt (non-grievous)</td><td>₹50,000</td><td>₹25,000</td><td>₹25,000</td></tr>
+    <tr><td>Outraging modesty of SC/ST woman</td><td>₹1,00,000</td><td>₹50,000</td><td>₹50,000</td></tr>
+  </table>
+  <div class="info-box"><strong>Application process:</strong> File Form I (Application for Relief) with the District Magistrate/Collector. Attach FIR copy, caste certificate, Aadhar, and medical certificate. The DM must respond within prescribed timelines.</div>
+</div>
+
+<div class="section">
+  <h2>Free Legal Aid — NALSA & DLSA</h2>
+  <p>Under <strong>Sec 12(c) of the Legal Services Authorities Act 1987</strong>, SC/ST persons are entitled to free legal aid regardless of income. The National Legal Services Authority (NALSA) and District Legal Services Authority (DLSA) are the implementing bodies.</p>
+  <h3>What Free Legal Aid Covers</h3>
+  <div class="scheme-card"><h4>DLSA — First Point of Contact</h4><p>District-level body provides: free lawyer in Special Court; assistance drafting FIR/complaint; application for interim relief; accompanying to police station if needed. Contact: District Collector's office or court premises.</p></div>
+  <div class="scheme-card"><h4>NALSA Helpline — 15100</h4><p>24x7 national helpline for free legal aid referral. Call 15100 to be connected to nearest DLSA. Also handles complaints of legal aid denial.</p></div>
+  <div class="scheme-card"><h4>Para Legal Volunteers (PLVs)</h4><p>Trained community-level legal aid workers deployed by DLSA — bridge between victim and formal legal system. PLVs can assist with complaint drafting, documentation, and liaison with DLSA.</p></div>
+  <div class="info-box"><strong>Field action:</strong> As soon as FIR is registered, inform DLSA and request assignment of a Panel Advocate for the Special Court proceedings. Document this request in writing.</div>
+</div>
+
+<div class="section">
+  <h2>DVMC — District Vigilance & Monitoring Committee</h2>
+  <p>The <strong>District Vigilance and Monitoring Committee (DVMC)</strong> is established under <strong>Rule 17(3) of the SC/ST (PoA) Rules</strong>. It is a powerful oversight body for monitoring atrocity prevention and relief delivery.</p>
+  <h3>Composition</h3>
+  <table>
+    <tr><th>Member</th><th>Role</th></tr>
+    <tr><td>District Magistrate/Collector</td><td>Chairperson</td></tr>
+    <tr><td>SP of Police</td><td>Member</td></tr>
+    <tr><td>District SC/ST Welfare Officer</td><td>Convenor</td></tr>
+    <tr><td>Elected SC/ST representatives</td><td>Members</td></tr>
+    <tr><td>NGO representatives</td><td>Members</td></tr>
+  </table>
+  <h3>DVMC's Monitoring Duties</h3>
+  <p>DVMC meets quarterly and reviews: pending cases, conviction rates, relief disbursement, ground-level implementation of Act provisions, and sensitisation programmes.</p>
+  <div class="info-box"><strong>Field worker role:</strong> You can approach DVMC with systemic complaints — multiple FIR refusals, pattern of police inaction, delayed relief payments. DVMC can direct SP/DM to act. File written representations before DVMC meetings.</div>
+</div>
+
+<div class="section">
+  <h2>Rehabilitation Schemes for Survivors</h2>
+  <div class="scheme-card"><h4>Dr. Ambedkar Aawas Navinikaran Yojana</h4><p>Housing repair/renovation assistance for SC families. Financial support for families displaced by atrocities — apply through District Social Welfare Officer.</p></div>
+  <div class="scheme-card"><h4>MGNREGS Priority Employment</h4><p>SC/ST atrocity survivors get priority in MGNREGS job cards. District Programme Coordinator must ensure 100 days employment. Useful for economically displaced survivors.</p></div>
+  <div class="scheme-card"><h4>NSKFDC — National SC Finance Corporation</h4><p>Concessional loans for SC persons displaced by atrocities. Business loans at 6% interest; occupational rehabilitation. Apply through State Channelizing Agency.</p></div>
+  <div class="scheme-card"><h4>State Rehabilitation Schemes</h4><p>Most states have specific SC/ST rehabilitation packages — Bihar has the SC/ST Kalyan Yojana. Includes: free education for children of victims, ration cards, BPL priority listing, and housing assistance.</p></div>
+  <div class="scheme-card"><h4>Self-Help Groups (SHGs)</h4><p>Dalit mahila SHGs supported by National Rural Livelihood Mission. Survivors can be linked to SHGs for economic recovery, savings habits, and peer support networks.</p></div>
+</div>
+
+<div class="quiz-section">
+  <h2>📝 Level 3 Assessment — 20 Questions (Pass: 70%)</h2>
+  <form id="quiz-form">
+  <div class="question"><div class="q-text">Q1. Under Rule 12, the total relief for death of an SC/ST victim is:</div>
+    <label class="option"><input type="radio" name="q1" value="a"> ₹2,00,000</label>
+    <label class="option"><input type="radio" name="q1" value="b"> ₹5,00,000</label>
+    <label class="option"><input type="radio" name="q1" value="c"> ₹8,25,000</label>
+    <label class="option"><input type="radio" name="q1" value="d"> ₹10,00,000</label>
+    <div class="explanation" id="exp-q1">Total relief for death is ₹8,25,000 — ₹2,00,000 as interim relief and ₹6,25,000 on conviction. This is the highest relief amount under Rule 12.</div>
+  </div>
+  <div class="question"><div class="q-text">Q2. Free legal aid for SC/ST persons is guaranteed under:</div>
+    <label class="option"><input type="radio" name="q2" value="a"> POA Act Sec 15A</label>
+    <label class="option"><input type="radio" name="q2" value="b"> Sec 12(c) Legal Services Authorities Act 1987</label>
+    <label class="option"><input type="radio" name="q2" value="c"> CrPC Sec 302</label>
+    <label class="option"><input type="radio" name="q2" value="d"> Constitution Art. 39A only</label>
+    <div class="explanation" id="exp-q2">Sec 12(c) LSA Act 1987 provides that SC/ST persons are entitled to free legal services regardless of income — an absolute entitlement, not means-tested.</div>
+  </div>
+  <div class="question"><div class="q-text">Q3. NALSA's national legal aid helpline number is:</div>
+    <label class="option"><input type="radio" name="q3" value="a"> 1800-11-0010</label>
+    <label class="option"><input type="radio" name="q3" value="b"> 15100</label>
+    <label class="option"><input type="radio" name="q3" value="c"> 112</label>
+    <label class="option"><input type="radio" name="q3" value="d"> 1076</label>
+    <div class="explanation" id="exp-q3">NALSA helpline is 15100 — available 24x7 for free legal aid referrals and DLSA connections across India.</div>
+  </div>
+  <div class="question"><div class="q-text">Q4. The DVMC (District Vigilance and Monitoring Committee) is established under:</div>
+    <label class="option"><input type="radio" name="q4" value="a"> POA Act Sec 18A</label>
+    <label class="option"><input type="radio" name="q4" value="b"> Rule 17(3) SC/ST PoA Rules</label>
+    <label class="option"><input type="radio" name="q4" value="c"> POA Act Sec 21</label>
+    <label class="option"><input type="radio" name="q4" value="d"> LSA Act Sec 12</label>
+    <div class="explanation" id="exp-q4">Rule 17(3) of the SC/ST (Prevention of Atrocities) Rules 1995 establishes DVMC at district level under the chairmanship of the District Magistrate/Collector.</div>
+  </div>
+  <div class="question"><div class="q-text">Q5. For a rape case, the interim relief paid on FIR registration is:</div>
+    <label class="option"><input type="radio" name="q5" value="a"> ₹5,00,000 (full amount)</label>
+    <label class="option"><input type="radio" name="q5" value="b"> ₹2,06,250</label>
+    <label class="option"><input type="radio" name="q5" value="c"> ₹1,25,000 (25% of ₹5,00,000)</label>
+    <label class="option"><input type="radio" name="q5" value="d"> ₹50,000</label>
+    <div class="explanation" id="exp-q5">For rape, interim relief is 25% of total ₹5,00,000 = ₹1,25,000, payable within 3 months of the offence upon FIR registration.</div>
+  </div>
+  <div class="question"><div class="q-text">Q6. Who chairs the DVMC at district level?</div>
+    <label class="option"><input type="radio" name="q6" value="a"> Superintendent of Police</label>
+    <label class="option"><input type="radio" name="q6" value="b"> District Judge</label>
+    <label class="option"><input type="radio" name="q6" value="c"> District Magistrate/Collector</label>
+    <label class="option"><input type="radio" name="q6" value="d"> District Welfare Officer</label>
+    <div class="explanation" id="exp-q6">The District Magistrate/Collector is the Chairperson of DVMC. The SP is a member, and the District SC/ST Welfare Officer is the Convenor.</div>
+  </div>
+  <div class="question"><div class="q-text">Q7. Rule 12 relief for insulting/humiliating an SC/ST person in public is:</div>
+    <label class="option"><input type="radio" name="q7" value="a"> ₹10,000</label>
+    <label class="option"><input type="radio" name="q7" value="b"> ₹50,000</label>
+    <label class="option"><input type="radio" name="q7" value="c"> ₹1,00,000</label>
+    <label class="option"><input type="radio" name="q7" value="d"> ₹2,00,000</label>
+    <div class="explanation" id="exp-q7">Rule 12 provides ₹50,000 for public insult/humiliation offences — ₹25,000 as interim on FIR and ₹25,000 on conviction.</div>
+  </div>
+  <div class="question"><div class="q-text">Q8. The NSKFDC provides what type of assistance to displaced SC survivors?</div>
+    <label class="option"><input type="radio" name="q8" value="a"> Free housing</label>
+    <label class="option"><input type="radio" name="q8" value="b"> Concessional loans for business/occupation rehabilitation</label>
+    <label class="option"><input type="radio" name="q8" value="c"> MGNREGS job cards</label>
+    <label class="option"><input type="radio" name="q8" value="d"> Direct cash transfers</label>
+    <div class="explanation" id="exp-q8">NSKFDC (National Scheduled Castes Finance & Development Corporation) provides concessional loans at 6% for business and occupational rehabilitation of displaced SC persons.</div>
+  </div>
+  <div class="question"><div class="q-text">Q9. DVMC meetings should be held how often?</div>
+    <label class="option"><input type="radio" name="q9" value="a"> Monthly</label>
+    <label class="option"><input type="radio" name="q9" value="b"> Quarterly</label>
+    <label class="option"><input type="radio" name="q9" value="c"> Annually</label>
+    <label class="option"><input type="radio" name="q9" value="d"> Only during elections</label>
+    <div class="explanation" id="exp-q9">DVMC must meet quarterly — once every three months — to review atrocity cases, conviction rates, relief disbursement, and prevention measures.</div>
+  </div>
+  <div class="question"><div class="q-text">Q10. Relief application (Form I) for Rule 12 compensation is submitted to:</div>
+    <label class="option"><input type="radio" name="q10" value="a"> Special Court judge</label>
+    <label class="option"><input type="radio" name="q10" value="b"> District Magistrate/Collector</label>
+    <label class="option"><input type="radio" name="q10" value="c"> State SC/ST Commissioner</label>
+    <label class="option"><input type="radio" name="q10" value="d"> NALSA</label>
+    <div class="explanation" id="exp-q10">Form I (Application for Relief under Rule 12) is filed with the District Magistrate/Collector along with FIR copy, caste certificate, Aadhar, and medical documentation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q11. Para Legal Volunteers (PLVs) are deployed by which body?</div>
+    <label class="option"><input type="radio" name="q11" value="a"> National Commission for SCs</label>
+    <label class="option"><input type="radio" name="q11" value="b"> DLSA (District Legal Services Authority)</label>
+    <label class="option"><input type="radio" name="q11" value="c"> District Collector's office</label>
+    <label class="option"><input type="radio" name="q11" value="d"> State Police department</label>
+    <div class="explanation" id="exp-q11">PLVs are deployed by DLSA under the Legal Services Authorities framework — they are trained community volunteers who bridge victims with formal legal aid services.</div>
+  </div>
+  <div class="question"><div class="q-text">Q12. The total Rule 12 relief for grievous permanent disability is:</div>
+    <label class="option"><input type="radio" name="q12" value="a"> ₹1,00,000</label>
+    <label class="option"><input type="radio" name="q12" value="b"> ₹5,00,000</label>
+    <label class="option"><input type="radio" name="q12" value="c"> ₹8,25,000</label>
+    <label class="option"><input type="radio" name="q12" value="d"> ₹3,00,000</label>
+    <div class="explanation" id="exp-q12">Grievous permanent disability is equated with death in Rule 12 — total relief is ₹8,25,000 — ₹2,00,000 interim on FIR and balance on conviction.</div>
+  </div>
+  <div class="question"><div class="q-text">Q13. SC/ST children whose parents are atrocity victims are entitled to priority in:</div>
+    <label class="option"><input type="radio" name="q13" value="a"> International scholarships</label>
+    <label class="option"><input type="radio" name="q13" value="b"> State rehabilitation schemes including free education</label>
+    <label class="option"><input type="radio" name="q13" value="c"> Private school admissions</label>
+    <label class="option"><input type="radio" name="q13" value="d"> National level sports programmes</label>
+    <div class="explanation" id="exp-q13">State rehabilitation packages under schemes like Bihar SC/ST Kalyan Yojana include free education for children of victims, ration card priority, BPL listing, and housing assistance.</div>
+  </div>
+  <div class="question"><div class="q-text">Q14. A field worker can approach DVMC to raise complaints about:</div>
+    <label class="option"><input type="radio" name="q14" value="a"> Individual marriage disputes</label>
+    <label class="option"><input type="radio" name="q14" value="b"> Systemic issues — pattern of FIR refusals, delayed relief payments</label>
+    <label class="option"><input type="radio" name="q14" value="c"> Salary disputes of government employees</label>
+    <label class="option"><input type="radio" name="q14" value="d"> Land boundary disputes</label>
+    <div class="explanation" id="exp-q14">DVMC is appropriate for systemic complaints — patterns of police inaction, multiple FIR refusals, delayed relief disbursement — not individual civil disputes.</div>
+  </div>
+  <div class="question"><div class="q-text">Q15. MGNREGS priority employment for atrocity survivors must ensure:</div>
+    <label class="option"><input type="radio" name="q15" value="a"> 50 days employment</label>
+    <label class="option"><input type="radio" name="q15" value="b"> 75 days employment</label>
+    <label class="option"><input type="radio" name="q15" value="c"> 100 days employment</label>
+    <label class="option"><input type="radio" name="q15" value="d"> 200 days employment</label>
+    <div class="explanation" id="exp-q15">SC/ST atrocity survivors get priority access to the standard 100 days MGNREGS employment — the District Programme Coordinator is responsible for ensuring this priority access.</div>
+  </div>
+  <div class="question"><div class="q-text">Q16. For a social boycott offence, the total Rule 12 relief is:</div>
+    <label class="option"><input type="radio" name="q16" value="a"> ₹50,000</label>
+    <label class="option"><input type="radio" name="q16" value="b"> ₹1,00,000</label>
+    <label class="option"><input type="radio" name="q16" value="c"> ₹2,00,000</label>
+    <label class="option"><input type="radio" name="q16" value="d"> ₹5,00,000</label>
+    <div class="explanation" id="exp-q16">Social boycott attracts ₹1,00,000 total relief — ₹50,000 as interim on FIR and ₹50,000 on conviction.</div>
+  </div>
+  <div class="question"><div class="q-text">Q17. Which scheme provides housing assistance to SC families damaged/displaced by atrocities?</div>
+    <label class="option"><input type="radio" name="q17" value="a"> PMAY (Pradhan Mantri Awas Yojana) only</label>
+    <label class="option"><input type="radio" name="q17" value="b"> Dr. Ambedkar Aawas Navinikaran Yojana</label>
+    <label class="option"><input type="radio" name="q17" value="c"> National Housing Board</label>
+    <label class="option"><input type="radio" name="q17" value="d"> MGNREGS housing component</label>
+    <div class="explanation" id="exp-q17">Dr. Ambedkar Aawas Navinikaran Yojana provides housing repair/renovation assistance specifically for SC families — apply through District Social Welfare Officer.</div>
+  </div>
+  <div class="question"><div class="q-text">Q18. The balance Rule 12 compensation (after interim relief) is paid:</div>
+    <label class="option"><input type="radio" name="q18" value="a"> After FIR registration</label>
+    <label class="option"><input type="radio" name="q18" value="b"> After charge-sheet</label>
+    <label class="option"><input type="radio" name="q18" value="c"> After conviction of the accused</label>
+    <label class="option"><input type="radio" name="q18" value="d"> After acquittal</label>
+    <div class="explanation" id="exp-q18">The balance (remaining percentage after interim relief) is typically paid after conviction — but courts have ordered full relief even in cases of acquittal where victim's identity was established.</div>
+  </div>
+  <div class="question"><div class="q-text">Q19. Which documents are essential for filing Form I (Rule 12 relief application)?</div>
+    <label class="option"><input type="radio" name="q19" value="a"> Only Aadhar card</label>
+    <label class="option"><input type="radio" name="q19" value="b"> FIR copy, caste certificate, Aadhar, and medical certificate</label>
+    <label class="option"><input type="radio" name="q19" value="c"> Income certificate and BPL card only</label>
+    <label class="option"><input type="radio" name="q19" value="d"> Land records and property valuation</label>
+    <div class="explanation" id="exp-q19">Form I requires: FIR copy (with station diary number), SC/ST caste certificate (government issued), Aadhar for identity, and MLC/medical certificate documenting the injury/offence.</div>
+  </div>
+  <div class="question"><div class="q-text">Q20. Dalit women survivors can be linked to ___ for economic recovery and peer support:</div>
+    <label class="option"><input type="radio" name="q20" value="a"> Private microfinance companies</label>
+    <label class="option"><input type="radio" name="q20" value="b"> NRLM-supported Self Help Groups (SHGs)</label>
+    <label class="option"><input type="radio" name="q20" value="c"> Urban co-operative banks</label>
+    <label class="option"><input type="radio" name="q20" value="d"> State police auxiliary units</label>
+    <div class="explanation" id="exp-q20">National Rural Livelihood Mission (NRLM/Jeevika) supports Dalit mahila SHGs — survivors can be linked for savings, peer support, loans, and economic rehabilitation.</div>
+  </div>
+
+  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Final Assessment</button>
+  <div id="result"></div>
+</form>
+</div>
+</div>
+
+<script>
+var ANSWERS={q1:'c',q2:'b',q3:'b',q4:'b',q5:'c',q6:'c',q7:'b',q8:'b',q9:'b',q10:'b',q11:'b',q12:'c',q13:'b',q14:'b',q15:'c',q16:'b',q17:'b',q18:'c',q19:'b',q20:'b'};
+function submitQuiz(){
+  var score=0,total=20;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){
+      var lbl=o.parentElement;
+      if(o.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(o.checked)lbl.classList.add('wrong');
+      o.disabled=true;
+    });
+    if(sel&&sel.value===ANSWERS[q])score++;
+    document.getElementById('exp-'+q).style.display='block';
+  }
+  document.getElementById('submit-btn').disabled=true;
+  var pct=Math.round(score/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  var res=document.getElementById('result');
+  res.style.display='block';
+  if(pct>=70){
+    res.className='pass';
+    res.innerHTML='<h3>✅ Level 3 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>Outstanding! You have completed all 3 levels. Claim your Field Worker Certificate!</p><br><a href="final-certificate.html" style="background:#9a3412;color:#fff;padding:14px 32px;border-radius:8px;font-weight:700;text-decoration:none;font-size:1.05rem">🏅 Claim Certificate →</a>';
+    localStorage.setItem('janman_scst_sw_l3_done','1');
+    localStorage.setItem('janman_scst_sw_l3_score',pct);
+  } else {
+    res.className='fail';
+    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>Need 70% to pass. Review the material and try again.</p><br><button onclick="location.reload()" style="background:#ea580c;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
