@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lawyer Track — SC/ST Atrocities | Jan Nyaya Resource Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.hero{background:linear-gradient(135deg,#4c0519 0%,#9d174d 50%,#be185d 100%);padding:2.5rem 1.5rem;text-align:center}
+.hero .back{display:inline-block;color:#fda4af;text-decoration:none;font-size:.85rem;margin-bottom:1rem;opacity:.85}
+.hero .back:hover{opacity:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:2.2rem;color:#fff;margin-bottom:.5rem}
+.hero .sub{color:#fecdd3;font-size:.95rem;margin-bottom:.75rem}
+.hero .meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.hero .meta span{background:rgba(255,255,255,.15);padding:.3rem .9rem;border-radius:999px;font-size:.8rem;color:#ffe4e6}
+.container{max-width:860px;margin:0 auto;padding:2rem 1.5rem}
+.intro-box{background:#1e293b;border:1px solid #334155;border-left:4px solid #be185d;border-radius:.75rem;padding:1.25rem 1.5rem;margin-bottom:2rem;line-height:1.7;color:#cbd5e1;font-size:.95rem}
+.intro-box strong{color:#fda4af}
+.section-title{font-size:1.1rem;font-weight:700;color:#fda4af;margin:2zem 0 1rem;padding-left:.75rem;border-left:4px solid #9d174d}
+.levels-grid{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
+.level-card{background:#1e293b;border:1px solid #334155;border-radius:.75rem;overflow:hidden}
+.level-card .lc-top{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem}
+.level-card .lc-num{width:48px;height:48px;border-radius:.6rem;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;flex-shrink:0}
+.level-card .lc-num.locked{background:#334155;color:#64748b}
+.level-card .lc-num.unlocked{background:linear-gradient(135deg,#9d174d,#be185d);color:#fff}
+.level-card .lc-info{flex:1}
+.level-card .lc-title{font-weight:700;color:#e2e8f0;margin-bottom:.2rem}
+.level-card .lc-desc{font-size:.82rem;color:#64748b;line-height:1.4}
+.level-card .lc-action{padding:0 1.25rem 1rem;display:flex;justify-content:flex-end}
+.btn-locked{background:#1e293b;border:1px solid #334155;color:#64748b;padding:.5rem 1.25rem;border-radius:.5rem;font-size:.85rem;cursor:not-allowed}
+.btn-start{background:linear-gradient(135deg,#9d174d,#be185d);color:#fff;border:none;padding:.5rem 1.25rem;border-radius:.5rem;font-size:.85rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.btn-start:hover{opacity:.9}
+.cert-card{background:linear-gradient(135deg,#4c0519,#9d174d);border-radius:.75rem;padding:1.5rem;text-align:center;margin-top:1.5rem}
+.cert-card h3{color:#fff;font-size:1.1rem;margin-bottom:.4rem}
+.cert-card p{color:#fecdd3;font-size:.85rem;margin-bottom:1rem}
+.btn-cert{background:#fff;color:#9d174d;border:none;padding:.6rem 1.75rem;border-radius:.5rem;font-size:.9rem;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block}
+.progress-section{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.25rem;margin-bottom:1.5rem}
+.progress-section h3{font-size:.9rem;color:#94a3b8;margin-bottom:.75rem;font-weight:600}
+.prog-row{display:flex;align-items:center;gap:.85rem;margin-bottom:.5rem}
+.prog-label{font-size:.82rem;color:#cbd5e1;width:120px;flex-shrink:0}
+.prog-bar{flex:1;height:8px;background:#334155;border-radius:999px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(to right,#9d174d,#be185d);border-radius:999px;width:0%;transition:.4s}
+.prog-pct{font-size:.78rem;color:#64748b;width:35px;text-align:right}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="../index.html" class="back">← Back to SC/ST Atrocities Module</a>
+  <h1>⚖️ Lawyer Track</h1>
+  <p class="sub">SC/ST Atrocities &amp; Caste Discrimination | Advanced Litigation Training</p>
+  <div class="meta">
+    <span>🏛️ 3 Advanced Levels</span>
+    <span>📜 Pleading &amp; Strategy</span>
+    <span>⚖️ Trial Advocacy</span>
+    <span>🎓 Certificate Included</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    This track is designed for practicing advocates appearing in SC/ST atrocity cases — whether as Public Prosecutors in Special Courts, Legal Aid Panel Lawyers, or private counsel for victims/accused. The three levels cover <strong>advanced statutory &amp; constitutional litigation</strong>, <strong>trial strategy and evidence management</strong>, and <strong>appellate practice and constitutional remedies</strong> — with model pleadings, examination strategies, and bail/compensation precedents.
+  </div>
+
+  <p class="section-title">Your Progress</p>
+  <div class="progress-section">
+    <h3>Level completion</h3>
+    <div class="prog-row"><span class="prog-label">Level 1</span><div class="prog-bar"><div class="prog-fill" id="p1"></div></div><span class="prog-pct" id="pp1">–</span></div>
+    <div class="prog-row"><span class="prog-label">Level 2</span><div class="prog-bar"><div class="prog-fill" id="p2"></div></div><span class="prog-pct" id="pp2">–</span></div>
+    <div class="prog-row"><span class="prog-label">Level 3</span><div class="prog-bar"><div class="prog-fill" id="p3"></div></div><span class="prog-pct" id="pp3">–</span></div>
+  </div>
+
+  <p class="section-title">Course Levels</p>
+  <div class="levels-grid">
+    <div class="level-card">
+      <div class="lc-top">
+        <div class="lc-num unlocked" id="num1">L1</div>
+        <div class="lc-info">
+          <div class="lc-title">Advanced Statutory &amp; Constitutional Framework</div>
+          <div class="lc-desc">Complete POA Act with all amendments · Section-by-section analysis · Offence classification for charge framing · Special Court jurisdiction &amp; procedure · Constitutional validity jurisprudence · Section 18A litigation &amp; Prathvi Raj Chauhan</div>
+        </div>
+      </div>
+      <div class="lc-action"><a href="level1.html" class="btn-start">Start Level 1 →</a></div>
+    </div>
+
+    <div class="level-card" id="card2">
+      <div class="lc-top">
+        <div class="lc-num" id="num2">L2</div>
+        <div class="lc-info">
+          <div class="lc-title">Trial Strategy, Evidence &amp; Examination</div>
+          <div class="lc-desc">Charge framing under Section 3(1) &amp; 3(2) · Examination-in-chief of victim &amp; witnesses · Cross-examination strategy for accused/defence · Managing dying declarations &amp; scientific evidence · Handling hostile witnesses &amp; Section 164 statements · Model arguments on bail</div>
+        </div>
+      </div>
+      <div class="lc-action" id="act2"><span class="btn-locked">🔒 Complete Level 1 First</span></div>
+    </div>
+
+    <div class="level-card" id="card3">
+      <div class="lc-top">
+        <div class="lc-num" id="num3">L3</div>
+        <div class="lc-info">
+          <div class="lc-title">Appeals, Remedies &amp; Strategic Litigation</div>
+          <div class="lc-desc">High Court appellate practice in SC/ST cases · Section 14A exclusive jurisdiction · Constitutional remedies — Articles 32 &amp; 226 · Rule 12 compensation enforcement litigation · PIL strategy in systemic atrocity contexts · NCSC/NCRB data as evidence in PILs</div>
+        </div>
+      </div>
+      <div class="lc-action" id="act3"><span class="btn-locked">🔒 Complete Level 2 First</span></div>
+    </div>
+  </div>
+
+  <div class="cert-card">
+    <h3>🏅 Certificate of Completion</h3>
+    <p>Complete all 3 levels (70% minimum) to earn your JPF Lawyer Certificate — SC/ST Atrocities Track</p>
+    <a href="final-certificate.html" class="btn-cert" id="cert-btn">View=Certificate</a>
+  </div>
+
+</div>
+
+<script>
+function loadProgress(){
+  var keys=[['janman_scst_lw_l1_done','janman_scst_lw_l1_score'],['janman_scst_lw_l2_done','janman_scst_lw_l2_score'],['janman_scst_lw_l3_done','janman_scst_lw_l3_score']];
+  var links=['level1.html','level2.html','level3.html'];
+  var done=[false,false,false];
+  keys.forEach(function(k,i){
+    var d=localStorage.getItem(k[0]);
+    var s=localStorage.getItem(k[1]);
+    done[i]=!!d;
+    var pct=s?parseInt(s):0;
+    document.getElementById('p'+(i+1)).style.width=(d?pct:0)+'%';
+    document.getElementById('pp'+(i+1)).textContent=d?pct+'%':'–';
+  });
+  // Unlock logic
+  if(done[0]){
+    document.getElementById('num2').className='lc-num unlocked';
+    document.getElementById('act2').innerHTML='<a href="'+links[1]+'" class="btn-start">Continue Level 2 →</a>';
+  }
+  if(done[1]){
+    document.getElementById('num3').className='lc-num unlocked';
+    document.getElementById('act3').innerHTML='<a href="'+links[2]+'" class="btn-start">Continue Level 3 →</a>';
+  }
+}
+loadProgress();
+</script>
+</body>
+</html>
