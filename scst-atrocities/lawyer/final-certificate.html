@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate — Lawyer Track | SC/ST Atrocities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.hero{background:linear-gradient(135deg,#4c0519 0%,#9d174d 50%,#be185d 100%);padding:2rem 1.5rem;text-align:center}
+.hero .back{display:inline-block;color:#fda4af;text-decoration:none;font-size:.85rem;margin-bottom:.75rem;opacity:.85}
+.hero h1{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:.4rem}
+.hero .sub{color:#fecdd3;font-size:.9rem}
+.container{max-width:800px;margin:0 auto;padding:2rem 1.5rem}
+.lock-box{background:#1e293b;border:2px solid #dc2626;border-radius:1rem;padding:2rem;text-align:center;margin-bottom:2rem}
+.lock-box h2{color:#fca5a5;font-size:1.2rem;margin-bottom:.5rem}
+.lock-box p{color:#94a3b8;font-size:.9rem;margin-bottom:1rem}
+.level-status{display:flex;flex-direction:column;gap:.5rem;margin:1rem 0}
+.ls-row{display:flex;justify-content:space-between;align-items:center;background:#0f172a;border-radius:.5rem;padding:.6rem 1rem}
+.ls-label{font-size:.88rem;color:#cbd5e1}
+.ls-badge{font-size:.78rem;font-weight:700;padding:.2rem .6rem;border-radius:999px}
+.ls-done{background:#14532d;color:#86efac}
+.ls-pend{background:#7f1d1d;color:#fca5a5}
+.score-summary{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.25rem;margin-bottom:1.5rem}
+.score-summary h3{color:#fda4af;font-size:1rem;margin-bottom:.75rem}
+.score-row{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #334155;font-size:.88rem;color:#cbd5e1}
+.score-row:last-child{border-bottom:none;font-weight:700;color:#e2e8f0;font-size:.95rem}
+.score-val{color:#be185d;font-weight:700}
+.form-section{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.5rem;margin-bottom:1.5rem}
+.form-section h3{color:#fda4af;font-size:1rem;margin-bottom:1rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.35rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.8rem;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.form-group input,.form-group select{background:#0f172a;border:1px solid #334155;border-radius:.5rem;padding:.6rem .85rem;font-size:.9rem;color:#e2e8f0;font-family:'Inter',sans-serif}
+.form-group input:focus{outline:none;border-color:#9d174d}
+.btn-generate{background:linear-gradient(135deg,#9d174d,#be185d);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:.6rem;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:.5rem}
+#cert-wrap{display:none}
+.cert-box{background:#fff;color:#1e293b;border:8px solid #9d174d;border-radius:1rem;padding:3rem 2.5rem;margin-bottom:1.5rem;text-align:center;position:relative;box-shadow:0 0 0 4px #fce7f3}
+.cert-box::before{content:'';position:absolute;inset:12px;border:2px solid #fbcfe8;border-radius:.5rem;pointer-events:none}
+.cert-org{font-size:.85rem;color:#9d174d;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
+.cert-title{font-family:'Playfair Display',serif;font-size:2rem;color:#4c0519;margin:.75rem 0 .25rem}
+.cert-sub{font-size:.9rem;color:#64748b;margin-bottom:1.25rem}
+.cert-name-label{font-size:.75rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.cert-name{font-family:'Playfair Display',serif;font-size:1.8rem;color:#4c0519;border-bottom:2px solid #9d174d;display:inline-block;padding:0 2rem .3rem;margin-bottom:1rem}
+.cert-body{font-size:.92rem;color:#334155;line-height:1.7;max-width:480px;margin:0 auto 1.25rem}
+.cert-module{font-weight:700;color:#9d174d}
+.cert-score-row{display:flex;justify-content:center;gap:2rem;margin:1rem 0;flex-wrap:wrap}
+.cert-score-item{text-align:center}
+.cert-score-item .val{font-size:1.3rem;font-weight:800;color:#9d174d}
+.cert-score-item .lbl{font-size:.72rem;color:#64748b;text-transform:uppercase;letter-spacing:.04em}
+.cert-grade{display:inline-block;background:#fce7f3;color:#9d174d;padding:.35rem 1.25rem;border-radius:999px;font-size:.85rem;font-weight:700;margin:.75rem 0}
+.cert-footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0}
+.cert-sig{text-align:center;flex:1}
+.cert-sig .sig-name{font-family:'Dancing Script',cursive;font-size:1.5rem;color:#4c0519}
+.cert-sig .sig-role{font-size:.72rem;color:#64748b;margin-top:.1rem}
+.cert-id{font-size:.7rem;color:#94a3b8;text-align:right}
+.action-row{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-print{background:#9d174d;color:#fff;border:none;padding:.75rem 1.75rem;border-radius:.6rem;font-size:.9rem;font-weight:700;cursor:pointer;flex:1}
+.btn-wa{background:#16a34a;color:#fff;border:none;padding:.75rem 1.75rem;border-radius:.6rem;font-size:.9rem;font-weight:700;cursor:pointer;flex:1;text-decoration:none;text-align:center}
+@media print{
+  body{background:#fff!important}
+  .hero,.action-row,.form-section,.score-summary,.back{display:none!important}
+  #cert-wrap{display:block!important}
+  .cert-box{border:6px solid #9d174d;box-shadow:none}
+  .container{padding:0}
+}
+@media(max-width:540px){.form-grid{grid-template-columns:1fr}.action-row{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="index.html" class="back">← Back to Lawyer Hub</a>
+  <h1>Certificate of Completion</h1>
+  <p class="sub">SC/ST Atrocities — Lawyer Track | Jan Nyaya Resource Centre</p>
+</div>
+
+<div class="container">
+
+  <div id="lock-section">
+    <div class="lock-box">
+      <h2>🔒 Complete All Levels to Unlock Certificate</h2>
+      <p>You must pass all three levels (70% minimum each) to claim your certificate.</p>
+      <div class="level-status" id="level-status"></div>
+    </div>
+  </div>
+
+  <div id="unlocked-section" style="display:none">
+    <div class="score-summary">
+      <h3>📊 Your Performance Summary</h3>
+      <div class="score-row"><span>Level 1 — Statutory &amp; Constitutional Framework</span><span class="score-val" id="s1">–</span></div>
+      <div class="score-row"><span>Level 2 — Trial Strategy, Evidence &amp; Examination</span><span class="score-val" id="s2">–</span></div>
+      <div class="score-row"><span>Level 3 — Appeals, Remedies &amp; Strategic Litigation</span><span class="score-val" id="s3">–</span></div>
+      <div class="score-row"><span>Average Score</span><span class="score-val" id="savg">–</span></div>
+    </div>
+
+    <div class="form-section">
+      <h3>📝 Enter Your Details</h3>
+      <div class="form-grid">
+        <div class="form-group full"><label>Full Name *</label><input type="text" id="f-name" placeholder="As you wish it to appear on the certificate"></div>
+        <div class="form-group"><label>Bar Enrolment No.</label><input type="text" id="f-bar" placeholder="e.g. BH/1234/2015"></div>
+        <div class="form-group"><label>State Bar Council</label><input type="text" id="f-sbc" placeholder="e.g. Bar Council of Bihar"></div>
+        <div class="form-group"><label>High Court / District Court</label><input type="text" id="f-court" placeholder="e.g. Patna High Court"></div>
+        <div class="form-group"><label>Specialisation</label><input type="text" id="f-spec" placeholder="e.g. Criminal Law, Human Rights"></div>
+        <div class="form-group"><label>Years of Practice</label><input type="text" id="f-yrs" placeholder="e.g. 8 years"></div>
+        <div class="form-group"><label>District</label><input type="text" id="f-dist" placeholder="District"></div>
+        <div class="form-group"><label>State</label><input type="text" id="f-state" placeholder="State"></div>
+        <div class="form-group"><label>Email</label><input type="email" id="f-email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Phone</label><input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group full"><label>Current Role / Practice Area</label><input type="text" id="f-role" placeholder="e.g. Legal Aid Panel Lawyer, Atrocity cases counsel, DLSA empanelled advocate"></div>
+      </div>
+      <button class="btn-generate" onclick="generateCert()">Generate Certificate</button>
+    </div>
+
+    <div id="cert-wrap">
+      <div class="cert-box">
+        <div class="cert-org">Janman People's Foundation &nbsp;|&nbsp; Jan Nyaya Resource Centre</div>
+        <div class="cert-title">Certificate of Completion</div>
+        <div class="cert-sub">SC/ST Atrocities &amp; Caste Discrimination — Lawyer Track</div>
+        <div class="cert-name-label">This certifies that</div>
+        <div class="cert-name" id="c-name">–</div>
+        <div class="cert-body">
+          of <span id="c-bar">–</span>, has successfully completed the advanced Lawyer training module on
+          <span class="cert-module">SC/ST Atrocities &amp; Caste Discrimination: PCR Act 1955, SC/ST (Prevention of Atrocities) Act 1989, and 2016 &amp; 2018 Amendments</span>
+          — comprising three levels on the advanced statutory framework, trial strategy and evidence management, and appellate practice and constitutional remedies.
+        </div>
+        <div class="cert-score-row">
+          <div class="cert-score-item"><div class="val" id="c-s1">–</div><div class="lbl">Level 1</div></div>
+          <div class="cert-score-item"><div class="val" id="c-s2">–</div><div class="lbl">Level 2</div></div>
+          <div class="cert-score-item"><div class="val" id="c-s3">–</div><div class="lbl">Level 3</div></div>
+          <div class="cert-score-item"><div class="val" id="c-avg">–</div><div class="lbl">Average</div></div>
+        </div>
+        <div class="cert-grade" id="c-grade">–</div>
+        <div class="cert-footer">
+          <div class="cert-sig">
+            <div class="sig-name">Shourya Roy</div>
+            <div class="sig-role">Director, Janman People's Foundation</div>
+          </div>
+          <div class="cert-sig">
+            <div class="sig-name" style="font-family:'Playfair Display',serif;font-size:1.1rem">Jan Nyaya Resource Centre</div>
+            <div class="sig-role">Issued on <span id="c-date">–</span></div>
+          </div>
+        </div>
+        <div class="cert-id" id="c-id">Certificate ID: –</div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn-print" onclick="window.print()">⬇ Download / Print Certificate</button>
+        <a class="btn-wa" id="wa-btn" href="#" target="_blank">📲 Share on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function getScore(key){var v=localStorage.getItem(key);return v?parseInt(v):null;}
+function getGrade(avg){if(avg>=90)return'Distinction';if(avg>=80)return'Merit';return'Pass';}
+window.addEventListener('load',function(){
+  var l1=localStorage.getItem('janman_scst_lw_l1_done');
+  var l2=localStorage.getItem('janman_scst_lw_l2_done');
+  var l3=localStorage.getItem('janman_scst_lw_l3_done');
+  var done=[l1,l2,l3];
+  var labels=['Level 1 — Statutory & Constitutional Framework','Level 2 — Trial Strategy, Evidence & Examination','Level 3 — Appeals, Remedies & Strategic Litigation'];
+  var links=['level1.html','level2.html','level3.html'];
+  var statusDiv=document.getElementById('level-status');
+  statusDiv.innerHTML='';
+  done.forEach(function(d,i){
+    var row=document.createElement('div');
+    row.className='ls-row';
+    row.innerHTML='<span class="ls-label">'+labels[i]+'</span><span class="ls-badge '+(d?'ls-done':'ls-pend')+'">'+(d?'✓ Complete':'⟳ Incomplete')+'</span>';
+    if(!d){row.style.cursor='pointer';row.onclick=function(){window.location=links[i];};}
+    statusDiv.appendChild(row);
+  });
+  if(l1&&l2&&l3){
+    document.getElementById('lock-section').style.display='none';
+    document.getElementById('unlocked-section').style.display='block';
+    var s1=getScore('janman_scst_lw_l1_score')||0;
+    var s2=getScore('janman_scst_lw_l2_score')||0;
+    var s3=getScore('janman_scst_lw_l3_score')||0;
+    var avg=Math.round((s1+s2+s3)/3);
+    document.getElementById('s1').textContent=s1+'%';
+    document.getElementById('s2').textContent=s2+'%';
+    document.getElementById('s3').textContent=s3+'%';
+    document.getElementById('savg').textContent=avg+'%';
+  }
+});
+function generateCert(){
+  var name=document.getElementById('f-name').value.trim();
+  if(!name){alert('Please enter your full name.');return;}
+  var bar=document.getElementById('f-bar').value.trim();
+  var sbc=document.getElementById('f-sbc').value.trim();
+  var barInfo=bar?(bar+(sbc?', '+sbc:'')):(sbc||'Independent Practitioner');
+  var s1=getScore('janman_scst_lw_l1_score')||0;
+  var s2=getScore('janman_scst_lw_l2_score')||0;
+  var s3=getScore('janman_scst_lw_l3_score')||0;
+  var avg=Math.round((s1+s2+s3)/3);
+  var grade=getGrade(avg);
+  var certId='JPF-LW-SCST-FINAL-'+Date.now().toString(36).toUpperCase();
+  var now=new Date();
+  var dateStr=now.toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+  document.getElementById('c-name').textContent=name;
+  document.getElementById('c-bar').textContent=barInfo;
+  document.getElementById('c-s1').textContent=s1+'%';
+  document.getElementById('c-s2').textContent=s2+'%';
+  document.getElementById('c-s3').textContent=s3+'%';
+  document.getElementById('c-avg').textContent=avg+'%';
+  document.getElementById('c-grade').textContent=grade;
+  document.getElementById('c-date').textContent=dateStr;
+  document.getElementById('c-id').textContent='Certificate ID: '+certId;
+  var msg=encodeURIComponent('I have completed the SC/ST Atrocities & Caste Discrimination training module (Lawyer Track) from the Jan Nyaya Resource Centre by Janman People\'s Foundation.\n\nGrade: '+grade+' ('+avg+'% average)\n\nExplore the training: https://shashwat-sys.github.io/janman-training/scst-atrocities/\n\nCertificate ID: '+certId);
+  document.getElementById('wa-btn').href='https://wa.me/?text='+msg;
+  document.getElementById('cert-wrap').style.display='block';
+  document.getElementById('cert-wrap').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
