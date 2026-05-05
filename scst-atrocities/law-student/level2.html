@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2: Landmark Judgments Part I — Law Student Track | SC/ST Atrocities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.hero{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 50%,#6366f1 100%);padding:2.5rem 1.5rem;text-align:center}
+.hero .back{display:inline-block;color:#93c5fd;text-decoration:none;font-size:.85rem;margin-bottom:1rem;opacity:.85}
+.hero .back:hover{opacity:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.5rem}
+.hero .sub{color:#bfdbfe;font-size:.95rem;margin-bottom:.75rem}
+.hero .meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.hero .meta span{background:rgba(255,255,255,.15);padding:.3rem .9rem;border-radius:999px;font-size:.8rem;color:#e0e7ff}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.section-title{font-size:1.3rem;font-weight:700;color:#60a5fa;margin:2.5rem 0 1rem;padding-left:.75rem;border-left:4px solid #1d4ed8}
+.intro-box{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.25rem 1.5rem;margin-bottom:2rem;line-height:1.7;color:#cbd5e1;font-size:.95rem}
+.intro-box strong{color:#93c5fd}
+
+/* Case Cards */
+.case-card{background:#1e293b;border:1px solid #334155;border-radius:.75rem;margin-bottom:1.75rem;overflow:hidden}
+.case-card .case-header{background:linear-gradient(135deg,#1d4ed8,#6366f1);padding:1rem 1.25rem}
+.case-card .case-cite{font-size:.8rem;color:#bfdbfe;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.25rem}
+.case-card .case-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;line-height:1.3}
+.case-card .case-court{font-size:.8rem;color:#c7d2fe;margin-top:.35rem}
+.case-card .case-body{padding:1.25rem 1.5rem}
+.case-card .case-body p{color:#cbd5e1;line-height:1.7;margin-bottom:.75rem;font-size:.9rem}
+.case-card .case-body p:last-child{margin-bottom:0}
+.case-card .case-body strong{color:#93c5fd}
+.ratio-box{background:#0f172a;border-left:3px solid #6366f1;border-radius:.5rem;padding:.85rem 1rem;margin:.75rem 0;font-size:.88rem;color:#c7d2fe;font-style:italic}
+.ratio-box strong{color:#a5b4fc;font-style:normal}
+.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:.75rem}
+.impact-item{background:#0f172a;border-radius:.5rem;padding:.75rem 1rem;border:1px solid #1e3a8a}
+.impact-item .label{font-size:.72rem;color:#6366f1;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
+.impact-item .value{font-size:.85rem;color:#e2e8f0;line-height:1.4}
+
+/* Doctrine Table */
+.doctrine-table{width:100%;border-collapse:collapse;margin:1rem 0}
+.doctrine-table th{background:#1d4ed8;color:#fff;padding:.6rem .85rem;text-align:left;font-size:.82rem;font-weight:700}
+.doctrine-table td{padding:.6rem .85rem;font-size:.83rem;border-bottom:1px solid #334155;color:#cbd5e1;vertical-align:top}
+.doctrine-table tr:hover td{background:#263347}
+.badge{display:inline-block;padding:.15rem .55rem;border-radius:999px;font-size:.72rem;font-weight:700}
+.badge-blue{background:#1e3a8a;color:#93c5fd}
+.badge-green{background:#14532d;color:#86efac}
+.badge-red{background:#7f1d1d;color:#fca5a5}
+.badge-yellow{background:#78350f;color:#fde68a}
+.badge-purple{background:#4c1d95;color:#c4b5fd}
+
+/* Timeline */
+.timeline{position:relative;padding-left:1.5rem;margin:1rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#1d4ed8,#6366f1)}
+.tl-item{position:relative;margin-bottom:1rem;padding-left:1rem}
+.tl-item::before{content:'';position:absolute;left:-1.6rem;top:.35rem;width:.75rem;height:.75rem;border-radius:50%;background:#6366f1;border:2px solid #1d4ed8}
+.tl-item .tl-year{font-size:.75rem;color:#6366f1;font-weight:700;margin-bottom:.2rem}
+.tl-item .tl-text{font-size:.88rem;color:#cbd5e1;line-height:1.5}
+
+/* Quiz */
+.quiz-section{background:#1e293b;border:2px solid #1d4ed8;border-radius:1rem;padding:2rem;margin-top:3rem}
+.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:#93c5fd;margin-bottom:.25rem}
+.quiz-section .quiz-meta{font-size:.85rem;color:#64748b;margin-bottom:1.5rem}
+.q-block{margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid #334155}
+.q-block:last-child{border-bottom:none;margin-bottom:0}
+.q-text{font-size:.92rem;font-weight:600;color:#e2e8f0;margin-bottom:.85rem;line-height:1.5}
+.q-num{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.4rem;padding:.1rem .5rem;font-size:.78rem;font-weight:700;margin-right:.5rem}
+.options label{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .85rem;border-radius:.5rem;border:1px solid #334155;margin-bottom:.5rem;cursor:pointer;transition:.15s}
+.options label:hover{border-color:#1d4ed8;background:#0f172a}
+.options input[type=radio]{margin-top:.15rem;accent-color:#6366f1;flex-shrink:0}
+.options label.correct{background:#14532d;border-color:#16a34a;color:#86efac}
+.options label.wrong{background:#7f1d1d;border-color:#dc2626;color:#fca5a5}
+.explanation{background:#0f172a;border-left:3px solid #6366f1;border-radius:.4rem;padding:.75rem 1rem;margin-top:.6rem;font-size:.83rem;color:#a5b4fc;line-height:1.6;display:none}
+.btn-submit{background:linear-gradient(135deg,#1d4ed8,#6366f1);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:.6rem;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:1rem;transition:.2s}
+.btn-submit:hover{opacity:.9}
+.btn-submit:disabled{background:#334155;color:#64748b;cursor:not-allowed}
+.result-box{display:none;background:#0f172a;border:2px solid #6366f1;border-radius:.75rem;padding:1.5rem;margin-top:1.5rem;text-align:center}
+.result-box .score{font-size:2.5rem;font-weight:800;color:#6366f1}
+.result-box .verdict{font-size:1.1rem;font-weight:600;margin:.5rem 0}
+.result-box .verdict.pass{color:#86efac}
+.result-box .verdict.fail{color:#fca5a5}
+.result-box p{font-size:.88rem;color:#64748b;margin-top:.5rem}
+.progress-bar{height:8px;background:#334155;border-radius:999px;margin-top:1rem;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(to right,#1d4ed8,#6366f1);border-radius:999px;transition:width .5s}
+.next-btn{display:none;background:#16a34a;color:#fff;border:none;padding:.75rem 2rem;border-radius:.6rem;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:1rem;text-decoration:none}
+.next-btn:hover{opacity:.9}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="index.html" class="back">← Back to Law Student Hub</a>
+  <h1>Level 2: Landmark Judgments — Part I</h1>
+  <p class="sub">SC/ST Atrocities Track — Law Student | Jan Nyaya Resource Centre</p>
+  <div class="meta">
+    <span>⚖️ 8 Landmark Cases</span>
+    <span>📚 Ratio Decidendi Analysis</span>
+    <span>🧠 20-Question Quiz</span>
+    <span>🎓 Law Student Level</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>Scope of This Level:</strong> This level provides exhaustive analysis of eight landmark judgments that have shaped SC/ST atrocities jurisprudence in India. Each case is studied for its <em>ratio decidendi</em>, doctrinal contribution, and continuing relevance to legal practice. Cases range from foundational constitutional decisions to recent Supreme Court benches reconsidering prior positions.
+  </div>
+
+  <!-- ==================== CASE 1 ==================== -->
+  <p class="section-title">Case 1 — The Atrocity Prevention Framework</p>
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-cite">AIR 1985 SC 1495 | (1985) 3 SCC 580</div>
+      <div class="case-title">State of Karnataka v. Appa Balu Ingale</div>
+      <div class="case-court">Supreme Court of India | 5-Judge Constitutional Bench</div>
+    </div>
+    <div class="case-body">
+      <p><strong>Facts &amp; Background:</strong> The accused, upper-caste villagers, prevented members of a Scheduled Caste community from drawing water from a public well and subjected them to caste-based humiliation. The case reached the Supreme Court on the question of whether such acts constituted "untouchability" under Article 17 and Section 3 of the PCR Act, 1955.</p>
+      <p><strong>Constitutional Question:</strong> Whether "untouchability" under Article 17 includes social practices beyond temple entry and whether a penal law targeting such practices violates Article 21 (personal liberty) of the accused.</p>
+      <div class="ratio-box">
+        <strong>Ratio Decidendi:</strong> "Untouchability" in Article 17 is not restricted to its traditional sense but must be construed broadly to include all forms of social discrimination based on caste. The PCR Act, 1955 is a special legislation giving effect to constitutional promises and must receive a liberal construction. Denial of water from public sources on caste grounds is an act of untouchability.<br><br>
+        The Court held that conviction under the PCR Act does not require proof of physical untouchability — social and economic disabilities imposed by reason of birth in a particular caste suffice.
+      </div>
+      <p><strong>Doctrinal Contribution:</strong> First authoritative ruling expanding the definition of "untouchability" beyond temple entry to encompass economic and social disabilities. Established that the PCR Act must be construed in consonance with the constitutional objective of abolishing untouchability.</p>
+      <div class="impact-grid">
+        <div class="impact-item"><div class="label">Principle</div><div class="value">Broad construction of "untouchability"</div></div>
+        <div class="impact-item"><div class="label">Test Laid Down</div><div class="value">Caste-based denial of social rights = untouchability</div></div>
+        <div class="impact-item"><div class="label">Continuing Relevance</div><div class="value">Applied in manual scavenging and public space exclusion cases</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CASE 2 ==================== -->
+  <p class="section-title">Case 2 — The Anti-Anticipatory Bail Rule</p>
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-cite">(1994) 4 SCC 260 | 1994 SCC (Cri) 1237</div>
+      <div class="case-title">State of M.P. v. Ram Krishna Balothia</div>
+      <div class="case-court">Supreme Court of India | Constitution Bench</div>
+    </div>
+    <div class="case-body">
+      <p><strong>Facts &amp; Background:</strong> The respondent, accused of offences under the SC/ST (POA) Act, 1989, applied for anticipatory bail. Section 18 of the POA Act expressly bars Section 438 CrPC (anticipatory bail) in atrocity cases. The High Court granted anticipatory bail holding Section 18 was unconstitutional as it violates personal liberty under Article 21.</p>
+      <p><strong>Constitutional Question:</strong> Whether Section 18 of the POA Act, which bars anticipatory bail, is constitutionally valid or violates Articles 14, 19, and 21 of the Constitution.</p>
+      <div class="ratio-box">
+        <strong>Ratio Decidendi:</strong> Section 18 of the POA Act is constitutionally valid. It does not violate Articles 14, 19, or 21 of the Constitution. The Constitution makers specifically created Article 17 to abolish untouchability — Parliament has the competence and indeed the constitutional duty to enact stringent special laws to give effect to this mandate. The bar on anticipatory bail is a reasonable restriction serving the compelling state interest of protecting SC/ST persons from atrocities.<br><br>
+        There is a rational basis for treating atrocity offences differently from ordinary criminal cases — victims of atrocities are in a position of vulnerability requiring special protection. Differential treatment is not discrimination but compensation for historical injustice.
+      </div>
+      <p><strong>Doctrinal Contribution:</strong> Established the constitutional validity of special protective provisions under the POA Act. The "compelling state interest" doctrine in the SC/ST context. This judgment was the primary precedent relied upon when Section 18A (introduced by 2018 Amendment) was challenged in Prathvi Raj Chauhan.</p>
+      <p><strong>Later Development:</strong> When the Supreme Court in Subhash Kashinath Mahajan (2018) effectively weakened Section 18 by reading in a preliminary inquiry requirement, Ram Krishna Balothia was distinguished. In Prathvi Raj Chauhan (2020), a 3-judge bench restored the full effect of Section 18, re-affirming Ram Krishna Balothia as good law.</p>
+      <div class="impact-grid">
+        <div class="impact-item"><div class="label">Section Upheld</div><div class="value">Section 18 POA Act — no anticipatory bail</div></div>
+        <div class="impact-item"><div class="label">Basis</div><div class="value">Article 17 constitutional mandate; compelling state interest</div></div>
+        <div class="impact-item"><div class="label">Current Status</div><div class="value">Good law; confirmed by Prathvi Raj Chauhan (2020)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CASE 3 ==================== -->
+  <p class="section-title">Case 3 — Special Courts and Speedy Trial</p>
+  <div class="case-card">
+    <div class="case-header">
+      <div class="case-cite">(2004) 5 SCC 518 | AIR 2004 SC 2605</div>
+      <div class="case-title">Gangula Ashok v. State of Andhra Pradesh</div>
+      <div class="case-court">Supreme Court of India | 3-Judge Bench</div>
+    </div>
+    <div class="case-body">
+      <p><strong>Facts &amp; Background:</strong> An atrocity case was tried by a Sessions Court that had been designated as an "Exclusive Special Court" under Section 14 of the POA Act. The question was whether a non-exclusive Special Court (a Sessions Court with general jurisdiction, designated to additionally handle POA cases) had jurisdiction to try atrocity offences, or whether only an exclusive Special Court could do so.</p>
+      <div class="ratio-box">
+        <strong>Ratio Decidendi:</strong> The POA Act mandates that atrocity offences be tried exclusively by Special Courts established under Section 14. The designation of an existing Sessions Court as a Special Court for POA purposes is valid, but such court must try POA cases with priority and cannot treat them as ordinary sessions cases to be dealt with in routine course. Speedy trial is a constitutional mandate in atrocity cases given the vulnerability of SC/ST victims.<br><br>
+        Critically, the Court held that ordinary Sessions Courts (without any designation under Section 14) have <em>no jurisdiction</em> to try POA Act offences — if they do so, the trial is void ab initio.
+      </div>
+      <p><strong>Doctrinal Contribution:</strong> Settled the jurisdictional question — POA trials must occur in designated Special Courts, not ordinary courts. This has significant procedural implications: a conviction by a non-designated court can be challenged on jurisdictional grounds even at the appeal/revision stage.</p>
+  ation percentage;<br>
+        (c) It is reviewed and updated periodically.<br><br>
+        <strong>Creamy Layer (Minority View):</strong> Some judges indicated that a "creamy layer" principle (normally applicable to OBCs, not SCs) may need to be considered for sub-classification purposes, though this remains unresolved.
+      </div>
+      <p><strong>Significance for Atrocities Law:</strong> Davinder Singh does not directly alter the POA Act but has indirect significance — it recognises that intra-SC differentiation is constitutionally permissible, which may affect victim identification, compensation, and rehabilitation priority under the POA Act. The "most backward among backward" principle is likely to inform future amendments to SC/ST welfare schemes.</p>
+      <div class="impact-grid">
+        <div class="impact-item"><div class="label">Overruled</div><div class="value">E.V. Chinnaiah (2004) on homogeneity point</div></div>
+        <div class="impact-item"><div class="label">New Rule</div><div class="value">Sub-classification allowed on empirical data</div></div>
+        <div class="impact-item"><div class="label">Unresolved</div><div class="value">Creamy layer within SC — to be decided</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparative Doctrine Table -->
+  <p class="section-title">Comparative Doctrine Summary</p>
+  <div class="intro-box">
+    <table class="doctrine-table">
+      <thead>
+        <tr><th>Case</th><th>Year</th><th>Core Doctrine</th><th>Current Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Karnataka v. Appa Balu Ingale</td><td>1985</td><td>Broad construction of "untouchability"</td><td><span class="badge badge-green">Good Law</span></td></tr>
+        <tr><td>Ram Krishna Balothia</td><td>1994</td><td>S.18 bar on anticipatory bail — constitutional</td><td><span class="badge badge-green">Good Law</span></td></tr>
+        <tr><td>Gangula Ashok</td><td>2004</td><td>Non-designated court = void jurisdiction</td><td><span class="badge badge-green">Good Law</span></td></tr>
+        <tr><td>Swaran Singh</td><td>2008</td><td>Caste motivation requirement for POA offences</td><td><span class="badge badge-yellow">Good Law (contested)</span></td></tr>
+        <tr><td>Safai Karamchari Andolan</td><td>2014</td><td>Manual scavenging = atrocity + Art. 17 violation</td><td><span class="badge badge-green">Good Law</span></td></tr>
+        <tr><td>Sube Singh</td><td>2006</td><td>Constitutional right to fair investigation</td><td><span class="badge badge-green">Good Law</span></td></tr>
+        <tr><td>Subhash Kashinath</td><td>2018</td><td>Preliminary inquiry + prior approval (3 directions)</td><td><span class="badge badge-red">Superseded by S.18A</span></td></tr>
+        <tr><td>Davinder Singh</td><td>2024</td><td>Sub-classification of SC list permissible</td><td><span class="badge badge-blue">Newest — 7-Judge Bench</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ===================== QUIZ ===================== -->
+  <div class="quiz-section">
+    <h2>Level 2 Assessment</h2>
+    <p class="quiz-meta">20 questions · Pass mark: 14/20 (70%) · Answers locked after submission</p>
+
+    <div id="quiz-form">
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q1</span>In <em>Karnataka v. Appa Balu Ingale</em> (1985), what was the Supreme Court's construction of "untouchability" under Article 17?</div>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> (a) Limited to denial of entry into temples and places of worship</label>
+          <label><input type="radio" name="q1" value="b"> (b) Broad — includes all caste-based social and economic disabilities, including denial of water from public sources</label>
+          <label><input type="radio" name="q1" value="c"> (c) Restricted to physical acts of touching or refusal to touch</label>
+          <label><input type="radio" name="q1" value="d"> (d) Applies only to practices expressly listed in the PCR Act</label>
+        </div>
+        <div class="explanation" id="exp-q1">The Court in Appa Balu Ingale held that "untouchability" under Article 17 must be broadly construed to include all forms of caste-based social and economic disability, not just temple entry. Denial of water from public wells on caste grounds was held to be an act of untouchability.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q2</span>In <em>State of M.P. v. Ram Krishna Balothia</em> (1994), Section 18 of the POA Act was challenged as unconstitutional. The Supreme Court held:</div>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> (a) Section 18 is unconstitutional as it violates Article 21</label>
+          <label><input type="radio" name="q2" value="b"> (b) Section 18 is constitutional — Parliament has competence to bar anticipatory bail in atrocity cases to serve the compelling state interest under Article 17</label>
+          <label><input type="radio" name="q2" value="c"> (c) Section 18 applies only to private persons, not public servants</label>
+          <label><input type="radio" name="q2" value="d"> (d) Courts retain discretion to grant anticipatory bail in exceptional cases despite Section 18</label>
+        </div>
+        <div class="explanation" id="exp-q2">Ram Krishna Balothia (1994) is the foundation case upholding Section 18's bar on anticipatory bail as constitutional, serving the compelling state interest under Article 17 to abolish untouchability. Option (d) was the incorrect position taken by Subhash Kashinath (2018), now reversed by Section 18A.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q3</span>Under <em>Gangula Ashok v. State of Andhra Pradesh</em> (2004), if an atrocity case is tried by a Sessions Court that has not been designated as a Special Court under Section 14 of the POA Act, the trial is:</div>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> (a) Valid, as a Sessions Court always has jurisdiction over criminal matters</label>
+          <label><input type="radio" name="q3" value="b"> (b) Voidable at the discretion of the appellate court</label>
+          <label><input type="radio" name="q3" value="c"> (c) Void ab initio due to lack of jurisdiction</label>
+          <label><input type="radio" name="q3" value="d"> (d) Valid provided it results in conviction</label>
+        </div>
+        <div class="explanation" id="exp-q3">Gangula Ashok held that only courts designated as Special Courts under Section 14 of the POA Act have jurisdiction to try atrocity offences. A non-designated Sessions Court conducting such a trial acts without jurisdiction — the trial is void ab initio.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q4</span>The "caste motivation" doctrine in <em>Swaran Singh v. State</em> (2008) holds that for an offence to attract the POA Act:</div>bel>
+          <label><input type="radio" name="q11" value="b"> (b) Only through the testimony of two independent witnesses</label>
+          <label><input type="radio" name="q11" value="c"> (c) Direct evidence OR inference from the totality of circumstances including words used, context, and prior relations</label>
+          <label><input type="radio" name="q11" value="d"> (d) Presumption of law — always assumed if victim is SC/ST</label>
+        </div>
+        <div class="explanation" id="exp-q11">Swaran Singh clarified that while caste motivation is required, it need not be proved by direct evidence alone. Courts can infer caste motivation from the totality of circumstances — the nature of the insult, words used (caste-specific slurs), social context, and prior relations between parties.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q12</span>Section 15A of the POA Act (2016 Amendment) codified victim rights recognized in cases like <em>Sube Singh</em>. Which of the following is NOT a right under Section 15A?</div>
+        <div class="options">
+          <label><input type="radio" name="q12" value="a"> (a) Right to be informed of the status of investigation</label>
+          <label><input type="radio" name="q12" value="b"> (b) Right to be heard at bail proceedings of the accused</label>
+          <label><input type="radio" name="q12" value="c"> (c) Right to be represented by a private advocate at State expense in the Special Court</label>
+          <label><input type="radio" name="q12" value="d"> (d) Right to automatic acquittal review if the accused is convicted</label>
+        </div>
+        <div class="explanation" id="exp-q12">Section 15A provides rights to be informed of the case, to be heard at bail hearings, and to receive State-provided legal assistance. Option (d) — "automatic acquittal review" — is not a right under Section 15A or any provision of the POA Act. Acquittal appeals are filed by the State under Sections 374-377 CrPC/BNSS.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q13</span>What was the constitutional basis for Parliament's competence to enact the bar on anticipatory bail under Section 18, as held in <em>Ram Krishna Balothia</em>?</div>
+        <div class="options">
+          <label><input type="radio" name="q13" value="a"> (a) Entry 1, List II (State List) — public order</label>
+          <label><input type="radio" name="q13" value="b"> (b) Article 17 read with Article 35 — Parliament's obligation to give effect to the constitutional abolition of untouchability</label>
+          <label><input type="radio" name="q13" value="c"> (c) Concurrent List Entry 12 — evidence</label>
+          <label><input type="radio" name="q13" value="d"> (d) Article 246 read with Entry 1 of List I — defence and security</label>
+        </div>
+        <div class="explanation" id="exp-q13">Ram Krishna Balothia relied on Article 17 (abolition of untouchability) read with Article 35 (Parliament's power to make laws giving effect to fundamental rights). Parliament has not merely the power but the constitutional duty to enact stringent measures to fulfil the Article 17 mandate, including bars on anticipatory bail.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q14</span>In <em>Gangula Ashok</em> (2004), what is the position regarding a Sessions Court that is designated as a Special Court under Section 14 but has general jurisdiction over ordinary criminal cases?</div>
+        <div class="options">
+          <label><input type="radio" name="q14" value="a"> (a) It cannot try POA cases at all — hnly exclusive Special Courts can</label>
+          <label><input type="radio" name="q14" value="b"> (b) It can try POA cases and must give them priority, but its designation must be expressly made under Section 14</label>
+          <label><input type="radio" name="q14" value="c"> (c) It must transfer POA cases to the High Court for trial</label>
+          <label><input type="radio" name="q14" value="d"> (d) Its jurisdiction depends on the annual number of pending atrocity cases only</label>
+        </div>
+        <div class="explanation" id="exp-q14">Gangula Ashok held that a Sessions Court with general criminal jurisdiction CAN be designated as a Special Court under Section 14 — it need not be exclusive. However, the designation must be expressly made, and POA cases must be given priority. Post-2016, Section 14A additionally mandates Exclusive Special Courts where average pending cases exceed 100 annually.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q15</span>Which of the three Subhash Kashinath (2018) directions was most directly overridden by the 2018 Amendment to the POA Act?</div>
+        <div class="options">
+          <label><input type="radio" name="q15" value="a"> (a) The requirement of prior sanction before initiating prosecution</label>
+          <label><input type="radio" name="q15" value="b"> (b) Mandatory mediation before FIR registration in atrocity cases</label>
+          <label><input type="radio" name="q15" value="c"> (c) All three — ho preliminary inquiry, no prior approval for arrest, and no anticipatory bail in any circumstances</label>
+          <label><input type="radio" name="q15" value="d"> (d) Only the anticipatory bail direction — the other two were upheld</label>
+        </div>
+        <div class="explanation" id="exp-q15">Section 18A, inserted by the 2018 Amendment, specifically overrides all three Subhash Kashinath directions: (i) No preliminary inquiry before FIR registration; (ii) No prior approval of any authority required before arrest; (iii) Section 18's absolute bar on anticipatory bail is fully restored.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q16</span>The 2016 offences added to the POA Act (Sections 3(1)(r), (s), (t), (u), (v), (w), etc.) are significant in relation to <em>Swaran Singh</em>'s caste motivation requirement because:</div>
+        <div class="options">
+          <label><input type="radio" name="q16" value="a"> (a) They completely abolish the caste motivation requirement for all offences</label>
+          <label><input type="radio" name="q16" value="b"> (b) These new offences (social boycott, electoral intimidation, etc.) are inherently caste-linked in nature, making motivation easier to prove</label>
+          <label><input type="radio" name="q16" value="c"> (c) They restrict prosecution to cases where direct documentary evidence of caste motivation exists</label>
+          <label><input type="radio" name="q16" value="d"> (d) They replace the old offences and the Swaran Singh doctrine no longer applies</label>
+        </div>
+        <div class="explanation" id="exp-q16">The 2016 new offences (social/economic boycott, preventing SC/ST from using common resources, electoral intimidation, etc.) are inherently caste-linked — the very nature of these acts establishes caste motivation. This addresses the evidentiary difficulty created by Swaran Singh's motivation requirement, while not eliminating it entirely.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q17</span>In which case did the Supreme Court hold that a State law providing 50% sub-reservation for Valmikis and Mazhabi Sikhs within the SC category was constitutionally valid?</div>
+        <div class="options">
+          <label><input type="radio" name="q17" value="a"> (a) E.V. Chinnaiah v. State of Andhra Pradesh (2004)</label>
+          <label><input type="radio" name="q17" value="b"> (b) State of Punjab v. Davinder Singh (2024) — 7-Judge bench</label>
+          <label><input type="radio" name="q17" value="c"> (c) Indra Sawhney v. Union of India (1992)</label>
+          <label><input type="radio" name="q17" value="d"> (d) M. Nagaraj v. Union of India (2006)</label>
+        </div>
+        <div class="explanation" id="exp-q17">Davinder Singh (2024) — a 7-Judge Constitutional bench — held that the Punjab law sub-classifying the SC reservation for Valmikis and Mazhabi Sikhs was valid, and overruled E.V. Chinnaiah's "homogeneity" doctrine to the extent it prevented such sub-classification.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q18</span>The intersection of manual scavenging and the POA Act, clarified in <em>Safai Karamchari Andolan</em> (2014), means that compelling an SC person to continue scavenging by reason of caste can additionally attract which POA Act provisions (as per pre-2016 numbering)?</div>
+        <div class="options">
+          <label><input type="radio" name="q18" value="a"> (a) Section 3(1)(i) — wrongful occupation of SC land</label>
+          <label><input type="radio" name="q18" value="b"> (b) Sections 3(1)(f) [compelled begging] and 3(1)(xi) [insult/humiliation in public]</label>
+          <label><input type="radio" name="q18" value="c"> (c) Section 3(2)(v) — false evidence</label>
+          <label><input type="radio" name="q18" value="d"> (d) Section 4 only — failure of public servant to file FIR</label>
+        </div>
+        <div class="explanation" id="exp-q18">The judgment in Safai Karamchari Andolan identified that forcing an SC/ST person to perform scavenging by reason of caste can attract Section 3(1)(f) (compelling to do forced/begar work) and Section 3(1)(xi) (insult or humiliation in public view), in addition to the Manual Scavengers Act provisions.</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q19</span>Before the <em>Davinder Singh</em> (2024) judgment, what was the position established in <em>E.V. Chinnaiah</em> (2004) regarding the Presidential SC list?</div>
+        <div class="options">
+          <label><input type="radio" name="q19" value="a"> (a) States have unfettered power to rearrange and sub-classify the SC list</label>
+          <label><input type="radio" name="q19" value="b"> (b) The SC list forms a "homogenous class" — States cannot sub-classify it as only Parliament can modify the Presidential notification</label>
+          <label><input type="radio" name="q19" value="c"> (c) States can remove castes from the SC list but cannot add sub-groups</span>
+          <label><input type="radio" name="q19" value="d"> (d) The SC list applies only to Central government reservations, not State reservations</label>
+        </div>
+        <div class="explanation" id="exp-q19">E.V. Chinnaiah (2004) held that the Presidential SC list under Article 341 is a "homogenous class" — since only Parliament can modify it, States cannot sub-classify it for preferential treatment within the SC quota. This position was overruled by the 7-Judge bench in Davinder Singh (2024).</div>
+      </div>
+
+      <div class="q-block">
+        <div class="q-text"><span class="q-num">Q20</span>Which judgment established that the principle of "compelling state interest" justifies special protective provisions under the POA Act that may appear to treat accused persons differently from ordinary criminal cases?</div>
+        <div class="options">
+          <label><input type="radio" name="q20" value="a"> (a) Gangula Ashok v. State of Andhra Pradesh (2004)</label>
+          <label><input type="radio" name="q20" value="b"> (b) Swaran Singh v. State (2008)</label>
+          <label><input type="radio" name="q20" value="c"> (c) State of M.P. v. Ram Krishna Balothia (1994)</label>
+          <label><input type="radio" name="q20" value="d"> (d) Safai Karamchari Andolan v. UOI (2014)</label>
+        </div>
+        <div class="explanation" id="exp-q20">Ram Krishna Balothia (1994) is the foundational case that introduced the "compelling state interest" doctrine in the SC/ST context. The Court held that Article 17's mandate creates a compelling state interest sufficient to justify special protective provisions that treat atrocity offences differently from ordinary crimes.</div>
+      </div>
+
+      <button class="btn-submit" onclick="submitQuiz()">Submit Assessment</button>
+
+      <div class="result-box" id="result-box">
+        <div class="score" id="score-display"></div>
+        <div class="verdict" id="verdict-display"></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        <p id="result-msg"></p>
+        <a href="level3.html" class="next-btn" id="next-btn">Proceed to Level 3 →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'c',q4:'c',q5:'b',q6:'c',q7:"b',q8:'c',q9:'b',q10:'b',q11:'c',q12:'d',q13:'b',q14:'b'15:'c',q16:'b',q17:'b',q18:'b',q19:'b',q20:'c'};
+var submitted=false;
+function submitQuiz(){
+  if(submitted)return;
+  var score=0;
+  var total=Object.keys(ANSWERS).length;
+  var allAnswered=true;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    if(!sel){allAnswered=false;break;}
+  }
+  if(!allAnswered){alert('Please answer all questions before submitting.');return;}
+  submitted=true;
+  document.querySelector('.btn-submit').disabled=true;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    var labels=document.querySelectorAll('input[name="'+q+'"]');
+    labels.forEach(function(inp){
+      inp.disabled=true;
+      var lbl=inp.parentElement;
+      if(inp.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(inp.checked)lbl.classList.add('wrong');
+    });
+    var exp=document.getElementById('exp-'+q);
+    if(exp)exp.style.display='block';
+    if(sel&&sel.value===ANSWERS[q])score++;
+  }
+  var pct=Math.round(score/total*100);
+  var rb=document.getElementById('result-box');
+  rb.style.display='block';
+  document.getElementById('score-display').textContent=score+'/'+total;
+  document.getElementById('progress-fill').style.width=pct+'%';
+  var passed=pct>=70;
+  var vd=document.getElementById('verdict-display');
+  if(pct>=90){vd.textContent='Distinction';vd.className='verdict pass';}
+  else if(pct>=80){vd.textContent='Merit';vd.className='verdict pass';}
+  else if(pct>=70){vd.textContent='Pass';vd.className='verdict pass';}
+  else{vd.textContent='Below Pass — Review Required';vd.className='verdict fail';}
+  document.getElementById('result-msg').textContent=passed?'You scored '+pct+'%. Proceed to Level 3.':'You scored '+pct+'%. 70% required. Please review the case analyses and retry.';
+  if(passed){
+    localStorage.setItem('janman_scst_ls_l2_done','1');
+    localStorage.setItem('janman_scst_ls_l2_score',pct);
+    document.getElementById('next-btn').style.display='inline-block';
+  }
+  rb.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
