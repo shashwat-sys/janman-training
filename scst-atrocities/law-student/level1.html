@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Level 1 — Constitutional Foundations | Law Student Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#eff6ff;color:#1e293b;line-height:1.7}
+.navbar{background:#1d4ed8;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
+.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.hero{background:linear-gradient(135deg,#1d4ed8,#6366f1);color:#fff;padding:40px 28px 28px;text-align:center}
+.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
+.hero p{opacity:.9;font-size:.95rem;max-width:660px;margin:0 auto}
+.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:660px;margin-left:auto;margin-right:auto}
+.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
+.content{max-width:920px;margin:0 auto;padding:32px 24px 60px}
+.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.section h2{font-size:1.15rem;font-weight:800;color:#1d4ed8;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #bfdbfe}
+.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
+.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
+.info-box{background:#eff6ff;border-left:4px solid #1d4ed8;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#1e40af}
+.case-card{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin-bottom:14px;border-left:4px solid #1d4ed8}
+.case-card .case-cite{font-size:.78rem;font-weight:700;color:#1d4ed8;letter-spacing:.04em;margin-bottom:6px}
+.case-card .case-title{font-size:1rem;font-weight:800;color:#1e293b;margin-bottom:8px}
+.case-card .case-body{font-size:.86rem;color:#374151;line-height:1.7}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.84rem}
+th{background:#1d4ed8;color:#fff;padding:10px 12px;text-align:left}
+td{padding:9px 12px;border-bottom:1px solid #bfdbfe;color:#374151}
+tr:nth-child(even) td{background:#eff6ff}
+.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
+.quiz-section h2{font-size:1.1rem;font-weight:800;color:#1d4ed8;margin-bottom:20px}
+.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #bfdbfe}
+.question:last-of-type{border-bottom:none}
+.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
+.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
+.option:hover{border-color:#bfdbfe;background:#eff6ff}
+.option input{margin-top:2px;flex-shrink:0;accent-color:#1d4ed8}
+.option.correct{background:#dcfce7;border-color:#86efac;color:#15803d}
+.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
+.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
+.submit-btn{background:#1d4ed8;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px}
+.submit-btn:hover{background:#1e40af}
+.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
+#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
+#result.pass{background:#dcfce7;color:#15803d}
+#result.fail{background:#fee2e2;color:#dc2626}
+#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+</style>
+</head>
+<body>
+<nav class="navbar">
+  <a href="index.html">← Track Hub</a>
+  <span style="color:#bfdbfe">Level 1 — Constitutional Foundations</span>
+  <a href="../../index.html">Home</a>
+</nav>
+<div class="hero">
+  <h1>Level 1: Constitutional Foundations & Statutory Analysis</h1>
+  <p>Art. 17, Arts. 341-342, complete analysis of PCR Act 1955 and POA Act 1989, constitutional validity, definitional jurisprudence and offence taxonomy</p>
+  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
+</div>
+<div class="content">
+
+<div class="section">
+  <h2>Constitutional Architecture of SC/ST Protection</h2>
+  <h3>Article 17 — Abolition of Untouchability</h3>
+  <p>"Untouchability" is abolished and its practice in any form is forbidden. The enforcement of any disability arising out of Untouchability shall be an offence punishable in accordance with law.</p>
+  <div class="info-box"><strong>Academic note:</strong> Art. 17 is unique — it creates an enforceable fundamental right against <em>private persons</em>, not just the state. In Akhil Bharatiya Soshit Karmachari Sangh v. Union of India (1981), the SC held Art. 17 operates horizontally, binding all citizens.</div>
+  <h3>Definitional Ambiguity — "Untouchability"</h3>
+  <p>The Constitution does not define "untouchability." The Supreme Court in <em>Devarajiah v. B. Padmanna (1958)</em> held the term should be understood in its historical sociological context — the social disability imposed on certain castes from birth based on Hindu religious practice. The PCR Act 1955 operationalises this constitutional mandate.</p>
+  <h3>Arts. 341-342 — Scheduled Castes and Tribes</h3>
+  <table>
+    <tr><th>Provision</th><th>Content</th><th>Legal Significance</th></tr>
+    <tr><td>Art. 341(1)</td><td>President may specify castes, races, tribes as Scheduled Castes for any State/UT</td><td>Presidential notification is the definitive criterion — no court can add communities</td></tr>
+    <tr><td>Art. 341(2)</td><td>Parliament may by law include or exclude communities from the list</td><td>Exclusion/inclusion is a legislative function — judiciary cannot direct this</td></tr>
+    <tr><td>Art. 342(1)-(2)</td><td>Similar scheme for Scheduled Tribes</td><td>Same Presidential notification mechanism applies</td></tr>
+  </table>
+  <div class="info-box"><strong>Key SC ruling:</strong> In <em>E.V. Chinnaiah v. State of AP (2004)</em>, the SC held that sub-classification within SCs by state governments for reservations is unconstitutional — Presidential list is an integrated whole. This was partially overruled in <em>State of Punjab v. Davinder Singh (2024)</em> where a 7-judge bench held states CAN sub-classify. This remains a live controversy in SC/ST law.</div>
+</div>
+
+<div class="section">
+  <h2>PCR Act 1955 — Analytical Framework</h2>
+  <p>The Protection of Civil Rights Act 1955 (amended 1976) implements Art. 17. It penalises the enforcement of disabilities arising from untouchability — the social/civil dimension, distinct from the physical violence dimension covered by POA Act.</p>
+  <h3>Structural Analysis</h3>
+  <table>
+    <tr><th>Chapter</th><th>Sections</th><th>Subject</th></tr>
+    <tr><td>Offences</td><td>Sec 3-7A</td><td>Religious, social, economic, occupational and other disabilities</td></tr>
+    <tr><td>Enhanced punishment</td><td>Sec 8</td><td>Subsequent conviction — enhanced minimum; cancellation of licences</td></tr>
+    <tr><td>Presumptions</td><td>Sec 12-14</td><td>Presumption of untouchability motive; abetment; shifting burden</td></tr>
+    <tr><td>Trial</td><td>Sec 13</td><td>Cognizable, non-bailable; trial by Executive Magistrate (1st class)</td></tr>
+    <tr><td>State duty</td><td>Sec 15A</td><td>State must ensure effective implementation — undertake awareness, relief, rehabilitation</td></tr>
+  </table>
+  <div class="info-box"><strong>PCR vs POA — Key Distinction:</strong> PCR Act targets civil/social disabilities (access to places, services, occupations) arising from the practice of untouchability. POA Act targets physical, sexual, economic and psychological atrocities. Many incidents may attract BOTH statutes simultaneously.</div>
+</div>
+
+<div class="section">
+  <h2>POA Act 1989 — Constitutional Validity & Objectives</h2>
+  <h3>Preamble & Objects</h3>
+  <p>The Statement of Objects and Reasons notes that existing laws (IPC, CrPC, PCR Act) have proved inadequate to check atrocities committed on members of Scheduled Castes and Scheduled Tribes. The Act aims to prevent such atrocities, provide special courts for speedy trial, and provide relief and rehabilitation.</p>
+  <h3>Constitutional Validity</h3>
+  <div class="case-card">
+    <div class="case-cite">State of Maharashtra v. Bhaurao Punjabrao Gawande — (2008) 3 SCC 613</div>
+    <div class="case-title">Scope and Strict Interpretation of Scheduled Offences</div>
+    <div class="case-body">SC held that the POA Act must be given liberal construction in keeping with its object — prevention of atrocities. The essential ingredient of caste identity (victim SC/ST, accused non-SC/ST) is a jurisdictional prerequisite. Courts cannot water down this requirement but also cannot expand the statute beyond its terms.</div>
+  </div>
+  <div class="case-card">
+    <div class="case-cite">Swaran Singh v. State — (2008) 8 SCC 435</div>
+    <div class="case-title">Essential Ingredients — Caste Element is Jurisdictional</div>
+    <div class="case-body">Supreme Court clarified: (1) The accused must be a non-SC/ST; (2) The offence must be committed against an SC/ST; (3) The offence must be committed "on the ground that the victim is an SC/ST" — the caste motivation is essential. A simple assault between two persons of different castes does not attract POA Act unless the caste of victim was the motivation for the offence.</div>
+  </div>
+
+  <h3>Definitional Jurisprudence</h3>
+  <table>
+    <tr><th>Term</th><th>Statutory Definition</th><th>Judicial Gloss</th></tr>
+    <tr><td>Atrocity [Sec 2(a)]</td><td>Offence punishable under Sec 3(1) or 3(2)</td><td>Swaran Singh: offence must be motivated by victim's caste identity</td></tr>
+    <tr><td>Scheduled Caste/Tribe</td><td>As per Arts. 341 and 342 Presidential notification</td><td>E.V. Chinnaiah: list is integral; state cannot sub-divide</td></tr>
+    <tr><td>Public servant [Sec 2(f)]</td><td>As in IPC Sec 21</td><td>Includes police, revenue, educational, medical officers</td></tr>
+    <tr><td>Wilful neglect [Sec 4]</td><td>Not defined — gap in statute</td><td>Courts apply objective test: was the omission deliberate or grossly negligent?</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>Offence Taxonomy — Academic Classification</h2>
+  <h3>By Nature of Harm</h3>
+  <table>
+    <tr><th>Category</th><th>Sections</th><th>Examples</th></tr>
+    <tr><td>Degradation offences</td><td>3(1)(a),(b),(s)</td><td>Force-feeding filth; dumping excreta; garlanding with footwear; parading naked</td></tr>
+    <tr><td>Labour exploitation</td><td>3(1)(c),(2)(vi)</td><td>Begar, bonded labour, forced caste occupation</td></tr>
+    <tr><td>Land & property rights</td><td>3(1)(d),(t),(u)</td><td>Dispossession, wrongful occupation, denial of common property</td></tr>
+    <tr><td>Social exclusion</td><td>3(1)(e),(h),(q)</td><td>Denial of water/road access, pollution of water source, boycott</td></tr>
+    <tr><td>Physical violence</td><td>3(1)(f),(l),(o)</td><td>Assault, outraging modesty, IPC offences in caste context</td></tr>
+    <tr><td>Sexual violence</td><td>3(1)(g),(p), 3(2)(v)</td><td>Sexual exploitation, devadasi, rape, gang rape</td></tr>
+    <tr><td>Psychological harm</td><td>3(1)(j),(k),(r)</td><td>Public humiliation, false prosecution, malicious insult</td></tr>
+    <tr><td>Political rights</td><td>3(1)(v)</td><td>Preventing elections, panchayat participation</td></tr>
+    <tr><td>Consequential offences</td><td>3(2)(i)-(iv),(va)</td><td>False evidence, fabrication, arson, mischief, attempt/abetment</td></tr>
+    <tr><td>Public servant defaults</td><td>3(2)(vii), Sec 4</td><td>Wilful neglect, harassment of victim/witness</td></tr>
+  </table>
+</div>
+
+<div class="section">
+  <h2>2016 & 2018 Amendments — Academic Analysis</h2>
+  <h3>Significance of the 2016 Amendment Act</h3>
+  <p>The 2016 Amendment was a direct response to judicial dilution of the Act's provisions. Key academic points:</p>
+  <div class="info-box">
+    <strong>Sec 18A — Response to Judicial Overreach:</strong> The amendment overturned the practice of requiring preliminary inquiries before FIR registration — a practice courts had developed despite the Act's silence on it. Parliament expressly prohibited such inquiries.<br><br>
+    <strong>Sec 15A — Victim Rights Chapter:</strong> Borrowed from comparative victimology and international standards (UN Declaration on Victims 1985), this section created the most comprehensive victim rights provision in Indian criminal law.<br><br>
+    <strong>19 New Offences:</strong> Expanded coverage to digital/modern forms of caste discrimination (social media humiliation) and addressed lacunae identified by the National Crime Records Bureau data.
+  </div>
+  <h3>The Constitutional Crisis — Subhash Kashinath and Recovery</h3>
+  <p>In <em>Subhash Kashinath Mahajan v. State of Maharashtra (2018) 6 SCC 454</em>, a 2-judge bench introduced a preliminary inquiry requirement and SP approval for arrest — effectively creating protections for accused not in the statute. This triggered massive protests. Parliament responded with the 2018 Amendment (Statement of Objects: "to restore the original intent") and the Supreme Court in <em>Prathvi Raj Chauhan v. UOI (2020) 4 SCC 727</em> (5-judge bench) recalled Subhash Kashinath and upheld the original provisions.</p>
+</div>
+
+<!-- QUIZ -->
+<div class="quiz-section">
+  <h2>📝 Level 1 Assessment — 20 Questions (Pass: 70%)</h2>
+  <form id="quiz-form">
+  <div class="question"><div class="q-text">Q1. Article 17 of the Constitution operates as a fundamental right enforceable against:</div>
+    <label class="option"><input type="radio" name="q1" value="a"> Only the State (vertical application)</label>
+    <label class="option"><input type="radio" name="q1" value="b"> Both the State and private persons (horizontal application)</label>
+    <label class="option"><input type="radio" name="q1" value="c"> Only central government employees</label>
+    <label class="option"><input type="radio" name="q1" value="d"> Only religious institutions</label>
+    <div class="explanation" id="exp-q1">Art. 17 is unique — it has horizontal application against private persons. The SC in Akhil Bharatiya Soshit Karmachari Sangh v. UOI (1981) confirmed this. PCR Act enforces Art. 17 against private untouchability practitioners.</div>
+  </div>
+  <div class="question"><div class="q-text">Q2. The constitutional definition of "untouchability" in Art. 17 is:</div>
+    <label class="option"><input type="radio" name="q2" value="a"> Defined as any form of caste discrimination</label>
+    <label class="option"><input type="radio" name="q2" value="b"> Defined with reference to specific castes listed in Schedule</label>
+    <label class="option"><input type="radio" name="q2" value="c"> Not defined — courts interpret it in its historical sociological context</label>
+    <label class="option"><input type="radio" name="q2" value="d"> Defined by the PCR Act 1955</label>
+    <div class="explanation" id="exp-q2">Art. 17 does not define "untouchability." Devarajiah v. B. Padmanna (1958) held it must be understood in its historical context — the caste-based social disability imposed from birth in Hindu religious practice.</div>
+  </div>
+  <div class="question"><div class="q-text">Q3. In E.V. Chinnaiah v. State of AP (2004), the Supreme Court held that state sub-classification of Scheduled Castes for reservation is:</div>
+    <label class="option"><input type="radio" name="q3" value="a"> Constitutionally valid under Art. 15(4)</label>
+    <label class="option"><input type="radio" name="q3" value="b"> Unconstitutional — the Presidential SC list is an integral whole</label>
+    <label class="option"><input type="radio" name="q3" value="c"> Valid only if Parliament approves</label>
+    <label class="option"><input type="radio" name="q3" value="d"> Valid if based on socio-economic criteria</label>
+    <div class="explanation" id="exp-q3">E.V. Chinnaiah (2004) held sub-classification unconstitutional. This was partially overruled by a 7-judge bench in State of Punjab v. Davinder Singh (2024) which held states CAN sub-classify — a live constitutional controversy.</div>
+  </div>
+  <div class="question"><div class="q-text">Q4. The essential "caste motivation" element in POA Act offences was articulated in:</div>
+    <label class="option"><input type="radio" name="q4" value="a"> State of Maharashtra v. Bhaurao Gawande (2008)</label>
+    <label class="option"><input type="radio" name="q4" value="b"> Prathvi Raj Chauhan v. UOI (2020)</label>
+    <label class="option"><input type="radio" name="q4" value="c"> Swaran Singh v. State (2008)</label>
+    <label class="option"><input type="radio" name="q4" value="d"> Subhash Kashinath Mahajan (2018)</label>
+    <div class="explanation" id="exp-q4">Swaran Singh v. State (2008) 8 SCC 435 held that the offence must be committed because the victim is an SC/ST — the caste of the victim must be the motivation, not merely incidental to the offence.</div>
+  </div>
+  <div class="question"><div class="q-text">Q5. Which section of the PCR Act creates a presumption of untouchability motive when disability is enforced against an SC person?</div>
+    <label class="option"><input type="radio" name="q5" value="a"> Sec 8</label>
+    <label class="option"><input type="radio" name="q5" value="b"> Sec 12</label>
+    <label class="option"><input type="radio" name="q5" value="c"> Sec 14</label>
+    <label class="option"><input type="radio" name="q5" value="d"> Sec 15A</label>
+    <div class="explanation" id="exp-q5">PCR Act Sec 14 — presumption of untouchability motive. When it is established that the victim belongs to an SC community and that a civil disability was enforced, the court presumes untouchability motivation — shifting burden to accused.</div>
+  </div>
+  <div class="question"><div class="q-text">Q6. "Devadasi dedication" of SC/ST women — forcing them into religious prostitution — is an atrocity under:</div>
+    <label class="option"><input type="radio" name="q6" value="a"> Sec 3(1)(g) — sexual exploitation through dominant position</label>
+    <label class="option"><input type="radio" name="q6" value="b"> Sec 3(1)(p) — dedicating SC/ST woman as devadasi</label>
+    <label class="option"><input type="radio" name="q6" value="c"> Sec 3(2)(v) — rape</label>
+    <label class="option"><input type="radio" name="q6" value="d"> Sec 3(1)(f) — assault with intent to dishonour</label>
+    <div class="explanation" id="exp-q6">Sec 3(1)(p) specifically covers the practice of dedicating SC/ST women as devadasis, Jogins, or similar customary practices — recognizing this as both a religious and caste-based form of sexual exploitation.</div>
+  </div>
+  <div class="question"><div class="q-text">Q7. The "objects and reasons" of the POA Act 1989 specifically states that which existing laws proved inadequate?</div>
+    <label class="option"><input type="radio" name="q7" value="a"> Constitution and fundamental rights only</label>
+    <label class="option"><input type="radio" name="q7" value="b"> IPC, CrPC, and the Protection of Civil Rights Act 1955</label>
+    <label class="option"><input type="radio" name="q7" value="c"> DPSP provisions of the Constitution</label>
+    <label class="option"><input type="radio" name="q7" value="d"> Land reform laws</label>
+    <div class="explanation" id="exp-q7">The Statement of Objects expressly identifies the IPC, CrPC, and PCR Act 1955 as having proven inadequate to check atrocities — this legislative history is important for liberal interpretation of the POA Act.</div>
+  </div>
+  <div class="question"><div class="q-text">Q8. The addition of Sec 15A to the POA Act (2016) was influenced by which international standard?</div>
+    <label class="option"><input type="radio" name="q8" value="a"> ICCPR Article 14 (fair trial)</label>
+    <label class="option"><input type="radio" name="q8" value="b"> UN Declaration on Basic Principles of Justice for Victims (1985)</label>
+    <label class="option"><input type="radio" name="q8" value="c"> CEDAW Article 6</label>
+    <label class="option"><input type="radio" name="q8" value="d"> ILO Convention 169</label>
+    <div class="explanation" id="exp-q8">Sec 15A's victim rights provisions — right to information, to be heard, protection of identity, safety, relocation — are modelled on the UN Declaration on Basic Principles of Justice for Victims of Crime and Abuse of Power (1985).</div>
+  </div>
+  <div class="question"><div class="q-text">Q9. Which category of offences under the POA Act addresses the denial of common property resources?</div>
+    <label class="option"><input type="radio" name="q9" value="a"> Degradation offences (Sec 3(1)(a)-(b))</label>
+    <label class="option"><input type="radio" name="q9" value="b"> Social exclusion offences (Sec 3(1)(e),(h),(q),(u))</label>
+    <label class="option"><input type="radio" name="q9" value="c"> Sexual violence offences (Sec 3(2)(v))</label>
+    <label class="option"><input type="radio" name="q9" value="d"> Political rights offences (Sec 3(1)(v))</label>
+    <div class="explanation" id="exp-q9">Social exclusion offences — particularly Sec 3(1)(e) (denial of waterways/roads), Sec 3(1)(h) (polluting water sources), Sec 3(1)(u) (denial of common burial grounds, pasture) — address common property resource denial.</div>
+  </div>
+  <div class="question"><div class="q-text">Q10. In Subhash Kashinath Mahajan (2018), the Supreme Court's controversial addition was:</div>
+    <label class="option"><input type="radio" name="q10" value="a"> Mandatory victim compensation before trial</label>
+    <label class="option"><input type="radio" name="q10" value="b"> Preliminary inquiry requirement + SP approval for arrest — overturned by Prathvi Raj Chauhan (2020)</label>
+    <label class="option"><input type="radio" name="q10" value="c"> Requirement of HC permission before filing FIR</label>
+    <label class="option"><input type="radio" name="q10" value="d"> Mandatory mediation before trial</label>
+    <div class="explanation" id="exp-q10">Subhash Kashinath Mahajan (2018) 6 SCC 454 introduced preliminary inquiry and SP approval — creating safeguards not in the statute. Prathvi Raj Chauhan (2020) 5-judge bench recalled these additions and upheld Sec 18A.</div>
+  </div>
+  <div class="question"><div class="q-text">Q11. Art. 341(2) provides that inclusion/exclusion of communities in the SC list is the function of:</div>
+    <label class="option"><input type="radio" name="q11" value="a"> The Supreme Court</label>
+    <label class="option"><input type="radio" name="q11" value="b"> The President alone (executive function)</label>
+    <label class="option"><input type="radio" name="q11" value="c"> Parliament (legislative function)</label>
+    <label class="option"><input type="radio" name="q11" value="d"> State legislature</label>
+    <div class="explanation" id="exp-q11">Art. 341(2) provides that Parliament may by law include or exclude communities — this is a legislative function. Courts cannot judicially add or remove communities from the Presidential SC list (SC: Palghat Jilla Thandan Samudhaya Maha Sabha v. UOI, 1993).</div>
+  </div>
+  <div class="question"><div class="q-text">Q12. The 7-judge bench ruling in State of Punjab v. Davinder Singh (2024) is significant because it:</div>
+    <label class="option"><input type="radio" name="q12" value="a"> Upheld PCR Act Sec 14 presumption</label>
+    <label class="option"><input type="radio" name="q12" value="b"> Partially overruled E.V. Chinnaiah — states CAN sub-classify SCs for reservation</label>
+    <label class="option"><input type="radio" name="q12" value="c"> Upheld Sec 18A mandatory arrest</label>
+    <label class="option"><input type="radio" name="q12" value="d"> Expanded definition of untouchability</label>
+    <div class="explanation" id="exp-q12">Davinder Singh (2024) 7-judge bench held states have the power to sub-classify within Scheduled Castes for the purpose of reservations — partially overruling E.V. Chinnaiah (2004) — a landmark development in SC/ST constitutional law.</div>
+  </div>
+  <div class="question"><div class="q-text">Q13. The PCR Act 1955 tries offences through which court?</div>
+    <label class="option"><input type="radio" name="q13" value="a"> Sessions Court (Special Court)</label>
+    <label class="option"><input type="radio" name="q13" value="b"> Executive Magistrate (First Class)</label>
+    <label class="option"><input type="radio" name="q13" value="c"> High Court directly</label>
+    <label class="option"><input type="radio" name="q13" value="d"> Lok Adalat</label>
+    <div class="explanation" id="exp-q13">PCR Act offences are tried by Executive Magistrates (First Class) — unlike the POA Act which requires Special Courts (Sessions level). This is an important procedural distinction for legal practitioners.</div>
+  </div>
+  <div class="question"><div class="q-text">Q14. "Wilful neglect" under Sec 4 POA Act — what test do courts apply?</div>
+    <label class="option"><input type="radio" name="q14" value="a"> Strict liability — any omission by public servant suffices</label>
+    <label class="option"><input type="radio" name="q14" value="b"> Objective test — whether omission was deliberate or grossly negligent</label>
+    <label class="option"><input type="radio" name="q14" value="c"> Subjective test — only if officer intended the harm</label>
+    <label class="option"><input type="radio" name="q14" value="d"> No specific test — purely discretionary</label>
+    <div class="explanation" id="exp-q14">Courts apply an objective standard — was the officer's omission deliberate or so grossly negligent as to amount to wilfulness? This covers malicious inaction and reckless disregard of legal duty, not mere oversight.</div>
+  </div>
+  <div class="question"><div class="q-text">Q15. The academic distinction between PCR Act and POA Act is best described as:</div>
+    <label class="option"><input type="radio" name="q15" value="a"> PCR covers urban; POA covers rural atrocities</label>
+    <label class="option"><input type="radio" name="q15" value="b"> PCR covers civil/social disabilities from untouchability; POA covers physical/sexual/economic atrocities</label>
+    <label class="option"><input type="radio" name="q15" value="c"> PCR covers SC only; POA covers ST only</label>
+    <label class="option"><input type="radio" name="q15" value="d"> PCR is criminal; POA is civil in nature</label>
+    <div class="explanation" id="exp-q15">PCR Act: enforcement of civil/social disabilities arising from untouchability (access to places, services). POA Act: physical, sexual, economic and psychological atrocities. Both are criminal statutes but with different subject matter.</div>
+  </div>
+  <div class="question"><div class="q-text">Q16. Sec 16 of the POA Act (collective fine) raises constitutional concerns under which article?</div>
+    <label class="option"><input type="radio" name="q16" value="a"> Art. 14 (equality) and Art. 20(1) (individual criminal liability)</label>
+    <label class="option"><input type="radio" name="q16" value="b"> Art. 32 (right to constitutional remedies)</label>
+    <label class="option"><input type="radio" name="q16" value="c"> Art. 19(1)(a) (freedom of speech)</label>
+    <label class="option"><input type="radio" name="q16" value="d"> Art. 300A (right to property)</label>
+    <div class="explanation" id="exp-q16">Collective fine raises concerns under Art. 14 (imposing liability on entire community) and Art. 20(1) (individual criminal culpability principle). Courts have interpreted Sec 16 narrowly — requiring knowledge/connivance of the community, not mere presence.</div>
+  </div>
+  <div class="question"><div class="q-text">Q17. The POA Act's Sec 15A victim rights provision was introduced specifically to address:</div>
+    <label class="option"><input type="radio" name="q17" value="a"> Compensation amounts for victims</label>
+    <label class="option"><input type="radio" name="q17" value="b"> Victim and witness intimidation and secondary victimisation in criminal process</label>
+    <label class="option"><input type="radio" name="q17" value="c"> Fast-track disposal of cases</label>
+    <label class="option"><input type="radio" name="q17" value="d"> Mandatory conviction rates</label>
+    <div class="explanation" id="exp-q17">Sec 15A addresses secondary victimisation — the additional trauma inflicted on victims during criminal process through intimidation, identity exposure, lack of information, and exclusion from proceedings. It creates substantive procedural rights.</div>
+  </div>
+  <div class="question"><div class="q-text">Q18. For the POA Act to apply, the accused person need NOT be which of the following?</div>
+    <label class="option"><input type="radio" name="q18" value="a"> A non-SC/ST person</label>
+    <label class="option"><input type="radio" name="q18" value="b"> A resident of the same village</label>
+    <label class="option"><input type="radio" name="q18" value="c"> Acting with caste-based motivation</label>
+    <label class="option"><input type="radio" name="q18" value="d"> Identifiable — name or description required</label>
+    <div class="explanation" id="exp-q18">The POA Act does not require the accused to be from the same village — they simply must be non-SC/ST, act against an SC/ST person, with caste as the motivation. Residential proximity is not an element of the offence.</div>
+  </div>
+  <div class="question"><div class="q-text">Q19. Sec 18A(1) of the POA Act expressly prohibits:</div>
+    <label class="option"><input type="radio" name="q19" value="a"> Magistrate bail for accused</label>
+    <label class="option"><input type="radio" name="q19" value="b"> Preliminary inquiry prior to FIR registration</label>
+    <label class="option"><input type="radio" name="q19" value="c"> Filing of private complaints</label>
+    <label class="option"><input type="radio" name="q19" value="d"> Anticipatory bail applications</label>
+    <div class="explanation" id="exp-q19">Sec 18A(1) provides: "Notwithstanding anything contained in the Code of Criminal Procedure, 1973, a preliminary enquiry shall not be required for registration of a First Information Report against any person under the provisions of this Act."</div>
+  </div>
+  <div class="question"><div class="q-text">Q20. Which of the following correctly describes the relationship between the IPC and the POA Act?</div>
+    <label class="option"><input type="radio" name="q20" value="a"> POA Act entirely replaces the IPC for SC/ST offences</label>
+    <label class="option"><input type="radio" name="q20" value="b"> IPC replaces POA Act when the same act is an IPC offence</label>
+    <label class="option"><input type="radio" name="q20" value="c"> POA Act is a special law — applies in addition to IPC; charges under both can coexist</label>
+    <label class="option"><input type="radio" name="q20" value="d"> POA Act applies only when IPC is silent</label>
+    <div class="explanation" id="exp-q20">The POA Act is a special statute that supplements the IPC — charges under both can and should be filed simultaneously. The special law's enhanced punishment and special court provisions apply alongside IPC provisions (Generalia specialibus non derogant).</div>
+  </div>
+
+  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Assessment</button>
+  <div id="result"></div>
+</form>
+</div>
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'c',q3:'b',q4:'c',q5:'c',q6:'b',q7:'b',q8:'b',q9:'b',q10:'b',q11:'c',q12:'b',q13:'b',q14:'b',q15:'b',q16:'a',q17:'b',q18:'b',q19:'b',q20:'c'};
+function submitQuiz(){
+  var score=0,total=20;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){
+      var lbl=o.parentElement;
+      if(o.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(o.checked)lbl.classList.add('wrong');
+      o.disabled=true;
+    });
+    if(sel&&sel.value===ANSWERS[q])score++;
+    document.getElementById('exp-'+q).style.display='block';
+  }
+  document.getElementById('submit-btn').disabled=true;
+  var pct=Math.round(score/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  var res=document.getElementById('result');
+  res.style.display='block';
+  if(pct>=70){
+    res.className='pass';
+    res.innerHTML='<h3>✅ Level 1 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>Excellent! Proceed to Level 2: Landmark Judgments.</p><br><a href="level2.html" style="background:#1d4ed8;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none">Start Level 2 →</a>';
+    localStorage.setItem('janman_scst_ls_l1_done','1');
+    localStorage.setItem('janman_scst_ls_l1_score',pct);
+  } else {
+    res.className='fail';
+    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>Need 70% to pass. Review and try again.</p><br><button onclick="location.reload()" style="background:#1d4ed8;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+  }
+  res.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
