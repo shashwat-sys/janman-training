@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLV Certificate — SC/ST (POA) Act Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --indigo: #1e3a6e;
+      --blue: #2563eb;
+      --amber: #f59e0b;
+      --amber-light: #fef3c7;
+      --gold: #d97706;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --red: #dc2626;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f1f3d 0%, #1e3a6e 50%, #1e40af 100%);
+      min-height: 100vh;
+      padding: 2rem 1rem;
+      color: var(--gray-900);
+    }
+
+    .page-header {
+      text-align: center;
+      color: white;
+      margin-bottom: 2rem;
+    }
+    .page-header .track-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .page-header p {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    /* ---- FORM SECTION ---- */
+    .form-section {
+      max-width: 680px;
+      margin: 0 auto 2rem;
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .form-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .form-section .subtitle {
+      font-size: 0.875rem;
+      color: var(--gray-600);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gray-700);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .form-group input, .form-group select {
+      padding: 0.6rem 0.85rem;
+      border: 1.5px solid var(--gray-300);
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--gray-900);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    .scores-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .score-box {
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-300);
+      border-radius: 10px;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .score-box .level-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--indigo);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .score-box .score-val {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .score-box .score-max {
+      font-size: 0.72rem;
+      color: var(--gray-600);
+    }
+    .score-auto {
+      font-size: 0.78rem;
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 0.25rem;
+    }
+
+    .btn-generate {
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 0.9rem;
+      background: linear-gradient(135deg, var(--navy), var(--indigo));
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-generate:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-generate:active { transform: translateY(0); }
+
+    /* ---- CERTIFICATE ---- */
+    #certificate-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .certificate {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    /* Gold border inset */
+    .cert-border {
+      margin: 12px;
+      border: 3px solid var(--gold);
+      border-radius: 8px;
+      padding: 2.5rem 3rem;
+      position: relative;
+    }
+    .cert-border::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid #f0c050;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+
+    /* Corner ornaments */
+    .corner {
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      opacity: 0.5;
+    }
+    .corner svg { width: 100%; height: 100%; }
+    .corner-tl { top: 10px; left: 10px; }
+    .corner-tr { top: 10px; right: 10px; transform: scaleX(-1); }
+    .corner-bl { bottom: 10px; left: 10px; transform: scaleY(-1); }
+    .corner-br { bottom: 10px; right: 10px; transform: scale(-1,-1); }
+
+    .cert-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--amber-light);
+    }
+    .cert-logo-area {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .cert-logo-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--navy), var(--indigo));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+    .cert-org-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .cert-org-sub {
+      font-size: 0.72rem;
+      color: var(--gray-600);
+    }
+    .cert-seal {
+      width: 64px;
+      height: 64px;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      line-height: 1.3;
+    }
+
+    .cert-title-block {
+      text-align: center;
+      margin: 1.5rem 0 1rem;
+    }
+    .cert-title-block .cert-of {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .cert-title-block h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--navy);
+      font-weight: 900;
+      margin: 0.2rem 0;
+    }
+    .cert-title-block .cert-subtitle {
+      font-size: 0.9rem;
+      color: var(--indigo);
+      font-weight: 500;
+    }
+
+    .cert-awarded-to {
+      text-align: center;
+      margin: 1.2rem 0;
+    }
+    .cert-awarded-to .awarded-label {
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      font-style: italic;
+    }
+    .cert-awarded-to .awardee-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--navy);
+      font-weight: 700;
+      border-bottom: 2px solid var(--amber);
+      display: inline-block;
+      padding: 0.1rem 1rem 0.3rem;
+      margin-top: 0.3rem;
+      min-width: 280px;
+    }
+
+    .cert-body-text {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+      margin: 1rem auto;
+      max-width: 580px;
+    }
+    .cert-body-text strong {
+      color: var(--navy);
+    }
+
+    .cert-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1.5rem 0;
+    }
+    .cert-detail-item {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-300);
+      border-radius: 8px;
+      padding: 0.6rem 0.8rem;
+      text-align: center;
+    }
+    .cert-detail-item .d-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--gray-600);
+      margin-bottom: 0.15rem;
+    }
+    .cert-detail-item .d-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .cert-scores {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.75rem;
+      margin: 1rem 0 1.5rem;
+    }
+    .cert-score-card {
+      text-align: center;
+      background: linear-gradient(135deg, var(--navy), var(--indigo));
+      border-radius: 10px;
+      padding: 0.85rem 0.5rem;
+      color: white;
+    }
+    .cert-score-card .sc-level {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      opacity: 0.8;
+      margin-bottom: 0.25rem;
+    }
+    .cert-score-card .sc-score {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .cert-score-card .sc-label {
+      font-size: 0.7rem;
+      opacity: 0.75;
+    }
+    .cert-score-card.passed { background: linear-gradient(135deg, #065f46, #059669); }
+
+    .cert-footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: end;
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--gray-300);
+    }
+    .sig-block { text-align: center; }
+    .sig-line {
+      border-top: 1.5px solid var(--navy);
+      margin-top: 2rem;
+      padding-top: 0.4rem;
+    }
+    .sig-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .sig-title {
+      font-size: 0.68rem;
+      color: var(--gray-600);
+    }
+    .cert-footer-seal {
+      width: 72px;
+      height: 72px;
+      border: 3px double var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--gold);
+    }
+
+    .cert-ribbon {
+      background: linear-gradient(135deg, var(--amber), var(--gold));
+      color: var(--navy);
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ---- ACTION BUTTONS ---- */
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1.5rem auto;
+      max-width: 820px;
+    }
+    .btn-action {
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-action:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-print { background: white; color: var(--navy); }
+    .btn-back  { background: rgba(255,255,255,0.15); color: white; border: 1.5px solid rgba(255,255,255,0.4); }
+
+    #cert-placeholder {
+      max-width: 820px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.08);
+      border: 2px dashed rgba(255,255,255,0.25);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+    }
+    #cert-placeholder .ph-icon { font-size: 3rem; margin-bottom: 1rem; }
+    #cert-placeholder p { font-size: 1rem; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .page-header, .form-section, .action-buttons, #cert-placeholder { display: none !important; }
+      #certificate-wrapper { max-width: 100%; margin: 0; }
+      .certificate { box-shadow: none; border-radius: 0; }
+    }
+
+    @media (max-width: 640px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .scores-row { grid-template-columns: 1fr; }
+      .cert-border { padding: 1.5rem 1.25rem; }
+      .cert-title-block h2 { font-size: 1.4rem; }
+      .cert-awarded-to .awardee-name { font-size: 1.5rem; }
+      .cert-details-grid, .cert-scores, .cert-footer { grid-template-columns: 1fr; }
+      .cert-footer-seal { display: none; }
+      .action-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="track-badge">PLV Track — SC/ST (POA) Act</div>
+    <h1>Certificate of Completion</h1>
+    <p>Generate your official certificate after completing all three training levels</p>
+  </div>
+
+  <!-- FORM SECTION -->
+  <div class="form-section">
+    <h2>Your Details</h2>
+    <p class="subtitle">Fill in your information to generate a personalised certificate. Scores are auto-loaded from your completed modules.</p>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="f-name" placeholder="e.g. Asha Devi" />
+      </div>
+      <div class="form-group">
+        <label>Father's / Husband's Name</label>
+        <input type="text" id="f-parent" placeholder="e.g. Ramesh Kumar" />
+      </div>
+      <div class="form-group">
+        <label>District</label>
+        <input type="text" id="f-district" placeholder="e.g. Gaya" />
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <select id="f-state">
+          <option value="">— Select State —</option>
+          <option>Bihar</option>
+          <option>Jharkhand</option>
+          <option>Uttar Pradesh</option>
+          <option>Madhya Pradesh</option>
+          <option>Rajasthan</option>
+          <option>Maharashtra</option>
+          <option>Tamil Nadu</option>
+          <option>Andhra Pradesh</option>
+          <option>Telangana</option>
+          <option>Karnataka</option>
+          <option>Odisha</option>
+          <option>West Bengal</option>
+          <option>Chhattisgarh</option>
+          <option>Gujarat</option>
+          <option>Punjab</option>
+          <option>Haryana</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Organisation / NGO</label>
+        <input type="text" id="f-org" placeholder="e.g. Janman People's Foundation" />
+      </div>
+      <div class="form-group">
+        <label>DLSA / NALSA ID (if any)</label>
+        <input type="text" id="f-dlsa" placeholder="e.g. PLV/GYA/2024/0045" />
+      </div>
+      <div class="form-group full">
+        <label>Completion Date</label>
+        <input type="date" id="f-date" />
+      </div>
+    </div>
+
+    <!-- SCORES -->
+    <div style="margin-top:1.25rem;">
+      <label style="font-size:0.8rem;font-weight:700;color:var(--gray-700);text-transform:uppercase;letter-spacing:0.05em;">
+        Module Scores (auto-loaded)
+      </label>
+      <div class="scores-row" style="margin-top:0.6rem;">
+        <div class="score-box">
+          <div class="level-label">Level 1 — Know the Law</div>
+          <div class="score-val" id="s1-val">—</div>
+          <div class="score-max">out of 10</div>
+        </div>
+        <div class="score-box">
+          <div class="level-label">Level 2 — Field Intervention</div>
+          <div class="score-val" id="s2-val">—</div>
+          <div class="score-max">out of 10</div>
+        </div>
+        <div class="score-box">
+          <div class="level-label">Level 3 — Remedial Toolkit</div>
+          <div class="score-val" id="s3-val">—</div>
+          <div class="score-max">out of 10</div>
+        </div>
+      </div>
+      <p id="score-note" class="score-auto" style="margin-top:0.6rem;display:none;"></p>
+    </div>
+
+    <button class="btn-generate" onclick="generateCertificate()">
+      ⬇ Generate Certificate
+    </button>
+  </div>
+
+  <!-- CERTIFICATE PLACEHOLDER -->
+  <div id="cert-placeholder">
+    <div class="ph-icon">📜</div>
+    <p>Your certificate will appear here once you fill in your details above.</p>
+  </div>
+
+  <!-- CERTIFICATE (hidden until generated) -->
+  <div id="certificate-wrapper" style="display:none;">
+    <div class="certificate">
+      <div class="cert-ribbon">
+        Janman People's Foundation — SC/ST (POA) Act Training Programme
+      </div>
+      <div class="cert-border">
+        <!-- Corner ornaments -->
+        <div class="corner corner-tl">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 36 L4 4 L36 4" stroke="#d97706" stroke-width="2.5" fill="none"/>
+            <circle cx="4" cy="4" r="3" fill="#d97706"/>
+          </svg>
+        </div>
+        <div class="corner corner-tr">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 36 L4 4 L36 4" stroke="#d97706" stroke-width="2.5" fill="none"/>
+            <circle cx="4" cy="4" r="3" fill="#d97706"/>
+          </svg>
+        </div>
+        <div class="corner corner-bl">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 36 L4 4 L36 4" stroke="#d97706" stroke-width="2.5" fill="none"/>
+            <circle cx="4" cy="4" r="3" fill="#d97706"/>
+          </svg>
+        </div>
+        <div class="corner corner-br">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 36 L4 4 L36 4" stroke="#d97706" stroke-width="2.5" fill="none"/>
+            <circle cx="4" cy="4" r="3" fill="#d97706"/>
+          </svg>
+        </div>
+
+        <!-- HEADER -->
+        <div class="cert-header">
+          <div class="cert-logo-area">
+            <div class="cert-logo-icon">⚖️</div>
+            <div>
+              <div class="cert-org-name">Janman People's Foundation</div>
+              <div class="cert-org-sub">Centre for Law and Development | Jan Nyaya Abhiyan</div>
+            </div>
+          </div>
+          <div class="cert-seal">
+            <span>✦</span>
+            <span>VERIFIED</span>
+            <span>PLV</span>
+            <span>TRAINING</span>
+            <span>✦</span>
+          </div>
+        </div>
+
+        <!-- TITLE -->
+        <div class="cert-title-block">
+          <div class="cert-of">This is to certify that</div>
+          <h2>Certificate of Completion</h2>
+          <div class="cert-subtitle">SC/ST (Prevention of Atrocities) Act, 1989 — Paralegal Volunteer Training Programme</div>
+        </div>
+
+        <!-- AWARDEE -->
+        <div class="cert-awarded-to">
+          <div class="awarded-label">is proudly awarded to</div>
+          <div class="awardee-name" id="cert-name">—</div>
+        </div>
+
+        <!-- BODY TEXT -->
+        <div class="cert-body-text">
+          <span id="cert-parent-line"></span>
+          having successfully completed the <strong>SC/ST (Prevention of Atrocities) Act, 1989 — Paralegal Volunteer Training Programme</strong>,
+          comprising three levels of structured legal training — <strong>Know the Law</strong>, <strong>Field Intervention</strong>,
+          and <strong>Full Remedial Toolkit</strong> — as conducted by <strong id="cert-org-body">Janman People's Foundation</strong>
+          under the Jan Nyaya Abhiyan initiative.
+        </div>
+
+        <!-- DETAILS GRID -->
+        <div class="cert-details-grid">
+          <div class="cert-detail-item">
+            <div class="d-label">District</div>
+            <div class="d-value" id="cert-district">—</div>
+          </div>
+          <div class="cert-detail-item">
+            <div class="d-label">State</div>
+            <div class="d-value" id="cert-state">—</div>
+          </div>
+          <div class="cert-detail-item">
+            <div class="d-label">DLSA/NALSA ID</div>
+            <div class="d-value" id="cert-dlsa">—</div>
+          </div>
+        </div>
+
+        <!-- SCORES -->
+        <div class="cert-scores">
+          <div class="cert-score-card" id="cert-sc1">
+            <div class="sc-level">Level 1 — Know the Law</div>
+            <div class="sc-score" id="cert-s1">—</div>
+            <div class="sc-label">out of 10</div>
+          </div>
+          <div class="cert-score-card" id="cert-sc2">
+            <div class="sc-level">Level 2 — Field Intervention</div>
+            <div class="sc-score" id="cert-s2">—</div>
+            <div class="sc-label">out of 10</div>
+          </div>
+          <div class="cert-score-card" id="cert-sc3">
+            <div class="sc-level">Level 3 — Remedial Toolkit</div>
+            <div class="sc-score" id="cert-s3">—</div>
+            <div class="sc-label">out of 10</div>
+          </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="cert-footer">
+          <div class="sig-block">
+            <div class="sig-line">
+              <div class="sig-name">Shashwat</div>
+              <div class="sig-title">Programme Coordinator<br>Jan Nyaya Abhiyan</div>
+            </div>
+          </div>
+          <div class="cert-footer-seal">✦</div>
+          <div class="sig-block" style="text-align:right;">
+            <div style="font-size:0.82rem;color:var(--gray-600);margin-bottom:0.25rem;">Date of Completion</div>
+            <div style="font-size:1rem;font-weight:700;color:var(--navy);" id="cert-date">—</div>
+            <div class="sig-line" style="margin-top:1.25rem;">
+              <div class="sig-name">District Legal Services Authority</div>
+              <div class="sig-title" id="cert-dlsa-sig">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTION BUTTONS (shown after generation) -->
+  <div class="action-buttons" id="action-btns" style="display:none;">
+    <button class="btn-action btn-print" onclick="window.print()">🖨 Print Certificate</button>
+    <a href="index.html" style="text-decoration:none;">
+      <button class="btn-action btn-back">← Back to PLV Track</button>
+    </a>
+  </div>
+
+  <script>
+    // Auto-load scores from localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const s1 = localStorage.getItem('janman_scst_plv_l1_score');
+      const s2 = localStorage.getItem('janman_scst_plv_l2_score');
+      const s3 = localStorage.getItem('janman_scst_plv_l3_score');
+
+      const d1 = localStorage.getItem('janman_scst_plv_l1_done');
+      const d2 = localStorage.getItem('janman_scst_plv_l2_done');
+      const d3 = localStorage.getItem('janman_scst_plv_l3_done');
+
+      let loaded = 0;
+      if (s1 !== null) { document.getElementById('s1-val').textContent = s1; loaded++; }
+      if (s2 !== null) { document.getElementById('s2-val').textContent = s2; loaded++; }
+      if (s3 !== null) { document.getElementById('s3-val').textContent = s3; loaded++; }
+
+      const note = document.getElementById('score-note');
+      if (loaded === 3) {
+        note.style.display = 'block';
+        note.textContent = '✓ All 3 module scores loaded from your browser. Scores are verified.';
+        note.style.color = 'var(--green)';
+      } else if (loaded > 0) {
+        note.style.display = 'block';
+        note.textContent = `${loaded}/3 modules completed. Complete all levels before generating your certificate.`;
+        note.style.color = 'var(--amber)';
+      } else {
+        note.style.display = 'block';
+        note.textContent = 'No completed modules found. Please complete all 3 levels first.';
+        note.style.color = 'var(--red)';
+      }
+
+      // Set today's date
+      const today = new Date();
+      const y = today.getFullYear();
+      const m = String(today.getMonth()+1).padStart(2,'0');
+      const d = String(today.getDate()).padStart(2,'0');
+      document.getElementById('f-date').value = `${y}-${m}-${d}`;
+    });
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '—';
+      const [y, m, d] = dateStr.split('-');
+      const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      return `${parseInt(d)} ${months[parseInt(m)-1]} ${y}`;
+    }
+
+    function generateCertificate() {
+      const name = document.getElementById('f-name').value.trim();
+      const parent = document.getElementById('f-parent').value.trim();
+      const district = document.getElementById('f-district').value.trim();
+      const state = document.getElementById('f-state').value;
+      const org = document.getElementById('f-org').value.trim();
+      const dlsa = document.getElementById('f-dlsa').value.trim();
+      const dateVal = document.getElementById('f-date').value;
+
+      const s1 = document.getElementById('s1-val').textContent;
+      const s2 = document.getElementById('s2-val').textContent;
+      const s3 = document.getElementById('s3-val').textContent;
+
+      if (!name) { alert('Please enter your full name.'); return; }
+      if (!district) { alert('Please enter your district.'); return; }
+      if (!state) { alert('Please select your state.'); return; }
+
+      // Populate certificate
+      document.getElementById('cert-name').textContent = name;
+
+      const parentLine = document.getElementById('cert-parent-line');
+      if (parent) {
+        parentLine.innerHTML = `<strong>D/o / S/o ${parent}</strong>, `;
+      } else {
+        parentLine.textContent = '';
+      }
+
+      document.getElementById('cert-district').textContent = district || '—';
+      document.getElementById('cert-state').textContent = state || '—';
+      document.getElementById('cert-dlsa').textContent = dlsa || 'Not Assigned';
+      document.getElementById('cert-dlsa-sig').textContent = district ? district + ' District' : 'District';
+      document.getElementById('cert-org-body').textContent = org || 'Janman People\'s Foundation';
+      document.getElementById('cert-date').textContent = formatDate(dateVal);
+
+      // Scores
+      document.getElementById('cert-s1').textContent = s1;
+      document.getElementById('cert-s2').textContent = s2;
+      document.getElementById('cert-s3').textContent = s3;
+
+      // Color code passing scores
+      [['cert-sc1', s1], ['cert-sc2', s2], ['cert-sc3', s3]].forEach(([id, score]) => {
+        const el = document.getElementById(id);
+        if (score !== '—' && parseInt(score) >= 7) {
+          el.classList.add('passed');
+        } else {
+          el.classList.remove('passed');
+        }
+      });
+
+      // Show certificate
+      document.getElementById('cert-placeholder').style.display = 'none';
+      document.getElementById('certificate-wrapper').style.display = 'block';
+      document.getElementById('action-btns').style.display = 'flex';
+
+      // Scroll to it
+      document.getElementById('certificate-wrapper').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
+</body>
+</html>
