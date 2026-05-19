@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate of Completion — SC/ST Act Law Student Track | Janman People's Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0e1a 0%,#001a1a 100%);color:#e2e8f0;min-height:100vh;line-height:1.7}
+.top-nav{background:rgba(20,184,166,0.08);border-bottom:1px solid rgba(20,184,166,0.2);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.top-nav a{color:#14b8a6;text-decoration:none;font-size:.875rem;font-weight:500;transition:opacity .2s}
+.top-nav a:hover{opacity:.75}
+.track-badge{background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.4);color:#14b8a6;font-size:.7rem;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:20px;margin-left:auto}
+.page-header{padding:32px 24px 20px;text-align:center}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);color:#f1f5f9;margin-bottom:8px}
+.page-header p{color:#94a3b8;font-size:.9rem}
+.container{max-width:760px;margin:0 auto;padding:0 20px 40px}
+/* Form section */
+.form-section{background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.18);border-radius:12px;padding:28px;margin-bottom:28px}
+.form-section h2{font-size:1.1rem;font-weight:700;color:#14b8a6;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:.8rem;font-weight:600;color:#94a3b8;letter-spacing:.05em;text-transform:uppercase}
+.form-group input,.form-group select{background:rgba(15,23,42,0.7);border:1px solid rgba(20,184,166,0.25);border-radius:8px;padding:10px 14px;color:#f1f5f9;font-size:.93rem;font-family:'Inter',sans-serif;transition:border-color .2s;width:100%}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:rgba(20,184,166,0.6)}
+.form-group input::placeholder{color:#475569}
+.form-group select option{background:#0a0e1a;color:#f1f5f9}
+.generate-btn{background:#14b8a6;color:#0a0e1a;border:none;padding:13px 30px;font-size:.97rem;font-weight:700;border-radius:8px;cursor:pointer;margin-top:8px;transition:background .2s;letter-spacing:.02em;width:100%}
+.generate-btn:hover{background:#0d9488}
+/* Score cards */
+.score-row{display:flex;gap:12px;margin:16px 0;flex-wrap:wrap}
+.score-card{flex:1;min-width:120px;background:rgba(15,23,42,0.7);border-radius:10px;padding:14px;text-align:center;border:1px solid rgba(20,184,166,0.2)}
+.score-card.pass{border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.08)}
+.score-card .sc-level{font-size:.72rem;font-weight:700;color:#64748b;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.score-card.pass .sc-level{color:#10b981}
+.score-card .sc-num{font-size:1.6rem;font-weight:700;color:#334155}
+.score-card.pass .sc-num{color:#34d399}
+.score-card .sc-label{font-size:.75rem;color:#475569;margin-top:3px}
+.score-card.pass .sc-label{color:#6ee7b7}
+/* Certificate */
+.cert-wrapper{display:none;margin-top:8px}
+.cert-wrapper.visible{display:block}
+.certificate{background:linear-gradient(135deg,#0d1a2e 0%,#051515 100%);border:3px solid #14b8a6;border-radius:16px;padding:40px 44px;position:relative;overflow:hidden}
+.certificate::before{content:'';position:absolute;top:12px;left:12px;right:12px;bottom:12px;border:1px solid rgba(20,184,166,0.2);border-radius:10px;pointer-events:none}
+.cert-corner{position:absolute;width:50px;height:50px;border-color:#14b8a6;border-style:solid;opacity:.5}
+.cert-corner.tl{top:20px;left:20px;border-width:2px 0 0 2px;border-radius:4px 0 0 0}
+.cert-corner.tr{top:20px;right:20px;border-width:2px 2px 0 0;border-radius:0 4px 0 0}
+.cert-corner.bl{bottom:20px;left:20px;border-width:0 0 2px 2px;border-radius:0 0 0 4px}
+.cert-corner.br{bottom:20px;right:20px;border-width:0 2px 2px 0;border-radius:0 0 4px 0}
+.cert-org{text-align:center;font-size:.75rem;font-weight:700;color:#14b8a6;letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px}
+.cert-seal{font-size:3rem;text-align:center;margin-bottom:12px}
+.cert-title{font-family:'Playfair Display',serif;font-size:1.9rem;text-align:center;color:#f1f5f9;margin-bottom:6px;line-height:1.2}
+.cert-subtitle{text-align:center;font-size:.82rem;color:#64748b;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+.cert-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(20,184,166,0.4),transparent);margin:18px 0}
+.cert-body{text-align:center;font-size:.93rem;color:#cbd5e1;line-height:1.8;max-width:580px;margin:0 auto}
+.cert-body .cert-name{font-family:'Playfair Display',serif;font-size:1.4rem;color:#f1f5f9;display:block;margin:4px 0}
+.cert-body .cert-guardian{font-size:.88rem;color:#94a3b8;margin:2px 0;display:block}
+.cert-body .cert-school{color:#14b8a6;font-weight:600;margin:2px 0;display:block}
+.cert-programme{margin-top:14px;text-align:center}
+.cert-programme strong{color:#14b8a6}
+.cert-scores{display:flex;gap:10px;justify-content:center;margin:20px 0;flex-wrap:wrap}
+.cert-score-chip{background:rgba(20,184,166,0.12);border:1px solid rgba(20,184,166,0.3);border-radius:6px;padding:6px 14px;font-size:.8rem;color:#94a3b8;text-align:center}
+.cert-score-chip.pass-chip{background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.35);color:#34d399}
+.cert-score-chip .chip-level{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.cert-score-chip .chip-score{font-weight:700;font-size:.97rem}
+.cert-date-line{text-align:center;margin-top:18px;font-size:.82rem;color:#64748b;letter-spacing:.04em}
+.cert-sig{margin-top:24px;display:flex;justify-content:center}
+.sig-block{text-align:center;padding:0 24px}
+.sig-line{width:200px;height:1px;background:rgba(20,184,166,0.4);margin:0 auto 8px}
+.sig-name{font-size:.82rem;font-weight:700;color:#f1f5f9}
+.sig-title{font-size:.75rem;color:#64748b}
+/* Print and action buttons */
+.action-bar{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;justify-content:center}
+.print-btn{background:#14b8a6;color:#0a0e1a;border:none;padding:11px 24px;border-radius:8px;font-weight:700;font-size:.875rem;cursor:pointer;transition:background .2s}
+.print-btn:hover{background:#0d9488}
+.back-btn{background:transparent;border:1px solid rgba(20,184,166,0.35);color:#14b8a6;padding:11px 24px;border-radius:8px;font-weight:600;font-size:.875rem;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.back-btn:hover{background:rgba(20,184,166,0.08)}
+.warning-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:8px;padding:14px 18px;margin-bottom:18px;font-size:.875rem;color:#fca5a5;line-height:1.6}
+.warning-box strong{color:#ef4444}
+@media print{
+  .top-nav,.page-header,.form-section,.action-bar,.warning-box{display:none!important}
+  body{background:white;color:black}
+  .cert-wrapper{display:block!important}
+  .certificate{border-color:#0d9488;background:white;color:black;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cert-title,.cert-body .cert-name{color:#0a0e1a}
+  .cert-org,.cert-body .cert-school,.cert-score-chip.pass-chip .chip-score{color:#0d9488}
+  .cert-body{color:#1e293b}
+  .cert-body .cert-guardian{color:#475569}
+  .cert-date-line{color:#475569}
+  .sig-name{color:#0a0e1a}
+  .sig-title{color:#475569}
+  .sig-line{background:#0d9488}
+  .cert-corner{border-color:#0d9488}
+  .certificate::before{border-color:rgba(13,148,136,0.3)}
+  .cert-score-chip{border-color:rgba(13,148,136,0.4);color:#475569}
+  .cert-score-chip.pass-chip{background:rgba(16,185,129,0.08);color:#059669}
+  .cert-divider{background:linear-gradient(90deg,transparent,rgba(13,148,136,0.4),transparent)}
+  .cert-seal{color:#0d9488}
+}
+@media(max-width:600px){
+  .form-grid{grid-template-columns:1fr}
+  .certificate{padding:28px 20px}
+  .cert-title{font-size:1.5rem}
+  .cert-body{font-size:.875rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="index.html">← Back to Track Hub</a>
+  <span class="track-badge">LAW STUDENT TRACK</span>
+</nav>
+
+<div class="page-header">
+  <h1>⚖ Certificate of Completion</h1>
+  <p>SC/ST (Prevention of Atrocities) Act — Law Student Track | Centre for Law and Development</p>
+</div>
+
+<div class="container">
+
+  <div id="locked-warning" class="warning-box" style="display:none">
+    <strong>Track Not Yet Complete:</strong> You have not yet passed all 3 levels of the SC/ST Act Law Student Track. Complete Levels 1, 2, and 3 with a score of 7/10 or more in each before claiming your certificate. <a href="index.html" style="color:#f87171;font-weight:700">← Return to Track Hub</a>
+  </div>
+
+  <div class="form-section">
+    <h2>📋 Your Details</h2>
+    <p style="color:#94a3b8;font-size:.855rem;margin-bottom:18px">Enter your details to generate your personalised certificate. Your scores are automatically loaded from your completed levels.</p>
+
+    <!-- Score display -->
+    <div style="margin-bottom:20px">
+      <div style="font-size:.8rem;font-weight:600;color:#64748b;letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">Completed Level Scores</div>
+      <div class="score-row">
+        <div class="score-card" id="sc1">
+          <div class="sc-level">Level 1</div>
+          <div class="sc-num" id="sc1-num">—</div>
+          <div class="sc-label">Not completed</div>
+        </div>
+        <div class="score-card" id="sc2">
+          <div class="sc-level">Level 2</div>
+          <div class="sc-num" id="sc2-num">—</div>
+          <div class="sc-label">Not completed</div>
+        </div>
+        <div class="score-card" id="sc3">
+          <div class="sc-level">Level 3</div>
+          <div class="sc-num" id="sc3-num">—</div>
+          <div class="sc-label">Not completed</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group full">
+        <label>Full Name</label>
+        <input type="text" id="f-name" placeholder="e.g. Priya Sharma">
+      </div>
+      <div class="form-group full">
+        <label>Father's / Guardian's Name</label>
+        <input type="text" id="f-guardian" placeholder="e.g. Rajesh Sharma">
+      </div>
+      <div class="form-group">
+        <label>Law School / University</label>
+        <input type="text" id="f-school" placeholder="e.g. National Law University, Delhi">
+      </div>
+      <div class="form-group">
+        <label>Year of Study / Enrollment Number</label>
+        <input type="text" id="f-year" placeholder="e.g. 3rd Year / NLU-D-2024-0012">
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="f-city" placeholder="e.g. Patna">
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <input type="text" id="f-state" placeholder="e.g. Bihar">
+      </div>
+      <div class="form-group full">
+        <label>Date of Certificate</label>
+        <input type="text" id="f-date" placeholder="e.g. 19 May 2026">
+      </div>
+    </div>
+
+    <button class="generate-btn" onclick="generateCertificate()">Generate Certificate →</button>
+  </div>
+
+  <!-- Certificate -->
+  <div class="cert-wrapper" id="cert-wrapper">
+    <div class="certificate" id="certificate">
+      <div class="cert-corner tl"></div>
+      <div class="cert-corner tr"></div>
+      <div class="cert-corner bl"></div>
+      <div class="cert-corner br"></div>
+
+      <div class="cert-org">Centre for Law and Development &nbsp;|&nbsp; Janman People's Foundation</div>
+      <div class="cert-seal">⚖</div>
+      <div class="cert-title">Certificate of Completion</div>
+      <div class="cert-subtitle">SC/ST (Prevention of Atrocities) Act — Advanced Training Programme</div>
+
+      <div class="cert-divider"></div>
+
+      <div class="cert-body">
+        <span style="color:#94a3b8;font-size:.88rem">This is to certify that</span>
+        <span class="cert-name" id="cert-name">—</span>
+        <span class="cert-guardian" id="cert-guardian">—</span>
+        <span class="cert-school" id="cert-school">—</span>
+        <div class="cert-programme" style="margin-top:14px">
+          has successfully completed the<br>
+          <strong>SC/ST (Prevention of Atrocities) Act Advanced Training Programme</strong><br>
+          <span style="color:#94a3b8;font-size:.88rem">(Law Student Track)</span>
+        </div>
+        <div style="margin-top:10px;color:#94a3b8;font-size:.88rem;line-height:1.7">
+          conducted by Janman People's Foundation<br>
+          under the Centre for Law and Development initiative
+        </div>
+      </div>
+
+      <div class="cert-scores" id="cert-scores">
+        <!-- dynamically populated -->
+      </div>
+
+      <div class="cert-divider"></div>
+
+      <div class="cert-date-line" id="cert-date-line">Issued on: —</div>
+
+      <div class="cert-sig">
+        <div class="sig-block">
+          <div class="sig-line"></div>
+          <div class="sig-name">Programme Director</div>
+          <div class="sig-title">Centre for Law and Development | Janman People's Foundation</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-bar">
+      <button class="print-btn" onclick="window.print()">🖨 Print Certificate</button>
+      <a href="index.html" class="back-btn">← Back to Track Hub</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function loadScores(){
+  const l1Done=localStorage.getItem('janman_scst_ls_l1_done')==='true';
+  const l2Done=localStorage.getItem('janman_scst_ls_l2_done')==='true';
+  const l3Done=localStorage.getItem('janman_scst_ls_l3_done')==='true';
+  const l1Score=parseInt(localStorage.getItem('janman_scst_ls_l1_score')||'0');
+  const l2Score=parseInt(localStorage.getItem('janman_scst_ls_l2_score')||'0');
+  const l3Score=parseInt(localStorage.getItem('janman_scst_ls_l3_score')||'0');
+
+  function setScore(id,done,score){
+    const card=document.getElementById(id);
+    const num=document.getElementById(id+'-num');
+    if(done){
+      card.classList.add('pass');
+      num.textContent=score+'/10';
+      card.querySelector('.sc-label').textContent=score>=7?'Passed':'Check score';
+    }
+  }
+  setScore('sc1',l1Done,l1Score);
+  setScore('sc2',l2Done,l2Score);
+  setScore('sc3',l3Done,l3Score);
+
+  if(!l1Done||!l2Done||!l3Done){
+    document.getElementById('locked-warning').style.display='block';
+  }
+
+  // Pre-fill date
+  const today=new Date();
+  const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  document.getElementById('f-date').value=`${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
+
+  return {l1Score,l2Score,l3Score,l1Done,l2Done,l3Done};
+}
+
+function generateCertificate(){
+  const name=document.getElementById('f-name').value.trim();
+  const guardian=document.getElementById('f-guardian').value.trim();
+  const school=document.getElementById('f-school').value.trim();
+  const year=document.getElementById('f-year').value.trim();
+  const city=document.getElementById('f-city').value.trim();
+  const state=document.getElementById('f-state').value.trim();
+  const date=document.getElementById('f-date').value.trim();
+
+  if(!name||!guardian||!school){
+    alert('Please fill in at least your Full Name, Father/Guardian Name, and Law School/University.');
+    return;
+  }
+
+  const l1Score=parseInt(localStorage.getItem('janman_scst_ls_l1_score')||'0');
+  const l2Score=parseInt(localStorage.getItem('janman_scst_ls_l2_score')||'0');
+  const l3Score=parseInt(localStorage.getItem('janman_scst_ls_l3_score')||'0');
+
+  document.getElementById('cert-name').textContent=name;
+
+  const guardianText=`Son/Daughter of ${guardian}`;
+  document.getElementById('cert-guardian').textContent=guardianText;
+
+  let schoolText=school;
+  if(year) schoolText+=` (${year})`;
+  if(city&&state) schoolText+=` — ${city}, ${state}`;
+  else if(city) schoolText+=` — ${city}`;
+  else if(state) schoolText+=` — ${state}`;
+  document.getElementById('cert-school').textContent=schoolText;
+
+  document.getElementById('cert-date-line').textContent=`Issued on: ${date||'—'}`;
+
+  // Build score chips
+  const scoresEl=document.getElementById('cert-scores');
+  scoresEl.innerHTML='';
+  [[1,l1Score],[2,l2Score],[3,l3Score]].forEach(([lvl,score])=>{
+    const pass=score>=7;
+    const chip=document.createElement('div');
+    chip.className='cert-score-chip'+(pass?' pass-chip':'');
+    chip.innerHTML<`<div class="chip-level">Level ${lvl}</div><div class="chip-score">${score}/10</div>`;
+    scoresEl.appendChild(chip);
+  });
+
+  document.getElementById('cert-wrapper').classList.add('visible');
+  document.getElementById('cert-wrapper').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+document.addEventListener('DOMContentLoaded',loadScores);
+</script>
+</body>
+</html>
