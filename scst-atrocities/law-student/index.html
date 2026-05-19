@@ -1,90 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Law Student Track — SC/ST Atrocities</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC/ST (POA) Act — Law Student Track | Janman People's Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#eff6ff;color:#1e293b}
-.navbar{background:#1d4ed8;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
-.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.95rem}
-.hero{background:linear-gradient(135deg,#1d4ed8,#6366f1);color:#fff;padding:48px 28px 36px;text-align:center}
-.hero-badge{background:rgba(255,255,255,.2);padding:5px 16px;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:.06em;display:inline-block;margin-bottom:16px}
-.hero h1{font-size:2rem;font-weight:800;margin-bottom:10px}
-.hero p{opacity:.9;max-width:580px;margin:0 auto;font-size:.95rem}
-.container{max-width:800px;margin:40px auto;padding:0 24px 60px}
-.levels-title{font-size:1.1rem;font-weight:700;color:#1d4ed8;margin-bottom:20px;text-transform:uppercase;letter-spacing:.05em}
-.level-card{background:#fff;border-radius:14px;padding:24px 28px;margin-bottom:18px;box-shadow:0 2px 10px rgba(0,0,0,.07);border-left:5px solid #1d4ed8;display:flex;align-items:center;gap:20px}
-.level-card.locked{opacity:.55;border-left-color:#cbd5e1}
-.level-num{font-size:2rem;font-weight:800;color:#1d4ed8;min-width:48px}
-.level-card.locked .level-num{color:#94a3b8}
-.level-info h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
-.level-info p{font-size:.85rem;color:#64748b;margin-bottom:8px}
-.badge-row{display:flex;gap:8px;flex-wrap:wrap}
-.badge{background:#eff6ff;border:1px solid #bfdbfe;color:#1d4ed8;font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:12px}
-.badge.done{background:#dcfce7;border-color:#86efac;color:#15803d}
-.btn{display:inline-block;padding:10px 22px;background:#1d4ed8;color:#fff;border-radius:8px;font-weight:700;font-size:.85rem;text-decoration:none;transition:background .2s}
-.btn:hover{background:#1e40af}
-.btn-locked{display:inline-block;padding:10px 22px;background:#e2e8f0;color:#94a3b8;border-radius:8px;font-weight:700;font-size:.85rem;cursor:not-allowed}
-.cert-card{background:linear-gradient(135deg,#eff6ff,#dbeafe);border:2px dashed #93c5fd;border-radius:14px;padding:28px;text-align:center;margin-top:28px}
-.cert-card h3{font-size:1.1rem;font-weight:800;color:#1d4ed8;margin-bottom:8px}
-.cert-card p{color:#1e40af;font-size:.88rem;margin-bottom:16px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0e1a 0%,#001a1a 100%);color:#e2e8f0;min-height:100vh;line-height:1.7}
+.header{background:rgba(20,184,166,0.06);border-bottom:1px solid rgba(20,184,166,0.15);padding:40px 24px 32px;text-align:center}
+.track-badge{display:inline-block;background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.4);color:#14b8a6;font-size:.72rem;font-weight:700;letter-spacing:.12em;padding:4px 14px;border-radius:20px;margin-bottom:16px}
+.header h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.5rem);color:#f1f5f9;margin-bottom:10px;line-height:1.3}
+.header p{color:#94a3b8;font-size:.95rem;max-width:650px;margin:0 auto}
+.org-name{font-size:.75rem;color:#64748b;margin-top:10px;letter-spacing:.04em}
+.prereq-banner{background:rgba(250,204,21,0.07);border:1px solid rgba(250,204,21,0.22);border-radius:8px;padding:12px 18px;margin:20px auto;max-width:700px;font-size:.845rem;color:#fde68a;text-align:center}
+.prereq-banner strong{color:#fbbf24}
+.container{max-width:960px;margin:0 auto;padding:32px 20px}
+/* Progress bar */
+.progress-section{background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.18);border-radius:12px;padding:24px 28px;margin-bottom:28px}
+.progress-section h2{font-size:1rem;font-weight:700;color:#14b8a6;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.progress-bar-outer{background:rgba(15,23,42,0.8);border-radius:20px;height:10px;margin-bottom:12px;overflow:hidden}
+.progress-bar-inner{background:linear-gradient(90deg,#14b8a6,#0d9488);height:100%;border-radius:20px;transition:width .6s ease}
+.progress-text{font-size:.845rem;color:#94a3b8}
+.progress-levels{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.prog-level{flex:1;min-width:130px;background:rgba(15,23,42,0.6);border-radius:8px;padding:10px 14px;border:1px solid rgba(20,184,166,0.15);text-align:center}
+.prog-level.done{border-color:rgba(16,185,129,0.4);background:rgba(16,185,129,0.08)}
+.prog-level .prog-label{font-size:.72rem;font-weight:700;color:#64748b;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.prog-level.done .prog-label{color:#10b981}
+.prog-level .prog-score{font-size:1.1rem;font-weight:700;color:#334155}
+.prog-level.done .prog-score{color:#34d399}
+/* Level cards */
+.levels-section{margin-bottom:28px}
+.levels-section h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:#14b8a6;margin-bottom:16px}
+.level-card{background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.18);border-radius:12px;margin-bottom:14px;overflow:hidden}
+.level-card-header{padding:16px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:background .2s}
+.level-card-header:hover{background:rgba(20,184,166,0.08)}
+.level-num{width:40px;height:40px;border-radius:50%;background:rgba(20,184,166,0.15);border:2px solid rgba(20,184,166,0.3);display:flex;align-items:center;justify-content:center;font-weight:700;color:#14b8a6;font-size:.97rem;flex-shrink:0}
+.level-num.done{background:rgba(16,185,129,0.2);border-color:rgba(16,185,129,0.5);color:#10b981}
+.level-info{flex:1}
+.level-title{font-weight:600;color:#f1f5f9;font-size:.97rem;margin-bottom:3px}
+.level-sub{font-size:.8rem;color:#64748b}
+.level-status{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:12px}
+.level-status.done{background:rgba(16,185,129,0.15);color:#34d399}
+.level-status.pending{background:rgba(20,184,166,0.1);color:#14b8a6}
+.expand-icon{color:#64748b;font-size:1rem;transition:transform .3s;flex-shrink:0}
+.level-card-body{display:none;padding:0 20px 20px}
+.level-card-body.open{display:block}
+.level-topics{list-style:none;padding:0;margin:12px 0}
+.level-topics li{padding:7px 0 7px 20px;position:relative;color:#94a3b8;font-size:.855rem;border-bottom:1px solid rgba(20,184,166,0.06)}
+.level-topics li:last-child{border-bottom:none}
+.level-topics li::before{content:'§';position:absolute;left:0;color:#14b8a6;font-weight:700}
+.level-btn{display:inline-block;background:#14b8a6;color:#0a0e1a;text-decoration:none;padding:10px 22px;border-radius:8px;font-weight:700;font-size:.875rem;margin-top:10px;transition:background .2s}
+.level-btn:hover{background:#0d9488}
+.level-btn.disabled{background:rgba(100,116,139,0.3);color:#64748b;cursor:not-allowed;pointer-events:none}
+/* Case law table */
+.cases-section{background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.15);border-radius:12px;padding:24px 20px;margin-bottom:28px}
+.cases-section h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:#14b8a6;margin-bottom:16px}
+.table-wrap{overflow-x:auto;border-radius:8px;border:1px solid rgba(20,184,166,0.12)}
+table{width:100%;border-collapse:collapse;font-size:.835rem}
+table thead th{background:rgba(20,184,166,0.18);color:#14b8a6;font-weight:700;padding:10px 13px;text-align:left;border-bottom:2px solid rgba(20,184,166,0.2);white-space:nowrap}
+table tbody tr{border-bottom:1px solid rgba(20,184,166,0.07);transition:background .15s}
+table tbody tr:hover{background:rgba(20,184,166,0.04)}
+table tbody td{padding:9px 13px;color:#cbd5e1;vertical-align:top;line-height:1.55}
+table tbody td:first-child{color:#f1f5f9;font-weight:500}
+table tbody td:nth-child(2){color:#14b8a6;white-space:nowrap;font-size:.78rem;font-weight:600}
+table tbody td:nth-child(3){color:#7dd3fc;white-space:nowrax;font-size:.8rem}
+/* Certificate CTA */
+.cert-section{background:linear-gradient(135deg,rgba(20,184,166,0.08),rgba(13,148,136,0.05));border:1px solid rgba(20,184,166,0.25);border-radius:12px;padding:28px;text-align:center;margin-bottom:28px}
+.cert-section h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#f1f5f9;margin-bottom:8px}
+.cert-section p{color:#94a3b8;font-size:.9rem;margin-bottom:18px}
+.cert-btn{display:inline-block;background:#14b8a6;color:#0a0e1a;text-decoration:none;padding:13px 30px;border-radius:8px;font-weight:700;font-size:.97rem;transition:background .2s}
+.cert-btn:hover{background:#0d9488}
+.cert-btn.locked{background:rgba(100,116,139,0.25);color:#64748b;cursor:not-allowed;pointer-events:none}
+.lock-icon{font-size:1.5rem;color:#64748b;margin-bottom:10px}
+@media(max-width:640px){.header h1{font-size:1.4rem}.level-card-header{padding:14px 14px}.level-card-body{padding:0 14px 14px}.container{padding:20px 14px}.cases-section{padding:18px 12px}}
 </style>
 </head>
 <body>
-<nav class="navbar">
-  <a href="../index.html">← SC/ST Module</a>
-  <span style="color:#bfdbfe;font-size:.85rem">Law Student Track</span>
-  <a href="../../index.html">Home</a>
-</nav>
-<div class="hero">
-  <div class="hero-badge">LAW STUDENT / LLB / NLU</div>
-  <h1>SC/ST Atrocities</h1>
-  <p>Deep constitutional and statutory analysis with 15+ landmark Supreme Court and High Court judgments — covering interpretation, evidence, procedure and remedies in SC/ST atrocity law.</p>
-</div>
-<div class="container">
-  <div class="levels-title">Your Learning Journey</div>
-  <div id="level-cards"></div>
-  <div class="cert-card">
-    <h3>🏅 Law Student Certificate</h3>
-    <p>Complete all 3 levels to earn your certificate with academic distinction in SC/ST rights jurisprudence.</p>
-    <div id="cert-link"><span class="btn-locked">🔒 Complete all 3 levels first</span></div>
+
+<header class="header">
+  <div class="track-badge">LAW STUDENT TRACK</div>
+  <h1>SC/ST (Prevention of Atrocities) Act</h1>
+  <p>Advanced training programme for law students — constitutional architecture, investigation law, landmark cases, writ strategy, and professional ethics</p>
+  <div class="org-name">Janman People's Foundation — Centre for Law and Development</div>
+</header>
+
+<div style="max-width:960px;margin:0 auto;padding:0 20px">
+  <div class="prereq-banner">
+    <strong>Prerequisites:</strong> Basic understanding of CrPC/BNSS, Constitution of India (fundamental rights), and IPC/BNS required before beginning this track.
   </div>
 </div>
-<script>
-const levels=[
-  {n:1,title:"Constitutional Foundations & Statutory Analysis",desc:"Art. 17, Arts. 341-342, PCR Act & POA Act complete analysis, key definitions, offence taxonomy, constitutional validity",href:"level1.html",key:"janman_scst_ls_l1_done"},
-  {n:2,title:"Landmark Judgments — Part I",desc:"8 landmark SC/HC judgments: Prathvi Raj Chauhan, Subhash Kashinath, State of MP v. Ram Krishna Balothia, Safai Karamchari Andolan, Sube Singh, and more",href:"level2.html",key:"janman_scst_ls_l2_done"},
-  {n:3,title:"Evidence, Procedure & Remedies",desc:"Evidence law in atrocity cases, investigation standards, Special Court practice, compensation jurisprudence, writ remedies, 7+ more landmark cases",href:"level3.html",key:"janman_scst_ls_l3_done"},
-];
-const c=document.getElementById('level-cards');
-let allDone=true;
-levels.forEach((lv,i)=>{
-  const done=localStorage.getItem(lv.key)==='1';
-  const prevDone=i===0||localStorage.getItem(levels[i-1].key)==='1';
-  if(!done)allDone=false;
-  const locked=!prevDone&&!done;
-  c.innerHTML+=`<div class="level-card${locked?' locked':''}">
-    <div class="level-num">L${lv.n}</div>
-    <div class="level-info">
-      <h3>${lv.title}</h3>
-      <p>${lv.desc}</p>
-      <div class="badge-row">
-        <span class="badge${done?' done':''}"> ${done?'✅ Passed':'📖 20 Questions'}</span>
-        <span class="badge">~75 min</span>
+
+<div class="container">
+
+  <!-- Progress Section -->
+  <div class="progress-section">
+    <h2>📋 Your Progress</h2>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progress-bar" style="width:0%"></div>
+    </div>
+    <div class="progress-text" id="progress-text">0 of 3 levels completed</div>
+    <div class="progress-levels">
+      <div class="prog-level" id="prog-l1">
+        <div class="prog-label">Level 1</div>
+        <div class="prog-score" id="score-l1">—</div>
       </div>
-      <div style="margin-top:12px">
-        ${locked?'<span class="btn-locked">🔒 Complete Level '+(lv.n-1)+' first</span>':
-          done?'<a class="btn" href="'+lv.href+'" style="background:#1e40af">✅ Revisit Level '+lv.n+'</a>':
-               '<a class="btn" href="'+lv.href+'">Start Level '+lv.n+' →</a>'}
+      <div class="prog-level" id="prog-l2">
+        <div class="prog-label">Level 2</div>
+        <div class="prog-score" id="score-l2">—</div>
+      </div>
+      <div class="prog-level" id="prog-l3">
+        <div class="prog-label">Level 3</div>
+        <div class="prog-score" id="score-l3">—</div>
       </div>
     </div>
-  </div>`;
-});
-if(allDone){
-  document.getElementById('cert-link').innerHTML='<a class="btn" href="final-certificate.html" style="background:#1d4ed8;font-size:1rem;padding:14px 32px">🏅 Claim Your Certificate →</a>';
+  </div>
+
+  <!-- Level Cards -->
+  <div class="levels-section">
+    <h2>⚖ Track Levels</h2>
+
+    <div class="level-card" id="card-l1">
+      <div class="level-card-header" onclick="toggleCard('l1')">
+        <div class="level-num" id="num-l1">1</div>
+        <div class="level-info">
+          <div class="level-title">Level 1 — Legislative History, Constitutional Architecture &amp; Section 3 Offences</div>
+          <div class="level-sub">Timeline of legislative development · Arts. 14, 17, 21, 46 · Complete §3 offence grid · Key definitions · Special Court system</div>
+        </div>
+        <span class="level-status pending" id="status-l1">Not Started</span>
+        <span class="expand-icon" id="icon-l1">▼</span>
+      </div>
+      <div class="level-card-body" id="body-l1">
+        <ul class="level-topics">
+          <li>Legislative history: PCRA 1955 → SC/ST Act 1989 → Rules 1995 → 2015 Amendment → 2018 Amendment (§18A)</li>
+          <li>Constitutional architecture: Art.17 (untouchability abolition), Art.14 (equality), Art.21 (dignity), Art.46 (DPSP)</li>
+          <li>Doctrine of transformative constitutionalism — purposive interpretation mandate</li>
+          <li>§3(1) offences — all 12 sub-sections with elements and practitioner notes</li>
+          <li>§3(2) aggravated offences — caste motivation converting IPC offences; rape, arson, public servant atrocity</li>
+          <li>Key definitions: Atrocity, SC, ST, Special Court, Exclusive Special Court, Victim, SPP</li>
+          <li>Special Court architecture: §14 designation, §14A Exclusive Special Courts, exclusive jurisdiction, §15 SPP</li>
+          <li>Cases: Subhash Kashinath Mahajan, Prathvi Raj Chauhan, Ram Krishna Balothia, PUDR v. UOI</li>
+        </ul>
+        <a href="level1.html" class="level-btn" id="btn-l1">Start Level 1 →</a>
+      </div>
+    </div>
+
+    <div class="level-card" id="card-l2">
+      <div class="level-card-header" onclick="toggleCard('l2')">
+        <div class="level-num" id="num-l2">2</div>
+        <div class="level-info">
+          <div class="level-title">Level 2 — Investigation, Evidence, Bail &amp; Section 15A Rights</div>
+          <div class="level-sub">FIR obligation · DSP investigation · Evidence strategy · Bail regime · Comprehensive victim rights framework</div>
+        </div>
+        <span class="level-status pending" id="status-l2">Locked</span>
+        <span class="expand-icon" id="icon-l2">▼</span>
+      </div>
+      <div class="level-card-body" id="body-l2">
+        <ul class="level-topics">
+          <li>FIR obligation: Lalita Kumari + §18A double protection; §4 criminal liability for refusal</li>
+          <li>Step-by-step FIR refusal remedies: SP complaint → §156(3) Magistrate order → Private complaint → Writ of mandamus → NHRC/NCSC</li>
+          <li>§9 mandatory DSP investigation — Gurinder Singh Aujla; Rule 7 60-day timeline; challenge strategy</li>
+          <li>Evidence collection: DOs and DON'Ts; §164 CrPC gold standard statements; caste certificates</li>
+          <li>Caste motivation: circumstantial inference (Manohar Lal); cross-examination preparation</li>
+          <li>Bail regime: anticipatory bail absolutely barred (§18A); regular bail — oppose with §15A(5); default bail (§167 CrPC — Darshan Singh)</li>
+          <li>§15A comprehensive analysis: §§15A(1), (3), (5), (6), (7), (8), (11) — each with practical application</li>
+          <li>Cases: Lalita Kumari, Gurinder Singh Aujla, Mahender Chawla, Manohar Lal, Darshan Singh</li>
+        </ul>
+        <a href="level2.html" class="level-btn disabled" id="btn-l2">Complete Level 1 First</a>
+      </div>
+    </div>
+
+    <div class="level-card" id="card-l3">
+      <div class="level-card-header" onclick="toggleCard('l3')">
+        <div class="level-num" id="num-l3">3</div>
+        <div class="level-info">
+          <div class="level-title">Level 3 — Landmark Cases, Remedies, Writ Strategy &amp; Professional Ethics</div>
+          <div class="level-sub">Constitutional compensation · 5 landmark cases · 4-writ strategy · Trial advocacy · Professional ethics</div>
+        </div>
+        <span class="level-status pending" id="status-l3">Locked</span>
+        <span class="expand-icon" id="icon-l3">▼</span>
+      </div>
+      <div class="level-card-body" id="body-l3">
+        <ul class="level-topics">
+          <li>Constitutional compensation doctrine: Rudul Shah → Nilabati Behera → DK Basu; strict liability of State actors</li>
+          <li>Landmark cases: Appa Balu Ingale (Art.17 horizontal), Patan Jamal Vali (intersectionality), Gurinder Singh Aujla (§9), NALSA (structural discrimination), Swaran Singh (sentencing guidelines)</li>
+          <li>Writ strategy: Mandamus (FIR), Certiorari (quash illegal orders), Art.32/226 (compensation), PIL (systemic failures)</li>
+          <li>Trial advocacy: §309 time-bound trial; §15A(7) private counsel; examination-in-chief strategy; cross-exam preparation; charge-framing participation; sentencing submissions</li>
+          <li>§357A CrPC — State Victim Compensation Fund; combine with Schedule I compensation</li>
+          <li>Professional ethics: trauma-informed practice; confidentiality; conflict of interest; BCI rules; transformative purpose</li>
+          <li>Continuing professional development for SC/ST Act practitioners</li>
+        </ul>
+        <a href="level3.html" class="level-btn disabled" id="btn-l3">Complete Level 2 First</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Law Quick Reference -->
+  <div class="cases-section">
+    <h2>📋 Case Law Quick Reference — 8 Landmark Cases</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Case</th><th>Year</th><th>Court</th><th>Key Ratio / Principle</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Subhash Kashinath Mahajan v. State of Maharashtra</td>
+            <td>2018</td>
+            <td>SC</td>
+            <td>Added preliminary inquiry and anticipatory bail — overridden entirely by 2018 Amendment (§18A). The override is itself a landmark constitutional event — Parliament naming the case in legislation and reversing it.</td>
+          </tr>
+          <tr>
+            <td>Lalita Kumari v. Govt. of UP</td>
+            <td>2014</td>
+            <td>SC (5-judge CB)</td>
+            <td>FIR registration is mandatory for cognizable offences — no police discretion, no preliminary inquiry. Applies with even greater force to SC/ST Act cases where §18A additionally bars preliminary inquiry.</td>
+          </tr>
+          <tr>
+            <td>Rudul Shah v. State of Bihar</td>
+            <td>1983</td>
+            <td>SC</td>
+            <td>Constitutional compensation for fundamental rights violations — established doctrine of constitutional tort. Courts can award compensation under Art.32/226 even without statutory basis where fundamental rights are violated by State.</td>
+          </tr>
+          <tr>
+            <td>Nilabati Behera v. State of Orissa</td>
+            <td>1993</td>
+            <td>SC</td>
+            <td>State is strictly liable for constitutional violations — no private tort defences available. Constitutional compensation is a public law remedy, not private tort. Standard: no need to prove malice or intent of state actors.</td>
+          </tr>
+          <tr>
+            <td>Patan Jamal Vali v. State of AP</td>
+            <td>2021</td>
+            <td>SC</td>
+            <td>Intersectionality — caste + disability + gender compound vulnerability. Courts must recognise multiple axes of marginalisation in sentencing and relief. Transformative constitutionalism applied to SC/ST Act.</td>
+          </tr>
+          <tr>
+            <td>Gurinder Singh Aujla v. State of Punjab</td>
+            <td>2020</td>
+            <td>SC</td>
+            <td>§9 DSP investigation is mandatory, not directory. Investigation by sub-DSP rank officer = procedurally invalid, challengeable before Special Court. Always check IO's rank on the FIR at the outset of every case.</td>
+          </tr>
+          <tr>
+            <td>Mahender Chawla v. UOI</td>
+            <td>2019</td>
+            <td>SC</td>
+            <td>Anticipatory bail bar under §18 confirmed absolute. 2018 Amendment (§18A) constitutionally valid. Very narrow exception only where complaint is manifestly false on face of record — not a general power to grant anticipatory bail.</td>
+          </tr>
+          <tr>
+            <td>State of Karnataka v. Appa Balu Ingale</td>
+            <td>1993</td>
+            <td>SC</td>
+            <td>Art.17 directly enforceable against private individuals. Denial of SC/ST persons' access to common well (and by extension any public resource) on caste basis = atrocity. SC restored conviction reversed by HC.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Certificate CTA -->
+  <div class="cert-section" id="cert-section">
+    <div class="lock-icon" id="cert-lock">🔒</div>
+    <h2 id="cert-title">Certificate of Completion</h2>
+    <p id="cert-desc">Complete all 3 levels with a score of 7/10 or more in each to unlock your Certificate of Completion from the Centre for Law and Development, Janman People's Foundation.</p>
+    <a href="certificate.html" class="cert-btn locked" id="cert-btn">Certificate Locked — Complete All 3 Levels</a>
+  </div>
+
+</div>
+
+<script>
+function updateProgress(){
+  const l1Done=localStorage.getItem('janman_scst_ls_l1_done')==='true';
+  const l2Done=localStorage.getItem('janman_scst_ls_l2_done')==='true';
+  const l3Done=localStorage.getItem('janman_scst_ls_l3_done')==='true';
+  const l1Score=localStorage.getItem('janman_scst_ls_l1_score');
+  const l2Score=localStorage.getItem('janman_scst_ls_l2_score');
+  const l3Score=localStorage.getItem('janman_scst_ls_l3_score');
+  const completed=[l1Done,l2Done,l3Done].filter(Boolean).length;
+  const pct=Math.round(completed/3*100);
+  document.getElementById('progress-bar').style.width=pct+'%';
+  document.getElementById('progress-text').textContent=`${completed} of 3 levels completed (${pct}%)`;
+
+  // Update score displays
+  if(l1Done&&l1Score){
+    document.getElementById('score-l1').textContent=l1Score+'/10';
+    document.getElementById('prog-l1').classList.add('done');
+  }
+  if(l2Done&&l2Score){
+    document.getElementById('score-l2').textContent=l2Score+'/10';
+    document.getElementById('prog-l2').classList.add('done');
+  }
+  if(l3Done&&l3Score){
+    document.getElementById('score-l3'+).textContent=l3Score+'/10';
+    document.getElementById('prog-l3').classList.add('done');
+  }
+
+  // Update level card statuses and buttons
+  if(l1Done){
+    document.getElementById('num-l1').classList.add('done');
+    document.getElementById('status-l1').textContent='✓ Completed';
+    document.getElementById('status-l1').className='level-status done';
+    document.getElementById('btn-l2').classList.remove('disabled');
+    document.getElementById('btn-l2').textContent='Continue to Level 2 →';
+  }
+  if(l2Done){
+    document.getElementById('num-l2').classList.add('done');
+    document.getElementById('status-l2').textContent='✓ Completed';
+    document.getElementById('status-l2').className='level-status done';
+    document.getElementById('btn-l3').classList.remove('disabled');
+    document.getElementById('btn-l3'+).textContent='Continue to Level 3 →';
+  }
+  if(l3Done){
+    document.getElementById('num-l3'+).classList.add('done');
+    document.getElementById('status-l3').textContent='✓ Completed';
+    document.getElementById('status-l3'+).className='level-status done';
+  }
+  if(!l1Done){
+    document.getElementById('status-l1').textContent='Start Here';
+    document.getElementById('status-l1').className='level-status pending';
+  }
+  if(!l2Done&&l1Done){
+    document.getElementById('status-l2').textContent='In Progress';
+    document.getElementById('status-l2').className='level-status pending';
+  }
+  if(!l3Done&&l2Done){
+    document.getElementById('status-l3').textContent='In Progress';
+    document.getElementById('status-l3').className='level-status pending';
+  }
+
+  // Certificate unlock
+  if(l1Done&&l2Done&&l3Done){
+    document.getElementById('cert-lock').textContent='🏆';
+    document.getElementById('cert-title').textContent='Certificate Unlocked!';
+    document.getElementById('cert-desc').textContent='Congratulations! You have successfully completed all 3 levels of the SC/ST (POA) Act Law Student Track. Claim your Certificate of Completion from the Centre for Law and Development.';
+    document.getElementById('cert-btn').classList.remove('locked');
+    document.getElementById('cert-btn').textContent='Claim Certificate of Completion →';
+  }
+
+  // Auto-expand first incomplete level
+  if(!l1Done){
+    openCard('l1');
+  } else if(!l2Done){
+    openCard('l2');
+  } else if(!l3Done){
+    openCard('l3');
+  }
 }
+
+function openCard(id){
+  document.getElementById('body-'+id).classList.add('open');
+  document.getElementById('icon-'+id).style.transform='rotate(180deg)';
+}
+
+function toggleCard(id){
+  const body=document.getElementById('body-'+id);
+  const icon=document.getElementById('icon-'+id);
+  if(body.classList.contains('open')){
+    body.classList.remove('open');
+    icon.style.transform='';
+  } else {
+    body.classList.add('open');
+    icon.style.transform='rotate(180deg)';
+  }
+}
+
+document.addEventListener('DOMContentLoaded',updateProgress);
 </script>
 </body>
 </html>
