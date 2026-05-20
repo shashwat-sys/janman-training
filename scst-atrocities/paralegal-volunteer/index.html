@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLV Track — SC/ST (POA) Act | Janman Training</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f1f3d;
+      --indigo: #1e3a6e;
+      --blue: #2563eb;
+      --blue-light: #dbeafe;
+      --amber: #f59e0b;
+      --amber-light: #fef3c7;
+      --gold: #d97706;
+      --green: #059669;
+      --green-light: #d1fae5;
+      --red: #dc2626;
+      --red-light: #fee2e2;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-900: #111827;
+      --white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(160deg, #0f1f3d 0%, #1e3a6e 40%, #1e40af 80%, #1d4ed8 100%);
+      min-height: 100vh;
+      color: var(--gray-900);
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 30%, rgba(245,158,11,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: white; }
+
+    .hero .track-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 1.1rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+    .hero h1 span { color: var(--amber); }
+    .hero .tagline {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 560px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    /* ---- PROGRESS BAR ---- */
+    .progress-widget {
+      max-width: 560px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+    .progress-widget .pw-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+    .pw-bar-bg {
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      height: 10px;
+      overflow: hidden;
+    }
+    .pw-bar-fill {
+      height: 100%;
+      border-radius: 20px;
+      background: linear-gradient(90deg, var(--amber), var(--gold));
+      transition: width 0.8s ease;
+    }
+    .pw-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.75rem;
+    }
+    .pw-step {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .pw-step .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      flex-shrink: 0;
+    }
+    .pw-step.done .dot { background: var(--amber); }
+    .pw-step.done { color: rgba(255,255,255,0.95); }
+
+    /* ---- MAIN CONTENT ---- */
+    .main-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    /* WHAT IS THIS TRACK */
+    .info-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .info-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.85rem;
+    }
+    .info-item {
+      background: var(--gray-50);
+      border-left: 3px solid var(--amber);
+      border-radius: 8px;
+      padding: 0.75rem 0.9rem;
+    }
+    .info-item .ii-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gray-600);
+      margin-bottom: 0.2rem;
+    }
+    .info-item .ii-val {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* WHO IS THIS FOR */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.9rem;
+    }
+    .audience-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      background: var(--blue-light);
+      border-radius: 8px;
+      padding: 0.7rem 0.85rem;
+    }
+    .audience-item .ai-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .audience-item .ai-text { font-size: 0.87rem; color: var(--indigo); font-weight: 500; line-height: 1.4; }
+
+    /* ---- LEVEL CARDS ---- */
+    .levels-section { margin-top: 0; }
+    .levels-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .level-card {
+      background: white;
+      border-radius: 16px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .level-card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
+
+    .lc-header {
+      display: flex;
+      align-items: stretch;
+      cursor: pointer;
+    }
+    .lc-num {
+      width: 72px;
+      flex-shrink: 0;
+      background: linear-gradient(160deg, var(--navy), var(--indigo));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 1.25rem 0.5rem;
+      gap: 0.3rem;
+    }
+    .lc-num .num-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; }
+    .lc-num .num-val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1; }
+    .lc-num .num-badge {
+      font-size: 0.6rem;
+      background: var(--amber);
+      color: var(--navy);
+      font-weight: 700;
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      margin-top: 0.2rem;
+    }
+
+    .lc-info {
+      flex: 1;
+      padding: 1.1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .lc-info-main h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .lc-info-main .lc-subtitle {
+      font-size: 0.82rem;
+      color: var(--gray-600);
+      margin-bottom: 0.5rem;
+    }
+    .lc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .lc-tag {
+      background: var(--gray-100);
+      color: var(--gray-700);
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .lc-status {
+      flex-shrink: 0;
+      text-align: center;
+      min-width: 80px;
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+    .status-done { background: var(--green-light); color: #065f46; }
+    .status-ready { background: var(--amber-light); color: var(--gold); }
+    .status-locked { background: var(--gray-100); color: var(--gray-600); }
+
+    .score-chip {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .score-chip .sc-max { font-size: 0.72rem; color: var(--gray-600); font-weight: 400; }
+
+    .lc-body {
+      display: none;
+      border-top: 1px solid var(--gray-200);
+    }
+    .lc-body.open { display: block; }
+
+    .lc-expand {
+      padding: 1.25rem;
+    }
+    .lc-expand .topics-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--gray-600);
+      margin-bottom: 0.7rem;
+    }
+    .topic-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .topic-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--gray-700);
+      line-height: 1.4;
+    }
+    .topic-item::before {
+      content: '▸';
+      color: var(--amber);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      margin-top: 0.1rem;
+    }
+
+    .lc-expand .law-refs {
+      background: var(--gray-50);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.82rem;
+      color: var(--indigo);
+      margin-bottom: 1rem;
+    }
+    .lc-expand .law-refs strong { color: var(--navy); }
+
+    .btn-start {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      background: linear-gradient(135deg, var(--navy), var(--indigo));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn-start:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-start.locked {
+      background: var(--gray-300);
+      color: var(--gray-600);
+      cursor: not-allowed;
+    }
+    .btn-start.locked:hover { transform: none; opacity: 1; }
+    .btn-review {
+      background: linear-gradient(135deg, var(--green), #047857);
+    }
+
+    /* ---- CERTIFICATE CTA ---- */
+    .cert-cta {
+      background: linear-gradient(135deg, var(--amber), var(--gold));
+      border-radius: 16px;
+      padding: 1.75rem;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .cert-cta .cta-icon { font-size: 3rem; flex-shrink: 0; }
+    .cert-cta h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .cert-cta p { font-size: 0.87rem; color: rgba(15,31,61,0.75); margin-bottom: 0.85rem; }
+    .btn-cert {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.65rem 1.4rem;
+      background: var(--navy);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-cert:hover { opacity: 0.85; }
+    .btn-cert.locked {
+      background: rgba(15,31,61,0.3);
+      cursor: not-allowed;
+    }
+
+    /* ---- LAW REFERENCE SIDEBAR ---- */
+    .quick-ref {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+    .quick-ref h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.6rem;
+    }
+    .ref-item {
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+    }
+    .ref-item .ref-section {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--indigo);
+      margin-bottom: 0.15rem;
+    }
+    .ref-item .ref-desc {
+      font-size: 0.8rem;
+      color: var(--gray-700);
+      line-height: 1.4;
+    }
+
+    /* ---- FOOTER ---- */
+    .page-footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+    }
+    .page-footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .audience-grid, .topic-list { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr 1fr; }
+      .cert-cta { flex-direction: column; text-align: center; }
+      .cert-cta .cta-icon { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <a href="../../index.html" class="back-link">← Back to Training Portal</a>
+    </div>
+    <div class="track-badge">PLV Track — Paralegal Volunteer</div>
+    <h1>SC/ST (Prevention of Atrocities)<br>Act <span>Training Programme</span></h1>
+    <p class="tagline">
+      A three-level training programme for Paralegal Volunteers — from knowing the law
+      to running full field interventions for SC/ST atrocity victims.
+    </p>
+    <!-- Progress Widget -->
+    <div class="progress-widget">
+      <div class="pw-label">
+        <span>Your Progress</span>
+        <span id="progress-text">0 of 3 Levels Completed</span>
+      </div>
+      <div class="pw-bar-bg">
+        <div class="pw-bar-fill" id="progress-bar" style="width:0%"></div>
+      </div>
+      <div class="pw-steps">
+        <div class="pw-step" id="step-1"><div class="dot"></div> Level 1</div>
+        <div class="pw-step" id="step-2"><div class="dot"></div> Level 2</div>
+        <div class="pw-step" id="step-3"><div class="dot"></div> Level 3</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- ABOUT THIS TRACK -->
+    <div class="info-card">
+      <h2>📋 About this Track</h2>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="ii-label">Levels</div>
+          <div class="ii-val">3 Modules</div>
+        </div>
+        <div class="info-item">
+          <div class="ii-label">Est. Duration</div>
+          <div class="ii-val">3 – 4 Hours</div>
+        </div>
+        <div class="info-item">
+          <div class="ii-label">Format</div>
+          <div class="ii-val">Self-paced, online</div>
+        </div>
+        <div class="info-item">
+          <div class="ii-label">Assessment</div>
+          <div class="ii-val">10 Qs / level, 70% pass</div>
+        </div>
+        <div class="info-item">
+          <div class="ii-label">Certificate</div>
+          <div class="ii-val">On passing all 3 levels</div>
+        </div>
+        <div class="info-item">
+          <div class="ii-label">Language</div>
+          <div class="ii-val">English (bilingual terms)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WHO IS THIS FOR -->
+    <div class="info-card">
+      <h2>👥 Who is this for?</h2>
+      <div class="audience-grid">
+        <div class="audience-item">
+          <div class="ai-icon">🏘</div>
+          <div class="ai-text">Community-based Paralegal Volunteers (PLVs) working in atrocity-prone districts</div>
+        </div>
+        <div class="audience-item">
+          <div class="ai-icon">🤝</div>
+          <div class="ai-text">NALSA / DLSA-empanelled PLVs assisting SC/ST communities with legal access</div>
+        </div>
+        <div class="audience-item">
+          <div class="ai-icon">📢</div>
+          <div class="ai-text">NGO field staff and activists supporting atrocity victims with FIR registration</div>
+        </div>
+        <div class="audience-item">
+          <div class="ai-icon">🎓</div>
+          <div class="ai-text">Trained volunteers wanting to work on Rule 12 compensation and Section 15A rights</div>
+        </div>
+      </div>
+      <p style="margin-top:0.85rem;font-size:0.85rem;color:var(--gray-600);background:var(--amber-light);padding:0.6rem 0.85rem;border-radius:8px;border-left:3px solid var(--amber);">
+        <strong>No law degree required.</strong> This track is designed for non-lawyers with basic literacy. Legal terms are explained in plain Hindi and English at every step.
+      </p>
+    </div>
+
+    <!-- LEVELS -->
+    <div class="levels-section">
+      <h2>Training Modules</h2>
+
+      <!-- LEVEL 1 -->
+      <div class="level-card" id="card-l1">
+        <div class="lc-header" onclick="toggleCard('l1')">
+          <div class="lc-num">
+            <div class="num-label">Level</div>
+            <div class="num-val">1</div>
+            <div class="num-badge">PLV</div>
+          </div>
+          <div class="lc-info">
+            <div class="lc-info-main">
+              <h3>Know the Law</h3>
+              <div class="lc-subtitle">Why the SC/ST Act exists, what it protects against, and your legal mandate as a PLV</div>
+              <div class="lc-tags">
+                <span class="lc-tag">Section 3 offences</span>
+                <span class="lc-tag">Who is protected</span>
+                <span class="lc-tag">PLV mandate</span>
+                <span class="lc-tag">Key glossary</span>
+              </div>
+            </div>
+            <div class="lc-status">
+              <div class="status-badge status-ready" id="badge-l1">Start</div>
+              <div class="score-chip" id="score-l1">—<span class="sc-max">/10</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="lc-body" id="body-l1">
+          <div class="lc-expand">
+            <div class="topics-label">What you'll learn</div>
+            <div class="topic-list">
+              <div class="topic-item">History of the SC/ST (POA) Act 1989 and its constitutional foundations</div>
+              <div class="topic-item">Section 3 atrocity offences — all 25 sub-clauses explained</div>
+              <div class="topic-item">Who qualifies as SC/ST and what "atrocity" means legally</div>
+              <div class="topic-item">Your role as a PLV under NALSA and the DLSA framework</div>
+              <div class="topic-item">12 essential legal terms (bilingual Hindi–English glossary)</div>
+              <div class="topic-item">Section 4 — public servant liability for neglect of duty</div>
+            </div>
+            <div class="law-refs">
+              <strong>Law covered:</strong> SC/ST (POA) Act §3, §4 · Constitution Art. 14, 17, 21 · NALSA & LSA Act 1987
+            </div>
+            <a href="level1.html" class="btn-start" id="btn-l1">▶ Start Level 1</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEVEL 2 -->
+      <div class="level-card" id="card-l2">
+        <div class="lc-header" onclick="toggleCard('l2')">
+          <div class="lc-num">
+            <div class="num-label">Level</div>
+            <div class="num-val">2</div>
+            <div class="num-badge">PLV</div>
+          </div>
+          <div class="lc-info">
+            <div class="lc-info-main">
+              <h3>Field Intervention</h3>
+              <div class="lc-subtitle">How to help a victim register an FIR, claim Rule 12 relief, and enforce victim rights on the ground</div>
+              <div class="lc-tags">
+                <span class="lc-tag">FIR registration</span>
+                <span class="lc-tag">Police refusal remedies</span>
+                <span class="lc-tag">Rule 12 compensation</span>
+                <span class="lc-tag">Section 15A rights</span>
+              </div>
+            </div>
+            <div class="lc-status">
+              <div class="status-badge status-ready" id="badge-l2">Start</div>
+              <div class="score-chip" id="score-l2">—<span class="sc-max">/10</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="lc-body" id="body-l2">
+          <div class="lc-expand">
+            <div class="topics-label">What you'll learn</div>
+            <div class="topic-list">
+              <div class="topic-item">First response protocol — listen, believe, document</div>
+              <div class="topic-item">Step-by-step FIR registration procedure with dos and don'ts</div>
+              <div class="topic-item">6-step escalation when police refuse to register an FIR</div>
+              <div class="topic-item">Rule 12 compensation table — amounts, timelines, and DVMC</div>
+              <div class="topic-item">Section 15A victim rights — A to E (information, protection, travel, rehabilitation)</div>
+              <div class="topic-item">Medical evidence, injury certificates, and documentation standards</div>
+            </div>
+            <div class="law-refs">
+              <strong>Law covered:</strong> POA Act §15A · Rule 12, Rule 17(3) · §156(3) CrPC · §357A CrPC · Section 9 POA Act
+            </div>
+            <a href="level2.html" class="btn-start" id="btn-l2">▶ Start Level 2</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEVEL 3 -->
+      <div class="level-card" id="card-l3">
+        <div class="lc-header" onclick="toggleCard('l3')">
+          <div class="lc-num">
+            <div class="num-label">Level</div>
+            <div class="num-val">3</div>
+            <div class="num-badge">PLV</div>
+          </div>
+          <div class="lc-info">
+            <div class="lc-info-main">
+              <h3>Full Remedial Toolkit</h3>
+              <div class="lc-subtitle">RTI applications, compensation enforcement, Special Court timelines, and constitutional remedies</div>
+              <div class="lc-tags">
+                <span class="lc-tag">RTI strategies</span>
+                <span class="lc-tag">Investigation stalls</span>
+                <span class="lc-tag">Special Court</span>
+                <span class="lc-tag">Art. 226 / 32 writs</span>
+              </div>
+            </div>
+            <div class="lc-status">
+              <div class="status-badge status-ready" id="badge-l3">Start</div>
+              <div class="score-chip" id="score-l3">—<span class="sc-max">/10</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="lc-body" id="body-l3">
+          <div class="lc-expand">
+            <div class="topics-label">What you'll learn</div>
+            <div class="topic-list">
+              <div class="topic-item">RTI as an accountability tool — full letter template included</div>
+              <div class="topic-item">6 remedies when investigation stalls — Dy.SP, NHRC, Magistrate, HC</div>
+              <div class="topic-item">Enforcing unpaid compensation through DVMC and HC mandamus</div>
+              <div class="topic-item">Special Court trial stages and what to watch for at each stage</div>
+              <div class="topic-item">Constitutional remedies — Art. 32, 226, and the Rudul Shah doctrine</div>
+              <div class="topic-item">PLV self-protection — staying safe while doing this work</div>
+            </div>
+            <div class="law-refs">
+              <strong>Law covered:</strong> RTI Act 2005 · POA Act §9, §14 · Constitution Art. 32, 226 · Rudul Shah (1983) · Witness Protection Scheme 2018
+            </div>
+            <a href="level3.html" class="btn-start" id="btn-l3">▶ Start Level 3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATE CTA -->
+    <div class="cert-cta">
+      <div class="cta-icon">📜</div>
+      <div>
+        <h3>Earn Your PLV Certificate</h3>
+        <p>Complete all three levels with a passing score (7/10 each) to generate your Janman–NALSA PLV Certificate — printable and usable as proof of training for DLSA registration.</p>
+        <a href="certificate.html" class="btn-cert" id="btn-cert">
+          Get Certificate →
+        </a>
+      </div>
+    </div>
+
+    <!-- QUICK LAW REFERENCE -->
+    <div class="quick-ref">
+      <h2>⚖️ Quick Law Reference</h2>
+      <div class="ref-grid">
+        <div class="ref-item">
+          <div class="ref-section">Section 3(1)</div>
+          <div class="ref-desc">Atrocity offences against SC/ST persons — 22 sub-clauses</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Section 3(2)</div>
+          <div class="ref-desc">Aggravated offences — enhanced punishment if committed by public servants</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Section 4</div>
+          <div class="ref-desc">Neglect of duty by public servant — mandatory prosecution</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Section 9</div>
+          <div class="ref-desc">Investigation must be by Dy.SP rank or above — no lower officer</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Section 14</div>
+          <div class="ref-desc">Special Courts — mandatory, one per district, exclusive jurisdiction</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Section 15A</div>
+          <div class="ref-desc">Victim rights — information, protection, travel expenses, rehabilitation</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Section 18A</div>
+          <div class="ref-desc">No bail, no preliminary inquiry, no prior sanction for arrest</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Rule 12</div>
+          <div class="ref-desc">Compensation schedule — amounts and payment timelines (3 days, 2 months)</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Rule 17(3)</div>
+          <div class="ref-desc">DVMC — District Vigilance and Monitoring Committee for enforcement</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Article 17</div>
+          <div class="ref-desc">Abolition of untouchability — enforceable fundamental right</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">Article 226/32</div>
+          <div class="ref-desc">HC/SC writ jurisdiction — mandamus, compensation (Rudul Shah)</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-section">§156(3) CrPC</div>
+          <div class="ref-desc">Magistrate's power to direct police to register FIR and investigate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <p>Janman People's Foundation · Jan Nyaya Abhiyan · <a href="../../index.html">Training Portal</a></p>
+    <p style="margin-top:0.35rem;">This material is for legal literacy and PLV training. It does not constitute legal advice. Content based on SC/ST (POA) Act 1989 and its 2015 Amendment.</p>
+  </div>
+
+  <script>
+    // Load progress from localStorage
+    function updateProgress() {
+      const d1 = localStorage.getItem('janman_scst_plv_l1_done') === 'true';
+      const d2 = localStorage.getItem('janman_scst_plv_l2_done') === 'true';
+      const d3 = localStorage.getItem('janman_scst_plv_l3_done') === 'true';
+      const s1 = localStorage.getItem('janman_scst_plv_l1_score');
+      const s2 = localStorage.getItem('janman_scst_plv_l2_score');
+      const s3 = localStorage.getItem('janman_scst_plv_l3_score');
+      const done = [d1, d2, d3].filter(Boolean).length;
+
+      // Progress bar
+      document.getElementById('progress-bar').style.width = (done / 3 * 100) + '%';
+      document.getElementById('progress-text').textContent = done + ' of 3 Levels Completed';
+
+      // Step dots
+      [['step-1', d1], ['step-2', d2], ['step-3', d3]].forEach(([id, isDone]) => {
+        if (isDone) document.getElementById(id).classList.add('done');
+      });
+
+      // Score chips
+      if (s1) document.getElementById('score-l1').innerHTML = s1 + '<span class="sc-max">/10</span>';
+      if (s2) document.getElementById('score-l2').innerHTML = s2 + '<span class="sc-max">/10</span>';
+      if (s3) document.getElementById('score-l3').innerHTML = s3 + '<span class="sc-max">/10</span>';
+
+      // Badges
+      const badges = [
+        { id: 'badge-l1', done: d1, score: s1 },
+        { id: 'badge-l2', done: d2, score: s2 },
+        { id: 'badge-l3', done: d3, score: s3 },
+      ];
+      badges.forEach(({ id, done, score }) => {
+        const el = document.getElementById(id);
+        if (done) {
+          el.textContent = '✓ Done';
+          el.className = 'status-badge status-done';
+        } else {
+          el.textContent = 'Start';
+          el.className = 'status-badge status-ready';
+        }
+      });
+
+      // Button text
+      if (d1) document.getElementById('btn-l1').innerHTML = '↺ Review Level 1';
+      if (d2) document.getElementById('btn-l2').innerHTML = '↺ Review Level 2';
+      if (d3) document.getElementById('btn-l3').innerHTML = '↺ Review Level 3';
+
+      // Certificate button
+      if (done === 3) {
+        document.getElementById('btn-cert').textContent = '📜 Get Certificate →';
+        document.getElementById('btn-cert').classList.remove('locked');
+      } else {
+        document.getElementById('btn-cert').innerHTML = `🔒 Complete All Levels First (${done}/3)`;
+        document.getElementById('btn-cert').classList.add('locked');
+        document.getElementById('btn-cert').onclick = (e) => {
+          e.preventDefault();
+          alert('Please complete all 3 levels first before generating your certificate.');
+        };
+      }
+
+      // Auto-expand first incomplete level
+      if (!d1) toggleCard('l1');
+      else if (!d2) toggleCard('l2');
+      else if (!d3) toggleCard('l3');
+    }
+
+    function toggleCard(id) {
+      const body = document.getElementById('body-' + id);
+      if (body.classList.contains('open')) {
+        body.classList.remove('open');
+      } else {
+        // Close all others
+        ['l1','l2','l3'].forEach(l => {
+          document.getElementById('body-' + l).classList.remove('open');
+        });
+        body.classList.add('open');
+      }
+    }
+
+    updateProgress();
+  </script>
+</body>
+</html>
