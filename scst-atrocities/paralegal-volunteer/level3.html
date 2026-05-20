@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 3: Full Remedial Toolkit — Paralegal Volunteer Track | SC/ST Atrocities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.hero{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 50%,#7c3aed 100%);padding:2.5rem 1.5rem;text-align:center}
+.hero .back{display:inline-block;color:#93c5fd;text-decoration:none;font-size:.85rem;margin-bottom:1rem;opacity:.85}
+.hero .back:hover{opacity:1}
+.hero .track-badge{display:inline-block;background:rgba(255,165,0,.2);border:1px solid rgba(255,165,0,.4);color:#fcd34d;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:.75rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.5rem}
+.hero .sub{color:#bfdbfe;font-size:.95rem;margin-bottom:.75rem}
+.hero .meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.hero .meta span{background:rgba(255,255,255,.15);padding:.3rem .9rem;border-radius:999px;font-size:.8rem;color:#e0e7ff}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.section-title{font-size:1.3rem;font-weight:700;color:#60a5fa;margin:2.5rem 0 1rem;padding-left:.75rem;border-left:4px solid #1d4ed8}
+.section-title .hi{display:block;font-size:.85rem;font-weight:500;color:#a5b4fc;margin-top:.2rem}
+.intro-box{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.25rem 1.5rem;margin-bottom:1.5rem;line-height:1.7;color:#cbd5e1;font-size:.95rem}
+.intro-box strong{color:#93c5fd}
+.step-item{display:flex;gap:1rem;align-items:flex-start;background:#1e293b;border:1px solid #334155;border-radius:.7rem;padding:1rem 1.25rem;margin-bottom:.85rem}
+.step-num{background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;width:2.2rem;height:2.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;flex-shrink:0;margin-top:.1rem}
+.step-content .step-title{font-size:.95rem;font-weight:700;color:#e2e8f0;margin-bottom:.35rem}
+.step-content .step-title .hi{font-size:.8rem;color:#818cf8;font-weight:500;display:block}
+.step-content .step-body{font-size:.87rem;color:#94a3b8;line-height:1.6}
+.step-content .step-body strong{color:#93c5fd}
+.alert{border-radius:.6rem;padding:.9rem 1.1rem;margin:1rem 0;font-size:.88rem;line-height:1.6}
+.alert-red{background:#1c0f0f;border-left:4px solid #ef4444;color:#fca5a5}
+.alert-red strong{color:#f87171;display:block;margin-bottom:.25rem}
+.alert-amber{background:#1c1300;border-left:4px solid #f59e0b;color:#fde68a}
+.alert-amber strong{color:#fbbf24;display:block;margin-bottom:.25rem}
+.alert-green{background:#0f1c14;border-left:4px solid #22c55e;color:#bbf7d0}
+.alert-green strong{color:#34d399;display:block;margin-bottom:.25rem}
+.alert-purple{background:#1a0f2e;border-left:4px solid #7c3aed;color:#ddd6fe}
+.alert-purple strong{color:#a78bfa;display:block;margin-bottom:.25rem}
+.scenario{background:#1e293b;border:1px solid #334155;border-radius:.75rem;margin-bottom:1.5rem;overflow:hidden}
+.scenario-header{background:linear-gradient(135deg,#7c3aed,#1d4ed8);padding:.9rem 1.25rem}
+.scenario-header .label{font-size:.72rem;font-weight:700;color:#ddd6fe;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.scenario-header .title{color:#fff;font-weight:600;font-size:1rem}
+.scenario-body{padding:1.25rem 1.5rem;color:#cbd5e1;font-size:.9rem;line-height:1.7}
+.scenario-body strong{color:#93c5fd}
+.remedy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}
+.remedy-card{background:#1e293b;border:1px solid #334155;border-radius:.65rem;padding:1rem 1.25rem}
+.remedy-card .r-title{font-size:.95rem;font-weight:700;color:#60a5fa;margin-bottom:.3rem}
+.remedy-card .r-when{font-size:.75rem;color:#7c3aed;text-transform:uppercase;font-weight:700;letter-spacing:.05em;margin-bottom:.35rem}
+.remedy-card .r-body{font-size:.82rem;color:#94a3b8;line-height:1.5}
+.rti-template{background:#0f172a;border:1px solid #334155;border-radius:.65rem;padding:1.25rem;margin:1rem 0;font-family:monospace;font-size:.82rem;color:#cbd5e1;line-height:1.8;white-space:pre-wrap}
+.rti-template .placeholder{color:#7c3aed}
+.timeline{margin:1rem 0}
+.timeline-item{display:flex;gap:1rem;margin-bottom:1rem}
+.tl-dot{width:.9rem;height:.9rem;background:#1d4ed8;border-radius:50%;flex-shrink:0;margin-top:.35rem}
+.tl-line{width:1px;background:#334155;flex-shrink:0;margin-left:.4rem}
+.tl-content{flex:1;padding-bottom:1rem}
+.tl-date{font-size:.75rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.25rem}
+.tl-text{font-size:.87rem;color:#cbd5e1;line-height:1.5}
+.tl-text strong{color:#93c5fd}
+.quiz-section{background:#1e293b;border-radius:1rem;padding:1.75rem;margin-top:2.5rem;border:1px solid #334155}
+.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:.4rem}
+.quiz-section .quiz-sub{font-size:.85rem;color:#94a3b8;margin-bottom:1.5rem}
+.q-block{margin-bottom:1.75rem}
+.q-text{font-size:.95rem;font-weight:600;color:#e2e8f0;margin-bottom:.75rem}
+.q-text .q-num{background:#1d4ed8;color:#fff;font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-right:.5rem}
+.options{display:flex;flex-direction:column;gap:.45rem}
+.options label{background:#0f172a;border:1px solid #334155;border-radius:.5rem;padding:.65rem 1rem;font-size:.87rem;color:#cbd5e1;cursor:pointer;transition:.15s}
+.options label:hover{border-color:#3b82f6;color:#e2e8f0}
+.options label.correct{border-color:#22c55e;background:#14532d;color:#bbf7d0}
+.options label.wrong{border-color:#ef4444;background:#1c0f0f;color:#fca5a5}
+.explanation{display:none;background:#0f172a;border-left:3px solid #7c3aed;border-radius:.5rem;padding:.75rem 1rem;margin-top:.5rem;font-size:.82rem;color:#c7d2fe;line-height:1.6}
+.btn-submit{background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:.6rem;font-size:.95rem;font-weight:700;cursor:pointer;width:100%;margin-top:.5rem;transition:.2s}
+.btn-submit:hover{opacity:.9}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.result-box{display:none;margin-top:1.5rem;text-align:center;background:#0f172a;border:1px solid #334155;border-radius:.75rem;padding:1.5rem}
+.score{font-size:2.5rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+.verdict{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.verdict.pass{color:#34d399}
+.verdict.fail{color:#f87171}
+.progress-bar{height:8px;background:#334155;border-radius:99px;margin:.75rem 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#7c3aed);border-radius:99px;transition:width 1s}
+.next-btn{display:inline-block;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;text-decoration:none;padding:.7rem 2rem;border-radius:.5rem;font-weight:700;font-size:.9rem;margin-top:1rem}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="../index.html" class="back">← SC/ST Atrocities Module</a>
+  <div class="track-badge">Paralegal Volunteer Track</div>
+  <h1>Level 3: Full Remedial Toolkit</h1>
+  <div class="sub">When the System Fails — Escalation, Compensation Enforcement, and Constitutional Remedies</div>
+  <div class="meta">
+    <span>📚 6 Topics</span>
+    <span>🕐 60 Minutes</span>
+    <span>📝 10-Question Quiz</span>
+    <span>⚡ Advanced Field Tools</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>This module is for when the system does not work the way it should.</strong> You have filed the FIR. You have applied for Rule 12 compensation. You have connected the victim with DLSA. But now the investigation is stalling. The compensation is not coming. The accused got bail without the victim being heard. The police are biased. What do you do? This module gives you the full toolkit — RTI, DVMC, Magistrate orders, Commission complaints, High Court writs, and constitutional remedies. A PLV who knows these tools is a lifeline for victims.
+  </div>
+
+  <!-- TOPIC 1 -->
+  <p class="section-title">
+    Topic 1 — RTI: Your Most Powerful Accountability Tool
+    <span class="hi">विषय 1 — RTI: जवाबदेही का सबसे शक्तिशाली औजार</span>
+  </p>
+
+  <div class="intro-box">
+    The Right to Information Act, 2005 allows any citizen to obtain information from public authorities within 30 days. In atrocity cases, RTI is extraordinarily powerful because it creates a paper trail, forces officials to justify their inaction, and generates evidence for further legal action.
+  </div>
+
+  <div class="step-item">
+    <div class="step-num">✉</div>
+    <div class="step-content">
+      <div class="step-title">RTI for FIR Status and Investigation</div>
+      <div class="step-body">File an RTI with the Public Information Officer (PIO) of the District Superintendent of Police asking: (1) Is FIR No. [X] registered under the POA Act? (2) What is the current status of investigation? (3) Has a Deputy SP or above been assigned? (4) Has the chargesheet been filed, and if not, why not? (5) Who is the designated Special Public Prosecutor?</div>
+    </div>
+  </div>
+
+  <div class="step-item">
+    <div class="step-num">✉</div>
+    <div class="step-content">
+      <div class="step-title">RTI for Rule 12 Compensation Status</div>
+      <div class="step-body">File an RTI with the PIO of the District Collectorate/DM Office asking: (1) Has a Rule 12 application been received for victim [name] regarding FIR No. [X]? (2) What is the status of compensation disbursement? (3) What amount was paid and on what date? (4) If not paid within 3-7 days, what is the reason? (5) When is the next DVMC meeting and will this case be on the agenda?</div>
+    </div>
+  </div>
+
+  <div class="rti-template">To,
+The Public Information Officer,
+Office of the Superintendent of Police,
+District <span class="placeholder">[District Name]</span>, State <span class="placeholder">[State]</span>
+
+Subject: RTI Application under Section 6 of the RTI Act, 2005
+
+I, <span class="placeholder">[Your Name]</span>, a Paralegal Volunteer empanelled with DLSA <span class="placeholder">[District]</span>, hereby seek the following information regarding FIR No. <span class="placeholder">[FIR Number]</span>, Police Station <span class="placeholder">[PS Name]</span>, registered under the SC/ST (Prevention of Atrocities) Act, 1989:
+
+1. Name and rank of the investigating officer assigned to the above FIR.
+2. Whether investigation is being conducted by an officer of or above the rank of Deputy Superintendent of Police, as required by Section 9 of the POA Act.
+3. Status of investigation as on the date of this application.
+4. Whether chargesheet has been filed — if yes, date of filing; if no, reason for delay.
+5. Whether anticipatory bail application has been filed by any accused — if yes, court order copy.
+
+I am seeking this information in the interest of an SC/ST atrocity victim.
+
+Date: <span class="placeholder">[Date]</span>
+Name &amp; Signature: <span class="placeholder">[PLV Name]</span>
+PLV ID / DLSA Card No.: <span class="placeholder">[ID]</span>
+Contact: <span class="placeholder">[Phone]</span></div>
+
+  <div class="alert alert-amber">
+    <strong>⚠ RTI Filing Tips</strong>
+    File by registered post or in person with date-stamped receipt. If information is not provided within 30 days, file a first appeal with the First Appellate Authority. If still no response in 30 more days, file a complaint with the State Information Commission. RTI responses can be used as evidence in DVMC complaints, Commission complaints, and High Court writ petitions.
+  </div>
+
+  <!-- TOPIC 2 -->
+  <p class="section-title">
+    Topic 2 — When Investigation Stalls: Escalation Tools
+    <span class="hi">विषय 2 — जांच रुकने पर: आगे बढ़ने के उपाय</span>
+  </p>
+
+  <div class="intro-box">
+    An investigation "stalls" when: (a) the police are not arresting the clearly identified accused, (b) key witnesses are not being recorded, (c) physical evidence is being ignored, (d) the chargesheet is not filed within 60 days, or (e) the investigation is led by an officer below the rank of Deputy SP (which is illegal under Section 9 of the POA Act). Here is what to do.
+  </div>
+
+  <div class="remedy-grid">
+    <div class="remedy-card">
+      <div class="r-when">Tool 1</div>
+      <div class="r-title">Written Complaint to SP/Dy.SP</div>
+      <div class="r-body">Write a formal complaint citing specific failures: "Investigation not being conducted by Dy.SP as required under Section 9 of the POA Act." Copy to DM, DLSA, and SC/ST Commission. Keep all copies with date stamps.</div>
+    </div>
+    <div class="remedy-card">
+      <div class="r-when">Tool 2</div>
+      <div class="r-title">DVMC Meeting</div>
+      <div class="r-body">Submit a written note to the DVMC (chaired by DM) before each quarterly meeting. The note should cite the FIR number, list specific failures, and request the DVMC to direct the SP to comply with the POA Act investigation requirements.</div>
+    </div>
+    <div class="remedy-card">
+      <div class="r-when">Tool 3</div>
+      <div class="r-title">S.156(3) CrPC / S.175(3) BNSS Petition</div>
+      <div class="r-body">The DLSA advocate can file a petition before the Magistrate directing the police to investigate properly. The Magistrate can also transfer the investigation or direct a specific senior officer to take over.</div>
+    </div>
+    <div class="remedy-card">
+      <div class="r-when">Tool 4</div>
+      <div class="r-title">National/State SC-ST Commission</div>
+      <div class="r-body">File a complaint with the National Commission for Scheduled Castes (NCSC) or State SC/ST Commission. These bodies have civil court powers: they can summon the SP, call for records, and recommend disciplinary action. Complaints can be filed online or by post.</div>
+    </div>
+    <div class="remedy-card">
+      <div class="r-when">Tool 5</div>
+      <div class="r-title">High Court — Article 226 Writ</div>
+      <div class="r-body">If local investigation is hopelessly biased (e.g., the accused are politically powerful), the DLSA advocate can file a writ petition in the High Court seeking transfer of investigation to the CBI or SIT. This was recognized as the appropriate remedy in Sube Singh (2006).</div>
+    </div>
+    <div class="remedy-card">
+      <div class="r-when">Tool 6</div>
+      <div class="r-title">Section 4 Complaint</div>
+      <div class="r-body">File a complaint under Section 4 of the POA Act against the investigating officer for wilful neglect of duty. This creates personal liability for the officer and often spurs immediate action. File with the DM and the DLSA for prosecution initiation.</div>
+    </div>
+  </div>
+
+  <!-- TOPIC 3 -->
+  <p class="section-title">
+    Topic 3 — Enforcing Rule 12 When Compensation Is Delayed
+    <span class="hi">विषय 3 — मुआवजा न मिलने पर क्या करें</span>
+  </p>
+
+  <div class="intro-box">
+    When Rule 12 compensation is not paid within 3-7 days, this is not just an administrative delay — it is a violation of a statutory victim right. Here is the escalation pathway for compensation enforcement.
+  </div>
+
+  <div class="step-item">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-title">Reminder Letter to DM with RTI<span class="hi">DM को अनुस्मारक पत्र + RTI</span></div>
+      <div class="step-body">Send a formal reminder letter to the DM citing the 3-7 day Rule 12 deadline. Simultaneously file an RTI asking the reason for delay. Attach the victim's copy of the FIR and the application for compensation.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-title">DVMC Agenda Item<span class="hi">DVMC एजेंडा</span></div>
+      <div class="step-body">Before the next quarterly DVMC meeting, submit a written note listing all cases where compensation has been delayed. The DVMC minutes are official records — recorded delays create accountability and may be used in contempt proceedings.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-title">SLSA / High Court Application<span class="hi">SLSA / उच्च न्यायालय</span></div>
+      <div class="step-body">The DLSA/SLSA can file an application before the Special Court or High Court seeking a direction to the DM to disburse compensation. Courts have ordered compensation payment in contempt proceedings against DMs who persistently ignore Rule 12 obligations.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-title">Section 4 Complaint Against SDO/DM<span class="hi">धारा 4 के तहत शिकायत</span></div>
+      <div class="step-body">Wilful non-disbursement of Rule 12 compensation by an SDO or DM (both public servants) is a criminal offence under Section 4 of the POA Act. File a complaint with the Commissioner/Divisional Commissioner requesting initiation of Section 4 proceedings.</div>
+    </div>
+  </div>
+
+  <!-- TOPIC 4 -->
+  <p class="section-title">
+    Topic 4 — The Special Court: What Happens and What the PLV Does
+    <span class="hi">विषय 4 — विशेष न्यायालय में क्या होता है</span>
+  </p>
+
+  <div class="intro-box">
+    A PLV does not appear in the Special Court. But you must understand what happens there, so you can support the victim and ensure they are not left in the dark about their own case. The key rule: the victim has rights at every stage of the Special Court proceedings under Section 15A.
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-date">Stage 1 — Chargesheet Filed</div>
+        <div class="tl-text">Police file the chargesheet (आरोप पत्र) in the Special Court within 60 days of FIR. The chargesheet lists the accused, offences, witnesses, and evidence. <strong>PLV action:</strong> Ensure victim is informed of the chargesheet date and contents via the DLSA advocate. Check that all POA Act sections are correctly cited.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-date">Stage 2 — Bail Hearing</div>
+        <div class="tl-text">If the accused applies for bail, the Special Court must hear the victim. <strong>PLV action:</strong> Alert DLSA advocate immediately when bail is applied. Accompany the victim to the court premises on the hearing date. No anticipatory bail can be granted to any accused under the POA Act.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-date">Stage 3 — Trial (Evidence)</div>
+        <div class="tl-text">Prosecution presents its witnesses and evidence. The victim testifies. The DLSA advocate represents the victim and assists the Special Public Prosecutor. <strong>PLV action:</strong> Help the victim prepare emotionally for testimony. Remind them that the DLSA advocate will be with them. The court must ensure a safe environment for testimony.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-date">Stage 4 — Judgment</div>
+        <div class="tl-text">The Special Court delivers its judgment — conviction or acquittal. <strong>PLV action:</strong> Ensure the victim is present. If acquitted and the PLV/DLSA believe the acquittal is wrong (perverse acquittal), the victim has the right under Section 372 proviso of CrPC to appeal. This must be done within 90 days — inform DLSA immediately.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div>
+        <div class="tl-dot"></div>
+      </div>
+      <div class="tl-content">
+        <div class="tl-date">Stage 5 — Appeal</div>
+        <div class="tl-text">Appeals from the Special Court go directly to the High Court under Section 14A(2) of the POA Act — there is no intermediate Sessions Court appeal. <strong>PLV action:</strong> Assist the DLSA advocate in ensuring the victim is represented in the High Court. SLSA takes over DLSA's role for appellate matters.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPIC 5 -->
+  <p class="section-title">
+    Topic 5 — Constitutional Remedies: What a PLV Must Know
+    <span class="hi">विषय 5 — संवैधानिक उपचार</span>
+  </p>
+
+  <div class="intro-box">
+    The Constitution itself provides remedies for atrocity victims when ordinary law fails. A PLV does not file these petitions — but you must know when to push the DLSA advocate to file one.
+  </div>
+
+  <div class="step-item">
+    <div class="step-num">32</div>
+    <div class="step-content">
+      <div class="step-title">Article 32 — Supreme Court<span class="hi">अनुच्छेद 32 — सर्वोच्च न्यायालय</span></div>
+      <div class="step-body">When fundamental rights (Article 17 — abolition of untouchability, Article 21 — right to life) are violated by state action or inaction, a writ petition can be filed directly in the Supreme Court. The Supreme Court can award monetary compensation under the <em>Rudul Shah</em> doctrine. Used when cases have national significance or the High Court has failed to act.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">226</div>
+    <div class="step-content">
+      <div class="step-title">Article 226 — High Court<span class="hi">अनुच्छेद 226 — उच्च न्यायालय</span></div>
+      <div class="step-body">The High Court has broader writ jurisdiction than the Supreme Court — it can remedy violations of both fundamental rights and ordinary legal rights. Used for: (1) directing FIR registration when police refuse, (2) ordering CBI/SIT transfer of investigation, (3) directing Rule 12 compensation disbursement, (4) quashing biased investigation. The most commonly used constitutional remedy in atrocity cases.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">₹</div>
+    <div class="step-content">
+      <div class="step-title">Rudul Shah Doctrine — Constitutional Compensation<span class="hi">रुदल शाह सिद्धांत</span></div>
+      <div class="step-body">Rudul Shah v. State of Bihar (1983) established that the Supreme Court and High Courts can award <strong>monetary compensation</strong> for violation of fundamental rights by the State — even if the victim has other remedies. In atrocity cases, this applies when: FIR was not registered (violating Article 17); Rule 12 compensation was denied (violating Article 21); or police torture was inflicted on an SC/ST person. This compensation is over and above Rule 12 compensation.</div>
+    </div>
+  </div>
+
+  <div class="alert alert-purple">
+    <strong>🔵 When to Push for a Writ Petition</strong>
+    Tell the DLSA advocate to consider a writ petition when: (1) FIR registration has been refused for more than 7 days despite escalation; (2) Rule 12 compensation not paid after 30 days with written reminder to DM; (3) Investigation is clearly biased and Commission complaint has not worked within 60 days; (4) The victim faces imminent physical danger with no state protection. Do not delay — High Court writs in atrocity cases often get quick interim orders.
+  </div>
+
+  <!-- TOPIC 6 -->
+  <p class="section-title">
+    Topic 6 — PLV Self-Protection and Sustainability
+    <span class="hi">विषय 6 — PLV की अपनी सुरक्षा</span>
+  </p>
+
+  <div class="intro-box">
+    PLVs working on atrocity cases sometimes face threats, intimidation, and pressure from powerful accused or their associates. The law protects you — but you must know your rights and use them.
+  </div>
+
+  <div class="step-item">
+    <div class="step-num">A</div>
+    <div class="step-content">
+      <div class="step-title">You Are Protected Under the POA Act<span class="hi">आप POA Act के तहत सुरक्षित हैं</span></div>
+      <div class="step-body">Section 15A of the POA Act extends protection to persons assisting victims. Threatening or intimidating a PLV or witness is a separate criminal offence. If you face threats because of your atrocity-related work, immediately report it to the SP, DM, and DLSA — request witness protection under the Witness Protection Scheme 2018.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">B</div>
+    <div class="step-content">
+      <div class="step-title">Document All Threats<span class="hi">सभी धमकियों का दस्तावेज़ बनाएं</span></div>
+      <div class="step-body">Record every threat immediately in your diary: date, time, what was said, by whom, in front of whom. Take screenshots of threatening messages. This documentation is essential for filing an FIR against the threatener and for your own protection application before the Special Court or DM.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">C</div>
+    <div class="step-content">
+      <div class="step-title">Maintain Your DLSA Connection<span class="hi">DLSA से संपर्क बनाए रखें</span></div>
+      <div class="step-body">Your empanelment with DLSA is your official credential. Keep the DLSA Secretary's number accessible. Inform the DLSA Secretary of all significant developments in active cases. DLSA provides institutional backing that gives you authority when dealing with police and government officials. Renew your empanelment card on time.</div>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-num">D</div>
+    <div class="step-content">
+      <div class="step-title">Know Your Limits — Do Not Exceed Them<span class="hi">अपनी सीमाएं जानें</span></div>
+      <div class="step-body">A PLV cannot: negotiate settlements between victim and accused, appear in court as an advocate, promise legal outcomes, or handle money on behalf of the victim. Exceeding your mandate creates liability and undermines the case. When in doubt, refer to the DLSA advocate.</div>
+    </div>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-header">
+      <div class="label">Advanced Scenario — System Failure Response</div>
+      <div class="title">Three months after the FIR — nothing has moved</div>
+    </div>
+    <div class="scenario-body">
+      FIR registered 90 days ago. The accused (a dominant-caste contractor) is roaming freely. Investigation led by a constable (not a Dy.SP). Rule 12 compensation not paid. Victim is being pressured to withdraw the case. PLV Kamla is the only person fighting for the victim.<br><br>
+      <strong>Kamla's toolkit:</strong><br>
+      <strong>Day 91:</strong> Files RTI with SP's PIO — asks for investigation status, whether Dy.SP is leading. Files separate RTI with DM's PIO on compensation status.<br>
+      <strong>Day 95:</strong> RTI shows investigation is being led by a Sub-Inspector, not Dy.SP. Files written complaint to SP citing Section 9 POA Act violation. Copies to DM, DLSA, NCSC.<br>
+      <strong>Day 97:</strong> Submits note to DVMC (meeting in 10 days) on pending compensation for this case.<br>
+      <strong>Day 100:</strong> DVMC meeting — DM records the violation. Directs SP to hand investigation to Dy.SP within 48 hours.<br>
+      <strong>Day 103:</strong> SP complies. Dy.SP takes over investigation. Compensation order issued by DM.<br>
+      <strong>Day 107:</strong> Accused arrested. First compensation instalment disbursed.<br>
+      <strong>Kamla's lesson:</strong> Three RTIs + one DVMC note + one written complaint to SP = case unlocked in 16 days.
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <h2>Full Remedial Toolkit — Level 3 Quiz</h2>
+    <div class="quiz-sub">10 questions · Pass at 70% · Explanations shown after submission</div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q1</span>A PLV files an RTI asking why Rule 12 compensation has not been paid in a case where the FIR was registered 15 days ago. Which authority should the RTI be addressed to?</div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> (a) The Special Public Prosecutor of the atrocity case</label>
+        <label><input type="radio" name="q1" value="b"> (b) The Public Information Officer of the District Collectorate / District Magistrate's office</label>
+        <label><input type="radio" name="q1" value="c"> (c) The National Commission for Scheduled Castes directly</label>
+        <label><input type="radio" name="q1" value="d"> (d) The Superintendent of Police</label>
+      </div>
+      <div class="explanation" id="exp-q1">Rule 12 compensation is disbursed by the District Magistrate / Collector. The RTI for compensation status should be filed with the PIO of the District Collectorate. An RTI to the SP would be relevant for investigation status, not compensation.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q2</span>Section 9 of the POA Act requires that atrocity cases be investigated by:</div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> (a) Any police officer designated by the SHO</label>
+        <label><input type="radio" name="q2" value="b"> (b) An officer not below the rank of Deputy Superintendent of Police</label>
+        <label><input type="radio" name="q2" value="c"> (c) The District Magistrate personally</label>
+        <label><input type="radio" name="q2" value="d"> (d) A CBI officer deputed to the district</label>
+      </div>
+      <div class="explanation" id="exp-q2">Section 9 of the POA Act mandates that the investigation of atrocity offences must be conducted by an officer not below the rank of Deputy Superintendent of Police (Dy.SP). This is a mandatory requirement — investigation by a Sub-Inspector or constable is a violation of the Act and can be challenged.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q3</span>The victim's case was dismissed by the Special Court (acquittal). The PLV and DLSA advocate believe the acquittal is wrong. What can the victim do?</div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> (a) Nothing — once the Special Court acquits, the matter is final</label>
+        <label><input type="radio" name="q3" value="b"> (b) File a revision petition before the Sessions Court</label>
+        <label><input type="radio" name="q3" value="c"> (c) Apply to the High Court for leave to appeal under Section 372 proviso of CrPC within 90 days</label>
+        <label><input type="radio" name="q3" value="d"> (d) File a review petition before the same Special Court</label>
+      </div>
+      <div class="explanation" id="exp-q3">Section 372 proviso of CrPC (incorporated into Section 15A of the POA Act) gives victims the statutory right to appeal against acquittal, conviction for a lesser offence, or inadequate sentence. The appeal goes to the High Court under Section 14A(2) of the POA Act. There is a 90-day limitation period — the DLSA advocate must be told immediately.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q4</span>The Rudul Shah doctrine (1983) established that courts can award what type of remedy in atrocity cases where fundamental rights are violated?</div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a"> (a) Only a direction to register an FIR — no monetary relief</label>
+        <label><input type="radio" name="q4" value="b"> (b) Monetary compensation for constitutional torts, even when other remedies exist</label>
+        <label><input type="radio" name="q4" value="c"> (c) Criminal punishment of the violating officer — no civil remedy</label>
+        <label><input type="radio" name="q4" value="d"> (d) Transfer of the case to a different state</label>
+      </div>
+      <div class="explanation" id="exp-q4">Rudul Shah v. State of Bihar (1983) established that the Supreme Court (under Article 32) and High Courts (under Article 226) can award monetary compensation for violations of fundamental rights by the State. The State cannot escape liability by claiming an ordinary civil remedy exists. This is the constitutional compensation doctrine.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q5</span>Which Article of the Constitution is the PRIMARY route for seeking a CB/SIT transfer of investigation when local police are biased in an atrocity case?</div>
+      <div class="options">
+        <label><input type="radio" name="q5" value="a"> (a) Article 32 — Supreme Court writ jurisdiction</label>
+        <label><input type="radio" name="q5" value="b"> (b) Article 226 — High Court writ jurisdiction, which is broader and can address legal rights violations</label>
+        <label><input type="radio" name="q5" value="c"> (c) Article 227 — High Court supervisory jurisdiction over lower courts</label>
+        <label><input type="radio" name="q5" value="d"> (d) Section 156(3) CrPC before the Magistrate</label>
+      </div>
+      <div class="explanation" id="exp-q5">Article 226 is the primary route because it is broader than Article 32 — the High Court can issue writs for both fundamental rights violations AND violations of ordinary legal rights. The Sube Singh (2006) case specifically recognized Article 226 as the appropriate route for CBI/SIT transfer petitions in biased atrocity investigations. Section 156(3) is for ordering investigation, not for transfer to central agencies.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q6</span>An SDO has not disbursed Rule 12 compensation 45 days after the atrocity despite repeated written reminders. The PLV should advise:</div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="a"> (a) File an FIR against the SDO for theft</label>
+        <label><input type="radio" name="q6" value="b"> (b) Stop pursuing compensation — it is clearly not available in this case</label>
+        <label><input type="radio" name="q6" value="c"> (c) The DLSA advocate to file a complaint under Section 4 of the POA Act against the SDO for wilful neglect, and approach the SLSA for a writ application before the Special Court or High Court</label>
+        <label><input type="radio" name="q6" value="d"> (d) Approach the accused family for voluntary compensation instead</label>
+      </div>
+      <div class="explanation" id="exp-q6">Wilful neglect of duty by a public servant under the POA Act — including non-disbursement of mandatory Rule 12 compensation — is a punishable offence under Section 4. Additionally, a writ petition before the High Court or an application before the Special Court can direct the DM/SDO to comply. Courts have issued contempt notices against errant SDOs in such cases.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q7</span>A PLV receives threatening phone calls from the accused's family telling them to drop the atrocity case. What should the PLV do FIRST?</div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="a"> (a) Drop the case to ensure their own safety</label>
+        <label><input type="radio" name="q7" value="b"> (b) Document all threats with dates and details, report to SP and DM, contact DLSA to request witness protection, and file an FIR for criminal intimidation</label>
+        <label><input type="radio" name="q7" value="c"> (c) Ignore the calls — they are probably not serious</label>
+        <label><input type="radio" name="q7" value="d"> (d) Move to a different district and continue the case from there</label>
+      </div>
+      <div class="explanation" id="exp-q7">Threatening a PLV or witness assisting an atrocity victim is a criminal offence. Document everything immediately, report to SP and DM, and request formal witness protection. File an FIR for criminal intimidation under BNS/IPC. The DLSA Secretary should be informed so the institution can provide backing. Allowing threats to silence PLVs undermines the entire community's access to justice.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q8</span>The DVMC (District Vigilance and Monitoring Committee) meets:</div>
+      <div class="options">
+        <label><input type="radio" name="q8" value="a"> (a) Monthly</label>
+        <label><input type="radio" name="q8" value="b"> (b) Quarterly (once every 3 months)</label>
+        <label><input type="radio" name="q8" value="c"> (c) Annually</label>
+        <label><input type="radio" name="q8" value="d"> (d) Only when a new atrocity is reported</label>
+      </div>
+      <div class="explanation" id="exp-q8">Rule 17(3) of the SC/ST (POA) Rules requires the DVMC to meet quarterly. A PLV should maintain a calendar of DVMC meetings and submit written notes on pending cases before each meeting. DVMC minutes are official government records and can be used to prove systematic failures.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q9</span>An RTI filed by a PLV receives no response within 30 days. What is the correct next step?</div>
+      <div class="options">
+        <label><input type="radio" name="q9" value="a"> (a) File a new RTI — the first one must have been lost</label>
+        <label><input type="radio" name="q9" value="b"> (b) Assume the information does not exist and drop the inquiry</label>
+        <label><input type="radio" name="q9" value="c"> (c) File a first appeal with the First Appellate Authority; if still no response in 30 more days, file a complaint with the State Information Commission</label>
+        <label><input type="radio" name="q9" value="d"> (d) Go directly to the High Court</label>
+      </div>
+      <div class="explanation" id="exp-q9">Under the RTI Act, if no response is received within 30 days, the applicant can file a first appeal with the First Appellate Authority (a senior officer in the same department). If the first appeal is not resolved within 30 days, a second appeal/complaint can be filed before the State Information Commission, which can impose penalties on the PIO for delay.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q10</span>Which of the following actions EXCEEDS a PLV's mandate and should NOT be done?</div>
+      <div class="options">
+        <label><input type="radio" name="q10" value="a"> (a) Accompanying the victim to the police station to help register the FIR</label>
+        <label><input type="radio" name="q10" value="b"> (b) Negotiating a settlement payment from the accused family on behalf of the victim</label>
+        <label><input type="radio" name="q10" value="c"> (c) Filing an RTI application for the victim regarding Rule 12 compensation status</label>
+        <label><input type="radio" name="q10" value="d"> (d) Submitting a written note to the DVMC about a pending compensation case</div>
+      </div>
+      <div class="explanation" id="exp-q10">A PLV cannot negotiate settlements between victims and accused — this exceeds the PLV mandate, could constitute unauthorized legal practice, and may pressure victims into unsafe agreements. Settlements in atrocity cases can also be used by the accused to have cases dropped. All PLV actions must be within the mandate of facilitating access to official legal remedies — not private dispute resolution.</div>
+    </div>
+
+    <button class="btn-submit" onclick="submitQuiz()">Submit Final Assessment</button>
+
+    <div class="result-box" id="result-box">
+      <div class="score" id="score-display"></div>
+      <div class="verdict" id="verdict-display"></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <p id="result-msg"></p>
+      <a href="certificate.html" class="next-btn" id="next-btn" style="display:none">Claim Your Certificate →</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'c',q4:'b',q5:'b',q6:'c',q7:'b',q8:'b',q9:'c',q10:'b'};
+var submitted=false;
+function submitQuiz(){
+  if(submitted)return;
+  var total=Object.keys(ANSWERS).length;
+  var allAnswered=true;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    if(!sel){allAnswered=false;break;}
+  }
+  if(!allAnswered){alert('Please answer all questions before submitting.');return;}
+  submitted=true;
+  document.querySelector('.btn-submit').disabled=true;
+  var score=0;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    var inputs=document.querySelectorAll('input[name="'+q+'"]');
+    inputs.forEach(function(inp){
+      inp.disabled=true;
+      var lbl=inp.parentElement;
+      if(inp.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(inp.checked)lbl.classList.add('wrong');
+    });
+    var exp=document.getElementById('exp-'+q);
+    if(exp)exp.style.display='block';
+    if(sel&&sel.value===ANSWERS[q])score++;
+  }
+  var pct=Math.round(score/total*100);
+  var rb=document.getElementById('result-box');
+  rb.style.display='block';
+  document.getElementById('score-display').textContent=score+'/'+total;
+  document.getElementById('progress-fill').style.width=pct+'%';
+  var passed=pct>=70;
+  var vd=document.getElementById('verdict-display');
+  if(pct>=90){vd.textContent='Distinction';vd.className='verdict pass';}
+  else if(pct>=80){vd.textContent='Merit';vd.className='verdict pass';}
+  else if(pct>=70){vd.textContent='Pass';vd.className='verdict pass';}
+  else{vd.textContent='Below Pass — Review Required';vd.className='verdict fail';}
+  document.getElementById('result-msg').textContent=passed?'You scored '+pct+'%. All 3 levels complete — claim your certificate!':'You scored '+pct+'%. 70% required. Review the judgments and retry.';
+  if(passed){
+    localStorage.setItem('janman_scst_plv_l3_done','1');
+    localStorage.setItem('janman_scst_plv_l3_score',pct);
+    document.getElementById('next-btn').style.display='inline-block';
+  }
+  rb.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
