@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 2: Field Intervention — Paralegal Volunteer Track | SC/ST Atrocities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.hero{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 50%,#7c3aed 100%);padding:2.5rem 1.5rem;text-align:center}
+.hero .back{display:inline-block;color:#93c5fd;text-decoration:none;font-size:.85rem;margin-bottom:1rem;opacity:.85}
+.hero .back:hover{opacity:1}
+.hero .track-badge{display:inline-block;background:rgba(255,165,0,.2);border:1px solid rgba(255,165,0,.4);color:#fcd34d;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:.75rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.5rem}
+.hero .sub{color:#bfdbfe;font-size:.95rem;margin-bottom:.75rem}
+.hero .meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.hero .meta span{background:rgba(255,255,255,.15);padding:.3rem .9rem;border-radius:999px;font-size:.8rem;color:#e0e7ff}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.section-title{font-size:1.3rem;font-weight:700;color:#60a5fa;margin:2.5rem 0 1rem;padding-left:.75rem;border-left:4px solid #1d4ed8}
+.section-title .hi{display:block;font-size:.85rem;font-weight:500;color:#a5b4fc;margin-top:.2rem}
+.intro-box{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.25rem 1.5rem;margin-bottom:1.5rem;line-height:1.7;color:#cbd5e1;font-size:.95rem}
+.intro-box strong{color:#93c5fd}
+
+/* Numbered steps */
+.step-list{margin:1rem 0}
+.step-item{display:flex;gap:1rem;align-items:flex-start;background:#1e293b;border:1px solid #334155;border-radius:.7rem;padding:1rem 1.25rem;margin-bottom:.85rem}
+.step-num{background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;width:2.2rem;height:2.2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;flex-shrink:0;margin-top:.1rem}
+.step-content{flex:1}
+.step-content .step-title{font-size:.95rem;font-weight:700;color:#e2e8f0;margin-bottom:.35rem}
+.step-content .step-title .hi{font-size:.8rem;color:#818cf8;font-weight:500;display:block}
+.step-content .step-body{font-size:.87rem;color:#94a3b8;line-height:1.6}
+.step-content .step-body strong{color:#93c5fd}
+
+/* Alert/warning */
+.alert{border-radius:.6rem;padding:.9rem 1.1rem;margin:1rem 0;font-size:.88rem;line-height:1.6}
+.alert-red{background:#1c0f0f;border-left:4px solid #ef4444;color:#fca5a5}
+.alert-red strong{color:#f87171;display:block;margin-bottom:.25rem}
+.alert-amber{background:#1c1300;border-left:4px solid #f59e0b;color:#fde68a}
+.alert-amber strong{color:#fbbf24;display:block;margin-bottom:.25rem}
+.alert-green{background:#0f1c14;border-left:4px solid #22c55e;color:#bbf7d0}
+.alert-green strong{color:#34d399;display:block;margin-bottom:.25rem}
+
+/* Scenario */
+.scenario{background:#1e293b;border:1px solid #334155;border-radius:.75rem;margin-bottom:1.5rem;overflow:hidden}
+.scenario-header{background:linear-gradient(135deg,#7c3aed,#1d4ed8);padding:.9rem 1.25rem}
+.scenario-header .label{font-size:.72rem;font-weight:700;color:#ddd6fe;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.scenario-header .title{color:#fff;font-weight:600;font-size:1rem}
+.scenario-body{padding:1.25rem 1.5rem;color:#cbd5e1;font-size:.9rem;line-height:1.7}
+.scenario-body strong{color:#93c5fd}
+
+/* Do/Don't table */
+.do-dont{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+@media(max-width:600px){.do-dont{grid-template-columns:1fr}}
+.do-box{background:#0f1c14;border:1px solid #166534;border-radius:.65rem;padding:1rem 1.25rem}
+.dont-box{background:#1c0f0f;border:1px solid #7f1d1d;border-radius:.65rem;padding:1rem 1.25rem}
+.do-box h4{color:#34d399;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
+.dont-box h4{color:#f87171;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.6rem}
+.do-box ul,.dont-box ul{list-style:none;padding:0}
+.do-box ul li,.dont-box ul li{font-size:.82rem;color:#cbd5e1;padding:.3rem 0 .3rem 1.2rem;position:relative;line-height:1.5}
+.do-box ul li::before{content:'✓';position:absolute;left:0;color:#34d399;font-weight:700}
+.dont-box ul li::before{content:'✗';position:absolute;left:0;color:#f87171;font-weight:700}
+
+/* Compensation table */
+.comp-table{width:100%;border-collapse:collapse;margin:1rem 0}
+.comp-table th{background:#1d4ed8;color:#fff;padding:.6rem .85rem;text-align:left;font-size:.8rem;font-weight:700}
+.comp-table td{padding:.6rem .85rem;font-size:.82rem;border-bottom:1px solid #334155;color:#cbd5e1;vertical-align:top}
+.comp-table tr:hover td{background:#263347}
+.comp-table .amt{color:#34d399;font-weight:700}
+
+/* Flow chart steps */
+.flow{display:flex;flex-direction:column;gap:.5rem;margin:1rem 0}
+.flow-item{background:#1e293b;border:1px solid #334155;border-radius:.6rem;padding:.85rem 1.1rem;display:flex;align-items:center;gap:.85rem}
+.flow-icon{font-size:1.3rem;flex-shrink:0}
+.flow-text{font-size:.87rem;color:#cbd5e1;line-height:1.5}
+.flow-text strong{color:#93c5fd}
+.flow-arrow{text-align:center;color:#475569;font-size:1.1rem;margin:-.2rem 0}
+
+/* Quiz */
+.quiz-section{background:#1e293b;border-radius:1rem;padding:1.75rem;margin-top:2.5rem;border:1px solid #334155}
+.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:.4rem}
+.quiz-section .quiz-sub{font-size:.85rem;color:#94a3b8;margin-bottom:1.5rem}
+.q-block{margin-bottom:1.75rem}
+.q-text{font-size:.95rem;font-weight:600;color:#e2e8f0;margin-bottom:.75rem}
+.q-text .q-num{background:#1d4ed8;color:#fff;font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-right:.5rem}
+.options{display:flex;flex-direction:column;gap:.45rem}
+.options label{background:#0f172a;border:1px solid #334155;border-radius:.5rem;padding:.65rem 1rem;font-size:.87rem;color:#cbd5e1;cursor:pointer;transition:.15s}
+.options label:hover{border-color:#3b82f6;color:#e2e8f0}
+.options label.correct{border-color:#22c55e;background:#14532d;color:#bbf7d0}
+.options label.wrong{border-color:#ef4444;background:#1c0f0f;color:#fca5a5}
+.explanation{display:none;background:#0f172a;border-left:3px solid #7c3aed;border-radius:.5rem;padding:.75rem 1rem;margin-top:.5rem;font-size:.82rem;color:#c7d2fe;line-height:1.6}
+.btn-submit{background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:.6rem;font-size:.95rem;font-weight:700;cursor:pointer;width:100%;margin-top:.5rem;transition:.2s}
+.btn-submit:hover{opacity:.9}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.result-box{display:none;margin-top:1.5rem;text-align:center;background:#0f172a;border:1px solid #334155;border-radius:.75rem;padding:1.5rem}
+.score{font-size:2.5rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+.verdict{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.verdict.pass{color:#34d399}
+.verdict.fail{color:#f87171}
+.progress-bar{height:8px;background:#334155;border-radius:99px;margin:.75rem 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#7c3aed);border-radius:99px;transition:width 1s}
+.next-btn{display:inline-block;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;text-decoration:none;padding:.7rem 2rem;border-radius:.5rem;font-weight:700;font-size:.9rem;margin-top:1rem}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="../index.html" class="back">← SC/ST Atrocities Module</a>
+  <div class="track-badge">Paralegal Volunteer Track</div>
+  <h1>Level 2: Field Intervention</h1>
+  <div class="sub">What a PLV Must Do When an Atrocity Occurs — Step by Step</div>
+  <div class="meta">
+    <span>📚 6 Topics</span>
+    <span>🕐 60 Minutes</span>
+    <span>📝 10-Question Quiz</span>
+    <span>⚡ Action-Oriented</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>This module is about action.</strong> You have learned what the law says in Level 1. Now you learn exactly what to do when a victim comes to you or when you hear of an atrocity incident in your area. Every hour matters — documentation done in the first 24 hours is worth more than any legal argument later. Speed, accuracy, and compassion are your three tools.
+  </div>
+
+  <!-- TOPIC 1 -->
+  <p class="section-title">
+    Topic 1 — First Response: Listen, Believe, Document
+    <span class="hi">विषय 1 — पहली प्रतिक्रिया: सुनें, विश्वास करें, दर्ज करें</span>
+  </p>
+
+  <div class="intro-box">
+    When a victim or their family approaches you, your first job is NOT to immediately go to the police. It is to ensure the victim feels safe, is believed, and that everything is accurately recorded before anything else happens. Evidence recorded in the first hours after an incident is the most powerful.
+  </div>
+
+  <div class="do-dont">
+    <div class="do-box">
+      <h4>✓ DO</h4>
+      <ul>
+        <li>Listen without interrupting</li>
+        <li>Believe what the victim tells you</li>
+        <li>Write down everything immediately in your diary: date, time, place, what happened, what was said (exact words), names of all witnesses</li>
+        <li>Ask if there are any injuries — arrange for medical treatment first if needed</li>
+        <li>Photograph injuries (with the victim's consent)</li>
+        <li>Collect physical evidence: damaged property, torn clothing, etc.</li>
+        <li>Note the caste-based language used by the accused</li>
+        <li>Ask if there are any witnesses who saw what happened</li>
+        <li>Stay calm and reassure the victim</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4>✗ DO NOT</h4>
+      <ul>
+        <li>Question whether the victim "provoked" the incident</li>
+        <li>Suggest mediation or compromise with the accused family</li>
+        <li>Share details of the incident with people not involved</li>
+        <li>Promise outcomes you cannot guarantee</li>
+        <li>Handle or move physical evidence without photographing it first</li>
+        <li>Delay going to the police station (every hour of delay helps the accused)</li>
+        <li>Let the accused family persuade the victim to stay silent</li>
+        <li>Take money or gifts in exchange for your assistance</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="alert alert-amber">
+    <strong>⚠ Document Caste-Based Language</strong>
+    Courts often require proof that the offence was committed because of the victim's caste. Accurately recording the exact words spoken by the accused — especially caste slurs or references to the victim's caste — is critical evidence that cannot be recreated later.
+  </div>
+
+  <!-- TOPIC 2 -->
+  <p class="section-title">
+    Topic 2 — Getting the FIR Registered
+    <span class="hi">विषय 2 — FIR दर्ज कराना</span>
+  </p>
+
+  <div class="intro-box">
+    The FIR (First Information Report) is the foundation of the entire case. If the FIR is not registered, or is registered under the wrong sections (e.g., ordinary IPC instead of the POA Act), the victim loses all the special protections: mandatory compensation, senior officer investigation, Special Court trial, and anticipatory bail bar.
+  </div>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Go to the Police Station with the Victim<span class="hi">पीड़ित के साथ थाने जाएं</span></div>
+        <div class="step-body">Accompany the victim to the nearest police station (or the station having jurisdiction over the area where the offence occurred). The victim should not go alone — your presence as a PLV with your DLSA credentials gives authority to the visit.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Insist on Registering Under the POA Act<span class="hi">SC/ST एक्ट के तहत FIR दर्ज करें</span></div>
+        <div class="step-body">When speaking to the SHO or duty officer, clearly state: <em>"This is an atrocity under the SC/ST (Prevention of Atrocities) Act. Section 18A requires you to register the FIR immediately without any preliminary inquiry."</em> Cite the sections of the Act that apply based on what occurred (from your Level 1 learning).</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">No Preliminary Inquiry Permitted<span class="hi">पहले जांच की अनुमति नहीं</span></div>
+        <div class="step-body">The police officer cannot say "we need to verify the facts first" before registering the FIR. <strong>Section 18A prohibits any preliminary inquiry before registration.</strong> If the officer refuses citing "verification," remind them that Section 4 of the POA Act makes wilful neglect of duty by a public servant a criminal offence.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Get a Copy of the FIR<span class="hi">FIR की प्रति लें</span></div>
+        <div class="step-body">Under Section 154(2) CrPC / Section 173(2) BNSS, the victim is entitled to a free copy of the FIR. Ensure the victim receives a copy immediately. Check that the FIR correctly names the accused, lists the correct POA Act sections, and accurately describes the incident.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Contact DLSA Immediately<span class="hi">तुरंत DLSA को सूचित करें</span></div>
+        <div class="step-body">Call the District Legal Services Authority and report the incident. DLSA must: (1) assign an empanelled advocate to the victim, (2) initiate the Rule 12 compensation process, and (3) inform the District Magistrate for relief disbursement. Ask for the DLSA Secretary's direct number and keep it accessible.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- What if police refuse -->
+  <p class="section-title">
+    Topic 3 — What If the Police Refuse to Register the FIR?
+    <span class="hi">विषय 3 — अगर पुलिस FIR दर्ज करने से मना करे?</span>
+  </p>
+
+  <div class="intro-box">
+    Police refusal to register an FIR is unfortunately common in atrocity cases. This is itself a criminal offence under Section 4 of the POA Act. Here is your escalation ladder — use it systematically.
+  </div>
+
+  <div class="flow">
+    <div class="flow-item">
+      <div class="flow-icon">1️⃣</div>
+      <div class="flow-text"><strong>Written Application to SHO:</strong> Put the complaint in writing and give it to the SHO. Keep a copy. Ask them to acknowledge receipt in writing (date stamp on your copy). A written record creates accountability.</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-item">
+      <div class="flow-icon">2️⃣</div>
+      <div class="flow-text"><strong>Superintendent of Police (SP):</strong> If the SHO refuses within 24 hours, submit the written complaint to the SP. The SP is the district police chief. Copy your complaint to the Dy. SP (investigations are mandatory at Dy. SP level under POA Act).</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-item">
+      <div class="flow-icon">3️⃣</div>
+      <div class="flow-text"><strong>Judicial Magistrate — Section 156(3) CrPC / 175(3) BNSS:</strong> The Magistrate can order the police to register the FIR and investigate. DLSA-empanelled advocates can file this application free of charge for the victim.</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-item">
+      <div class="flow-icon">4️⃣</div>
+      <div class="flow-text"><strong>District Magistrate / Collector:</strong> Report the refusal to the DM. The DM has independent powers under the POA Act and can direct the police. The DM also chairs the DVMC and can record the refusal in official minutes.</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-item">
+      <div class="flow-icon">5️⃣</div>
+      <div class="flow-text"><strong>National / State SC/ST Commission:</strong> File a complaint with the National Commission for Scheduled Castes or the State Commission. They have the powers of a civil court and can summon the officer and recommend action.</div>
+    </div>
+    <div class="flow-arrow">↓</div>
+    <div class="flow-item">
+      <div class="flow-icon">6️⃣</div>
+      <div class="flow-text"><strong>High Court — Article 226 Writ Petition:</strong> If all else fails, the DLSA advocate can file a writ petition in the High Court directing the police to register the FIR. The High Court can also order a CBI/SIT investigation if local police are biased.</div>
+    </div>
+  </div>
+
+  <div class="alert alert-green">
+    <strong>✓ RTI as a Tool</strong>
+    File an RTI application to the SP's office asking for the FIR register entries for the relevant police station. If the complaint is not reflected, it proves non-registration. RTI responses also create a paper trail useful in writ petitions.
+  </div>
+
+  <!-- TOPIC 4 -->
+  <p class="section-title">
+    Topic 4 — Claiming Immediate Relief Under Rule 12
+    <span class="hi">विषय 4 — नियम 12 के तहत तत्काल राहत</span>
+  </p>
+
+  <div class="intro-box">
+    Rule 12 of the SC/ST (POA) Rules, 1995 prescribes mandatory compensation to atrocity victims. <strong>This compensation does not depend on conviction of the accused.</strong> It must be paid simply because the FIR has been registered. A PLV's most impactful contribution is often ensuring the victim actually receives this compensation within the legal deadline.
+  </div>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">First Instalment: 3 to 7 Days<span class="hi">पहली किस्त: 3 से 7 दिन में</span></div>
+        <div class="step-body">At least 25% of the total prescribed compensation must be paid within 3-7 days of the incident (or within 3-7 days of an application to the DM if not paid automatically on first report). This is the <em>interim relief</em> (तत्काल राहत).</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Balance 75%: After Chargesheet<span class="hi">शेष 75%: चार्जशीट के बाद</span></div>
+        <div class="step-body">The remaining 75% of compensation is paid after the chargesheet is filed in the Special Court. Total compensation varies by type of offence — from ₹85,000 for sexual harassment to ₹8.25 lakhs for rape, murder, or permanent disability cases.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Application to District Magistrate<span class="hi">जिला मजिस्ट्रेट को आवेदन</span></div>
+        <div class="step-body">If relief is not paid automatically, help the victim fill out an application addressed to the DM/Collector citing Rule 12 of the SC/ST (POA) Rules. DLSA can assist with this. Keep a copy of the application with the receiving date stamp.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Follow Up — DVMC<span class="hi">DVMC से अनुवर्ती कार्रवाई</span></div>
+        <div class="step-body">The District Vigilance and Monitoring Committee (DVMC) meets quarterly. Before each meeting, prepare a written status note on pending Rule 12 cases and give it to the DM's office or DLSA secretary so it is raised in the DVMC meeting. Non-payment can be escalated to the DVMC.</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th>Type of Atrocity</th>
+        <th>Total Compensation</th>
+        <th>First Instalment (3-7 days)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Murder / death of victim</td>
+        <td class="amt">₹8,25,000</td>
+        <td class="amt">₹2,06,250</td>
+      </tr>
+      <tr>
+        <td>Rape / gang rape</td>
+        <td class="amt">₹5,00,000–₹8,25,000</td>
+        <td class="amt">₹1,25,000–₹2,06,250</td>
+      </tr>
+      <tr>
+        <td>Grievous hurt / permanent disability</td>
+        <td class="amt">₹2,00,000–₹5,00,000</td>
+        <td class="amt">₹50,000–₹1,25,000</td>
+      </tr>
+      <tr>
+        <td>Simple hurt / assault</td>
+        <td class="amt">₹85,000</td>
+        <td class="amt">₹21,250</td>
+      </tr>
+      <tr>
+        <td>Arson / destruction of property</td>
+        <td class="amt">Actual loss + ₹85,000</td>
+        <td class="amt">25% of total</td>
+      </tr>
+      <tr>
+        <td>Social boycott / forced displacement</td>
+        <td class="amt">₹1,00,000</td>
+        <td class="amt">₹25,000</td>
+      </tr>
+      <tr>
+        <td>Wrongful occupation of land</td>
+        <td class="amt">Actual loss assessed</td>
+        <td class="amt">25% of assessed loss</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-amber">
+    <strong>⚠ Compensation is a Right, Not Charity</strong>
+    Never let an SDO or DM office tell the victim "this takes time" without citing the 3-7 day rule. Delayed disbursement is itself a violation of the Rules and can be grounds for action against the public servant under Section 4 of the POA Act.
+  </div>
+
+  <!-- TOPIC 5 -->
+  <p class="section-title">
+    Topic 5 — Victim Rights Under Section 15A
+    <span class="hi">विषय 5 — धारा 15A के तहत पीड़ित के अधिकार</span>
+  </p>
+
+  <div class="intro-box">
+    Section 15A (inserted in 2015) is the victim rights charter of the POA Act. As a PLV, you are responsible for making the victim aware of these rights and ensuring they are exercised. Many victims are not told about these rights by the police or prosecution — this is where you make the difference.
+  </div>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">A</div>
+      <div class="step-content">
+        <div class="step-title">Right to Be Informed<span class="hi">जानकारी का अधिकार</span></div>
+        <div class="step-body">The victim must be kept informed about: arrest of the accused, filing of chargesheet, bail applications, trial dates, and judgment. The police and prosecution must update the victim proactively. If they don't, ask the DLSA lawyer to request updates formally.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">B</div>
+      <div class="step-content">
+        <div class="step-title">Right to Be Heard at Bail Hearings<span class="hi">जमानत सुनवाई में उपस्थित होने का अधिकार</span></div>
+        <div class="step-body">Whenever the accused applies for bail or parole, the victim has the right to be present and to be heard by the court through their lawyer. This is critical — it prevents the accused from getting bail without the court hearing the victim's side. Inform the DLSA lawyer immediately when bail is applied for.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">C</div>
+      <div class="step-content">
+        <div class="step-title">Right to Free Legal Aid<span class="hi">मुफ्त कानूनी सहायता का अधिकार</span></div>
+        <div class="step-body">DLSA must provide a free empanelled advocate to the victim — not just for the Special Court trial but for all proceedings, including bail hearings, appeals, and writ petitions. If DLSA is not providing an advocate, escalate to the SLSA (State Legal Services Authority).</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">D</div>
+      <div class="step-content">
+        <div class="step-title">Witness Protection<span class="hi">गवाह संरक्षण</span></div>
+        <div class="step-body">If the victim or witnesses face threats from the accused or their associates, this must immediately be reported to the SP and DM. Under the Witness Protection Scheme 2018 (Supreme Court), threatened witnesses can be given protection. Threats to witnesses are also a separate offence under the POA Act.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">E</div>
+      <div class="step-content">
+        <div class="step-title">Right to Timely Compensation<span class="hi">समय पर मुआवजे का अधिकार</span></div>
+        <div class="step-body">Section 15A specifically incorporates the right to receive Rule 12 compensation within the prescribed timelines. This means non-payment is not just an administrative failure — it is a violation of a statutory victim right and can be enforced through the Special Court or High Court.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPIC 6 -->
+  <p class="section-title">
+    Topic 6 — Medical Evidence and Documentation
+    <span class="hi">विषय 6 — चिकित्सीय साक्ष्य और दस्तावेज़ीकरण</span>
+  </p>
+
+  <div class="intro-box">
+    Medical evidence can make or break an atrocity case. A well-documented injury report from a government doctor, combined with the FIR filed within 24 hours, creates a strong evidentiary foundation that is very difficult to challenge.
+  </div>
+
+  <div class="step-list">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Government Hospital First<span class="hi">सरकारी अस्पताल पहले</span></div>
+        <div class="step-body">Always take the victim to a government hospital (PHC, CHC, or District Hospital) first. Government doctors' injury reports carry more evidentiary weight in court than private clinic reports. Ask the doctor to record ALL injuries — old and new — and to note the victim's account of how the injuries were sustained.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Dying Declaration — Special Procedure<span class="hi">मरते समय का बयान</span></div>
+        <div class="step-body">If the victim is critically injured and may die, the dying declaration is one of the most important pieces of evidence in the case. The Magistrate should record it (not just the police). Before recording, the Medical Officer certifies that the victim is conscious and fit to make a statement, and the Magistrate independently satisfies themselves of this. A properly recorded dying declaration is admissible even without corroboration.</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Preserve and Submit Evidence<span class="hi">साक्ष्य सुरक्षित रखें</span></div>
+        <div class="step-body">Torn clothing, broken implements, photographs of damage — all physical evidence must be preserved. Give a list of physical evidence to the investigating officer in writing. Ask for a receipt. Do not allow evidence to be disposed of before the investigation is complete.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-header">
+      <div class="label">Field Scenario — Full Intervention</div>
+      <div class="title">PLV Suresh handles an atrocity in his block</div>
+    </div>
+    <div class="scenario-body">
+      PLV Suresh receives a call at 7 PM. Rameshwar Paswan's house was set on fire by a group of dominant-caste men after he raised a boundary dispute about his land. His wife was beaten and abused with caste slurs. One neighbour (also SC) witnessed everything.<br><br>
+      <strong>Suresh's actions:</strong><br>
+      <strong>7:00 PM</strong> — Reaches the scene. Documents the damage (photographs). Talks to the eyewitness and records their statement in his diary.<br>
+      <strong>7:30 PM</strong> — Takes Rameshwar's wife to the PHC for medical examination. Ensures the doctor records all injuries in writing.<br>
+      <strong>8:30 PM</strong> — Goes to the police station with Rameshwar. States: "This is arson under Section 3(2)(v) of the SC/ST (POA) Act and wrongful land occupation under Section 3(1)(d). Section 18A requires immediate FIR registration — no preliminary inquiry."<br>
+      <strong>9:00 PM</strong> — FIR registered. Gets a copy. Checks that POA Act sections are correctly cited.<br>
+      <strong>9:15 PM</strong> — Calls DLSA Secretary, reports the incident, requests advocate assignment and Rule 12 initiation.<br>
+      <strong>Next morning</strong> — Submits written Rule 12 application to DM's office. Keeps date-stamped copy. Follows up every 2 days for the 3-7 day deadline.
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <h2>Field Intervention — Level 2 Quiz</h2>
+    <div class="quiz-sub">10 questions · Pass at 70% · Explanations shown after submission</div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q1</span>When a victim reports an atrocity to you, what is the FIRST thing you should do?</div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> (a) Immediately call the police</label>
+        <label><input type="radio" name="q1" value="b"> (b) Listen to the victim, believe them, and document the incident accurately in your diary</label>
+        <label><input type="radio" name="q1" value="c"> (c) Speak to the accused family to understand their side of the story</label>
+        <label><input type="radio" name="q1" value="d"> (d) Call the District Magistrate's office</label>
+      </div>
+      <div class="explanation" id="exp-q1">The first step is to listen, believe, and document — before anything else. Accurate documentation of the incident (including exact caste-based language used) in the first hours is the most powerful evidence. Medical care is parallel if there are injuries.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q2</span>The SHO tells you: "We need to do a preliminary inquiry before we can register an FIR in this atrocity case." What is the correct response?</div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> (a) Agree to wait for the preliminary inquiry to be completed</label>
+        <label><input type="radio" name="q2" value="b"> (b) Remind the SHO that Section 18A of the POA Act prohibits any preliminary inquiry before FIR registration, and that refusal is a punishable offence under Section 4</label>
+        <label><input type="radio" name="q2" value="c"> (c) Contact the media to report the police inaction</label>
+        <label><input type="radio" name="q2" value="d"> (d) File a complaint directly in the Special Court</label>
+      </div>
+      <div class="explanation" id="exp-q2">Section 18A (2018) explicitly prohibits preliminary inquiry before FIR registration in atrocity cases. Citing this provision and Section 4 (public servant neglect) is the correct first legal response. If the SHO still refuses, then you escalate to SP, Magistrate, and DM in that order.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q3</span>Under Rule 12, when must the FIRST instalment of compensation reach the victim?</div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> (a) After the accused is arrested</label>
+        <label><input type="radio" name="q3" value="b"> (b) Within 3 to 7 days of the incident or application to the DM</label>
+        <label><input type="radio" name="q3" value="c"> (c) After the chargesheet is filed</label>
+        <label><input type="radio" name="q3" value="d"> (d) After the Special Court trial begins</label>
+      </div>
+      <div class="explanation" id="exp-q3">Rule 12 mandates that the first instalment (minimum 25% of total compensation) must be paid within 3-7 days of the incident. This is not dependent on arrest, chargesheet, or conviction — it is automatic once an FIR is registered under the POA Act.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q4</span>If the police refuse to register an FIR, what is the CORRECT next step after submitting a written complaint to the SHO?</div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a"> (a) Wait 30 days and try again</label>
+        <label><input type="radio" name="q4" value="b"> (b) Escalate to the Superintendent of Police and the Magistrate under Section 156(3) CrPC</label>
+        <label><input type="radio" name="q4" value="c"> (c) Ask the accused family to help mediate</label>
+        <label><input type="radio" name="q4" value="d"> (d) File a writ petition immediately in the Supreme Court</label>
+      </div>
+      <div class="explanation" id="exp-q4">The escalation ladder is: Written complaint to SHO → SP and Dy.SP → Magistrate under S.156(3) CrPC → DM → National/State SC-ST Commission → High Court under Article 226. Do not skip steps — each step creates a record and the Magistrate/DM route is often faster than going to the High Court.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q5</span>Why is it important to take a victim to a government hospital (rather than a private clinic) for their injury examination?</div>
+      <div class="options">
+        <label><input type="radio" name="q5" value="a"> (a) Private hospitals are more expensive</label>
+        <label><input type="radio" name="q5" value="b"> (b) Government doctors' injury reports carry �reater evidentiary weight in Special Court proceedings</label>
+        <label><input type="radio" name="q5" value="c"> (c) Private hospitals don't treat atrocity victims</label>
+        <label><input type="radio" name="q5" value="d"> (d) It is not important — both carry equal weight</label>
+      </div>
+      <div class="explanation" id="exp-q5">Government medical records are official documents that are harder to challenge in court. Private clinic records can be questioned on credibility. Additionally, the State has a duty to provide free medical treatment to atrocity victims under the POA Act — the government hospital is the correct venue for this.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q6</span>Section 15A gives the victim the right to be heard when the accused applies for bail. Who must you contact immediately when you learn the accused has applied for bail?</div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="a"> (a) The accused's family</label>
+        <label><input type="radio" name="q6" value="b"> (b) The DLSA-empanelled lawyer representing the victim, so they can appear at the bail hearing</label>
+        <label><input type="radio" name="q6" value="c"> (c) The SP to prevent the bail hearing</label>
+        <label><input type="radio" name="q6" value="d"> (d) The media to publicise the bail application</label>
+      </div>
+      <div class="explanation" id="exp-q6">The victim has a statutory right under Section 15A to be heard at bail proceedings. The DLSA lawyer must be informed immediately so they can appear in the Special Court and oppose bail or make submissions on the victim's behalf. Missing a bail hearing can result in the accused being released without the court hearing the victim's perspective.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q7</span>What is the DVMC and what is its relevance to a PLV's work?</div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="a"> (a) District Vigilance and Management Committee — it handles police transfers</label>
+        <label><input type="radio" name="q7" value="b"> (b) District Vigilance and Monitoring Committee — chaired by the DM, meets quarterly to review Rule 12 disbursement, case progress, and victim rights compliance</label>
+        <label><input type="radio" name="q7" value="c"> (c) District Victim and Magistrate Council — it appoints Special Court judges</label>
+        <label><input type="radio" name="q7" value="d"> (d) District Vigilance and Monitoring Cell — it tracks police salaries</label>
+      </div>
+      <div class="explanation" id="exp-q7">The DVMC (District Vigilance and Monitoring Committee) under Rule 17(3) of the SC/ST (POA) Rules is chaired by the DM/Collector and meets quarterly. It reviews Rule 12 disbursement, rehabilitation, investigation status, Special Court case progress, and victim rights compliance. A PLV can submit written notes on pending cases to be raised at DVMC meetings.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q8</span>The victim's eyewitness is being threatened by the accused's family and is afraid to testify. What should you do?</div>
+      <div class="options">
+        <label><input type="radio" name="q8" value="a"> (a) Tell the witness to ignore the threats and testify anyway</label>
+        <label><input type="radio" name="q8" value="b"> (b) Advise the victim to drop the case to protect the witness</label>
+        <label><input type="radio" name="q8" value="c"> (c) Report the threats immediately to the SP and DM, and request witness protection under the Witness Protection Scheme 2018; threatening a witness is also a separate offence under the POA Act</label>
+        <label><input type="radio" name="q8" value="d"> (d) Ask the media to report the threats publicly</label>
+      </div>
+      <div class="explanation" id="exp-q8">Threatening witnesses in atrocity cases is a criminal offence. Report it immediately to the SP and DM. Under the Supreme Court's Witness Protection Scheme 2018, threatened witnesses can receive police protection. The DLSA lawyer should also file an application before the Special Court for witness protection orders.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q9</span>A PLV's written diary documentation is useful because:</div>
+      <div class="options">
+        <label><input type="radio" name="q9" value="a"> (a) It replaces the need for the victim's statement to the police</label>
+        <label><input type="radio" name="q9" value="b"> (b) It can be submitted as corroborating evidence, showing the account was recorded in real time before any fabrication could occur</label>
+        <label><input type="radio" name="q9" value="c"> (c) It is not useful — only police records are admissible</label>
+        <label><input type="radio" name="q9" value="d"> (d) It allows the PLV to appear as a witness in the Special Court in place of the victim</label>
+      </div>
+      <div class="explanation" id="exp-q9">PLV diary notes are valuable as contemporaneous records — they show that the account was documented close in time to the incident, which supports the victim's credibility. A PLV can also testify as a witness to what the victim told them immediately after the incident. These records also support RTI applications and DVMC complaints.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q10</span>Which of the following is NOT part of a PLV's role in atrocity cases?</div>
+      <div class="options">
+        <label><input type="radio" name="q10" value="a"> (a) Documenting the incident and accompanying the victim to the police station</label>
+        <label><input type="radio" name="q10" value="b"> (b) Appearing as the victim's advocate and arguing their case before the Special Court</label>
+        <label><input type="radio" name="q10" value="c"> (c) Informing DLSA and helping the victim apply for Rule 12 compensation</label>
+        <label><input type="radio" name="q10" value="d"> (d) Reporting threats to witnesses to the SP and DM</label>
+      </div>
+      <div class="explanation" id="exp-q10">A PLV cannot appear in court and cannot argue a case — that is the role of an empanelled DLSA advocate. The PLV's role is field-based: documentation, FIR registration support, compensation application, DLSA liaison, and follow-up. Conflating the PLV role with legal representation can lead to unauthorised practice of law.</div>
+    </div>
+
+    <button class="btn-submit" onclick="submitQuiz()">Submit Assessment</button>
+
+    <div class="result-box" id="result-box">
+      <div class="score" id="score-display"></div>
+      <div class="verdict" id="verdict-display"></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <p id="result-msg"></p>
+      <a href="level3.html" class="next-btn" id="next-btn" style="display:none">Continue to Level 3 →</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'b',q4:'b',q5:'b',q6:'b',q7:'b',q8:'c',q9:'b',q10:'b'};
+var submitted=false;
+function submitQuiz(){
+  if(submitted)return;
+  var total=Object.keys(ANSWERS).length;
+  var allAnswered=true;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    if(!sel){allAnswered=false;break;}
+  }
+  if(!allAnswered){alert('Please answer all questions before submitting.');return;}
+  submitted=true;
+  document.querySelector('.btn-submit').disabled=true;
+  var score=0;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    var inputs=document.querySelectorAll('input[name="'+q+'"]');
+    inputs.forEach(function(inp){
+      inp.disabled=true;
+      var lbl=inp.parentElement;
+      if(inp.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(inp.checked)lbl.classList.add('wrong');
+    });
+    var exp=document.getElementById('exp-'+q);
+    if(exp)exp.style.display='block';
+    if(sel&&sel.value===ANSWERS[q])score++;
+  }
+  var pct=Math.round(score/total*100);
+  var rb=document.getElementById('result-box');
+  rb.style.display='block';
+  document.getElementById('score-display').textContent=score+'/'+total;
+  document.getElementById('progress-fill').style.width=pct+'%';
+  var passed=pct>=70;
+  var vd=document.getElementById('verdict-display');
+  if(pct>=90){vd.textContent='Distinction';vd.className='verdict pass';}
+  else if(pct>=80){vd.textContent='Merit';vd.className='verdict pass';}
+  else if(pct>=70){vd.textContent='Pass';vd.className='verdict pass';}
+  else{vd.textContent='Below Pass — Review Required';vd.className='verdict fail';}
+  document.getElementById('result-msg').textContent=passed?'You scored '+pct+'%. Proceed to Level 3 — Full Remedial Toolkit.':'You scored '+pct+'%. 70% required. Review the topics and retry.';
+  if(passed){
+    localStorage.setItem('janman_scst_plv_l2_done','1');
+    localStorage.setItem('janman_scst_plv_l2_score',pct);
+    document.getElementById('next-btn').style.display='inline-block';
+  }
+  rb.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
