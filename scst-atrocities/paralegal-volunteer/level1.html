@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 1: Know the Law — Paralegal Volunteer Track | SC/ST Atrocities</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.hero{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 50%,#7c3aed 100%);padding:2.5rem 1.5rem;text-align:center}
+.hero .back{display:inline-block;color:#93c5fd;text-decoration:none;font-size:.85rem;margin-bottom:1rem;opacity:.85}
+.hero .back:hover{opacity:1}
+.hero .track-badge{display:inline-block;background:rgba(255,165,0,.2);border:1px solid rgba(255,165,0,.4);color:#fcd34d;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .9rem;border-radius:999px;margin-bottom:.75rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.5rem}
+.hero .sub{color:#bfdbfe;font-size:.95rem;margin-bottom:.75rem}
+.hero .meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.hero .meta span{background:rgba(255,255,255,.15);padding:.3rem .9rem;border-radius:999px;font-size:.8rem;color:#e0e7ff}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.section-title{font-size:1.3rem;font-weight:700;color:#60a5fa;margin:2.5rem 0 1rem;padding-left:.75rem;border-left:4px solid #1d4ed8}
+.section-title .hi{display:block;font-size:.85rem;font-weight:500;color:#a5b4fc;margin-top:.2rem}
+.intro-box{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.25rem 1.5rem;margin-bottom:2rem;line-height:1.7;color:#cbd5e1;font-size:.95rem}
+.intro-box strong{color:#93c5fd}
+
+/* Scenario card */
+.scenario{background:#1e293b;border:1px solid #334155;border-radius:.75rem;margin-bottom:1.5rem;overflow:hidden}
+.scenario-header{background:linear-gradient(135deg,#7c3aed,#1d4ed8);padding:.9rem 1.25rem}
+.scenario-header .label{font-size:.72rem;font-weight:700;color:#ddd6fe;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.25rem}
+.scenario-header .title{color:#fff;font-weight:600;font-size:1rem}
+.scenario-body{padding:1.25rem 1.5rem;color:#cbd5e1;font-size:.9rem;line-height:1.7}
+.scenario-body strong{color:#93c5fd}
+
+/* Offence cards */
+.offence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}
+.offence-card{background:#1e293b;border:1px solid #334155;border-radius:.65rem;padding:1rem 1.25rem}
+.offence-card .section-ref{font-size:.7rem;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}
+.offence-card .offence-name{font-size:.95rem;font-weight:600;color:#e2e8f0;margin-bottom:.3rem}
+.offence-card .offence-name .hi{display:block;font-size:.8rem;color:#a5b4fc;font-weight:500}
+.offence-card .desc{font-size:.82rem;color:#94a3b8;line-height:1.5}
+
+/* Key fact box */
+.key-fact{background:#0f172a;border-left:4px solid #f59e0b;border-radius:.5rem;padding:.9rem 1.1rem;margin:1rem 0;font-size:.88rem;color:#fde68a}
+.key-fact strong{color:#fbbf24;display:block;margin-bottom:.25rem;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+
+/* Warning box */
+.warning-box{background:#1c0f0f;border-left:4px solid #ef4444;border-radius:.5rem;padding:.9rem 1.1rem;margin:1rem 0;font-size:.88rem;color:#fca5a5}
+.warning-box strong{color:#f87171;display:block;margin-bottom:.25rem}
+
+/* Step cards */
+.step-card{display:flex;gap:1rem;align-items:flex-start;background:#1e293b;border:1px solid #334155;border-radius:.65rem;padding:1rem 1.25rem;margin-bottom:.75rem}
+.step-num{background:#1d4ed8;color:#fff;width:2rem;height:2rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0}
+.step-text{font-size:.88rem;color:#cbd5e1;line-height:1.6}
+.step-text strong{color:#93c5fd;display:block;margin-bottom:.2rem}
+
+/* Glossary */
+.glossary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin:1rem 0}
+.glossary-item{background:#1e293b;border:1px solid #334155;border-radius:.65rem;padding:1rem 1.25rem}
+.glossary-item .term{font-size:.95rem;font-weight:700;color:#60a5fa;margin-bottom:.15rem}
+.glossary-item .term .hi{font-size:.82rem;color:#818cf8;font-weight:500}
+.glossary-item .def{font-size:.82rem;color:#94a3b8;line-height:1.5;margin-top:.25rem}
+
+/* Mandate box */
+.mandate-box{background:#1e293b;border:1px solid #1d4ed8;border-radius:.75rem;padding:1.25rem 1.5rem;margin:1rem 0}
+.mandate-box h3{font-size:1rem;font-weight:700;color:#60a5fa;margin-bottom:.75rem}
+.mandate-box ul{list-style:none;padding:0}
+.mandate-box ul li{font-size:.88rem;color:#cbd5e1;padding:.4rem 0 .4rem 1.4rem;position:relative;border-bottom:1px solid #1e3a8a;line-height:1.5}
+.mandate-box ul li:last-child{border-bottom:none}
+.mandate-box ul li::before{content:'✓';position:absolute;left:0;color:#34d399;font-weight:700}
+
+/* Quiz */
+.quiz-section{background:#1e293b;border-radius:1rem;padding:1.75rem;margin-top:2.5rem;border:1px solid #334155}
+.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:#fff;margin-bottom:.4rem}
+.quiz-section .quiz-sub{font-size:.85rem;color:#94a3b8;margin-bottom:1.5rem}
+.q-block{margin-bottom:1.75rem}
+.q-text{font-size:.95rem;font-weight:600;color:#e2e8f0;margin-bottom:.75rem}
+.q-text .q-num{background:#1d4ed8;color:#fff;font-size:.7rem;font-weight:700;padding:.15rem .5rem;border-radius:4px;margin-right:.5rem}
+.options{display:flex;flex-direction:column;gap:.45rem}
+.options label{background:#0f172a;border:1px solid #334155;border-radius:.5rem;padding:.65rem 1rem;font-size:.87rem;color:#cbd5e1;cursor:pointer;transition:.15s}
+.options label:hover{border-color:#3b82f6;color:#e2e8f0}
+.options label.correct{border-color:#22c55e;background:#14532d;color:#bbf7d0}
+.options label.wrong{border-color:#ef4444;background:#1c0f0f;color:#fca5a5}
+.explanation{display:none;background:#0f172a;border-left:3px solid #7c3aed;border-radius:.5rem;padding:.75rem 1rem;margin-top:.5rem;font-size:.82rem;color:#c7d2fe;line-height:1.6}
+.btn-submit{background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:.6rem;font-size:.95rem;font-weight:700;cursor:pointer;width:100%;margin-top:.5rem;transition:.2s}
+.btn-submit:hover{opacity:.9}
+.btn-submit:disabled{opacity:.6;cursor:not-allowed}
+.result-box{display:none;margin-top:1.5rem;text-align:center;background:#0f172a;border:1px solid #334155;border-radius:.75rem;padding:1.5rem}
+.score{font-size:2.5rem;font-weight:800;color:#fff;margin-bottom:.5rem}
+.verdict{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+.verdict.pass{color:#34d399}
+.verdict.fail{color:#f87171}
+.progress-bar{height:8px;background:#334155;border-radius:99px;margin:.75rem 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#1d4ed8,#7c3aed);border-radius:99px;transition:width 1s}
+.next-btn{display:inline-block;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;text-decoration:none;padding:.7rem 2rem;border-radius:.5rem;font-weight:700;font-size:.9rem;margin-top:1rem}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <a href="../index.html" class="back">← SC/ST Atrocities Module</a>
+  <div class="track-badge">Paralegal Volunteer Track</div>
+  <h1>Level 1: Know the Law</h1>
+  <div class="sub">The SC/ST (Prevention of Atrocities) Act — What Every PLV Must Know</div>
+  <div class="meta">
+    <span>📚 5 Topics</span>
+    <span>🕐 45 Minutes</span>
+    <span>📝 10-Question Quiz</span>
+    <span>🌐 English | हिन्दी</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="intro-box">
+    <strong>Who is this module for?</strong> This module is designed for Paralegal Volunteers (PLVs) working in communities where Scheduled Caste and Scheduled Tribe persons face caste-based violence. You do not need a law degree — you need to understand the key protections the law provides, what counts as an atrocity, and what your role is when an incident happens. This module builds the foundation. <strong>Levels 2 and 3 will teach you exactly what to DO.</strong>
+  </div>
+
+  <!-- TOPIC 1 -->
+  <p class="section-title">
+    Topic 1 — Why This Law Exists
+    <span class="hi">विषय 1 — यह कानून क्यों बना</span>
+  </p>
+
+  <div class="intro-box">
+    <strong>The Constitutional Promise:</strong> Article 17 of the Indian Constitution abolishes untouchability completely. It says the practice of untouchability is forbidden and that enforcing it in any form is an offence punishable by law. This was a landmark promise made when India became a Republic in 1950.<br><br>
+    <strong>The Gap Between Promise and Reality:</strong> Despite Article 17, caste-based violence continued — people were stripped and paraded, their homes burned, their land grabbed, their children denied access to schools, and their women subjected to sexual violence — specifically because of their caste. Ordinary criminal law (IPC/BNS) was not enough because it did not recognise the caste motive as an aggravating factor.<br><br>
+    <strong>The SC/ST (Prevention of Atrocities) Act, 1989:</strong> Parliament passed this Act to fill the gap. It creates special offences that apply specifically when a non-SC/ST person commits acts of humiliation, violence, or exploitation against an SC or ST person <em>because of their caste or tribal identity</em>. The Act was significantly strengthened by amendments in 2015 and 2016.
+  </div>
+
+  <div class="key-fact">
+    <strong>Key Fact</strong>
+    The full name is "The Scheduled Castes and Scheduled Tribes (Prevention of Atrocities) Act, 1989." It is commonly called the "POA Act" or "Atrocities Act." In Hindi it is known as <em>अनुसूचित जाति एवं अनुसूचित जनजाति (अत्याचार निवारण) अधिनियम, 1989.</em>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-header">
+      <div class="label">Scenario — Understanding the Purpose</div>
+      <div class="title">Why ordinary law isn't enough</div>
+    </div>
+    <div class="scenario-body">
+      Ramkhelawan (from a Dalit community in Bihar) is beaten by a dominant-caste landlord after he demands the minimum wage he is legally owed. The landlord also says: <em>"Tum log apni aukaat mein raho"</em> (stay in your place, people like you).<br><br>
+      <strong>Under ordinary law (IPC/BNS):</strong> This is assault. The police might not register an FIR, and if they do, it's treated as a simple fight. No special compensation. No mandatory investigation by a senior officer. No Special Court.<br><br>
+      <strong>Under the POA Act:</strong> The beating, combined with the caste-based humiliation, is an atrocity offence. The FIR must be registered immediately without a preliminary inquiry. A Deputy SP or above must investigate. Ramkhelawan gets interim compensation within 3-7 days. The case goes to a Special Court. The accused cannot get anticipatory bail.
+    </div>
+  </div>
+
+  <!-- TOPIC 2 -->
+  <p class="section-title">
+    Topic 2 — What Is an Atrocity?
+    <span class="hi">विषय 2 — अत्याचार क्या है?</span>
+  </p>
+
+  <div class="intro-box">
+    Section 3 of the POA Act lists the specific offences that count as "atrocities." <strong>The most important rule: the offender must be a non-SC/ST person, and the victim must be an SC or ST person.</strong> A crime committed between two SC persons does not attract the POA Act (though it is still punishable under ordinary criminal law).<br><br>
+    The 2015 Amendment added many new offences. Below are the most important ones a PLV needs to recognise in the field.
+  </div>
+
+  <div class="offence-grid">
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(a)</div>
+      <div class="offence-name">Forcing Inedible Substances<span class="hi">अखाद्य पदार्थ खिलाना</span></div>
+      <div class="desc">Forcing an SC/ST person to eat or drink anything that is inedible, obnoxious, or hurtful — e.g., forcing someone to eat cow dung, urine, or dirt.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(b)</div>
+      <div class="offence-name">Dumping Waste on Premises<span class="hi">घर पर गंदगी डालना</span></div>
+      <div class="desc">Wrongfully dumping excreta, waste matter, carcasses, or other obnoxious substances on the premises or neighbourhood of an SC/ST person.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(c)</div>
+      <div class="offence-name">Naked Parade / Humiliation<span class="hi">नग्न परेड / अपमान</span></div>
+      <div class="desc">Forcibly removing the clothes of an SC/ST person, parading them naked or semi-naked, or painting their face — acts designed to humiliate.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(d) & (e)</div>
+      <div class="offence-name">Wrongful Occupation of Land<span class="hi">जमीन पर कब्जा</span></div>
+      <div class="desc">Occupying or cultivating land belonging to an SC/ST person wrongfully, or dispossessing them from their land or water resources.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(f)</div>
+      <div class="offence-name">Forced Labour / Begar<span class="hi">बेगार / जबरन श्रम</span></div>
+      <div class="desc">Compelling an SC/ST person to do begar (free forced labour) or other forms of forced or bonded labour.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(q)</div>
+      <div class="offence-name">Social Boycott<span class="hi">सामाजिक बहिष्कार</span></div>
+      <div class="desc">Imposing or threatening a social or economic boycott — preventing an SC/ST person from using common resources like wells, roads, markets, or schools.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(r)</div>
+      <div class="offence-name">Witchcraft Accusation<span class="hi">डायन का आरोप</span></div>
+      <div class="desc">Accusing an SC/ST person of practicing witchcraft (daayan) and subjecting them to physical harm, humiliation, or public shaming as a result.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(s)</div>
+      <div class="offence-name">Denying Access to Water<span class="hi">पानी से वंचित करना</span></div>
+      <div class="desc">Preventing an SC/ST person from using water sources such as rivers, reservoirs, springs, ponds, or wells that are ordinarily available to the public.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(u)</div>
+      <div class="offence-name">Assault / Abuse<span class="hi">गाली / मार-पीट</span></div>
+      <div class="desc">Intentionally insulting or intimidating an SC/ST person in a public place — including abusing them with caste-based slurs.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(2)(v)</div>
+      <div class="offence-name">Murder / Rape / Arson<span class="hi">हत्या / बलात्कार / आगजनी</span></div>
+      <div class="desc">When a non-SC/ST person commits murder, rape, arson (burning homes), or destruction of property against an SC/ST person — these attract enhanced punishment under the POA Act in addition to IPC/BNS provisions.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(1)(w)</div>
+      <div class="offence-name">Sexual Exploitation<span class="hi">यौन शोषण</span></div>
+      <div class="desc">A non-SC/ST person corrupting or fouling drinking water, committing sexual exploitation, or indulging in acts of humiliation against SC/ST women.</div>
+    </div>
+    <div class="offence-card">
+      <div class="section-ref">Section 3(2)(vii)</div>
+      <div class="offence-name">False Case by Public Servant<span class="hi">सरकारी अफसर का झूठा केस</span></div>
+      <div class="desc">A public servant (non-SC/ST) who, knowing it to be false, institutes or causes to be instituted a false case against an SC/ST person commits an atrocity offence.</div>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠ Critical Rule — The Caste Motive</strong>
+    Not every crime against an SC/ST person is an atrocity under the POA Act. The offence must be committed by a non-SC/ST person against an SC/ST person <em>on account of their caste or tribal identity</em>. The Supreme Court (Khuman Singh v. State of MP, 2019) clarified that the caste-based motive must be present. In practice, courts often infer motive from the circumstances — a PLV should document all caste-related remarks or context at the time of incident.
+  </div>
+
+  <!-- TOPIC 3 -->
+  <p class="section-title">
+    Topic 3 — Who Is Protected?
+    <span class="hi">विषय 3 — कानून किसकी रक्षा करता है?</span>
+  </p>
+
+  <div class="intro-box">
+    <strong>Scheduled Castes (अनुसूचित जाति):</strong> A person listed in the Presidential Order for Scheduled Castes applicable to their state. In Bihar, this includes communities like Chamar, Dusadh (Paswan), Musahar, Nat, Dhobi, and many others. The list varies by state.<br><br>
+    <strong>Scheduled Tribes (अनुसूचित जनजाति):</strong> A person listed in the Presidential Order for Scheduled Tribes for their state. In Bihar and Jharkhand, this includes Santhal, Oraon, Munda, Ho, and others.<br><br>
+    <strong>How to confirm SC/ST status:</strong> The victim should have a caste certificate issued by a competent authority (Tehsildar/SDO). However, the law does not require the certificate to be present at the time of filing the FIR — the PLV can help gather it later as part of the investigation.
+  </div>
+
+  <div class="step-card">
+    <div class="step-num">!</div>
+    <div class="step-text"><strong>The Offender Must Be Non-SC/ST</strong>
+    If the offender is also an SC or ST person, the POA Act does not apply. The case is registered under IPC/BNS instead. This is one of the most common reasons police use to avoid registering an FIR under the POA Act — always be alert to this argument and check whether the accused really is SC/ST.</div>
+  </div>
+
+  <div class="step-card">
+    <div class="step-num">!</div>
+    <div class="step-text"><strong>Public Servants Have Separate Liability</strong>
+    Section 4 of the POA Act imposes a specific duty on public servants who wilfully neglect their duties under the Act (e.g., a police officer who refuses to register an FIR, or an SDO who doesn't disburse Rule 12 compensation). They can be prosecuted under Section 4.</div>
+  </div>
+
+  <!-- TOPIC 4 -->
+  <p class="section-title">
+    Topic 4 — The PLV's Legal Mandate
+    <span class="hi">विषय 4 — PLV की कानूनी भूमिका</span>
+  </p>
+
+  <div class="mandate-box">
+    <h3>What the Law and Supreme Court Say About PLVs</h3>
+    <ul>
+      <li>NALSA v. Union of India (2013) — The Supreme Court directed that PLVs trained in the POA Act must be deployed in every atrocity-prone district to assist SC/ST victims in FIR registration, documentation, and Rule 12 compensation claims.</li>
+      <li>PLVs empanelled with DLSA have official status — they are legal representatives for the purposes of accessing victims, accompanying them to police stations, and advocating before authorities.</li>
+      <li>A PLV cannot appear in court (only lawyers can), but can help the victim understand court proceedings, communicate with the DLSA-empanelled lawyer, and follow up on case status.</li>
+      <li>A PLV's role begins at the moment an incident is reported — documenting the incident, supporting the victim, and initiating contact with the DLSA are all part of the PLV's mandate.</li>
+      <li>PLVs are entitled to witness protection under Section 15A of the POA Act if they face threats from the accused or their associates because of their work.</li>
+    </ul>
+  </div>
+
+  <div class="scenario">
+    <div class="scenario-header">
+      <div class="label">Scenario — PLV in Action</div>
+      <div class="title">What a PLV should do when an atrocity is reported</div>
+    </div>
+    <div class="scenario-body">
+      Sunita Devi (SC community, Gaya district) comes to PLV Shanti with bruises and reports that the landlord's son beat her and said <em>"Chamar ki aukaat"</em> when she asked for her wages.<br><br>
+      <strong>Shanti's immediate responsibilities:</strong><br>
+      1. Listen and believe — do not interrogate Sunita about whether she "provoked" the incident.<br>
+      2. Document the incident in a written diary: date, time, place, what was said, names of witnesses.<br>
+      3. Take or help take photographs of injuries (with Sunita's consent).<br>
+      4. Accompany Sunita to the police station to help register the FIR — remind the SHO that a preliminary inquiry is not permitted and the FIR must be registered under the POA Act immediately.<br>
+      5. Call the DLSA to inform them of the incident and request immediate legal aid and interim relief under Rule 12.<br>
+      This is exactly what Levels 2 and 3 will train you to do in detail.
+    </div>
+  </div>
+
+  <!-- TOPIC 5 -->
+  <p class="section-title">
+    Topic 5 — Key Terms Every PLV Must Know
+    <span class="hi">विषय 5 � जर����Â� ���ۂ����7��������ׂ�˂� ������(�����((���؁�����􉝱��ͅ�䵝ɥ���(�����؁�����􉝱��ͅ�䵥ѕ���(�������؁������ѕɴ��%H��P����Ё%���ɵ�ѥ���I����������������􉡤�������7��Â��������ゖ��k���������Â�������/��Â�7��|������𽑥��(�������؁�����􉑕���Q����ɥ�ѕ��ɕ��ɐ��������������Ё����������ͅ��������������ٕ��Ѽ�ѡ����������U���ȁѡ��A=��а�ѡ��%H����Ё���ɕ���ѕɕ���������ѕ��ݥѡ��Ё����ɕ�������䁮quiry (Section 18A, 2018 amendment).</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Special Court<span class="hi">विशेष न्यायालय</span></div>
+      <div class="def">A court designated by the State Government under Section 14 of the POA Act to try atrocity cases. All cases under the POA Act must be tried by the Special Court — not ordinary Sessions Courts.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Rule 12 — Interim Relief<span class="hi">तत्काल राहत</span></div>
+      <div class="def">The SC/ST (POA) Rules, 1995 prescribe mandatory compensation to victims. Rule 12 says the first instalment (at least 25% of the total) must be paid within 3-7 days of the incident. This does not depend on conviction.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">DLSA<span class="hi">जिला विधिक सेवा प्राधिकरण</span></div>
+      <div class="def">District Legal Services Authority — provides free legal aid to SC/ST victims. The Secretary DLSA must proactively identify atrocity victims and provide legal assistance.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">DVMC<span class="hi">जिला सतर्कता एवं निगरानी समिति</span></div>
+      <div class="def">District Vigilance and Monitoring Committee — chaired by the District Magistrate/Collector. Meets quarterly to review Rule 12 disbursement, rehabilitation, investigation progress, and victim rights compliance.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Section 15A<span class="hi">पीड़ित के अधिकार</span></div>
+      <div class="def">Inserted by the 2015 Amendment. Gives atrocity victims the right to be heard at bail proceedings, be informed of case status, receive timely compensation, have witness protection, and access legal aid.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Section 18A<span class="hi">धारा 18A</span></div>
+      <div class="def">Inserted by the 2018 Amendment (overruling Subhash Kashinath). No preliminary inquiry before registering an FIR. No prior approval required for arrest in atrocity cases. No anticipatory bail to accused.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Anticipatory Bail<span class="hi">अग्रिम जमानत — वर्जित</span></div>
+      <div class="def">Pre-arrest bail. Under Sections 18 and 18A of the POA Act, no court can grant anticipatory bail to a person accused of an atrocity offence. This is an absolute bar restored by Prithvi Raj Chauhan (2020).</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Chargesheet<span class="hi">आरोप पत्र</span></div>
+      <div class="def">The document the police file in the Special Court after investigation, listing the offences and evidence against the accused. In POA Act cases, the chargesheet must be filed within 60 days.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Section 4 — Wilful Neglect<span class="hi">धारा 4 — जानबूझकर लापरवाही</span></div>
+      <div class="def">A public servant who wilfully neglects duties under the POA Act — like refusing to register an FIR, not disbursing Rule 12 relief, or not investigating — commits a punishable offence under Section 4.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">PLV<span class="hi">विधिक स्वयंसेवक</span></div>
+      <div class="def">Paralegal Volunteer — a community member trained by DLSA/SLSA to assist legal aid beneficiaries. PLVs in atrocity-prone areas have a specific mandate to support SC/ST victims under NALSA directions.</div>
+    </div>
+    <div class="glossary-item">
+      <div class="term">Atrocity-Prone Area<span class="hi">अत्याचार-प्रवण क्षेत्र</span></div>
+      <div class="def">A village or area identified by the State Government as particularly vulnerable to atrocity offences — based on historical data. Special measures apply: more PLV deployment, police patrolling, monitoring by DVMC.</div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <h2>Knowledge Check — Level 1</h2>
+    <div class="quiz-sub">10 questions · Pass at 70% · Explanations shown after submission</div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q1</span>Which Article of the Indian Constitution abolishes untouchability?</div>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> (a) Article 14 — Right to Equality</label>
+        <label><input type="radio" name="q1" value="b"> (b) Article 17 — Abolition of Untouchability</label>
+        <label><input type="radio" name="q1" value="c"> (c) Article 21 — Right to Life</label>
+        <label><input type="radio" name="q1" value="d"> (d) Article 46 — Promotion of educational and economic interests of SCs and STs</label>
+      </div>
+      <div class="explanation" id="exp-q1">Article 17 specifically abolishes untouchability and makes enforcing it in any form a punishable offence. It is the constitutional foundation on which the SC/ST (POA) Act is built.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q2</span>Under the POA Act, who MUST the offender be for an act to count as an atrocity?</div>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> (a) A government employee</label>
+        <label><input type="radio" name="q2" value="b"> (b) A person who is not a member of a Scheduled Caste or Scheduled Tribe</label>
+        <label><input type="radio" name="q2" value="c"> (c) A landlord or upper-caste leader</label>
+        <label><input type="radio" name="q2" value="d"> (d) A person from a different district</label>
+      </div>
+      <div class="explanation" id="exp-q2">The POA Act explicitly requires that the offender be a non-SC/ST person. If both victim and accused are SC/ST members, the POA Act does not apply — the case is registered under ordinary criminal law instead.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q3</span>Which section of the POA Act lists the main atrocity offences?</div>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> (a) Section 1</label>
+        <label><input type="radio" name="q3" value="b"> (b) Section 4</label>
+        <label><input type="radio" name="q3" value="c"> (c) Section 3</label>
+        <label><input type="radio" name="q3" value="d"> (d) Section 14</label>
+      </div>
+      <div class="explanation" id="exp-q3">Section 3 of the POA Act lists all the specific offences that constitute "atrocities" — from forcing inedible substances to social boycott, sexual violence, and destruction of property. Section 4 deals with public servant neglect, and Section 14 establishes Special Courts.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q4</span>What did Section 18A (inserted in 2018) change about the FIR process in atrocity cases?</div>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a"> (a) It requires a preliminary inquiry before registering the FIR</label>
+        <label><input type="radio" name="q4" value="b"> (b) It allows the police 30 days to decide whether to register an FIR</label>
+        <label><input type="radio" name="q4" value="c"> (c) It removes the requirement for a preliminary inquiry and prior approval for arrest</label>
+        <label><input type="radio" name="q4" value="d"> (d) It requires the victim to appear in court before an FIR is registered</label>
+      </div>
+      <div class="explanation" id="exp-q4">Section 18A (2018) was passed to overrule the Supreme Court's Subhash Kashinath judgment which had introduced preliminary inquiry and prior approval requirements. Section 18A restores the original intent: FIR must be registered immediately, and arrest does not require prior approval from any authority.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q5</span>Under Rule 12 of the SC/ST (POA) Rules, the first instalment of compensation must be paid:</div>
+      <div class="options">
+        <label><input type="radio" name="q5" value="a"> (a) Only after the accused is convicted</label>
+        <label><input type="radio" name="q5" value="b"> (b) Within 3 to 7 days of the incident</label>
+        <label><input type="radio" name="q5" value="c"> (c) Within 30 days of filing the chargesheet</label>
+        <label><input type="radio" name="q5" value="d"> (d) Only after the chargesheet is filed in the Special Court</label>
+      </div>
+      <div class="explanation" id="exp-q5">Rule 12 prescribes mandatory interim compensation regardless of conviction. At least 25% of the total prescribed compensation must be paid within 3-7 days of the incident (or within 3-7 days of application to the District Magistrate). Compensation is a victim's right, not charity.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q6</span>What is a PLV's primary role when an atrocity victim approaches them?</div>
+      <div class="options">
+        <label><input type="radio" name="q6" value="a"> (a) To mediate between the victim and the accused community</label>
+        <label><input type="radio" name="q6" value="b"> (b) To represent the victim in the Special Court</label>
+        <label><input type="radio" name="q6" value="c"> (c) To document the incident, accompany the victim to the police station for FIR registration, and inform DLSA</label>
+        <label><input type="radio" name="q6" value="d"> (d) To negotiate compensation directly with the accused family</label>
+      </div>
+      <div class="explanation" id="exp-q6">A PLV cannot appear in court (only empanelled advocates can). The PLV's role is field-based: listen and believe the victim, document the incident accurately, accompany them to the police station, ensure the FIR is registered under the POA Act, and connect them with DLSA for legal aid and Rule 12 compensation.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q7</span>What does Section 15A of the POA Act guarantee to victims?</div>
+      <div class="options">
+        <label><input type="radio" name="q7" value="a"> (a) The right to directly file a chargesheet in Special Court</label>
+        <label><input type="radio" name="q7" value="b"> (b) The right to be heard at bail proceedings, receive information on case status, get legal aid, have witness protection, and receive timely compensation</label>
+        <label><input type="radio" name="q7" value="c"> (c) The right to nominate the investigating officer</label>
+        <label><input type="radio" name="q7" value="d"> (d) The right to appeal directly to the Supreme Court</label>
+      </div>
+      <div class="explanation" id="exp-q7">Section 15A (inserted in 2015) is the victim rights charter of the POA Act. It guarantees victims the right to be heard when the accused applies for bail or parole, the right to be informed of case progress, the right to free legal aid from DLSA, and the right to timely payment of compensation.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q8</span>Which official is responsible for disbursing Rule 12 interim relief to atrocity victims?</div>
+      <div class="options">
+        <label><input type="radio" name="q8" value="a"> (a) The Superintendent of Police (SP)</label>
+        <label><input type="radio" name="q8" value="b"> (b) The District Magistrate / Collector</label>
+        <label><input type="radio" name="q8" value="c"> (c) The Special Public Prosecutor</label>
+        <label><input type="radio" name="q8" value="d"> (d) The Chief Judicial Magistrate</label>
+      </div>
+      <div class="explanation" id="exp-q8">The District Magistrate (DM) / Collector is the key authority for Rule 12 interim relief disbursement. The DM chairs the DVMC and is responsible for ensuring victims receive compensation within the prescribed timelines. A PLV should approach the DM's office if relief is not paid within 3-7 days.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q9</span>Which court has the exclusive power to try atrocity offences under the POA Act?</div>
+      <div class="options">
+        <label><input type="radio" name="q9" value="a"> (a) The Chief Judicial Magistrate's Court</label>
+        <label><input type="radio" name="q9" value="b"> (b) The ordinary Sessions Court</label>
+        <label><input type="radio" name="q9" value="c"> (c) The Special Court designated under Section 14 of the POA Act</label>
+        <label><input type="radio" name="q9" value="d"> (d) The District Court at the state capital</label>
+      </div>
+      <div class="explanation" id="exp-q9">Section 14 of the POA Act requires the State Government to designate Special Courts for the exclusive trial of atrocity offences. These courts are presided over by a judge not below the rank of a Sessions Judge. Cases cannot be tried by ordinary criminal courts.</div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-text"><span class="q-num">Q10</span>A landlord (from a general/upper caste) forces an SC agricultural worker to clean a sewer without pay, abusing them with caste slurs. Which POA Act sections are potentially attracted?</div>
+      <div class="options">
+        <label><input type="radio" name="q10" value="a"> (a) Only IPC Section 323 (simple hurt) — this is not an atrocity</label>
+        <label><input type="radio" name="q10" value="b"> (b) Section 3(1)(f) (forced/bonded labour) and Section 3(1)(u) (intentional insult in a public place with caste abuse)</label>
+        <label><input type="radio" name="q10" value="c"> (c) Section 3(2)(v) only — because it involves property</label>
+        <label><input type="radio" name="q10" value="d"> (d) Section 4 only — because the landlord is a public servant</label>
+      </div>
+      <div class="explanation" id="exp-q10">Section 3(1)(f) covers forced or bonded labour imposed on an SC/ST person. Section 3(1)(u) covers intentional insult or intimidation with intent to humiliate, including caste-based verbal abuse. Both apply here. Additionally, if the sewer work is part of a hazardous cleaning assignment, the Manual Scavenging Act may also apply. A PLV should help the victim file an FIR citing all applicable sections.</div>
+    </div>
+
+    <button class="btn-submit" onclick="submitQuiz()">Submit Assessment</button>
+
+    <div class="result-box" id="result-box">
+      <div class="score" id="score-display"></div>
+      <div class="verdict" id="verdict-display"></div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <p id="result-msg"></p>
+      <a href="level2.html" class="next-btn" id="next-btn" style="display:none">Continue to Level 2 →</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+var ANSWERS={q1:'b',q2:'b',q3:'c',q4:'c',q5:'b',q6:'c',q7:'b',q8:'b',q9:'c',q10:'b'};
+var submitted=false;
+function submitQuiz(){
+  if(submitted)return;
+  var total=Object.keys(ANSWERS).length;
+  var allAnswered=true;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    if(!sel){allAnswered=false;break;}
+  }
+  if(!allAnswered){alert('Please answer all questions before submitting.');return;}
+  submitted=true;
+  document.querySelector('.btn-submit').disabled=true;
+  var score=0;
+  for(var q in ANSWERS){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    var inputs=document.querySelectorAll('input[name="'+q+'"]');
+    inputs.forEach(function(inp){
+      inp.disabled=true;
+      var lbl=inp.parentElement;
+      if(inp.value===ANSWERS[q])lbl.classList.add('correct');
+      else if(inp.checked)lbl.classList.add('wrong');
+    });
+    var exp=document.getElementById('exp-'+q);
+    if(exp)exp.style.display='block';
+    if(sel&&sel.value===ANSWERS[q])score++;
+  }
+  var pct=Math.round(score/total*100);
+  var rb=document.getElementById('result-box');
+  rb.style.display='block';
+  document.getElementById('score-display').textContent=score+'/'+total;
+  document.getElementById('progress-fill').style.width=pct+'%';
+  var passed=pct>=70;
+  var vd=document.getElementById('verdict-display');
+  if(pct>=90){vd.textContent='Distinction';vd.className='verdict pass';}
+  else if(pct>=80){vd.textContent='Merit';vd.className='verdict pass';}
+  else if(pct>=70){vd.textContent='Pass';vd.className='verdict pass';}
+  else{vd.textContent='Below Pass — Review Required';vd.className='verdict fail';}
+  document.getElementById('result-msg').textContent=passed?'You scored '+pct+'%. Proceed to Level 2 — Field Intervention.':'You scored '+pct+'%. 70% required. Review the topics above and retry.';
+  if(passed){
+    localStorage.setItem('janman_scst_plv_l1_done','1');
+    localStorage.setItem('janman_scst_plv_l1_score',pct);
+    document.getElementById('next-btn').style.display='inline-block';
+  }
+  rb.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
