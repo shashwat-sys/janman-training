@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate — SC/ST Act Lawyer Track | Jan Nyaya Resource Centre</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.topbar{background:#1e293b;border-bottom:1px solid #334155;padding:12px 24px;display:flex;align-items:center;gap:16px}
+.topbar a{color:#94a3b8;text-decoration:none;font-size:13px}
+.topbar a:hover{color:#f1f5f9}
+.topbar .sep{color:#475569}
+.topbar .track-badge{background:#7c3aed;color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.cert-wrapper{background:linear-gradient(135deg,#1e1b4b 0%,#1e293b 50%,#0f172a 100%);border:2px solid #7c3aed;border-radius:20px;padding:48px 40px;text-align:center;position:relative;overflow:hidden;margin-bottom:32px}
+.cert-wrapper::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.2),transparent 70%)}
+.cert-wrapper::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.2),transparent 70%)}
+.janman-logo{font-size:13px;color:#64748b;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px}
+.cert-icon{font-size:64px;margin-bottom:16px;display:block}
+.cert-title{font-size:13px;color:#a78bfa;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:8px}
+.cert-award{font-size:clamp(24px,4vw,36px);font-weight:800;color:#fff;margin-bottom:24px;line-height:1.2}
+.cert-subtitle{font-size:15px;color:#94a3b8;margin-bottom:32px}
+.name-field{background:rgba(124,58,237,.1);border:1px solid #7c3aed;border-radius:10px;padding:12px 20px;margin:0 auto 32px;max-width:400px}
+.name-field label{display:block;font-size:11px;color:#a78bfa;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.name-field input{background:transparent;border:none;outline:none;color:#fff;font-size:18px;font-weight:700;text-align:center;width:100%;font-family:inherit}
+.name-field input::placeholder{color:#475569;font-weight:400}
+.cert-course{margin-bottom:32px}
+.cert-course h3{font-size:15px;color:#a78bfa;font-weight:700;margin-bottom:16px}
+.module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:540px;margin:0 auto}
+.module-tag{background:#0f172a;border:1px solid #334155;border-radius:8px;padding:10px;text-align:center}
+.module-tag .m-icon{font-size:20px;display:block;margin-bottom:4px}
+.module-tag .m-name{font-size:11px;color:#94a3b8}
+.cert-stats{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.stat-box{background:rgba(124,58,237,.1);border:1px solid #4c1d95;border-radius:10px;padding:12px 20px;text-align:center}
+.stat-box .stat-val{font-size:22px;font-weight:800;color:#c4b5fd}
+.stat-box .stat-label{font-size:11px;color:#64748b;margin-top:2px}
+.org-line{color:#64748b;font-size:13px;margin-bottom:8px}
+.org-line strong{color:#94a3b8}
+.date-line{color:#475569;font-size:12px;margin-bottom:32px}
+.cert-seal{font-size:11px;color:#475569;border-top:1px solid #334155;padding-top:16px;margin-top:8px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.btn{padding:12px 24px;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:inline-block}
+.btn-print{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff}
+.btn-print:hover{opacity:.9}
+.btn-back{background:#1e293b;border:1px solid #334155;color:#94a3b8}
+.btn-back:hover{border-color:#7c3aed;color:#c4b5fd}
+.next-steps{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:28px}
+.next-steps h3{font-size:16px;font-weight:700;color:#f1f5f9;margin-bottom:16px}
+.step-item{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+.step-item .si-icon{font-size:20px;min-width:28px}
+.step-item h4{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:2px}
+.step-item p{font-size:12px;color:#64748b;line-height:1.5}
+.whatsapp-card{background:linear-gradient(135deg,#14532d,#0f172a);border:1px solid #16a34a;border-radius:12px;padding:20px;text-align:center;margin-top:20px}
+.whatsapp-card h4{font-size:14px;color:#4ade80;font-weight:700;margin-bottom:6px}
+.whatsapp-card p{font-size:12px;color:#86efac;margin-bottom:12px}
+.whatsapp-card a{display:inline-block;background:#16a34a;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:700}
+@media print{
+  body{background:#fff;color:#000}
+  .topbar,.actions,.next-steps,.whatsapp-card{display:none}
+  .cert-wrapper{background:#fff;border:3px double #7c3aed;color:#000;box-shadow:none}
+  .cert-award,.cert-title{color:#4c1d95}
+  .cert-subtitle,.cert-course h3,.org-line,.date-line{color:#555}
+  .name-field{border-color:#7c3aed;background:#f5f3ff}
+  .name-field input{color:#1e1b4b}
+  .module-tag{background:#f8f7ff;border-color:#c4b5fd}
+  .module-tag .m-name{color:#4c1d95}
+  .stat-box{background:#f5f3ff;border-color:#c4b5fd}
+  .stat-box .stat-val{color:#7c3aed}
+  .stat-box .stat-label{color:#64748b}
+  .cert-seal{color:#94a3b8;border-color:#e2e8f0}
+  .cert-wrapper::before,.cert-wrapper::after{display:none}
+}
+@media(max-width:600px){.module-grid{grid-template-columns:repeat(2,1fr)}.cert-wrapper{padding:32px 20py}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">🏠 Home</a>
+  <span class="sep">›</span>
+  <a href="../index.html">SC/ST Atrocities Act</a>
+  <span class="sep">›</span>
+  <a href="index.html">Lawyer Track</a>
+  <span class="sep">›</span>
+  <span style="color:#e2e8f0">Certificate</span>
+  <div style="flex:1"></div>
+  <span class="track-badge">⚖️ Lawyer</span>
+</div>
+
+<div class="container">
+
+  <div class="cert-wrapper">
+    <div class="janman-logo">Janman People's Foundation · Jan Nyaya Abhiyan</div>
+    <span class="cert-icon">🏆</span>
+    <div class="cert-title">Certificate of Completion</div>
+    <div class="cert-award">SC/ST Atrocities Act<br>Lawyer Track</div>
+    <p class="cert-subtitle">This certifies that</p>
+
+    <div class="name-field">
+      <label for="recipientName">Your Name</label>
+      <input type="text" id="recipientName" placeholder="Enter your full name" maxlength="60">
+    </div>
+
+    <div class="cert-course">
+      <h3>has successfully completed all three levels of</h3>
+      <div class="module-grid">
+        <div class="module-tag"><span class="m-icon">📜</span><span class="m-name">Level 1: Legal Framework &amp; Jurisdiction</span></div>
+        <div class="module-tag"><span class="m-icon">⚖️</span><span class="m-name">Level 2: Investigation, Trial &amp; Evidence</span></div>
+        <div class="module-tag"><span class="m-icon">🏛️</span><span class="m-name">Level 3: Landmark Cases &amp; Strategic Litigation</span></div>
+      </div>
+    </div>
+
+    <div class="cert-stats">
+      <div class="stat-box"><div class="stat-val">12+</div><div class="stat-label">Hours of Study</div></div>
+      <div class="stat-box"><div class="stat-val">12</div><div class="stat-label">Modules</div></div>
+      <div class="stat-box"><div class="stat-val">15</div><div class="stat-label">Quiz Questions</div></div>
+      <div class="stat-box"><div class="stat-val">4</div><div class="stat-label">Tracks</div></div>
+    </div>
+
+    <p class="org-line">Issued by <strong>Jan Nyaya Resource Centre</strong> · <strong>Janman People's Foundation</strong></p>
+    <p class="date-line" id="dateDisplay"></p>
+
+    <div class="cert-seal">
+      ⚖️ SC/ST (Prevention of Atrocities) Act, 1989 · PCR Act, 1955 · Amendment Act 2015 &amp; 2018 · Verified Training Content
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+    <a href="level3.html" class="btn btn-back">← Back to Level 3</a>
+    <a href="index.html" class="btn btn-back">🏠 Track Hub</a>
+    <a href="../index.html" class="btn btn-back">📚 Module Home</a>
+  </div>
+
+  <div class="next-steps">
+    <h3>⚡ What's Next for You as an SC/ST Act Practitioner</h3>
+
+    <div class="step-item">
+      <div class="si-icon">🏛️</div>
+      <div>
+        <h4>Appear Before Special Courts</h4>
+        <p>Apply your knowledge in Special Court proceedings — as SPP, as defence counsel, or as amicus in complex cases. Every real case deepens your mastery of the Act.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="si-icon">📋</div>
+      <div>
+        <h4>File a Compensation Enforcement Petition</h4>
+        <p>Identify a case in your district where s.17 compensation has not been paid. File a writ of mandamus before the HC — this is among the highest-impact actions you can take immediately.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="si-icon">📡</div>
+      <div>
+        <h4>Monitor NCSC / SHRC Orders</h4>
+        <p>Subscribe to updates from the National Commission for Scheduled Castes and your State Human Rights Commission. Their orders on SC/ST Act violations create strong precedents for district-level litigation.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="si-icon">📢</div>
+      <div>
+        <h4>Train Paralegals &amp; Community Workers</h4>
+        <p>Use the Jan Nyaya Resource Centre's paralegal and social worker track materials to train grassroots workers on FIR rights, compensation entitlements, and emergency reporting — multiplying the impact of your legal skills.</p>
+      </div>
+    </div>
+
+    <div class="step-item">
+      <div class="si-icon">⚔️</div>
+      <div>
+        <h4>Connect with Other SC/ST Act Lawyers</h4>
+        <p>Join the Jan Nyaya Abhiyan network of district lawyers and legal fellows working on atrocities cases across Bihar. Coordinate on systemic PILs and share case strategies.</p>
+      </div>
+    </div>
+
+    <div class="whatsapp-card">
+      <h4>📱 Join the Jan Nyaya Legal Network</h4>
+      <p>Connect with Janman People's Foundation's team for case support, co-counsel arrangements, and legal resources on SC/ST Act cases across Bihar and India.</p>
+      <a href="https://wa.me/919507969000" target="_blank">💬 WhatsApp: +91 95079 69000</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+const now=new Date();
+document.getElementById('dateDisplay').textContent='Completed: '+months[now.getMonth()]+' '+now.getFullYear();
+</script>
+</body>
+</html>
