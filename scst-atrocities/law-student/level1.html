@@ -1,336 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Level 1 — Constitutional Foundations | Law Student Track</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Level 1 — Legislative History, Constitutional Architecture & Section 3 Offences | SC/ST Act Law Student Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#eff6ff;color:#1e293b;line-height:1.7}
-.navbar{background:#1d4ed8;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
-.navbar a{color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
-.hero{background:linear-gradient(135deg,#1d4ed8,#6366f1);color:#fff;padding:40px 28px 28px;text-align:center}
-.hero h1{font-size:1.8rem;font-weight:800;margin-bottom:8px}
-.hero p{opacity:.9;font-size:.95rem;max-width:660px;margin:0 auto}
-.progress-bar{background:rgba(255,255,255,.2);height:6px;border-radius:3px;margin-top:20px;max-width:660px;margin-left:auto;margin-right:auto}
-.progress-fill{background:#fff;height:100%;border-radius:3px;width:0%;transition:width .5s}
-.content{max-width:920px;margin:0 auto;padding:32px 24px 60px}
-.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.section h2{font-size:1.15rem;font-weight:800;color:#1d4ed8;margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid #bfdbfe}
-.section h3{font-size:1rem;font-weight:700;color:#1e293b;margin:16px 0 8px}
-.section p{color:#374151;font-size:.9rem;margin-bottom:10px}
-.info-box{background:#eff6ff;border-left:4px solid #1d4ed8;padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:.88rem;color:#1e40af}
-.case-card{background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 20px;margin-bottom:14px;border-left:4px solid #1d4ed8}
-.case-card .case-cite{font-size:.78rem;font-weight:700;color:#1d4ed8;letter-spacing:.04em;margin-bottom:6px}
-.case-card .case-title{font-size:1rem;font-weight:800;color:#1e293b;margin-bottom:8px}
-.case-card .case-body{font-size:.86rem;color:#374151;line-height:1.7}
-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.84rem}
-th{background:#1d4ed8;color:#fff;padding:10px 12px;text-align:left}
-td{padding:9px 12px;border-bottom:1px solid #bfdbfe;color:#374151}
-tr:nth-child(even) td{background:#eff6ff}
-.quiz-section{background:#fff;border-radius:14px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-top:32px}
-.quiz-section h2{font-size:1.1rem;font-weight:800;color:#1d4ed8;margin-bottom:20px}
-.question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid #bfdbfe}
-.question:last-of-type{border-bottom:none}
-.q-text{font-weight:700;color:#1e293b;margin-bottom:10px;font-size:.92rem}
-.option{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;border-radius:8px;cursor:pointer;margin-bottom:6px;border:1.5px solid #e2e8f0;background:#f8fafc;transition:all .15s;font-size:.88rem}
-.option:hover{border-color:#bfdbfe;background:#eff6ff}
-.option input{margin-top:2px;flex-shrink:0;accent-color:#1d4ed8}
-.option.correct{background:#dcfce7;border-color:#86efac;color:#15803d}
-.option.wrong{background:#fee2e2;border-color:#fca5a5;color:#dc2626}
-.explanation{font-size:.82rem;color:#6b7280;margin-top:8px;padding:8px 12px;background:#f1f5f9;border-radius:6px;display:none}
-.submit-btn{background:#1d4ed8;color:#fff;border:none;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:16px}
-.submit-btn:hover{background:#1e40af}
-.submit-btn:disabled{background:#94a3b8;cursor:not-allowed}
-#result{margin-top:20px;padding:20px;border-radius:10px;text-align:center;display:none}
-#result.pass{background:#dcfce7;color:#15803d}
-#result.fail{background:#fee2e2;color:#dc2626}
-#result h3{font-size:1.3rem;font-weight:800;margin-bottom:8px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0e1a 0%,#001a1a 100%);color:#e2e8f0;min-height:100vh;line-height:1.7}
+.top-nav{background:rgba(20,184,166,0.08);border-bottom:1px solid rgba(20,184,166,0.2);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.top-nav a{color:#14b8a6;text-decoration:none;font-size:.875rem;font-weight:500;transition:opacity .2s}
+.top-nav a:hover{opacity:.75}
+.track-badge{background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.4);color:#14b8a6;font-size:.7rem;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:20px;margin-left:auto}
+.header{background:rgba(20,184,166,0.06);border-bottom:1px solid rgba(20,184,166,0.15);padding:40px 24px 32px;text-align:center}
+.level-label{color:#14b8a6;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+.header h1{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2.3rem);color:#f1f5f9;margin-bottom:10px;line-height:1.3}
+.header p{color:#94a3b8;font-size:.95rem;max-width:700px;margin:0 auto}
+.org-name{font-size:.75rem;color:#64748b;margin-top:10px;letter-spacing:.04em}
+.container{max-width:960px;margin:0 auto;padding:32px 20px}
+.section-card{background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.18);border-radius:12px;padding:28px;margin-bottom:28px}
+.section-card h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#14b8a6;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(20,184,166,0.2)}
+.section-card h3{color:#7dd3fc;font-size:1rem;margin:22px 0 10px;font-weight:600}
+.section-card p{color:#cbd5e1;margin-bottom:12px;font-size:.93rem}
+.timeline{position:relative;padding-left:30px;margin:16px 0}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#14b8a6,rgba(20,184,166,0.1))}
+.timeline-item{position:relative;margin-bottom:20px;padding:14px 16px;background:rgba(15,23,42,0.55);border-radius:8px;border-left:3px solid rgba(20,184,166,0.3)}
+.timeline-item::before{content:'';position:absolute;left:-25px;top:18px;width:10px;height:10px;background:#14b8a6;border-radius:50%;box-shadow:0 0 8px rgba(20,184,166,0.5)}
+.timeline-year{font-size:1.05rem;font-weight:700;color:#14b8a6;margin-bottom:6px}
+.timeline-item p{color:#cbd5e1;font-size:.875rem;margin:0;line-height:1.65}
+.highlight-2018{border-left-color:#14b8a6;background:rgba(20,184,166,0.08)}
+.art-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0}
+.art-card{background:rgba(15,23,42,0.6);border:1px solid rgba(20,184,166,0.2);border-radius:10px;padding:16px}
+.art-label{font-size:.72rem;font-weight:700;color:#14b8a6;letter-spacing:.1em;margin-bottom:5px;text-transform:uppercase}
+.art-title{font-size:.97rem;font-weight:600;color:#f1f5f9;margin-bottom:8px}
+.art-card p{font-size:.845rem;color:#94a3b8;margin:0;line-height:1.6}
+.table-wrap{overflow-x:auto;margin:14px 0;border-radius:8px;border:1px solid rgba(20,184,166,0.12)}
+table{width:100%;border-collapse:collapse;font-size:.845rem}
+table thead th{background:rgba(20,184,166,0.18);color:#14b8a6;font-weight:700;padding:11px 13px;text-align:left;border-bottom:2px solid rgba(20,184,166,0.25);white-space:nowrap}
+table tbody tr{border-bottom:1px solid rgba(20,184,166,0.07);transition:background .15s}
+table tbody tr:hover{background:rgba(20,184,166,0.04)}
+table tbody td{padding:9px 13px;color:#cbd5e1;vertical-align:top;line-height:1.6}
+table tbody td:first-child{color:#14b8a6;font-weight:600;font-family:monospace;font-size:.83rem;white-space:nowrap}
+.def-table td:nth-child(2){color:#7dd3fc;font-family:monospace;font-size:.83rem}
+.case-card{background:rgba(15,23,42,0.7);border-left:4px solid #14b8a6;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px}
+.case-name{font-weight:700;color:#f1f5f9;font-size:.93rem;margin-bottom:4px}
+.case-year{font-size:.73rem;color:#14b8a6;font-weight:600;letter-spacing:.05em;margin-bottom:7px;text-transform:uppercase}
+.case-ratio{color:#94a3b8;font-size:.845rem;line-height:1.65}
+.info-box{background:rgba(20,184,166,0.07);border:1px solid rgba(20,184,166,0.25);border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.875rem;color:#cbd5e1;line-height:1.65}
+.info-box strong{color:#14b8a6}
+.doctrine-box{background:linear-gradient(135deg,rgba(20,184,166,0.08),rgba(125,211,252,0.04));border:1px solid rgba(20,184,166,0.28);border-radius:10px;padding:16px 20px;margin:14px 0}
+.doctrine-box h4{color:#7dd3fc;font-size:.93rem;font-weight:700;margin-bottom:8px}
+.doctrine-box p{color:#cbd5e1;font-size:.875rem;margin:0;line-height:1.65}
+.court-list{list-style:none;padding:0}
+.court-list li{padding:8px 0 8px 22px;position:relative;color:#cbd5e1;font-size:.875rem;border-bottom:1px solid rgba(20,184,166,0.07);line-height:1.6}
+.court-list li:last-child{border-bottom:none}
+.court-list li::before{content:'§';position:absolute;left:0;color:#14b8a6;font-weight:700}
+.quiz-section{background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.2);border-radius:12px;padding:28px;margin-top:32px}
+.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:#14b8a6;margin-bottom:6px}
+.quiz-intro{color:#94a3b8;font-size:.855rem;margin-bottom:22px;line-height:1.6}
+.question{background:rgba(15,23,42,0.6);border-left:4px solid rgba(20,184,166,0.3);border-radius:0 8px 8px 0;padding:15px 17px;margin-bottom:14px;transition:border-left-color .3s}
+.question p{color:#e2e8f0;font-size:.93rem;margin-bottom:10px;font-weight:500;line-height:1.55}
+.question label{display:flex;align-items:flex-start;gap:10px;padding:6px 0;color:#94a3b8;font-size:.845rem;cursor:pointer;transition:color .15s;line-height:1.5}
+.question label:hover{color:#e2e8f0}
+.question label input[type="radio"]{accent-color:#14b8a6;margin-top:3px;flex-shrink:0}
+.submit-btn{background:#14b8a6;color:#0a0e1a;border:none;padding:12px 30px;font-size:.93rem;font-weight:700;border-radius:8px;cursor:pointer;margin-top:14px;transition:background .2s;letter-spacing:.02em}
+.submit-btn:hover{background:#0d9488}
+#quiz-result{margin-top:18px}
+.pass{background:rgba(16,185,129,0.13);border:1px solid rgba(16,185,129,0.35);color:#34d399;padding:15px 18px;border-radius:8px;font-weight:600;font-size:.97rem}
+.pass a{color:#14b8a6;font-weight:700;text-decoration:none;margin-left:6px}
+.pass a:hover{text-decoration:underline}
+.fail{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.28);color:#f87171;padding:15px 18px;border-radius:8px;font-weight:600;font-size:.97rem}
+@media(max-width:640px){.section-card{padding:18px 14px}.quiz-section{padding:20px 14py}.art-grid{grid-template-columns:1fr}.header h1{font-size:1.3rem}.track-badge{margin-left:0}}
 </style>
 </head>
 <body>
-<nav class="navbar">
-  <a href="index.html">← Track Hub</a>
-  <span style="color:#bfdbfe">Level 1 — Constitutional Foundations</span>
-  <a href="../../index.html">Home</a>
+
+<nav class="top-nav">
+  <a href="index.html">← Back to Track Hub</a>
+  <span class="track-badge">LAW STUDENT TRACK</span>
 </nav>
-<div class="hero">
-  <h1>Level 1: Constitutional Foundations & Statutory Analysis</h1>
-  <p>Art. 17, Arts. 341-342, complete analysis of PCR Act 1955 and POA Act 1989, constitutional validity, definitional jurisprudence and offence taxonomy</p>
-  <div class="progress-bar"><div class="progress-fill" id="prog"></div></div>
-</div>
-<div class="content">
 
-<div class="section">
-  <h2>Constitutional Architecture of SC/ST Protection</h2>
-  <h3>Article 17 — Abolition of Untouchability</h3>
-  <p>"Untouchability" is abolished and its practice in any form is forbidden. The enforcement of any disability arising out of Untouchability shall be an offence punishable in accordance with law.</p>
-  <div class="info-box"><strong>Academic note:</strong> Art. 17 is unique — it creates an enforceable fundamental right against <em>private persons</em>, not just the state. In Akhil Bharatiya Soshit Karmachari Sangh v. Union of India (1981), the SC held Art. 17 operates horizontally, binding all citizens.</div>
-  <h3>Definitional Ambiguity — "Untouchability"</h3>
-  <p>The Constitution does not define "untouchability." The Supreme Court in <em>Devarajiah v. B. Padmanna (1958)</em> held the term should be understood in its historical sociological context — the social disability imposed on certain castes from birth based on Hindu religious practice. The PCR Act 1955 operationalises this constitutional mandate.</p>
-  <h3>Arts. 341-342 — Scheduled Castes and Tribes</h3>
-  <table>
-    <tr><th>Provision</th><th>Content</th><th>Legal Significance</th></tr>
-    <tr><td>Art. 341(1)</td><td>President may specify castes, races, tribes as Scheduled Castes for any State/UT</td><td>Presidential notification is the definitive criterion — no court can add communities</td></tr>
-    <tr><td>Art. 341(2)</td><td>Parliament may by law include or exclude communities from the list</td><td>Exclusion/inclusion is a legislative function — judiciary cannot direct this</td></tr>
-    <tr><td>Art. 342(1)-(2)</td><td>Similar scheme for Scheduled Tribes</td><td>Same Presidential notification mechanism applies</td></tr>
-  </table>
-  <div class="info-box"><strong>Key SC ruling:</strong> In <em>E.V. Chinnaiah v. State of AP (2004)</em>, the SC held that sub-classification within SCs by state governments for reservations is unconstitutional — Presidential list is an integrated whole. This was partially overruled in <em>State of Punjab v. Davinder Singh (2024)</em> where a 7-judge bench held states CAN sub-classify. This remains a live controversy in SC/ST law.</div>
-</div>
+<header class="header">
+  <div class="level-label">⚖ Level 1 of 3</div>
+  <h1>Legislative History, Constitutional Architecture &amp; Section 3 Offences</h1>
+  <p>A deep legal analysis of the SC/ST (Prevention of Atrocities) Act — its foundations, constitutional basis, and the complete grid of offences under Section 3</p>
+  <div class="org-name">Janman People's Foundation — Centre for Law and Development</div>
+</header>
 
-<div class="section">
-  <h2>PCR Act 1955 — Analytical Framework</h2>
-  <p>The Protection of Civil Rights Act 1955 (amended 1976) implements Art. 17. It penalises the enforcement of disabilities arising from untouchability — the social/civil dimension, distinct from the physical violence dimension covered by POA Act.</p>
-  <h3>Structural Analysis</h3>
-  <table>
-    <tr><th>Chapter</th><th>Sections</th><th>Subject</th></tr>
-    <tr><td>Offences</td><td>Sec 3-7A</td><td>Religious, social, economic, occupational and other disabilities</td></tr>
-    <tr><td>Enhanced punishment</td><td>Sec 8</td><td>Subsequent conviction — enhanced minimum; cancellation of licences</td></tr>
-    <tr><td>Presumptions</td><td>Sec 12-14</td><td>Presumption of untouchability motive; abetment; shifting burden</td></tr>
-    <tr><td>Trial</td><td>Sec 13</td><td>Cognizable, non-bailable; trial by Executive Magistrate (1st class)</td></tr>
-    <tr><td>State duty</td><td>Sec 15A</td><td>State must ensure effective implementation — undertake awareness, relief, rehabilitation</td></tr>
-  </table>
-  <div class="info-box"><strong>PCR vs POA — Key Distinction:</strong> PCR Act targets civil/social disabilities (access to places, services, occupations) arising from the practice of untouchability. POA Act targets physical, sexual, economic and psychological atrocities. Many incidents may attract BOTH statutes simultaneously.</div>
-</div>
+<div class="container">
 
-<div class="section">
-  <h2>POA Act 1989 — Constitutional Validity & Objectives</h2>
-  <h3>Preamble & Objects</h3>
-  <p>The Statement of Objects and Reasons notes that existing laws (IPC, CrPC, PCR Act) have proved inadequate to check atrocities committed on members of Scheduled Castes and Scheduled Tribes. The Act aims to prevent such atrocities, provide special courts for speedy trial, and provide relief and rehabilitation.</p>
-  <h3>Constitutional Validity</h3>
-  <div class="case-card">
-    <div class="case-cite">State of Maharashtra v. Bhaurao Punjabrao Gawande — (2008) 3 SCC 613</div>
-    <div class="case-title">Scope and Strict Interpretation of Scheduled Offences</div>
-    <div class="case-body">SC held that the POA Act must be given liberal construction in keeping with its object — prevention of atrocities. The essential ingredient of caste identity (victim SC/ST, accused non-SC/ST) is a jurisdictional prerequisite. Courts cannot water down this requirement but also cannot expand the statute beyond its terms.</div>
-  </div>
-  <div class="case-card">
-    <div class="case-cite">Swaran Singh v. State — (2008) 8 SCC 435</div>
-    <div class="case-title">Essential Ingredients — Caste Element is Jurisdictional</div>
-    <div class="case-body">Supreme Court clarified: (1) The accused must be a non-SC/ST; (2) The offence must be committed against an SC/ST; (3) The offence must be committed "on the ground that the victim is an SC/ST" — the caste motivation is essential. A simple assault between two persons of different castes does not attract POA Act unless the caste of victim was the motivation for the offence.</div>
+  <div class="section-card">
+    <h2>📋 1. Legislative History Timeline</h2>
+    <p>The SC/ST (Prevention of Atrocities) Act did not emerge in a vacuum. It is the product of decades of constitutional commitment and legislative evolution, each stage responding to the inadequacy of prior protections. Understanding this history is essential for making purposive arguments before Special Courts.</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">1950 — Constitutional Foundation</div>
+        <p><strong>Constitution of India adopted.</strong> Article 17 abolishes untouchability in absolute terms: <em>"Untouchability is abolished and its practice in any form is forbidden. The enforcement of any disability arising out of Untouchability shall be an offence punishable in accordance with law."</em> Art.17 is constitutionally unique — it is directly horizontally applicable (against private individuals, not just the State) and mandates Parliament to enact criminal penalties. Arts.14, 15, 16, 21, and 46 collectively create the constitutional framework that the 1989 Act would later operationalise.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1955 — First Legislative Response: PCRA</div>
+        <p><strong>Protection of Civil Rights Act (PCRA) enacted</strong> — the first attempt to operationalise Art.17. Fatal flaws: (1) addressed only "civil rights" from untouchability — a narrow conception; (2) weak penal provisions — fines only, no mandatory imprisonment; (3) no special investigation machinery; (4) no dedicated courts; (5) no victim compensation; (6) no time-bound trial. Decades of evidence showed the PCRA achieved almost nothing for SC/ST communities subject to severe violence. The demand for comprehensive law grew through the 1970s and 1980s.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1989 — SC/ST (Prevention of Atrocities) Act</div>
+        <p><strong>The watershed legislation.</strong> Parliament enacted the SC/ST (POA) Act, 1989 to address the PCRA's inadequacies. Key structural features: (1) specific catalogue of "atrocities" in §3 — far beyond "civil rights"; (2) mandatory minimum sentences — removing judicial discretion for token punishment; (3) DSP-level investigation under §9 — ensuring senior police accountability; (4) Special Courts under §14 — dedicated judicial machinery; (5) victim compensation; (6) anticipatory bail barred (§18); (7) all offences cognizable and non-bailable; (8) §4 — police neglect of duty a crime.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1995 — Rules Framed</div>
+        <p><strong>SC/ST (POA) Rules, 1995</strong> operationalised the Act: (1) detailed compensation schedules for each §3 offence — Schedules I and II; (2) investigation protocols — 60-day DSP investigation timeline; (3) District Vigilance and Monitoring Committee (DVMC) — mandatory periodic meetings; (4) duties of District Magistrate and SP; (5) relief camps and rehabilitation for victims of mass atrocities. Chronic failure by state governments to implement these Rules is a continuing PIL issue.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2015 — First Major Amendment</div>
+        <p><strong>SC/ST (POA) Amendment Act, 2015</strong> expanded coverage in three areas: (1) New offences — §3(1)(ix): garlanding with footwear; §3(1)(x): social boycott/denial of public places; §3(1)(xi): tonsure/forced march; §3(1)(xii): devadasi/deity dedication. (2) Institutional reform — §14A Exclusive Special Courts for high-volume states; SPP mechanism strengthened. (3) Victim rights — §15A inserted: comprehensive victim rights framework — legal aid, right to be heard before adverse orders including bail, right to information, right to appeal acquittal, right to participate at every stage.</p>
+      </div>
+      <div class="timeline-item highlight-2018">
+        <div class="timeline-year">2018 — Critical Parliamentary Override of Judicial Dilution</div>
+        <p><strong>SC/ST (POA) Amendment Act, 2018</strong> — one of the most constitutionally significant amendments in recent Indian legislative history. Background: In <em>Subhash Kashinath Mahajan v. State of Maharashtra</em> (2018), a two-judge bench added: (i) requirement of "preliminary inquiry" by DSP before FIR registration; (ii) anticipatory bail permitted in "appropriate cases." These additions were immediately weaponised by accused persons. Parliament responded by inserting <strong>§18A</strong>, which explicitly: (i) bars any preliminary inquiry — FIR must be registered immediately; (ii) makes anticipatory bail an <em>absolute</em> bar — no court has any discretion; (iii) further reinforces §15A victim rights. The Statement of Objects and Reasons explicitly named and overrode Subhash Kashinath Mahajan — a rare and direct instance of Parliament overriding a Supreme Court judgment by name. Upheld in Prathvi Raj Chauhan v. UOI (2020).</p>
+      </div>
+    </div>
   </div>
 
-  <h3>Definitional Jurisprudence</h3>
-  <table>
-    <tr><th>Term</th><th>Statutory Definition</th><th>Judicial Gloss</th></tr>
-    <tr><td>Atrocity [Sec 2(a)]</td><td>Offence punishable under Sec 3(1) or 3(2)</td><td>Swaran Singh: offence must be motivated by victim's caste identity</td></tr>
-    <tr><td>Scheduled Caste/Tribe</td><td>As per Arts. 341 and 342 Presidential notification</td><td>E.V. Chinnaiah: list is integral; state cannot sub-divide</td></tr>
-    <tr><td>Public servant [Sec 2(f)]</td><td>As in IPC Sec 21</td><td>Includes police, revenue, educational, medical officers</td></tr>
-    <tr><td>Wilful neglect [Sec 4]</td><td>Not defined — gap in statute</td><td>Courts apply objective test: was the omission deliberate or grossly negligent?</td></tr>
-  </table>
-</div>
-
-<div class="section">
-  <h2>Offence Taxonomy — Academic Classification</h2>
-  <h3>By Nature of Harm</h3>
-  <table>
-    <tr><th>Category</th><th>Sections</th><th>Examples</th></tr>
-    <tr><td>Degradation offences</td><td>3(1)(a),(b),(s)</td><td>Force-feeding filth; dumping excreta; garlanding with footwear; parading naked</td></tr>
-    <tr><td>Labour exploitation</td><td>3(1)(c),(2)(vi)</td><td>Begar, bonded labour, forced caste occupation</td></tr>
-    <tr><td>Land & property rights</td><td>3(1)(d),(t),(u)</td><td>Dispossession, wrongful occupation, denial of common property</td></tr>
-    <tr><td>Social exclusion</td><td>3(1)(e),(h),(q)</td><td>Denial of water/road access, pollution of water source, boycott</td></tr>
-    <tr><td>Physical violence</td><td>3(1)(f),(l),(o)</td><td>Assault, outraging modesty, IPC offences in caste context</td></tr>
-    <tr><td>Sexual violence</td><td>3(1)(g),(p), 3(2)(v)</td><td>Sexual exploitation, devadasi, rape, gang rape</td></tr>
-    <tr><td>Psychological harm</td><td>3(1)(j),(k),(r)</td><td>Public humiliation, false prosecution, malicious insult</td></tr>
-    <tr><td>Political rights</td><td>3(1)(v)</td><td>Preventing elections, panchayat participation</td></tr>
-    <tr><td>Consequential offences</td><td>3(2)(i)-(iv),(va)</td><td>False evidence, fabrication, arson, mischief, attempt/abetment</td></tr>
-    <tr><td>Public servant defaults</td><td>3(2)(vii), Sec 4</td><td>Wilful neglect, harassment of victim/witness</td></tr>
-  </table>
-</div>
-
-<div class="section">
-  <h2>2016 & 2018 Amendments — Academic Analysis</h2>
-  <h3>Significance of the 2016 Amendment Act</h3>
-  <p>The 2016 Amendment was a direct response to judicial dilution of the Act's provisions. Key academic points:</p>
-  <div class="info-box">
-    <strong>Sec 18A — Response to Judicial Overreach:</strong> The amendment overturned the practice of requiring preliminary inquiries before FIR registration — a practice courts had developed despite the Act's silence on it. Parliament expressly prohibited such inquiries.<br><br>
-    <strong>Sec 15A — Victim Rights Chapter:</strong> Borrowed from comparative victimology and international standards (UN Declaration on Victims 1985), this section created the most comprehensive victim rights provision in Indian criminal law.<br><br>
-    <strong>19 New Offences:</strong> Expanded coverage to digital/modern forms of caste discrimination (social media humiliation) and addressed lacunae identified by the National Crime Records Bureau data.
-  </div>
-  <h3>The Constitutional Crisis — Subhash Kashinath and Recovery</h3>
-  <p>In <em>Subhash Kashinath Mahajan v. State of Maharashtra (2018) 6 SCC 454</em>, a 2-judge bench introduced a preliminary inquiry requirement and SP approval for arrest — effectively creating protections for accused not in the statute. This triggered massive protests. Parliament responded with the 2018 Amendment (Statement of Objects: "to restore the original intent") and the Supreme Court in <em>Prathvi Raj Chauhan v. UOI (2020) 4 SCC 727</em> (5-judge bench) recalled Subhash Kashinath and upheld the original provisions.</p>
-</div>
-
-<!-- QUIZ -->
-<div class="quiz-section">
-  <h2>📝 Level 1 Assessment — 20 Questions (Pass: 70%)</h2>
-  <form id="quiz-form">
-  <div class="question"><div class="q-text">Q1. Article 17 of the Constitution operates as a fundamental right enforceable against:</div>
-    <label class="option"><input type="radio" name="q1" value="a"> Only the State (vertical application)</label>
-    <label class="option"><input type="radio" name="q1" value="b"> Both the State and private persons (horizontal application)</label>
-    <label class="option"><input type="radio" name="q1" value="c"> Only central government employees</label>
-    <label class="option"><input type="radio" name="q1" value="d"> Only religious institutions</label>
-    <div class="explanation" id="exp-q1">Art. 17 is unique — it has horizontal application against private persons. The SC in Akhil Bharatiya Soshit Karmachari Sangh v. UOI (1981) confirmed this. PCR Act enforces Art. 17 against private untouchability practitioners.</div>
-  </div>
-  <div class="question"><div class="q-text">Q2. The constitutional definition of "untouchability" in Art. 17 is:</div>
-    <label class="option"><input type="radio" name="q2" value="a"> Defined as any form of caste discrimination</label>
-    <label class="option"><input type="radio" name="q2" value="b"> Defined with reference to specific castes listed in Schedule</label>
-    <label class="option"><input type="radio" name="q2" value="c"> Not defined — courts interpret it in its historical sociological context</label>
-    <label class="option"><input type="radio" name="q2" value="d"> Defined by the PCR Act 1955</label>
-    <div class="explanation" id="exp-q2">Art. 17 does not define "untouchability." Devarajiah v. B. Padmanna (1958) held it must be understood in its historical context — the caste-based social disability imposed from birth in Hindu religious practice.</div>
-  </div>
-  <div class="question"><div class="q-text">Q3. In E.V. Chinnaiah v. State of AP (2004), the Supreme Court held that state sub-classification of Scheduled Castes for reservation is:</div>
-    <label class="option"><input type="radio" name="q3" value="a"> Constitutionally valid under Art. 15(4)</label>
-    <label class="option"><input type="radio" name="q3" value="b"> Unconstitutional — the Presidential SC list is an integral whole</label>
-    <label class="option"><input type="radio" name="q3" value="c"> Valid only if Parliament approves</label>
-    <label class="option"><input type="radio" name="q3" value="d"> Valid if based on socio-economic criteria</label>
-    <div class="explanation" id="exp-q3">E.V. Chinnaiah (2004) held sub-classification unconstitutional. This was partially overruled by a 7-judge bench in State of Punjab v. Davinder Singh (2024) which held states CAN sub-classify — a live constitutional controversy.</div>
-  </div>
-  <div class="question"><div class="q-text">Q4. The essential "caste motivation" element in POA Act offences was articulated in:</div>
-    <label class="option"><input type="radio" name="q4" value="a"> State of Maharashtra v. Bhaurao Gawande (2008)</label>
-    <label class="option"><input type="radio" name="q4" value="b"> Prathvi Raj Chauhan v. UOI (2020)</label>
-    <label class="option"><input type="radio" name="q4" value="c"> Swaran Singh v. State (2008)</label>
-    <label class="option"><input type="radio" name="q4" value="d"> Subhash Kashinath Mahajan (2018)</label>
-    <div class="explanation" id="exp-q4">Swaran Singh v. State (2008) 8 SCC 435 held that the offence must be committed because the victim is an SC/ST — the caste of the victim must be the motivation, not merely incidental to the offence.</div>
-  </div>
-  <div class="question"><div class="q-text">Q5. Which section of the PCR Act creates a presumption of untouchability motive when disability is enforced against an SC person?</div>
-    <label class="option"><input type="radio" name="q5" value="a"> Sec 8</label>
-    <label class="option"><input type="radio" name="q5" value="b"> Sec 12</label>
-    <label class="option"><input type="radio" name="q5" value="c"> Sec 14</label>
-    <label class="option"><input type="radio" name="q5" value="d"> Sec 15A</label>
-    <div class="explanation" id="exp-q5">PCR Act Sec 14 — presumption of untouchability motive. When it is established that the victim belongs to an SC community and that a civil disability was enforced, the court presumes untouchability motivation — shifting burden to accused.</div>
-  </div>
-  <div class="question"><div class="q-text">Q6. "Devadasi dedication" of SC/ST women — forcing them into religious prostitution — is an atrocity under:</div>
-    <label class="option"><input type="radio" name="q6" value="a"> Sec 3(1)(g) — sexual exploitation through dominant position</label>
-    <label class="option"><input type="radio" name="q6" value="b"> Sec 3(1)(p) — dedicating SC/ST woman as devadasi</label>
-    <label class="option"><input type="radio" name="q6" value="c"> Sec 3(2)(v) — rape</label>
-    <label class="option"><input type="radio" name="q6" value="d"> Sec 3(1)(f) — assault with intent to dishonour</label>
-    <div class="explanation" id="exp-q6">Sec 3(1)(p) specifically covers the practice of dedicating SC/ST women as devadasis, Jogins, or similar customary practices — recognizing this as both a religious and caste-based form of sexual exploitation.</div>
-  </div>
-  <div class="question"><div class="q-text">Q7. The "objects and reasons" of the POA Act 1989 specifically states that which existing laws proved inadequate?</div>
-    <label class="option"><input type="radio" name="q7" value="a"> Constitution and fundamental rights only</label>
-    <label class="option"><input type="radio" name="q7" value="b"> IPC, CrPC, and the Protection of Civil Rights Act 1955</label>
-    <label class="option"><input type="radio" name="q7" value="c"> DPSP provisions of the Constitution</label>
-    <label class="option"><input type="radio" name="q7" value="d"> Land reform laws</label>
-    <div class="explanation" id="exp-q7">The Statement of Objects expressly identifies the IPC, CrPC, and PCR Act 1955 as having proven inadequate to check atrocities — this legislative history is important for liberal interpretation of the POA Act.</div>
-  </div>
-  <div class="question"><div class="q-text">Q8. The addition of Sec 15A to the POA Act (2016) was influenced by which international standard?</div>
-    <label class="option"><input type="radio" name="q8" value="a"> ICCPR Article 14 (fair trial)</label>
-    <label class="option"><input type="radio" name="q8" value="b"> UN Declaration on Basic Principles of Justice for Victims (1985)</label>
-    <label class="option"><input type="radio" name="q8" value="c"> CEDAW Article 6</label>
-    <label class="option"><input type="radio" name="q8" value="d"> ILO Convention 169</label>
-    <div class="explanation" id="exp-q8">Sec 15A's victim rights provisions — right to information, to be heard, protection of identity, safety, relocation — are modelled on the UN Declaration on Basic Principles of Justice for Victims of Crime and Abuse of Power (1985).</div>
-  </div>
-  <div class="question"><div class="q-text">Q9. Which category of offences under the POA Act addresses the denial of common property resources?</div>
-    <label class="option"><input type="radio" name="q9" value="a"> Degradation offences (Sec 3(1)(a)-(b))</label>
-    <label class="option"><input type="radio" name="q9" value="b"> Social exclusion offences (Sec 3(1)(e),(h),(q),(u))</label>
-    <label class="option"><input type="radio" name="q9" value="c"> Sexual violence offences (Sec 3(2)(v))</label>
-    <label class="option"><input type="radio" name="q9" value="d"> Political rights offences (Sec 3(1)(v))</label>
-    <div class="explanation" id="exp-q9">Social exclusion offences — particularly Sec 3(1)(e) (denial of waterways/roads), Sec 3(1)(h) (polluting water sources), Sec 3(1)(u) (denial of common burial grounds, pasture) — address common property resource denial.</div>
-  </div>
-  <div class="question"><div class="q-text">Q10. In Subhash Kashinath Mahajan (2018), the Supreme Court's controversial addition was:</div>
-    <label class="option"><input type="radio" name="q10" value="a"> Mandatory victim compensation before trial</label>
-    <label class="option"><input type="radio" name="q10" value="b"> Preliminary inquiry requirement + SP approval for arrest — overturned by Prathvi Raj Chauhan (2020)</label>
-    <label class="option"><input type="radio" name="q10" value="c"> Requirement of HC permission before filing FIR</label>
-    <label class="option"><input type="radio" name="q10" value="d"> Mandatory mediation before trial</label>
-    <div class="explanation" id="exp-q10">Subhash Kashinath Mahajan (2018) 6 SCC 454 introduced preliminary inquiry and SP approval — creating safeguards not in the statute. Prathvi Raj Chauhan (2020) 5-judge bench recalled these additions and upheld Sec 18A.</div>
-  </div>
-  <div class="question"><div class="q-text">Q11. Art. 341(2) provides that inclusion/exclusion of communities in the SC list is the function of:</div>
-    <label class="option"><input type="radio" name="q11" value="a"> The Supreme Court</label>
-    <label class="option"><input type="radio" name="q11" value="b"> The President alone (executive function)</label>
-    <label class="option"><input type="radio" name="q11" value="c"> Parliament (legislative function)</label>
-    <label class="option"><input type="radio" name="q11" value="d"> State legislature</label>
-    <div class="explanation" id="exp-q11">Art. 341(2) provides that Parliament may by law include or exclude communities — this is a legislative function. Courts cannot judicially add or remove communities from the Presidential SC list (SC: Palghat Jilla Thandan Samudhaya Maha Sabha v. UOI, 1993).</div>
-  </div>
-  <div class="question"><div class="q-text">Q12. The 7-judge bench ruling in State of Punjab v. Davinder Singh (2024) is significant because it:</div>
-    <label class="option"><input type="radio" name="q12" value="a"> Upheld PCR Act Sec 14 presumption</label>
-    <label class="option"><input type="radio" name="q12" value="b"> Partially overruled E.V. Chinnaiah — states CAN sub-classify SCs for reservation</label>
-    <label class="option"><input type="radio" name="q12" value="c"> Upheld Sec 18A mandatory arrest</label>
-    <label class="option"><input type="radio" name="q12" value="d"> Expanded definition of untouchability</label>
-    <div class="explanation" id="exp-q12">Davinder Singh (2024) 7-judge bench held states have the power to sub-classify within Scheduled Castes for the purpose of reservations — partially overruling E.V. Chinnaiah (2004) — a landmark development in SC/ST constitutional law.</div>
-  </div>
-  <div class="question"><div class="q-text">Q13. The PCR Act 1955 tries offences through which court?</div>
-    <label class="option"><input type="radio" name="q13" value="a"> Sessions Court (Special Court)</label>
-    <label class="option"><input type="radio" name="q13" value="b"> Executive Magistrate (First Class)</label>
-    <label class="option"><input type="radio" name="q13" value="c"> High Court directly</label>
-    <label class="option"><input type="radio" name="q13" value="d"> Lok Adalat</label>
-    <div class="explanation" id="exp-q13">PCR Act offences are tried by Executive Magistrates (First Class) — unlike the POA Act which requires Special Courts (Sessions level). This is an important procedural distinction for legal practitioners.</div>
-  </div>
-  <div class="question"><div class="q-text">Q14. "Wilful neglect" under Sec 4 POA Act — what test do courts apply?</div>
-    <label class="option"><input type="radio" name="q14" value="a"> Strict liability — any omission by public servant suffices</label>
-    <label class="option"><input type="radio" name="q14" value="b"> Objective test — whether omission was deliberate or grossly negligent</label>
-    <label class="option"><input type="radio" name="q14" value="c"> Subjective test — only if officer intended the harm</label>
-    <label class="option"><input type="radio" name="q14" value="d"> No specific test — purely discretionary</label>
-    <div class="explanation" id="exp-q14">Courts apply an objective standard — was the officer's omission deliberate or so grossly negligent as to amount to wilfulness? This covers malicious inaction and reckless disregard of legal duty, not mere oversight.</div>
-  </div>
-  <div class="question"><div class="q-text">Q15. The academic distinction between PCR Act and POA Act is best described as:</div>
-    <label class="option"><input type="radio" name="q15" value="a"> PCR covers urban; POA covers rural atrocities</label>
-    <label class="option"><input type="radio" name="q15" value="b"> PCR covers civil/social disabilities from untouchability; POA covers physical/sexual/economic atrocities</label>
-    <label class="option"><input type="radio" name="q15" value="c"> PCR covers SC only; POA covers ST only</label>
-    <label class="option"><input type="radio" name="q15" value="d"> PCR is criminal; POA is civil in nature</label>
-    <div class="explanation" id="exp-q15">PCR Act: enforcement of civil/social disabilities arising from untouchability (access to places, services). POA Act: physical, sexual, economic and psychological atrocities. Both are criminal statutes but with different subject matter.</div>
-  </div>
-  <div class="question"><div class="q-text">Q16. Sec 16 of the POA Act (collective fine) raises constitutional concerns under which article?</div>
-    <label class="option"><input type="radio" name="q16" value="a"> Art. 14 (equality) and Art. 20(1) (individual criminal liability)</label>
-    <label class="option"><input type="radio" name="q16" value="b"> Art. 32 (right to constitutional remedies)</label>
-    <label class="option"><input type="radio" name="q16" value="c"> Art. 19(1)(a) (freedom of speech)</label>
-    <label class="option"><input type="radio" name="q16" value="d"> Art. 300A (right to property)</label>
-    <div class="explanation" id="exp-q16">Collective fine raises concerns under Art. 14 (imposing liability on entire community) and Art. 20(1) (individual criminal culpability principle). Courts have interpreted Sec 16 narrowly — requiring knowledge/connivance of the community, not mere presence.</div>
-  </div>
-  <div class="question"><div class="q-text">Q17. The POA Act's Sec 15A victim rights provision was introduced specifically to address:</div>
-    <label class="option"><input type="radio" name="q17" value="a"> Compensation amounts for victims</label>
-    <label class="option"><input type="radio" name="q17" value="b"> Victim and witness intimidation and secondary victimisation in criminal process</label>
-    <label class="option"><input type="radio" name="q17" value="c"> Fast-track disposal of cases</label>
-    <label class="option"><input type="radio" name="q17" value="d"> Mandatory conviction rates</label>
-    <div class="explanation" id="exp-q17">Sec 15A addresses secondary victimisation — the additional trauma inflicted on victims during criminal process through intimidation, identity exposure, lack of information, and exclusion from proceedings. It creates substantive procedural rights.</div>
-  </div>
-  <div class="question"><div class="q-text">Q18. For the POA Act to apply, the accused person need NOT be which of the following?</div>
-    <label class="option"><input type="radio" name="q18" value="a"> A non-SC/ST person</label>
-    <label class="option"><input type="radio" name="q18" value="b"> A resident of the same village</label>
-    <label class="option"><input type="radio" name="q18" value="c"> Acting with caste-based motivation</label>
-    <label class="option"><input type="radio" name="q18" value="d"> Identifiable — name or description required</label>
-    <div class="explanation" id="exp-q18">The POA Act does not require the accused to be from the same village — they simply must be non-SC/ST, act against an SC/ST person, with caste as the motivation. Residential proximity is not an element of the offence.</div>
-  </div>
-  <div class="question"><div class="q-text">Q19. Sec 18A(1) of the POA Act expressly prohibits:</div>
-    <label class="option"><input type="radio" name="q19" value="a"> Magistrate bail for accused</label>
-    <label class="option"><input type="radio" name="q19" value="b"> Preliminary inquiry prior to FIR registration</label>
-    <label class="option"><input type="radio" name="q19" value="c"> Filing of private complaints</label>
-    <label class="option"><input type="radio" name="q19" value="d"> Anticipatory bail applications</label>
-    <div class="explanation" id="exp-q19">Sec 18A(1) provides: "Notwithstanding anything contained in the Code of Criminal Procedure, 1973, a preliminary enquiry shall not be required for registration of a First Information Report against any person under the provisions of this Act."</div>
-  </div>
-  <div class="question"><div class="q-text">Q20. Which of the following correctly describes the relationship between the IPC and the POA Act?</div>
-    <label class="option"><input type="radio" name="q20" value="a"> POA Act entirely replaces the IPC for SC/ST offences</label>
-    <label class="option"><input type="radio" name="q20" value="b"> IPC replaces POA Act when the same act is an IPC offence</label>
-    <label class="option"><input type="radio" name="q20" value="c"> POA Act is a special law — applies in addition to IPC; charges under both can coexist</label>
-    <label class="option"><input type="radio" name="q20" value="d"> POA Act applies only when IPC is silent</label>
-    <div class="explanation" id="exp-q20">The POA Act is a special statute that supplements the IPC — charges under both can and should be filed simultaneously. The special law's enhanced punishment and special court provisions apply alongside IPC provisions (Generalia specialibus non derogant).</div>
+  <div class="section-card">
+    <h2>⚖ 2. Constitutional Architecture — The Foundation</h2>
+    <p>The SC/ST Act draws its constitutional legitimacy from multiple provisions. Understanding this architecture is essential for making purposive arguments before Special Courts and High Courts, and for countering constitutional challenges to the Act.</p>
+    <div class="art-grid">
+      <div class="art-card">
+        <div class="art-label">Art. 14</div>
+        <div class="art-title">Equality Before Law</div>
+        <p>Formal equality is insufficient when structural inequality exists. The Act's special protections are constitutional under Art.14 because SC/ST persons are not "similarly situated" to the general population (State of Kerala v. NM Thomas). Special punishment, DSP investigation, and bail bar are permissible class legislation — the differential treatment bears rational nexus to protecting SC/ST from caste violence.</p>
+      </div>
+      <div class="art-card">
+        <div class="art-label">Art. 17</div>
+        <div class="art-title">Abolition of Untouchability</div>
+        <p>"Untouchability is abolished and its practice in any form is forbidden." This is the primary constitutional foundation of the SC/ST Act. Art.17 is unique — directly horizontally applicable against private individuals (not just the State). In <em>State of Karnataka v. Appa Balu Ingale (1993)</em>, the SC held Art.17 enforceable against private parties. Any person can be prosecuted for untouchability practices. The SC/ST Act is Parliament's enforcement mechanism for this absolute constitutional prohibition.</p>
+      </div>
+      <div class="art-card">
+        <div class="art-label">Art. 21</div>
+        <div class="art-title">Right to Life and Dignity</div>
+        <p>In <em>Patan Jamal Vali v. State of AP (2021)</em>, the SC recognised that atrocities against SC/ST persons violate the fundamental right to live with dignity under Art.21. Reading Art.21 with Art.17 — any act of untouchability humiliates the person and violates their constitutional right to live with dignity. This enables Art.32/226 compensation petitions in cases of severe atrocity where statutory remedies are inadequate.</p>
+      </div>
+      <div class="art-card">
+        <div class="art-label">Art. 46</div>
+        <div class="art-title">State Duty to SC/ST — DPSP</div>
+        <p>"The State shall promote with special care the educational and economic interests of SC/ST and protect them from social injustice and all forms of exploitation." A Directive Principle — but when read with Art.17, the obligation becomes enforceable. Courts must interpret the Act to promote Art.46's objective. DVMC failures and inadequate prosecution can be challenged through Art.46 read with Art.17.</p>
+      </div>
+    </div>
+    <div class="doctrine-box">
+      <h4>⚖ Doctrine of Transformative Constitutionalism</h4>
+      <p>The Indian Constitution is an instrument of social transformation. Dr. B.R. Ambedkar designed it to eliminate caste hierarchies. The Supreme Court articulates this as the "transformative constitutionalism" doctrine (Navtej Singh Johar, 2018; Patan Jamal Vali, 2021). Under this doctrine, the SC/ST Act must be interpreted <em>purposively</em> — in furtherance of the Constitution's transformative agenda — not narrowly as a penal statute. Every interpretive choice must ask: does this advance caste abolition, or retard it? A restrictive interpretation making it harder to prosecute caste violence is constitutionally suspect on its face.</p>
+    </div>
+    <div class="info-box">
+      <strong>Advocacy Tip:</strong> Always frame submissions in constitutional terms — not just statutory terms. The Act is the legislative embodiment of Art.17. Every dilution of its protections is constitutionally suspect. Cite <em>Patan Jamal Vali</em> and <em>Appa Balu Ingale</em> to anchor arguments in fundamental rights, not just statutory interpretation.
+    </div>
   </div>
 
-  <button type="button" class="submit-btn" id="submit-btn" onclick="submitQuiz()">Submit Assessment</button>
-  <div id="result"></div>
-</form>
-</div>
+  <div class="section-card">
+    <h2>📋 3. Section 3 Offences — Complete Grid</h2>
+    <p>Section 3 is the heart of the SC/ST Act. It provides a detailed catalogue of "atrocities" — criminal offences when committed by a non-SC/ST person against a SC/ST person. Both caste identities (accused = non-SC/ST; victim = SC/ST) and caste motivation are essential elements. Study each sub-section with its elements — every element must be proved for conviction.</p>
+
+    <h3>§3(1) — Primary Atrocity Offences</h3>
+    <p>All §3(1) offences are cognizable, non-bailable, and non-compoundable. Minimum sentence: 6 months to 5 years depending on sub-section, with fine. Mandatory minimum sentences cannot be reduced below the floor without recorded reasons, and even then the power to do so is legally contested.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Section</th><th>Offence</th><th>Essential Elements</th><th>Practitioner Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>§3(1)(i)</td><td>Force SC/ST to drink or eat obnoxious/foul substance</td><td>Force/coercion; SC/ST victim; obnoxious substance; caste motivation</td><td>Classic untouchability humiliation — forced consumption of excrement, urine, etc. Direct link to Art.17. Medical evidence of forced ingestion is key.</td></tr>
+          <tr><td>§3(1)(ii)</td><td>Dump excreta, sewage, carcass or obnoxious matter in or near SC/ST premises</td><td>Deliberate dumping; proximity to SC/ST premises; offensive matter; caste identity of victim</td><td>Caste-based contamination as social weapon. Document with photographs and panchnama immediately.</td></tr>
+          <tr><td>§3(1)(iii)</td><td>Parade SC/ST person naked or with painted face/body</td><td>Nakedness or disfigurement; public parade; SC/ST victim; humiliation intent</td><td>Often accompanies sexual violence. Video/photo evidence crucial. Multiple accused — apply group liability.</td></tr>
+          <tr><td>§3(1)(iv)</td><td>Wrongfully occupy, cultivate or use SC/ST land, premises or water source</td><td>Land legally owned by SC/ST; wrongful/non-consensual occupation; accused is non-SC/ST; caste motivation</td><td>Obtain revenue records (ROR), patta documents. Caste certificates for both parties from competent authority mandatory.</td></tr>
+          <tr><td>§3(1)(v)</td><td>Wrongfully dispossess SC/ST from land/premises; interfere with enjoyment of rights</td><td>Prior lawful possession by SC/ST; dispossession; wrongful/extra-legal manner; SC/ST caste identity as reason</td><td>Distinct from §3(1)(iv) — covers eviction of SC/ST from their own land. Check Tenancy/Land Reform Acts for additional protections.</td></tr>
+          <tr><td>§3(1)(vi)</td><td>Compel or entice SC/ST to do beggary, forced/bonded labour</td><td>Compulsion or inducement; labour performed; unpaid or inadequately paid; caste-based exploitation</td><td>Read with Art.23 and PUDR v. UOI. Bonded Labour System (Abolition) Act provides additional remedies.</td></tr>
+          <tr><td>§3(1)(vii)</td><td>Compelling SC/ST to vote/not vote for particular candidate; preventing SC/ST from voting</td><td>Compulsion, intimidation or prevention; electoral context; SC/ST victim; caste motivation</td><td>Common in gram panchayat elections. Overlaps with Representation of People Act, 1951 — file under both.</td></tr>
+          <tr><td>§3(1)(viii)</td><td>Instituting false/frivolous legal proceedings against SC/ST out of caste animus</td><td>False or vexatious complaint; SC/ST victim; caste hostility as motivation; no genuine factual basis</td><td>Protects against weaponisation of criminal law against SC/ST who assert rights. The false complaint itself is the atrocity.</td></tr>
+          <tr><td>§3(1)(ix)</td><td>Acts of indignity/humiliation — garland with footwear, beat with footwear, parade with painted face <em>(2015)</em></td><td>Public place or public view; act of caste-based humiliation; SC/ST victim; caste motivation</td><td>Footwear treated as "polluted" in caste hierarchy — its use as weapon of humiliation has deep caste meaning.</td></tr>
+          <tr><td>§3(1)(x)</td><td>Preventing SC/ST from using public places — wells, tanks, water sources, roads, burial grounds, cremation grounds; social boycott <em>(2015)</em></td><td>Public place or common resource; SC/ST victim; prevention/social boycott; caste-based exclusion</td><td>Directly addresses Appa Balu Ingale-type exclusion. Gather evidence — witness statements, gram sabha records, police reports.</td></tr>
+          <tr><td>§3(1)(xi)</td><td>Tonsuring of head/moustache, painting face of SC/ST; compelling degrading acts at public events <em>(2015)</em></td><td>Act of tonsure/painting/degradation; SC/ST victim; public context; caste motivation</td><td>Tonsure as public caste marking — longstanding practice in some regions. Video on social media often available as evidence.</td></tr>
+          <tr><td>§3(1)(xii)</td><td>Dedicating SC/ST woman to deity — devadasi system; sexual exploitation under religious pretext <em>(2015)</em></td><td>SC/ST woman; dedication to deity; sexual exploitation aspect; caste-gender intersection</td><td>Read with state-level Devadasi Prohibition Acts (Karnataka, AP, Tamil Nadu). Intersection of caste, religion, and gender violence.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>§3(2) — Aggravated Offences</h3>
+    <p>These are offences where an existing IPC/BNS offence is committed against a SC/ST person <em>because of</em> their caste identity, or where offending is particularly egregious. The caste motivation transforms the IPC/BNS offence into an aggravated SC/ST Act offence with additional punishment.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Section</th><th>Aggravated Offence</th><th>Practitioner Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>§3(2)(i)</td><td>Any IPC offence against SC/ST person committed on grounds of caste — additional SC/ST Act punishment</td><td>The critical "caste motivation" provision — converts ordinary IPC/BNS offences into SC/ST Act offences when caste is the motivation. Requires proof of caste targeting. Charge both IPC offence and §3(2)(i) together.</td></tr>
+          <tr><td>§3(2)(ii)</td><td>Fabricating false evidence to cause conviction of SC/ST for capital offence or 7+ years imprisonment</td><td>Protects against wrongful conviction through manufactured evidence. Evidence of planted objects, tutored witnesses, or forged documents. Document chain of custody carefully.</td></tr>
+          <tr><td>§3(2)(iii)</td><td>Mischief by fire or explosive substance causing damage to SC/ST property — min. 6 months to life</td><td>Arson on SC/ST homes — one of the most common forms of caste violence. Document through panchnama, forensic report, fire brigade report, photographs.</td></tr>
+          <tr><td>§3(2)(iv)</td><td>Mischief by fire/explosive causing damage of Rs. 100+ to SC/ST property</td><td>Variant of §3(2)(iii). Use §3(2)(iii) for homes/livestock sheds; §3(2)(iv) for smaller-scale targeted property damage.</td></tr>
+          <tr><td>§3(2)(v)</td><td>Committing rape on a SC/ST woman — kin. 6 months to life imprisonment</td><td>Sexual violence as caste weapon. Read with Patan Jamal Vali (2021) — caste identity of survivor is compounding factor in sentencing. §164 CrPC victim statement essential. Prompt medical examination mandatory.</td></tr>
+          <tr><td>§3(2)(vi)</td><td>Atrocity committed by a public servant — aggravated punishment for any §3 offence</td><td>Police officers, revenue officials, and all public servants covered. Triggers constitutional compensation (Nilabati Behera doctrine — see Level 3). Public servants have constitutional duty to protect SC/ST rights — violation doubly serious.</td></tr>
+          <tr><td>§3(2)(vii)</td><td>Fabricating false evidence causing actual death sentence or life imprisonment of SC/ST person</td><td>Extreme end of evidence fabrication — applies when false evidence results in actual execution or life sentence. Grounds for post-conviction review and habeas corpus.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-box">
+      <strong>Critical Point — Caste Identity of Both Parties:</strong> A fundamental prerequisite for all §3 offences: (i) accused must be a non-SC/ST person; (ii) victim must be an SC/ST person. Where the accused is also SC/ST, the Act does not apply — only IPC/BNS offences apply. Always obtain and verify caste certificates from competent authority (SDO/DM) for both accused and victim at the very outset of every case.
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>🔍 4. Key Definitions — Statutory Interpretation Table</h2>
+    <p>Precise statutory definitions are the foundation of legal argument. In an SC/ST Act case, definitions determine whether the Act applies at all, which court has jurisdiction, and which rights the victim holds. Memorise these — they are the first point of any legal analysis.</p>
+    <div class="table-wrap">
+      <table class="def-table">
+        <thead>
+          <tr><th>Term</th><th>Section</th><th>Definition and Legal Significance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Atrocity</td><td>§2(1)(a)</td><td>An offence punishable under Chapter II (§§3–6). All the Act's special procedures — Special Court, DSP investigation, bail bar, §15A rights, compensation — flow from and apply only to acts falling within this definition. If the act does not constitute an offence under §§3–6, none of the Act's protections apply.</td></tr>
+          <tr><td>Scheduled Caste</td><td>§2(1)(c)</td><td>Members of a SC as defined under Art.341 — castes notified by Presidential Order for the relevant State/UT. Religion matters: only Hindus, Sikhs (since 1956), and Buddhists (since 1990) are included. Christians and Muslims cannot be SC even if their caste was originally listed. Verification through caste certificate from SDO/DM is essential.</td></tr>
+          <tr><td>Scheduled Tribe</td><td>§2(1)(d)</td><td>Members of a ST as defined under Art.342 — tribes notified by Presidential Order. No religious bar for ST (unlike SC). However, the tribe must appear in the relevant State's Presidential Order — tribal identity is state-specific. Caste/tribe certificate from competent authority (SDO/DM/Tehsildar as prescribed by state) required.</td></tr>
+          <tr><td>Special Court</td><td>§2(1)(e) r/w §14</td><td>A Court of Session designated by State Government under §14 for a district or group of districts. Must be Sessions Court level — not Magistrate's Court. Exclusive jurisdiction for POA offences — regular courts have no jurisdiction. Cases filed before a regular court are jurisdictionally defective and must be transferred.</td></tr>
+          <tr><td>Exclusive Special Court</td><td>§14A (2015)</td><td>A court designated to try SC/ST Act offences exclusively — no other criminal matters. Where one exists for a district, all POA cases must go there, not to the ordinary Special Court. Check State Government notification for your district.</td></tr>
+          <tr><td>Victim</td><td>§2(1)(ec) (2015)</td><td>A SC/ST person who suffered physical, mental, psychological, economic or any other harm as a result of an offence under the Act. Includes the family of the victim — family members are treated as victims for §15A rights (legal aid, information, participation, appeal). This broad definition enables multiple family members to access the Act's protective procedures.</td></tr>
+          <tr><td>Special Public Prosecutor</td><td>§15</td><td>Lawyer appointed by State Government to conduct cases in Special Courts. Must have been in practice for at least 7 years. Cannot have been defence counsel in the same case. Must ensure victim participation under §15A. Victim can additionally engage private counsel under §15A(7).</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="info-box">
+      <strong>Practice Protocol — First Steps in Any SC/ST Act Case:</strong> (1) Verify accused is non-SC/ST — getain caste certificate; (2) Verify victim is SC/ST — caste certificate from SDO/DM; (3) Identify specific §3 sub-sections applicable; (4) Confirm caste motivation — how does caste identity connect to the act?; (5) Confirm which court is the designated Special Court/Exclusive Special Court for your district; (6) Register victim under §15A for all procedural rights. Skipping any step at the outset will cause serious problems later.
+    </div>
+  </div>
+
+  <div class="section-card">
+    <h2>⚖ 5. Special Court System Architecture</h2>
+    <p>The Special Court architecture is a fundamental protection — not a procedural nicety. The ordinary criminal justice system cannot be trusted without specialised machinery to deliver justice in SC/ST Act cases. The legislature created a dedicated structure with exclusive jurisdiction and accountability mechanisms at every level.</p>
+    <ul class="court-list">
+      <li><strong>§14 — Designation of Special Courts:</strong> The State Government <em>shall</em> (mandatory) designate a Court of Session in each district as the Special Court. "Shall" = mandatory — every district must have one. Where the state has not designated one, a PIL lies to compel designation.</li>
+      <li><strong>§14A — Exclusive Special Courts (2015):</strong> Where caseload warrants, the State Government shall designate Courts of Session as Exclusive Special Courts — dedicated exclusively to SC/ST Act cases. States like Maharashtra, Uttar Pradesh, Tamil Nadu, and Rajasthan with high caseloads have been directed by courts to establish these.</li>
+      <li><strong>§15 — Special Public Prosecutor:</strong> Appointed by State Government for each Special Court. Qualification: at least 7 years as advocate. Cannot have been defence counsel in the same case. The SPP must ensure victim participation under §15A — not just prosecute.</li>
+      <li><strong>Exclusive Jurisdiction:</strong> Once designated, the Special Court has exclusive jurisdiction over all SC/ST Act offences in its territory. No regular Sessions Court or Magistrate's Court can try these offences. Cases wrongly filed before a non-Special Court must be immediately transferred.</li>
+      <li><strong>Appeal:</strong> Appeal from Special Court lies to the High Court. Under §15A(8), the victim can independently file an appeal against acquittal or inadequate sentence — even if the State does not appeal. This right is powerful and underused by victim advocates.</li>
+      <li><strong>Time-bound trial:</strong> §309 CrPC/corresponding BNSS provision — no unnecessary adjournment. The Special Court must proceed day-to-day and record reasons for any adjournment. Use this provision to resist routine defence adjournment tactics.</li>
+      <li><strong>§4 — Neglect of Duty:</strong> A public servant who wilfully neglects duties under the Act is liable to punishment — minimum 6 months imprisonment. This covers FIR refusal, investigation failure, and DVMC non-compliance. File §4 complaints to create accountability pressure.</li>
+    </ul>
+    <div class="doctrine-box">
+      <h4>§18A — The Absolute Bars (2018 Amendment)</h4>
+      <p>Section 18A contains two absolute bars: (1) No court shall require preliminary inquiry before directing FIR registration — FIR must be registered immediately on receiving information of a cognizable offence; (2) No court shall grant anticipatory bail to any person accused of a SC/ST Act offence — the bar is absolute, without exception. These bars operate by explicit statutory mandate and cannot be circumvented by any judicial order, as confirmed by Prathvi Raj Chauhan v. UOI (2020).</p>
+    </div>
+
+    <h3>Landmark Cases on the Act's Architecture</h3>
+    <div class="case-card">
+      <div class="case-name">Subhash Kashinath Mahajan v. State of Maharashtra</div>
+      <div class="case-year">2018 — Supreme Court of India (2-judge bench)</div>
+      <div class="case-ratio">Added requirements not found in the Act: (i) "preliminary inquiry" by DSP before FIR registration; (ii) anticipatory bail permitted in appropriate cases. Immediately weaponised by accused persons to delay FIR registration and avoid arrest. Parliament responded by enacting §18A, expressly overriding this judgment. The Statement of Objects named the case — a rare and direct instance of Parliament overriding a Supreme Court judgment. Demonstrates that the legislature viewed the SC's intervention as a fundamental threat to the Act's protective purpose.</div>
+    </div>
+    <div class="case-card">
+      <div class="case-name">Prathvi Raj Chauhan v. Union of India</div>
+      <div class="case-year">2020 — Supreme Court of India</div>
+      <div class="case-ratio">Upheld constitutional validity of §18A. Held: (i) no preliminary inquiry — FIR mandatory; (ii) anticipatory bail is an absolute bar — cannot be granted to any person accused under the Act; (iii) §18A does not violate Art.14 or Art.21; (iv) 2018 Amendment correctly restores legislative intent. Very narrow carve-out retained: where on the face of the complaint, the accused is clearly non-SC/ST and there is no prima facie case whatsoever — regular bail principles may apply. This carve-out must not be allowed to become a backdoor for denying the bail bar.</div>
+    </div>
+    <div class="case-card">
+      <div class="case-name">Ram Krishna Balothia v. Union of India</div>
+      <div class="case-year">1995 — Supreme Court of India</div>
+      <div class="case-ratio">Foundational constitutional validation of the SC/ST Act. Held: (i) Parliament competent to enact special legislation with enhanced punishment for caste-based offences; (ii) bar on anticipatory bail (§18) does not violate Art.21 — liberty is not absolute; (iii) does not violate Art.14 — SC/ST persons not similarly situated, justifying differential treatment; (iv) SC/ST Act is necessary to fulfil Art.17 and Art.46. Cite in every constitutional validity challenge to the Act.</div>
+    </div>
+    <div class="case-card">
+      <div class="case-name">PUDR v. Union of India</div>
+      <div class="case-year">1982 — Supreme Court of India</div>
+      <div class="case-ratio">Constitutional bench established that forced labour violates Art.23, and where forced labour is imposed on the basis of caste identity, both Art.17 and Art.23 are violated simultaneously. The State has an affirmative duty to prevent such labour. Underpins §3(1)(vi) — compelled bonded/forced labour — and enables constitutional tort remedies alongside criminal prosecution. Cite in cases involving agricultural labour, sanitation workers, and others compelled to work on caste grounds.</div>
+    </div>
+  </div>
+
+  <div class="quiz-section">
+    <h2>📋 Knowledge Check — Level 1</h2>
+    <p class="quiz-intro">Answer all 10 questions. A score of 7 or more out of 10 is required to complete Level 1 and unlock Level 2. Questions cover legislative history, constitutional provisions, Section 3 offences, definitions, and Special Court architecture. Correct/incorrect answers are highlighted after submission.</p>
+    <div id="quiz">
+      <div class="question" id="q1">
+        <p><strong>1. Article 17 of the Constitution:</strong></p>
+        <label><input type="radio" name="q1" value="a"> Guarantees equality before law to all persons</label>
+        <label><input type="radio" name="q1" value="b"> Abolishes untouchability and makes its practice an offence punishable in accordance with law</label>
+        <label><input type="radio" name="q1" value="c"> Provides for free legal aid to SC/ST persons in all proceedings</label>
+        <label><input type="radio" name="q1" value="d"> Protects religious minorities from discrimination by the State</label>
+      </div>
+      <div class="question" id="q2">
+        <p><strong>2. The SC/ST (Prevention of Atrocities) Act was enacted in:</strong></p>
+        <label><input type="radio" name="q2" value="a"> 1950</label>
+        <label><input type="radio" name="q2" value="b"> 1985</label>
+        <label><input type="radio" name="q2" value="c"> 1989</label>
+        <label><input type="radio" name="q2" value="d"> 2000</label>
+      </div>
+      <div class="question" id="q3">
+        <p><strong>3. Section 18A was inserted into the SC/ST Act by which amendment?</strong></p>
+        <label><input type="radio" name="q3" value="a"> The 1995 Rules</label>
+        <label><input type="radio" name="q3" value="b"> The 2015 Amendment Act</label>
+        <label><input type="radio" name="q3" value="c"> The 2018 Amendment Act</label>
+        <label><input type="radio" name="q3" value="d"> The 2020 Amendment Act</label>
+      </div>
+      <div class="question" id="q4">
+        <p><strong>4. Which Supreme Court judgment did the 2018 Amendment explicitly override?</strong></p>
+        <label><input type="radio" name="q4" value="a"> Lalita Kumari v. Govt. of UP</label>
+        <label><input type="radio" name="q4" value="b"> PUDR v. Union of India</label>
+        <label><input type="radio" name="q4" value="c"> Subhash Kashinath Mahajan v. State of Maharashtra</label>
+        <label><input type="radio" name="q4" value="d"> Ram Krishna Balothia v. Union of India</label>
+      </div>
+      <div class="question" id="q5">
+        <p><strong>5. Section 3(1)(x) of the SC/ST Act (as amended in 2015) covers:</strong></p>
+        <label><input type="radio" name="q5" value="a"> Forced labour and bonded labour based on caste identity</label>
+        <label><input type="radio" name="q5" value="b"> Social boycott preventing SC/ST persons from using public places, water sources, roads, with burial grounds</label>
+        <label><input tpe="radio" name="q5" value="c"> Rape of a SC/ST woman by a non-SC/ST accused</label>
+        <label><input type="radio" name="q5" value="d"> Fabrication of false evidence to cause wrongful conviction of SC/ST person</label>
+      </div>
+      <div class="question" id="q6">
+        <p><strong>6. The term "Atrocity" under the SC/ST Act is legally defined in:</strong></p>
+  2     <label><input type="radio" name="q6" value="a"> §2(1)(a) of the Code of Criminal Procedure</label>
+        <label><input type="radio" name="q6" value="b"> §3(1) of the SC/ST Act itself</label>
+        <label><input type="radio" name="q6" value="c"> §2(1)(a) of the SC/ST (Prevention of Atrocities) Act, 1989</label>
+        <label><input type="radio" name="q6" value="d"> Article 17 of the Constitution of India</label>
+      </div>
+      <div class="question" id="q7">
+        <p><strong>7. Special Courts for SC/ST Act cases are designated under which section of the Act?</strong></p>
+        <label><input type="radio" name="q7" value="a"> §9</label>
+        <label><input type="radio" name="q7" value="b"> §4</label>
+        <label><input type="radio" name="q7" value="c"> §14</label>
+        <label><input type="radio" name="q7" value="d"> §18</label>
+      </div>
+      <div class="question" id="q8">
+        <p><strong>8. The constitutional provision most directly underlying the SC/ST Act's validity is:</strong></p>
+        <label><input type="radio" name="q8" value="a"> Article 14 — Right to Equality</label>
+        <label><input type="radio" name="q8" value="b"> Article 21 — Right to Life and Personal Liberty</label>
+        <label><input type="radio" name="q8" value="c"> Article 17 — Abolition of Untouchability</label>
+        <label><input type="radio" name="q8" value="d"> Article 32 — Right to Constitutional Remedies</label>
+      </div>
+      <div class="question" id="q9">
+        <p><strong>9. Ram Krishna Balothia v. Union of India (1995) held:</strong></p>
+        <label><input type="radio" name="q9" value="a"> Anticipatory bail must be allowed in SC/ST cases where there is no prima facie case</label>
+        <label><input type="radio" name="q9" value="b"> Preliminary inquiry is mandatory before FIR registration under the SC/ST Act</label>
+        <label><input type="radio" name="q9" value="c"> The SC/ST Act is constitutionally valid and the bail bar does not violate Articles 14 or 21</label>
+        <label><input type="radio" name="q9" value="d"> Victim compensation is mandatory in all SC/ST Act cases regardless of conviction</label>
+      </div>
+      <div class="question" id="q10">
+        <p><strong>10. Section 3(2) offences are considered more serious than Section 3(1) offences because:</strong></p>
+        <label><input type="radio" name="q10" value="a"> They carry only higher fines and no additional imprisonment</label>
+        <label><input type="radio" name="q10" value="b"> They are all cognizable and bailable offences</label>
+        <label><input type="radio" name="q10" value="c"> They include rape, arson, and public servant offences with aggravated punishment — caste motivation transforms ordinary IPC offences into SC/ST Act offences</label>
+        <label><input type="radio" name="q10" value="d"> They were all newly inserted by the 2018 Amendment Act</label>
+      </div>
+    </div>
+    <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+    <div id="quiz-result" style="display:none"></div>
+  </div>
+
 </div>
 
 <script>
-var ANSWERS={q1:'b',q2:'c',q3:'b',q4:'c',q5:'c',q6:'b',q7:'b',q8:'b',q9:'b',q10:'b',q11:'c',q12:'b',q13:'b',q14:'b',q15:'b',q16:'a',q17:'b',q18:'b',q19:'b',q20:'c'};
+const ANSWERS = {q1:'b',q2:'c',q3:'c',q4:'c',q5:'b',q6:'c',q7:'c',q8:'c',q9:'c',q10:'c'};
 function submitQuiz(){
-  var score=0,total=20;
-  for(var q in ANSWERS){
-    var sel=document.querySelector('input[name="'+q+'"]:checked');
-    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){
-      var lbl=o.parentElement;
-      if(o.value===ANSWERS[q])lbl.classList.add('correct');
-      else if(o.checked)lbl.classList.add('wrong');
-      o.disabled=true;
-    });
+  let score=0;
+  for(let q in ANSWERS){
+    const sel=document.querySelector(`input[name="${q}"]:checked`);
     if(sel&&sel.value===ANSWERS[q])score++;
-    document.getElementById('exp-'+q).style.display='block';
   }
-  document.getElementById('submit-btn').disabled=true;
-  var pct=Math.round(score/total*100);
-  document.getElementById('prog').style.width=pct+'%';
-  var res=document.getElementById('result');
+  const pct=Math.round(score/10*100);
+  const passed=score>=7;
+  document.querySelectorAll('.question').forEach(el=>{
+    const name=el.id;
+    const chosen=document.querySelector(`input[name="${name}"]:checked`);
+    el.style.borderLeft=(chosen&&chosen.value===ANSWERS[name])?'4px solid #10b981':'4px solid #ef4444';
+  });
+  const res=document.getElementById('quiz-result');
   res.style.display='block';
-  if(pct>=70){
-    res.className='pass';
-    res.innerHTML='<h3>✅ Level 1 Passed! '+score+'/'+total+' ('+pct+'%)</h3><p>Excellent! Proceed to Level 2: Landmark Judgments.</p><br><a href="level2.html" style="background:#1d4ed8;color:#fff;padding:12px 28px;border-radius:8px;font-weight:700;text-decoration:none">Start Level 2 →</a>';
-    localStorage.setItem('janman_scst_ls_l1_done','1');
-    localStorage.setItem('janman_scst_ls_l1_score',pct);
+  if(passed){
+    localStorage.setItem('janman_scst_ls_l1_done','true');
+    localStorage.setItem('janman_scst_ls_l1_score',score);
+    res.innerHTML=`<div class="pass">✓ Passed! Score: ${score}/10 (${pct}%) — <a href="level2.html">Proceed to Level 2: Investigation, Evidence &amp; Bail →</a></div>`;
   } else {
-    res.className='fail';
-    res.innerHTML='<h3>❌ Score: '+score+'/'+total+' ('+pct+'%)</h3><p>Need 70% to pass. Review and try again.</p><br><button onclick="location.reload()" style="background:#1d4ed8;color:#fff;padding:12px 24px;border-radius:8px;font-weight:700;border:none;cursor:pointer">Try Again</button>';
+    res.innerHTML=`<div class="fail">Score: ${score}/10 (${pct}%) — You need 7/10 to pass. Review the legislative timeline, constitutional architecture (especially Art.17), and the Section 3 offence grid above, then try again.</div>`;
   }
-  res.scrollIntoView({behavior:'smooth'});
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 </script>
 </body>
