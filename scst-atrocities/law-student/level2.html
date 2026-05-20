@@ -3,414 +3,459 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Level 2: Landmark Judgments Part I — Law Student Track | SC/ST Atrocities</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<title>Level 2 — Investigation, Evidence, Bail & Section 15A Rights | SC/ST Act Law Student Track</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
-.hero{background:linear-gradient(135deg,#1e3a8a 0%,#1d4ed8 50%,#6366f1 100%);padding:2.5rem 1.5rem;text-align:center}
-.hero .back{display:inline-block;color:#93c5fd;text-decoration:none;font-size:.85rem;margin-bottom:1rem;opacity:.85}
-.hero .back:hover{opacity:1}
-.hero h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:.5rem}
-.hero .sub{color:#bfdbfe;font-size:.95rem;margin-bottom:.75rem}
-.hero .meta{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-.hero .meta span{background:rgba(255,255,255,.15);padding:.3rem .9rem;border-radius:999px;font-size:.8rem;color:#e0e7ff}
-.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
-.section-title{font-size:1.3rem;font-weight:700;color:#60a5fa;margin:2.5rem 0 1rem;padding-left:.75rem;border-left:4px solid #1d4ed8}
-.intro-box{background:#1e293b;border:1px solid #334155;border-radius:.75rem;padding:1.25rem 1.5rem;margin-bottom:2rem;line-height:1.7;color:#cbd5e1;font-size:.95rem}
-.intro-box strong{color:#93c5fd}
-
-/* Case Cards */
-.case-card{background:#1e293b;border:1px solid #334155;border-radius:.75rem;margin-bottom:1.75rem;overflow:hidden}
-.case-card .case-header{background:linear-gradient(135deg,#1d4ed8,#6366f1);padding:1rem 1.25rem}
-.case-card .case-cite{font-size:.8rem;color:#bfdbfe;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.25rem}
-.case-card .case-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;line-height:1.3}
-.case-card .case-court{font-size:.8rem;color:#c7d2fe;margin-top:.35rem}
-.case-card .case-body{padding:1.25rem 1.5rem}
-.case-card .case-body p{color:#cbd5e1;line-height:1.7;margin-bottom:.75rem;font-size:.9rem}
-.case-card .case-body p:last-child{margin-bottom:0}
-.case-card .case-body strong{color:#93c5fd}
-.ratio-box{background:#0f172a;border-left:3px solid #6366f1;border-radius:.5rem;padding:.85rem 1rem;margin:.75rem 0;font-size:.88rem;color:#c7d2fe;font-style:italic}
-.ratio-box strong{color:#a5b4fc;font-style:normal}
-.impact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;margin-top:.75rem}
-.impact-item{background:#0f172a;border-radius:.5rem;padding:.75rem 1rem;border:1px solid #1e3a8a}
-.impact-item .label{font-size:.72rem;color:#6366f1;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.3rem}
-.impact-item .value{font-size:.85rem;color:#e2e8f0;line-height:1.4}
-
-/* Doctrine Table */
-.doctrine-table{width:100%;border-collapse:collapse;margin:1rem 0}
-.doctrine-table th{background:#1d4ed8;color:#fff;padding:.6rem .85rem;text-align:left;font-size:.82rem;font-weight:700}
-.doctrine-table td{padding:.6rem .85rem;font-size:.83rem;border-bottom:1px solid #334155;color:#cbd5e1;vertical-align:top}
-.doctrine-table tr:hover td{background:#263347}
-.badge{display:inline-block;padding:.15rem .55rem;border-radius:999px;font-size:.72rem;font-weight:700}
-.badge-blue{background:#1e3a8a;color:#93c5fd}
-.badge-green{background:#14532d;color:#86efac}
-.badge-red{background:#7f1d1d;color:#fca5a5}
-.badge-yellow{background:#78350f;color:#fde68a}
-.badge-purple{background:#4c1d95;color:#c4b5fd}
-
-/* Timeline */
-.timeline{position:relative;padding-left:1.5rem;margin:1rem 0}
-.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,#1d4ed8,#6366f1)}
-.tl-item{position:relative;margin-bottom:1rem;padding-left:1rem}
-.tl-item::before{content:'';position:absolute;left:-1.6rem;top:.35rem;width:.75rem;height:.75rem;border-radius:50%;background:#6366f1;border:2px solid #1d4ed8}
-.tl-item .tl-year{font-size:.75rem;color:#6366f1;font-weight:700;margin-bottom:.2rem}
-.tl-item .tl-text{font-size:.88rem;color:#cbd5e1;line-height:1.5}
-
-/* Quiz */
-.quiz-section{background:#1e293b;border:2px solid #1d4ed8;border-radius:1rem;padding:2rem;margin-top:3rem}
-.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:#93c5fd;margin-bottom:.25rem}
-.quiz-section .quiz-meta{font-size:.85rem;color:#64748b;margin-bottom:1.5rem}
-.q-block{margin-bottom:1.75rem;padding-bottom:1.75rem;border-bottom:1px solid #334155}
-.q-block:last-child{border-bottom:none;margin-bottom:0}
-.q-text{font-size:.92rem;font-weight:600;color:#e2e8f0;margin-bottom:.85rem;line-height:1.5}
-.q-num{display:inline-block;background:#1d4ed8;color:#fff;border-radius:.4rem;padding:.1rem .5rem;font-size:.78rem;font-weight:700;margin-right:.5rem}
-.options label{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .85rem;border-radius:.5rem;border:1px solid #334155;margin-bottom:.5rem;cursor:pointer;transition:.15s}
-.options label:hover{border-color:#1d4ed8;background:#0f172a}
-.options input[type=radio]{margin-top:.15rem;accent-color:#6366f1;flex-shrink:0}
-.options label.correct{background:#14532d;border-color:#16a34a;color:#86efac}
-.options label.wrong{background:#7f1d1d;border-color:#dc2626;color:#fca5a5}
-.explanation{background:#0f172a;border-left:3px solid #6366f1;border-radius:.4rem;padding:.75rem 1rem;margin-top:.6rem;font-size:.83rem;color:#a5b4fc;line-height:1.6;display:none}
-.btn-submit{background:linear-gradient(135deg,#1d4ed8,#6366f1);color:#fff;border:none;padding:.85rem 2.5rem;border-radius:.6rem;font-size:1rem;font-weight:700;cursor:pointer;width:100%;margin-top:1rem;transition:.2s}
-.btn-submit:hover{opacity:.9}
-.btn-submit:disabled{background:#334155;color:#64748b;cursor:not-allowed}
-.result-box{display:none;background:#0f172a;border:2px solid #6366f1;border-radius:.75rem;padding:1.5rem;margin-top:1.5rem;text-align:center}
-.result-box .score{font-size:2.5rem;font-weight:800;color:#6366f1}
-.result-box .verdict{font-size:1.1rem;font-weight:600;margin:.5rem 0}
-.result-box .verdict.pass{color:#86efac}
-.result-box .verdict.fail{color:#fca5a5}
-.result-box p{font-size:.88rem;color:#64748b;margin-top:.5rem}
-.progress-bar{height:8px;background:#334155;border-radius:999px;margin-top:1rem;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(to right,#1d4ed8,#6366f1);border-radius:999px;transition:width .5s}
-.next-btn{display:none;background:#16a34a;color:#fff;border:none;padding:.75rem 2rem;border-radius:.6rem;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:1rem;text-decoration:none}
-.next-btn:hover{opacity:.9}
+*,*::before,+::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0e1a 0%,#001a1a 100%);color:#e2e8f0;min-height:100vh;line-height:1.7}
+.top-nav{background:rgba(20,184,166,0.08);border-bottom:1px solid rgba(20,184,166,0.2);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.top-nav a{color:#14b8a6;text-decoration:none;font-size:.875rem;font-weight:500;transition:opacity .2s}
+.top-nav a:hover{opacity:.75}
+.track-badge{background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.4);color:#14b8a6;font-size:.7rem;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:20px;margin-left:auto}
+.header{background:rgba(20,184,166,0.06);border-bottom:1px solid rgba(20,184,166,0.15);padding:40px 24px 32px;text-align:center}
+.level-label{color:#14b8a6;font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:12px}
+.header h1{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2.3rem);color:#f1f5f9;margin-bottom:10px;line-height:1.3}
+.header p{color:#94a3b8;font-size:.95rem;max-width:700px;margin:0 auto}
+.org-name{font-size:.75rem;color:#64748b;margin-top:10px;letter-spacing:.04em}
+.container{max-width:960px;margin:0 auto;padding:32px 20px}
+.section-card{background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.18);border-radius:12px;padding:28px;margin-bottom:28px}
+.section-card h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#14b8a6;margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(20,184,166,0.2)}
+.section-card h3{color:#7dd3fc;font-size:1rem;margin:22px 0 10px;font-weight:600}
+.section-card p{color:#cbd5e1;margin-bottom:12px;font-size:.93rem}
+.steps-list{counter-reset:steps;list-style:none;padding:0;margin:14px 0}
+.steps-list li{counter-increment:steps;display:flex;gap:14px;padding:12px 0;border-bottom:1px solid rgba(20,184,166,0.08)}
+.steps-list li:last-child{border-bottom:none}
+.steps-list li::before{content:counter(steps);background:#14b8a6;color:#0a0e1a;font-weight:700;font-size:.8rem;min-width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.steps-list li .step-content{flex:1}
+.steps-list li .step-title{font-weight:600;color:#f1f5f9;font-size:.93rem;margin-bottom:4px}
+.steps-list li .step-desc{color:#94a3b8;font-size:.845rem;line-height:1.6}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.col-box{background:rgba(15,23,42,0.6);border:1px solid rgba(20,184,166,0.18);border-radius:10px;padding:16px}
+.col-box h4{font-size:.85rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em}
+.col-box.green h4{color:#10b981}
+.col-box.red h4{color:#ef4444}
+.col-box ul{list-style:none;padding:0}
+.col-box ul li{font-size:.845rem;color:#94a3b8;padding:5px 0 5px 18px;position:relative;border-bottom:1px solid rgba(20,184,166,0.06)}
+.col-box ul li:last-child{border-bottom:none}
+.col-box.green ul li::before{content:'✓';position:absolute;left:0;color:#10b981;font-weight:700}
+.col-box.red ul li::before{content:'✗';position:absolute;left:0;color:#ef4444;font-weight:700}
+.bail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:14px 0}
+.bail-card{background:rgba(15,23,42,0.6);border-radius:10px;padding:16px}
+.bail-card.blocked{border:1px solid rgba(239,68,68,0.35)}
+.bail-card.allowed{border:1px solid rgba(16,185,129,0.35)}
+.bail-card.conditional{border:1px solid rgba(250,204,21,0.35)}
+.bail-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.blocked .bail-label{color:#ef4444}
+.allowed .bail-label{color:#10b981}
+.conditional .bail-label{color:#fbbf24}
+.bail-card h4{font-size:.93rem;font-weight:600;color:#f1f5f9;margin-bottom:8px}
+.bail-card p{font-size:.835rem;color:#94a3b8;margin:0;line-height:1.6}
+.rights-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:14px 0}
+.right-card{background:rgba(15,23,42,0.6);border:1px solid rgba(20,184,166,0.2);border-radius:10px;padding:14px 16px}
+.right-section{font-size:.72rem;font-weight:700;color:#14b8a6;letter-spacing:.08em;margin-bottom:4px;text-transform:uppercase}
+.right-card h4{font-size:.93rem;font-weight:600;color:#f1f5f9;margin-bottom:6px}
+.right-card p{font-size:.845rem;color:#94a3b8;margin:0;line-height:1.6}
+.case-card{background:rgba(15,23,42,0.7);border-left:4px solid #14b8a6;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:14px}
+.case-name{font-weight:700;color:#f1f5f9;font-size:.93rem;margin-bottom:4px}
+.case-year{font-size:.73rem;color:#14b8a6;font-weight:600;letter-spacing:.05em;margin-bottom:7px;text-transform:uppercase}
+.case-ratio{color:#94a3b8;font-size:.845rem;line-height:1.65}
+.info-box{background:rgba(20,184,166,0.07);border:1px solid rgba(20,184,166,0.25);border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.875rem;color:#cbd5e1;line-height:1.65}
+.info-box strong{color:#14b8a6}
+.alert-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.28);border-radius:8px;padding:14px 18px;margin:14px 0;font-size:.875rem;color:#fca5a5;line-height:1.65}
+.alert-box strong{color:#ef4444}
+.doctrine-box{background:linear-gradient(135deg,rgba(20,184,166,0.08),rgba(125,211,252,0.04));border:1px solid rgba(20,184,166,0.28);border-radius:10px;padding:16px 20px;margin:14px 0}
+.doctrine-box h4{color:#7dd3fc;font-size:.93rem;font-weight:700;margin-bottom:8px}
+.doctrine-box p{color:#cbd5e1;font-size:.875rem;margin:0;line-height:1.65}
+.quiz-section{background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.2);border-radius:12px;padding:28px;margin-top:32px}
+.quiz-section h2{font-family:'Playfair Display',serif;font-size:1.35rem;color:#14b8a6;margin-bottom:6px}
+.quiz-intro{color:#94a3b8;font-size:.855rem;margin-bottom:22px;line-height:1.6}
+.question{background:rgba(15,23,42,0.6);border-left:4px solid rgba(20,184,166,0.3);border-radius:0 8px 8px 0;padding:15px 17px;margin-bottom:14px;transition:border-left-color .3s}
+.question p{color:#e2e8f0;font-size:.93rem;margin-bottom:10px;font-weight:500;line-height:1.55}
+.question label{display:flex;align-items:flex-start;gap:10px;padding:6px 0;color:#94a3b8;font-size:.845rem;cursor:pointer;transition:color .15s;line-height:1.5}
+.question label:hover{color:#e2e8f0}
+.question label input[type="radio"]{accent-color:#14b8a6;margin-top:3px;flex-shrink:0}
+.submit-btn{background:#14b8a6;color:#0a0e1a;border:none;padding:12px 30px;font-size:.93rem;font-weight:700;border-radius:8px;cursor:pointer;margin-top:14px;transition:background .2s;letter-spacing:.02em}
+.submit-btn:hover{background:#0d9488}
+#quiz-result{margin-top:18px}
+.pass{background:rgba(16,185,129,0.13);border:1px solid rgba(16,185,129,0.35);color:#34d399;padding:15px 18px;border-radius:8px;font-weight:600;font-size:.97rem}
+.pass a{color:#14b8a6;font-weight:700;text-decoration:none;margin-left:6px}
+.pass a:hover{text-decoration:underline}
+.fail{background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.28);color:#f87171;padding:15px 18px;border-radius:8px;font-weight:600;font-size:.97rem}
+@media(max-width:640px){.section-card{padding:18px 14px}.quiz-section{padding:20px 14px}.two-col{grid-template-columns:1fr}.bail-grid{grid-template-columns:1fr}.rights-grid{grid-template-columns:1fr}.header h1{font-size:1.3rem}.track-badge{margin-left:0}}
 </style>
 </head>
 <body>
 
-<div class="hero">
-  <a href="index.html" class="back">← Back to Law Student Hub</a>
-  <h1>Level 2: Landmark Judgments — Part I</h1>
-  <p class="sub">SC/ST Atrocities Track — Law Student | Jan Nyaya Resource Centre</p>
-  <div class="meta">
-    <span>⚖️ 8 Landmark Cases</span>
-    <span>📚 Ratio Decidendi Analysis</span>
-    <span>🧠 20-Question Quiz</span>
-    <span>🎓 Law Student Level</span>
-  </div>
-</div>
+<nav class="top-nav">
+  <a href="index.html">← Back to Track Hub</a>
+  <a href="level1.html">← Level 1</a>
+  <span class="track-badge">LAW STUDENT TRACK</span>
+</nav>
+
+<header class="header">
+  <div class="level-label">⚖ Level 2 of 3</div>
+  <h1>Investigation, Evidence, Bail &amp; Section 15A Rights</h1>
+  <p>Procedural mastery — FIR obligations, DSP-level investigation, evidence strategy, bail regime analysis, and the complete victim rights framework under §15A</p>
+  <div class="org-name">Janman People's Foundation — Centre for Law and Development</div>
+</header>
 
 <div class="container">
 
-  <div class="intro-box">
-    <strong>Scope of This Level:</strong> This level provides exhaustive analysis of eight landmark judgments that have shaped SC/ST atrocities jurisprudence in India. Each case is studied for its <em>ratio decidendi</em>, doctrinal contribution, and continuing relevance to legal practice. Cases range from foundational constitutional decisions to recent Supreme Court benches reconsidering prior positions.
+  <div class="section-card">
+    <h2>📋 1. FIR Obligation and §18A Absolute Bar</h2>
+    <p>The right to register an FIR is the gateway to the entire SC/ST Act protection framework. Denial of FIR registration is the single most common form of institutional betrayal of SC/ST victims, and the law has built multiple layers of protection against it.</p>
+
+    <div class="doctrine-box">
+      <h4>⚖ Lalita Kumari v. Govt. of UP (2014 SC — 5-Judge Constitution Bench)</h4>
+      <p>The Constitutional Bench laid down the law definitively: registration of FIR is mandatory for cognizable offences. The police officer has no discretion to refuse, to conduct a preliminary inquiry before registration, or to make a decision on whether the offence is "made out." The FIR must be registered as soon as information of a cognizable offence is received. Post-registration, investigation may reveal the complaint to be false — but registration itself cannot be withheld on the basis of such anticipation. This rule applies with even greater force to SC/ST Act cases, where §18A additionally bars any preliminary inquiry.</p>
+    </div>
+
+    <p><strong>The Double Protection:</strong> SC/ST Act victims have two layers of mandatory FIR protection — (1) Lalita Kumari's constitutional and common-law mandate that FIR is mandatory for all cognizable offences, and (2) §18A's specific statutory bar on preliminary inquiry before FIR registration in SC/ST Act cases. Any police officer who refuses FIR registration in a SC/ST Act case violates both layers simultaneously and commits an offence under §4 of the SC/ST Act itself.</p>
+
+    <div class="alert-box">
+      <strong>§4 — FIR Refusal = Criminal Offence:</strong> A public servant who wilfully neglects their duties under the SC/ST Act is punishable under §4 — minimum 6 months imprisonment. Refusal to register FIR in a SC/ST Act case is a wilful neglect of duty. File a §4 complaint against the refusing officer. This creates accountability pressure and a paper trail for writ petitions.
+    </div>
+
+    <h3>Remedies When FIR is Refused — Step-by-Step</h3>
+    <ul class="steps-list">
+      <li>
+        <div class="step-content">
+          <div class="step-title">Written Complaint to SP/SSP under §154(3) CrPC/BNSS</div>
+          <div class="step-desc">The first formal step. File a written complaint to the Superintendent of Police or Senior SP of the district, stating that the SHO refused to register FIR and requesting immediate registration. The SP is duty-bound to either direct registration or investigate the refusal. Keep a copy with acknowledgement. This creates the paper trail necessary for the next steps.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">§156(3) CrPC/BNSS Petition before Judicial Magistrate — The Most Effective Remedy</div>
+          <div class="step-desc">File a petition before the Judicial Magistrate of First Class under §156(3) CrPC (§175(3) BNSS) requesting an order directing the police to register FIR and investigate. The Magistrate has the power to direct investigation of any cognizable offence. This is the most legally effective immediate remedy — Magistrate orders cannot be ignored by police without contempt consequences. Include a copy of the SP complaint and any written FIR refusal.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Private Complaint under §200 CrPC/BNSS</div>
+          <div class="step-desc">File a complaint directly before the Judicial Magistrate under §200 CrPC (§223 BNSS). The Magistrate can examine the complainant on oath and direct the police to investigate or take cognizance directly. This alternative path to the Special Court bypasses the police entirely if necessary. For SC/ST Act cases, the complaint must go to the Special Court Magistrate.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Writ of Mandamus under Art.226/Art.32 — For Persistent Refusal</div>
+          <div class="step-desc">Where police persistently refuse FIR despite SP complaint and §156(3) order, file a writ of mandamus in the High Court (Art.226) or Supreme Court (Art.32) directing registration of FIR. Ground: statutory duty under §154 CrPC + §18A SC/ST Act + Lalita Kumari mandate. Relief: direction to register FIR within 24/48 hours and report compliance to court. Contempt jurisdiction then protects compliance.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">NHRC/SHRC/NCSC Complaint — For Systemic Failure and Media Pressure</div>
+          <div class="step-desc">File complaints with the National Human Rights Commission (NHRC), State Human Rights Commission (SHRC), and National Commission for Scheduled Castes (NCSC). While these bodies cannot directly compel FIR registration, their notices to state governments create political and administrative pressure. NCSC has specific statutory jurisdiction over SC/ST matters and can recommend prosecution of erring officials.</div>
+        </div>
+      </li>
+    </ul>
   </div>
 
-  <!-- ==================== CASE 1 ==================== -->
-  <p class="section-title">Case 1 — The Atrocity Prevention Framework</p>
-  <div class="case-card">
-    <div class="case-header">
-      <div class="case-cite">AIR 1985 SC 1495 | (1985) 3 SCC 580</div>
-      <div class="case-title">State of Karnataka v. Appa Balu Ingale</div>
-      <div class="case-court">Supreme Court of India | 5-Judge Constitutional Bench</div>
+  <div class="section-card">
+    <h2>🔍 2. Investigation Standards — §9 DSP-Level Mandatory Investigation</h2>
+    <p>Section 9 of the SC/ST Act establishes a critical investigative safeguard: only a DSP (Deputy Superintendent of Police) or higher-ranked officer shall investigate SC/ST Act cases. This requirement reflects the legislature's recognition that local-level police — inspectors, sub-inspectors, constables — are deeply embedded in caste hierarchies and cannot be trusted to conduct impartial investigations in atrocity cases.</p>
+
+    <div class="doctrine-box">
+      <h4>⚖ Gurinder Singh Aujla v. State of Punjab (2020 SC)</h4>
+      <p>The Supreme Court confirmed that the §9 requirement of DSP-level investigation is <em>mandatory, not directory</em>. A sub-inspector or inspector-level officer completing the investigation of an SC/ST Act case violates §9. Such investigation is procedurally invalid and can be challenged before the Special Court. The Court held that the mandatory nature of §9 reflects the legislature's considered policy choice — senior police accountability is structurally necessary for justice in caste atrocity cases.</p>
     </div>
-    <div class="case-body">
-      <p><strong>Facts &amp; Background:</strong> The accused, upper-caste villagers, prevented members of a Scheduled Caste community from drawing water from a public well and subjected them to caste-based humiliation. The case reached the Supreme Court on the question of whether such acts constituted "untouchability" under Article 17 and Section 3 of the PCR Act, 1955.</p>
-      <p><strong>Constitutional Question:</strong> Whether "untouchability" under Article 17 includes social practices beyond temple entry and whether a penal law targeting such practices violates Article 21 (personal liberty) of the accused.</p>
-      <div class="ratio-box">
-        <strong>Ratio Decidendi:</strong> "Untouchability" in Article 17 is not restricted to its traditional sense but must be construed broadly to include all forms of social discrimination based on caste. The PCR Act, 1955 is a special legislation giving effect to constitutional promises and must receive a liberal construction. Denial of water from public sources on caste grounds is an act of untouchability.<br><br>
-        The Court held that conviction under the PCR Act does not require proof of physical untouchability — social and economic disabilities imposed by reason of birth in a particular caste suffice.
-      </div>
-      <p><strong>Doctrinal Contribution:</strong> First authoritative ruling expanding the definition of "untouchability" beyond temple entry to encompass economic and social disabilities. Established that the PCR Act must be construed in consonance with the constitutional objective of abolishing untouchability.</p>
-      <div class="impact-grid">
-        <div class="impact-item"><div class="label">Principle</div><div class="value">Broad construction of "untouchability"</div></div>
-        <div class="impact-item"><div class="label">Test Laid Down</div><div class="value">Caste-based denial of social rights = untouchability</div></div>
-        <div class="impact-item"><div class="label">Continuing Relevance</div><div class="value">Applied in manual scavenging and public space exclusion cases</div></div>
-      </div>
+
+    <h3>Key §9 Investigation Rules</h3>
+    <p>The SC/ST (POA) Rules, 1995, Rule 7 sets out the investigation framework:</p>
+    <div class="info-box">
+      <strong>Rule 7 — 60-Day Investigation Timeline:</strong> The investigating DSP must complete the investigation and submit a report to the Special Court within 60 days of registration of the FIR. The Special Court may extend this period for reasons to be recorded in writing. This time-bound requirement is intended to prevent the chronic delay that characterises SC/ST Act investigations in practice. If the 60-day deadline is missed, file an application before the Special Court noting the delay and seeking directions.
+    </div>
+
+    <h3>Challenge Strategy — Investigating Officer Below DSP Rank</h3>
+    <div class="steps-list">
+      <li>
+        <div class="step-content">
+          <div class="step-title">Check IO Rank at the Outset</div>
+          <div class="step-desc">At the first opportunity, check the FIR and case diary to determine the rank of the Investigating Officer. Look for the IO's designation — "Sub-Inspector," "Inspector," or "DSP/Deputy SP." If below DSP rank, note this formally in writing.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">File Application before Special Court — §9 Violation</div>
+          <div class="step-desc">File an application before the Special Court challenging the investigation on grounds of §9 violation. The Special Court has the power to direct a fresh investigation by a DSP-rank officer under §173(8) CrPC. Cite Gurinder Singh Aujla — DSP investigation is mandatory, not directory. Seek suspension of existing investigation pending fresh DSP investigation.</div>
+        </div>
+      </li>
+      <li>
+        <div class="step-content">
+          <div class="step-title">Seek §173(8) Fresh Investigation / CBI Investigation</div>
+          <div class="step-desc">Under §173(8) CrPC (§193(8) BNSS), the Special Court can order further investigation even after charge sheet is filed. In cases of severe bias or community intimidation, file an Art.226 petition seeking transfer of investigation to CBI or State CID. Courts have ordered CBI investigation in cases of police complicity in atrocities.</div>
+        </div>
+      </li>
+    </div>
+
+    <div class="info-box">
+      <strong>Importance of §9 in Practice:</strong> DSP-level investigation matters because: (1) DSPs are less embedded in village-level caste power structures than local SIs/Inspectors; (2) DSPs face greater career accountability for partial investigations; (3) §9 violations give grounds to challenge tainted chargesheet and investigation before the Special Court; (4) in bias cases, the §9 violation combined with one-sided investigation can support writ petitions for CBI investigation.
     </div>
   </div>
 
-  <!-- ==================== CASE 2 ==================== -->
-  <p class="section-title">Case 2 — The Anti-Anticipatory Bail Rule</p>
-  <div class="case-card">
-    <div class="case-header">
-      <div class="case-cite">(1994) 4 SCC 260 | 1994 SCC (Cri) 1237</div>
-      <div class="case-title">State of M.P. v. Ram Krishna Balothia</div>
-      <div class="case-court">Supreme Court of India | Constitution Bench</div>
+  <div class="section-card">
+    <h2>📋 3. Evidence Principles in SC/ST Act Cases</h2>
+    <p>Evidence collection, preservation, and presentation in SC/ST Act cases requires specialised knowledge of both general evidence law and the Act's specific requirements. The key evidence challenge in most cases is establishing the "caste motivation" element — that the act was committed because of the victim's SC/ST identity.</p>
+
+    <div class="two-col">
+      <div class="col-box green">
+        <h4>✓ DOS — Collect and Secure</h4>
+        <ul>
+          <li>FIR copy — certified, immediately after registration</li>
+          <li>Medical report — if physical assault; conduct promptly</li>
+          <li>Panchnama of scene of offence — with IO present</li>
+          <li>Witness statements under §164 CrPC (§183 BNSS) before Magistrate — protected, harder to retract</li>
+          <li>Caste certificate of victim — from SDO/DM</li>
+          <li>Caste certificate of accused — from competent authority</li>
+          <li>Proof of caste motivation — community context, prior incidents</li>
+          <li>Electronic evidence — WhatsApp messages, video, audio</li>
+          <li>Expert report on nature of atrocity</li>
+          <li>Revenue records for land-related offences</li>
+          <li>DVMC and SP report on area — for systemic context</li>
+        </ul>
+      </div>
+      <div class="col-box red">
+        <h4>✗ DON'Ts — Avoid These Mistakes</h4>
+        <ul>
+          <li>Do not rely solely on hostile witnesses without other corroboration</li>
+          <li>Do not lose documentation chain — certified copies at every stage</li>
+          <li>Do not delay medical examination — delay weakens case</li>
+          <li>Do not let police record statements without §164 CrPC protection</li>
+          <li>Do not underestimate defense "political enmity" argument — prepare rebuttal</li>
+          <li>Do not forget to document caste identity of all accused persons</li>
+          <li>Do not let electronic evidence go uncertified — §65B certificate mandatory</li>
+          <li>Do not skip victim's statement under §164 — it is the spine of the case</li>
+        </ul>
+      </div>
     </div>
-    <div class="case-body">
-      <p><strong>Facts &amp; Background:</strong> The respondent, accused of offences under the SC/ST (POA) Act, 1989, applied for anticipatory bail. Section 18 of the POA Act expressly bars Section 438 CrPC (anticipatory bail) in atrocity cases. The High Court granted anticipatory bail holding Section 18 was unconstitutional as it violates personal liberty under Article 21.</p>
-      <p><strong>Constitutional Question:</strong> Whether Section 18 of the POA Act, which bars anticipatory bail, is constitutionally valid or violates Articles 14, 19, and 21 of the Constitution.</p>
-      <div class="ratio-box">
-        <strong>Ratio Decidendi:</strong> Section 18 of the POA Act is constitutionally valid. It does not violate Articles 14, 19, or 21 of the Constitution. The Constitution makers specifically created Article 17 to abolish untouchability — Parliament has the competence and indeed the constitutional duty to enact stringent special laws to give effect to this mandate. The bar on anticipatory bail is a reasonable restriction serving the compelling state interest of protecting SC/ST persons from atrocities.<br><br>
-        There is a rational basis for treating atrocity offences differently from ordinary criminal cases — victims of atrocities are in a position of vulnerability requiring special protection. Differential treatment is not discrimination but compensation for historical injustice.
-      </div>
-      <p><strong>Doctrinal Contribution:</strong> Established the constitutional validity of special protective provisions under the POA Act. The "compelling state interest" doctrine in the SC/ST context. This judgment was the primary precedent relied upon when Section 18A (introduced by 2018 Amendment) was challenged in Prathvi Raj Chauhan.</p>
-      <p><strong>Later Development:</strong> When the Supreme Court in Subhash Kashinath Mahajan (2018) effectively weakened Section 18 by reading in a preliminary inquiry requirement, Ram Krishna Balothia was distinguished. In Prathvi Raj Chauhan (2020), a 3-judge bench restored the full effect of Section 18, re-affirming Ram Krishna Balothia as good law.</p>
-      <div class="impact-grid">
-        <div class="impact-item"><div class="label">Section Upheld</div><div class="value">Section 18 POA Act — no anticipatory bail</div></div>
-        <div class="impact-item"><div class="label">Basis</div><div class="value">Article 17 constitutional mandate; compelling state interest</div></div>
-        <div class="impact-item"><div class="label">Current Status</div><div class="value">Good law; confirmed by Prathvi Raj Chauhan (2020)</div></div>
-      </div>
+
+    <h3>Establishing Caste Motivation — The Critical Element</h3>
+    <p>In every SC/ST Act case, the prosecution must establish that the act was committed because of the victim's SC/ST identity — i.e., the caste motivation element. This is often the most contested issue at trial. The Supreme Court has provided important guidance:</p>
+
+    <div class="case-card">
+      <div class="case-name">Manohar Lal v. State of Madhya Pradesh</div>
+      <div class="case-year">2021 — Supreme Court of India</div>
+      <div class="case-ratio">The Court held that caste motivation need not be established by direct evidence — it can be inferred from circumstantial evidence. The prosecution is not required to prove that the accused explicitly uttered caste slurs or stated caste as the reason for the act. Where the surrounding circumstances, the identity of the victim, the nature of the act, and the prior relationship between the parties make it clear that caste was the operative motivation, the court can and should draw the inference. This significantly lowers the evidentiary burden on the prosecution and should be cited whenever the defense argues that "caste was not mentioned at the time."</div>
+    </div>
+
+    <h3>§164 CrPC Statements — The Gold Standard</h3>
+    <p>Statements recorded by a Magistrate under §164 CrPC (§183 BNSS) are the most valuable pieces of evidence in an SC/ST Act case because: (1) they are admissible as substantive evidence; (2) they cannot be as easily retracted as police statements; (3) the Magistrate's verification process makes them more credible; (4) they protect against witness tampering after the statement is recorded. As victim's counsel, ensure §164 statement is recorded at the earliest opportunity — ideally within days of FIR registration.</p>
+
+    <div class="info-box">
+      <strong>Cross-Examination Preparation:</strong> Defense advocates typically attack SC/ST Act cases on: (i) "Caste not mentioned at time of offence" — counter with Manohar Lal: circumstantial inference of caste motivation; (ii) "Political enmity between parties" — gather evidence of prior caste-based incidents, community status; (iii) "Delay in complaint" — explain delay: fear, community pressure, lack of access to police; (iv) "Witness improvement" — use §164 statements to pin witnesses; (v) "No independent witness" — explain the village social context where SC/ST persons are often isolated. Prepare rehabilitation questions for each anticipated attack.
     </div>
   </div>
 
-  <!-- ==================== CASE 3 ==================== -->
-  <p class="section-title">Case 3 — Special Courts and Speedy Trial</p>
-  <div class="case-card">
-    <div class="case-header">
-      <div class="case-cite">(2004) 5 SCC 518 | AIR 2004 SC 2605</div>
-      <div class="case-title">Gangula Ashok v. State of Andhra Pradesh</div>
-      <div class="case-court">Supreme Court of India | 3-Judge Bench</div>
+  <div class="section-card">
+    <h2>⚖ 4. Bail Regime Analysis — The §18 and §18A Framework</h2>
+    <p>The bail regime under the SC/ST Act is one of its most important and most contested features. Understanding the precise legal position on each type of bail is essential for both prosecution (opposing bail) and for understanding the rights of accused persons (to ensure no illegal bail grant).</p>
+
+    <div class="bail-grid">
+      <div class="bail-card blocked">
+        <div class="bail-label">🚫 Absolutely Barred</div>
+        <h4>Anticipatory Bail</h4>
+        <p>§18 bars anticipatory bail. §18A (2018) makes this an absolute bar — no court has discretion. Confirmed in Prathvi Raj Chauhan (2020). Cannot be granted to any accused under the SC/ST Act — including co-accused. Very narrow exception: where on the face of complaint, the complaint is manifestly false and the accused is clearly non-SC/ST — but this exception must not be allowed to become routine.</p>
+      </div>
+      <div class="bail-card conditional">
+        <div class="bail-label">⚠ Discretionary — Oppose Actively</div>
+        <h4>Regular Bail (Post-Arrest)</h4>
+        <p>After arrest, the accused can apply to the Special Court for regular bail. The Special Court must consider: gravity of offence, antecedents of accused, social fabric and likelihood of witness tampering, risk to victim. Under §15A(5), victim must be given notice before bail hearing and opportunity to be heard. File bail opposition promptly. Cite caste motivation, risk to witnesses, and victim's vulnerability.</p>
+      </div>
+      <div class="bail-card allowed">
+        <div class="bail-label">✓ Available — Know and Use</div>
+        <h4>Default Bail (§167 CrPC)</h4>
+        <p>If charge sheet is not filed within the statutory period (60 days for offences punishable with death/life/10+ years; 90 days for others), the accused is entitled to default bail under §167(2) CrPC (§187 BNSS) on furnishing bail. In Darshan Singh v. State of Punjab (2012 SC), the Court confirmed that default bail is available even in SC/ST Act cases if charge sheet is not filed in time. This is a statutory right — prompt charge sheet filing is therefore essential for victim lawyers.</p>
+      </div>
     </div>
-    <div class="case-body">
-      <p><strong>Facts &amp; Background:</strong> An atrocity case was tried by a Sessions Court that had been designated as an "Exclusive Special Court" under Section 14 of the POA Act. The question was whether a non-exclusive Special Court (a Sessions Court with general jurisdiction, designated to additionally handle POA cases) had jurisdiction to try atrocity offences, or whether only an exclusive Special Court could do so.</p>
-      <div class="ratio-box">
-        <strong>Ratio Decidendi:</strong> The POA Act mandates that atrocity offences be tried exclusively by Special Courts established under Section 14. The designation of an existing Sessions Court as a Special Court for POA purposes is valid, but such court must try POA cases with priority and cannot treat them as ordinary sessions cases to be dealt with in routine course. Speedy trial is a constitutional mandate in atrocity cases given the vulnerability of SC/ST victims.<br><br>
-        Critically, the Court held that ordinary Sessions Courts (without any designation under Section 14) have <em>no jurisdiction</em> to try POA Act offences — if they do so, the trial is void ab initio.
-      </div>
-      <p><strong>Doctrinal Contribution:</strong> Settled the jurisdictional question — POA trials must occur in designated Special Courts, not ordinary courts. This has significant procedural implications: a conviction by a non-designated court can be challenged on jurisdictional grounds even at the appeal/revision stage.</p>
-  ation percentage;<br>
-        (c) It is reviewed and updated periodically.<br><br>
-        <strong>Creamy Layer (Minority View):</strong> Some judges indicated that a "creamy layer" principle (normally applicable to OBCs, not SCs) may need to be considered for sub-classification purposes, though this remains unresolved.
-      </div>
-      <p><strong>Significance for Atrocities Law:</strong> Davinder Singh does not directly alter the POA Act but has indirect significance — it recognises that intra-SC differentiation is constitutionally permissible, which may affect victim identification, compensation, and rehabilitation priority under the POA Act. The "most backward among backward" principle is likely to inform future amendments to SC/ST welfare schemes.</p>
-      <div class="impact-grid">
-        <div class="impact-item"><div class="label">Overruled</div><div class="value">E.V. Chinnaiah (2004) on homogeneity point</div></div>
-        <div class="impact-item"><div class="label">New Rule</div><div class="value">Sub-classification allowed on empirical data</div></div>
-        <div class="impact-item"><div class="label">Unresolved</div><div class="value">Creamy layer within SC — to be decided</div></div>
-      </div>
+
+    <div class="doctrine-box">
+      <h4>Legal Strategy — Opposing Bail in SC/ST Act Cases</h4>
+      <p>When the accused applies for regular bail: (1) File caveat immediately — ensure victim's counsel is heard before any order is passed (§15A(5) right); (2) Oppose on gravity — §3(2)(v) (rape), §3(2)(iii) (arson) carry minimum life imprisonment possibilities; (3) Cite witness tampering risk — in caste-conflict villages, accused at large poses specific threats; (4) Cite the social fabric — in cases where accused is dominant community member and victim is isolated SC/ST individual, bail will enable intimidation; (5) Cite victim's safety — if bail is granted, victim needs protection measures. File bail opposition in writing with these grounds clearly articulated.</p>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Mahender Chawla v. Union of India</div>
+      <div class="case-year">2019 — Supreme Court of India</div>
+      <div class="case-ratio">The Court confirmed the absolute bar on anticipatory bail under §18 of the SC/ST Act and upheld the 2018 Amendment's §18A as a valid exercise of legislative power. The Court carved a very narrow exception: where the complaint is clearly and manifestly false on its face — where it is evident without any further inquiry that the accused is not SC/ST or that the named accused could not possibly have committed the alleged act — regular bail principles may apply. This exception is deliberately narrow and must not be stretched to create a general judicial power to grant anticipatory bail in SC/ST Act cases.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Darshan Singh v. State of Punjab</div>
+      <div class="case-year">2012 — Supreme Court of India</div>
+      <div class="case-ratio">Held that the right to default bail under §167(2) CrPC is an indefeasible statutory right that accrues to an accused person if charge sheet is not filed within the prescribed period. This right applies even in SC/ST Act cases — the SC/ST Act does not override §167(2). The implication for victim advocates is critical: ensure charge sheet is filed within the statutory period (60 or 90 days as applicable). If the investigating DSP fails to file charge sheet in time, bring this to the Special Court's attention immediately and seek directions for expedited investigation.</div>
     </div>
   </div>
 
-  <!-- Comparative Doctrine Table -->
-  <p class="section-title">Comparative Doctrine Summary</p>
-  <div class="intro-box">
-    <table class="doctrine-table">
-      <thead>
-        <tr><th>Case</th><th>Year</th><th>Core Doctrine</th><th>Current Status</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Karnataka v. Appa Balu Ingale</td><td>1985</td><td>Broad construction of "untouchability"</td><td><span class="badge badge-green">Good Law</span></td></tr>
-        <tr><td>Ram Krishna Balothia</td><td>1994</td><td>S.18 bar on anticipatory bail — constitutional</td><td><span class="badge badge-green">Good Law</span></td></tr>
-        <tr><td>Gangula Ashok</td><td>2004</td><td>Non-designated court = void jurisdiction</td><td><span class="badge badge-green">Good Law</span></td></tr>
-        <tr><td>Swaran Singh</td><td>2008</td><td>Caste motivation requirement for POA offences</td><td><span class="badge badge-yellow">Good Law (contested)</span></td></tr>
-        <tr><td>Safai Karamchari Andolan</td><td>2014</td><td>Manual scavenging = atrocity + Art. 17 violation</td><td><span class="badge badge-green">Good Law</span></td></tr>
-        <tr><td>Sube Singh</td><td>2006</td><td>Constitutional right to fair investigation</td><td><span class="badge badge-green">Good Law</span></td></tr>
-        <tr><td>Subhash Kashinath</td><td>2018</td><td>Preliminary inquiry + prior approval (3 directions)</td><td><span class="badge badge-red">Superseded by S.18A</span></td></tr>
-        <tr><td>Davinder Singh</td><td>2024</td><td>Sub-classification of SC list permissible</td><td><span class="badge badge-blue">Newest — 7-Judge Bench</span></td></tr>
-      </tbody>
-    </table>
+  <div class="section-card">
+    <h2>⚖ 5. Section 15A — Victim Rights in Comprehensive Detail</h2>
+    <p>Section 15A, inserted by the 2015 Amendment Act, is the most important provision for victim advocates in the SC/ST Act. It establishes a comprehensive framework of victim rights — procedural, substantive, and remedial. Many of these rights are systematically ignored by police and courts; enforcing them is a primary duty of victim's counsel.</p>
+
+    <div class="rights-grid">
+      <div class="right-card">
+        <div class="right-section">§15A(1)</div>
+        <h4>State Protection Duty</h4>
+        <p>The State Government shall provide protection to victims and witnesses. This includes physical protection (police protection, accommodation in another location), protection from community pressure, and protection from retaliation. File an application before the Special Court or District Magistrate for specific protection measures where victim faces threats.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-section">§15A(3)</div>
+        <h4>Right to Legal Aid</h4>
+        <p>Victim and their dependents are entitled to legal aid. The District Legal Services Authority (DLSA) must provide a lawyer at state expense if the victim cannot afford one. Additionally, under §15A(7), victim can engage their own private counsel who appears alongside the Special Public Prosecutor — at the victim's own expense, but very effective where SPP is under-resourced or not proactive.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-section">§15A(5)</div>
+        <h4>Right to Be Heard Before Adverse Orders</h4>
+        <p>No adverse order — including bail, discharge, acquittal — shall be passed without giving the victim an opportunity to be heard. This is one of the most powerful provisions. File a caveat immediately after FIR registration to ensure notice to victim's counsel before any bail hearing. A bail order passed without hearing the victim under §15A(5) is liable to be quashed by writ of certiorari.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-section">§15A(6)</div>
+        <h4>Right to Information</h4>
+        <p>The victim has the right to information about the progress of the case — FIR registration, charge sheet filing, charges framed, bail applications, trial dates, and judgment. The Investigating Officer and the Special Court are duty-bound to keep the victim informed. File an application before the Special Court if information is being withheld, and supplement with RTI applications to the SP's office.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-section">§15A(7)</div>
+        <h4>Right to Private Counsel Alongside SPP</h4>
+        <p>The victim can be represented by a private advocate in addition to the Special Public Prosecutor. This right is critical where SPPs are overworked, poorly paid, or not fully committed. The private advocate can make arguments, examine/cross-examine witnesses, and ensure victim's interest is properly represented throughout trial. File a vakalatnama in the Special Court on behalf of the victim as private counsel under §15A(7).</p>
+      </div>
+      <div class="right-card">
+        <div class="right-section">§15A(8)</div>
+        <h4>Right to Appeal Against Acquittal or Inadequate Sentence</h4>
+        <p>The victim can prefer an appeal to the High Court against an order of acquittal or against a sentence that is inadequate. This right is independent of the State's (SPP's) right to appeal — even if the SPP does not appeal or expressly decides not to, the victim can file their own appeal. This is transformative — victims are no longer passive observers whose fate depends entirely on SPP decisions.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-section">§15A(11)</div>
+        <h4>Right to Participate at Every Stage</h4>
+        <p>The victim is entitled to participate at every stage of the proceedings — from charge-framing to sentencing. This is not merely a right to be present — it includes the right to make submissions, present arguments, and ensure that victim's perspective is before the court at all stages. Use this right actively during framing of charges, examination of witnesses, final arguments, and especially during sentencing where victim's impact statement should be presented.</p>
+      </div>
+      <div class="right-card">
+        <div class="right-section">§15A — Compensation</div>
+        <h4>Right to Compensation</h4>
+        <p>The SC/ST Rules, 1995 (Schedule I) provide mandatory compensation for each category of offence — payable by the state regardless of conviction. Additionally, §357A CrPC/BNSS enables the Special Court to order compensation from the State Victim Compensation Fund at the time of judgment. Always claim both — interim compensation from state government (DM/Collector) and final compensation from the Special Court at sentencing.</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>Practical Checklist for Victim Advocates under §15A:</strong> (1) File vakalatnama as private counsel under §15A(7); (2) File caveat before all bail applications — invoke §15A(5); (3) Register victim with DLSA for legal aid under §15A(3); (4) Create a monitoring system for case dates — invoke §15A(6) right to information; (5) File victim impact statement at sentencing stage — invoke §15A(11); (6) Always claim §357A compensation alongside conviction; (7) Advise victim of appeal right under §15A(8) if acquitted or sentence is inadequate. Do all of this from the moment FIR is registered — do not wait until trial.
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Lalita Kumari v. Government of Uttar Pradesh</div>
+      <div class="case-year">2014 — Supreme Court of India (5-Judge Constitution Bench)</div>
+      <div class="case-ratio">The Constitution Bench unanimously held that registration of FIR is mandatory under §154 CrPC for cognizable offences. The police officer receiving information of a cognizable offence has no discretion to refuse registration or to conduct a preliminary inquiry before registration. The Court expressly held that a preliminary inquiry before registration, other than in exceptional categories specifically identified (matrimonial disputes, etc.), violates the statutory mandate. SC/ST Act cases fall clearly within the mandatory registration category — there is no preliminary inquiry exception. This case, combined with §18A, creates an absolute obligation of immediate FIR registration.</div>
+    </div>
+
+    <div class="case-card">
+      <div class="case-name">Gurinder Singh Aujla v. State of Punjab</div>
+      <div class="case-year">2020 — Supreme Court of India</div>
+      <div class="case-ratio">Confirmed that §9 of the SC/ST Act — requiring investigation by a DSP or higher-ranked officer — is mandatory, not directory. An investigation conducted by an officer below DSP rank is procedurally defective and can be challenged. The Court emphasized that the mandatory nature of §9 reflects a deliberate legislative policy choice to ensure senior police accountability in caste atrocity investigations. Practical implication: always check the rank of the Investigating Officer on the FIR — "Sub-Inspector" or "Inspector" designation on an SC/ST Act FIR is a ground for immediate challenge before the Special Court.</div>
+    </div>
   </div>
 
-  <!-- ===================== QUIZ ===================== -->
   <div class="quiz-section">
-    <h2>Level 2 Assessment</h2>
-    <p class="quiz-meta">20 questions · Pass mark: 14/20 (70%) · Answers locked after submission</p>
-
-    <div id="quiz-form">
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q1</span>In <em>Karnataka v. Appa Balu Ingale</em> (1985), what was the Supreme Court's construction of "untouchability" under Article 17?</div>
-        <div class="options">
-          <label><input type="radio" name="q1" value="a"> (a) Limited to denial of entry into temples and places of worship</label>
-          <label><input type="radio" name="q1" value="b"> (b) Broad — includes all caste-based social and economic disabilities, including denial of water from public sources</label>
-          <label><input type="radio" name="q1" value="c"> (c) Restricted to physical acts of touching or refusal to touch</label>
-          <label><input type="radio" name="q1" value="d"> (d) Applies only to practices expressly listed in the PCR Act</label>
-        </div>
-        <div class="explanation" id="exp-q1">The Court in Appa Balu Ingale held that "untouchability" under Article 17 must be broadly construed to include all forms of caste-based social and economic disability, not just temple entry. Denial of water from public wells on caste grounds was held to be an act of untouchability.</div>
+    <h2>📋 Knowledge Check — Level 2</h2>
+    <p class="quiz-intro">Answer all 10 questions. Score 7 or more to complete Level 2 and unlock Level 3. Questions cover FIR obligations, §18A, DSP investigation requirements, evidence principles, bail regime, and §15A victim rights.</p>
+    <div id="quiz">
+      <div class="question" id="q1">
+        <p><strong>1. Section 18A of the SC/ST Act absolutely bars:</strong></p>
+        <label><input type="radio" name="q1" value="a"> Regular bail in all SC/ST Act cases</label>
+        <label><input type="radio" name="q1" value="b"> Default bail under §167 CrPC in SC/ST Act cases</label>
+        <label><input type="radio" name="q1" value="c"> Preliminary inquiry before FIR registration in SC/ST Act cases</label>
+        <label><input type="radio" name="q1" value="d"> Investigation by DSP-rank officers</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q2</span>In <em>State of M.P. v. Ram Krishna Balothia</em> (1994), Section 18 of the POA Act was challenged as unconstitutional. The Supreme Court held:</div>
-        <div class="options">
-          <label><input type="radio" name="q2" value="a"> (a) Section 18 is unconstitutional as it violates Article 21</label>
-          <label><input type="radio" name="q2" value="b"> (b) Section 18 is constitutional — Parliament has competence to bar anticipatory bail in atrocity cases to serve the compelling state interest under Article 17</label>
-          <label><input type="radio" name="q2" value="c"> (c) Section 18 applies only to private persons, not public servants</label>
-          <label><input type="radio" name="q2" value="d"> (d) Courts retain discretion to grant anticipatory bail in exceptional cases despite Section 18</label>
-        </div>
-        <div class="explanation" id="exp-q2">Ram Krishna Balothia (1994) is the foundation case upholding Section 18's bar on anticipatory bail as constitutional, serving the compelling state interest under Article 17 to abolish untouchability. Option (d) was the incorrect position taken by Subhash Kashinath (2018), now reversed by Section 18A.</div>
+      <div class="question" id="q2">
+        <p><strong>2. DSP-level investigation under §9 was confirmed as mandatory (not directory) in:</strong></p>
+        <label><input type="radio" name="q2" value="a"> Lalita Kumari v. Govt. of UP</label>
+        <label><input type="radio" name="q2" value="b"> Gurinder Singh Aujla v. State of Punjab</label>
+        <label><input type="radio" name="q2" value="c"> Prathvi Raj Chauhan v. UOI</label>
+        <label><input type="radio" name="q2" value="d"> Darshan Singh v. State of Punjab</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q3</span>Under <em>Gangula Ashok v. State of Andhra Pradesh</em> (2004), if an atrocity case is tried by a Sessions Court that has not been designated as a Special Court under Section 14 of the POA Act, the trial is:</div>
-        <div class="options">
-          <label><input type="radio" name="q3" value="a"> (a) Valid, as a Sessions Court always has jurisdiction over criminal matters</label>
-          <label><input type="radio" name="q3" value="b"> (b) Voidable at the discretion of the appellate court</label>
-          <label><input type="radio" name="q3" value="c"> (c) Void ab initio due to lack of jurisdiction</label>
-          <label><input type="radio" name="q3" value="d"> (d) Valid provided it results in conviction</label>
-        </div>
-        <div class="explanation" id="exp-q3">Gangula Ashok held that only courts designated as Special Courts under Section 14 of the POA Act have jurisdiction to try atrocity offences. A non-designated Sessions Court conducting such a trial acts without jurisdiction — the trial is void ab initio.</div>
+      <div class="question" id="q3">
+        <p><strong>3. Lalita Kumari v. Govt. of UP (2014) was decided by:</strong></p>
+        <label><input type="radio" name="q3" value="a"> A single judge of the Supreme Court</label>
+        <label><input type="radio" name="q3" value="b"> A Division Bench of two judges</label>
+        <label><input type="radio" name="q3" value="c"> A 5-judge Constitution Bench of the Supreme Court</label>
+        <label><input type="radio" name="q3" value="d"> A 7-judge Constitution Bench of the Supreme Court</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q4</span>The "caste motivation" doctrine in <em>Swaran Singh v. State</em> (2008) holds that for an offence to attract the POA Act:</div>bel>
-          <label><input type="radio" name="q11" value="b"> (b) Only through the testimony of two independent witnesses</label>
-          <label><input type="radio" name="q11" value="c"> (c) Direct evidence OR inference from the totality of circumstances including words used, context, and prior relations</label>
-          <label><input type="radio" name="q11" value="d"> (d) Presumption of law — always assumed if victim is SC/ST</label>
-        </div>
-        <div class="explanation" id="exp-q11">Swaran Singh clarified that while caste motivation is required, it need not be proved by direct evidence alone. Courts can infer caste motivation from the totality of circumstances — the nature of the insult, words used (caste-specific slurs), social context, and prior relations between parties.</div>
+      <div class="question" id="q4">
+        <p><strong>4. Which CrPC provision allows a Judicial Magistrate to order police to register FIR and investigate?</strong></p>
+        <label><input type="radio" name="q4" value="a"> §154(3) CrPC</label>
+        <label><input type="radio" name="q4" value="b"> §200 CrPC</label>
+        <label><input type="radio" name="q4" value="c"> §156(3) CrPC</label>
+        <label><input type="radio" name="q4" value="d"> §173(8) CrPC</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q12</span>Section 15A of the POA Act (2016 Amendment) codified victim rights recognized in cases like <em>Sube Singh</em>. Which of the following is NOT a right under Section 15A?</div>
-        <div class="options">
-          <label><input type="radio" name="q12" value="a"> (a) Right to be informed of the status of investigation</label>
-          <label><input type="radio" name="q12" value="b"> (b) Right to be heard at bail proceedings of the accused</label>
-          <label><input type="radio" name="q12" value="c"> (c) Right to be represented by a private advocate at State expense in the Special Court</label>
-          <label><input type="radio" name="q12" value="d"> (d) Right to automatic acquittal review if the accused is convicted</label>
-        </div>
-        <div class="explanation" id="exp-q12">Section 15A provides rights to be informed of the case, to be heard at bail hearings, and to receive State-provided legal assistance. Option (d) — "automatic acquittal review" — is not a right under Section 15A or any provision of the POA Act. Acquittal appeals are filed by the State under Sections 374-377 CrPC/BNSS.</div>
+      <div class="question" id="q5">
+        <p><strong>5. Default bail under §167(2) CrPC in SC/ST Act cases:</strong></p>
+        <label><input type="radio" name="q5" value="a"> Is never available — SC/ST Act cases are excluded from §167</label>
+        <label><input type="radio" name="q5" value="b"> Is available if charge sheet is not filed within the statutory period of 60 or 90 days</label>
+        <label><input type="radio" name="q5" value="c"> Requires special permission from the Special Court</label>
+        <label><input type="radio" name="q5" value="d"> Is available only for women accused in SC/ST Act cases</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q13</span>What was the constitutional basis for Parliament's competence to enact the bar on anticipatory bail under Section 18, as held in <em>Ram Krishna Balothia</em>?</div>
-        <div class="options">
-          <label><input type="radio" name="q13" value="a"> (a) Entry 1, List II (State List) — public order</label>
-          <label><input type="radio" name="q13" value="b"> (b) Article 17 read with Article 35 — Parliament's obligation to give effect to the constitutional abolition of untouchability</label>
-          <label><input type="radio" name="q13" value="c"> (c) Concurrent List Entry 12 — evidence</label>
-          <label><input type="radio" name="q13" value="d"> (d) Article 246 read with Entry 1 of List I — defence and security</label>
-        </div>
-        <div class="explanation" id="exp-q13">Ram Krishna Balothia relied on Article 17 (abolition of untouchability) read with Article 35 (Parliament's power to make laws giving effect to fundamental rights). Parliament has not merely the power but the constitutional duty to enact stringent measures to fulfil the Article 17 mandate, including bars on anticipatory bail.</div>
+      <div class="question" id="q6">
+        <p><strong>6. The victim's right to be heard before a bail order is granted comes from:</strong></p>
+        <label><input type="radio" name="q6" value="a"> §9 of the SC/ST Act</label>
+        <label><input type="radio" name="q6" value="b"> §15A(5) of the SC/ST Act</label>
+        <label><input type="radio" name="q6" value="c"> §18A of the SC/ST Act</label>
+        <label><input type="radio" name="q6" value="d"> §4 of the SC/ST Act</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q14</span>In <em>Gangula Ashok</em> (2004), what is the position regarding a Sessions Court that is designated as a Special Court under Section 14 but has general jurisdiction over ordinary criminal cases?</div>
-        <div class="options">
-          <label><input type="radio" name="q14" value="a"> (a) It cannot try POA cases at all — hnly exclusive Special Courts can</label>
-          <label><input type="radio" name="q14" value="b"> (b) It can try POA cases and must give them priority, but its designation must be expressly made under Section 14</label>
-          <label><input type="radio" name="q14" value="c"> (c) It must transfer POA cases to the High Court for trial</label>
-          <label><input type="radio" name="q14" value="d"> (d) Its jurisdiction depends on the annual number of pending atrocity cases only</label>
-        </div>
-        <div class="explanation" id="exp-q14">Gangula Ashok held that a Sessions Court with general criminal jurisdiction CAN be designated as a Special Court under Section 14 — it need not be exclusive. However, the designation must be expressly made, and POA cases must be given priority. Post-2016, Section 14A additionally mandates Exclusive Special Courts where average pending cases exceed 100 annually.</div>
+      <div class="question" id="q7">
+        <p><strong>7. Manohar Lal v. State of MP (2021) established that caste motivation:</strong></p>
+        <label><input type="radio" name="q7" value="a"> Must be proved by direct evidence only — caste slurs must be proven</label>
+        <label><input type="radio" name="q7" value="b"> Can be inferred from circumstantial evidence — direct proof of caste slur not required</label>
+        <label><input type="radio" name="q7" value="c"> Is irrelevant to conviction under §3(2) offences</label>
+        <label><input type="radio" name="q7" value="d"> Must be admitted by the accused in their statement</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q15</span>Which of the three Subhash Kashinath (2018) directions was most directly overridden by the 2018 Amendment to the POA Act?</div>
-        <div class="options">
-          <label><input type="radio" name="q15" value="a"> (a) The requirement of prior sanction before initiating prosecution</label>
-          <label><input type="radio" name="q15" value="b"> (b) Mandatory mediation before FIR registration in atrocity cases</label>
-          <label><input type="radio" name="q15" value="c"> (c) All three — ho preliminary inquiry, no prior approval for arrest, and no anticipatory bail in any circumstances</label>
-          <label><input type="radio" name="q15" value="d"> (d) Only the anticipatory bail direction — the other two were upheld</label>
-        </div>
-        <div class="explanation" id="exp-q15">Section 18A, inserted by the 2018 Amendment, specifically overrides all three Subhash Kashinath directions: (i) No preliminary inquiry before FIR registration; (ii) No prior approval of any authority required before arrest; (iii) Section 18's absolute bar on anticipatory bail is fully restored.</div>
+      <div class="question" id="q8">
+        <p><strong>8. Section 15A(8) gives the victim the right to:</strong></p>
+        <label><input type="radio" name="q8" value="a"> Choose the judge presiding over the Special Court</label>
+        <label><input type="radio" name="q8" value="b"> Prefer an appeal against acquittal or against a sentence that is inadequate</label>
+        <label><input type="radio" name="q8" value="c"> Access the police case diary during investigation</label>
+        <label><input type="radio" name="q8" value="d"> Veto any proposed settlement between parties</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q16</span>The 2016 offences added to the POA Act (Sections 3(1)(r), (s), (t), (u), (v), (w), etc.) are significant in relation to <em>Swaran Singh</em>'s caste motivation requirement because:</div>
-        <div class="options">
-          <label><input type="radio" name="q16" value="a"> (a) They completely abolish the caste motivation requirement for all offences</label>
-          <label><input type="radio" name="q16" value="b"> (b) These new offences (social boycott, electoral intimidation, etc.) are inherently caste-linked in nature, making motivation easier to prove</label>
-          <label><input type="radio" name="q16" value="c"> (c) They restrict prosecution to cases where direct documentary evidence of caste motivation exists</label>
-          <label><input type="radio" name="q16" value="d"> (d) They replace the old offences and the Swaran Singh doctrine no longer applies</label>
-        </div>
-        <div class="explanation" id="exp-q16">The 2016 new offences (social/economic boycott, preventing SC/ST from using common resources, electoral intimidation, etc.) are inherently caste-linked — the very nature of these acts establishes caste motivation. This addresses the evidentiary difficulty created by Swaran Singh's motivation requirement, while not eliminating it entirely.</div>
+      <div class="question" id="q9">
+        <p><strong>9. The investigation time limit under SC/ST (POA) Rules, 1995 is:</strong></p>
+        <label><input type="radio" name="q9" value="a"> 30 days from FIR registration</label>
+        <label><input type="radio" name="q9" value="b"> 60 days from FIR registration</label>
+        <label><input type="radio" name="q9" value="c"> 90 days from FIR registration</label>
+        <label><input type="radio" name="q9" value="d"> No time limit — investigation proceeds at IO's discretion</label>
       </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q17</span>In which case did the Supreme Court hold that a State law providing 50% sub-reservation for Valmikis and Mazhabi Sikhs within the SC category was constitutionally valid?</div>
-        <div class="options">
-          <label><input type="radio" name="q17" value="a"> (a) E.V. Chinnaiah v. State of Andhra Pradesh (2004)</label>
-          <label><input type="radio" name="q17" value="b"> (b) State of Punjab v. Davinder Singh (2024) — 7-Judge bench</label>
-          <label><input type="radio" name="q17" value="c"> (c) Indra Sawhney v. Union of India (1992)</label>
-          <label><input type="radio" name="q17" value="d"> (d) M. Nagaraj v. Union of India (2006)</label>
-        </div>
-        <div class="explanation" id="exp-q17">Davinder Singh (2024) — a 7-Judge Constitutional bench — held that the Punjab law sub-classifying the SC reservation for Valmikis and Mazhabi Sikhs was valid, and overruled E.V. Chinnaiah's "homogeneity" doctrine to the extent it prevented such sub-classification.</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q18</span>The intersection of manual scavenging and the POA Act, clarified in <em>Safai Karamchari Andolan</em> (2014), means that compelling an SC person to continue scavenging by reason of caste can additionally attract which POA Act provisions (as per pre-2016 numbering)?</div>
-        <div class="options">
-          <label><input type="radio" name="q18" value="a"> (a) Section 3(1)(i) — wrongful occupation of SC land</label>
-          <label><input type="radio" name="q18" value="b"> (b) Sections 3(1)(f) [compelled begging] and 3(1)(xi) [insult/humiliation in public]</label>
-          <label><input type="radio" name="q18" value="c"> (c) Section 3(2)(v) — false evidence</label>
-          <label><input type="radio" name="q18" value="d"> (d) Section 4 only — failure of public servant to file FIR</label>
-        </div>
-        <div class="explanation" id="exp-q18">The judgment in Safai Karamchari Andolan identified that forcing an SC/ST person to perform scavenging by reason of caste can attract Section 3(1)(f) (compelling to do forced/begar work) and Section 3(1)(xi) (insult or humiliation in public view), in addition to the Manual Scavengers Act provisions.</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q19</span>Before the <em>Davinder Singh</em> (2024) judgment, what was the position established in <em>E.V. Chinnaiah</em> (2004) regarding the Presidential SC list?</div>
-        <div class="options">
-          <label><input type="radio" name="q19" value="a"> (a) States have unfettered power to rearrange and sub-classify the SC list</label>
-          <label><input type="radio" name="q19" value="b"> (b) The SC list forms a "homogenous class" — States cannot sub-classify it as only Parliament can modify the Presidential notification</label>
-          <label><input type="radio" name="q19" value="c"> (c) States can remove castes from the SC list but cannot add sub-groups</span>
-          <label><input type="radio" name="q19" value="d"> (d) The SC list applies only to Central government reservations, not State reservations</label>
-        </div>
-        <div class="explanation" id="exp-q19">E.V. Chinnaiah (2004) held that the Presidential SC list under Article 341 is a "homogenous class" — since only Parliament can modify it, States cannot sub-classify it for preferential treatment within the SC quota. This position was overruled by the 7-Judge bench in Davinder Singh (2024).</div>
-      </div>
-
-      <div class="q-block">
-        <div class="q-text"><span class="q-num">Q20</span>Which judgment established that the principle of "compelling state interest" justifies special protective provisions under the POA Act that may appear to treat accused persons differently from ordinary criminal cases?</div>
-        <div class="options">
-          <label><input type="radio" name="q20" value="a"> (a) Gangula Ashok v. State of Andhra Pradesh (2004)</label>
-          <label><input type="radio" name="q20" value="b"> (b) Swaran Singh v. State (2008)</label>
-          <label><input type="radio" name="q20" value="c"> (c) State of M.P. v. Ram Krishna Balothia (1994)</label>
-          <label><input type="radio" name="q20" value="d"> (d) Safai Karamchari Andolan v. UOI (2014)</label>
-        </div>
-        <div class="explanation" id="exp-q20">Ram Krishna Balothia (1994) is the foundational case that introduced the "compelling state interest" doctrine in the SC/ST context. The Court held that Article 17's mandate creates a compelling state interest sufficient to justify special protective provisions that treat atrocity offences differently from ordinary crimes.</div>
-      </div>
-
-      <button class="btn-submit" onclick="submitQuiz()">Submit Assessment</button>
-
-      <div class="result-box" id="result-box">
-        <div class="score" id="score-display"></div>
-        <div class="verdict" id="verdict-display"></div>
-        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-        <p id="result-msg"></p>
-        <a href="level3.html" class="next-btn" id="next-btn">Proceed to Level 3 →</a>
+      <div class="question" id="q10">
+        <p><strong>10. If police refuses to register FIR in an SC/ST Act case, the most legally effective immediate judicial remedy is:</strong></p>
+        <label><input type="radio" name="q10" value="a"> Media pressure and press conference</label>
+        <label><input type="radio" name="q10" value="b"> Filing complaint with the National Human Rights Commission</label>
+        <label><input type="radio" name="q10" value="c"> Filing a §156(3) CrPC petition before the Judicial Magistrate for directions to register and investigate</label>
+        <label><input type="radio" name="q10" value="d"> Filing a PIL directly in the High Court</label>
       </div>
     </div>
+    <button class="submit-btn" onclick="submitQuiz()">Submit Answers</button>
+    <div id="quiz-result" style="display:none"></div>
   </div>
 
 </div>
 
 <script>
-var ANSWERS={q1:'b',q2:'b',q3:'c',q4:'c',q5:'b',q6:'c',q7:"b',q8:'c',q9:'b',q10:'b',q11:'c',q12:'d',q13:'b',q14:'b'15:'c',q16:'b',q17:'b',q18:'b',q19:'b',q20:'c'};
-var submitted=false;
+const ANSWERS = {q1:'c',q2:'b',q3:'c',q4:'c',q5:'b',q6:'b',q7:'b',q8:'b',q9:'b',q10:'c'};
 function submitQuiz(){
-  if(submitted)return;
-  var score=0;
-  var total=Object.keys(ANSWERS).length;
-  var allAnswered=true;
-  for(var q in ANSWERS){
-    var sel=document.querySelector('input[name="'+q+'"]:checked');
-    if(!sel){allAnswered=false;break;}
-  }
-  if(!allAnswered){alert('Please answer all questions before submitting.');return;}
-  submitted=true;
-  document.querySelector('.btn-submit').disabled=true;
-  for(var q in ANSWERS){
-    var sel=document.querySelector('input[name="'+q+'"]:checked');
-    var labels=document.querySelectorAll('input[name="'+q+'"]');
-    labels.forEach(function(inp){
-      inp.disabled=true;
-      var lbl=inp.parentElement;
-      if(inp.value===ANSWERS[q])lbl.classList.add('correct');
-      else if(inp.checked)lbl.classList.add('wrong');
-    });
-    var exp=document.getElementById('exp-'+q);
-    if(exp)exp.style.display='block';
+  let score=0;
+  for(let q in ANSWERS){
+    const sel=document.querySelector(`input[name="${q}"]:checked`);
     if(sel&&sel.value===ANSWERS[q])score++;
   }
-  var pct=Math.round(score/total*100);
-  var rb=document.getElementById('result-box');
-  rb.style.display='block';
-  document.getElementById('score-display').textContent=score+'/'+total;
-  document.getElementById('progress-fill').style.width=pct+'%';
-  var passed=pct>=70;
-  var vd=document.getElementById('verdict-display');
-  if(pct>=90){vd.textContent='Distinction';vd.className='verdict pass';}
-  else if(pct>=80){vd.textContent='Merit';vd.className='verdict pass';}
-  else if(pct>=70){vd.textContent='Pass';vd.className='verdict pass';}
-  else{vd.textContent='Below Pass — Review Required';vd.className='verdict fail';}
-  document.getElementById('result-msg').textContent=passed?'You scored '+pct+'%. Proceed to Level 3.':'You scored '+pct+'%. 70% required. Please review the case analyses and retry.';
+  const pct=Math.round(score/10*100);
+  const passed=score>=7;
+  document.querySelectorAll('.question').forEach(el=>{
+    const name=el.id;
+    const chosen=document.querySelector(`input[name="${name}"]:checked`);
+    el.style.borderLeft=(chosen&&chosen.value===ANSWERS[name])?'4px solid #10b981':'4px solid #ef4444';
+  });
+  const res=document.getElementById('quiz-result');
+  res.style.display='block';
   if(passed){
-    localStorage.setItem('janman_scst_ls_l2_done','1');
-    localStorage.setItem('janman_scst_ls_l2_score',pct);
-    document.getElementById('next-btn').style.display='inline-block';
+    localStorage.setItem('janman_scst_ls_l2_done','true');
+    localStorage.setItem('janman_scst_ls_l2_score',score);
+    res.innerHTML=`<div class="pass">✓ Passed! Score: ${score}/10 (${pct}%) — <a href="level3.html">Proceed to Level 3: Landmark Cases, Remedies &amp; Professional Ethics →</a></div>`;
+  } else {
+    res.innerHTML=`<div class="fail">Score: ${score}/10 (${pct}%) — You need 7/10 to pass. Review the FIR obligation framework, §9 investigation requirements, bail regime, and the §15A rights grid above, then try again.</div>`;
   }
-  rb.scrollIntoView({behavior:'smooth'});
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 </script>
 </body>
