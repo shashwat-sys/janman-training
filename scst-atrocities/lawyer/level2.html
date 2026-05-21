@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC/ST Atrocities Act — Lawyer Track Level 2 | Jan Nyaya Resource Centre</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.topbar{background:#1e293b;border-bottom:1px solid #334155;padding:12px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.topbar a{color:#94a3b8;text-decoration:none;font-size:13px}
+.topbar a:hover{color:#f1f5f9}
+.topbar .sep{color:#475569}
+.topbar .track-badge{background:#7c3aed;color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px}
+.hero{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4c1d95 100%);padding:48px 24px 40px;text-align:center}
+.hero .level-chip{background:rgba(167,139,250,.2);border:1px solid #7c3aed;color:#c4b5fd;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:16px}
+.hero h1{font-size:clamp(22px,4vw,34px);font-weight:800;color:#fff;margin-bottom:8px}
+.hero p{color:#c4b5fd;font-size:15px;max-width:640px;margin:0 auto 20px}
+.hero-meta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.1);padding:6px 14px;border-radius:20px;font-size:12px;color:#e0e7ff}
+.container{max-width:900px;margin:0 auto;padding:32px 20px}
+.progress-bar-wrap{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.progress-bar-wrap .label{font-size:13px;color:#94a3b8;white-space:nowrap}
+.prog-track{flex:1;background:#334155;border-radius:6px;height:8px}
+.prog-fill{background:linear-gradient(90deg,#7c3aed,#a78bfa);height:8px;border-radius:6px;transition:width .4s}
+.prog-pct{font-size:13px;color:#a78bfa;font-weight:700;white-space:nowrap}
+.module{background:#1e293b;border:1px solid #334155;border-radius:16px;margin-bottom:24px;overflow:hidden}
+.module-header{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.module-header:hover{background:#253247}
+.module-header h2{font-size:17px;font-weight:700;color:#f1f5f9}
+.module-header .module-meta{display:flex;gap:10px;align-items:center}
+.module-header .dur{font-size:12px;color:#64748b;background:#0f172a;padding:3px 10px;border-radius:12px}
+.module-header .chevron{color:#64748b;font-size:18px;transition:transform .3s}
+.module-header.open .chevron{transform:rotate(180deg)}
+.module-body{padding:0 24px 24px;display:none}
+.module-body.show{display:block}
+.module-intro{color:#94a3b8;font-size:14px;margin-bottom:20px;line-height:1.7;border-left:3px solid #7c3aed;padding-left:14px}
+.section-block{margin-bottom:24px}
+.section-block h3{font-size:15px;font-weight:700;color:#a78bfa;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-block h3::before{content:'';display:inline-block;width:4px;height:16px;background:#7c3aed;border-radius:2px}
+.content-card{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:16px;margin-bottom:12px}
+.content-card h4{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px}
+.content-card p,.content-card li{font-size:13px;color:#94a3b8;line-height:1.7}
+.content-card ul,.content-card ol{padding-left:18px}
+.content-card li{margin-bottom:4px}
+.law-box{background:linear-gradient(135deg,#1e1b4b,#1e293b);border:1px solid #4c1d95;border-radius:10px;padding:16px;margin-bottom:12px}
+.law-box .law-title{font-size:12px;font-weight:700;color:#c4b5fd;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.law-box p{font-size:13px;color:#a5b4fc;line-height:1.7}
+.law-box code{background:#0f172a;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:12px;color:#818cf8}
+.highlight-box{background:linear-gradient(135deg,#0c4a6e,#0f172a);border:1px solid #0369a1;border-radius:10px;padding:14px;margin-bottom:12px}
+.highlight-box .hl-title{font-size:11px;font-weight:700;color:#38bdf8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.highlight-box p{font-size:13px;color:#7dd3fc;line-height:1.6}
+.warning-box{background:linear-gradient(135deg,#451a03,#1c1917);border:1px solid #92400e;border-radius:10px;padding:14px;margin-bottom:12px}
+.warning-box .w-title{font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.warning-box p{font-size:13px;color:#fde68a;line-height:1.6}
+.case-card{background:#0f172a;border-left:4px solid #7c3aed;border-radius:0 10px 10px 0;padding:14px;margin-bottom:12px}
+.case-card .case-name{font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:4px}
+.case-card .case-cite{font-size:11px;color:#64748b;margin-bottom:8px}
+.case-card p{font-size:13px;color:#94a3b8;line-height:1.6}
+.timeline{position:relative;padding-left:28px;border-left:2px solid #334155;margin-bottom:12px}
+.timeline-item{position:relative;margin-bottom:16px}
+.timeline-item::before{content:'';position:absolute;left:-34px;top:4px;width:12px;height:12px;border-radius:50%;background:#7c3aed;border:2px solid #4c1d95}
+.timeline-item .t-label{font-size:11px;color:#7c3aed;font-weight:700;margin-bottom:2px}
+.timeline-item p{font-size:13px;color:#94a3b8;line-height:1.5}
+.table-wrap{overflow-x:auto;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#1e1b4b;color:#c4b5fd;padding:10px 12px;text-align:left;border-bottom:1px solid #4c1d95;font-weight:700}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;color:#94a3b8;vertical-align:top}
+tr:hover td{background:#1a2540}
+.quiz-section{background:#0f172a;border:1px solid #7c3aed;border-radius:12px;padding:24px;margin-top:32px}
+.quiz-section h3{font-size:16px;font-weight:700;color:#a78bfa;margin-bottom:20px;text-align:center}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:14px;color:#e2e8f0;margin-bottom:10px;font-weight:600}
+.quiz-opt{display:block;padding:10px 14px;background:#1e293b;border:1px solid #334155;border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px;color:#94a3b8;transition:all .2s;text-align:left;width:100%}
+.quiz-opt:hover{border-color:#7c3aed;color:#c4b5fd}
+.quiz-opt.correct{background:#14532d;border-color:#16a34a;color:#86efac}
+.quiz-opt.wrong{background:#450a0a;border-color:#dc2626;color:#fca5a5}
+.quiz-feedback{font-size:12px;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:#14532d;color:#86efac}
+.quiz-feedback.bad{background:#450a0a;color:#fca5a5}
+.nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding:20px;background:#1e293b;border:1px solid #334155;border-radius:12px}
+.nav-footer a{text-decoration:none}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.btn-back{background:#334155;color:#94a3b8}
+.btn-back:hover{background:#475569;color:#f1f5f9}
+.btn-next{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff}
+.btn-next:hover{opacity:.9;transform:translateY(-1px)}
+@media(max-width:600px){.hero{padding:32px 16px 28px}.container{padding:20px 12px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">🏠 Home</a>
+  <span class="sep">›</span>
+  <a href="../index.html">SC/ST Atrocities Act</a>
+  <span class="sep">›</span>
+  <a href="index.html">Lawyer Track</a>
+  <span class="sep">›</span>
+  <span style="color:#e2e8f0">Level 2</span>
+  <div style="flex:1"></div>
+  <span class="track-badge">⚖️ Lawyer</span>
+</div>
+
+<div class="hero">
+  <div class="level-chip">Level 2 of 3</div>
+  <h1>Investigation, Trial &amp; Evidence</h1>
+  <p>Mastering investigation standards, FIR obligations, charge-framing, bail jurisprudence, and evidence rules in SC/ST Act prosecutions and defence.</p>
+  <div class="hero-meta">
+    <span>⏱ ~4 hrs</span>
+    <span>📋 4 Modules</span>
+    <span>⚖️ Lawyer Track</span>
+    <span>⚔️ Litigation Skills</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="progress-bar-wrap">
+    <span class="label">Level 2 Progress</span>
+    <div class="prog-track"><div class="prog-fill" id="mainProg" style="width:0%"></div></div>
+    <span class="prog-pct" id="progPct">0%</span>
+  </div>
+
+  <!-- MODULE 1 -->
+  <div class="module" id="mod1">
+    <div class="module-header" onclick="toggleMod('mod1')">
+      <h2>🚨 Module 1: FIR Registration &amp; Investigation Standards</h2>
+      <div class="module-meta">
+        <span class="dur">~60 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod1-body">
+      <p class="module-intro">Registration of FIR and investigation standards under the SC/ST Act are governed by mandatory statutory provisions that override the general CrPC framework. Non-compliance is itself a prosecutable offence under s.4.</p>
+
+      <div class="section-block">
+        <h3>Mandatory FIR — No Preliminary Inquiry</h3>
+        <div class="law-box">
+          <div class="law-title">Section 18A (2018 Amendment) — Absolute Mandate</div>
+          <p>S.18A(1): "Notwithstanding anything contained in the CrPC, no preliminary inquiry shall be conducted before registration of a First Information Report against a person accused of having committed an offence under this Act." S.18A(2): "The officer in charge of a police station shall immediately arrest the accused." This reversed the Supreme Court's controversial holding in <em>Subhash Kashinath Mahajan v. State of Maharashtra</em> (2018) 6 SCC 454 which had required preliminary inquiry and DSP approval for arrest.</p>
+        </div>
+        <div class="content-card">
+          <h4>What This Means in Practice</h4>
+          <ul>
+            <li>Police officer cannot conduct any preliminary inquiry before registering FIR</li>
+            <li>Oral complaint must be reduced to writing and FIR registered immediately</li>
+            <li>Zero Tolerance Rule: Failure to register FIR is cognizable under s.4 — the officer is prosecutable</li>
+            <li>Even if civil dispute underlying (e.g., land), if the manner of dispossession involves s.3 offence, FIR must be registered</li>
+            <li>Investigate whether: (a) victim belongs to SC/ST, (b) accused does NOT belong to SC/ST, (c) act falls under s.3 schedule</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <div class="case-name">Arnesh Kumar v. State of Bihar</div>
+          <div class="case-cite">(2014) 8 SCC 273</div>
+          <p>Laid down general guidelines on arrest — not to arrest mechanically in cognizable offences. However, s.18A of the SC/ST Act overrides these guidelines for SC/ST Act offences. The mandatory arrest provision in s.18A is specific legislation that prevails. Courts have held Arnesh Kumar does not apply to SC/ST Act cases post-2018.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Investigation by DSP-Level Officer — Rule 7</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Rule</th><th>Requirement</th><th>Consequence of Violation</th></tr>
+            <tr><td>Rule 7(1)</td><td>Investigation must be conducted by police officer not below rank of DSP</td><td>s.4 prosecution of SHO who investigates instead of transferring to DSP</td></tr>
+            <tr><td>Rule 7(2)</td><td>DSP must personally visit the scene and examine the victim</td><td>Charge-sheet without this is challengeable; investigation is incomplete</td></tr>
+            <tr><td>Rule 7(3)</td><td>Investigation must be completed within 60 days of FIR registration</td><td>Delay is s.4 offence; bail may be argued on ground of procedural infirmity</td></tr>
+            <tr><td>Rule 12A</td><td>Special Court to conclude trial within 2 months of cognizance</td><td>Basis for victim's writ of mandamus for speedy trial</td></tr>
+          </table>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">Defence Use of Rule 7</div>
+          <p>Where investigation was conducted by an officer below DSP rank without handover, the charge-sheet can be challenged as not filed by a competent officer. This does not automatically entitle the accused to bail or discharge, but can be raised as a ground for quashing the charge-sheet (CrPC s.482) if the entire investigation was tainted. See <em>State of U.P. v. Ram Kumar Shrivastava</em> (2006) — investigation by Inspector when DSP was available held to be s.4 violation but charge-sheet not automatically invalid.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>FIR &amp; Charge-Sheet — Checklist for Lawyers</h3>
+        <div class="content-card">
+          <h4>On Receiving a Brief (Prosecution)</h4>
+          <ul>
+            <li>Confirm SC/ST caste certificate of victim is on record (district SC/ST welfare officer to verify)</li>
+            <li>Verify non-SC/ST status of accused — from revenue/electoral records or birth records</li>
+            <li>Check FIR specifies the exact s.3 sub-section(s) attracted</li>
+            <li>Confirm DSP name and rank in investigation record</li>
+            <li>Check Rule 7 visit report and victim examination memo</li>
+            <li>Verify interim compensation order under s.17 and Rules has been passed within 7 days</li>
+            <li>Confirm witness list includes independent witnesses — not only family members</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h4>On Receiving a Brief (Defence)</h4>
+          <ul>
+            <li>Check if accused actually belongs to SC/ST community — if so, Act does not apply (only inter-community atrocities are covered)</li>
+            <li>Verify whether the act is covered under any specific s.3 sub-section — civil disputes dressed as atrocities are frequent</li>
+            <li>Check compliance with Rule 7 — DSP rank, site visit, timeline</li>
+            <li>Examine whether FIR was filed after preliminary inquiry (if so, s.18A violated, useful at trial and bail stage)</li>
+            <li>Is the complaint a counter-blast to a civil dispute / pending litigation?</li>
+            <li>Look for vindictiveness indicators: land dispute, political rivalry, prior litigation between parties</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module" id="mod2">
+    <div class="module-header" onclick="toggleMod('mod2')">
+      <h2>⚖️ Module 2: Bail, Cognizance &amp; Charge-Framing</h2>
+      <div class="module-meta">
+        <span class="dur">~60 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod2-body">
+      <p class="module-intro">Bail law under the SC/ST Act is among the most litigated areas. The absolute bar on anticipatory bail (s.18) and the appellate route (s.14A HC) require mastery at every stage.</p>
+
+      <div class="section-block">
+        <h3>Bail Provisions — The s.18 Bar</h3>
+        <div class="law-box">
+          <div class="law-title">Section 18 — Anticipatory Bail Absolute Bar</div>
+          <p>S.18 categorically states that CrPC s.438 (anticipatory bail) shall not apply to any case involving accusation of an offence under the Act. Post <em>Prithvi Raj Chauhan v. Union of India</em> (2020) 4 SCC 727 (Constitution Bench), this position is settled. Neither Sessions Court nor HC can grant anticipatory bail u/s.438 for SC/ST Act accused. The HC's inherent power u/s.482/Art. 226 may be invoked in cases of manifest injustice, but the threshold is: the FIR discloses no SC/ST Act offence whatsoever.</p>
+        </div>
+        <div class="content-card">
+          <h4>Regular Bail (Post-Arrest) — Position</h4>
+          <ul>
+            <li>Regular bail u/CrPC s.437/439 applies — no statutory bar (unlike anticipatory bail)</li>
+            <li>S.18 only bars anticipatory bail under s.438; post-arrest bail is governed by normal principles</li>
+            <li>Courts apply s.437 factors strictly: gravity of offence, criminal antecedents, risk of flight, victim witness tampering</li>
+            <li>Special Courts have wide power to impose conditions including reporting, surety, no contact with victim</li>
+            <li>The victim has a right to be heard before bail is granted — s.15A(3)</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <div class="case-name">Prithvi Raj Chauhan v. Union of India</div>
+          <div class="case-cite">(2020) 4 SCC 727 — Constitution Bench</div>
+          <p>Five-judge bench of the Supreme Court upheld the constitutional validity of ss.18 and 18A of the SC/ST Act as inserted by the 2018 Amendment. Anticipatory bail under s.438 CrPC is barred absolutely. The Court also reaffirmed that the bar on preliminary inquiry before FIR is valid and constitutional.</p>
+        </div>
+        <div class="warning-box">
+          <div class="w-title">Practice Point — Avoid Incorrect Forum</div>
+          <p>Filing an anticipatory bail application in Sessions Court or HC u/s.438 will be dismissed in limine — and may invite costs in HC. The correct strategy where the client claims innocence is: (1) challenge cognizance/charge at the Special Court, (2) if FIR is on its face false, file s.482 CrPC/Art. 226 HC petition for quashing — not bail u/s.438.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Cognizance &amp; Committal</h3>
+        <div class="content-card">
+          <h4>Direct Cognizance — No Committal Required</h4>
+          <ul>
+            <li>The Special Court takes direct cognizance under ss.14 and 14(2) of the Act — no committal from Magistrate is required</li>
+            <li>However, if the Magistrate has taken cognizance of a companion IPC offence, the entire case must be transferred to the Special Court u/s.14(2)</li>
+            <li>Pending Magistrate proceedings do not give the Magistrate jurisdiction over the s.3 offences</li>
+            <li>Where no Exclusive Special Court exists, the designated Sessions Court functions as Special Court — same procedure</li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">Transfer of Cases to Special Court</div>
+          <p>Where a Magistrate has taken cognizance of a case that ought to be before the Special Court (e.g., the FIR includes s.3 offences but was sent to Magistrate), an application for transfer u/s.14(2) or via HC under s.14A or CrPC s.407 lies. Delays in transfer are themselves ground for victim's writ petition.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Charge-Framing — Critical Aspects</h3>
+        <div class="content-card">
+          <h4>Essential Ingredients to Plead in Charges</h4>
+          <ol>
+            <li>The accused does NOT belong to an SC/ST community [foundation of the offence]</li>
+            <li>The victim belongs to an SC/ST community [must be specifically stated]</li>
+            <li>The act committed by the accused falls within the specific sub-section of s.3 charged</li>
+            <li>The act was committed "on the ground that the victim is a member of SC/ST" — relevant for some sub-sections</li>
+            <li>The place/date/manner of commission</li>
+          </ol>
+        </div>
+        <div class="content-card">
+          <h4>Common Charge-Framing Errors</h4>
+          <ul>
+            <li>Charging under s.3(1)(j) without specifying the "public view" element — non-public place defeats the charge</li>
+            <li>Charging s.3(2)(v) (rape of SC/ST woman) without the enhanced punishment clause being explicit in the charge</li>
+            <li>Failing to frame a separate charge under s.4 against the negligent public servant</li>
+            <li>Using generic "insult" language without specifying the caste-based motivation element where required</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module" id="mod3">
+    <div class="module-header" onclick="toggleMod('mod3')">
+      <h2>🔬 Module 3: Evidence &amp; Witnesses</h2>
+      <div class="module-meta">
+        <span class="dur">~50 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod3-body">
+      <p class="module-intro">Evidentiary challenges in SC/ST Act cases are distinct — from proving caste identity to invoking statutory presumptions. Witness protection and cross-examination strategies require careful planning.</p>
+
+      <div class="section-block">
+        <h3>Proving Caste Identity</h3>
+        <div class="content-card">
+          <h4>Victim's SC/ST Status</h4>
+          <ul>
+            <li>Caste certificate issued by competent authority (Revenue/Welfare Department) is primary evidence</li>
+            <li>Community certificate must be from the notified list under the applicable Presidential Order (1950/1956/1976/1989 etc.)</li>
+            <li>Birth records, school certificates, patta (land records) can supplement</li>
+            <li>Oral evidence of community members is admissible but must be corroborated</li>
+            <li>The certificate must show SC/ST status in the specific state — all-India notification applies, but the state entry must match</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h4>Accused's Non-SC/ST Status</h4>
+          <ul>
+            <li>Where defence raises a plea that accused is SC/ST (thus Act doesn't apply), prosecution must rebut with revenue/caste records</li>
+            <li>Burden of proving accused's non-SC/ST status lies on prosecution — failure to prove may result in acquittal</li>
+            <li>Important: The SC/ST Act applies only to atrocities committed by a non-SC/ST person against an SC/ST person</li>
+            <li>Intra-community violence (SC person against SC person) cannot be prosecuted under this Act — only under general IPC</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Statutory Presumption — Section 8</h3>
+        <div class="law-box">
+          <div class="law-title">Burden of Proof — Shifted in Certain Cases</div>
+          <p>S.8: "In a prosecution for an offence under s.3(2)(v), if it is proved that the accused had sexual intercourse with the victim (SC/ST woman), the court shall presume that such sexual intercourse was without consent." This mirrors s.114A IEA. Similarly, s.21's general presumption provision: where victim deposes that the accused committed an act constituting an offence, the court shall presume such offence was committed unless the contrary is proved. Both are rebuttable presumptions — the defence must produce evidence to the contrary.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Hostile Witnesses — Managing Recantation</h3>
+        <div class="content-card">
+          <h4>When the Victim Turns Hostile</h4>
+          <ul>
+            <li>S.15A(9): Court may permit recording of evidence in camera if requested by victim</li>
+            <li>Where victim resiles in cross-examination, the SPP can apply to declare her hostile and cross-examine on prior statement (s.154 IEA)</li>
+            <li>FIR signed by victim is admissible under IEA s.157 as prior consistent statement to corroborate</li>
+            <li>Medical evidence (for assault/rape), site inspection report, panchanama are independent corroboration</li>
+            <li>Video recording of initial statement (now recommended under Rule 12B) becomes crucial</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <div class="case-name">State of Rajasthan v. Darshan Singh</div>
+          <div class="case-cite">(2012) 5 SCC 65</div>
+          <p>Conviction under SC/ST Act upheld even though the victim turned hostile at trial. The Court relied on the victim's FIR, medical report, and corroborating evidence from independent witnesses. Held that hostile witnesses' credible prior statements can form basis of conviction when corroborated by other evidence.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Documentary Evidence — Key Categories</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Document</th><th>Purpose</th><th>Admissibility</th></tr>
+            <tr><td>FIR (s.154 CrPC)</td><td>First account of offence; can be used to corroborate/contradict complainant</td><td>Not substantive evidence — only for corroboration/contradiction</td></tr>
+            <tr><td>Spot inspection report</td><td>Documents locus of offence, injuries, damage</td><td>Public document — admissible; must be proved through DSP/panchas</td></tr>
+            <tr><td>Caste certificate</td><td>Proves SC/ST status</td><td>Public document u/s.74 IEA — self-proving; secondary copy admissible u/s.65</td></tr>
+            <tr><td>Medical examination</td><td>Proves injuries, sexual assault</td><td>Expert evidence u/s.45 IEA; doctor must be examined</td></tr>
+            <tr><td>Video/audio evidence</td><td>Incidents captured on mobile phones — increasingly common</td><td>Electronic record u/s.65B IEA — certificate mandatory</td></tr>
+            <tr><td>Revenue records</td><td>Land ownership/occupation in s.3(1)(d)/(e) cases</td><td>Public document; certified copy admissible</td></tr>
+          </table>
+        </div>
+        <div class="warning-box">
+          <div class="w-title">Section 65B IEA — Electronic Evidence Certificate</div>
+          <p>Any video, WhatsApp message, CCTV footage, or electronic communication sought to be admitted must be accompanied by a s.65B certificate from the person responsible for the computer/device. Without this certificate, the electronic record is inadmissible — <em>Arjun Panditrao Khotkar v. Kailash Kushanrao Gorantyal</em> (2020) 7 SCC 1. Always secure this certificate at the investigation stage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module" id="mod4">
+    <div class="module-header" onclick="toggleMod('mod4')">
+      <h2>📝 Module 4: Sentencing, Compensation &amp; Appellate Strategy</h2>
+      <div class="module-meta">
+        <span class="dur">~50 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod4-body">
+      <p class="module-intro">Sentencing under the Act has mandatory minimums that cannot be suspended without HC leave. Compensation under s.17 and CrPC s.357 are parallel remedies. Appellate strategy must account for the direct HC route.</p>
+
+      <div class="section-block">
+        <h3>Sentencing — Mandatory Minimums</h3>
+        <div class="content-card">
+          <h4>Key Minimum Sentences Under s.3</h4>
+          <ul>
+            <li>Most s.3(1) offences: Minimum 6 months imprisonment — cannot be reduced by Special Court without HC leave</li>
+            <li>S.3(1)(j) (public insult): Minimum 6 months to maximum 5 years</li>
+            <li>S.3(1)(k)-(n) (assault/outraging modesty): Minimum 6 months</li>
+            <li>S.3(2)(iv) (mischief/arson): Minimum 6 months</li>
+            <li>S.3(2)(v) (rape): Minimum 6 months — but now usually subsumed by POCSO/IPC rape provisions which carry higher minimums</li>
+            <li>S.4 (neglect by public servant): Minimum 6 months to maximum 1 year</li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">No Probation / Discharge Under Probation Act</div>
+          <p>S.19 of the SC/ST Act bars the benefit of the Probation of Offenders Act, 1958 and s.360 CrPC — the court cannot release a convicted accused on probation for SC/ST Act offences. This is a complete bar, unlike the general criminal law position. The Special Court must impose the minimum custodial sentence on conviction.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Compensation Framework</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="t-label">Within 7 days of offence</div>
+            <p>District Magistrate/Sub-Divisional Magistrate must grant interim compensation and relief (food, clothing, transport) to victim — Rule 12(4)</p>
+          </div>
+          <div class="timeline-item">
+            <div class="t-label">Within 60 days</div>
+            <p>Full relief as per Schedule to 2016 Rules — including cash compensation, rehabilitation, free medical care, resettlement if displaced</p>
+          </div>
+          <div class="timeline-item">
+            <div class="t-label">On conviction</div>
+            <p>Additional compensation by Special Court under s.17(2) — over and above the administrative compensation already paid. This is not a deduction/offset.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="t-label">Parallel: CrPC s.357</div>
+            <p>Victim compensation under CrPC s.357 / s.357A from State Victim Compensation Fund — concurrent remedy, not a bar to s.17 compensation</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Appellate Strategy — HC Under s.14A</h3>
+        <div class="content-card">
+          <h4>For Prosecution (if acquitted)</h4>
+          <ul>
+            <li>File appeal u/s.14A before HC within 90 days of acquittal (standard limitation — check state HC rules)</li>
+            <li>Grounds: Perverse finding of fact, improper appreciation of evidence, failure to apply statutory presumption (s.8/s.21), inadequate sentence</li>
+            <li>Apply for stay of acquittal and re-arrest of accused where there is flight risk</li>
+            <li>Victim can also file the appeal u/s.14A — not only the State</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h4>For Defence (if convicted)</h4>
+          <ul>
+            <li>File appeal u/s.14A HC against conviction — no Sessions appeal available</li>
+            <li>Apply for suspension of sentence u/s.389 CrPC — HC has jurisdiction even under SC/ST Act convictions</li>
+            <li>Grounds: Doubt on caste identity of victim/accused, lack of corroboration, fabricated evidence, procedural lapses in investigation</li>
+            <li>Challenge compensation order separately if disproportionate or wrongly computed</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <div class="case-name">State of Haryana v. Bhajan Lal</div>
+          <div class="case-cite">(1992) Supp(1) SCC 335 — CrPC s.482 Grounds</div>
+          <p>While not an SC/ST Act case specifically, this judgment lays down the nine categories where HC can quash an FIR under s.482 CrPC. The categories include: (1) no offence disclosed on the face of FIR, (7) criminal proceeding instituted with ulterior motive. These grounds are regularly invoked before HC by accused in SC/ST Act cases — but courts scrutinise them very carefully given the legislative policy behind the Act.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <h3>🎯 Level 2 Assessment — 5 Questions</h3>
+
+    <div class="quiz-q" id="q1">
+      <p>1. Section 18A of the SC/ST Act (2018 Amendment) provides that before registering an FIR for an SC/ST Act offence:</p>
+      <button class="quiz-opt" onclick="answer('q1','a')">A) A preliminary inquiry by DSP must be conducted</button>
+      <button class="quiz-opt" onclick="answer('q1','b')">B) No preliminary inquiry shall be conducted — FIR must be registered immediately</button>
+      <button class="quiz-opt" onclick="answer('q1','c')">C) Approval of the SP is required for arrest</button>
+      <button class="quiz-opt" onclick="answer('q1','d')">D) The complaint must be verified by the Sub-Divisional Magistrate</button>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <p>2. Under Rule 7 of the SC/ST Rules, 1995, investigation of SC/ST Act offences must be conducted by:</p>
+      <button class="quiz-opt" onclick="answer('q2','a')">A) Any gazetted police officer</button>
+      <button class="quiz-opt" onclick="answer('q2','b')">B) Officer not below the rank of Sub-Inspector</button>
+      <button class="quiz-opt" onclick="answer('q2','c')">C) Officer not below the rank of Deputy Superintendent of Police</button>
+      <button class="quiz-opt" onclick="answer('q2','d')">D) Officer not below the rank of Additional SP</button>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <p>3. The SC/ST Act bars the application of which provision for accused persons charged under the Act?</p>
+      <button class="quiz-opt" onclick="answer('q3','a')">A) Section 437 CrPC (regular bail)</button>
+      <button class="quiz-opt" onclick="answer('q3','b')">B) Section 438 CrPC (anticipatory bail)</button>
+      <button class="quiz-opt" onclick="answer('q3','c')">C) Section 439 CrPC (High Court bail)</button>
+      <button class="quiz-opt" onclick="answer('q3','d')">D) Section 482 CrPC (inherent powers)</button>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <p>4. Electronic evidence (video, WhatsApp messages) in SC/ST Act trials must be accompanied by:</p>
+      <button class="quiz-opt" onclick="answer('q4','a')">A) A magistrate's certification of authenticity</button>
+      <button class="quiz-opt" onclick="answer('q4','b')">B) A section 65B IEA certificate from the person responsible for the computer/device</button>
+      <button class="quiz-opt" onclick="answer('q4','c')">C) Expert opinion from FSL (Forensic Science Lab)</button>
+      <button class="quiz-opt" onclick="answer('q4','d')">D) A police panchanama of the electronic record</button>
+      <div class="quiz-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q5">
+      <p>5. On conviction for an SC/ST Act offence, can the Special Court release the accused on probation under the Probation of Offenders Act?</p>
+      <button class="quiz-opt" onclick="answer('q5','a')">A) Yes, in first-time offences where the court deems it appropriate</button>
+      <button class="quiz-opt" onclick="answer('q5','b')">B) Yes, only for s.4 offences by public servants</button>
+      <button class="quiz-opt" onclick="answer('q5','c')">C) No — s.19 of the SC/ST Act bars the Probation of Offenders Act and s.360 CrPC</button>
+      <button class="quiz-opt" onclick="answer('q5','d')">D) Yes, if the minimum sentence has been served</button>
+      <div class="quiz-feedback" id="q5-fb"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="level1.html"><button class="btn btn-back">← Level 1</button></a>
+    <div style="text-align:center">
+      <div style="font-size:12px;color:#64748b;margin-bottom:6px">Level 2 of 3</div>
+      <div id="quizStatus" style="font-size:13px;color:#a78bfa">Complete assessment to unlock Level 3</div>
+    </div>
+    <a href="level3.html"><button class="btn btn-next" id="nextBtn">Level 3 →</button></a>
+  </div>
+
+</div>
+
+<script>
+const answers = {q1:'b',q2:'c',q3:'b',q4:'b',q5:'c'};
+const explanations = {
+  q1:'Correct. S.18A (2018 Amendment) categorically bars any preliminary inquiry before FIR registration for SC/ST Act offences. The police must register the FIR immediately on receiving the complaint.',
+  q2:'Correct. Rule 7(1) mandates that investigation be conducted by an officer not below the rank of DSP. Investigation by a lower-ranking officer is a procedural violation that can be used to attack the charge-sheet.',
+  q3:'Correct. Section 18 bars CrPC s.438 (anticipatory bail) only. Regular bail u/s.437 and HC bail u/s.439 are available post-arrest, subject to normal principles. The Constitution Bench in Prithvi Raj Chauhan (2020) upheld this bar.',
+  q4:'Correct. Under the IEA s.65B requirement as interpreted in Arjun Panditrao Khotkar v. Kailash Kushanrao (2020) 7 SCC 1, a certificate from the responsible person/officer is mandatory for admissibility of electronic records.',
+  q5:'Correct. Section 19 of the SC/ST Act is an absolute bar on the benefit of the Probation of Offenders Act, 1958 and s.360 CrPC for SC/ST Act offences. Custodial punishment is mandatory on conviction.'
+};
+let score=0,done=0;
+function answer(qid,opt){
+  const q=document.getElementById(qid);
+  if(q.dataset.done) return;
+  q.dataset.done='1';
+  done++;
+  const btns=q.querySelectorAll('.quiz-opt');
+  btns.forEach(b=>b.disabled=true);
+  const correct=answers[qid];
+  btns.forEach(b=>{
+    const bOpt=b.getAttribute('onclick').match(/'([a-d])'\)$/)[1];
+    if(bOpt===correct) b.classList.add('correct');
+    else if(bOpt===opt && opt!==correct) b.classList.add('wrong');
+  });
+  if(opt===correct) score++;
+  const fb=document.getElementById(qid+'-fb');
+  fb.textContent=(opt===correct?'✓ Correct! ':'✗ Incorrect. ')+explanations[qid];
+  fb.className='quiz-feedback show '+(opt===correct?'ok':'bad');
+  updateProgress();
+}
+function updateProgress(){
+  const pct=Math.round((done/5)*100);
+  document.getElementById('mainProg').style.width=pct+'%';
+  document.getElementById('progPct').textContent=pct+'%';
+  if(done===5){
+    document.getElementById('quizStatus').textContent='Quiz complete! Score: '+score+'/5 — Proceed to Level 3';
+  }
+}
+function toggleMod(id){
+  const body=document.getElementById(id+'-body');
+  const hdr=document.querySelector('#'+id+' .module-header');
+  const show=body.classList.toggle('show');
+  hdr.classList.toggle('open',show);
+}
+toggleMod('mod1');
+</script>
+</body>
+</html>
