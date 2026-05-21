@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC/ST Atrocities Act — Lawyer Track Level 3 | Jan Nyaya Resource Centre</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.topbar{background:#1e293b;border-bottom:1px solid #334155;padding:12px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.topbar a{color:#94a3b8;text-decoration:none;font-size:13px}
+.topbar a:hover{color:#f1f5f9}
+.topbar .sep{color:#475569}
+.topbar .track-badge{background:#7c3aed;color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px}
+.hero{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4c1d95 100%);padding:48px 24px 40px;text-align:center}
+.hero .level-chip{background:rgba(167,139,250,.2);border:1px solid #7c3aed;color:#c4b5fd;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:16px}
+.hero h1{font-size:clamp(22px,4vw,34px);font-weight:800;color:#fff;margin-bottom:8px}
+.hero p{color:#c4b5fd;font-size:15px;max-width:640px;margin:0 auto 20px}
+.hero-meta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.1);padding:6px 14px;border-radius:20px;font-size:12px;color:#e0e7ff}
+.container{max-width:900px;margin:0 auto;padding:32px 20px}
+.progress-bar-wrap{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.progress-bar-wrap .label{font-size:13px;color:#94a3b8;white-space:nowrap}
+.prog-track{flex:1;background:#334155;border-radius:6px;height:8px}
+.prog-fill{background:linear-gradient(90deg,#7c3aed,#a78bfa);height:8px;border-radius:6px;transition:width .4s}
+.prog-pct{font-size:13px;color:#a78bfa;font-weight:700;white-space:nowrap}
+.module{background:#1e293b;border:1px solid #334155;border-radius:16px;margin-bottom:24px;overflow:hidden}
+.module-header{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.module-header:hover{background:#253247}
+.module-header h2{font-size:17px;font-weight:700;color:#f1f5f9}
+.module-header .module-meta{display:flex;gap:10px;align-items:center}
+.module-header .dur{font-size:12px;color:#64748b;background:#0f172a;padding:3px 10px;border-radius:12px}
+.module-header .chevron{color:#64748b;font-size:18px;transition:transform .3s}
+.module-header.open .chevron{transform:rotate(180deg)}
+.module-body{padding:0 24px 24px;display:none}
+.module-body.show{display:block}
+.module-intro{color:#94a3b8;font-size:14px;margin-bottom:20px;line-height:1.7;border-left:3px solid #7c3aed;padding-left:14px}
+.section-block{margin-bottom:24px}
+.section-block h3{font-size:15px;font-weight:700;color:#a78bfa;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-block h3::before{content:'';display:inline-block;width:4px;height:16px;background:#7c3aed;border-radius:2px}
+.content-card{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:16px;margin-bottom:12px}
+.content-card h4{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px}
+.content-card p,.content-card li{font-size:13px;color:#94a3b8;line-height:1.7}
+.content-card ul,.content-card ol{padding-left:18px}
+.content-card li{margin-bottom:4px}
+.law-box{background:linear-gradient(135deg,#1e1b4b,#1e293b);border:1px solid #4c1d95;border-radius:10px;padding:16px;margin-bottom:12px}
+.law-box .law-title{font-size:12px;font-weight:700;color:#c4b5fd;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.law-box p{font-size:13px;color:#a5b4fc;line-height:1.7}
+.highlight-box{background:linear-gradient(135deg,#0c4a6e,#0f172a);border:1px solid #0369a1;border-radius:10px;padding:14px;margin-bottom:12px}
+.highlight-box .hl-title{font-size:11px;font-weight:700;color:#38bdf8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.highlight-box p{font-size:13px;color:#7dd3fc;line-height:1.6}
+.warning-box{background:linear-gradient(135deg,#451a03,#1c1917);border:1px solid #92400e;border-radius:10px;padding:14px;margin-bottom:12px}
+.warning-box .w-title{font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.warning-box p{font-size:13px;color:#fde68a;line-height:1.6}
+.success-box{background:linear-gradient(135deg,#14532d,#0f172a);border:1px solid #16a34a;border-radius:10px;padding:14px;margin-bottom:12px}
+.success-box .s-title{font-size:11px;font-weight:700;color:#4ade80;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.success-box p{font-size:13px;color:#86efac;line-height:1.6}
+.case-card{background:#0f172a;border-left:4px solid #7c3aed;border-radius:0 10px 10px 0;padding:16px;margin-bottom:14px}
+.case-card .case-name{font-size:14px;font-weight:700;color:#c4b5fd;margin-bottom:4px}
+.case-card .case-cite{font-size:11px;color:#64748b;margin-bottom:8px}
+.case-card .case-ratio{font-size:12px;font-weight:700;color:#a78bfa;margin-bottom:6px}
+.case-card p{font-size:13px;color:#94a3b8;line-height:1.6}
+.case-card .case-impact{margin-top:8px;padding:8px;background:#1e293b;border-radius:6px;font-size:12px;color:#64748b}
+.table-wrap{overflow-x:auto;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#1e1b4b;color:#c4b5fd;padding:10px 12px;text-align:left;border-bottom:1px solid #4c1d95;font-weight:700}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;color:#94a3b8;vertical-align:top}
+tr:hover td{background:#1a2540}
+.strategy-step{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:14px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start}
+.strategy-step .step-num{min-width:32px;height:32px;background:#7c3aed;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff}
+.strategy-step .step-content h4{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:4px}
+.strategy-step .step-content p{font-size:13px;color:#94a3b8;line-height:1.5}
+.quiz-section{background:#0f172a;border:1px solid #7c3aed;border-radius:12px;padding:24px;margin-top:32px}
+.quiz-section h3{font-size:16px;font-weight:700;color:#a78bfa;margin-bottom:20px;text-align:center}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:14px;color:#e2e8f0;margin-bottom:10px;font-weight:600}
+.quiz-opt{display:block;padding:10px 14px;background:#1e293b;border:1px solid #334155;border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px;color:#94a3b8;transition:all .2s;text-align:left;width:100%}
+.quiz-opt:hover{border-color:#7c3aed;color:#c4b5fd}
+.quiz-opt.correct{background:#14532d;border-color:#16a34a;color:#86efac}
+.quiz-opt.wrong{background:#450a0a;border-color:#dc2626;color:#fca5a5}
+.quiz-feedback{font-size:12px;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:#14532d;color:#86efac}
+.quiz-feedback.bad{background:#450a0a;color:#fca5a5}
+.cert-cta{background:linear-gradient(135deg,#4c1d95,#1e1b4b);border:1px solid #7c3aed;border-radius:16px;padding:32px;text-align:center;margin-top:32px}
+.cert-cta h3{font-size:20px;font-weight:800;color:#fff;margin-bottom:8px}
+.cert-cta p{font-size:14px;color:#c4b5fd;margin-bottom:20px}
+.cert-cta a{text-decoration:none}
+.cert-cta .btn-cert{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;padding:14px 32px;border-radius:10px;font-size:16px;font-weight:700;border:none;cursor:pointer;display:inline-block}
+.nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:24px;padding:20px;background:#1e293b;border:1px solid #334155;border-radius:12px}
+.nav-footer a{text-decoration:none}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.btn-back{background:#334155;color:#94a3b8}
+.btn-back:hover{background:#475569;color:#f1f5f9}
+.btn-next{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff}
+.btn-next:hover{opacity:.9;transform:translateY(-1px)}
+@media(max-width:600px){.hero{padding:32px 16px 28px}.container{padding:20px 12py}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">🏠 Home</a>
+  <span class="sep">›</span>
+  <a href="../index.html">SC/ST Atrocities Act</a>
+  <span class="sep">›</span>
+  <a href="index.html">Lawyer Track</a>
+  <span class="sep">›</span>
+  <span style="color:#e2e8f0">Level 3</span>
+  <div style="flex:1"></div>
+  <span class="track-badge">⚖️ Lawyer</span>
+</div>
+
+<div class="hero">
+  <div class="level-chip">Level 3 of 3 — Advanced</div>
+  <h1>Landmark Cases &amp; Strategic Litigation</h1>
+  <p>Mastering the constitutional arc of SC/ST Act jurisprudence — from the Supreme Court's pivotal judgments to PIL strategies, compensation enforcement, and systemic accountability litigation.</p>
+  <div class="hero-meta">
+    <span>⏱ ~4 hrs</span>
+    <span>📋 4 Modules</span>
+    <span>⚖️ Lawyer Track</span>
+    <span>🏆 Advanced Level</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="progress-bar-wrap">
+    <span class="label">Level 3 Progress</span>
+    <div class="prog-track"><div class="prog-fill" id="mainProg" style="width:0%"></div></div>
+    <span class="prog-pct" id="progPct">0%</span>
+  </div>
+
+  <!-- MODULE 1 -->
+  <div class="module" id="mod1">
+    <div class="module-header" onclick="toggleMod('mod1')">
+      <h2>📚 Module 1: Landmark Supreme Court Judgments</h2>
+      <div class="module-meta">
+        <span class="dur">~70 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod1-body">
+      <p class="module-intro">The SC/ST Act's journey through the Supreme Court has been marked by tension between the Act's protective purpose and concerns about misuse. Every practitioner must know this arc — from the Act's broad application to the Subhash Kashinath controversy and its reversal by Parliament.</p>
+
+      <div class="section-block">
+        <h3>Foundational Cases — Scope &amp; Interpretation</h3>
+
+        <div class="case-card">
+          <div class="case-name">State of Karnataka v. Appa Balu Ingale</div>
+          <div class="case-cite">(1995) Supp(4) SCC 469</div>
+          <div class="case-ratio">Ratio: SC/ST Act is a social legislation — must be construed broadly</div>
+          <p>The Supreme Court held that the SC/ST Act, being a welfare and protection legislation, must be interpreted liberally in favour of the victims. Courts must not import technical limitations from general criminal law when the clear purpose is social upliftment. Technical objections that dilute the Act's protective sweep should be disfavoured. This principle continues to guide statutory interpretation of the Act.</p>
+          <div class="case-impact">📌 Application: Use this ratio when opposing technical defences based on procedural objections or narrow reading of s.3 sub-sections.</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-name">Masumsha Hasanasha Musalman v. State of Maharashtra</div>
+          <div class="case-cite">(2000) 3 SCC 557</div>
+          <div class="case-ratio">Ratio: Accused's knowledge of victim's caste is NOT required for most s.3 offences</div>
+          <p>The Court definitively held that for offences under s.3, it is not necessary that the accused knew the victim belonged to a Scheduled Caste or Scheduled Tribe at the time of the commission of the offence. The victim's SC/ST status and the commission of the prohibited act are sufficient. The "caste motivation" requirement is specific to certain sub-sections — it is not a general ingredient. This was a critical ruling against defence counsel who routinely argued lack of knowledge.</p>
+          <div class="case-impact">📌 Application: In any case where defence argues "accused didn't know victim's caste", cite this case.</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-name">Gangula Ashok v. State of Andhra Pradesh</div>
+          <div class="case-cite">(2000) 2 SCC 504</div>
+          <div class="case-ratio">Ratio: Special Court has exclusive jurisdiction — Magistrate cannot try SC/ST Act offences</div>
+          <p>The Supreme Court held that the Special Court has exclusive jurisdiction to try SC/ST Act offences. If a Magistrate takes cognizance of such an offence, the proceedings are without jurisdiction and must be transferred to the Special Court. This ruling is fundamental to jurisdictional challenges at the inception of proceedings.</p>
+          <div class="case-impact">📌 Application: Where case is before wrong court, apply for transfer to Special Court without delay — any delay may be argued as waiver of this objection by prosecution.</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-name">State of Maharashtra v. Ram Krishna Balothia</div>
+          <div class="case-cite">(1995) 3 SCC 221</div>
+          <div class="case-ratio">Ratio: SC/ST Act is constitutionally valid — bar on anticipatory bail is not ultra vires Art. 21</div>
+          <p>This was among the earliest constitutional challenges to the Act. The Court upheld the validity of the absolute bar on anticipatory bail (s.18) and held that it does not violate Art. 21 (right to life and personal liberty). The State's compelling interest in protecting historically oppressed communities justifies the differential treatment. Art. 15(4) and 46 (DPSPs) must be read with Art. 21 — they form a constitutional continuum.</p>
+          <div class="case-impact">📌 Application: When constitutional validity of s.18 is challenged before HC, cite this along with Prithvi Raj Chauhan (2020).</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>The Subhash Kashinath Controversy &amp; Legislative Response</h3>
+
+        <div class="case-card">
+          <div class="case-name">Subhash Kashinath Mahajan v. State of Maharashtra</div>
+          <div class="case-cite">(2018) 6 SCC 454 — Two-Judge Bench</div>
+          <div class="case-ratio">Controversial Direction — Overturned by 2018 Amendment</div>
+          <p>A two-judge bench of the Supreme Court — without referral to a larger bench — issued directions that: (1) required a preliminary inquiry before registration of FIR, (2) made arrest subject to prior approval of DSP/SSP, (3) granted anticipatory bail in "exceptional cases". These directions were criticised as judicially diluting the protections Parliament had enacted. Unprecedented nationwide protests by Dalit organisations followed.</p>
+          <div class="case-impact">📌 Status: Parliament responded with the SC/ST (POA) Amendment Act 2018, inserting s.18A to expressly bar preliminary inquiry and restore mandatory arrest. The 2018 judgment's directions are now superseded by statute.</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-name">Subhash Kashinath Mahajan v. State of Maharashtra (Review)</div>
+          <div class="case-cite">(2019) — Review Petition</div>
+          <div class="case-ratio">Ratio: The Court recalls and reviews some of its earlier directions</div>
+          <p>In the review petition, the Supreme Court itself recalled certain directions from its 2018 judgment — particularly the preliminary inquiry requirement — acknowledging the legislative intent and the 2018 Amendment. This partial recall, combined with the statutory amendment, renders the original Subhash Kashinath directions wholly inoperative. However, the judgment remains cited by those seeking quashing of FIRs — every practitioner must be ready to distinguish it.</p>
+          <div class="case-impact">📌 Application: When defence cites Subhash Kashinath to argue for pre-arrest bail or preliminary inquiry, counter with: (1) the review recall, (2) the 2018 Amendment (s.18A), and (3) Prithvi Raj Chauhan (2020).</div>
+        </div>
+
+        <div class="case-card">
+          <div class="case-name">Prithvi Raj Chauhan v. Union of India</div>
+          <div class="case-cite">(2020) 4 SCC 727 — Constitution Bench (5 Judges)</div>
+          <div class="case-ratio">Ratio: The 2018 Amendment is constitutionally valid; ss.18 and 18A are upheld</div>
+          <p>The Constitution Bench conclusively upheld the SC/ST (POA) Amendment Act 2018. The Court held: (i) the absolute bar on anticipatory bail u/s.18 is valid, (ii) s.18A's prohibition on preliminary inquiry is valid, (iii) the Subhash Kashinath Mahajan (2018) directions are no longer operative. The five-judge bench overruled the earlier two-judge bench to the extent of inconsistency. This is now the settled law on the subject.</p>
+          <div class="case-impact">📌 This is the most important recent judgment under the Act — cite it in every bail and quashing matter to shut down Subhash Kashinath-based arguments.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module" id="mod2">
+    <div class="module-header" onclick="toggleMod('mod2')">
+      <h2>⚔️ Module 2: High Court &amp; Supreme Court Litigation Strategy</h2>
+      <div class="module-meta">
+        <span class="dur">~60 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod2-body">
+      <p class="module-intro">SC/ST Act litigation frequently reaches the High Court — for quashing, s.14A appeals, bail appeals, and writ petitions. Knowing the strategic framework for each forum is essential for effective representation.</p>
+
+      <div class="section-block">
+        <h3>Quashing — CrPC s.482 / Art. 226 HC Petition</h3>
+        <div class="content-card">
+          <h4>Grounds for Quashing FIR (Defence)</h4>
+          <ul>
+            <li>No cognizable offence disclosed — the act as described does not fall within any s.3 sub-section</li>
+            <li>The accused belongs to SC/ST — the foundational inter-community element is absent</li>
+            <li>The victim does not belong to SC/ST community — misidentification</li>
+            <li>The act occurred in a non-public setting where s.3(1)(j) (public view) is charged</li>
+            <li>FIR is a counter-blast to a civil dispute / clear mala fides evidenced from simultaneous civil proceedings</li>
+            <li>Complaint filed after inordinate delay with suspicious circumstances suggesting false case</li>
+          </ul>
+        </div>
+        <div class="law-box">
+          <div class="law-title">The Prima Facie Test — Not a Mini-Trial</div>
+          <p>In quashing proceedings under s.482 CrPC / Art. 226, the HC examines only whether the FIR on its face discloses an offence. The HC does not conduct a trial, evaluate evidence, or assess credibility of witnesses. Unless the case falls squarely within the <em>Bhajan Lal</em> categories, the FIR will not be quashed. The SC in <em>Ramesh Kumar v. State of Chhattisgarh</em> (2001) 9 SCC 618 cautioned against routine quashing of SC/ST Act FIRs — it defeats the legislative purpose.</p>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">Victim's Right to Oppose Quashing</div>
+          <p>Under s.15A, victims have a right to be heard at every stage. Victims (or their counsel) should file a caveat before the HC and oppose quashing petitions. The victim/complainant has standing to appear and oppose — even if the State does not oppose vigorously. Use s.15A(5)(b): "The State shall ensure that the victim is informed of all public court proceedings."</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>PIL Strategy — Systemic Violations</h3>
+        <div class="content-card">
+          <h4>Categories of Systemic PILs</h4>
+          <ul>
+            <li><strong>Non-appointment of Special Courts / SPPs</strong>: Where states have not designated Exclusive Special Courts or appointed SPPs as mandated by s.14/s.15 — writ of mandamus to the State Government</li>
+            <li><strong>Non-payment of compensation</strong>: Where state governments are systematically failing to pay s.17 compensation — writ compelling payment with interest</li>
+            <li><strong>Non-investigation / closure reports</strong>: Where police file closure reports in SC/ST Act cases without proper investigation — writ directing fresh investigation by SIT</li>
+            <li><strong>Mass atrocities</strong>: Village boycotts, burning of Dalit homes — writ for protection, interim stay of perpetrators' movement, police protection order</li>
+            <li><strong>Caste discrimination in government institutions</strong>: Structural atrocities in prisons, hospitals, schools — s.3(1)(r)/(j) violations by public servants</li>
+          </ul>
+        </div>
+        <div class="case-card">
+          <div class="case-name">National Campaign on Dalit Human Rights v. Union of India</div>
+          <div class="case-cite">W.P.(C) 1015/2008 — Supreme Court</div>
+          <div class="case-ratio">Writ for enforcement of SC/ST Act implementation</div>
+          <p>This PIL challenged the systemic failure of state governments to implement the SC/ST Act — non-appointment of Exclusive Special Courts, non-payment of compensation, non-investigation of atrocities. The SC issued detailed directions for compliance monitoring, including quarterly reports to HCs. This case established the template for systemic enforcement PILs under the Act.</p>
+          <div class="case-impact">📌 Use this as precedent for any PIL challenging state non-compliance with the Act's institutional mandates.</div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Writ Petitions — Specific Enforcement Actions</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Grievance</th><th>Relief Sought</th><th>Forum</th></tr>
+            <tr><td>Police refuses to register FIR</td><td>Mandamus to register FIR + s.4 prosecution of errant officer</td><td>HC (urgent relief), or CJM under s.156(3) CrPC</td></tr>
+            <tr><td>Compensation not paid within 7 days</td><td>Mandamus to District Magistrate + contempt for delay</td><td>HC (Art. 226) + Special Court (s.17)</td></tr>
+            <tr><td>Police filing closure report</td><td>Direction for SIT/CBI investigation or protest petition at Special Court</td><td>HC (Art. 226); Magistrate (protest petition)</td></tr>
+            <tr><td>Trial pending beyond 2 months (Rule 12A)</td><td>Writ of mandamus to complete trial with timeline</td><td>HC supervisory jurisdiction</td></tr>
+            <tr><td>Victim under threat, witness intimidation</td><td>Witness protection order under s.15A(3); police protection direction</td><td>Special Court / HC</td></tr>
+            <tr><td>SC/ST persons barred from public place</td><td>Mandamus + s.3(1)(r) FIR direction + compensation</td><td>HC + criminal proceedings</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module" id="mod3">
+    <div class="module-header" onclick="toggleMod('mod3')">
+      <h2>💰 Module 3: Compensation Enforcement &amp; Contempt</h2>
+      <div class="module-meta">
+        <span class="dur">~50 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod3-body">
+      <p class="module-intro">Securing compensation under the Act is both a statutory right and a constitutional entitlement. Enforcing it requires combining s.17 proceedings, writ petitions, and contempt applications where State authorities default.</p>
+
+      <div class="section-block">
+        <h3>Compensation Rights — The Complete Picture</h3>
+        <div class="content-card">
+          <h4>Multi-Layer Compensation Framework</a4>
+          <ul>
+            <li><strong>Administrative (s.17 + Rules)</strong>: Interim relief within 7 days; full relief within 60 days — from District/State government funds earmarked under s.17</li>
+            <li><strong>Special Court (conviction stage)</strong>: Additional compensation awarded by Special Court on conviction — not a reduction/credit against admin compensation</li>
+            <li><strong>CrPC s.357A</strong>: State Victim Compensation Fund (SCVCS/SVCS scheme) — concurrent remedy; apply even before conviction</li>
+            <li><strong>CrPC s.357</strong>: Court-awarded compensation from fine/property of convicted accused</li>
+            <li><strong>Constitutional (Art. 21/32/226)</strong>: Rudul Sah/Nilabati Behera principle — where state action caused the harm, constitutional compensation from the state lies</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-card">
+         <h3>Contempt Proceedings for Non-Payment</h3>
+        <div class="content-card">
+          <h4>When to File Contempt</h4>
+          <ul>
+            <li>When HC has issued mandamus to pay compensation and the state has not complied within stipulated time</li>
+            <li>When the DM/SDM fails th pass the s.17 interim compensation order within 7 days despite FIR registration — file contempt if there is a prior HC order/direction</li>
+            <li>When Special Court has awarded compensation on conviction \— art remains unpaid</li>
+           </ul>
+        </div>
+        <div class="content-card">
+          <h4>Contempt Application — Key Steps</h4>
+          <ol>
+            <li>Obtain certified copy of the original HC order / Special Court order directing payment</li>
+            <li>Send a demand notice to the defaulting authority (District Welfare Officer / DM / State Finance Dept.) with a 15-day timeline</li>
+            <li>If no compliance, file contempt petition beforngs for Non-Payment</h3>
+        <div class="content-card">
+          <h4>When to File Contempt</h4>
+          <ul>
+            <li>When HC has issued mandamus to pay compensation and the state has not complied within stipulated time</li>
+            <li>When the DM/SDM fails to pass the s.17 interim compensation order within 7 days despite FIR registration — file contempt if there is a prior HC order/direction</li>
+            <li>When Special Court has awarded compensation on conviction and it remains unpaid</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h4>Contempt Application — Key Steps</h4>
+          <ol>
+            <li>Obtain certified copy of the original HC order / Special Court order directing payment</li>
+            <li>Send a demand notice to the defaulting authority (District Welfare Officer / DM / State Finance Dept.) with a 15-day timeline</li>
+            <li>If no compliance, fi|e contempt petition before the appropriate HC (u/Contempt of Courts Act 1971 + HC Rules)</li>
+            <li>Pray for: personal appearance of the responsible officer, direction to comply within 7 days, fine and imprisonment in default</li>
+            <li>Attach evidence: original order, proof of service, evidence of non-payment (victim's bank statement, affidavit)</li>
+          </ol>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">RTI as a Tool for Compensation Tracking</div>
+          <p>File an RTI with the District SC/ST Welfare Officer seeking: (1) names of all victims registered under the Act in the district in the last 2 years, (2) compensation paid/pending against each case, (3) orders passed under s.17. This creates a documentary record for writ petitions and contempt applications, and identifies systemic non-payment patterns useful for PILs.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Case Study — Enforcing Compensation Post-Acquittal</h3>
+        <div class="content-card">
+          <h4>The Problem: Can admin compensation be recovered on acquittal?</h4>
+          <p style="font-size:13px;color:#94a3b8;line-aeminstration:1.7">Nronsacs governments sometem recover s.17 administrative compensation if the accused is ultimately acquitted. The courts have consistently rejected this: the administrative compensation under s.17 and the Rules is intended to provide immediate relief independent of the mUtcome of the criminal trial. Acquittal of the accused does not entitle the State to recover the compensation from the victim. Only if it is established that the victim filed a false complaint may the question arise — and even then, it is the complainant (if convicted for false complaint) who bears the consequences, not the recovery of s.17 relief. See Rule 12(3): "The relief should be given... irrespective of... registration of a case."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module" id="mod4">
+    <div class="module-header" onclick="toggleMod('mod4')">
+      <h2>🗺️ Module 4: Strategic Litigation Toolkit</h2>
+      <div class="module-meta">
+        <span class="dur">~40 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod4-body">
+      <p class="module-intro">A step-by-step toolkit for common SC/ST Act litigation scenarios — from the first client interview to HC appeal. These are the playbooks every practitioner must internalise.</p>
+
+      <div class="section-block">
+        <h3>Playbook A — Police Refusing to Register FIR</h3>
+        <div class="strategy-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Complaint to SP / DIG</h4>
+            <p>Write a formal complaint identifying the specific s.3 sub-sections attracted. This creates a paper trail and may be enough to jolt action.</p>
+          </div>
+        </div>
+        <div class="strategy-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Application u/s.156(3) CrPC to JMFC</h4>
+            <p>File a private complaint with a Judicial Magistrate First Class — the Magistrate can direct police to register FIR and investigate. This is faster than a writ and available in the district itself.</p>
+          </div>
+        </div>
+        <div class="strategy-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>Complaint to DSP / NHRC / SHRC / NCSC</h4>
+            <p>Simultaneously, file complaints with the National Commission for Scheduled Castes (NCSC) or SHRC — they have power to summon police officers and direct compliance.</p>
+          </div>
+        </div>
+        <div class="strategy-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Writ of Mandamus — HC Art. 226</a4>
+            <p>File urgent writ petition with certified copy of complaint sent to police, affidavit of victim, and draft of proposed FIR. HC can direct FIR registration within 24 hours on an urgent mentioning.</p>
+          </div>
+        </div>
+        <div class="strategy-step">
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <h4>Contempt + s.4 Prosecution</h4>
+            <p>Once HC order exists, non-compliance attracts contempt. Simultaneously, file s.4 complaint against the errant SHO before Special Court for wilful neglect of duty.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Playbook B — Appearing as SPP in Special Court</h3>
+        <div class="content-card">
+          <h4>Pre-Trial Checklist</h4>
+          <ul>
+            <li>Verify your appointment notification as SPP — original notification on file</li>
+            <li>Obtain all investigation documents: FIR, DSP investigation report, spot inspection, medical report, s.161 statements</li>
+            <li>Prepare witness list and exam-in-chief outlines for each witness</li>
+            <li>Secure s.65B certificates for all electronic evidence</li>
+            <li>Verify s.17 compensation has been ordered — if not, apply at cognizance stage</li>
+            <li>File s.15A application to ensure victim is informed of all proceedings</li>
+            <li>Identify potential hostile witnesses and plan corroborative evidence strategy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Playbook C — Defending in SC/ST Act Cases</h3>
+        <div class="content-card">
+          <h4>Points to Investigate Immediately on Receiving Brief</a4>
+          <ul>
+            <li>Does the accused belong to SC/ST? If yes — the Act does not apply (inter-community requirement)</li>
+            <li>Is there any civil dispute/prior litigation between the parties? (mala fide indicator)</li>
+            <li>Was there a preliminary inquiry before FIR? (if so, s.18A violated — affects prosecution)</li>
+            <li>Who conducted the investigation? (check rank — if below DSP, Rule 7 violated)</li>
+            <li>Is the specific act within a s.3 sub-section? (public view requirement for s.3(1)(j), etc.)</li>
+            <li>Is there independent corroboration or only family/interested witnesses?</li>
+          </ul>
+        </div>
+        <div class="warning-box">
+          <div class="w-title">Ethics Note — Defence in SC/ST Act Cases</div>
+          <p>While every accused is entitled to representation, counsel must not suborn perjury, facilitate harassment of victim witnesses, or file vexatious applications solely to delay proceedings. The Act specifically criminalises instituting false or malicious proceedings against SC/ST persons (s.3(1)(h)) — using the defence role to further harassment of the victim can attract this provision against the instigator.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Key Citations Quick Reference</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Issue</th><th>Leading Case</th><th>Citation</th></tr>
+            <tr><td>Anticipatory bail bar — validity</td><td>Prithvi Raj Chauhan v. UOI</td><td>(2020) 4 SCC 727</td></tr>
+            <tr><td>Accused's caste knowledge not required</td><td>Masumsha Hasanasha</td><td>(2000) 3 SCC 557</td></tr>
+            <tr><td>Act to be construed broadly</td><td>Appa Balu Ingale</td><td>(1995) Supp(4) SCC 469</td></tr>
+            <tr><td>Exclusive jurisdiction — Special Court</td><td>Gangula Ashok</td><td>(2000) 2 SCC 504</td></tr>
+            <tr><td>Quashing of FIR — categories</td><td>State of Haryana v. Bhajan Lal</td><td>(1992) Supp(1) SCC 335</td></tr>
+            <tr><td>Hostile witnesses — conviction still possible</td><td>State of Rajasthan v. Darshan Singh</td><td>(2012) 5 SCC 65</td></tr>
+            <tr><td>Electronic evidence — certificate mandatory</td><td>Arjun Panditrao Khotkar</td><td>(2020) 7 SCC 1</td></tr>
+            <tr><td>Constitutional compensation</td><td>Nilabati Behera v. State of Orissa</td><td>(1993) 2 SCC 746</td></tr>
+            <tr><td>Subhash Kashinath — overruled by 2018 Amendment</td><td>Prithvi Raj Chauhan</td><td>(2020) 4 SCC 727</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <h3>🎯 Final Assessment — 5 Questions</h3>
+
+    <div class="quiz-q" id="q1">
+      <p>1. The Supreme Court in Prithvi Raj Chauhan v. Union of India (2020) held:</p>
+      <button class="quiz-opt" onclick="answer('q1','a')">A) Courts may grant anticipatory bail in genuine cases under Art. 21 even under SC/ST Act</button>
+      <button class="quiz-opt" onclick="answer('q1','b')">B) The 2018 Amendment inserting ss.18 and 18A is constitutionally valid; anticipatory bail bar is absolute</button>
+      <button class="quiz-opt" onclick="answer('q1','c')">C) The Subhash Kashinath Mahajan (2018) directions continue to apply</button>
+      <button class="quiz-opt" onclick="answer('q1','d')">D) The 2018 Amendment was struck down as ultra vires Arts. 14 and 21</button>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <p>2. When police refuse to register an FIR under the SC/ST Act, the FASTEST available remedy in the district (without going to HC) is:</p>
+      <button class="quiz-opt" onclick="answer('q2','a')">A) Writ petition before HC u/Art. 226</button>
+      <button class="quiz-opt" onclick="answer('q2','b')">B) Complaint to National Human Rights Commission</button>
+      <button class="quiz-opt" onclick="answer('q2','c')">C) Application u/s.156(3) CrPC before JMFC for direction to investigate</button>
+      <button class="quiz-opt" onclick="answer('q2','d')">D) Appeal to the State SC/ST Commission</button>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <p>3. Under the SC/ST Act, can the State Government recover administrative compensation paid under s.17 from the victim if the accused is ultimately acquitted?</p>
+      <button class="quiz-opt" onclick="answer('q3','a')">A) Yes — compensation is conditional on conviction</button>
+      <button class="quiz-opt" onclick="answer('q3','b')">B) Yes — but only if a false complaint is proved against the victim</button>
+      <button class="quiz-opt" onclick="answer('q3','c')">C) No — s.17 compensation is independent of the trial outcome</button>
+      <button class="quiz-opt" onclick="answer('q3','d')">D) No — but the compensation is adjusted against future benefits under welfare schemes</button>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <p>4. In Masumsha Hasanasha Musalman v. State of Maharashtra (2000) 3 SCC 557, the Supreme Court held:</p>
+      <button class="quiz-opt" onclick="answer('q4','a')">A) The accused's knowledge of the victim's SC/ST caste is an essential ingredient of s.3 offences</button>
+      <button class="quiz-opt" onclick="answer('q4','b')">B) The accused's knowledge of the victim's caste is NOT required for most s.3 offences</button>
+      <button class="quiz-opt" onclick="answer('q4','c')">C) The SC/ST Act can only apply where caste-based motive is proved by independent evidence</button>
+      <button class="quiz-opt" onclick="answer('q4','d')">D) Intra-community violence can also attract the SC/ST Act where motive is caste-based</button>
+      <div class="quiz-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q5">
+      <p>5. A victim under the SC/ST Act has a statutory right under s.15A to:</p>
+      <button class="quiz-opt" onclick="answer('q5','a')">A) Conduct the prosecution independently without the SPP</button>
+      <button class="quiz-opt" onclick="answer('q5','b')">B) Be heard at every stage including bail hearings, and receive notice of all court proceedings</button>
+      <button class="quiz-opt" onclick="answer('q5','c')">C) File an appeal before the Sessions Court against SPP's decisions</button>
+      <button class="quiz-opt" onclick="answer('q5','d')">D) Request transfer of the case to another state</button>
+      <div class="quiz-feedback" id="q5-fb"></div>
+    </div>
+  </div>
+
+  <div class="cert-cta">
+    <h3>🏆 Congratulations!</h3>
+    <p>You have completed all 3 levels of the SC/ST Atrocities Act — Lawyer Track. Claim your certificate of completion from the Jan Nyaya Resource Centre.</p>
+    <a href="certificate.html"><button class="btn-cert">📜 Get Certificate →</button></a>
+  </div>
+
+  <div class="nav-footer">
+    <a href="level2.html"><button class="btn btn-back">← Level 2</button></a>
+    <div style="text-align:center">
+      <div style="font-size:12px;color:#64748b;margin-bottom:6px">Level 3 of 3 — Final Level</div>
+      <div id="quizStatus" style="font-size:13px;color:#a78bfa">Complete assessment to earn your certificate</div>
+    </div>
+    <a href="certificate.html"><button class="btn btn-next" id="nextBtn">Certificate →</button></a>
+  </div>
+
+</div>
+
+<script>
+const answers = {q1:'b',q2:'c',q3:'c',q4:'b',q5:'b'};
+const explanations = {
+  q1:'Correct. The Constitution Bench in Prithvi Raj Chauhan (2020) 4 SCC 727 upheld both ss.18 and 18A of the SC/ST Act, confirming that the bar on anticipatory bail is absolute and the Subhash Kashinath (2018) directions no longer apply.',
+  q2:'Correct. An application u/s.156(3) CrPC before the Judicial Magistrate First Class is the fastest district-level remedy — the Magistrate can direct police to register FIR without the delay of a writ petition. It is also less expensive and can be filed by an advocate on behalf of the victim.',
+  q3:'Correct. Rule 12(3) of the SC/ST Rules and established judicial practice confirm that s.17 administrative compensation is given irrespective of registration of a case or the outcome of trial. Acquittal of the accused does not entitle the State to recover the compensation from the victim.',
+  q4:'Correct. In Masumsha Hasanasha, the Supreme Court held that for most s.3 offences, the prosecution only needs to prove: (a) the victim belongs to SC/ST, (b) the accused does not, and (c) the prohibited act was committed. Knowledge of the victim\'s caste by the accused is not an ingredient of the offence.',
+  q5:'Correct. Section 15A(3) and (5) of the SC/ST Act guarantee that victims are heard at every stage of proceedings — including bail hearings — and must be notified of all court proceedings. This is a statutory right that counsel can enforce before the Special Court and HC.'
+};
+let score=0,done=0;
+function answer(qid,opt){
+  const q=document.getElementById(qid);
+  if(q.dataset.done) return;
+  q.dataset.done='1';
+  done++;
+  const btns=q.querySelectorAll('.quiz-opt');
+  btns.forEach(b=>b.disabled=true);
+  const correct=answers[qid];
+  btns.forEach(b=>{
+    const bOpt=b.getAttribute('onclick').match(/'([a-d])'\)$/)[1];
+    if(bOpt===correct) b.classList.add('correct');
+    else if(bOpt===opt && opt!==correct) b.classList.add('wrong');
+  });
+  if(opt===correct) score++;
+  const fb=document.getElementById(qid+'-fb');
+  fb.textContent=(opt===correct?'✓ Correct! ':'✗ Incorrect. ')+explanations[qid];
+  fb.className='quiz-feedback show '+(opt===correct?'ok':'bad');
+  updateProgress();
+}
+function updateProgress(){
+  const pct=Math.round((done/5)*100);
+  document.getElementById('mainProg').style.width=pct+'%';
+  document.getElementById('progPct').textContent=pct+'%';
+  if(done===5){
+    document.getElementById('quizStatus').textContent='All done! Score: '+score+'/5 — Claim your certificate!';
+  }
+}
+function toggleMod(id){
+  const body=document.getElementById(id+'-body');
+  const hdr=document.querySelector('#'+id+' .module-header');
+  const show=body.classList.toggle('show');
+  hdr.classList.toggle('open',show);
+}
+toggleMod('mod1');
+</script>
+</body>
+</html>
