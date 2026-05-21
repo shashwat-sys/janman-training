@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC/ST Atrocities Act — Lawyer Track Level 1 | Jan Nyaya Resource Centre</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh}
+.topbar{background:#1e293b;border-bottom:1px solid #334155;padding:12px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:100}
+.topbar a{color:#94a3b8;text-decoration:none;font-size:13px}
+.topbar a:hover{color:#f1f5f9}
+.topbar .sep{color:#475569}
+.topbar .track-badge{background:#7c3aed;color:#fff;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.5px}
+.hero{background:linear-gradient(135deg,#1e1b4b 0%,#312e81 50%,#4c1d95 100%);padding:48px 24px 40px;text-align:center}
+.hero .level-chip{background:rgba(167,139,250,.2);border:1px solid #7c3aed;color:#c4b5fd;padding:4px 16px;border-radius:20px;font-size:12px;font-weight:600;display:inline-block;margin-bottom:16px}
+.hero h1{font-size:clamp(22px,4vw,34px);font-weight:800;color:#fff;margin-bottom:8px}
+.hero p{color:#c4b5fd;font-size:15px;max-width:640px;margin:0 auto 20px}
+.hero-meta{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.hero-meta span{background:rgba(255,255,255,.1);padding:6px 14px;border-radius:20px;font-size:12px;color:#e0e7ff}
+.container{max-width:900px;margin:0 auto;padding:32px 20px}
+.progress-bar-wrap{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.progress-bar-wrap .label{font-size:13px;color:#94a3b8;white-space:nowrap}
+.prog-track{flex:1;background:#334155;border-radius:6px;height:8px}
+.prog-fill{background:linear-gradient(90deg,#7c3aed,#a78bfa);height:8px;border-radius:6px;transition:width .4s}
+.prog-pct{font-size:13px;color:#a78bfa;font-weight:700;white-space:nowrap}
+.module{background:#1e293b;border:1px solid #334155;border-radius:16px;margin-bottom:24px;overflow:hidden}
+.module-header{padding:20px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .2s}
+.module-header:hover{background:#253247}
+.module-header h2{font-size:17px;font-weight:700;color:#f1f5f9}
+.module-header .module-meta{display:flex;gap:10px;align-items:center}
+.module-header .dur{font-size:12px;color:#64748b;background:#0f172a;padding:3px 10px;border-radius:12px}
+.module-header .chevron{color:#64748b;font-size:18px;transition:transform .3s}
+.module-header.open .chevron{transform:rotate(180deg)}
+.module-body{padding:0 24px 24px;display:none}
+.module-body.show{display:block}
+.module-intro{color:#94a3b8;font-size:14px;margin-bottom:20px;line-height:1.7;border-left:3px solid #7c3aed;padding-left:14px}
+.section-block{margin-bottom:24px}
+.section-block h3{font-size:15px;font-weight:700;color:#a78bfa;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section-block h3::before{content:'';display:inline-block;width:4px;height:16px;background:#7c3aed;border-radius:2px}
+.content-card{background:#0f172a;border:1px solid #334155;border-radius:10px;padding:16px;margin-bottom:12px}
+.content-card h4{font-size:13px;font-weight:700;color:#e2e8f0;margin-bottom:8px}
+.content-card p,.content-card li{font-size:13px;color:#94a3b8;line-height:1.7}
+.content-card ul,.content-card ol{padding-left:18px}
+.content-card li{margin-bottom:4px}
+.law-box{background:linear-gradient(135deg,#1e1b4b,#1e293b);border:1px solid #4c1d95;border-radius:10px;padding:16px;margin-bottom:12px}
+.law-box .law-title{font-size:12px;font-weight:700;color:#c4b5fd;text-transform:uppercase;letter-spacing:.8px;margin-bottom:8px}
+.law-box p{font-size:13px;color:#a5b4fc;line-height:1.7}
+.law-box code{background:#0f172a;padding:2px 6px;border-radius:4px;font-family:monospace;font-size:12px;color:#818cf8}
+.highlight-box{background:linear-gradient(135deg,#0c4a6e,#0f172a);border:1px solid #0369a1;border-radius:10px;padding:14px;margin-bottom:12px}
+.highlight-box .hl-title{font-size:11px;font-weight:700;color:#38bdf8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.highlight-box p{font-size:13px;color:#7dd3fc;line-height:1.6}
+.warning-box{background:linear-gradient(135deg,#451a03,#1c1917);border:1px solid #92400e;border-radius:10px;padding:14px;margin-bottom:12px}
+.warning-box .w-title{font-size:11px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.warning-box p{font-size:13px;color:#fde68a;line-height:1.6}
+.table-wrap{overflow-x:auto;margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#1e1b4b;color:#c4b5fd;padding:10px 12px;text-align:left;border-bottom:1px solid #4c1d95;font-weight:700}
+td{padding:9px 12px;border-bottom:1px solid #1e293b;color:#94a3b8;vertical-align:top}
+tr:hover td{background:#1a2540}
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.tag-critical{background:#4c1d95;color:#c4b5fd}
+.tag-info{background:#0c4a6e;color:#7dd3fc}
+.tag-warn{background:#451a03;color:#fde68a}
+.quiz-section{background:#0f172a;border:1px solid #7c3aed;border-radius:12px;padding:24px;margin-top:32px}
+.quiz-section h3{font-size:16px;font-weight:700;color:#a78bfa;margin-bottom:20px;text-align:center}
+.quiz-q{margin-bottom:20px}
+.quiz-q p{font-size:14px;color:#e2e8f0;margin-bottom:10px;font-weight:600}
+.quiz-opt{display:block;padding:10px 14px;background:#1e293b;border:1px solid #334155;border-radius:8px;margin-bottom:6px;cursor:pointer;font-size:13px;color:#94a3b8;transition:all .2s;text-align:left;width:100%}
+.quiz-opt:hover{border-color:#7c3aed;color:#c4b5fd}
+.quiz-opt.correct{background:#14532d;border-color:#16a34a;color:#86efac}
+.quiz-opt.wrong{background:#450a0a;border-color:#dc2626;color:#fca5a5}
+.quiz-feedback{font-size:12px;margin-top:8px;padding:8px 12px;border-radius:6px;display:none}
+.quiz-feedback.show{display:block}
+.quiz-feedback.ok{background:#14532d;color:#86efac}
+.quiz-feedback.bad{background:#450a0a;color:#fca5a5}
+.nav-footer{display:flex;justify-content:space-between;align-items:center;margin-top:40px;padding:20px;background:#1e293b;border:1px solid #334155;border-radius:12px}
+.nav-footer a{text-decoration:none}
+.btn{padding:12px 24px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.btn-back{background:#334155;color:#94a3b8}
+.btn-back:hover{background:#475569;color:#f1f5f9}
+.btn-next{background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff}
+.btn-next:hover{opacity:.9;transform:translateY(-1px)}
+.btn-disabled{background:#1e293b;color:#475569;cursor:not-allowed}
+@media(max-width:600px){.hero{padding:32px 16px 28px}.container{padding:20px 12px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="../../index.html">🏠 Home</a>
+  <span class="sep">›</span>
+  <a href="../index.html">SC/ST Atrocities Act</a>
+  <span class="sep">›</span>
+  <a href="index.html">Lawyer Track</a>
+  <span class="sep">›</span>
+  <span style="color:#e2e8f0">Level 1</span>
+  <div style="flex:1"></div>
+  <span class="track-badge">⚖️ Lawyer</span>
+</div>
+
+<div class="hero">
+  <div class="level-chip">Level 1 of 3</div>
+  <h1>Legal Framework &amp; Jurisdiction</h1>
+  <p>Mastering the statutory architecture of the SC/ST (Prevention of Atrocities) Act — from definitional clauses to special court jurisdiction and prosecutorial obligations.</p>
+  <div class="hero-meta">
+    <span>⏱ ~4 hrs</span>
+    <span>📋 4 Modules</span>
+    <span>⚖️ Lawyer Track</span>
+    <span>📜 SC/ST POA Act</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="progress-bar-wrap">
+    <span class="label">Level 1 Progress</span>
+    <div class="prog-track"><div class="prog-fill" id="mainProg" style="width:0%"></div></div>
+    <span class="prog-pct" id="progPct">0%</span>
+  </div>
+
+  <!-- MODULE 1 -->
+  <div class="module" id="mod1">
+    <div class="module-header" onclick="toggleMod('mod1')">
+      <h2>📜 Module 1: Statutory Foundations</h2>
+      <div class="module-meta">
+        <span class="dur">~60 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod1-body">
+      <p class="module-intro">A granular reading of the SC/ST (Prevention of Atrocities) Act, 1989 ("POA Act"), the Protection of Civil Rights Act, 1955 ("PCR Act"), and the 2015/2018 amendments — essential before any appearance in a Special Court or High Court.</p>
+
+      <div class="section-block">
+        <h3>Legislative History &amp; Constitutional Basis</h3>
+        <div class="law-box">
+          <div class="law-title">Constitutional Mandate</div>
+          <p>Arts. 17 (abolition of untouchability), 21 (right to life &amp; dignity), 46 (DPSP — protection of weaker sections), and the enabling power under Art. 35 read with 15(4) &amp; 16(4) form the bedrock of this legislation. The SC/ST Act is not penal legislation alone — it is a constitutional instrument of social transformation. Courts have consistently refused to read it narrowly: <em>State of Karnataka v. Appa Balu Ingale</em> (1995) 4 SCC 469.</p>
+        </div>
+        <div class="content-card">
+          <h4>Timeline of Enactments</h4>
+          <ul>
+            <li><strong>1955</strong> — Protection of Civil Rights Act (formerly Untouchability (Offences) Act) — deals with practice of untouchability-based disabilities</li>
+            <li><strong>1989</strong> — SC/ST (Prevention of Atrocities) Act, No. 33 of 1989; Rules notified 1995</li>
+            <li><strong>2015</strong> — SC/ST (POA) Amendment Act; substantial expansion of offences, addition of Sections 3(2)(v-a) to (vii), new Chapters on Rights of Victims &amp; Witnesses</li>
+            <li><strong>2016</strong> — Amendment Rules adding Schedule of socioeconomic indicators and additional compensation heads</li>
+            <li><strong>2018</strong> — SC/ST (POA) Amendment Act; restoration of automatic arrest provision and removal of preliminary inquiry requirement after <em>Subhash Kashinath Mahajan</em> dilution</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Key Definitions — Section 2</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Term</th><th>Definition / Significance</th></tr>
+            <tr><td><code>s.2(a)</code> "atrocity"</td><td>An offence punishable under s.3 of the Act — not every offence against an SC/ST person, only those falling within the specified categories</td></tr>
+            <tr><td><code>s.2(b)</code> "scheduled caste"</td><td>As defined in Art. 366(24) of the Constitution; notified under the SC Orders issued u/Art. 341 — religion-specific (Hindu/Sikh only for most states)</td></tr>
+            <tr><td><code>s.2(c)</code> "scheduled tribe"</td><td>As defined in Art. 366(25); notified u/Art. 342 — territorial, not religion-based</td></tr>
+            <tr><td><code>s.2(cc)</code> "dependent"</td><td>Inserted by 2015 Amendment — spouse, children, parents, siblings wholly/mainly dependent on the victim</td></tr>
+            <tr><td><code>s.2(ea)</code> "Special Court"</td><td>Session Court specially designated under s.14; from 2015 can be "Exclusive Special Court" — only s.3/4 offences</td></tr>
+            <tr><td><code>s.2(f)</code> "public servant"</td><td>Negligent public servants liable u/s.4; post-2015 amendment includes private persons vested with public duties</td></tr>
+          </table>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">Critical Identification Issue</div>
+          <p>The caste identity of the victim is a sine qua non of prosecution. The accused need not have known the victim's caste at the time of the offence — knowledge of caste is NOT an element of the offence for most s.3 sub-clauses. See <em>Masumsha Hasanasha Musalman v. State of Maharashtra</em> (2000) 3 SCC 557.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Specified Offences — Section 3 (as amended)</h3>
+        <div class="content-card">
+          <h4>Section 3(1) — Atrocities by Non-SC/ST Against SC/ST</h4>
+          <ul>
+            <li><strong>3(1)(a)-(b)</strong>: Forcing consumption of inedible/obnoxious substances; dumping excreta on SC/ST premises</li>
+            <li><strong>3(1)(c)</strong>: Garland with footwear, parade naked or semi-naked</li>
+            <li><strong>3(1)(d)</strong>: Wrongful occupation/cultivation of SC/ST land</li>
+            <li><strong>3(1)(e)</strong>: Wrongful dispossession from land/premises; interference with enjoyment of rights over water</li>
+            <li><strong>3(1)(f)</strong>: Forcing bonded labour (other than under any law)</li>
+            <li><strong>3(1)(g)</strong>: Forcing to vote or not vote against will</li>
+            <li><strong>3(1)(h)</strong>: Instituting false/vexatious/malicious suits, criminal proceedings</li>
+            <li><strong>3(1)(i)</strong>: Giving false/malicious information to public servant</li>
+            <li><strong>3(1)(j)</strong>: Insulting/humiliating in any place within public view (minimum 6 months imprisonment)</li>
+            <li><strong>3(1)(k)-(n)</strong>: Assault/use of force with intent to dishonour; outraging modesty of SC/ST woman</li>
+            <li><strong>3(1)(o)-(r)</strong>: Corrupting water sources; denying right of way/access to public places; preventing enjoyment of special rights</li>
+            <li><strong>3(1)(s)</strong>: Forcing to leave home, village, residence (eviction by intimidation)</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h4>Section 3(2) — Enhanced Punishments for IPC Offences</h4>
+          <ul>
+            <li><strong>3(2)(i)-(ii)</strong>: IPC Chapter VI offences against SC/ST — enhanced punishment</li>
+            <li><strong>3(2)(iii)</strong>: False evidence in a case where SC/ST accused can be convicted for capital offence</li>
+            <li><strong>3(2)(iv)</strong>: Mischief/destruction of property belonging to SC/ST (min. 6 months)</li>
+            <li><strong>3(2)(v)</strong>: Committing rape on SC/ST woman — minimum 6 months (NB: now superseded by POCSO/IPC for most purposes)</li>
+            <li><strong>3(2)(v-a)</strong> [2015 Amendment]: Making SC/ST woman/child object of sexual violence not covered by other provisions</li>
+            <li><strong>3(2)(vi)-(vii)</strong> [2015 Amendment]: Using or controlling SC/ST member to cause or suffer harm; hate propaganda/materials against SC/ST</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h4>Sections 3A–3C [2015 Amendment] — New Offences</h4>
+          <ul>
+            <li><strong>3A</strong>: Intentional insult/intimidation in the name of caste at place of public worship; bonfire/effigy burning</li>
+     0      <li><strong>3B</strong>: Forcing SC/ST woman to remove clothing, parade naked (punishment up to 5 years)</li>
+            <li><strong>3C</strong>: Preaching/propagating untouchability concepts in any form</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Section 4 — Wilful Neglect by Public Servants</h3>
+        <div class="law-box">
+          <div class="law-title">Mandatory Duty &amp; Prosecution</div>
+          <p>S.4 creates criminal liability for a public servant (not belonging to SC/ST) who, knowing an offence u/s.3 has been committed, willfully neglects duties under the Act. Post-2015 Amendment: S.4(2) mandates prosecution of any public servant who commits any s.3 offence while on duty. The 2015 Amendment inserted specific timelines — investigation must be completed within 60 days, non-compliance is a s.4 violation. Under Rule 7 of the 1995 Rules, investigation by a police officer below DSP rank is itself prosecutable under s.4.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module" id="mod2">
+    <div class="module-header" onclick="toggleMod('mod2')">
+      <h2>🏛️ Module 2: Special Courts &amp; Jurisdiction</h2>
+      <div class="module-meta">
+        <span class="dur">~50 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod2-body">
+      <p class="module-intro">Jurisdiction under the Act is conferred exclusively on Special Courts and Exclusive Special Courts. Understanding these provisions is critical for both prosecution and defence, and for High Court challenges.</p>
+
+      <div class="section-block">
+        <h3>Sections 14 &amp; 14A — Establishment of Special Courts</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Provision</th><th>Pre-2015</th><th>Post-2015 Amendment</th></tr>
+            <tr><td>Designation</td><td>State government designates sessions court as Special Court for each district</td><td>State government shall establish "Exclusive Special Court" for one or more districts for trial of SC/ST Act offences only</td></tr>
+            <tr><td>Trial mode</td><td>Special Court tries all SC/ST offences in that district</td><td>Exclusive Special Court — only SC/ST Act offences; non-exclusive still exist for other states</td></tr>
+            <tr><td>Fast track</td><td>No specific timeline</td><td>Day-to-day trial; 60-day investigation period; completion of trial within 2 months of charge-filing (Rule 12A)</td></tr>
+            <tr><td>Appeal</td><td>S.14A — High Court (special bench if designated)</td><td>S.14A — appeal directly to HC; no Sessions appeal; must be decided within 3 months</td></tr>
+          </table>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">Jurisdiction — Key Rule</div>
+          <p>The Special Court has exclusive jurisdiction for offences under s.3 and s.4 of the Act. If the accused is also charged under IPC, the Special Court can try those offences too (s.14). Committal to Sessions is not required — Special Court cognizance is direct. See <em>Gangula Ashok v. State of Andhra Pradesh</em> (2000) 2 SCC 504.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Section 15A — Rights of Victims &amp; Witnesses [2015 Amendment]</h3>
+        <div class="content-card">
+          <h4>Statutory Rights of Victims</h4>
+          <ul>
+            <li>Right to be heard at every stage — bail, suspension of sentence, appeal</li>
+            <li>Right to be informed of the case progress, release/bail of accused</li>
+            <li>Right to reasonable, accurate, and timely notice of any public court proceedings</li>
+            <li>Right to be present and reasonably heard at all public proceedings</li>
+            <li>Right to be treated with fairness, respect, and dignity</li>
+            <li>Right to a speedy trial (s.15A(4) — State's obligation)</li>
+            <li>Right to medical expenses, rehabilitation, and compensation (s.17)</li>
+          </ul>
+        </div>
+        <div class="content-card">
+          <h4>Witness Protection</h4>
+          <ul>
+            <li>S.15A(3): Witnesses are entitled to protection from the State at all stages of investigation and trial</li>
+            <li>The Special Court may direct in-camera proceedings, identity protection, video testimony</li>
+            <li>Duty on Special Public Prosecutor and Investigating Officer to ensure witness safety</li>
+            <li>Harassment of witnesses by accused or their associates is a s.3(1)(h) offence</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Section 14A — Appeals</h3>
+        <div class="law-box">
+          <div class="law-title">Direct HC Appeal — No Sessions Appeal</div>
+          <p>S.14A(1): Notwithstanding the CrPC, an appeal against any judgment, sentence, or order of a Special Court shall lie exclusively to the High Court. Bail orders by Special Court are also directly challengeable before HC. The HC is mandated to decide s.14A appeals within 3 months. This bars Sessions Court from entertaining any revision/appeal — a procedural point frequently raised in practice.</p>
+        </div>
+        <div class="warning-box">
+          <div class="w-title">Common Error</div>
+          <p>Filing a revision/appeal before the Sessions Court against a Special Court order is without jurisdiction. The only remedy is HC under s.14A. Ensure you check this before filing — contempt and costs possible for forum shopping.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Section 16 — Collective Fines</h3>
+        <div class="content-card">
+          <h4>Power of State Government</h4>
+          <p style="font-size:13px;color:#94a3b8;line-height:1.7">Where the State Government is satisfied after enquiry that persons residing in an area have connived at or abetted the commission of an atrocity, or have failed to prevent the commission, the State may impose a collective fine on those persons. This provision is rarely invoked but available in cases of mass mob atrocities where individual prosecution is difficult.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 3 -->
+  <div class="module" id="mod3">
+    <div class="module-header" onclick="toggleMod('mod3')">
+      <h2>🔍 Module 3: Prosecutorial Obligations &amp; Defence Strategies</h2>
+      <div class="module-meta">
+        <span class="dur">~60 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod3-body">
+      <p class="module-intro">The Act creates specific obligations on the prosecution machinery. Understanding these — both for appearing as Special Public Prosecutor and for challenging prosecution as defence counsel — is essential lawyering under the Act.</p>
+
+      <div class="section-block">
+        <h3>Section 15 — Special Public Prosecutors</h3>
+        <div class="content-card">
+          <h4>Appointment &amp; Qualifications</h4>
+          <ul>
+            <li>S.15: State Government shall appoint a Special Public Prosecutor for every Special Court</li>
+            <li>Qualifications: Advocate with at least 7 years' practice at Bar OR retired judicial/IPS officer</li>
+            <li>2015 Amendment: Empanelment may include advocates recommended by SC/ST organisations</li>
+            <li>The SPP is distinct from the regular PP/APP — a non-SPP cannot conduct SC/ST Act trials</li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">Trial by Non-Designated Prosecutor</div>
+          <p>If the trial is conducted by a PP/APP who has not been designated as SPP, the entire trial is vitiated — this is a ground for conviction being set aside on appeal. Always verify appointment of SPP at the outset. See <em>State of Madhya Pradesh v. Ram Krishna Balothia</em> (1995) 3 SCC 221.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Sections 17–19 — Relief &amp; Compensation</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Section</th><th>Provision</th><th>Quantum / Enforcement</th></tr>
+            <tr><td>S.17</td><td>Victims' reliefs: travel/subsistence allowances, compensation, resettlement</td><td>1995 Rules Schedule I — minimum compensation schedules by offence; enhanced by 2016 Rules</td></tr>
+            <tr><td>S.17(1)</td><td>Government officer to distribute interim relief within 7 days of offence</td><td>Enforceable by writ if not given; public servant liable under s.4 for delay</td></tr>
+            <tr><td>S.17(2)</td><td>Full compensation on conviction in Special Court</td><td>To be paid in addition to fine/victim compensation under CrPC s.357</td></tr>
+            <tr><td>S.18A</td><td>No preliminary inquiry before FIR [2018 Amendment]</td><td>Mandatory — violation by police officer is s.4 offence</td></tr>
+            <tr><td>S.19</td><td>Protection of action taken in good faith</td><td>Protects bona fide public servants; does NOT protect mala fide action</td></tr>
+          </table>
+        </div>
+        <div class="content-card">
+          <h4>2016 Rules — Compensation Schedule (Key Heads)</h4>
+          <ul>
+            <li>Murder/death: ₹8.25 lakhs (minimum)</li>
+            <li>Rape: ₹5 lakhs (minimum); gang rape: ₹8.25 lakhs</li>
+            <li>Dacoity: ₹2 lakhs</li>
+            <li>Arson/destruction of property: ₹2 lakhs + value of property</li>
+            <li>Social boycott: ₹1 lakh</li>
+            <li>3(1)(j) insult/humiliation: ₹1 lakh</li>
+            <li>Wrongful occupation of land: market value + ₹1 lakh</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Anticipatory Bail — Section 18 &amp; 18A</h3>
+        <div class="law-box">
+          <div class="law-title">The Anticipatory Bail Bar</div>
+          <p>S.18: "Nothing in section 438 of the CrPC shall apply in relation to any case involving the arrest of any person on an accusation of having committed an offence under this Act." This is an absolute bar. S.18A [2018 Amendment] further provides that no preliminary inquiry shall be conducted, and the officer shall arrest the accused forthwith. The Supreme Court in <em>Prithvi Raj Chauhan v. UOI</em> (2020) 4 SCC 727 upheld ss.18 &amp; 18A — anticipatory bail remains barred. Even a High Court cannot grant anticipatory bail u/s.438 where the accusation is under the POA Act.</p>
+        </div>
+        <div class="highlight-box">
+          <div class="hl-title">Exception — Manifestly False Cases</div>
+          <p>The constitutional courts (HC and SC) retain inherent powers under Art. 226/32 and CrPC s.482 where the complaint is patently false and lodged mala fide. However, the threshold is very high. A mere allegation of false complaint is insufficient — the court must be satisfied that no prima facie offence is made out. See <em>Union of India v. Ramesh Ram</em> (2010) 7 SCC 234.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Section 21 — Presumption as to Offences</h3>
+        <div class="content-card">
+          <h4>Rebuttable Presumption in Favour of Victim</h4>
+          <p style="font-size:13px;color:#94a3b8;line-height:1.7">Where the victim states that the accused did commit an act constituting an offence under the Act, the court shall presume such an offence was committed, unless the contrary is proved. This presumption (similar to s.113A/B IEA) reverses the evidential burden in certain cases. The prosecution must still prove the caste identity of victim and accused, and that the act was committed — whereupon the POA Act presumption kicks in for the "atrocity" element.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 4 -->
+  <div class="module" id="mod4">
+    <div class="module-header" onclick="toggleMod('mod4')">
+      <h2>📋 Module 4: PCR Act 1955 &amp; Interaction with IPC</h2>
+      <div class="module-meta">
+        <span class="dur">~50 min</span>
+        <span class="chevron">▾</span>
+      </div>
+    </div>
+    <div class="module-body" id="mod4-body">
+      <p class="module-intro">The PCR Act is a distinct statute targeting the practice of untouchability. It operates alongside — and is sometimes charged with — the POA Act. The interaction with IPC offences requires careful handling to avoid double jeopardy concerns and to maximise protection.</p>
+
+      <div class="section-block">
+        <h3>PCR Act 1955 — Key Provisions</h3>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Section</th><th>Offence / Provision</th></tr>
+            <tr><td>S.3</td><td>Enforcing religious disabilities — preventing entry to places of public worship on grounds of untouchability (1–3 yrs)</td></tr>
+            <tr><td>S.4</td><td>Enforcing social disabilities — preventing access to shops, public restaurants, places of entertainment, water sources (1–3 yrs)</td></tr>
+            <tr><td>S.5</td><td>Refusing to sell goods/render services (1–2 yrs)</td></tr>
+            <tr><td>S.6</td><td>Unlawful compulsory labour (2–4 yrs)</td></tr>
+            <tr><td>S.7</td><td>Preaching/propagating untouchability (1–3 yrs)</td></tr>
+            <tr><td>S.7A</td><td>Inciting/abetting untouchability offences (1–3 yrs)</td></tr>
+            <tr><td>S.10A</td><td>Cancellation of licence for premises where untouchability enforced</td></tr>
+            <tr><td>S.14</td><td>Enhanced punishment for repeat offenders</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Charging Strategy — PCR Act + POA Act + IPC</h3>
+        <div class="content-card">
+          <h4>Typical Multi-Charge Framework</h4>
+          <ul>
+            <li>PCR Act s.4 (enforcing social disability) + POA Act s.3(1)(�') (denial of right of way) + IPC s.341 (wrongful restraint) — for denial of access to public places</li>
+            <li>PCR Act s.3 + POA Act s.3(1)(j) (insult in public view) — for temple entry cases</li>
+            <li>POA Act s.3(2)(v) + IPC s.376 + POCSO (if minor) — for sexual offences against SC/ST women/girls</li>
+            <li>POA Act s.3(1)(d)/(e) + IPC s.448 (trespass) — for land dispossession</li>
+          </ul>
+        </div>
+        <div class="warning-box">
+          <div class="w-title">Double Jeopardy</div>
+          <p>Charging under both PCR Act and POA Act for the exact same act may invite an Art. 20(2)/s.300 CrPC plea. The safe practice is to charge the same conduct under both Acts only where the ingredients differ — PCR Act requires "enforcement of untouchability" (identity/social disability nexus), while POA Act ss.3(1)(j)/(r) may be broader. Always articulate the distinct factual basis foreach charge.</p>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h3>Compounding &amp; Withdrawal</h3>
+        <div class="content-card">
+          <h4>Non-Compoundable Status</h4>
+          <p style="font-size:13px;color:#94a3b8;line-height:1.7">Offences under the POA Act are not compoundable — neither under the First Schedule to CrPC nor by judicial order. The Special Court cannot permit compounding. The prosecution can only be withdrawn u/s.321 CrPC by the SPP with leave of court — and even this is permissible only in exceptional circumstances and subject to the court's satisfaction that it is in public interest. A politically motivated withdrawal can be challenged by the victim u/s.15A or by filing a fresh private complaint/writ petition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="quiz-section">
+    <h3>🎯 Level 1 Assessment — 5 Questions</h3>
+
+    <div class="quiz-q" id="q1">
+      <p>1. Under the SC/ST Act, knowledge of the victim's caste by the accused at the time of the offence is:</p>
+      <button class="quiz-opt" onclick="answer('q1','a')">A) An essential ingredient of all s.3 offences</button>
+      <button class="quiz-opt" onclick="answer('q1','b')">B) Not required for most s.3 offences — victim's SC/ST identity suffices</button>
+      <button class="quiz-opt" onclick="answer('q1','c')">C) Required only for s.3(2) enhanced offences</button>
+      <button class="quiz-opt" onclick="answer('q1','d')">D) Required only where caste-based motive is alleged</button>
+      <div class="quiz-feedback" id="q1-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q2">
+      <p>2. Section 18A of the SC/ST Act (2018 Amendment) provides:</p>
+      <button class="quiz-opt" onclick="answer('q2','a')">A) Anticipatory bail may be granted in genuine cases by the High Court</button>
+      <button class="quiz-opt" onclick="answer('q2','b')">B) A preliminary inquiry must be conducted before registering FIR</button>
+      <button class="quiz-opt" onclick="answer('q2','c')">C) No preliminary inquiry shall be conducted and the officer shall arrest the accused forthwith</button>
+      <button class="quiz-opt" onclick="answer('q2','d')">D) Arrest requires prior approval of the DSP</button>
+      <div class="quiz-feedback" id="q2-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q3">
+      <p>3. An appeal against a judgment of an Exclusive Special Court under the SC/ST Act lies to:</p>
+      <button class="quiz-opt" onclick="answer('q3','a')">A) The Sessions Court as the immediate superior court</button>
+      <button class="quiz-opt" onclick="answer('q3','b')">B) The High Court directly under Section 14A</button>
+      <button class="quiz-opt" onclick="answer('q3','c')">C) The High Court under its general criminal appellate jurisdiction</button>
+      <button class="quiz-opt" onclick="answer('q3','d')">D) The National Commission for SC/ST</button>
+      <div class="quiz-feedback" id="q3-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q4">
+      <p>4. Section 4 of the SC/ST Act imposes criminal liability on a public servant who:</p>
+      <button class="quiz-opt" onclick="answer('q4','a')">A) Belongs to an SC/ST community and commits an offence</button>
+      <button class="quiz-opt" onclick="answer('q4','b')">B) Willfully neglects duties under the Act knowing an s.3 offence has been committed</button>
+      <button class="quiz-opt" onclick="answer('q4','c')">C) Fails to file a status report within 30 days</button>
+      <button class="quiz-opt" onclick="answer('q4','d')">D) Transfers the case to another officer without good cause</button>
+      <div class="quiz-feedback" id="q4-fb"></div>
+    </div>
+
+    <div class="quiz-q" id="q5">
+      <p>5. Under the SC/ST (POA) Rules 2016, the minimum compensation for rape of an SC/ST woman is:</p>
+      <button class="quiz-opt" onclick="answer('q5','a')">A) ₹1 lakh</button>
+      <button class="quiz-opt" onclick="answer('q5','b')">B) ₹2 lakhs</button>
+      <button class="quiz-opt" onclick="answer('q5','c')">C) ₹5 lakhs</button>
+      <button class="quiz-opt" onclick="answer('q5','d')">D) ₹3 lakhs</button>
+      <div class="quiz-feedback" id="q5-fb"></div>
+    </div>
+  </div>
+
+  <div class="nav-footer">
+    <a href="index.html"><button class="btn btn-back">← Track Hub</button></a>
+    <div style="text-align:center">
+      <div style="font-size:12px;color:#64748b;margin-bottom:6px">Level 1 of 3</div>
+      <div id="quizStatus" style="font-size:13px;color:#a78bfa">Complete all modules to unlock Level 2</div>
+    </div>
+    <a href="level2.html"><button class="btn btn-next" id="nextBtn">Level 2 →</button></a>
+  </div>
+
+</div>
+
+<script>
+const answers = {q1:'b',q2:'c',q3:'b',q4:'b',q5:'c'};
+const explanations = {
+  q1:'Correct. The Supreme Court in Masumsha Hasanasha held that for most s.3 offences, it is sufficient that the victim belongs to an SC/ST community. The accused\'s knowledge of the caste is not an ingredient of the offence.',
+  q2:'Correct. S.18A (2018 Amendment) mandates that no preliminary inquiry shall be conducted before registration of FIR, and the officer in charge shall arrest the accused forthwith — restoring the pre-Subhash Kashinath Mahajan position.',
+  q3:'Correct. S.14A provides that appeals from Special Courts lie directly to the High Court. Sessions Court has no appellate or revisional jurisdiction over Special Court orders under the Act.',
+  q4:'Correct. S.4 imposes liability on public servants (not belonging to SC/ST) who, knowing an atrocity has been committed, willfully neglect their statutory duties. Post-2015 Amendment, specific time obligations make this more enforceable.',
+  q5:'Correct. The SC/ST (POA) Amendment Rules 2016 prescribe ₹5 lakhs as minimum compensation for rape, and ₹8.25 lakhs for gang rape of an SC/ST woman.'
+};
+let score=0,done=0;
+function answer(qid,opt){
+  const q=document.getElementById(qid);
+  if(q.dataset.done) return;
+  q.dataset.done='1';
+  done++;
+  const btns=q.querySelectorAll('.quiz-opt');
+  btns.forEach(b=>b.disabled=true);
+  const correct=answers[qid];
+  btns.forEach(b=>{
+    const bOpt=b.getAttribute('onclick').match(/'([a-d])'\)$/)[1];
+    if(bOpt===correct) b.classList.add('correct');
+    else if(bOpt===opt && opt!==correct) b.classList.add('wrong');
+  });
+  if(opt===correct) score++;
+  const fb=document.getElementById(qid+'-fb');
+  fb.textContent=(opt===correct?'✓ Correct! ':'✗ Incorrect. ')+explanations[qid];
+  fb.className='quiz-feedback show '+(opt===correct?'ok':'bad');
+  updateProgress();
+}
+function updateProgress(){
+  const pct=Math.round((done/5)*100);
+  document.getElementById('mainProg').style.width=pct+'%';
+  document.getElementById('progPct').textContent=pct+'%';
+  if(done===5){
+    document.getElementById('quizStatus').textContent='Quiz complete! Score: '+score+'/5 — Proceed to Level 2';
+  }
+}
+function toggleMod(id){
+  const body=document.getElementById(id+'-body');
+  const hdr=document.querySelector('#'+id+' .module-header');
+  const show=body.classList.toggle('show');
+  hdr.classList.toggle('open',show);
+}
+// Open first module by default
+toggleMod('mod1');
+</script>
+</body>
+</html>
