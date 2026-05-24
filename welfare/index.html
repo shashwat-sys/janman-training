@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सामाजिक सुरक्षा एवं कल्याण अधिकार | Janman People's Foundation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.6}
+
+/* HEADER */
+.site-header{
+  background:linear-gradient(135deg,#1B5E20 0%,#2E7D32 60%,#1565C0 100%);
+  color:#fff;padding:20px;text-align:center;
+}
+.site-header img{height:50px;margin-bottom:12px;}
+.site-header h1{font-size:clamp(18px,4vw,28px);font-weight:700;margin-bottom:4px}
+.site-header p{font-size:14px;opacity:.9}
+.back-link{
+  display:inline-block;margin-bottom:12px;
+  background:rgba(255,255,255,0.15);border-radius:20px;
+  padding:4px 14px;font-size:13px;color:#fff;text-decoration:none;
+}
+.back-link:hover{background:rgba(255,255,255,0.25);}
+.badge-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.badge{
+  background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);
+  border-radius:12px;padding:3px 12px;font-size:12px;font-weight:600;
+}
+
+/* ABOUT SECTION */
+.section{max-width:860px;margin:24px auto;padding:0 16px;}
+.card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:20px;}
+.card h2{font-size:19px;color:#1B5E20;margin-bottom:12px;}
+.card p{font-size:14px;color:#444;margin-bottom:8px;}
+
+/* PROGRESS */
+.progress-section{
+  background:#fff;border-radius:12px;padding:18px 24px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:20px;
+}
+.progress-label{font-size:13px;font-weight:700;color:#555;margin-bottom:8px;}
+.progress-bar{background:#e8e8e8;border-radius:8px;height:10px;overflow:hidden;}
+.progress-fill{background:linear-gradient(90deg,#1B5E20,#43A047);height:100%;border-radius:8px;transition:width .4s;}
+.progress-text{font-size:12px;color:#777;margin-top:4px;}
+
+/* LEVEL CARDS */
+.level-card{
+  background:#fff;border-radius:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  margin-bottom:20px;overflow:hidden;
+  border-left:5px solid #1B5E20;
+}
+.level-card.locked{border-left-color:#aaa;}
+.level-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 24px;border-bottom:1px solid #f0f0f0;flex-wrap:wrap;gap:8px;
+}
+.level-num{
+  font-size:13px;font-weight:800;color:#1B5E20;
+  background:#E8F5E9;border-radius:20px;padding:3px 12px;
+}
+.level-num.locked{color:#888;background:#f0f0f0;}
+.level-status{
+  font-size:11px;font-weight:700;border-radius:10px;padding:3px 10px;
+}
+.status-available{background:#E8F5E9;color:#2E7D32;}
+.status-locked{background:#f0f0f0;color:#999;}
+.status-done{background:#E3F2FD;color:#1565C0;}
+.level-body{padding:20px 24px;}
+.level-body h3{font-size:17px;color:#1a1a1a;margin-bottom:4px;}
+.level-body .sub{font-size:13px;color:#666;margin-bottom:12px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.tag{
+  font-size:11px;font-weight:700;border-radius:10px;padding:3px 10px;
+  background:#E8F5E9;color:#2E7D32;
+}
+.tag.blue{background:#E3F2FD;color:#1565C0;}
+.tag.orange{background:#FFF3E0;color:#E65100;}
+.schemes-preview{
+  background:#f9f9f9;border:1px solid #eee;border-radius:8px;
+  padding:12px;margin-bottom:14px;font-size:13px;
+}
+.schemes-preview li{margin-bottom:4px;color:#333;}
+.schemes-preview li::before{content:"▶ ";color:#1B5E20;font-size:10px;}
+.level-footer{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.meta{font-size:12px;color:#888;}
+.start-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,#1B5E20,#2E7D32);
+  color:#fff;border:none;border-radius:24px;
+  padding:10px 24px;font-size:14px;font-weight:700;
+  text-decoration:none;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+}
+.start-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(27,94,32,.3);}
+.start-btn.locked-btn{background:#ccc;cursor:not-allowed;pointer-events:none;}
+
+/* SCHEME INLINE CONTENT */
+.level-content{display:none;padding:0 24px 24px;}
+.level-content.active{display:block;}
+.scheme-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;}
+.scheme-table th{background:#1B5E20;color:#fff;padding:8px 10px;text-align:left;}
+.scheme-table td{padding:7px 10px;border-bottom:1px solid #eee;}
+.scheme-table tr:hover{background:#f9fff9;}
+.amount{font-weight:700;color:#1B5E20;}
+.section-label{
+  font-size:13px;font-weight:800;color:#1B5E20;
+  margin:16px 0 6px;text-transform:uppercase;letter-spacing:.5px;
+}
+.key-point{
+  background:#E8F5E9;border-left:3px solid #1B5E20;
+  padding:8px 12px;margin:6px 0;border-radius:0 6px 6px 0;
+  font-size:13px;
+}
+.warning-box{
+  background:#FFF3E0;border-left:3px solid #FF6F00;
+  padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;
+  font-size:13px;
+}
+.quiz-box{
+  background:#E3F2FD;border-radius:8px;padding:16px;margin-top:14px;
+}
+.quiz-box h4{color:#1565C0;margin-bottom:10px;}
+.quiz-q{margin-bottom:10px;font-size:13px;}
+.quiz-q strong{display:block;margin-bottom:4px;}
+.opt-btn{
+  display:block;width:100%;text-align:left;
+  background:#fff;border:1px solid #ddd;border-radius:6px;
+  padding:6px 10px;margin-bottom:4px;font-size:13px;cursor:pointer;
+  transition:all .1s;
+}
+.opt-btn:hover{background:#E3F2FD;border-color:#1565C0;}
+.opt-btn.correct{background:#E8F5E9;border-color:#1B5E20;font-weight:700;}
+.opt-btn.wrong{background:#FFEBEE;border-color:#c62828;}
+
+/* CERTIFICATE */
+.cert-card{
+  background:linear-gradient(135deg,#1B5E20,#1565C0);
+  color:#fff;border-radius:12px;padding:24px;text-align:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.12);
+}
+.cert-card h2{font-size:18px;margin-bottom:8px;}
+.cert-card p{font-size:14px;opacity:.9;margin-bottom:14px;}
+.cert-btn{
+  display:inline-block;
+  background:#F9A825;color:#1a1a1a;
+  border-radius:24px;padding:10px 28px;
+  font-size:14px;font-weight:700;text-decoration:none;
+}
+
+/* ABOUT JANMAN */
+.about-box{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.about-box h3{color:#1B5E20;margin-bottom:8px;}
+.about-box p{font-size:13px;color:#444;margin-bottom:6px;}
+
+/* FOOTER */
+footer{background:#1a1a1a;color:#ccc;text-align:center;padding:20px;font-size:13px;margin-top:40px;}
+footer a{color:#81C784;text-decoration:none;}
+
+/* HELP FLOAT */
+.help-fab{
+  position:fixed;bottom:24px;right:24px;
+  background:#25D366;color:#fff;border:none;
+  border-radius:50%;width:52px;height:52px;
+  font-size:24px;cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,.2);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1000;
+}
+.toggle-btn{
+  background:none;border:none;cursor:pointer;
+  color:#1B5E20;font-size:13px;font-weight:700;
+  text-decoration:underline;padding:0;
+}
+
+@media(max-width:600px){
+  .level-header{flex-direction:column;align-items:flex-start;}
+  .scheme-table{font-size:11px;}
+  .start-btn{padding:8px 18px;font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="site-header">
+  <a href="https://shashwat-sys.github.io/janman-training/index.html" class="back-link">← Janman Academy</a><br>
+  <img src="https://shashwat-sys.github.io/janman-training/janman-logo.png" alt="Janman Logo" onerror="this.style.display='none'">
+  <h1>🏛️ सामाजिक सुरक्षा एवं कल्याण अधिकार प्रशिक्षण<br>
+    <small style="font-size:16px;font-weight:400">Social Security &amp; Welfare Entitlements Training</small>
+  </h1>
+  <p>Online Training Programme — Janman People's Foundation · Jan Nyaya Abhiyan · Bihar</p>
+  <div class="badge-row">
+    <span class="badge">👷 Social Worker</span>
+    <span class="badge">📋 Paralegal</span>
+    <span class="badge">⚖️ Lawyer</span>
+    <span class="badge">📚 3 Levels</span>
+    <span class="badge">🕐 ~9 hrs</span>
+    <span class="badge">🏆 Certificate</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="section">
+
+  <!-- ABOUT -->
+  <div class="card">
+    <h2>📚 इस प्रशिक्षण कार्यक्रम के बारे में | About This Programme</h2>
+    <p>यह ऑनलाइन प्रशिक्षण Janman People's Foundation द्वारा Jan Nyaya Abhiyan के अंतर्गत तैयार किया गया है। यह कार्यक्रम सामाजिक कार्यकर्ताओं, पैरालीगल स्वयंसेवकों, वकीलों और नागरिकों को भारत की प्रमुख सामाजिक सुरक्षा योजनाओं की जानकारी देता है।</p>
+    <p>This comprehensive programme covers India's major social security and welfare schemes — from basic entitlements (pensions, food, health) through targeted schemes for women, persons with disabilities, and tribal communities, to enforcement through RTI, grievances, and strategic litigation. Complete all three levels to earn your certificate.</p>
+    <p style="font-size:13px;color:#1B5E20;font-weight:700;margin-top:8px">🔑 Core principle: Welfare is a constitutional entitlement under Articles 14, 21, 38, 39, 41, 42 — not charity.</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-section">
+    <div class="progress-label">🎯 आपकी प्रगति | Your Progress</div>
+    <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
+    <div class="progress-text" id="progText">0 of 3 levels completed</div>
+  </div>
+
+  <!-- LEVEL 1 -->
+  <div class="level-card" id="card1">
+    <div class="level-header">
+      <span class="level-num">Level 1</span>
+      <h3 style="flex:1;margin:0 12px;font-size:16px">
+        📖 मूल अधिकार — पेंशन, राशन, स्वास्थ्य, आवास<br>
+        <span style="font-size:13px;font-weight:400;color:#666">Basic Entitlements — Pensions, Food, Health, Housing</span>
+      </h3>
+      <span class="level-status status-available" id="st1">⏳ Available</span>
+    </div>
+    <div class="level-body">
+      <div class="sub">IGNOAPS · NFSA · PM-JAY · PMAY-G · PMMVY · JSY · JSSK · BOCW</div>
+      <div class="tag-row">
+        <span class="tag">Pensions</span><span class="tag">Food Security</span>
+        <span class="tag blue">Health Insurance</span><span class="tag blue">Housing</span>
+        <span class="tag orange">Maternity</span>
+      </div>
+      <ul class="schemes-preview">
+        <li>IGNOAPS/IGNWPS/IGNDPS — who qualifies, how much, where to apply</li>
+        <li>NFSA + PMGKAY — ration card categories, ONORC portability</li>
+        <li>PM-JAY (Ayushman Bharat) — ₹5 lakh/family, no documents needed</li>
+        <li>PMAY-G/U — pucca house entitlement for BPL families</li>
+        <li>PMMVY + JSY + JSSK — maternity cash + free institutional delivery</li>
+      </ul>
+      <div class="level-footer">
+        <span class="meta">📚 3 Levels | ⏱ ~3 hrs</span>
+        <button class="start-btn" onclick="toggleLevel(1)">▶ Start Level 1</button>
+      </div>
+    </div>
+    <div class="level-content" id="content1">
+      <div class="section-label">📌 NSAP पेंशन योजनाएं | NSAP Pension Schemes</div>
+      <table class="scheme-table">
+        <thead><tr><th>योजना</th><th>पात्रता</th><th>राशि (बिहार)</th><th>आवेदन</th></tr></thead>
+        <tbody>
+          <tr><td>IGNOAPS</td><td>60+ वर्ष, BPL</td><td class="amount">₹500/माह (60-79) | ₹800 (80+)</td><td>BDO / sspmis.in</td></tr>
+          <tr><td>IGNWPS</td><td>40-79 वर्ष विधवा, BPL</td><td class="amount">₹700/माह</td><td>BDO / sspmis.in</td></tr>
+          <tr><td>IGNDPS</td><td>18-79 वर्ष, 80%+ दिव्यांगता, BPL</td><td class="amount">₹700/माह</td><td>BDO / sspmis.in</td></tr>
+          <tr><td>NFBS</td><td>BPL परिवार, मुखिया की मृत्यु 18-60 में</td><td class="amount">₹20,000 एकमुश्त</td><td>BDO / RTPS</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">⚖️ कानूनी आधार: NSAP 1995; बिहार RTPS अधिनियम 2011 — 45 दिन में सेवा अनिवार्य</div>
+
+      <div class="section-label">🌾 खाद्य सुरक्षा | Food Security (NFSA 2013)</div>
+      <table class="scheme-table">
+        <thead><tr><th>श्रेणी</th><th>लाभ</th><th>मात्रा</th></tr></thead>
+        <tbody>
+          <tr><td>PHH राशन कार्ड</td><td class="amount">₹3/₹2/₹1 प्रति किलो</td><td>5 किलो/व्यक्ति/माह</td></tr>
+          <tr><td>AAY (अंत्योदय)</td><td class="amount">₹3/₹2/₹1 प्रति किलो</td><td>35 किलो/परिवार/माह</td></tr>
+          <tr><td>PMGKAY (अतिरिक्त)</td><td class="amount">निःशुल्क (Dec 2028 तक)</td><td>5 किलो/व्यक्ति/माह</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">📱 ONORC: 'एक राष्ट्र एक राशन कार्ड' — प्रवासी मजदूर किसी भी राज्य में राशन ले सकते हैं</div>
+      <div class="warning-box">⚠️ यदि FPS डीलर राशन देने से मना करे: जिला आपूर्ति अधिकारी + राज्य खाद्य आयोग में शिकायत करें</div>
+
+      <div class="section-label">🏥 स्वास्थ्य | PM-JAY / Ayushman Bharat</div>
+      <div class="key-point">💰 ₹5 लाख/वर्ष/परिवार — सरकारी एवं सूचीबद्ध निजी अस्पतालों में निःशुल्क</div>
+      <div class="key-point">📋 SECC 2011 में नाम होना चाहिए — pmjay.gov.in पर जांचें | Helpline: 1800-111-565</div>
+      <div class="warning-box">⚠️ यदि अस्पताल मना करे: SHA (State Health Agency) में शिकायत + NHRC</div>
+
+      <div class="section-label">🏠 आवास | PMAY-G (ग्रामीण)</div>
+      <table class="scheme-table">
+        <thead><tr><th>क्षेत्र</th><th>अनुदान</th><th>अतिरिक्त</th></tr></thead>
+        <tbody>
+          <tr><td>मैदानी क्षेत्र</td><td class="amount">₹1.20 लाख</td><td>+ SBM शौचालय ₹12,000 + MGNREGS 95 दिन</td></tr>
+          <tr><td>पहाड़/उत्तर-पूर्व</td><td class="amount">₹1.30 लाख</td><td>+ SBM शौचालय ₹12,000 + MGNREGS 95 दिन</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">📋 SECC 2011 सूची में नाम जरूरी — BDO / pmayg.nic.in पर आवेदन</div>
+
+      <div class="section-label">🤱 मातृत्व लाभ | Maternity Benefits</div>
+      <table class="scheme-table">
+        <thead><tr><th>योजना</th><th>लाभ</th><th>पात्रता</th></tr></thead>
+        <tbody>
+          <tr><td>PMMVY</td><td class="amount">₹5000 (पहला बच्चा) | ₹6000 (दूसरी बालिका)</td><td>19+ वर्ष, गैर-सरकारी</td></tr>
+          <tr><td>JSY</td><td class="amount">₹1400 (ग्रामीण) | ₹1000 (शहरी)</td><td>सरकारी संस्था में प्रसव</td></tr>
+          <tr><td>JSSK</td><td class="amount">निःशुल्क दवा, जांच, भोजन, परिवहन</td><td>सभी गर्भवती महिलाएं</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">⚠️ JSSK में दस्तावेज़ मांगना गैरकानूनी है — कोई भी ID काफी है</div>
+
+      <!-- QUIZ 1 -->
+      <div class="quiz-box">
+        <h4>📝 Level 1 Quiz</h4>
+        <div class="quiz-q">
+          <strong>Q1. 65 वर्ष की BPL विधवा महिला को IGNOAPS के तहत बिहार में प्रति माह कितनी पेंशन मिलेगी?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. ₹300/माह (केवल केंद्र)</button>
+          <button class="opt-btn" onclick="ans(this,true)">B. ₹700/माह (केंद्र + बिहार MVPY)</button>
+          <button class="opt-btn" onclick="ans(this,false)">C. ₹1000/माह</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q2. PMGKAY के तहत कितना अनाज मिलता है और कब तक?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. 2 किलो, 2024 तक</button>
+          <button class="opt-btn" onclick="ans(this,true)">B. 5 किलो निःशुल्क, दिसंबर 2028 तक</button>
+          <button class="opt-btn" onclick="ans(this,false)">C. 10 किलो, 2025 तक</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q3. JSSK के तहत सरकारी अस्पताल में प्रसव के लिए क्या-क्या मुफ्त मिलता है?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. केवल दवाइयां</button>
+          <button class="opt-btn" onclick="ans(this,false)">B. दवाइयां और जांच</button>
+          <button class="opt-btn" onclick="ans(this,true)">C. दवाइयां, जांच, रक्त, भोजन, परिवहन, और सिजेरियन — सब मुफ्त</button>
+        </div>
+        <button onclick="completeLevel(1)" style="margin-top:10px;background:#1B5E20;color:#fff;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;font-size:14px;font-weight:700">
+          ✅ Level 1 पूरा करें | Complete Level 1
+        </button>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>à¤¸à¤¾à¤®à¤¾à¤à¤¿à¤ à¤¸à¥à¤°à¤à¥à¤·à¤¾ à¤à¤µà¤ à¤à¤²à¥à¤¯à¤¾à¤£ à¤à¤§à¤¿à¤à¤¾à¤° | Janman People's Foundation</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;color:#1a1a1a;line-height:1.6}
+
+/* HEADER */
+.site-header{
+  background:linear-gradient(135deg,#1B5E20 0%,#2E7D32 60%,#1565C0 100%);
+  color:#fff;padding:20px;text-align:center;
+}
+.site-header img{height:50px;margin-bottom:12px;}
+.site-header h1{font-size:clamp(18px,4vw,28px);font-weight:700;margin-bottom:4px}
+.site-header p{font-size:14px;opacity:.9}
+.back-link{
+  display:inline-block;margin-bottom:12px;
+  background:rgba(255,255,255,0.15);border-radius:20px;
+  padding:4px 14px;font-size:13px;color:#fff;text-decoration:none;
+}
+.back-link:hover{background:rgba(255,255,255,0.25);}
+.badge-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.badge{
+  background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);
+  border-radius:12px;padding:3px 12px;font-size:12px;font-weight:600;
+}
+
+/* ABOUT SECTION */
+.section{max-width:860px;margin:24px auto;padding:0 16px;}
+.card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:20px;}
+.card h2{font-size:19px;color:#1B5E20;margin-bottom:12px;}
+.card p{font-size:14px;color:#444;margin-bottom:8px;}
+
+/* PROGRESS */
+.progress-section{
+  background:#fff;border-radius:12px;padding:18px 24px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);margin-bottom:20px;
+}
+.progress-label{font-size:13px;font-weight:700;color:#555;margin-bottom:8px;}
+.progress-bar{background:#e8e8e8;border-radius:8px;height:10px;overflow:hidden;}
+.progress-fill{background:linear-gradient(90deg,#1B5E20,#43A047);height:100%;border-radius:8px;transition:width .4s;}
+.progress-text{font-size:12px;color:#777;margin-top:4px;}
+
+/* LEVEL CARDS */
+.level-card{
+  background:#fff;border-radius:12px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  margin-bottom:20px;overflow:hidden;
+  border-left:5px solid #1B5E20;
+}
+.level-card.locked{border-left-color:#aaa;}
+.level-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 24px;border-bottom:1px solid #f0f0f0;flex-wrap:wrap;gap:8px;
+}
+.level-num{
+  font-size:13px;font-weight:800;color:#1B5E20;
+  background:#E8F5E9;border-radius:20px;padding:3px 12px;
+}
+.level-num.locked{color:#888;background:#f0f0f0;}
+.level-status{
+  font-size:11px;font-weight:700;border-radius:10px;padding:3px 10px;
+}
+.status-available{background:#E8F5E9;color:#2E7D32;}
+.status-locked{background:#f0f0f0;color:#999;}
+.status-done{background:#E3F2FD;color:#1565C0;}
+.level-body{padding:20px 24px;}
+.level-body h3{font-size:17px;color:#1a1a1a;margin-bottom:4px;}
+.level-body .sub{font-size:13px;color:#666;margin-bottom:12px;}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.tag{
+  font-size:11px;font-weight:700;border-radius:10px;padding:3px 10px;
+  background:#E8F5E9;color:#2E7D32;
+}
+.tag.blue{background:#E3F2FD;color:#1565C0;}
+.tag.orange{background:#FFF3E0;color:#E65100;}
+.schemes-preview{
+  background:#f9f9f9;border:1px solid #eee;border-radius:8px;
+  padding:12px;margin-bottom:14px;font-size:13px;
+}
+.schemes-preview li{margin-bottom:4px;color:#333;}
+.schemes-preview li::before{content:"â¶ ";color:#1B5E20;font-size:10px;}
+.level-footer{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+}
+.meta{font-size:12px;color:#888;}
+.start-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,#1B5E20,#2E7D32);
+  color:#fff;border:none;border-radius:24px;
+  padding:10px 24px;font-size:14px;font-weight:700;
+  text-decoration:none;cursor:pointer;
+  transition:transform .15s,box-shadow .15s;
+}
+.start-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(27,94,32,.3);}
+.start-btn.locked-btn{background:#ccc;cursor:not-allowed;pointer-events:none;}
+
+/* SCHEME INLINE CONTENT */
+.level-content{display:none;padding:0 24px 24px;}
+.level-content.active{display:block;}
+.scheme-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;}
+.scheme-table th{background:#1B5E20;color:#fff;padding:8px 10px;text-align:left;}
+.scheme-table td{padding:7px 10px;border-bottom:1px solid #eee;}
+.scheme-table tr:hover{background:#f9fff9;}
+.amount{font-weight:700;color:#1B5E20;}
+.section-label{
+  font-size:13px;font-weight:800;color:#1B5E20;
+  margin:16px 0 6px;text-transform:uppercase;letter-spacing:.5px;
+}
+.key-point{
+  background:#E8F5E9;border-left:3px solid #1B5E20;
+  padding:8px 12px;margin:6px 0;border-radius:0 6px 6px 0;
+  font-size:13px;
+}
+.warning-box{
+  background:#FFF3E0;border-left:3px solid #FF6F00;
+  padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;
+  font-size:13px;
+}
+.quiz-box{
+  background:#E3F2FD;border-radius:8px;padding:16px;margin-top:14px;
+}
+.quiz-box h4{color:#1565C0;margin-bottom:10px;}
+.quiz-q{margin-bottom:10px;font-size:13px;}
+.quiz-q strong{display:block;margin-bottom:4px;}
+.opt-btn{
+  display:block;width:100%;text-align:left;
+  background:#fff;border:1px solid #ddd;border-radius:6px;
+  padding:6px 10px;margin-bottom:4px;font-size:13px;cursor:pointer;
+  transition:all .1s;
+}
+.opt-btn:hover{background:#E3F2FD;border-color:#1565C0;}
+.opt-btn.correct{background:#E8F5E9;border-color:#1B5E20;font-weight:700;}
+.opt-btn.wrong{background:#FFEBEE;border-color:#c62828;}
+
+/* CERTIFICATE */
+.cert-card{
+  background:linear-gradient(135deg,#1B5E20,#1565C0);
+  color:#fff;border-radius:12px;padding:24px;text-align:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.12);
+}
+.cert-card h2{font-size:18px;margin-bottom:8px;}
+.cert-card p{font-size:14px;opacity:.9;margin-bottom:14px;}
+.cert-btn{
+  display:inline-block;
+  background:#F9A825;color:#1a1a1a;
+  border-radius:24px;padding:10px 28px;
+  font-size:14px;font-weight:700;text-decoration:none;
+}
+
+/* ABOUT JANMAN */
+.about-box{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.about-box h3{color:#1B5E20;margin-bottom:8px;}
+.about-box p{font-size:13px;color:#444;margin-bottom:6px;}
+
+/* FOOTER */
+footer{background:#1a1a1a;color:#ccc;text-align:center;padding:20px;font-size:13px;margin-top:40px;}
+footer a{color:#81C784;text-decoration:none;}
+
+/* HELP FLOAT */
+.help-fab{
+  position:fixed;bottom:24px;right:24px;
+  background:#25D366;color:#fff;border:none;
+  border-radius:50%;width:52px;height:52px;
+  font-size:24px;cursor:pointer;
+  box-shadow:0 4px 16px rgba(0,0,0,.2);
+  display:flex;align-items:center;justify-content:center;
+  z-index:1000;
+}
+.toggle-btn{
+  background:none;border:none;cursor:pointer;
+  color:#1B5E20;font-size:13px;font-weight:700;
+  text-decoration:underline;padding:0;
+}
+
+@media(max-width:600px){
+  .level-header{flex-direction:column;align-items:flex-start;}
+  .scheme-table{font-size:11px;}
+  .start-btn{padding:8px 18px;font-size:13px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="site-header">
+  <a href="https://shashwat-sys.github.io/janman-training/index.html" class="back-link">â Janman Academy</a><br>
+  <img src="https://shashwat-sys.github.io/janman-training/janman-logo.png" alt="Janman Logo" onerror="this.style.display='none'">
+  <h1>ðï¸ à¤¸à¤¾à¤®à¤¾à¤à¤¿à¤ à¤¸à¥à¤°à¤à¥à¤·à¤¾ à¤à¤µà¤ à¤à¤²à¥à¤¯à¤¾à¤£ à¤à¤§à¤¿à¤à¤¾à¤° à¤ªà¥à¤°à¤¶à¤¿à¤à¥à¤·à¤£<br>
+    <small style="font-size:16px;font-weight:400">Social Security &amp; Welfare Entitlements Training</small>
+  </h1>
+  <p>Online Training Programme â Janman People's Foundation Â· Jan Nyaya Abhiyan Â· Bihar</p>
+  <div class="badge-row">
+    <span class="badge">ð· Social Worker</span>
+    <span class="badge">ð Paralegal</span>
+    <span class="badge">âï¸ Lawyer</span>
+    <span class="badge">ð 3 Levels</span>
+    <span class="badge">ð ~9 hrs</span>
+    <span class="badge">ð Certificate</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="section">
+
+  <!-- ABOUT -->
+  <div class="card">
+    <h2>ð à¤à¤¸ à¤ªà¥à¤°à¤¶à¤¿à¤à¥à¤·à¤£ à¤à¤¾à¤°à¥à¤¯à¤à¥à¤°à¤® à¤à¥ à¤¬à¤¾à¤°à¥ à¤®à¥à¤ | About This Programme</h2>
+    <p>à¤¯à¤¹ à¤à¤¨à¤²à¤¾à¤à¤¨ à¤ªà¥à¤°à¤¶à¤¿à¤à¥à¤·à¤£ Janman People's Foundation à¤¦à¥à¤µà¤¾à¤°à¤¾ Jan Nyaya Abhiyan à¤à¥ à¤à¤à¤¤à¤°à¥à¤à¤¤ à¤¤à¥à¤¯à¤¾à¤° à¤à¤¿à¤¯à¤¾ à¤à¤¯à¤¾ à¤¹à¥à¥¤ à¤¯à¤¹ à¤à¤¾à¤°à¥à¤¯à¤à¥à¤°à¤® à¤¸à¤¾à¤®à¤¾à¤à¤¿à¤ à¤à¤¾à¤°à¥à¤¯à¤à¤°à¥à¤¤à¤¾à¤à¤, à¤ªà¥à¤°à¤¾à¤²à¥à¤à¤² à¤¸à¥à¤µà¤¯à¤à¤¸à¥à¤µà¤à¥à¤, à¤µà¤à¥à¤²à¥à¤ à¤à¤° à¤¨à¤¾à¤à¤°à¤¿à¤à¥à¤ à¤à¥ à¤­à¤¾à¤°à¤¤ à¤à¥ à¤ªà¥à¤°à¤®à¥à¤ à¤¸à¤¾à¤®à¤¾à¤à¤¿à¤ à¤¸à¥à¤°à¤à¥à¤·à¤¾ à¤¯à¥à¤à¤¨à¤¾à¤à¤ à¤à¥ à¤à¤¾à¤¨à¤à¤¾à¤°à¥ à¤¦à¥à¤¤à¤¾ à¤¹à¥à¥¤</p>
+    <p>This comprehensive programme covers India's major social security and welfare schemes â from basic entitlements (pensions, food, health) through targeted schemes for women, persons with disabilities, and tribal communities, to enforcement through RTI, grievances, and strategic litigation. Complete all three levels to earn your certificate.</p>
+    <p style="font-size:13px;color:#1B5E20;font-weight:700;margin-top:8px">ð Core principle: Welfare is a constitutional entitlement under Articles 14, 21, 38, 39, 41, 42 â not charity.</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-section">
+    <div class="progress-label">ð¯ à¤à¤ªà¤à¥ à¤ªà¥à¤°à¤à¤¤à¤¿ | Your Progress</div>
+    <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
+    <div class="progress-text" id="progText">0 of 3 levels completed</div>
+  </div>
+
+  <!-- LEVEL 1 -->
+  <div class="level-card" id="card1">
+    <div class="level-header">
+      <span class="level-num">Level 1</span>
+      <h3 style="flex:1;margin:0 12px;font-size:16px">
+        ð à¤®à¥à¤² à¤à¤§à¤¿à¤à¤¾à¤° â à¤ªà¥à¤à¤¶à¤¨, à¤°à¤¾à¤¶à¤¨, à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯, à¤à¤µà¤¾à¤¸<br>
+        <span style="font-size:13px;font-weight:400;color:#666">Basic Entitlements â Pensions, Food, Health, Housing</span>
+      </h3>
+      <span class="level-status status-available" id="st1">â³ Available</span>
+    </div>
+    <div class="level-body">
+      <div class="sub">IGNOAPS Â· NFSA Â· PM-JAY Â· PMAY-G Â· PMMVY Â· JSY Â· JSSK Â· BOCW</div>
+      <div class="tag-row">
+        <span class="tag">Pensions</span><span class="tag">Food Security</span>
+        <span class="tag blue">Health Insurance</span><span class="tag blue">Housing</span>
+        <span class="tag orange">Maternity</span>
+      </div>
+      <ul class="schemes-preview">
+        <li>IGNOAPS/IGNWPS/IGNDPS â who qualifies, how much, where to apply</li>
+        <li>NFSA + PMGKAY â ration card categories, ONORC portability</li>
+        <li>PM-JAY (Ayushman Bharat) â â¹5 lakh/family, no documents needed</li>
+        <li>PMAY-G/U â pucca house entitlement for BPL families</li>
+        <li>PMMVY + JSY + JSSK â maternity cash + free institutional delivery</li>
+      </ul>
+      <div class="level-footer">
+        <span class="meta">ð 3 Levels | â± ~3 hrs</span>
+        <button class="start-btn" onclick="toggleLevel(1)">â¶ Start Level 1</button>
+      </div>
+    </div>
+    <div class="level-content" id="content1">
+      <div class="section-label">ð NSAP à¤ªà¥à¤à¤¶à¤¨ à¤¯à¥à¤à¤¨à¤¾à¤à¤ | NSAP Pension Schemes</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤¯à¥à¤à¤¨à¤¾</th><th>à¤ªà¤¾à¤¤à¥à¤°à¤¤à¤¾</th><th>à¤°à¤¾à¤¶à¤¿ (à¤¬à¤¿à¤¹à¤¾à¤°)</th><th>à¤à¤µà¥à¤¦à¤¨</th></tr></thead>
+        <tbody>
+          <tr><td>IGNOAPS</td><td>60+ à¤µà¤°à¥à¤·, BPL</td><td class="amount">â¹500/à¤®à¤¾à¤¹ (60-79) | â¹800 (80+)</td><td>BDO / sspmis.in</td></tr>
+          <tr><td>IGNWPS</td><td>40-79 à¤µà¤°à¥à¤· à¤µà¤¿à¤§à¤µà¤¾, BPL</td><td class="amount">â¹700/à¤®à¤¾à¤¹</td><td>BDO / sspmis.in</td></tr>
+          <tr><td>IGNDPS</td><td>18-79 à¤µà¤°à¥à¤·, 80%+ à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤à¤¤à¤¾, BPL</td><td class="amount">â¹700/à¤®à¤¾à¤¹</td><td>BDO / sspmis.in</td></tr>
+          <tr><td>NFBS</td><td>BPL à¤ªà¤°à¤¿à¤µà¤¾à¤°, à¤®à¥à¤à¤¿à¤¯à¤¾ à¤à¥ à¤®à¥à¤¤à¥à¤¯à¥ 18-60 à¤®à¥à¤</td><td class="amount">â¹20,000 (à¤à¤âæmà¤¤à¤æ¬Am)</td><td>BDO / RTPS</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">âï¸ à¤à¤¾à¤¨à¥à¤¨à¥ à¤à¤§à¤¾à¤°: NSAP 1995; à¤¬à¤¿à¤¹à¤¾à¤° RTPS à¤à¤§à¤¿à¤¨à¤¿à¤¯à¤® 2011 â 45 à¤¦à¤¿à¤¨ à¤®à¥à¤ à¤¸à¥à¤µà¤¾ à¤à¤¨à¤¿à¤µà¤¾à¤°à¥à¤¯</div>
+
+      <div class="section-label">ð¾ à¤à¤¾à¤¦à¥à¤¯ à¤¸à¥à¤°à¤à¥à¤·à¤¾ | Food Security (NFSA 2013)</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤¶à¥à¤°à¥à¤£à¥</th><th>à¤²à¤¾à¤­</th><th>à¤®à¤¾à¤¤à¥à¤°à¤¾</th></tr></thead>
+        <tbody>
+          <tr><td>PHH à¤°à¤¾à¤¶à¤¨ à¤à¤¾à¤°à¥à¤¡</td><td class="amount">â¹3/â¹2/â¹1 à¤ªà¥à¤°à¤¤à¤¿ à¤à¤¿à¤²à¥</td><td>5 à¤à¤¿à¤²à¥/à¤µà¥à¤¯à¤à¥à¤¤à¤¿/à¤®à¤¾à¤¹</td></tr>
+          <tr><td>AAY (à¤à¤à¤¤à¥à¤¯à¥à¤¦à¤¯)</td><td class="amount">â¹3/â¹2/â¹1 à¤ªà¥à¤°à¤¤à¤¿ à¤à¤¿à¤²à¥</td><td>35 à¤à¤¿à¤²à¥/à¤ªà¤°à¤¿à¤µà¤¾à¤°/à¤®à¤¾à¤¹</td></tr>
+          <tr><td>PMGKAY (à¤à¤¤à¤¿à¤°à¤¿à¤à¥à¤¤)</td><td class="amount">à¤¨à¤¿à¤à¤¶à¥à¤²à¥à¤ (Dec 2028 à¤¤à¤)</td><td>5 à¤à¤¿à¤²à¥/à¤µà¥à¤¯à¤à¥à¤¤à¤¿/à¤®à¤¾à¤¹</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">ð± ONORC: 'à¤à¤ à¤°à¤¾à¤·à¥à¤à¥à¤° à¤à¤ à¤°à¤¾à¤¶à¤¨ à¤à¤¾à¤°à¥à¤¡' â à¤ªà¥à¤°à¤µà¤¾à¤¸à¥ à¤®à¤à¤¦à¥à¤° à¤à¤¿à¤¸à¥ à¤­à¥ à¤°à¤¾à¤à¥à¤¯ à¤®à¥à¤ à¤°à¤¾à¤¶à¤¨ à¤²à¥ à¤¸à¤à¤¤à¥ à¤¹à¥à¤</div>
+      <div class="warning-box">â ï¸ à¤¯à¤¦à¤¿ FPS à¤¡à¥à¤²à¤° à¤°à¤¾à¤¶à¤¨ à¤¦à¥à¤¨à¥ à¤¸à¥ à¤®à¤¨à¤¾ à¤à¤°à¥: à¤à¤¿à¤²à¤¾ à¤à¤ªà¥à¤°à¥à¤¤à¤¿ à¤à¤§à¤¿à¤à¤¾à¤°à¥ + à¤°à¤¾à¤à¥à¤¯ à¤à¤¾à¤¦à¥à¤¯ à¤à¤¯à¥à¤ à¤®à¥à¤ à¤¶à¤¿à¤à¤¾à¤¯à¤¤ à¤à¤°à¥à¤</div>
+
+      <div class="section-label">ð¥ à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯ | PM-JAY / Ayushman Bharat</div>
+      <div class="key-point">ð° â¹5 à¤²à¤¾à¤/à¤µà¤°à¥à¤·/à¤ªà¤°à¤¿à¤µà¤¾à¤° â à¤¸à¤°à¤à¤¾à¤°à¥ à¤à¤µà¤ à¤¸à¥à¤à¥à¤¬à¤¦à¥à¤§ à¤¨à¤¿à¤à¥ à¤à¤¸à¥à¤ªà¤¤à¤¾à¤²à¥à¤ à¤®à¥à¤ à¤¨à¤¿à¤à¤¶à¥à¤²à¥à¤</div>
+      <div class="key-point">ð SECC 2011 à¤®à¥à¤ à¤¨à¤¾à¤® à¤¹à¥à¤¨à¤¾ à¤à¤¾à¤¹à¤¿à¤ â pmjay.gov.in à¤ªà¤° à¤à¤¾à¤à¤à¥à¤ | Helpline: 1800-111-565</div>
+      <div class="warning-box">â ï¸ à¤¯à¤¦à¤¿ à¤à¤¸à¥à¤ªà¤¤à¤¾à¤² à¤®à¤¨à¤¾ à¤à¤°à¥: SHA (State Health Agency) à¤®à¥à¤ à¤¶à¤¿à¤à¤¾à¤¯à¤¤ + NHRC</div>
+
+      <div class="section-label">ð  à¤à¤µà¤¾à¤¸ | PMAY-G (à¤à¥à¤°à¤¾à¤®à¥à¤£)</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤à¥à¤·à¥à¤¤à¥à¤°</th><th>à¤à¤¨à¥à¤¦à¤¾à¤¨</th><th>à¤à¤¤à¤¿à¤°à¤¿à¤à¥à¤¤</th></tr></thead>
+        <tbody>
+          <tr><td>à¤®à¥à¤¦à¤¾à¤¨à¥ à¤à¥à¤·à¥à¤¤à¥à¤°</td><td class="amount">â¹1.20 à¤²à¤¾à¤</td><td>+ SBM à¤¶à¥à¤à¤¾à¤²à¤¯ â¹12,000 + MGNREGS 95 à¤¦à¤¿à¤¨</td></tr>
+          <tr><td>à¤ªà¤¹à¤¾à¤¡à¤¼/à¤à¤¤à¥à¤¤à¤°-à¤ªà¥à¤°à¥à¤µ</td><td class="amount">â¹1.30 à¤²à¤¾à¤</td><td>+ SBM à¤¶à¥à¤à¤¾à¤²à¤¯ â¹12,000 + MGNREGS 95 à¤¦à¤¿à¤¨</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">ð SECC 2011 à¤¸à¥à¤à¥ à¤®à¥à¤ à¤¨à¤¾à¤® à¤à¤°à¥à¤°à¥ â BDO / pmayg.nic.in à¤ªà¤° à¤à¤µà¥à¤¦à¤¨</div>
+
+      <div class="section-label">ð¤± à¤®à¤¾à¤¤à¥à¤¤à¥à¤µ à¤²à¤¾à¤­ | Maternity Benefits</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤¯à¥à¤à¤¨à¤¾</th><th>à¤²à¤¾à¤­</th><th>à¤ªà¤¾à¤¤à¥à¤°à¤¤à¤¾</th></tr></thead>
+        <tbody>
+          <tr><td>PMMVY</td><td class="amount">â¹5000 (à¤ªà¤¹à¤²à¤¾ à¤¬à¤à¥à¤à¤¾) | â¹6000 (à¤¦à¥à¤¸à¤°à¥ à¤¬à¤¾à¤²à¤¿à¤à¤¾)</td><td>19+ à¤µà¤°à¥à¤·, à¤à¥à¤°-à¤¸à¤°à¤à¤¾à¤°à¥</td></tr>
+          <tr><td>JSY</td><td class="amount">â¹1400 (à¤à¥à¤°à¤¾à¤®à¥à¤£) | â¹1000 (à¤¶à¤¹à¤°à¥)</td><td>à¤¸à¤°à¤à¤¾à¤°à¥ à¤¸à¤à¤¸à¥à¤¥à¤¾ à¤®à¥à¤ à¤ªà¥à¤°à¤¸à¤µ</td></tr>
+          <tr><td>JSSK</td><td class="amount">à¤¨à¤¿à¤à¤¶à¥à¤²à¥à¤ à¤¦à¤µà¤¾, à¤à¤¾à¤à¤, à¤­à¥à¤à¤¨, à¤ªà¤°à¤¿à¤µà¤¹à¤¨</td><td>à¤¸à¤­à¥ à¤à¤°à¥à¤­à¤µà¤¤à¥ à¤®à¤¹à¤¿à¤²à¤¾à¤à¤</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">â ï¸ JSSK à¤®à¥à¤ à¤¦à¤¸à¥à¤¤à¤¾à¤µà¥à¤à¤¼ à¤®à¤¾à¤à¤à¤¨à¤¾ à¤à¥à¤°à¤à¤¾à¤¨à¥à¤¨à¥ à¤¹à¥ â à¤à¥à¤ à¤­à¥ ID à¤à¤¾à¤«à¥ à¤¹à¥</div>
+
+      <!-- QUIZ 1 -->
+      <div class="quiz-box">
+        <h4>ð Level 1 Quiz</h4>
+        <div class="quiz-q">
+          <strong>Q1. 65 à¤µà¤°à¥à¤· à¤à¥ BPL à¤µà¤¿à¤§à¤µà¤¾ à¤®à¤¹à¤¿à¤²à¤¾ à¤à¥ IGNOAPS à¤à¥ à¤¤à¤¹à¤¤ à¤¬à¤¿à¤¹à¤¾à¤° à¤®à¥à¤ à¤ªà¥à¤°à¤¤à¤¿ à¤®à¤¾à¤¹ à¤à¤¿à¤¤à¤¨à¥ à¤ªà¥à¤à¤¶à¤¨ à¤®à¤¿à¤²à¥à¤à¥?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. â¹300/à¤®à¤¾à¤¹ (à¤à¥à¤µà¤² à¤à¥à¤à¤¦à¥à¤°)</button>
+          <button class="opt-btn" onclick="ans(this,true)">B. â¹700/à¤®à¤¾à¤¹ (à¤à¥à¤à¤¦à¥à¤° + à¤¬à¤¿à¤¹à¤¾à¤° MVPY)</button>
+          <button class="opt-btn" onclick="ans(this,false)">C. â¹1000/à¤®à¤¾à¤¹</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q2. PMGKAY à¤à¥ à¤¤à¤¹à¤¤ à¤à¤¿à¤¤à¤¨à¤¾ à¤à¤¨à¤¾à¤ à¤®à¤¿à¤²à¤¤à¤¾ à¤¹à¥ à¤à¤° à¤à¤¬ à¤¤à¤?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. 2 à¤à¤¿à¤²à¥, 2024 à¤¤à¤</button>
+          <button class="opt-btn" onclick="ans(this,true)">B. 5 à¤à¤¿à¤²à¥ à¤¨à¤¿à¤à¤¶à¥à¤²à¥à¤, à¤¦à¤¿à¤¸à¤à¤¬à¤° 2028 à¤¤à¤</button>
+          <button class="opt-btn" onclick="ans(this,false)">C. 10 à¤à¤¿à¤²à¥, 2025 à¤¤à¤</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q3. JSSK à¤à¥ à¤¤à¤¹à¤¤ à¤¸à¤°à¤à¤¾à¤°à¥ à¤à¤¸à¥à¤ªà¤¤à¤¾à¤² à¤®à¥à¤ à¤ªà¥à¤°à¤¸à¤µ à¤à¥ à¤²à¤¿à¤ à¤à¥à¤¯à¤¾-à¤à¥à¤¯à¤¾ à¤®à¥à¤«à¥à¤¤ à¤®à¤¿à¤²à¤¤à¤¾ à¤¹à¥?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. à¤à¥à¤µà¤² à¤¦à¤µà¤¾à¤à¤¯à¤¾à¤</button>
+          <button class="opt-btn" onclick="ans(this,false)">B. à¤¦à¤µà¤¾à¤à¤¯à¤¾à¤ à¤à¤° à¤à¤¾à¤à¤</button>
+          <button class="opt-btn" onclick="ans(this,true)">C. à¤¦à¤µà¤¾à¤à¤¯à¤¾à¤, à¤à¤¾à¤à¤, à¤°à¤à¥à¤¤, à¤­à¥à¤à¤¨, à¤ªà¤°à¤¿à¤µà¤¹à¤¨, à¤à¤° à¤¸à¤¿à¤à¥à¤°à¤¿à¤¯à¤¨ â à¤¸à¤¬ à¤®à¥à¤«à¥à¤¤</button>
+        </div>
+        <button onclick="completeLevel(1)" style="margin-top:10px;background:#1B5E20;color:#fff;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;font-size:14px;font-weight:700">
+          â Level 1 à¤ªà¥à¤°à¤¾ à¤à¤°à¥à¤ | Complete Level 1
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 2 -->
+  <div class="level-card" id="card2">
+    <div class="level-header">
+      <span class="level-num locked" id="lnum2">Level 2</span>
+      <h3 style="flex:1;margin:0 12px;font-size:16px">
+        ð à¤²à¤à¥à¤·à¤¿à¤¤ à¤¯à¥à¤à¤¨à¤¾à¤à¤ â à¤®à¤¹à¤¿à¤²à¤¾, à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤, à¤à¤¦à¤¿à¤µà¤¾à¤¸à¥, à¤¶à¥à¤°à¤®<br>
+        <span style="font-size:13px;font-weight:400;color:#666">Targeted Schemes â Women, Disability, Tribal, Labour</span>
+      </h3>
+      <span class="level-status status-locked" id="st2">ð Complete Level 1 first</span>
+    </div>
+    <div class="level-body">
+      <div class="sub">Mission Shakti Â· UDID/RPwD Â· PM JANMAN Â· BOCW Â· MGNREGS Â· PM Vishwakarma Â· DAY-NRLM</div>
+      <div class="tag-row">
+        <span class="tag orange">Women</span><span class="tag blue">Disability</span>
+        <span class="tag">Tribal/PVTG</span><span class="tag blue">Labour</span>
+        <span class="tag">Livelihood</span>
+      </div>
+      <ul class="schemes-preview">
+        <li>Mission Shakti â OSC, helpline 181, PMMVY, Nari Adalat</li>
+        <li>RPwD Act 2016 â UDID, ADIP assistive devices, PwD scholarship</li>
+        <li>PM JANMAN â â¹24,104 crore for 75 PVTEs</li>
+        <li>BOCW â â¹2-5 lakh death/accident for construction workers</li>
+        <li>MGNREGS â 100 days guaranteed work at â¹228/day (Bihar)</li>
+        <li>PM Vishwakarma â â¹15,000 toolkit + 5% loan for 18 trades</li>
+      </ul>
+      <div class="level-footer">
+        <span class="meta">ð 3 Levels | â± ~3 hrs</span>
+        <button class="start-btn locked-btn" id="btn2" onclick="toggleLevel(2)">ð Locked</button>
+      </div>
+    </div>
+    <div class="level-content" id="content2">
+      <div class="section-label">ð© à¤®à¤¿à¤¶à¤¨ à¤¶à¤à¥à¤¤à¤¿ | Mission Shakti (2022)</div>
+      <div class="key-point">ðï¸ à¤¸à¤®à¥à¤¬à¤²: à¤µà¤¨ à¤¸à¥à¤à¥à¤ª à¤¸à¥à¤à¤à¤° (OSC) | à¤®à¤¹à¤¿à¤²à¤¾ à¤¹à¥à¤²à¥à¤ªà¤²à¤¾à¤à¤¨ 181 | à¤¨à¤¾à¤°à¥ à¤à¤¦à¤¾à¤²à¤¤ | PMVVF</div>
+      <div class="key-point">ð¼ à¤¸à¤¾à¤®à¤°à¥à¤¥à¥à¤¯: SHG à¤²à¤¿à¤à¤à¥à¤ | STEP à¤à¥à¤¶à¤² à¤ªà¥à¤°à¤¶à¤¿à¤à¥à¤·à¤£ | Nari Shakti Puraskar | à¤®à¤¹à¤¿à¤²à¤¾ à¤ªà¥à¤²à¤¿à¤¸ à¤¸à¥à¤µà¤¯à¤à¤¸à¥à¤µà¤</div>
+      <div class="warning-box">â ï¸ OSC à¤à¥ à¤¬à¤¿à¤¨à¤¾ à¤à¤¿à¤¸à¥ à¤¦à¤¸à¥à¤¤à¤¾à¤µà¥à¤à¤¼ à¤à¥ à¤¸à¤¹à¤¾à¤¯à¤¤à¤¾ à¤¦à¥à¤¨à¥ à¤¹à¥à¤¤à¥ à¤¹à¥ â à¤¯à¤¹ à¤à¤¾à¤¨à¥à¤¨à¥ à¤à¤¨à¤¿à¤µà¤¾à¤°à¥à¤¯à¤¤à¤¾ à¤¹à¥</div>
+
+      <div class="section-label">â¿ à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤ à¤à¤§à¤¿à¤à¤¾à¤° | Disability Rights (RPwD Act 2016)</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤¯à¥à¤à¤¨à¤¾</th><th>à¤²à¤¾à¤­</th><th>à¤ªà¤¾à¤¤à¥à¤°à¤¤à¤¾</th></tr></thead>
+        <tbody>
+          <tr><td>UDID à¤à¤¾à¤°à¥à¤¡</td><td>à¤¸à¤­à¥ à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤ à¤¯à¥à¤à¤¨à¤¾à¤à¤ à¤à¤¾ à¤ªà¥à¤°à¤µà¥à¤¶ à¤¦à¥à¤µà¤¾à¤°</td><td>21 à¤¶à¥à¤°à¥à¤£à¤¿à¤¯à¥à¤ à¤à¥ à¤à¥à¤ à¤­à¥ à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤à¤¤à¤¾</td></tr>
+          <tr><td>IGNDPS à¤ªà¥à¤à¤¶à¤¨</td><td class="amount">â¹700/à¤®à¤¾à¤¹</td><td>80%+ à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤à¤¤à¤¾, BPL</td></tr>
+          <tr><td>ADIP</td><td>à¤µà¥à¤¹à¥à¤²à¤à¥à¤¯à¤°, à¤¸à¥à¤¨à¤¨à¥ à¤à¥ à¤®à¤¶à¥à¤¨, à¤à¥à¤¤à¥à¤°à¤¿à¤® à¤à¤à¤ â à¤®à¥à¤«à¥à¤¤</td><td>BPL à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤</td></tr>
+          <tr><td>PwD Scholarship</td><td class="amount">â¹800-â¹3000/à¤®à¤¾à¤¹</td><td>à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤ à¤à¤¾à¤¤à¥à¤°, â¹2.5 à¤²à¤¾à¤ à¤¸à¥ à¤à¤® à¤à¤¯</td></tr>
+          <tr><td>3% à¤à¤°à¤à¥à¤·à¤£</td><td>à¤¸à¤°à¤à¤¾à¤°à¥ à¤¨à¥à¤à¤°à¥, à¤à¤à¥à¤ à¤¶à¤¿à¤à¥à¤·à¤¾, PMAY à¤à¤µà¤¾à¤¸</td><td>à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤ à¤ªà¥à¤°à¤®à¤¾à¤£-à¤ªà¤¤à¥à¤°</td></tr>
+        </tbody>
+      </table>
+      <div class="key-point">ð± UDID à¤à¥ à¤²à¤¿à¤: udid.gov.in | DDRC (à¤à¤¿à¤²à¤¾ à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤ à¤ªà¥à¤¨à¤°à¥à¤µà¤¾à¤¸ à¤à¥à¤à¤¦à¥à¤°)</div>
+
+      <div class="section-label">ð¿ PM JANMAN â PVTG à¤à¤²à¥à¤¯à¤¾à¤£</div>
+      <div class="key-point">ð¡ 75 à¤µà¤¿à¤¶à¥à¤· à¤°à¥à¤ª à¤¸à¥ à¤à¤®à¤à¥à¤° à¤à¤¨à¤à¤¾à¤¤à¤¿ à¤¸à¤®à¥à¤¹ (PVTG) â â¹24,104 à¤à¤°à¥à¤¡à¤¼ à¤à¤¾ à¤ªà¥à¤à¥à¤</div>
+      <div class="key-point">ð à¤¬à¤¿à¤¹à¤¾à¤° à¤à¥ PVTG: à¤¬à¤¿à¤°à¤¹à¥à¤°, à¤à¥à¤°à¤µà¤¾, à¤¸à¥à¤°à¤¿à¤¯à¤¾ à¤ªà¤¹à¤¾à¤¡à¤¼à¤¿à¤¯à¤¾, à¤®à¤¾à¤² à¤ªà¤¹à¤¾à¤¡à¤¼à¤¿à¤¯à¤¾, à¤¹à¤¿à¤² à¤à¤¡à¤¼à¤¿à¤¯à¤¾</div>
+      <div class="key-point">ðï¸ à¤ªà¤à¥à¤à¤¾ à¤à¤° + à¤¸à¤¡à¤¼à¤ + à¤¬à¤¿à¤à¤²à¥ + à¤à¤² + à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯ + à¤à¤à¥à¤µà¤¿à¤à¤¾ â à¤à¤à¥à¤à¥à¤¤ à¤à¤µà¤°à¥à¤</div>
+
+      <div class="section-label">ð¨ à¤¶à¥à¤°à¤® à¤¯à¥à¤à¤¨à¤¾à¤à¤ | Labour Schemes</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤¯à¥à¤à¤¨à¤¾</th><th>à¤®à¥à¤à¥à¤¯ à¤²à¤¾à¤­</th><th>à¤ªà¤¾à¤¤à¥à¤°à¤¤à¤¾</th></tr></thead>
+        <tbody>
+          <tr><td>MGNREGS</td><td class="amount">100 à¤¦à¤¿à¤¨/à¤µà¤°à¥à¤· @ â¹228/à¤¦à¤¿à¤¨</td><td>à¤à¥à¤ à¤­à¥ à¤à¥à¤°à¤¾à¤®à¥à¤£ à¤µà¤¯à¤¸à¥à¤</td></tr>
+          <tr><td>BOCW</td><td class="amount">à¤®à¥à¤¤à¥à¤¯à¥ â¹2-5 à¤²à¤¾à¤; à¤ªà¥à¤°à¤¸à¥à¤¤à¤¿ â¹15,000</td><td>à¤ªà¤à¤à¥à¤à¥à¤¤ à¤¨à¤¿à¤°à¥à¤®à¤¾à¤£ à¤¶à¥à¤°à¤®à¤¿à¤</td></tr>
+          <tr><td>PM Vishwakarma</td><td class="amount">â¹15,000 à¤à¥à¤²à¤à¤¿à¤ + 5% à¤à¤£ â¹3 à¤²à¤¾à¤</td><td>18 à¤ªà¤¾à¤°à¤à¤ª ¤°à¤¿à¤ à¤µà¥à¤¯à¤¾à¤ªà¤¾à¤°</td></tr>
+          <tr><td>PM-SYM</td><td class="amount">â¹3000/à¤®à¤¾à¤¹ à¤ªà¥à¤à¤¶à¤¨ (60 à¤µà¤°à¥à¤· à¤¬à¤¾à¤¦)</td><td>18-40 à¤µà¤°à¥à¤·, à¤à¤¸à¤à¤à¤ à¤¿à¤¤, â¹15,000 à¤¸à¥ à¤à¤® à¤à¤¯</td></tr>
+          <tr><td>DAY-NRLM (JEEViKA)</td><td>SHG â¹15,000 à¤°à¤¿à¤µà¥à¤²à¥à¤µà¤¿à¤à¤ à¤«à¤à¤¡ + à¤¬à¥à¤à¤ à¤²à¤¿à¤à¤à¥à¤</td><td>à¤à¥à¤°à¤¾à¤®à¥à¤£ à¤®à¤¹à¤¿à¤²à¤¾ SHG</td></tr>
+          <tr><td>ESIC</td><td>à¤¬à¥à¤®à¤¾à¤°à¥/à¤¦à¥à¤°à¥à¤à¤à¤¨à¤¾ à¤ª ¤° à¤¨à¤à¤¦ + à¤¨à¤¿à¤à¤¶à¥à¤²à¥à¤ à¤à¤¿à¤à¤¿à¤¤à¥à¤¸à¤¾</td><td>â¹21,000/à¤®à¤¾à¤¹ à¤¤à¤ à¤à¥ à¤à¤°à¥à¤®à¤à¤¾à¤°à¥</td></tr>
+        </tbody>
+      </table>
+      <div class="warning-box">â ï¸ MGNREGS: à¤¯à¤¦à¤¿ 15 à¤¦à¤¿à¤¨ à¤®à¥à¤ à¤à¤¾à¤® à¤¨ à¤®à¤¿à¤²à¥ â à¤¬à¥à¤°à¥à¤à¤à¤¾à¤°à¥ à¤­à¤¤à¥à¤¤à¥ à¤à¤¾ à¤¦à¤¾à¤µà¤¾ à¤à¤°à¥à¤ (MGNREGA 2005 à¤§à¤¾à¤°à¤¾ 7)</div>
+
+      <!-- QUIZ 2 -->
+      <div class="quiz-box">
+        <h4>ð Level 2 Quiz</h4>
+        <div class="quiz-q">
+          <strong>Q1. RPwD Act 2016 à¤à¥ à¤¤à¤¹à¤¤ à¤à¤¿à¤¤à¤¨à¥ à¤¶à¥à¤°à¥à¤£à¤¿à¤¯à¥à¤ à¤à¥ à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤à¤¤à¤¾ à¤®à¤¾à¤¨à¥à¤¯à¤¤à¤¾ à¤ªà¥à¤°à¤¾à¤ª ¥à¤¤ à¤¹à¥?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. 7</button>
+          <button class="opt-btn" onclick="ans(this,false)">B. 12</button>
+          <button class="opt-btn" onclick="ans(this,true)">C. 21</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q2. MGNREGS à¤à¥ à¤¤à¤¹à¤¤ à¤¬à¤¿à¤¹à¤¾à¤° à¤®à¥à¤ à¤¦à¥à¤¨à¤¿à¤ à¤®à¤à¤¦à¥à¤°à¥ à¤à¤¿à¤¤à¤¨à¥ à¤¹à¥?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. â¹150/à¤¦à¤¿à¤¨</button>
+          <button class="opt-btn" onclick="ans(this,false)">B. â¹200/à¤¦à¤¿à¤¨</button>
+          <button class="opt-btn" onclick="ans(this,true)">C. â¹228/à¤¦à¤¿à¤¨</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q3. BOCW à¤ªà¤à¤à¥à¤à¤°à¤£ à¤à¥ à¤²à¤¿à¤ à¤à¤¿à¤¤à¤¨à¥ à¤¦à¤¿à¤¨ à¤¨à¤¿à¤°à¥à¤®à¤¾à¤£ à¤à¤¾à¤°à¥à¤¯ à¤à¤¾ à¤ª ¥à¤°à¤®à¤¾à¤£ à¤à¤°à¥à¤°à¥ à¤¹à¥?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. 30 à¤¦à¤¿à¤¨</button>
+          <button class="opt-btn" onclick="ans(this,false)">B. 60 à¤¦à¤¿à¤¨</button>
+          <button class="opt-btn" onclick="ans(this,true)">C. 90 à¤¦à¤¿à¤¨</button>
+        </div>
+        <button onclick="completeLevel(2)" style="margin-top:10px;background:#1B5E20;color:#fff;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;font-size:14px;font-weight:700">
+          â Level 2 à¤ªà¥à¤°à¤¾ à¤à¤°à¥à¤ | Complete Level 2
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LEVEL 3 -->
+  <div class="level-card" id="card3">
+    <div class="level-header">
+      <span class="level-num locked" id="lnum3">Level 3</span>
+      <h3 style="flex:1;margin:0 12px;font-size:16px">
+        ð à¤¬à¤¹à¤¿à¤·à¥à¤à¤°à¤£ à¤¸à¥ à¤²à¤¡à¤¼à¥à¤ â RTI, à¤¶à¤¿à¤à¤¾à¤¯à¤¤, PIL, à¤à¤° à¤¨à¥à¤¯à¤¾à¤¯à¤¾à¤²à¤¯<br>
+        <span style="font-size:13px;font-weight:400;color:#666">Fighting Exclusion â RTI, Grievances, PIL &amp; Courts</span>
+      </h3>
+      <span class="level-status status-locked" id="st3">ð Complete Levels 1 &amp; 2 first</span>
+    </div>
+    <div class="level-body">
+      <div class="sub">RTI Â· CPGRAMS Â· State Food Commission Â· NHRC Â· Art. 226 Writs Â· Strategic Litigation</div>
+      <div class="tag-row">
+        <span class="tag">RTI 2005</span><span class="tag blue">CPGRAMS</span>
+        <span class="tag orange">Art. 226 Writs</span><span class="tag">Anchor Judgments</span>
+        <span class="tag blue">Draft Letters</span>
+      </div>
+      <ul class="schemes-preview">
+        <li>RTI applications for welfare data â pension pendency, ration coverage</li>
+        <li>CPGRAMS + RTPS Bihar appeal portal â step-by-step grievance filing</li>
+        <li>State Food Commission, State Disability Commission, NHRC</li>
+        <li>Art. 226 writ petitions for systemic exclusion â from survey to prayer</li>
+        <li>Anchor judgments: PUCL v. UoI, Chameli Singh, Olga Tellis, Vikram Deo Singh</li>
+      </ul>
+      <div class="level-footer">
+        <span class="meta">ð 3 Levels | â± ~3 hrs</span>
+        <button class="start-btn locked-btn" id="btn3" onclick="toggleLevel(3)">ð Locked</button>
+      </div>
+    </div>
+    <div class="level-content" id="content3">
+      <div class="section-label">ð RTI à¤à¤µà¥à¤¦à¤¨ | RTI Application (RTI Act 2005)</div>
+      <div class="key-point">ð PIO à¤à¥ 30 à¤¦à¤¿à¤¨ à¤®à¥à¤ à¤à¤µà¤¾à¤¬ à¤¦à¥à¤¨à¤¾ à¤à¤¨à¤¿à¤µà¤¾à¤°à¥à¤¯; à¤à¥à¤µà¤¨/à¤¸à¥à¤µà¤¤à¤à¤¤à¥à¤°à¤¤à¤¾ à¤¸à¥ à¤à¥à¤¡à¤¼à¥ à¤®à¤¾à¤®à¤²à¥à¤ à¤®à¥à¤ 48 à¤à¤à¤à¥</div>
+      <div class="key-point">ð° à¤¶à¥à¤²à¥à¤: â¹10 (à¤à¥à¤à¤¦à¥à¤°) | â¹10 (à¤¬à¤¿à¤¹à¤¾à¤°) â BPL à¤à¥ à¤²à¤¿à¤ à¤¨à¤¿à¤à¤¶à¥à¤²à¥à¤ | à¤à¤°à¥à¤¬à¥ à¤°à¥à¤à¤¾ à¤à¤¾ à¤ª ¥à¤°à¤®à¤¾à¤£ à¤¦à¥à¤</div>
+      <div class="warning-box">RTI à¤®à¥à¤ à¤®à¤¾à¤à¤à¥à¤: à¤²à¤¾à¤­à¤¾à¤°à¥à¤¥à¤¿à¤¯à¥à¤ à¤à¥ à¤¸à¥à¤à¥, à¤ªà¥à¤à¤¶à¤¨ à¤­à¥à¤à¤¤à¤¾à¤¨ à¤°à¤¿à¤à¥à¤°à¥à¤¡, à¤à¤µà¥à¤¦à¤¨ à¤à¥ à¤µà¤°à¥à¤¤à¤®à¤¾à¤¨ à¤¸à¥à¤¥à¤¿à¤¤à¤¿, à¤à¤¸à¥à¤µà¥à¤à¥à¤¤à¤¿ à¤à¤¾ à¤²à¤¿à¤à¤¿à¤¤ à¤à¤¾à¤°à¤£</div>
+
+      <div class="section-label">âï¸ à¤¶à¤¿à¤à¤¾à¤¯à¤¤ à¤®à¤¾à¤°à¥à¤ | Grievance Channels</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤®à¤à¤</th><th>à¤à¤¿à¤¸ à¤à¥ à¤²à¤¿à¤</th><th>à¤à¥à¤¸à¥</th></tr></thead>
+        <tbody>
+          <tr><td>CPGRAMS</td><td>à¤¸à¤­à¥ à¤à¥à¤à¤¦à¥à¤°à¥à¤¯ à¤¯à¥à¤à¤¨à¤¾à¤à¤</td><td>pgportal.gov.in</td></tr>
+          <tr><td>RTPS Bihar Appeal</td><td>à¤¬à¤¿à¤¹à¤¾à¤° RTPS à¤¸à¥à¤µà¤¾à¤à¤ (45 à¤¦à¤¿à¤¨ à¤¬à¤¾à¤¦)</td><td>rtpsappeal.bihar.gov.in</td></tr>
+          <tr><td>State Food Commission</td><td>NFSA à¤à¤²à¥à¤²à¤à¤à¤¨</td><td>à¤°à¤¾à¤à¥à¤¯ à¤à¤¾à¤¦à¥à¤¯ à¤à¤¯à¥à¤, à¤ª ¤à¤¨à¤¾</td></tr>
+          <tr><td>CCPD</td><td>à¤¦à¤¿à¤µà¥à¤¯à¤¾à¤à¤ à¤à¤§à¤¿à¤à¤¾à¤° à¤à¤²à¥à¤²à¤à¤à¤¨</td><td>ccdisabilities.nic.in</td></tr>
+          <tr><td>NHRC</td><td>à¤®à¤¾à¤¨à¤µ à¤à¤§à¤¿à¤à¤¾à¤° à¤à¤²à¥à¤²à¤à¤à¤¨</td><td>nhrc.nic.in</td></tr>
+          <tr><td>DM/Collector</td><td>à¤¸à¤­à¥ à¤à¤¿à¤²à¤¾ à¤¸à¥à¤¤à¤°à¥à¤¯ à¤¯à¥à¤à¤¨à¤¾à¤à¤</td><td>à¤à¤¿à¤²à¤¾à¤§à¤¿à¤à¤¾à¤°à¥ à¤à¤¾à¤°à¥à¤¯à¤¾à¤²à¤¯</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-label">ð à¤¸à¤à¤µà¥à¤§à¤¾à¤¨à¤¿à¤ à¤à¤§à¤¾à¤° | Constitutional Framework</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤à¤¨à¥à¤à¥à¤à¥à¤¦</th><th>à¤¸à¤à¤°à¤à¥à¤·à¤£</th><th>à¤®à¥à¤à¥à¤¯ à¤¨à¤¿à¤°à¥à¤£à¤¯</th></tr></thead>
+        <tbody>
+          <tr><td>Art. 14</td><td>à¤à¤¾à¤¨à¥à¤¨ à¤à¥ à¤¸à¤®à¤à¥à¤· à¤¸à¤®à¤¾à¤¨à¤¤à¤¾</td><td>Maneka Gandhi v. UoI</td></tr>
+          <tr><td>Art. 21</td><td>à¤à¥à¤µà¤¨ à¤à¤¾ à¤à¤§à¤¿à¤à¤¾à¤° â à¤à¤à¥à¤µà¤¿à¤à¤¾, à¤à¤¾à¤¦à¥à¤¯, à¤¸à¥à¤µà¤¾à¤¸à¥à¤¥à¥à¤¯</td><td>PUCL v. UoI (2001); Olga Tellis</td></tr>
+          <tr><td>Art. 38</td><td>à¤¸à¤¾à¤®à¤¾à¤à¤¿à¤ à¤¨à¥à¤¯à¤¾à¤¯ à¤¸à¥à¤¨à¤¿à¤¶à¥à¤à¤¿à¤¤ à¤à¤°à¤¨à¤¾</td><td>DPSP â Art. 226 à¤®à¥à¤ à¤²à¤¾à¤à¥</td></tr>
+          <tr><td>Art. 39(a)</td><td>à¤à¤à¥à¤µà¤¿à¤à¤¾ à¤à¤¾ à¤à¤§à¤¿à¤à¤¾à¤°</td><td>Vikram Deo Singh v. Bihar (1988)</td></tr>
+          <tr><td>Art. 41</td><td>à¤¬à¥à¤°à¥à¤à¤à¤¾à¤°à¥/à¤µà¥à¤¦à¥à¤§à¤¾à¤µà¤¸à¥à¤¥à¤¾/à¤¬à¥à¤®à¤¾à¤°à¥ à¤®à¥à¤ à¤¸à¤¹à¤¾à¤¯à¤¤à¤¾</td><td>Olga Tellis v. Bombay MC</td></tr>
+          <tr><td>Art. 42</td><td>à¤®à¤¾à¤¤à¥à¤¤à¥à¤µ à¤¸à¤¹à¤¾à¤¯à¤¤à¤¾</td><td>PMMVY litigation</td></tr>
+          <tr><td>Art. 23</td><td>à¤¬à¤à¤§à¤ à¤®à¤à¤¦à¥à¤°à¥ à¤à¥ à¤®à¤¨à¤¾à¤¹à¥</td><td>Bandhua Mukti Morcha v. UoI</td></tr>
+        </tbody>
+      </table>
+
+      <div class="section-label">âï¸ PIL à¤°à¤£à¤¨à¥à¤¤à¤¿ | PIL Strategy for Systemic Exclusion</div>
+      <div class="key-point">ð à¤à¤°à¤£ 1: RTI à¤¸à¥ à¤¡à¥à¤à¤¾ â à¤à¤¿à¤²à¥ à¤®à¥à¤ à¤à¤¿à¤¤à¤¨à¥ BPL à¤ªà¤°à¤¿à¤µà¤¾à¤° à¤¹à¥à¤? à¤à¤¿à¤¤à¤¨à¥ à¤ª ¥à¤à¤¶à¤¨ à¤ªà¤¾ à¤°à¤¹à¥ à¤¹à¥à¤? à¤à¤à¤¤à¤° à¤à¥à¤¯à¥à¤?</div>
+      <div class="key-point">ð à¤à¤°à¤£ 2: à¤«à¥à¤²à¥à¤¡ à¤¸à¤°à¥à¤µà¥ â à¤ªà¤¾à¤¤à¥à¤° à¤²à¥à¤à¤¿à¤¨ à¤µà¤à¤à¤¿à¤¤ à¤ªà¤°à¤¿à¤µà¤¾à¤°à¥à¤ à¤à¥ à¤¸à¥à¤à¥ + à¤¹à¤¸à¥à¤¤à¤¾à¤à¥à¤·à¤°à¤¿à¤¤ à¤¶à¤ªà¤¥-à¤ªà¤¤à¥à¤°</div>
+      <div class="key-point">ð à¤à¤°à¤£ 3: à¤¨à¥à¤à¤¿à¤¸ â DM, à¤°à¤¾à¤à¥à¤¯ à¤¸à¤à¤¿à¤µ à¤à¥ à¤²à¤¿à¤à¤¿à¤¤ à¤®à¤¾à¤à¤ + 30 à¤¦à¤¿à¤¨ à¤à¤¾ à¤¸à¤®à¤¯</div>
+      <div class="key-point">ð à¤à¤°à¤£ 4: HC writ Art. 226 â à¤¯à¤¾à¤à¤¿à¤à¤¾ + à¤¶à¤ªà¤¥-à¤ªà¤¤à¥à¤° + RTI à¤¦à¤¸à¥à¤¤à¤¾à¤µà¥à¤ + à¤¸à¤°à¥à¤µà¥ à¤¡à¥à¤à¤¾</div>
+      <div class="key-point">âï¸ Forum: Patna High Court â CWP (PIL) Bench; Emergency: Art. 32 SC</div>
+
+      <div class="section-label">ð à¤ªà¥à¤°à¤®à¥à¤ à¤¨à¤¿à¤°à¥à¤£à¤¯ | Landmark Judgments</div>
+      <table class="scheme-table">
+        <thead><tr><th>à¤®à¤¾à¤®à¤²à¤¾</th><th>à¤à¤¨à¥à¤ªà¤¾à¤¤</th><th>à¤¯à¥à¤à¤¨à¤¾ à¤®à¥à¤ à¤à¤ª ¤¯à¥à¤</th></tr></thead>
+        <tbody>
+          <tr><td>PUCL v. UoI (2001)</td><td>à¤à¤¾à¤¦à¥à¤¯ à¤à¤¾ à¤à¤§à¤¿à¤à¤¾à¤° = Art. 21 à¤à¤¾ à¤¹à¤¿à¤¸à¥à¤¸à¤¾</td><td>NFSA, à¤®à¤§à¥à¤¯à¤¾à¤¹à¥à¤¨ à¤­à¥à¤à¤¨</td></tr>
+          <tr><td>Olga Tellis v. Bombay MC</td><td>à¤à¤à¥à¤µà¤¿à¤à¤¾ = à¤à¥à¤µà¤¨ à¤à¤¾ à¤à¤§à¤¿à¤à¤¾à¤°</td><td>MGNREGS, BOCW</td></tr>
+          <tr><td>Vikram Deo Singh v. Bihar (1988)</td><td>SC à¤¨à¥ à¤¬à¤¿à¤¹à¤¾à¤° à¤à¥ NSAP à¤¦à¥à¤¨à¥ à¤à¤¾ à¤à¤¦à¥à¤¶ à¤¦à¤¿à¤¯à¤¾</td><td>IGNOAPS, IGNWPS</td></tr>
+          <tr><td>Chameli Singh v. State of UP</td><td>à¤à¤µà¤¾à¤¸ = Art. 21 à¤à¤¾ à¤®à¥à¤²à¤­à¥à¤¤ à¤à¤à¤</td><td>PMAY-G/U writs</td></tr>
+          <tr><td>Bandhua Mukti Morcha v. UoI</td><td>à¤¬à¤à¤§à¤ à¤®à¤à¤¦à¥à¤°à¥ = Art. 23 à¤à¤²à¥à¤²à¤à¤à¤¨; à¤°à¤¾à¤à¥à¤¯ à¤¤à¤¤à¥à¤à¤¾à¤² à¤¹à¤¸à¥à¤¤à¤à¥à¤·à¥à¤ª à¤à¤°à¥</td><td>CBLRP enforcement</td></tr>
+        </tbody>
+      </table>
+
+      <!-- QUIZ 3 -->
+      <div class="quiz-box">
+        <h4>ð Level 3 Quiz</h4>
+        <div class="quiz-q">
+          <strong>Q1. RTI à¤à¤µà¥à¤¦à¤¨ à¤à¤¾ à¤à¤µà¤¾à¤¬ PIO à¤à¥ à¤à¤¿à¤¤à¤¨à¥ à¤¦à¤¿à¤¨à¥à¤ à¤®à¥à¤ à¤¦à¥à¤¨à¤¾ à¤¹à¥à¤¤à¤¾ à¤¹à¥?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. 15 à¤¦à¤¿à¤¨</button>
+          <button class="opt-btn" onclick="ans(this,true)">B. 30 à¤¦à¤¿à¤¨ (à¤à¥à¤µà¤¨/à¤¸à¥à¤µà¤¤à¤à¤¤à¥à¤°à¤¤à¤¾: 48 à¤à¤à¤à¥)</button>
+          <button class="opt-btn" onclick="ans(this,false)">C. 60 à¤¦à¤¿à¤¨</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q2. NFSA à¤à¤²à¥à¤²à¤à¤à¤¨ à¤à¥ à¤¶à¤¿à¤à¤¾à¤¯à¤¤ à¤à¤¿à¤¸ à¤¸à¥à¤µà¤¤à¤à¤¤à¥à¤° à¤¨à¤¿à¤à¤¾à¤¯ à¤®à¥à¤ à¤à¥ à¤à¤¾ à¤¸à¤à¤¤à¥ à¤¹à¥?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. NHRC</button>
+          <button class="opt-btn" onclick="ans(this,true)">B. à¤°à¤¾à¤à¥à¤¯ à¤à¤¾à¤¦à¥à¤¯ à¤à¤¯à¥à¤ (State Food Commission)</button>
+          <button class="opt-btn" onclick="ans(this,false)">C. CBI</button>
+        </div>
+        <div class="quiz-q">
+          <strong>Q3. PUCL v. UoI (2001) à¤®à¥à¤ à¤¸à¥à¤ªà¥à¤°à¥à¤® à¤à¥à¤°à¥à¤ à¤¨à¥ à¤à¥à¤¯à¤¾ à¤à¤¹à¤¾?</strong>
+          <button class="opt-btn" onclick="ans(this,false)">A. à¤°à¤¾à¤¶à¤¨ à¤à¤¾à¤°à¥à¤¡ à¤à¤ à¤¸à¥à¤µà¤¿à¤§à¤¾ à¤¹à¥, à¤à¤§à¤¿à¤à¤¾à¤° à¤¨à¤¹à¥à¤</button>
+          <button class="opt-btn" onclick="ans(this,false)">B. à¤à¥à¤à¤¦à¥à¤° à¤¸à¤°à¤à¤¾à¤° à¤à¥ NFSA à¤¬à¤¨à¤¾à¤¨à¤¾ à¤à¤¾à¤¹à¤¿à¤</button>
+          <button class="opt-btn" onclick="ans(this,true)">C. à¤à¤¾à¤¦à¥à¤¯ à¤à¤¾ à¤à¤§à¤¿à¤à¤¾à¤° à¤à¤¨à¥à¤à¥à¤à¥à¤¦ 21 à¤à¥ à¤¤à¤¹à¤¤ à¤à¥à¤µà¤¨ à¤à¥ à¤à¤§à¤¿à¤à¤¾à¤° à¤à¤¾ à¤¹à¤¿à¤¸à¥à¤¸à¤¾ à¤¹à¥</button>
+        </div>
+        <button onclick="completeLevel(3)" style="margin-top:10px;background:#1B5E20;color:#fff;border:none;border-radius:8px;padding:10px 20px;cursor:pointer;font-size:14px;font-weight:700">
+          â Level 3 à¤ªà¥à¤°à¤¾ à¤à¤°à¥à¤ | Complete Level 3
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HANDBOOK LINK -->
+  <div class="card" style="background:linear-gradient(135deg,#E8F5E9,#E3F2FD);border:2px solid #1B5E20">
+    <h2>ð Interactive Scheme Reference | à¤à¤à¤à¤°à¤à¤à¥à¤à¤¿à¤µ à¤¯à¥à¤à¤¨à¤¾ à¤¹à¥à¤à¤¡à¤¬à¥à¤</h2>
+    <p>Explore all 30+ schemes with bilingual 5-answer cards, eligibility self-checker, and draft-letter generator.</p>
+    <p style="margin-top:8px">
+      <a href="../welfare-handbook.html" style="display:inline-block;background:#1B5E20;color:#fff;border-radius:20px;padding:8px 22px;text-decoration:none;font-weight:700;font-size:14px">
+        ð Open Full Handbook â
+      </a>
+    </p>
+  </div>
+
+  <!-- CERTIFICATE -->
+  <div class="cert-card" id="certCard">
+    <h2>ð Final Certificate â Social Security &amp; Welfare Rights</h2>
+    <p>Complete all three levels to unlock your certificate â certified by Janman People's Foundation and digitally signed by Executive Director.</p>
+    <a href="#" class="cert-btn" id="certBtn" style="pointer-events:none;opacity:.5">ð Complete All Levels to Unlock</a>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about-box" style="margin-top:20px">
+    <h3>â¹ï¸ About Janman People's Foundation</h3>
+    <p>Janman People's Foundation is a Bihar-based human rights organisation working under the Jan Nyaya Abhiyan initiative. We work on issues of gender-based violence, disability rights, social security, hate crime documentation, and access to justice for marginalised communities across Bihar and India.</p>
+    <p style="margin-top:6px">For more information: <a href="https://janmanindia.org" style="color:#1B5E20">janmanindia.org</a></p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Janman People's Foundation</strong> Â· Jan Nyaya Abhiyan Â· Bihar, India<br>
+  Training materials prepared for educational purposes. For legal advice, consult a qualified lawyer.<br>
+  <a href="mailto:shashwat@janmanindia.org">shashwat@janmanindia.org</a> |
+  <a href="https://janmanindia.org">janmanindia.org</a>
+</footer>
+
+<!-- HELP FAB -->
+<button class="help-fab" onclick="window.open('https://wa.me/918507715870','_blank')" title="WhatsApp Help">ð¬</button>
+
+<script>
+// PROGRESS SYSTEM
+const KEY = "welfare_progress";
+function getProgress(){
+  try{return JSON.parse(localStorage.getItem(KEY)||"{}"); }catch(e){return {};}
+}
+function saveProgress(p){ localStorage.setItem(KEY,JSON.stringify(p)); }
+
+function init(){
+  const p = getProgress();
+  [1,2,3].forEach(n=>{
+    if(p[n]) markComplete(n,false);
+    else if(n>1 && p[n-1]) unlock(n);
+  });
+  updateBar();
+}
+
+function updateBar(){
+  const p=getProgress();
+  const done = [1,2,3].filter(n=>p[n]).length;
+  document.getElementById("progFill").style.width=(done/3*100)+"%";
+  document.getElementById("progText").textContent=done+" of 3 levels completed";
+  if(done===3){
+    document.getElementById("certBtn").style.cssText="";
+    document.getElementById("certBtn").textContent="ð Download Certificate";
+    document.getElementById("certBtn").href="#cert";
+    document.getElementById("certBtn").onclick=()=>alert("Certificate generation coming soon! Contact shashwat@janmanindia.org with your name and completion date.");
+  }
+}
+
+function toggleLevel(n){
+  const p=getProgress();
+  if(n>1 && !p[n-1]) return;
+  const c=document.getElementById("content"+n);
+  c.classList.toggle("active");
+}
+
+function unlock(n){
+  document.getElementById("lnum"+n).classList.remove("locked");
+  document.getElementById("st"+n).className="level-status status-available";
+  document.getElementById("st"+n).textContent="â³ Available";
+  document.getElementById("btn"+n).classList.remove("locked-btn");
+  document.getElementById("btn"+n).textContent="â¶ Start Level "+n;
+}
+
+function markComplete(n,save=true){
+  if(save){
+    const p=getProgress(); p[n]=true; saveProgress(p);
+  }
+  document.getElementById("st"+n).className="level-status status-done";
+  document.getElementById("st"+n).textContent="â Completed";
+  document.getElementById("btn"+n).textContent="ð Review Level "+n;
+  document.getElementById("btn"+n).classList.remove("locked-btn");
+  if(n<3) unlock(n+1);
+  updateBar();
+}
+
+function completeLevel(n){
+  markComplete(n);
+  document.getElementById("content"+n).classList.remove("active");
+  alert("ð Level "+n+" à¤ªà¥à¤°à¤¾ à¤¹à¥ à¤à¤¯à¤¾! / Level "+n+" Completed!\n\n"+(n<3?"Level "+(n+1)+" à¤à¤¬ à¤à¥à¤² à¤à¤¯à¤¾ à¤¹à¥à¥¤ / Level "+(n+1)+" is now unlocked.":"ð à¤¬à¤§à¤¾à¤! à¤¸à¤­à¥ Level à¤ªà¥à¤°à¥ à¤¹à¥ à¤à¤! / Congratulations! All levels completed!"));
+}
+
+function ans(btn,correct){
+  const par = btn.parentElement;
+  par.querySelectorAll(".opt-btn").forEach(b=>b.disabled=true);
+  btn.classList.add(correct?"correct":"wrong");
+}
+
+window.addEventListener("DOMContentLoaded",init);
+</script>
+</body>
+</html>
