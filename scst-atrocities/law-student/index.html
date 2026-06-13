@@ -5,3 +5,137 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Law Student Track — SC/ST Atrocities Act | Janman People's Foundation</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:linear-gradient(135deg,#0a0e1a 0%,#001a1a 100%);color:#e2e8f0;min-height:100vh;line-height:1.7}
+.top-nav{background:rgba(20,184,166,0.08);border-bottom:1px solid rgba(20,184,166,0.2);padding:12px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.top-nav a{color:#14b8a6;text-decoration:none;font-size:.875rem;font-weight:500}.top-nav a:hover{opacity:.75}
+.top-nav .sep{color:#334155}
+.header{padding:52px 24px 36px;text-align:center}
+.track-pill{display:inline-block;background:rgba(20,184,166,0.12);border:1px solid rgba(20,184,166,0.35);color:#14b8a6;font-size:.72rem;font-weight:700;letter-spacing:.15em;padding:4px 14px;border-radius:20px;margin-bottom:16px;text-transform:uppercase}
+.header h1{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,5vw,2.6rem);color:#f1f5f9;margin-bottom:14px;line-height:1.25}
+.header p{color:#94a3b8;font-size:.97rem;max-width:640px;margin:0 auto 8px}
+.org-name{font-size:.75rem;color:#64748b;margin-top:8px}
+.container{max-width:860px;margin:0 auto;padding:24px 20px 52px}
+.progress-card{background:rgba(20,184,166,0.07);border:1px solid rgba(20,184,166,0.2);border-radius:14px;padding:24px;margin-bottom:32px}
+.progress-card h2{font-size:.85rem;font-weight:700;color:#14b8a6;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.prog-row{display:flex;gap:12px;flex-wrap:wrap}
+.prog-item{flex:1;min-width:140px;background:rgba(15,23,42,0.5);border-radius:10px;padding:14px;text-align:center;border:1px solid rgba(20,184,166,0.12)}
+.prog-label{font-size:.72rem;color:#64748b;margin-bottom:4px;font-weight:600}
+.prog-val{font-size:1.3rem;font-weight:700;color:#14b8a6;font-family:monospace}
+.prog-val.not-done{color:#475569}
+.levels-grid{display:flex;flex-direction:column;gap:16px}
+.level-card{background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.18);border-radius:14px;padding:26px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;transition:border-color .2s,background .2s;text-decoration:none;color:inherit}
+.level-card:hover{border-color:rgba(20,184,166,0.4);background:rgba(20,184,166,0.1)}
+.level-num{width:52px;height:52px;background:rgba(20,184,166,0.12);border:2px solid rgba(20,184,166,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.4rem;color:#14b8a6;font-weight:700;flex-shrink:0}
+.level-info h3{font-size:1.02rem;font-weight:700;color:#f1f5f9;margin-bottom:4px}
+.level-info p{font-size:.84rem;color:#94a3b8;line-height:1.5}
+.level-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tag{font-size:.67rem;font-weight:700;letter-spacing:.07em;padding:2px 8px;border-radius:10px;text-transform:uppercase;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.25);color:#14b8a6}
+.level-arrow{color:#14b8a6;font-size:1.4rem;flex-shrink:0}
+.level-score{background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.25);color:#14b8a6;font-size:.78rem;font-weight:700;padding:4px 10px;border-radius:8px;font-family:monospace;white-space:nowrap}
+.level-score.none{color:#475569;border-color:rgba(71,85,105,0.3);background:transparent}
+.cert-cta{background:linear-gradient(135deg,rgba(20,184,166,0.12),rgba(125,211,252,0.05));border:1px solid rgba(20,184,166,0.35);border-radius:14px;padding:28px;text-align:center;margin-top:32px}
+.cert-cta h3{font-family:'Playfair Display',serif;color:#f1f5f9;font-size:1.2rem;margin-bottom:8px}
+.cert-cta p{color:#94a3b8;font-size:.875rem;margin-bottom:18px}
+.cert-btn{display:inline-block;background:#14b8a6;color:#0a0e1a;padding:12px 28px;border-radius:8px;font-weight:700;font-size:.95rem;text-decoration:none;transition:background .2s}
+.cert-btn:hover{background:#0d9488}
+.about-card{background:rgba(15,23,42,0.5);border:1px solid rgba(20,184,166,0.1);border-radius:12px;padding:22px;margin-top:28px}
+.about-card h3{color:#7dd3fc;font-size:.9rem;font-weight:700;margin-bottom:12px}
+.about-card p{color:#94a3b8;font-size:.855rem;line-height:1.65;margin-bottom:10px}
+.about-card p:last-child{margin-bottom:0}
+.contact-tab{position:fixed;bottom:20px;right:20px;background:#14b8a6;color:#0a0e1a;padding:10px 18px;border-radius:24px;font-weight:700;font-size:.82rem;cursor:pointer;box-shadow:0 4px 20px rgba(20,184,166,0.35);z-index:999;transition:transform .2s}
+.contact-tab:hover{transform:scale(1.05)}
+@media(max-width:580px){.level-card{grid-template-columns:auto 1fr}.level-arrow{display:none}.prog-row{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <a href="../../index.html">🏠 Portal Home</a>
+  <span class="sep">›</span>
+  <a href="../index.html">SC/ST Act Hub</a>
+</nav>
+
+<div class="header">
+  <div class="track-pill">Law Student Track</div>
+  <h1>SC/ST (Prevention of Atrocities) Act 1989</h1>
+  <p>A rigorous 3-level legal education module covering the Act's history, definitions, offences, investigation, bail law, landmark judgments, compensation, and PIL strategy.</p>
+  <div class="org-name">Janman People's Foundation C· Jan Nyaya Abhiyan</div>
+</div>
+
+
+<div class="container">
+
+  <div class="progress-card">
+    <h2>Your Progress</h2>
+    <div class="prog-row">
+      <div class="prog-item"><div class="prog-label">Level 1</div><div class="prog-val not-done" id="s1">—</div></div>
+      <div class="prog-item"><div class="prog-label">Level 2</div><div class="prog-val not-done" id="s2">—</div></div>
+      <div class="prog-item"><div class="prog-label">Level 3</div><div class="prog-val not-done" id="s3">—</div></div>
+    </div>
+  </div>
+
+  <div class="levels-grid">
+    <a href="level1.html" class="level-card">
+      <div class="level-num">1</div>
+      <div class="level-info">
+        <h3>History, Definitions, Offences &amp; State Duty</h3>
+        <p>Historical context, constitutional foundations, complete Section 2 definitions, the full Section 3 offence matrix (pre- and post-2015), Section 4 wilful neglect, and landmark cases establishing the Act's scope.</p>
+        <div class="level-tags"><span class="tag">Sec 2 Definitions</span><span class="tag">Sec 3 Offences</span><span class="tag">2015 Amendment</span><span class="tag">15 MCQs</span></div>
+      </div>
+      <span class="level-arrow">›</span>
+    </a>
+
+    <a href="level2.html" class="level-card">
+      <div class="level-num">2</div>
+      <div class="level-info">
+        <h3>Investigation, Special Courts, Bail Law &amp; Victim Rights</h3>
+        <p>Mandatory FIR registration, DSP-rank investigation, Special Court jurisdiction (Sec 14/14A), the Kashinath Mahajan → Section 18A → Prithvi Raj Chauhan arc on anticipatory bail, and Section 15A victim rights.</p>
+        <div class="level-tags"><span class="tag">Sec 18/18A</span><span class="tag">Sec 14A</span><span class="tag">Sec 15A</span><span class="tag">15 MCQ{</span></div>
+      </div>
+      <span class="level-arrow">›</span>
+    </a>
+
+    <a href="level3.html" class="level-card">
+      <div class="level-num">3</div>
+      <div class="level-info">
+        <h3>Landmark Cases, Compensation &amp; PIL Strategy</h3>
+        <p>10+ landmark Supreme Court and High Court cases with ratio decidendi, the full Rules 2016 compensation matrix, appeal rights under Section 21, writ remedies, PIL architecture, and practitioner's day-1 protocol.</p>
+        <div class="level-tags"><span class="tag">Case Law</span><span class="tag">Compensation</span><span class="tag">PIL</span><span class="tag">15 MCQs</span></div>
+      </div>
+      <span class="level-arrow">›</span>
+    </a>
+  </div>
+
+  <div class="cert-cta">
+    <h3>🎓 Completion Certificate</h3>
+    <p>Complete all three levels (score 70%+ in each quiz) to earn your Janman People's Foundation certificate of completion for this training module.</p>
+    <a href="certificate.html" class="cert-btn">View Certificate Page →</a>
+  </div>
+
+  <div class="about-card">
+    <h3>About This Module</h3>
+    <p>This training module was developed by Janman People's Foundation as part of the Jan Nyaya Abhiyan legal fellowship programme. It is designed for law students, legal fellows, and junior advocates engaging with Dalit and Adivasi communities in Biar and across India.</p>
+    <p>The module covers the SC/ST (Prevention of Atrocities) Act 1989 as amended by the 2015 and 2018 Amendment Acts, the SC/ST (Prevention of Atrocities) Rules 2016, and the body of Supreme Court and High Court jurisprudence through 2024.</p>
+    <p>For case assistance, legal research, or training inquiries, contact Janman at <strong>shashwat@janmanindia.org</strong> or WhatsApp the helpline.</p>
+  </div>
+
+</div>
+
+<div class="contact-tab" onclick="window.open('https://wa.me/918340441356')">📞 WhatsApp Legal Help</div>
+
+<script>
+const keys = ['scst_ls_l1','scst_ls_l2','scst_ls_l2'];
+const ids = ['s1','s2','s3'];
+keys.forEach((k,i) => {
+  const val = localStorage.getItem(k);
+  if (val) {
+    const el = document.getElementById(ids[i]);
+    el.textContent = val;
+    el.classList.remove('not-done');
+  }
+});
+</script>
+</body>
+</html>
